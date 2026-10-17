@@ -105,7 +105,7 @@ def load_torchvision_vit(model: ViT, state_dict: dict[str, torch.Tensor]) -> Non
     """raise if a key is left over or a shape differs."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 같은 weight 를 넣은 `patchify` + `nn.Linear` 와 `nn.Conv2d` patch embedding 의 출력 차이가 1e-5 미만이다
 - [ ] 내 ViT-B/16 의 parameter 수가 torchvision 과 같은 86,567,656 개다

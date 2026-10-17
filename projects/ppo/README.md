@@ -145,7 +145,7 @@ def ppo_loss(agent: nn.Module, mb: dict[str, torch.Tensor], cfg: PPOConfig
 def train(cfg: PPOConfig) -> nn.Module: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 500k step 안에 `CartPole-v1` 의 최근 episode 평균 return 이 475 이상에 도달한다
 - [ ] `compute_gae` 에 $\lambda=0$ 을 넣으면 one-step TD error 가, $\lambda=1$ 을 넣으면 Monte Carlo return 에서 value 를 뺀 값이 나온다

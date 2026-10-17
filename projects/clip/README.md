@@ -118,7 +118,7 @@ def zeroshot_weights(model: CLIP, classnames: list[str], templates: list[str]) -
     """(embed_dim, num_classes), one normalized column per class"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 공식 모델(`clip.load("ViT-B/32", device="cpu")`)과 비교해 정규화한 image·text embedding 의 차이가 1e-4 미만이다(float32)
 - [ ] CIFAR-10 test set 10,000장의 zero-shot 정확도가 같은 template·같은 전처리를 쓴 공식 모델과 0.1%p 이내다

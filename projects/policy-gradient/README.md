@@ -127,7 +127,7 @@ def train_actor_critic(env_id: str = "CartPole-v1", episodes: int = 1000, seed: 
                        ) -> tuple[CategoricalPolicy, ValueNet]: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] bandit 검산에서 sample 10만 개로 낸 REINFORCE gradient 와 해석적 gradient 의 cosine similarity 가 0.99 이상이다
 - [ ] REINFORCE 가 `CartPole-v1` 에서 최근 100 episode 평균 return 475 이상에 도달한다(도달하지 못한 seed 가 있으면 그 비율도 적는다)

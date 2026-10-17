@@ -125,7 +125,7 @@ def load_hf_gpt2(model: GPT, name: str = "gpt2") -> None:
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 학습 전 첫 batch 의 loss 가 $\ln 65 \approx 4.17$ 근처다
 - [ ] nanoGPT `shakespeare_char` 와 같은 설정으로 5,000 iter 학습한 val loss 가 1.55 이하다(nanoGPT README 에 적힌 값은 1.4697)

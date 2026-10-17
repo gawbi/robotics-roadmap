@@ -133,7 +133,7 @@ def evaluate_grid(policy_fn, mass_scales: list[float], friction_scales: list[flo
     """returns {'return': ..., 'fall_rate': ...}, each indexed [latency, mass, friction]"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] nominal policy 가 nominal `Ant-v5` 에서 10 episode 모두 넘어지지 않고(terminated 없이) 1000 step 을 채우며 앞으로 나아간다
 - [ ] `set_params(1, 1, 1)`·latency 0·noise 0 으로 둔 wrapper 환경이 같은 seed·같은 action 열에서 원래 `Ant-v5` 와 똑같은

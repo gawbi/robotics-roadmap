@@ -107,7 +107,7 @@ def fit(x: np.ndarray, y: np.ndarray, lr: float = 0.01, steps: int = 5000
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 최적점에서 먼 $(w, b)$ 몇 곳에서 `grad` 와 `numerical_grad` 의 상대 오차가 1e-6 보다 작다
 - [ ] lr 0.01·5,000 step 으로 찾은 $w, b$ 가 `np.linalg.lstsq` 의 해와 1e-3 이내로 같다

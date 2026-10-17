@@ -105,7 +105,7 @@ def render_cameras(renderer: mujoco.Renderer, data: mujoco.MjData,
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `so101.xml` 만 불렀을 때 `nq = nv = nu = 6` 이고, cube 가 든 `scene_box.xml` 은 freejoint 때문에 `nq = 13`, `nv = 12` 다
 - [ ] 같은 gain 에서 `qfrc_bias` 를 더하면 수평 configuration 의 steady-state error 가 PD 만 쓸 때의 1/5 아래로 준다

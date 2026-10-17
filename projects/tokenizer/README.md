@@ -92,7 +92,7 @@ class Tokenizer:
     def decode(self, ids: list[int]) -> str: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 한글·emoji·연속 공백·줄바꿈이 섞인 문자열에서 `decode(encode(s)) == s` 다
 - [ ] GPT-2 정규식을 쓰고 Tiny Shakespeare 앞 90% 로 학습해 뒤 10% 에서 재면 token 하나에 담기는 byte 가 vocab_size 512 에서 약 1.9, 1024 에서 약 2.3 이다(tiktoken `gpt2` 는 약 3.3)

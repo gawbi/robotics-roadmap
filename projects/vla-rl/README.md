@@ -157,7 +157,7 @@ def denoising_log_prob(vla: VLAPolicy, feat: torch.Tensor, path: torch.Tensor,
     """(optional) sum of per-step Gaussian log-densities along a noise-injected denoising path"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `sample_chunk` 에 같은 noise 를 넣으면 같은 action chunk 가 $10^{-5}$ 안에서 나온다(noise policy 가 기대는 성질)
 - [ ] 학습에 쓴 task 의 평균 성공률을 noise policy 가 SFT 기준선보다 10%p 이상 올린다(task 마다 20 episode 이상으로 잰다)

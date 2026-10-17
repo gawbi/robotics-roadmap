@@ -123,7 +123,7 @@ def evaluate(policy: nn.Module, n_episodes: int = 50, seed: int = 0) -> dict[str
     """gym_pusht/PushT-v0 rollouts -> {'success_rate': ..., 'avg_max_coverage': ...}."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `ActionBinner` 로 encode 후 decode 한 action 의 오차가 bin 폭의 절반 이하다 (PushT 범위 [0, 512] 이면 1 px)
 - [ ] 두 모델을 같은 50 episode 초기 상태로 평가했을 때 mini RT-1 의 평균 max coverage 가 regression baseline 보다 높다

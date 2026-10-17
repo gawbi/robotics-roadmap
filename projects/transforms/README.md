@@ -127,7 +127,7 @@ def exp_se3(xi: np.ndarray) -> np.ndarray: ...
 def log_se3(T: np.ndarray) -> np.ndarray: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 무작위 rotation 10,000개에서 `exp_so3(log_so3(R))` 와 `R` 의 원소별 차이가 1e-10 안이다
 - [ ] 내 quaternion 이 `Rotation.as_quat(scalar_first=True)` 와 부호 차이를 빼고 1e-12 안에서 같다

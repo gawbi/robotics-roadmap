@@ -125,7 +125,7 @@ def replay(env: SimSO101, repo_id: str, root: str, episode: int) -> float:
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 저장한 dataset 의 `meta/info.json` 에서 `codebase_version` 이 `v3.0` 이고, `action`·`observation.state` 의 이름과
       shape 가 실물 SO-101 dataset [lerobot/svla_so101_pickplace](https://huggingface.co/datasets/lerobot/svla_so101_pickplace)

@@ -115,7 +115,7 @@ class DiffusionPolicy(nn.Module):
         """returns (B, horizon, action_dim) in env units."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 길이 16 인 sequence 를 U-Net 에 넣으면 같은 shape 이 나오고, `k` 나 `obs_cond` 만 바꿔도 출력이 달라진다
 - [ ] 같은 50 episode 초기 상태에서 내 policy 의 평균 max coverage 가 같은 데이터·step·horizon 으로 학습한 LeRobot diffusion policy 의 80% 이상이다

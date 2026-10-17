@@ -5,12 +5,18 @@ import { Intro } from './components/Intro'
 import { CONFIG } from './config'
 import { computeLayout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
-import { useProgress } from './curriculum/progress'
+import { sanitize, useProgress } from './curriculum/progress'
+import { parseSource, useSharedProgress } from './curriculum/shared'
 
 // the panel pulls in markdown, KaTeX and highlighting; the graph does not need them to show up
 const ProjectPanel = lazy(() => import('./components/ProjectPanel').then((m) => ({ default: m.ProjectPanel })))
 
 const ROUTE = /^#\/p\/([a-z0-9-]+)$/
+
+const params = new URLSearchParams(window.location.search)
+const sharedSource = parseSource(params.get(CONFIG.shared.fromParam))
+const embedded = params.get(CONFIG.shared.embedParam) === '1'
+const NO_PROGRESS = sanitize(null)
 
 function readRoute(): string | null {
   const m = ROUTE.exec(window.location.hash)
@@ -38,11 +44,15 @@ function introSeen(): boolean {
 
 export function App() {
   const layout = useMemo(() => computeLayout(curriculum), [])
-  const progressFile = useProgress()
+  const localProgress = useProgress()
+  const shared = useSharedProgress(sharedSource)
+  const progressFile = shared === null ? localProgress : shared.kind === 'ready' ? shared.data.progress : NO_PROGRESS
+  const records = shared?.kind === 'ready' ? shared.data.records : {}
   const [selectedId, setSelectedId] = useState<string | null>(readRoute)
   const [hoverId, setHoverId] = useState<string | null>(null)
   const [hoverBranch, setHoverBranch] = useState<string | null>(null)
-  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute())
+  const [showIntro, setShowIntro] = useState(() => !sharedSource && !embedded && !introSeen() && !readRoute())
+  const [wheelHint, setWheelHint] = useState(false)
   const controls = useRef<GraphControls>(null)
   const wide = useMediaQuery('(min-width: 960px)')
 
@@ -67,6 +77,13 @@ export function App() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [selectedId, showIntro, close])
+
+  useEffect(() => {
+    if (!wheelHint) return
+    const t = setTimeout(() => setWheelHint(false), CONFIG.shared.wheelHintMs)
+    return () => clearTimeout(t)
+  }, [wheelHint])
+  const showWheelHint = useCallback(() => setWheelHint(true), [])
 
   const closeIntro = useCallback(() => {
     try {
@@ -98,11 +115,25 @@ export function App() {
         hoverId={hoverId}
         hoverBranch={hoverBranch}
         insets={insets}
+        wheelNeedsModifier={embedded}
         onSelect={select}
         onHover={setHoverId}
+        onBlockedWheel={showWheelHint}
       />
 
-      <TopBar curriculum={curriculum} progressFile={progressFile} onHelp={() => setShowIntro(true)} />
+      <TopBar
+        curriculum={curriculum}
+        progressFile={progressFile}
+        shared={sharedSource && shared ? { source: sharedSource, state: shared } : null}
+        embedded={embedded}
+        onHelp={() => setShowIntro(true)}
+      />
+
+      {wheelHint && (
+        <p className="wheel-hint" role="status">
+          Ctrl(⌘) + 스크롤로 확대·축소
+        </p>
+      )}
 
       <div className="sidebar">
         <NextUp curriculum={curriculum} progressFile={progressFile} onSelect={select} onHover={setHoverId} />
@@ -117,6 +148,7 @@ export function App() {
             key={selectedId}
             curriculum={curriculum}
             progressFile={progressFile}
+            shared={sharedSource ? { source: sharedSource, record: records[selectedId] } : null}
             projectId={selectedId}
             onClose={close}
             onSelect={select}

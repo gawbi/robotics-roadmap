@@ -124,7 +124,7 @@ def min_jerk(t: float, q0: float, qf: float, T: float) -> tuple[float, float, fl
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] RK4(dt = 1 ms)로 10초 적분한 energy 의 상대 변화가 1e-8 아래이고, 같은 dt 의 explicit Euler 는 energy 가 계속 늘어난다
 - [ ] RK4 의 10초 뒤 각도가 `solve_ivp(rtol=1e-10, atol=1e-10)` 결과와 1e-6 rad 안에서 같다

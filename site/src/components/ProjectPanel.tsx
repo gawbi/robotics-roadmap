@@ -1,16 +1,19 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
-import { BookOpen, Clock, ExternalLink, FolderGit2, X } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Clock, ExternalLink, FolderGit2, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { loadBody } from '../curriculum/load'
 import { nodeState, progress, statusOf, type ProgressFile } from '../curriculum/progress'
+import { sharedLinks, type ProjectRecord, type SharedSource } from '../curriculum/shared'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
 import { Markdown } from './Markdown'
 
 interface Props {
   curriculum: Curriculum
   progressFile: ProgressFile
+  /** set when the map shows a learner repo's progress.yaml instead of this browser's */
+  shared: { source: SharedSource; record: ProjectRecord | undefined } | null
   projectId: string
   onClose(): void
   onSelect(id: string): void
@@ -55,7 +58,75 @@ function ProjectChip({ c, p, id, onSelect }: { c: Curriculum; p: ProgressFile; i
   )
 }
 
-export function ProjectPanel({ curriculum: c, progressFile, projectId, onClose, onSelect }: Props) {
+function StatusSwitch({ projectId, status }: { projectId: string; status: Status }) {
+  return (
+    <fieldset className="status-switch">
+      <legend className="sr-only">진행 상태</legend>
+      {STATUS_OPTIONS.map((o) => (
+        <label key={o.value} className={status === o.value ? 'is-on' : ''}>
+          <input
+            type="radio"
+            name="status"
+            value={o.value}
+            checked={status === o.value}
+            onChange={() => progress.set(projectId, o.value)}
+          />
+          {o.label}
+        </label>
+      ))}
+    </fieldset>
+  )
+}
+
+function recordText(status: Status, record: ProjectRecord | undefined): string {
+  const evaluated = record?.evaluated
+  if (status === 'done') return evaluated ? `평가 통과 · ${evaluated}` : '완료'
+  if (status === 'in_progress') return evaluated ? `재평가 대기 · 마지막 평가 ${evaluated}` : '진행 중'
+  return '시작 전'
+}
+
+function SharedRecord({
+  source,
+  record,
+  projectId,
+  status,
+}: {
+  source: SharedSource
+  record: ProjectRecord | undefined
+  projectId: string
+  status: Status
+}) {
+  const links = sharedLinks(source)
+  const items: { title: string; url: string }[] = []
+  if (record?.evaluated) items.push({ title: '평가 기록', url: links.evaluation(projectId) })
+  if (record?.commit) items.push({ title: `구현 코드 @${record.commit.slice(0, 7)}`, url: links.folder(projectId, record.commit) })
+  items.push(...(record?.evidence ?? []))
+
+  return (
+    <section className={`record is-${status}`} aria-labelledby="record-title">
+      <h3 id="record-title">
+        <ClipboardCheck size={15} aria-hidden="true" /> 진행 기록
+      </h3>
+      <p className="record-status">
+        <span className="record-dot" aria-hidden="true" />
+        {recordText(status, record)}
+      </p>
+      {items.length > 0 && (
+        <ul>
+          {items.map((item) => (
+            <li key={item.url}>
+              <a href={item.url} target="_blank" rel="noreferrer">
+                {item.title} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+export function ProjectPanel({ curriculum: c, progressFile, shared, projectId, onClose, onSelect }: Props) {
   const project = c.byId.get(projectId)!
   const branch = c.branches.find((b) => b.id === project.branch)!
   const status = statusOf(progressFile, projectId)
@@ -104,23 +175,13 @@ export function ProjectPanel({ curriculum: c, progressFile, projectId, onClose, 
             {formatHours(project.hours)}
           </p>
 
-          <fieldset className="status-switch">
-            <legend className="sr-only">진행 상태</legend>
-            {STATUS_OPTIONS.map((o) => (
-              <label key={o.value} className={status === o.value ? 'is-on' : ''}>
-                <input
-                  type="radio"
-                  name="status"
-                  value={o.value}
-                  checked={status === o.value}
-                  onChange={() => progress.set(projectId, o.value)}
-                />
-                {o.label}
-              </label>
-            ))}
-          </fieldset>
+          {shared ? (
+            <SharedRecord source={shared.source} record={shared.record} projectId={projectId} status={status} />
+          ) : (
+            <StatusSwitch projectId={projectId} status={status} />
+          )}
 
-          {missing.length > 0 && status === 'todo' && (
+          {!shared && missing.length > 0 && status === 'todo' && (
             <p className="soft-note">
               아직 완료하지 않은 선수 과제가 {missing.length}개 있습니다. 바로 시작해도 되고, 막히면 아래 선수 과제를 먼저
               보면 됩니다.

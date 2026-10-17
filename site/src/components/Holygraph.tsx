@@ -30,8 +30,11 @@ interface Props {
   hoverId: string | null
   hoverBranch: string | null
   insets: Insets
+  /** inside an iframe: plain wheel and one-finger drags scroll the host page instead of the graph */
+  wheelNeedsModifier?: boolean
   onSelect(id: string): void
   onHover(id: string | null): void
+  onBlockedWheel?(): void
   ref?: Ref<GraphControls>
 }
 
@@ -69,8 +72,10 @@ export function Holygraph({
   hoverId,
   hoverBranch,
   insets,
+  wheelNeedsModifier = false,
   onSelect,
   onHover,
+  onBlockedWheel,
   ref,
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null)
@@ -137,14 +142,26 @@ export function Holygraph({
         viewportRef.current!.setAttribute('transform', e.transform.toString())
         svgRef.current!.toggleAttribute('data-far', e.transform.k < CONFIG.zoom.labelMinScale)
       })
+    if (wheelNeedsModifier) {
+      z.filter((e: MouseEvent | WheelEvent | TouchEvent) => {
+        if (e.type === 'wheel') return e.ctrlKey || e.metaKey
+        if ('touches' in e) return e.touches.length > 1
+        return !e.ctrlKey && !(e as MouseEvent).button
+      })
+    }
     zoomRef.current = z
     svg.call(z).on('dblclick.zoom', null)
+    if (wheelNeedsModifier) {
+      svg.on('wheel.hint', (e: WheelEvent) => {
+        if (!e.ctrlKey && !e.metaKey) onBlockedWheel?.()
+      })
+    }
     apply(fitTransform(CONFIG.zoom.initialMinScale), false)
     const onResize = () => apply(fitTransform(CONFIG.zoom.initialMinScale), false)
     window.addEventListener('resize', onResize)
     return () => {
       window.removeEventListener('resize', onResize)
-      svg.on('.zoom', null)
+      svg.on('.zoom', null).on('wheel.hint', null)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layout])
@@ -171,6 +188,7 @@ export function Holygraph({
     <svg
       ref={svgRef}
       className="holygraph"
+      data-embed={wheelNeedsModifier || undefined}
       role="group"
       aria-label="과제 선수 관계 그래프"
       onClick={(e) => {

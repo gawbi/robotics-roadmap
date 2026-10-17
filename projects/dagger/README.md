@@ -108,7 +108,7 @@ def expert_only_bc(n_samples: int, seed: int) -> float:
     """train BC on n_samples expert-only samples and return its departure rate."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] iteration 이 늘수록 이탈률이 대체로 줄고, 10 iteration 뒤 이탈률이 iteration 0 (BC) 의 절반 이하다
 - [ ] 같은 샘플 수에서 DAgger policy 의 이탈률이 expert-only BC 보다 낮다

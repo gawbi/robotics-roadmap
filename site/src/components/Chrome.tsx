@@ -1,17 +1,22 @@
-import { Download, HelpCircle, Maximize2, Minus, Plus, RotateCcw, Upload } from 'lucide-react'
+import { Download, ExternalLink, HelpCircle, Maximize2, Minus, Plus, RotateCcw, Upload } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { nodeState, progress, sanitize, statusOf, type ProgressFile } from '../curriculum/progress'
+import { sharedLinks, type SharedSource, type SharedState } from '../curriculum/shared'
 import type { Curriculum } from '../curriculum/types'
 import type { GraphControls } from './Holygraph'
 
 export function TopBar({
   curriculum: c,
   progressFile,
+  shared,
+  embedded,
   onHelp,
 }: {
   curriculum: Curriculum
   progressFile: ProgressFile
+  shared: { source: SharedSource; state: SharedState } | null
+  embedded: boolean
   onHelp(): void
 }) {
   const done = c.projects.filter((p) => statusOf(progressFile, p.id) === 'done')
@@ -47,15 +52,57 @@ export function TopBar({
       </div>
 
       <nav className="topbar-actions" aria-label="도구">
-        <ProgressMenu />
+        {shared ? <SharedChip source={shared.source} state={shared.state} /> : <ProgressMenu />}
         <button type="button" className="icon-button" onClick={onHelp} aria-label="사용 안내">
           <HelpCircle size={20} aria-hidden="true" />
         </button>
-        <a className="icon-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer" aria-label="GitHub 리포">
-          <GithubMark />
-        </a>
+        {embedded ? (
+          <a className="icon-button" href={standaloneUrl()} target="_blank" rel="noreferrer" aria-label="새 탭에서 크게 보기">
+            <ExternalLink size={18} aria-hidden="true" />
+          </a>
+        ) : (
+          <a className="icon-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer" aria-label="GitHub 리포">
+            <GithubMark />
+          </a>
+        )}
       </nav>
+
+      {shared?.state.kind === 'error' && (
+        <div className="shared-alert" role="alert">
+          <span>{shared.state.message}</span>
+          <a href={window.location.pathname}>빈 지도로 보기</a>
+        </div>
+      )}
     </header>
+  )
+}
+
+/** The same view outside the iframe: everything but the embed flag stays. */
+function standaloneUrl(): string {
+  const params = new URLSearchParams(window.location.search)
+  params.delete(CONFIG.shared.embedParam)
+  // keep owner/repo readable instead of owner%2Frepo
+  const query = params.toString().replace(/%2F/gi, '/')
+  return `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`
+}
+
+function SharedChip({ source, state }: { source: SharedSource; state: SharedState }) {
+  return (
+    <a
+      className="text-button shared-chip"
+      href={sharedLinks(source).repo}
+      target="_blank"
+      rel="noreferrer"
+      aria-busy={state.kind === 'loading'}
+      aria-label={`${source.owner}/${source.repo} 의 진행 기록${state.kind === 'loading' ? ', 불러오는 중' : ''}. GitHub 리포 열기`}
+    >
+      <GithubMark />
+      <span className="shared-name">
+        {source.owner}
+        <span className="shared-repo">/{source.repo}</span>
+      </span>
+      {state.kind === 'loading' && <span className="shared-loading" aria-hidden="true" />}
+    </a>
   )
 }
 

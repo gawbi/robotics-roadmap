@@ -119,7 +119,7 @@ class Seq2SeqTransformer(nn.Module):
     def greedy_decode(self, src: Tensor, max_len: int) -> Tensor: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `nn.MultiheadAttention(batch_first=True)` 의 weight 를 옮겨 넣은 내 multi-head attention 이 같은 입력에 1e-5 이내로 같은 출력을 낸다
 - [ ] decoder 입력에서 $t$ 번째보다 뒤에 있는 token 을 바꿔도 $t$ 번째까지의 decoder 출력이 1e-6 이내로 그대로다

@@ -71,7 +71,7 @@ def train(data: list[tuple[list[float], int]], lr: float = 0.1, max_epochs: int 
     """returns (w, b, converged_epoch). converged_epoch is None if it never converged."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] AND·OR 는 수십 epoch 안에 수렴하고 네 점을 모두 맞힌다
 - [ ] XOR 는 `max_epochs` 를 10,000 으로 늘려도 수렴하지 않는다

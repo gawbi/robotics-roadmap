@@ -124,7 +124,7 @@ def marker_pose(corners_px: np.ndarray, side: float, K: np.ndarray) -> Pose:
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] noise 없는 합성 데이터(사진 5장)에서 closed-form $K$ 가 참값과 상대 오차 1e-6 안이다
 - [ ] OpenCV sample 13장에서 refinement 뒤 $f_x, f_y, c_x, c_y$ 가 `cv2.calibrateCamera` 와 1% 안이고, RMS reprojection error 가

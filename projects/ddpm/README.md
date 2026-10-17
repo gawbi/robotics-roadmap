@@ -136,7 +136,7 @@ def mmd_rbf(x: torch.Tensor, y: torch.Tensor, bandwidth: float | None = None) ->
     """bandwidth None -> median heuristic"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 내 linear·cosine schedule 의 `alphas_cumprod` 가 `DDPMScheduler(beta_schedule="linear")`·`DDPMScheduler(beta_schedule="squaredcos_cap_v2")` 와 1e-6 이내로 같다($T$ = 1000, 100 둘 다)
 - [ ] 같은 $x_t$·model 출력·seed 의 `torch.Generator` 를 넣은 내 `p_sample` 이 `DDPMScheduler(clip_sample=False).step(...).prev_sample` 과 1e-5 이내로 같다

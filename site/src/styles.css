@@ -280,6 +280,92 @@ code {
   color: var(--accent);
 }
 
+/* ---------- shared progress (?from=) ---------- */
+
+.shared-chip {
+  gap: 6px;
+  max-width: 280px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.shared-chip svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+}
+
+.shared-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shared-repo {
+  color: var(--text-muted);
+}
+
+.shared-loading {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shared-alert {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  padding: 10px 16px;
+  background: var(--surface-solid);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.shared-alert a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+.wheel-hint {
+  position: absolute;
+  z-index: 30;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 12px 18px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
 /* ---------- sidebar ---------- */
 
 .sidebar {
@@ -313,7 +399,8 @@ code {
 
 .nextup h2,
 .relations h3,
-.papers h3 {
+.papers h3,
+.record h3 {
   margin: 0 6px 8px;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -480,6 +567,11 @@ code {
   cursor: grab;
   touch-action: none;
   user-select: none;
+}
+
+/* inside an iframe one-finger drags scroll the host page; two-finger gestures still reach d3 */
+.holygraph[data-embed] {
+  touch-action: pan-x pan-y;
 }
 
 .holygraph:active {
@@ -783,6 +875,64 @@ code {
   pointer-events: none;
 }
 
+.record {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.record-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.record-dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--branch);
+}
+
+.record.is-done .record-dot {
+  background: var(--branch);
+}
+
+.record.is-in_progress .record-dot {
+  border-style: dashed;
+}
+
+.record.is-todo .record-dot {
+  border-color: var(--border-strong);
+}
+
+.record.is-todo .record-status {
+  color: var(--text-muted);
+}
+
+.record ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 14px;
+}
+
+.record a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+}
+
 .soft-note {
   margin: 0 0 16px;
   padding: 10px 14px;
@@ -799,7 +949,8 @@ code {
 }
 
 .relations h3,
-.papers h3 {
+.papers h3,
+.record h3 {
   margin-left: 0;
   display: flex;
   align-items: center;
@@ -1183,6 +1334,10 @@ code {
 
   .topbar-actions .text-button {
     padding: 0 10px;
+  }
+
+  .shared-repo {
+    display: none;
   }
 
   .sidebar {

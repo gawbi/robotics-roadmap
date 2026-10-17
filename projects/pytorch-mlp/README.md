@@ -113,7 +113,7 @@ class Adam:
     def step(self) -> None: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 내 `cross_entropy` 가 `F.cross_entropy` 와 값·logits gradient 모두 1e-6 이내로 같고, logits 에 1000 을 더해도 `nan` 이 나오지 않는다
 - [ ] 같은 초기값·같은 batch 로 100 step 돌린 뒤 내 SGD(momentum)·Adam 의 parameter 가 `torch.optim` 결과와 float32 에서 1e-6 이내로 같다

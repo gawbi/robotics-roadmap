@@ -110,7 +110,7 @@ class MLP:
     def zero_grad(self) -> None: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] micrograd README 첫머리의 사용 예시 식을 그대로 돌리면 `g.data`·`a.grad`·`b.grad` 가 README 에 적힌 24.7041·138.8338·645.5773 과 같다
 - [ ] 직접 고른 식 3개 이상에서 모든 입력의 gradient 가 `torch.autograd`(float64) 와 1e-6 이내로 같다

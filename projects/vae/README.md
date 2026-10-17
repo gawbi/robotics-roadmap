@@ -111,7 +111,7 @@ def neg_elbo(x: torch.Tensor, recon_logits: torch.Tensor, mu: torch.Tensor, logv
 def interpolate(model: VAE, x_a: torch.Tensor, x_b: torch.Tensor, steps: int = 10) -> torch.Tensor: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `kl_normal` 이 `torch.distributions.kl_divergence(Normal(mu, std), Normal(0, 1)).sum(-1)` 과 1e-5 이내로 같다
 - [ ] `reparameterize` 로 만든 $z$ 로 loss 를 계산하면 encoder parameter 에 gradient 가 생기고, `Normal(mu, std).sample()` 로 바꾸고 reconstruction loss 만 backward 하면 encoder 의 `.grad` 가 `None` 으로 남는다

@@ -130,7 +130,7 @@ def euler_sample(expert: ActionExpert, state: torch.Tensor, prefix: torch.Tensor
     """integrate from tau = 0 (noise) to tau = 1 -> (B, horizon, action_dim)."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] VLM 의 모든 parameter 가 `requires_grad=False` 이고, 학습 전후 VLM weight 의 차이가 정확히 0 이다
 - [ ] 학습 데이터 batch 하나에 overfit 시키면 loss 가 0 근처로 떨어지고, 같은 관측에서 생성한 chunk 가 시연 chunk 와 거의 겹친다

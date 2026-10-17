@@ -104,7 +104,7 @@ def run_trial(seed: int) -> dict:
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] perception 단위 test 에서 `data.body("cube").xpos` 참값 대비 위치 오차의 median 이 5 mm 아래, yaw 오차가 5° 아래다
 - [ ] 무작위 배치 50회 중 80% 이상에서 cube 가 5 cm 넘게 들렸다가 place 목표 2 cm 안에 놓인다

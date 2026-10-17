@@ -120,7 +120,7 @@ class TemporalEnsembler:
         """add the chunk predicted at this step and return the ensembled action to execute now."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 학습 중 L1 과 KL 을 따로 기록하고, $z = 0$ 일 때와 $z \sim \mathcal{N}(0, I)$ 일 때의 chunk 를 같은 그림에 그려 $z$ 가 실제로 무엇을 바꾸는지 확인한다
 - [ ] 같은 50 episode 초기 상태에서 내 ACT 의 성공률이 같은 데이터·step 으로 학습한 LeRobot ACT 의 80% 이상이다 (LeRobot 이 공개한 `lerobot/act_aloha_sim_transfer_cube_human` 은 500 episode 성공률 83.0%)

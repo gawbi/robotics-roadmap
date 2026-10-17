@@ -109,7 +109,7 @@ def load_torchvision_weights(model: ResNet, state_dict: dict[str, torch.Tensor])
     """copy every tensor. raise if a key is left over or a shape differs."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 내 `BatchNorm2d` 가 train mode 에서 출력·`running_mean`·`running_var` 모두 `nn.BatchNorm2d` 와 1e-5 이내로 같다
 - [ ] 내 ResNet-18 의 parameter 수가 torchvision 과 같은 11,689,512 개다

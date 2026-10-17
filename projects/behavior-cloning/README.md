@@ -148,7 +148,7 @@ def rollout(env: LaneEnv, policy: BCPolicy, steps: int) -> dict[str, np.ndarray 
 def departure_rate(policy: BCPolicy, track_seeds: list[int], steps: int, steer_noise: float) -> float: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 조향 noise 를 넣은 상태로도 pure pursuit expert 가 학습에 안 쓴 track 100 개에서 이탈 0 회다
 - [ ] BC policy 의 validation MSE 가 expert 조향 분산의 5% 이하다 ($R^2 \ge 0.95$)

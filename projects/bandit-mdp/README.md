@@ -140,7 +140,7 @@ def q_learning(env: GridEnv, n_states: int, n_actions: int, episodes: int, alpha
     """returns the Q table, shape (n_states, n_actions)"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 문제 2000 개 평균에서 1000 step 째의 평균 reward 와 optimal action 비율 모두 ε=0.1 이 greedy(ε=0) 보다 높고,
   UCB(c=2) 는 초반 몇십 step 이 지나면 ε=0.1 을 앞선다(Sutton & Barto 2.3절·2.7절 그림과 같은 모양)

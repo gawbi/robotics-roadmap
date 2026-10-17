@@ -19,6 +19,8 @@ concurrency:
 
 jobs:
   build:
+    # learner forks keep their implementations under projects/; only the curriculum repo publishes the map
+    if: github.repository == 'woolimi/physical-ai-from-scratch'
     runs-on: ubuntu-latest
     defaults:
       run:

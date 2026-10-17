@@ -127,7 +127,7 @@ def evaluate_suite(policy_fn, suite: str = "libero_object", episodes_per_task: i
     """success rate per task id, using lerobot.envs.factory.make_env."""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `ActionTokenizer` 로 encode 후 decode 한 action 의 오차가 분위수 범위 안에서 차원별 bin 폭의 절반 이하다
 - [ ] 고른 256 개 id 에 special token·added token 이 하나도 없다

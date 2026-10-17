@@ -41,7 +41,7 @@ export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props)
         </li>
         <li>
           <strong>원을 눌러 과제 읽기</strong>
-          <span>배경, 만들 것, 시작 코드 모양, 스스로 확인할 기준이 들어 있습니다.</span>
+          <span>배경, 만들 것, 시작 코드 모양, 평가 기준이 들어 있습니다.</span>
         </li>
         <li>
           <strong>리포를 fork 해서 직접 구현</strong>
@@ -50,13 +50,17 @@ export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props)
           </span>
         </li>
         <li>
-          <strong>끝나면 완료로 표시</strong>
-          <span>이어지는 과제가 밝아집니다. 이미 아는 내용이면 바로 완료로 표시하고 넘어가도 됩니다.</span>
+          <strong>평가 받고 완료</strong>
+          <span>
+            fork 에서 Claude Code 로 <code>/evaluate &lt;과제&gt;</code> 를 실행하면 평가 기준 검사와 구두 질문을 거쳐
+            통과한 과제가 <code>progress.yaml</code> 에 완료로 기록되고, 이어지는 과제가 밝아집니다.
+          </span>
         </li>
       </ol>
       <p className="intro-note">
-        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. 진행 기록은 이 브라우저에만 저장되고, 상단의 “진행 기록” 에서 파일로
-        옮길 수 있습니다.
+        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. fork 의 진행 기록은 주소 뒤에 <code>?from=계정/리포</code> 를 붙여
+        지도로 공유할 수 있습니다. 평가 없이 쓸 때는 과제 창에서 직접 완료로 표시하고, 그 기록은 이 브라우저에만
+        저장됩니다.
       </p>
       <div className="intro-actions">
         <button type="button" className="primary-button" onClick={() => onStart(firstProjectId)}>

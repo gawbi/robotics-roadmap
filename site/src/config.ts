@@ -9,6 +9,17 @@ export const CONFIG = {
     introSeenKey: 'pafs.intro-seen.v1',
   },
 
+  // ?from=<owner>/<repo> shows the progress.yaml committed in that learner repo, read-only
+  shared: {
+    fromParam: 'from',
+    embedParam: 'embed', // ?embed=1 inside an iframe: no intro, wheel zooms only with ctrl/cmd
+    file: 'progress.yaml',
+    rawBase: 'https://raw.githubusercontent.com',
+    webBase: 'https://github.com',
+    ref: 'HEAD',
+    wheelHintMs: 1600,
+  },
+
   layout: {
     hubRadius: 60, // core projects sit on this circle around the starting project
     ringGap: 58, // distance between rank rings

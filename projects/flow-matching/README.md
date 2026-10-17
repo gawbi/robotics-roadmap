@@ -114,7 +114,7 @@ def trajectory(model: nn.Module, x0: torch.Tensor, steps: int) -> torch.Tensor:
     """(steps + 1, N, D), for plotting"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] `interpolate` 가 $t=0$ 에서 $x_0$, $t=1$ 에서 $x_1$ 을 내고, $t$ 에 대한 유한 차분이 target velocity 와 1e-4 이내로 같다
 - [ ] 8 gaussians 에서 FM 이 Euler 20 step 이하로 DDPM 과제의 기준(각 mode 12.5% ± 3%p, 3σ 밖 샘플 5% 미만)을 통과한다

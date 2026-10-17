@@ -139,7 +139,7 @@ def cem_plan(score_fn, act_dim: int, horizon: int = 12, candidates: int = 1000, 
     returns the mean of the final sampling distribution, shape (horizon, act_dim)"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] latent 에서 linear regression probe 로 읽은 $(\cos\theta, \sin\theta, \dot\theta)$ 의 $R^2$ 가 성분마다 0.9 이상이다(true state 는
   이 평가에만 쓴다)

@@ -124,7 +124,7 @@ def run_trial(robot: SO101Follower, policy: MyPolicyAdapter, fps: int, max_steps
 def wilson_interval(successes: int, n: int, z: float = 1.96) -> tuple[float, float]: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] [LeRobot Dataset Visualizer](https://huggingface.co/spaces/lerobot/visualize_dataset) 로 50 episode 를 열어 모든 episode 에서 카메라 영상과 관절 궤적의 시간이 맞는다
 - [ ] 물체를 기록 때와 같은 자리에 두고 `lerobot-replay` 로 episode 를 재생하면 기록 때와 같은 결과가 나온다

@@ -166,7 +166,7 @@ def evaluate(policy_fn, env_id: str, episodes: int = 10, seed: int = 100) -> tup
     """deterministic rollouts; returns (mean return, std)"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] DQN 의 greedy policy 가 500k step 안에 `CartPole-v1` 에서 10 episode 평균 return 475(환경의 `reward_threshold`) 이상을 낸다
 - [ ] ablation 곡선을 원래 DQN 과 겹친 그림에서 seed 간 편차와 학습 후반의 성능 붕괴가 어느 판에서 커지는지 설명할 수 있다

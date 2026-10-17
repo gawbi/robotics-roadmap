@@ -116,7 +116,7 @@ def forward_kinematics(robot: Robot, q: dict[str, float]) -> dict[str, np.ndarra
     ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] 무작위 joint angle 1,000세트에서 모든 link 의 위치가 pinocchio 와 1e-9 m, orientation 이 1e-9 rad 안에서 같다
 - [ ] URDF 의 `<joint>` 원소 순서를 무작위로 섞어 저장한 파일로도 같은 결과가 나온다

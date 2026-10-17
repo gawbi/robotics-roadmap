@@ -106,7 +106,7 @@ class LeNet5(nn.Module):
         """(N, 1, 28, 28) -> logits (N, num_classes)"""
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] kernel 1·3·5, stride 1·2, padding 0·1·2 의 모든 조합에서 내 `conv2d` 와 `F.conv2d` 의 출력 차이가 1e-5 미만이다
 - [ ] float64 작은 입력에서 내 `conv2d` 가 `torch.autograd.gradcheck` 를 통과한다

@@ -109,7 +109,7 @@ def solve_with_restarts(robot: Robot, T_d: np.ndarray, ee_link: str, n_restarts:
                         seed: int = 0, **kw) -> tuple[np.ndarray, bool]: ...
 ```
 
-## 스스로 확인
+## 평가 기준
 
 - [ ] Jacobian 이 central difference($\epsilon = 10^{-6}$)와 1e-6 안, pinocchio `getFrameJacobian(..., pin.LOCAL_WORLD_ALIGNED)`
       와 1e-9 안에서 같다
