@@ -2,6 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } fro
 import { Legend, NextUp, TopBar, ZoomControls } from './components/Chrome'
 import { Holygraph, type GraphControls, type Insets } from './components/Holygraph'
 import { Intro } from './components/Intro'
+import { PanelResizer, usePanelWidth } from './components/PanelResizer'
 import { CONFIG } from './config'
 import { computeLayout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
@@ -55,6 +56,9 @@ export function App() {
   const [wheelHint, setWheelHint] = useState(false)
   const controls = useRef<GraphControls>(null)
   const wide = useMediaQuery('(min-width: 960px)')
+  const sidebarInset = wide ? 280 : 0
+  const panel = usePanelWidth(sidebarInset)
+  const [resizing, setResizing] = useState(false)
 
   useEffect(() => {
     const onHash = () => setSelectedId(readRoute())
@@ -97,15 +101,18 @@ export function App() {
   const panelOpen = selectedId !== null
   const insets: Insets = {
     top: 64,
-    right: panelOpen && wide ? 600 : 0,
+    right: panelOpen && wide ? panel.width : 0,
     bottom: wide ? 0 : panelOpen ? window.innerHeight * 0.55 : 72,
-    left: wide ? 280 : 0,
+    left: sidebarInset,
   }
 
   const root = curriculum.projects.find((p) => p.requires.length === 0 && p.branch === 'core') ?? curriculum.projects[0]
 
   return (
-    <div className={`app ${panelOpen ? 'has-panel' : ''}`}>
+    <div
+      className={`app ${panelOpen ? 'has-panel' : ''} ${resizing ? 'is-resizing' : ''}`}
+      style={{ ['--panel-width' as string]: `${panel.width}px` }}
+    >
       <Holygraph
         ref={controls}
         curriculum={curriculum}
@@ -141,6 +148,8 @@ export function App() {
       </div>
 
       <ZoomControls controls={controls} />
+
+      {selectedId && wide && <PanelResizer panel={panel} onDragging={setResizing} />}
 
       {selectedId && (
         <Suspense fallback={<aside className="panel" aria-busy="true" />}>

@@ -7,6 +7,15 @@ export const CONFIG = {
   storage: {
     progressKey: 'pafs.progress.v1',
     introSeenKey: 'pafs.intro-seen.v1',
+    panelWidthKey: 'pafs.panel-width.v1',
+  },
+
+  // project panel on wide screens; its left edge drags to resize
+  panel: {
+    defaultWidth: 600,
+    minWidth: 380,
+    minGraphWidth: 320, // room the graph keeps between the sidebar and the panel, unless that would push the panel below defaultWidth
+    keyStep: 32, // arrow keys on the resize handle
   },
 
   // ?from=<owner>/<repo> shows the progress.yaml committed in that learner repo, read-only

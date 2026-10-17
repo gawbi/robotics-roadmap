@@ -554,7 +554,17 @@ code {
 }
 
 .app.has-panel .zoom-controls {
-  right: 616px;
+  right: calc(var(--panel-width) + 16px);
+}
+
+.app.is-resizing,
+.app.is-resizing * {
+  cursor: col-resize !important;
+  user-select: none;
+}
+
+.app.is-resizing .zoom-controls {
+  transition: none;
 }
 
 /* ---------- holygraph ---------- */
@@ -760,11 +770,45 @@ code {
   top: 64px;
   right: 0;
   bottom: 0;
-  width: 600px;
+  width: var(--panel-width);
   background: var(--surface-solid);
   border-left: 1px solid var(--border);
   box-shadow: -24px 0 48px rgba(0, 0, 0, 0.35);
   animation: panel-in 260ms var(--ease);
+}
+
+/* sits on the panel's left border; the hit area is wider than the line it draws */
+.panel-resizer {
+  position: absolute;
+  z-index: 31;
+  top: 64px;
+  bottom: 0;
+  right: calc(var(--panel-width) - 5px);
+  width: 10px;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.panel-resizer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 150ms var(--ease);
+}
+
+.panel-resizer:hover::after,
+.panel-resizer:focus-visible::after,
+.app.is-resizing .panel-resizer::after {
+  opacity: 1;
+}
+
+.panel-resizer:focus-visible {
+  outline: none;
 }
 
 @keyframes panel-in {
