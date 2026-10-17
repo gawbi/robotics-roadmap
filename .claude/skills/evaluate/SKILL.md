@@ -23,23 +23,52 @@ argument-hint: <과제 id>
 
 1. 인자로 받은 과제 id 의 `projects/<id>/README.md` 를 읽는다. id 가 없으면 progress.yaml 에서 `in_progress` 인 과제를
    보여 주고 고르게 한다.
-2. 제출물은 `projects/<id>/` 에서 `README.md`·`EVALUATION.md` 를 뺀 파일이다. 학습자가 다른 리포나 경로에 이미 구현해 둔
-   것이 있다고 하면 그 위치를 제출물로 보고, 기록과 progress.yaml 의 `evidence` 에 남긴다.
+2. 제출물은 `projects/<id>/` 에서 `README.md`·`EVALUATION.md`·`tests/` 를 뺀 파일이고, stub 이 주어진 과제는 학습자가
+   채운 stub 파일도 여기에 든다. 학습자가 다른 리포나 경로에 이미 구현해 둔 것이 있다고 하면 그 위치를 제출물로 보고,
+   기록과 progress.yaml 의 `evidence` 에 남긴다.
 3. `git status --porcelain -- projects/<id>` 에 변경이 있으면 커밋부터 요청하고 멈춘다. 평가할 commit 은
    `git rev-parse --short HEAD` 다. 다른 리포가 제출물이면 기록에는 그 리포의 commit 을 적고, progress.yaml 의 `commit` 은
    비워 둔다(지도가 `commit` 으로 이 리포의 `projects/<id>/` 를 링크하기 때문이다).
-4. 제출물이 비어 있으면 평가하지 않고 끝낸다.
+4. 제출물이 비어 있으면 평가하지 않고 끝낸다. 커리큘럼 원본은 아래 `git fetch` 로 늘 받아 둔다(2단계의 test 비교에
+   쓴다). stub 이 주어진 과제에서 제출물이 `projects/<id>/` 이면 아래 diff 로 제출물이 원본 그대로인지 보고, 0 으로
+   끝나면(손대지 않은 stub) 역시 평가하지 않는다. 학습자 리포가 커리큘럼과 history 를 공유하지 않아 `merge-base` 가
+   실패하면 `FETCH_HEAD` 와 바로 비교한다.
+
+   ```bash
+   git fetch --quiet https://github.com/woolimi/physical-ai-from-scratch.git main
+   git diff --quiet "$(git merge-base HEAD FETCH_HEAD || echo FETCH_HEAD)" HEAD -- projects/<id> \
+     ':!projects/<id>/tests' ':!projects/<id>/README.md' ':!projects/<id>/EVALUATION.md'
+   ```
 
 ### 2. 규칙 검사
 
 "목표" 의 **직접 짤 것** 이 library 호출로 대체되지 않았는지 import 와 호출을 훑는다. **가져다 써도 되는 것** 은 검산·비교
 용도로만 쓰였는지 본다. 위반이 있으면 그 부분과 관련된 평가 기준을 미흡으로 판정한다.
 
+채점용 `tests/` 가 있는 과제는 학습자가 test 를 고치지 않았는지 1단계에서 받은 커리큘럼 원본과 비교한다. 아래 출력이
+비어 있어야 하고, 바뀌거나 추가된 파일이 있으면 그 test 가 확인하는 평가 기준을 미흡으로 판정한다. 학습자가 따로 쓴 test 는
+`tests/` 밖에 둔다.
+
+```bash
+git diff --stat "$(git merge-base HEAD FETCH_HEAD || echo FETCH_HEAD)" HEAD -- projects/<id>/tests
+```
+
+다만 `merge-base` 가 실패해 `FETCH_HEAD` 와 바로 비교한 경우의 차이는 학습자가 고친 것인지 커리큘럼이 나중에 test 를
+고친 것인지 가릴 수 없으므로 미흡으로 판정하지 않는다. 학습자에게 아래 명령으로 최신 채점 test 를 받아 커밋하게 하고
+(`--no-overlay` 라서 원본에 없는 파일은 지워진다), 새 commit 으로 1단계부터 다시 시작한다.
+
+```bash
+git checkout --no-overlay FETCH_HEAD -- projects/<id>/tests
+```
+
 ### 3. 평가 기준 검사
 
 "평가 기준" 의 항목을 하나씩 판정한다.
 
 - **실행 확인**: 이 자리에서 돌릴 수 있는 항목은 제출된 test·script 를 실행하고, 명령과 핵심 출력을 근거로 남긴다.
+  채점용 `tests/` 가 있으면 `pytest projects/<id>/tests` 부터 돌려 passed·failed 수를 남긴다. 학습자가 `tests/` 밖에 쓴
+  test 는 따로 돌려 해당 `(선택)` 항목의 근거로만 쓴다. 제출물이 다른 위치에 있어 채점용 test 를 그대로 돌릴 수 없으면
+  test 가 확인하는 내용을 평가용 script 로 확인한다.
   제출물에 없는 확인 코드가 필요하면 평가용 script 를 scratch 위치에 따로 써서 돌리고, 학습자 리포에는 넣지 않는다.
 - **기록 확인**: GPU 학습, 실물 로봇, 수 시간 걸리는 rollout 처럼 이 자리에서 돌릴 수 없는 항목은 제출된 기록물(log,
   결과 표, 그래프, 영상, W&B 링크)로 판정한다. 기록물의 조건(seed, 데이터, step 수)이 기준과 같은지도 확인한다.
@@ -82,8 +111,8 @@ commit 에서 처음부터 다시 하고, 구두 질문은 같은 원리를 다�
 
 | 기준 | 판정 | 근거 |
 | --- | --- | --- |
-| micrograd 예시 값 일치 | 통과 | `uv run python -m autograd.demo` → 24.7041 · 138.8338 · 645.5773 |
-| torch.autograd 와 1e-6 이내 | 통과 | `uv run pytest test_engine.py` 5 passed, 최대 오차 3.6e-15 |
+| `pytest projects/autograd/tests` 전부 통과 | 통과 | 23 passed, `tests/` 는 원본과 같음 |
+| (선택) make_moons decision boundary | 미흡 | 제출물에 없음 |
 
 ### 구두 평가
 

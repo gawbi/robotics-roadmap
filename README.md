@@ -14,6 +14,10 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 4. Claude Code 로 `/evaluate <과제>` 를 실행해 평가를 받는다
 5. 통과하면 `progress.yaml` 에 완료로 기록되고, 밝아진 다음 과제로 넘어간다
 
+채점용 `tests/` 가 있는 과제는 함수 몸통이 비어 있는 stub 파일을 채워 나가며 `pytest projects/<과제>/tests -x` 로 바로 확인할
+수 있다. stub 의 docstring 에는 수식과 변수의 대응, 손으로 따라 할 수 있는 숫자 예시가 있다. test 통과는 평가 기준의
+하나일 뿐이고 완료는 평가로만 기록된다.
+
 선수 관계는 권장 순서이고 잠금이 아니어서, 막히면 선수 과제로 돌아가면 된다. 대부분의 과제는 공식
 구현(torchvision, Hugging Face, LeRobot, CleanRL 등)과 출력을 비교하는 평가 기준을 갖고 있다.
 
@@ -21,7 +25,7 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 
 `.claude/skills/evaluate/` 의 평가 skill 이 Ecole 42 의 defense 처럼 과제 하나를 평가한다.
 
-- **규칙 검사**: 과제의 "직접 짤 것" 을 library 호출로 대신하지 않았는지 본다
+- **규칙 검사**: 과제의 "직접 짤 것" 을 library 호출로 대신하지 않았는지, 채점용 `tests/` 를 고치지 않았는지 본다
 - **평가 기준 검사**: 제출 코드를 실행해 항목을 하나씩 판정한다. GPU 학습이나 실물 로봇처럼 그 자리에서 돌릴 수 없는
   항목은 커밋된 기록물(log, 결과 표, 그래프, 영상)로 판정한다
 - **구두 평가**: "생각해 볼 질문" 과 제출 코드에 관한 질문 2개를 하나씩 묻고, 학습자는 코드를 보지 않고 답한다
@@ -82,7 +86,7 @@ https://woolimi.github.io/physical-ai-from-scratch/?from=<계정>/<리포>&embed
 | 목표 | 만들 것, 직접 짤 부분과 가져다 써도 되는 부분 |
 | 준비물 | 패키지, 데이터·simulator, 필요한 GPU |
 | 진행 순서 | 한 번에 하나씩 끝낼 수 있는 단계 |
-| 시작점 | 파일 구조와 함수 signature |
+| 시작점 | 파일 구조와 함수 signature, 채점용 test 가 있는 과제는 stub 과 실행 명령 |
 | 평가 기준 | 평가에서 하나씩 판정하는 항목 |
 | 생각해 볼 질문 | 구두 평가에서 받는 질문 |
 | 힌트 | 막혔을 때 펼쳐 보는 단서 |
@@ -119,6 +123,10 @@ npm run build   # site/dist
 1. `projects/<id>/README.md` 를 만든다. 폴더 이름이 곧 `id` 다
 2. frontmatter 에 `id`, `title`, `branch`, `requires`, `hours`, `summary`, `papers` 를 채운다
 3. 본문은 위 섹션 순서를 따른다. 다른 과제는 `[제목](../<id>/README.md)` 로 링크한다
-4. `cd site && npm test` 로 선수 관계 순환, 없는 과제 참조, 섹션 누락, 지도 라벨 겹침을 검사한다
+4. 계산 결과가 하나로 정해지는 과제는 함수 몸통을 `raise NotImplementedError` 로 둔 stub 과 채점용 `tests/` 를 함께 둔다.
+   `tests/conftest.py` 는 [perceptron](projects/perceptron/tests/conftest.py) 의 것을 복사하고, test 는 torch·numpy 결과나
+   손으로 계산되는 값과 비교한다. stub 에서는 모든 test 가 실패하고 정답 구현에서는 모두 통과하는지 확인하되, 정답 구현은
+   커밋하지 않는다
+5. `cd site && npm test` 로 선수 관계 순환, 없는 과제 참조, 섹션 누락, 지도 라벨 겹침을 검사한다
 
 branch 의 이름·색·배치는 [`projects/branches.yaml`](projects/branches.yaml) 에서 정한다.

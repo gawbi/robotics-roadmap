@@ -43,7 +43,7 @@ neural network 연구는 한동안 멈췄다. 이번 과제에서는 그 수렴�
 
 ## 준비물
 
-- Python 3.12, matplotlib
+- Python 3.12, pytest, matplotlib
 - GPU 불필요
 
 ## 진행 순서
@@ -59,24 +59,27 @@ neural network 연구는 한동안 멈췄다. 이번 과제에서는 그 수렴�
 
 ```text
 perceptron/
-├── perceptron.py
-└── test_perceptron.py
+├── perceptron.py        # predict, train_epoch, train 의 stub
+├── plot.py              # 직접 만든다. AND·OR·XOR 의 decision boundary 그림
+└── tests/               # 채점용 test. 고치지 않는다
+    ├── conftest.py
+    └── test_perceptron.py
 ```
 
-```python
-def predict(w: list[float], b: float, x: list[float]) -> int: ...
+[perceptron.py](perceptron.py) 의 함수는 몸통이 `raise NotImplementedError` 인 stub 이고, docstring 에 수식과 변수의
+대응, 손으로 따라 할 수 있는 숫자 예시가 있다. 함수 하나를 채울 때마다 test 를 돌리면 `-x` 가 처음 실패한 test 에서
+멈추고 그 test 가 부른 함수를 보여 준다.
 
-def train(data: list[tuple[list[float], int]], lr: float = 0.1, max_epochs: int = 100
-          ) -> tuple[list[float], float, int | None]:
-    """returns (w, b, converged_epoch). converged_epoch is None if it never converged."""
+```bash
+pytest projects/perceptron/tests -x
 ```
 
 ## 평가 기준
 
-- [ ] AND·OR 는 수십 epoch 안에 수렴하고 네 점을 모두 맞힌다
-- [ ] XOR 는 `max_epochs` 를 10,000 으로 늘려도 수렴하지 않는다
+- [ ] `pytest projects/perceptron/tests` 가 모두 통과한다. AND·OR 가 100 epoch 안에 수렴해 네 점을 모두 맞히는 것과 XOR 가
+  `max_epochs` 10,000 에서도 수렴하지 않는 것을 이 test 가 확인한다
 - [ ] 그림에서 AND·OR 의 직선은 두 class 를 가르고, XOR 에는 그런 직선이 없다는 것이 눈으로 보인다
-- [ ] (선택) 학습 순서를 섞어도 AND·OR 가 수렴하는지 확인하는 pytest 를 쓴다
+- [ ] (선택) 학습 순서를 섞어도 AND·OR 가 수렴하는지 확인하는 pytest 를 `tests/` 밖의 test 파일(예: `test_shuffle.py`)에 쓴다
 
 ## 생각해 볼 질문
 

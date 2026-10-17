@@ -60,62 +60,40 @@ XOR 를 푼다.
 2. 각 연산이 결과 `Value` 에 local derivative 를 계산하는 `_backward` 함수를 달게 한다
 3. 출력에서 시작하는 topological sort 를 짜고, 그 역순으로 `_backward` 를 부르는 `backward()` 를 짠다
 4. `**`·`exp`·`tanh`·`relu` 를 추가하고 `-`·`/`·`__radd__` 같은 나머지는 이미 있는 연산의 조합으로 만든다
-5. 같은 식을 `Value` 와 `torch`(float64) 로 계산해 gradient 를 비교하는 test 를 쓴다
+5. `tests/test_2_vs_torch.py` 의 식들이 `torch`(float64) 와 같은 gradient 를 내는지 확인하고, 직접 고른 식으로도 비교해 본다
 6. `Neuron`·`Layer`·`MLP` 와 모든 weight 를 모아 주는 `parameters()` 를 짠다
-7. target 을 -1·+1 로 둔 XOR 네 점에 MSE loss 로 MLP 를 학습시킨다
+7. target 을 -1·+1 로 둔 XOR 네 점에 squared error 로 MLP 를 학습시키는 `train_xor` 를 짠다
 8. 학습된 MLP 의 decision boundary 를 2D 평면에 그린다
 
 ## 시작점
 
 ```text
 autograd/
-├── engine.py        # Value
-├── nn.py            # Neuron, Layer, MLP
-├── train_xor.py
-└── test_engine.py
+├── engine.py        # Value 의 stub
+├── nn.py            # Neuron, Layer, MLP 의 stub
+├── train_xor.py     # train_xor 의 stub. decision boundary 그림은 직접 짠다
+└── tests/           # 채점용 test. 고치지 않는다
+    ├── conftest.py
+    ├── test_1_engine.py     # Value 의 연산과 backward
+    ├── test_2_vs_torch.py   # torch.autograd 와 비교
+    ├── test_3_nn.py         # Neuron, Layer, MLP
+    └── test_4_xor.py        # XOR 네 점
 ```
 
-```python
-from __future__ import annotations
-from typing import Callable
+[engine.py](engine.py)·[nn.py](nn.py)·[train_xor.py](train_xor.py) 의 함수는 몸통이 `raise NotImplementedError` 인
+stub 이고, docstring 에 수식과 변수의 대응, 손으로 따라 할 수 있는 숫자 예시가 있다. test 파일은 진행 순서대로 번호가
+붙어 있어서 `-x` 로 돌리면 지금 채울 함수에서 멈춘다.
 
-class Value:
-    def __init__(self, data: float, _children: tuple[Value, ...] = (), _op: str = ""):
-        self.data = data
-        self.grad = 0.0
-        self._backward: Callable[[], None] = lambda: None
-        self._prev = set(_children)
-        self._op = _op
-
-    def __add__(self, other: Value | float) -> Value: ...
-    def __mul__(self, other: Value | float) -> Value: ...
-    def __pow__(self, k: float) -> Value: ...
-    def exp(self) -> Value: ...
-    def tanh(self) -> Value: ...
-    def relu(self) -> Value: ...
-
-    def backward(self) -> None:
-        """fill .grad of every node reachable from self, in reverse topological order. self.grad starts at 1."""
-        ...
-
-class Neuron:
-    def __init__(self, n_in: int, nonlin: bool = True): ...
-    def __call__(self, x: list[Value]) -> Value: ...
-    def parameters(self) -> list[Value]: ...
-
-class MLP:
-    def __init__(self, n_in: int, n_outs: list[int]): ...
-    def __call__(self, x: list[Value]) -> Value | list[Value]: ...
-    def parameters(self) -> list[Value]: ...
-    def zero_grad(self) -> None: ...
+```bash
+pytest projects/autograd/tests -x
 ```
 
 ## 평가 기준
 
-- [ ] micrograd README 첫머리의 사용 예시 식을 그대로 돌리면 `g.data`·`a.grad`·`b.grad` 가 README 에 적힌 24.7041·138.8338·645.5773 과 같다
-- [ ] 직접 고른 식 3개 이상에서 모든 입력의 gradient 가 `torch.autograd`(float64) 와 1e-6 이내로 같다
-- [ ] `b = a + a` 와 `c = a * a` 에서 `a.grad` 가 각각 2 와 $2a$ 로 나온다
-- [ ] hidden 4–8 개짜리 MLP 가 XOR 네 점을 모두 맞힌다
+- [ ] `pytest projects/autograd/tests` 가 모두 통과한다. micrograd README 첫머리 예시의 값(24.7041·138.8338·645.5773), 세 식에서
+  `torch.autograd`(float64) 와 1e-6 이내로 같은 gradient, `a + a`·`a * a` 의 gradient 2 와 $2a$, hidden 4 개짜리 MLP 의 XOR
+  네 점을 이 test 들이 확인한다
+- [ ] (선택) 직접 고른 식을 `tests/` 밖의 test 파일(예: `test_my_expr.py`)에서 `torch.autograd` 와 비교한다
 - [ ] (선택) sklearn `make_moons` 100 점을 학습시키고 decision boundary 를 그린다
 
 ## 생각해 볼 질문
