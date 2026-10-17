@@ -1,0 +1,25 @@
+# site
+node_modules/
+site/dist/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# training artefacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+wandb/
+outputs/
+runs/
+data/
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
