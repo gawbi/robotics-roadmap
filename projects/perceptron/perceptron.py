@@ -15,7 +15,10 @@ def predict(w: list[float], b: float, x: list[float]) -> int:
         x = [1, 1] → 1 + 1 - 1.5 = 0.5  → 1
         x = [1, 0] → 1 + 0 - 1.5 = -0.5 → 0
     """
-    raise NotImplementedError
+    s = b
+    for w_i, x_i in zip(w, x):
+        s += w_i * x_i
+    return 1 if s > 0 else 0
 
 
 def train_epoch(
@@ -36,7 +39,16 @@ def train_epoch(
         (1,1) 은 ŷ = 0, y = 1 이라 w = [0.1, 0.1], b = 0.1 로 고친다
         → ([0.1, 0.1], 0.1, 1)
     """
-    raise NotImplementedError
+    w = list(w)
+    errors = 0
+    for x, y in data:
+        delta = y - predict(w, b, x)
+        if delta != 0:
+            errors += 1
+            for i in range(len(w)):
+                w[i] += lr * delta * x[i]
+            b += lr * delta
+    return w, b, errors
 
 
 def train(
@@ -49,4 +61,10 @@ def train(
 
     returns (w, b, converged_epoch)
     """
-    raise NotImplementedError
+    w = [0.0] * len(data[0][0])
+    b = 0.0
+    for epoch in range(1, max_epochs + 1):
+        w, b, errors = train_epoch(w, b, data, lr)
+        if errors == 0:
+            return w, b, epoch
+    return w, b, None
