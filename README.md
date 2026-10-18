@@ -54,18 +54,30 @@ uv run pytest tests -x
 Claude Code 를 설치하고 로그인한 뒤 **fork 루트에서** `claude` 를 실행한다. 평가 skill 이 리포 안의
 `.claude/skills/evaluate/` 에 있어서, 다른 폴더에서 열면 `/evaluate` 가 보이지 않는다.
 
+### 로컬 지도
+
+구두 평가의 객관식 문항은 fork 에서 직접 띄운 지도에서 응시한다. 답안을 fork 의 `projects/<과제>/quiz-result.json` 에
+저장하는 일을 dev server 가 맡아서, 배포된 지도에서는 응시할 수 없다. Node.js 가 필요하다.
+
+```bash
+cd site
+npm install
+npm run dev     # http://localhost:5173
+```
+
 ## 과제 하나의 진행
 
 과제 id 는 `projects/` 아래 폴더 이름(`warmup`, `perceptron` 등)이다. 지도 가운데의
 [NumPy Warm-up](projects/warmup/README.md) 부터 시작해 바깥쪽으로 넓혀 간다.
 
-1. 지도에서 과제를 열어 "평가 기준" 까지 읽는다. "생각해 볼 질문" 은 구두 평가에서 그대로 묻는 질문이니 미리 읽어 둔다
+1. 지도에서 과제를 열어 "평가 기준" 까지 읽는다. "생각해 볼 질문" 은 구두 평가에서 묻는 원리이니 미리 읽어 둔다
 2. "준비물" 중 데이터·장비처럼 패키지가 아닌 것을 준비한다. 패키지는 `uv run` 이 설치한다
 3. `cd projects/<과제>` 로 과제 폴더에 들어가 "시작점" 의 stub 을 채운다. 명령은 모두 과제 폴더에서 `uv run` 으로 실행한다
 4. 막히면 "힌트" 를 펼치고, 그래도 막히면 선수 과제로 돌아간다. "참고 자료" 의 공식 구현은 마지막에 연다
 5. "평가 기준" 을 스스로 확인한 뒤 커밋한다. 평가는 커밋된 상태만 본다
-6. fork 루트에서 연 Claude Code 에 `/evaluate <과제>` 를 입력해 평가를 받는다
-7. 평가가 남긴 결과 커밋을 `git push` 한다. 재평가가 나오면 "고칠 것" 을 반영해 커밋하고 6번부터 다시 한다
+6. 로컬 지도에서 과제를 열고 "객관식 평가" 로 응시한다. 객관식 문항이 없는 과제는 이 단계를 건너뛴다
+7. fork 루트에서 연 Claude Code 에 `/evaluate <과제>` 를 입력해 평가를 받는다
+8. 평가가 남긴 결과 커밋을 `git push` 한다. 재평가가 나오면 "고칠 것" 을 반영해 커밋하고 6번부터 다시 한다
 
 선수 관계는 권장 순서이고 잠금이 아니다. 대부분의 과제는 공식 구현(torchvision, Hugging Face, LeRobot, CleanRL 등)과
 출력을 비교하는 평가 기준을 갖고 있다.
@@ -109,10 +121,11 @@ from urdf import Robot  # forward-kinematics 과제의 코드
 - **규칙 검사**: 과제의 "직접 짤 것" 을 library 호출로 대신하지 않았는지, 채점용 `tests/` 를 고치지 않았는지 본다
 - **평가 기준 검사**: 제출 코드를 실행해 항목을 하나씩 판정한다. GPU 학습이나 실물 로봇처럼 그 자리에서 돌릴 수 없는
   항목은 커밋된 기록물(log, 결과 표, 그래프, 영상)로 판정한다
-- **구두 평가**: "생각해 볼 질문" 과 제출 코드에 관한 질문 2개를 하나씩 묻고, 학습자는 코드를 보지 않고 답한다.
-  판정과 해설은 질문을 모두 마친 뒤에 한꺼번에 나온다
+- **구두 평가**: "생각해 볼 질문" 과 과제 코드의 원리를 묻는다. `quiz.yaml` 이 있는 과제는 로컬 지도에서 원리마다 한
+  문항씩 객관식으로 풀고, 제출하면 정답과 해설이 나온다. 재평가 때는 같은 원리를 다른 문항으로 묻는다. `quiz.yaml` 이
+  없는 과제는 Claude Code 가 질문을 하나씩 묻고, 학습자는 코드를 보지 않고 답한다
 
-필수 평가 기준을 모두 통과하고 구두 평가에서 틀리거나 설명하지 못한 답이 없으면 통과다. 결과는 `projects/<과제>/EVALUATION.md` 에
+필수 평가 기준을 모두 통과하고 구두 평가에서 틀리거나 설명하지 못한 답이 없으면 통과다. 객관식은 모든 문항을 맞혀야 한다. 결과는 `projects/<과제>/EVALUATION.md` 에
 회차별로 쌓이고 `progress.yaml` 이 갱신된다. 학습 결과 기록물은 `projects/<과제>/results/` 처럼 과제 폴더 안에
 커밋한다. `data/`·`outputs/`·`runs/`·`wandb/` 는 `.gitignore` 에 걸려 있어서 평가에 쓸 수 없다.
 
@@ -203,13 +216,14 @@ https://woolimi.github.io/physical-ai-from-scratch/?from=<계정>/<리포>&embed
 
 `site/` 는 `projects/` 의 frontmatter 를 읽어 holygraph 를 그리는 Vite + React 앱이다. `?from=` 이 있으면 그 리포의
 `progress.yaml` 을 GitHub 에서 읽고, 없으면 브라우저 localStorage 의 진행 상태를 쓴다. localStorage 기록은 상단의
-"진행 기록" 메뉴에서 JSON 파일로 옮길 수 있다.
+"진행 기록" 메뉴에서 JSON 파일로 옮길 수 있다. `npm run dev` 로 띄우면 `site/quiz-server.ts` 가 객관식 평가의 답안을
+받아 `projects/<과제>/quiz-result.json` 에 쓰고, 배포본에는 이 기능이 없다.
 
 ```bash
 cd site
 npm install
 npm run dev     # http://localhost:5173
-npm test        # frontmatter·선수 관계·섹션 순서·시작점 파일·과제 환경·과제 사이 import·레이아웃 검사
+npm test        # frontmatter·선수 관계·섹션 순서·시작점 파일·과제 환경·과제 사이 import·레이아웃·객관식 문항 검사
 npm run build   # site/dist
 ```
 
@@ -233,6 +247,9 @@ npm run build   # site/dist
 7. 설명을 돕는 그림은 `figures/` 에 SVG 로 두고 README 에서 `![설명](figures/<이름>.svg)` 로 넣는다. 지도의 과제 창이 어두운
    배경이라 [perceptron 의 그림](projects/perceptron/figures/perceptron.svg) 과 같은 어두운 카드와 색을 쓴다
 8. `cd site && npm test` 로 선수 관계 순환, 없는 과제 참조, 섹션 누락, 시작점 tree 의 파일과 실제 파일의 불일치,
-   `pyproject.toml`·`uv.lock` 누락, 과제 사이 import 의 이름 충돌과 `requires` 누락, 지도 라벨 겹침을 검사한다
+   `pyproject.toml`·`uv.lock` 누락, 과제 사이 import 의 이름 충돌과 `requires` 누락, 지도 라벨 겹침, `quiz.yaml` 형식을 검사한다
+9. 구두 평가의 객관식 문항은 [warmup](projects/warmup/quiz.yaml) 과 같은 모양의 `quiz.yaml` 에 둔다. "생각해 볼 질문"
+   하나와 과제 코드의 원리 하나가 각각 topic 이 되고, topic 마다 같은 원리를 다른 각도에서 묻는 variant 를 2개 이상 둔다.
+   보기는 4개이고 `answer` 는 0부터 센 정답 번호다. 해설의 수치는 정답 구현으로 돌려 확인한다
 
 branch 의 이름·색·배치는 [`projects/branches.yaml`](projects/branches.yaml) 에서 정한다.
