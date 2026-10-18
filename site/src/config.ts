@@ -29,6 +29,15 @@ export const CONFIG = {
     wheelHintMs: 1600,
   },
 
+  // multiple-choice part of /evaluate. Answers are submitted to the local dev server, which writes them into the
+  // learner repo; the deployed map only shows that the quiz needs the local map.
+  quiz: {
+    bankFile: 'quiz.yaml', // projects/<id>/quiz.yaml; the glob in curriculum/load.ts must use the same name (globs take literals only)
+    resultFile: 'quiz-result.json', // projects/<id>/quiz-result.json, read by /evaluate
+    endpoint: '/__quiz', // GET|POST /__quiz/<id>, served by the dev server only
+    choiceCount: 4,
+  },
+
   layout: {
     hubRadius: 60, // core projects sit on this circle around the starting project
     ringGap: 58, // distance between rank rings

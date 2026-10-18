@@ -17,10 +17,12 @@ const PROJECT_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
 interface Props {
   projectId: string
   source: string
+  /** render inside phrasing content (a quiz choice label): paragraphs become spans */
+  inline?: boolean
 }
 
 /** Render a subject body. The leading `# Title` is dropped because the panel header shows it. */
-export function Markdown({ projectId, source }: Props) {
+export function Markdown({ projectId, source, inline = false }: Props) {
   const body = source.replace(/^\s*# .*\n/, '')
   const blob = `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/projects/${projectId}/`
 
@@ -45,6 +47,7 @@ export function Markdown({ projectId, source }: Props) {
       const resolved = typeof src === 'string' && !/^[a-z]+:/i.test(src) ? assetUrl(projectId, src) : src
       return <img src={resolved as string} alt={alt} loading="lazy" />
     },
+    ...(inline && { p: ({ children }) => <span>{children}</span> }),
     table({ children }) {
       return (
         <div className="md-table">
@@ -54,8 +57,9 @@ export function Markdown({ projectId, source }: Props) {
     },
   }
 
+  const Wrapper = inline ? 'span' : 'div'
   return (
-    <div className="markdown">
+    <Wrapper className={inline ? 'markdown-inline' : 'markdown'}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
@@ -63,6 +67,6 @@ export function Markdown({ projectId, source }: Props) {
       >
         {body}
       </ReactMarkdown>
-    </div>
+    </Wrapper>
   )
 }

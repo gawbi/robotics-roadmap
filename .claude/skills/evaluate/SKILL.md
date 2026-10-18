@@ -24,9 +24,10 @@ argument-hint: <과제 id>
 1. 인자로 받은 과제 id 의 `projects/<id>/README.md` 를 읽는다. id 가 없으면 progress.yaml 에서 `in_progress` 인 과제를
    보여 주고 고르게 한다.
 2. 제출물은 `projects/<id>/` 에서 `README.md`·`EVALUATION.md`·`tests/`·`figures/` 를 뺀 파일이고, 학습자가 채운 stub
-   파일도 여기에 든다. `pyproject.toml`·`uv.lock` 은 과제 환경이라 제출물 판정에서 뺀다. 학습자가 다른 리포나 경로에 이미 구현해 둔 것이 있다고 하면 그 위치를 제출물로 보고,
+   파일도 여기에 든다. `pyproject.toml`·`uv.lock` 은 과제 환경이고 `quiz.yaml`·`quiz-result.json` 은 객관식 문항과 응시
+   기록이라 제출물 판정에서 뺀다. 학습자가 다른 리포나 경로에 이미 구현해 둔 것이 있다고 하면 그 위치를 제출물로 보고,
    기록과 progress.yaml 의 `evidence` 에 남긴다.
-3. `git status --porcelain -- projects/<id>` 에 변경이 있으면 커밋부터 요청하고 멈춘다. 평가할 commit 은
+3. `git status --porcelain -- projects/<id> ':!projects/<id>/quiz-result.json'` 에 변경이 있으면 커밋부터 요청하고 멈춘다. 평가할 commit 은
    `git rev-parse --short HEAD` 다. 다른 리포가 제출물이면 기록에는 그 리포의 commit 을 적고, progress.yaml 의 `commit` 은
    비워 둔다(지도가 `commit` 으로 이 리포의 `projects/<id>/` 를 링크하기 때문이다).
 4. 제출물이 비어 있으면 평가하지 않고 끝낸다. 커리큘럼 원본은 아래 `git fetch` 로 늘 받아 둔다(2단계의 test 비교에
@@ -38,8 +39,12 @@ argument-hint: <과제 id>
    git fetch --quiet https://github.com/woolimi/physical-ai-from-scratch.git main
    git diff --quiet "$(git merge-base HEAD FETCH_HEAD || echo FETCH_HEAD)" HEAD -- projects/<id> \
      ':!projects/<id>/tests' ':!projects/<id>/README.md' ':!projects/<id>/EVALUATION.md' ':!projects/<id>/figures' \
-     ':!projects/<id>/pyproject.toml' ':!projects/<id>/uv.lock'
+     ':!projects/<id>/pyproject.toml' ':!projects/<id>/uv.lock' \
+     ':!projects/<id>/quiz.yaml' ':!projects/<id>/quiz-result.json'
    ```
+5. `projects/<id>/quiz.yaml` 이 있으면 구두 평가는 객관식이다. `projects/<id>/quiz-result.json` 의 마지막 `attempts` 항목이
+   없거나 그 `commit` 이 3번의 commit 과 다르면, 학습자에게 로컬 지도(`site/` 에서 `npm run dev`)의 과제 창에서 "객관식
+   평가" 로 응시하게 하고 멈춘다. 응시 기록은 commit 하지 않아도 된다(7단계에서 평가 기록과 함께 커밋한다).
 
 ### 2. 규칙 검사
 
@@ -83,6 +88,15 @@ git checkout --no-overlay FETCH_HEAD -- projects/<id>/tests
 
 ### 4. 구두 평가
 
+#### 객관식 (`quiz.yaml` 이 있는 과제)
+
+1단계 5번에서 확인한 마지막 응시 회차로 판정하고, 학습자에게 질문하지 않는다. `answers` 의 항목마다 `quiz.yaml` 에서 같은
+`topic` 의 `variants[variant]` 를 찾아, 맞힌 문항은 **충분**, 틀린 문항은 **부족** 이다. 기록의 질문 칸에는 topic 의
+`title` 을, 요약 칸에는 맞혔으면 정답 보기를, 틀렸으면 "고른 답 → 정답" 을 짧게 적는다. 해설은 지도에서 제출할 때 이미
+보였으므로 틀린 문항의 원리만 "고칠 것" 에 남긴다.
+
+#### 터미널 (`quiz.yaml` 이 없는 과제)
+
 질문은 "생각해 볼 질문" 전부와, 제출 코드에서 고른 질문 2개다. 코드 질문은 특정 줄을 가리켜 그 줄이 하는 일, 그 줄을
 지우거나 바꾸면 생기는 일을 묻는다.
 
@@ -96,7 +110,8 @@ git checkout --no-overlay FETCH_HEAD -- projects/<id>/tests
 ### 5. 판정
 
 필수 평가 기준을 모두 통과하고 구두 평가에 **부족** 이 없으면 **통과**, 그 밖은 **재평가** 다. 재평가는 고칠 것을 반영한 새
-commit 에서 처음부터 다시 하고, 구두 질문은 같은 원리를 다른 각도에서 묻는다.
+commit 에서 처음부터 다시 하고, 구두 질문은 같은 원리를 다른 각도에서 묻는다. 객관식은 지도가 지난 회차의 다음 variant 를
+내므로 학습자가 다시 응시하면 된다.
 
 ### 6. 기록
 
@@ -147,6 +162,7 @@ projects:
 
 ```bash
 git add projects/<id>/EVALUATION.md progress.yaml
+git add projects/<id>/quiz-result.json   # 객관식 과제만
 git commit -m "Evaluate <id>: pass"   # 재평가면 "Evaluate <id>: retry"
 ```
 

@@ -8,6 +8,7 @@ import { nodeState, progress, statusOf, type ProgressFile } from '../curriculum/
 import { sharedLinks, type ProjectRecord, type SharedSource } from '../curriculum/shared'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
 import { Markdown } from './Markdown'
+import { QuizSection } from './Quiz'
 
 interface Props {
   curriculum: Curriculum
@@ -178,7 +179,10 @@ export function ProjectPanel({ curriculum: c, progressFile, shared, projectId, o
           {shared ? (
             <SharedRecord source={shared.source} record={shared.record} projectId={projectId} status={status} />
           ) : (
-            <StatusSwitch projectId={projectId} status={status} />
+            <>
+              <StatusSwitch projectId={projectId} status={status} />
+              <QuizSection projectId={projectId} title={project.title} />
+            </>
           )}
 
           {!shared && missing.length > 0 && status === 'todo' && (

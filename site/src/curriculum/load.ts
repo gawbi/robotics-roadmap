@@ -36,3 +36,16 @@ export function assetUrl(projectId: string, relative: string): string | undefine
   const clean = relative.replace(/^\.\//, '')
   return assets[`../../../projects/${projectId}/${clean}`]
 }
+
+const banks = import.meta.glob('../../../projects/*/quiz.yaml', {
+  query: '?raw',
+  import: 'default',
+}) as Record<string, () => Promise<string>>
+
+/** Whether a project has a multiple-choice bank for /evaluate. */
+export const hasQuiz = (id: string) => `../../../projects/${id}/quiz.yaml` in banks
+
+/** Raw projects/<id>/quiz.yaml, fetched when the quiz opens. */
+export async function loadBank(id: string): Promise<string> {
+  return banks[`../../../projects/${id}/quiz.yaml`]()
+}

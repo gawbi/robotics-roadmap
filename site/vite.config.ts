@@ -1,6 +1,8 @@
 import { readFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import { quizServer } from './quiz-server'
 
 const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---\r?\n?/
 
@@ -22,7 +24,7 @@ function frontmatterOnly(): Plugin {
 // projects/ lives one level above the site root.
 export default defineConfig({
   base: './',
-  plugins: [frontmatterOnly(), react()],
+  plugins: [frontmatterOnly(), react(), quizServer(fileURLToPath(new URL('..', import.meta.url)))],
   server: { fs: { allow: ['..'] } },
   // the lazily loaded panel chunk carries markdown + KaTeX (~240 kB gzip)
   build: { chunkSizeWarningLimit: 900 },
