@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>value iteration 의 한 칸 계산: 행동마다 다음 state 의 r + γV(s′) 를 확률로 평균하고, 그 가운데 가장 큰 값을 새 V(s) 로 둔다</title>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- edges -->
+  <line x1="230" y1="74" x2="140" y2="122" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="230" y1="74" x2="320" y2="122" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="140" y1="138" x2="90" y2="202" stroke="#475569" stroke-width="2"/>
+  <line x1="140" y1="138" x2="190" y2="202" stroke="#475569" stroke-width="2"/>
+  <line x1="320" y1="138" x2="270" y2="202" stroke="#475569" stroke-width="2"/>
+  <line x1="320" y1="138" x2="370" y2="202" stroke="#475569" stroke-width="2"/>
+  <path d="M191 92 Q230 108 269 92" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="230" y="124" fill="#f59e0b" font-size="14" text-anchor="middle">max</text>
+
+  <!-- root -->
+  <circle cx="230" cy="50" r="24" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="230" y="56" fill="#e2e8f0" font-size="17" text-anchor="middle">s</text>
+  <text x="264" y="40" fill="#e2e8f0" font-size="14">새 V(s)</text>
+
+  <!-- actions -->
+  <circle cx="140" cy="130" r="9" fill="#38bdf8"/>
+  <text x="122" y="122" fill="#38bdf8" font-size="14" text-anchor="end">a₁</text>
+  <circle cx="320" cy="130" r="9" fill="#38bdf8"/>
+  <text x="338" y="122" fill="#38bdf8" font-size="14">a₂</text>
+
+  <!-- probabilities -->
+  <text x="104" y="172" fill="#94a3b8" font-size="13" text-anchor="end">0.8</text>
+  <text x="176" y="172" fill="#94a3b8" font-size="13">0.2</text>
+  <text x="284" y="172" fill="#94a3b8" font-size="13" text-anchor="end">0.9</text>
+  <text x="356" y="172" fill="#94a3b8" font-size="13">0.1</text>
+
+  <!-- next states -->
+  <circle cx="90" cy="216" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="190" cy="216" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="270" cy="216" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="370" cy="216" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="90" y="221" fill="#e2e8f0" font-size="13" text-anchor="middle">s′</text>
+  <text x="190" y="221" fill="#e2e8f0" font-size="13" text-anchor="middle">s′</text>
+  <text x="270" y="221" fill="#e2e8f0" font-size="13" text-anchor="middle">s′</text>
+  <text x="370" y="221" fill="#e2e8f0" font-size="13" text-anchor="middle">s′</text>
+  <text x="140" y="262" fill="#34d399" font-size="13" text-anchor="middle">r + γV(s′)</text>
+  <text x="320" y="262" fill="#34d399" font-size="13" text-anchor="middle">r + γV(s′)</text>
+
+  <!-- explanation -->
+  <text x="420" y="70" fill="#e2e8f0" font-size="14">새 V(s) 의 계산</text>
+  <text x="420" y="104" fill="#e2e8f0" font-size="13">① 행동마다 가지 끝의</text>
+  <text x="438" y="124" fill="#e2e8f0" font-size="13">r + γV(s′) 를 확률로 평균</text>
+  <text x="420" y="158" fill="#e2e8f0" font-size="13">② 행동별 평균 가운데</text>
+  <text x="438" y="178" fill="#e2e8f0" font-size="13">가장 큰 값을 고른다</text>
+  <text x="420" y="222" fill="#94a3b8" font-size="13">가지 위 숫자는 P(s′ | s, a)</text>
+</svg>

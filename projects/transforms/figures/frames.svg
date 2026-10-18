@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>world·base·camera 세 frame 을 위에서 내려다본 그림. T_wc 는 T_wb 와 T_bc 를 곱한 것이다</title>
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="ay" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+    <marker id="aw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- world frame w at (80, 290) -->
+  <line x1="80" y1="290" x2="140" y2="290" stroke="#f87171" stroke-width="2.5" marker-end="url(#ax)"/>
+  <line x1="80" y1="290" x2="80" y2="230" stroke="#34d399" stroke-width="2.5" marker-end="url(#ay)"/>
+  <circle cx="80" cy="290" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="62" y="312" fill="#e2e8f0" font-size="17">w</text>
+
+  <!-- base frame b at (300, 200), rotated 90 deg about z: x up, y left -->
+  <line x1="300" y1="200" x2="300" y2="146" stroke="#f87171" stroke-width="2.5" marker-end="url(#ax)"/>
+  <line x1="300" y1="200" x2="246" y2="200" stroke="#34d399" stroke-width="2.5" marker-end="url(#ay)"/>
+  <circle cx="300" cy="200" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="266" y="184" fill="#e2e8f0" font-size="17">b</text>
+
+  <!-- camera frame c at (300, 80), same orientation as b -->
+  <line x1="300" y1="80" x2="300" y2="30" stroke="#f87171" stroke-width="2.5" marker-end="url(#ax)"/>
+  <line x1="300" y1="80" x2="250" y2="80" stroke="#34d399" stroke-width="2.5" marker-end="url(#ay)"/>
+  <circle cx="300" cy="80" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="266" y="64" fill="#e2e8f0" font-size="17">c</text>
+
+  <!-- transforms -->
+  <path d="M96,280 Q200,272 288,212" fill="none" stroke="#e2e8f0" stroke-width="1.8" marker-end="url(#at)"/>
+  <text x="196" y="292" fill="#e2e8f0" font-size="15">T_wb</text>
+  <path d="M314,190 Q352,140 314,92" fill="none" stroke="#e2e8f0" stroke-width="1.8" marker-end="url(#at)"/>
+  <text x="344" y="146" fill="#e2e8f0" font-size="15">T_bc</text>
+  <path d="M84,274 Q120,140 292,94" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#aw)"/>
+  <text x="36" y="118" fill="#f59e0b" font-size="15">T_wc = T_wb T_bc</text>
+
+  <!-- numbers -->
+  <text x="400" y="56" fill="#e2e8f0" font-size="14">T_wb</text>
+  <text x="400" y="78" fill="#94a3b8" font-size="13">R_z(90°), p = (1, 2, 0)</text>
+  <text x="400" y="112" fill="#e2e8f0" font-size="14">T_bc</text>
+  <text x="400" y="134" fill="#94a3b8" font-size="13">R = I, p = (0.5, 0, 0.4)</text>
+  <text x="400" y="168" fill="#f59e0b" font-size="14">T_wc</text>
+  <text x="400" y="190" fill="#94a3b8" font-size="13">R_z(90°), p = (1, 2.5, 0.4)</text>
+
+  <!-- legend -->
+  <line x1="400" y1="236" x2="428" y2="236" stroke="#f87171" stroke-width="2.5"/>
+  <text x="438" y="241" fill="#94a3b8" font-size="13">x 축</text>
+  <line x1="400" y1="260" x2="428" y2="260" stroke="#34d399" stroke-width="2.5"/>
+  <text x="438" y="265" fill="#94a3b8" font-size="13">y 축</text>
+  <circle cx="414" cy="284" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="438" y="289" fill="#94a3b8" font-size="13">z 축 (화면 밖)</text>
+  <text x="400" y="318" fill="#64748b" font-size="13">위에서 본 그림, 거리 비율은 무시</text>
+</svg>

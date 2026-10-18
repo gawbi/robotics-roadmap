@@ -1,0 +1,11 @@
+[project]
+name = "physical-ai-transforms"
+version = "0.1.0"
+description = "Physical AI from Scratch — Rigid Transforms"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pytest",
+    "scipy>=1.16",
+]

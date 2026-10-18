@@ -1,0 +1,10 @@
+<!-- SO-101 + 작업대 + cube + 고정 카메라. mujoco-sim 과제의 SO-101 scene 을 include 하고 아래 주석 자리를 채운다 -->
+<mujoco model="pick_scene">
+  <!-- <include file="..."/>  mujoco-sim 과제에서 쓴 robotstudio_so101 의 scene -->
+
+  <worldbody>
+    <!-- 작업대: box geom -->
+    <!-- cube: 한 변 3 cm, <freejoint/> 를 가진 body. 이름은 "cube" -->
+    <!-- 고정 카메라: 작업 공간을 위에서 내려다보는 <camera>. fovy 를 정해 둔다 -->
+  </worldbody>
+</mujoco>

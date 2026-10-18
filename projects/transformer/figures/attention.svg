@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>scaled dot-product attention 의 계산 순서와 shape. 오른쪽은 decoder 가 뒤쪽 token 을 보지 못하게 하는 causal mask</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="24" width="90" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="65.0" y="43.0" fill="#38bdf8" font-size="14" text-anchor="middle">Q</text>
+  <text x="65.0" y="60.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_q, d_k)</text>
+  <rect x="124" y="24" width="90" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="169.0" y="43.0" fill="#38bdf8" font-size="14" text-anchor="middle">K</text>
+  <text x="169.0" y="60.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_k, d_k)</text>
+  <rect x="240" y="24" width="90" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="285.0" y="43.0" fill="#34d399" font-size="14" text-anchor="middle">V</text>
+  <text x="285.0" y="60.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_k, d_v)</text>
+  <line x1="65" y1="68" x2="95" y2="96" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="169" y1="68" x2="140" y2="96" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="20" y="100" width="220" height="44" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="130.0" y="119.0" fill="#e2e8f0" font-size="14" text-anchor="middle">score = QKᵀ / √d_k</text>
+  <text x="130.0" y="136.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_q, T_k)</text>
+  <line x1="130" y1="144" x2="130" y2="168" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="20" y="172" width="220" height="44" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="130.0" y="191.0" fill="#e2e8f0" font-size="14" text-anchor="middle">score + M</text>
+  <text x="130.0" y="208.0" fill="#94a3b8" font-size="13" text-anchor="middle">보면 안 되는 칸에 −∞</text>
+  <line x1="130" y1="216" x2="130" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="20" y="244" width="220" height="44" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="130.0" y="263.0" fill="#e2e8f0" font-size="14" text-anchor="middle">weight = softmax(행마다)</text>
+  <text x="130.0" y="280.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_q, T_k), 행마다 합 1</text>
+  <line x1="130" y1="288" x2="130" y2="312" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M285,68 L285,334 L244,334" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="20" y="316" width="220" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="130.0" y="335.0" fill="#e2e8f0" font-size="14" text-anchor="middle">output = weight · V</text>
+  <text x="130.0" y="352.0" fill="#94a3b8" font-size="13" text-anchor="middle">(T_q, d_v)</text>
+  <text x="480" y="40" fill="#e2e8f0" font-size="14" text-anchor="middle">causal mask M (T = 4)</text>
+  <text x="480" y="58" fill="#94a3b8" font-size="13" text-anchor="middle">key 위치 →</text>
+  <text x="388" y="96" fill="#94a3b8" font-size="13" text-anchor="end">1</text>
+  <text x="420" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">1</text>
+  <rect x="400" y="70" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="420" y="96" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="440" y="70" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="460" y="96" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <rect x="480" y="70" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="500" y="96" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <rect x="520" y="70" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="540" y="96" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <text x="388" y="136" fill="#94a3b8" font-size="13" text-anchor="end">2</text>
+  <text x="460" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">2</text>
+  <rect x="400" y="110" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="420" y="136" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="440" y="110" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="460" y="136" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="480" y="110" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="500" y="136" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <rect x="520" y="110" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="540" y="136" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <text x="388" y="176" fill="#94a3b8" font-size="13" text-anchor="end">3</text>
+  <text x="500" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">3</text>
+  <rect x="400" y="150" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="420" y="176" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="440" y="150" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="460" y="176" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="480" y="150" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="500" y="176" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="520" y="150" width="40" height="40" rx="0" fill="#2a1418" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="540" y="176" fill="#f87171" font-size="14" text-anchor="middle">−∞</text>
+  <text x="388" y="216" fill="#94a3b8" font-size="13" text-anchor="end">4</text>
+  <text x="540" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">4</text>
+  <rect x="400" y="190" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="420" y="216" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="440" y="190" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="460" y="216" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="480" y="190" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="500" y="216" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="520" y="190" width="40" height="40" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="540" y="216" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <text x="366" y="150" fill="#94a3b8" font-size="13" text-anchor="middle" transform="rotate(-90 366 150)">query</text>
+  <text x="480" y="280" fill="#94a3b8" font-size="13" text-anchor="middle">i 번째 query 는 1 ~ i 번째 key 만 본다</text>
+  <text x="480" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">softmax 뒤 −∞ 칸의 weight 는 0</text>
+</svg>

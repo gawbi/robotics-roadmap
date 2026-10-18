@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>평가 격자 예: 질량 배율 × 마찰 배율 칸 가운데 파란 테두리 안이 학습 범위이고, 그 밖의 칸이 학습 범위 밖이다. latency 마다 같은 격자를 하나씩 둔다</title>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- grid 5 rows (mass) x 6 cols (friction), cell 56 x 40, origin (120, 50) -->
+  <g fill="#94a3b8" font-size="13" text-anchor="middle">
+    <text x="148" y="40">0.3</text><text x="204" y="40">0.5</text><text x="260" y="40">0.75</text>
+    <text x="316" y="40">1.0</text><text x="372" y="40">1.25</text><text x="428" y="40">1.5</text>
+  </g>
+  <text x="288" y="22" fill="#e2e8f0" font-size="13" text-anchor="middle">마찰 배율</text>
+  <g fill="#94a3b8" font-size="13" text-anchor="end">
+    <text x="110" y="75">0.6</text><text x="110" y="115">0.8</text><text x="110" y="155">1.0</text><text x="110" y="195">1.2</text><text x="110" y="235">1.4</text>
+  </g>
+  <text x="40" y="160" fill="#e2e8f0" font-size="13" text-anchor="middle" transform="rotate(-90 40 160)">질량 배율</text>
+
+  <g fill="#162036" stroke="#2b3a55">
+    <rect x="120" y="50" width="56" height="40"/><rect x="176" y="50" width="56" height="40"/><rect x="232" y="50" width="56" height="40"/><rect x="288" y="50" width="56" height="40"/><rect x="344" y="50" width="56" height="40"/><rect x="400" y="50" width="56" height="40"/>
+    <rect x="120" y="90" width="56" height="40"/><rect x="176" y="90" width="56" height="40"/><rect x="232" y="90" width="56" height="40"/><rect x="288" y="90" width="56" height="40"/><rect x="344" y="90" width="56" height="40"/><rect x="400" y="90" width="56" height="40"/>
+    <rect x="120" y="130" width="56" height="40"/><rect x="176" y="130" width="56" height="40"/><rect x="232" y="130" width="56" height="40"/><rect x="288" y="130" width="56" height="40"/><rect x="344" y="130" width="56" height="40"/><rect x="400" y="130" width="56" height="40"/>
+    <rect x="120" y="170" width="56" height="40"/><rect x="176" y="170" width="56" height="40"/><rect x="232" y="170" width="56" height="40"/><rect x="288" y="170" width="56" height="40"/><rect x="344" y="170" width="56" height="40"/><rect x="400" y="170" width="56" height="40"/>
+    <rect x="120" y="210" width="56" height="40"/><rect x="176" y="210" width="56" height="40"/><rect x="232" y="210" width="56" height="40"/><rect x="288" y="210" width="56" height="40"/><rect x="344" y="210" width="56" height="40"/><rect x="400" y="210" width="56" height="40"/>
+  </g>
+  <!-- training range: mass 0.8-1.2 (rows 2-4), friction 0.5-1.25 (cols 2-5) -->
+  <rect x="176" y="90" width="224" height="120" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="316" cy="150" r="6" fill="#f59e0b"/>
+
+  <g font-size="13">
+    <rect x="480" y="72" width="16" height="16" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="2"/>
+    <text x="504" y="85" fill="#e2e8f0">학습 범위</text>
+    <rect x="480" y="102" width="16" height="16" fill="#162036" stroke="#475569"/>
+    <text x="504" y="115" fill="#e2e8f0">범위 밖</text>
+    <circle cx="488" cy="140" r="6" fill="#f59e0b"/>
+    <text x="504" y="145" fill="#e2e8f0">nominal</text>
+  </g>
+
+  <text x="300" y="282" fill="#94a3b8" font-size="13" text-anchor="middle">칸마다 두 policy 를 20 episode 씩 돌려 평균 return 과 넘어짐 비율을 적는다</text>
+  <text x="300" y="304" fill="#94a3b8" font-size="13" text-anchor="middle">latency 0, 1, 2, 3 step 마다 같은 격자를 하나씩 둔다</text>
+</svg>

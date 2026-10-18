@@ -1,0 +1,17 @@
+[project]
+name = "physical-ai-pi0"
+version = "0.1.0"
+description = "Physical AI from Scratch — π0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lerobot[libero,smolvla]",
+    "matplotlib",
+    "numpy",
+    "pillow",
+    "pytest",
+    "regex",
+    "scipy",
+    "torch",
+    "torchvision",
+    "transformers",
+]

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>perceptron 의 계산: 입력에 weight 를 곱해 더하고 bias 를 더한 z 가 0 보다 크면 1</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- inputs -->
+  <circle cx="70" cy="80" r="26" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="70" y="86" fill="#e2e8f0" font-size="18" text-anchor="middle">x₁</text>
+  <circle cx="70" cy="180" r="26" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="70" y="186" fill="#e2e8f0" font-size="18" text-anchor="middle">x₂</text>
+  <text x="70" y="232" fill="#94a3b8" font-size="13" text-anchor="middle">입력 (0 또는 1)</text>
+
+  <!-- weighted edges -->
+  <line x1="96" y1="86" x2="252" y2="124" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="96" y1="174" x2="252" y2="136" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="168" y="88" fill="#38bdf8" font-size="16" text-anchor="middle">× w₁</text>
+  <text x="168" y="188" fill="#38bdf8" font-size="16" text-anchor="middle">× w₂</text>
+
+  <!-- bias -->
+  <text x="285" y="34" fill="#f59e0b" font-size="16" text-anchor="middle">+ b</text>
+  <line x1="285" y1="42" x2="285" y2="96" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- sum -->
+  <circle cx="285" cy="130" r="32" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="285" y="139" fill="#e2e8f0" font-size="26" text-anchor="middle">Σ</text>
+  <text x="285" y="190" fill="#e2e8f0" font-size="15" text-anchor="middle">z = w₁x₁ + w₂x₂ + b</text>
+
+  <!-- step -->
+  <line x1="317" y1="130" x2="392" y2="130" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="354" y="120" fill="#94a3b8" font-size="14" text-anchor="middle">z</text>
+  <rect x="396" y="98" width="96" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="444" y="125" fill="#e2e8f0" font-size="15" text-anchor="middle">z &gt; 0 ?</text>
+  <text x="444" y="148" fill="#94a3b8" font-size="13" text-anchor="middle">예 1 · 아니오 0</text>
+
+  <!-- output -->
+  <line x1="492" y1="130" x2="530" y2="130" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="558" cy="130" r="24" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="558" y="136" fill="#e2e8f0" font-size="18" text-anchor="middle">ŷ</text>
+  <text x="530" y="190" fill="#94a3b8" font-size="13" text-anchor="middle">예측 (0 또는 1)</text>
+</svg>

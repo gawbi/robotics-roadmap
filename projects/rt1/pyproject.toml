@@ -1,0 +1,13 @@
+[project]
+name = "physical-ai-rt1"
+version = "0.1.0"
+description = "Physical AI from Scratch — RT-1"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lerobot[pusht]",
+    "matplotlib",
+    "numpy",
+    "pytest",
+    "torch",
+    "torchvision",
+]

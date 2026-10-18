@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>z 축 기준으로 θ 만큼 돈 frame b. R_ab 의 열은 frame b 의 축을 frame a 에서 잰 값이다</title>
+  <defs>
+    <marker id="arrow-x" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- frame a (gray), origin at (150, 200), axis length 130 -->
+  <line x1="150" y1="200" x2="282" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-a)"/>
+  <line x1="150" y1="200" x2="150" y2="68" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-a)"/>
+  <text x="290" y="205" fill="#94a3b8" font-size="15">x_a</text>
+  <text x="138" y="62" fill="#94a3b8" font-size="15" text-anchor="end">y_a</text>
+
+  <!-- projections of x_b onto frame a -->
+  <line x1="262.6" y1="135" x2="262.6" y2="200" stroke="#f87171" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="262.6" y1="135" x2="150" y2="135" stroke="#f87171" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="262.6" y="222" fill="#f87171" font-size="14" text-anchor="middle">cos θ</text>
+  <text x="140" y="140" fill="#f87171" font-size="14" text-anchor="end">sin θ</text>
+
+  <!-- frame b rotated by 30 degrees -->
+  <line x1="150" y1="200" x2="262.6" y2="135" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-x)"/>
+  <line x1="150" y1="200" x2="85" y2="87.4" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-y)"/>
+  <text x="270" y="128" fill="#f87171" font-size="15">x_b</text>
+  <text x="76" y="82" fill="#34d399" font-size="15" text-anchor="end">y_b</text>
+
+  <!-- angle -->
+  <path d="M200,200 A50,50 0 0,0 193.3,175" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="208" y="192" fill="#e2e8f0" font-size="15">θ</text>
+
+  <!-- z out of the page -->
+  <circle cx="150" cy="200" r="7" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="150" cy="200" r="2" fill="#38bdf8"/>
+  <text x="40" y="262" fill="#94a3b8" font-size="13">z_a = z_b 는 화면 밖을 향한다</text>
+
+  <!-- matrix -->
+  <text x="330" y="172" fill="#e2e8f0" font-size="17">R_ab =</text>
+  <path d="M398,118 L392,118 L392,214 L398,214" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <path d="M572,118 L578,118 L578,214 L572,214" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="428" y="140" fill="#f87171" font-size="16" text-anchor="middle">cos θ</text>
+  <text x="428" y="172" fill="#f87171" font-size="16" text-anchor="middle">sin θ</text>
+  <text x="428" y="204" fill="#f87171" font-size="16" text-anchor="middle">0</text>
+  <text x="488" y="140" fill="#34d399" font-size="16" text-anchor="middle">−sin θ</text>
+  <text x="488" y="172" fill="#34d399" font-size="16" text-anchor="middle">cos θ</text>
+  <text x="488" y="204" fill="#34d399" font-size="16" text-anchor="middle">0</text>
+  <text x="548" y="140" fill="#38bdf8" font-size="16" text-anchor="middle">0</text>
+  <text x="548" y="172" fill="#38bdf8" font-size="16" text-anchor="middle">0</text>
+  <text x="548" y="204" fill="#38bdf8" font-size="16" text-anchor="middle">1</text>
+  <text x="428" y="240" fill="#f87171" font-size="14" text-anchor="middle">x_b</text>
+  <text x="488" y="240" fill="#34d399" font-size="14" text-anchor="middle">y_b</text>
+  <text x="548" y="240" fill="#38bdf8" font-size="14" text-anchor="middle">z_b</text>
+  <text x="488" y="266" fill="#94a3b8" font-size="13" text-anchor="middle">열 = frame b 의 축을 frame a 에서 잰 값</text>
+</svg>

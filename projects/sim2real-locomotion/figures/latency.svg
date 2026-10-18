@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>latency k = 2 step: step t 에 고른 action 이 두 step 뒤인 t + 2 에 env 에 적용된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="30" y="36" fill="#e2e8f0" font-size="14">policy 가 고른 action</text>
+  <text x="30" y="150" fill="#e2e8f0" font-size="14">env 에 적용되는 action</text>
+
+  <g fill="#94a3b8" font-size="13" text-anchor="middle">
+    <text x="120" y="210">t</text><text x="220" y="210">t + 1</text><text x="320" y="210">t + 2</text><text x="420" y="210">t + 3</text><text x="520" y="210">t + 4</text>
+  </g>
+  <line x1="80" y1="196" x2="560" y2="196" stroke="#475569"/>
+
+  <g fill="#111a2e" stroke="#38bdf8" stroke-width="2">
+    <rect x="95" y="50" width="50" height="34" rx="6"/><rect x="195" y="50" width="50" height="34" rx="6"/><rect x="295" y="50" width="50" height="34" rx="6"/><rect x="395" y="50" width="50" height="34" rx="6"/><rect x="495" y="50" width="50" height="34" rx="6"/>
+  </g>
+  <g fill="#e2e8f0" font-size="14" text-anchor="middle">
+    <text x="120" y="72">aₜ</text><text x="220" y="72">aₜ₊₁</text><text x="320" y="72">aₜ₊₂</text><text x="420" y="72">aₜ₊₃</text><text x="520" y="72">aₜ₊₄</text>
+  </g>
+
+  <g fill="#111a2e" stroke="#34d399" stroke-width="2">
+    <rect x="95" y="160" width="50" height="34" rx="6"/><rect x="195" y="160" width="50" height="34" rx="6"/><rect x="295" y="160" width="50" height="34" rx="6"/><rect x="395" y="160" width="50" height="34" rx="6"/><rect x="495" y="160" width="50" height="34" rx="6"/>
+  </g>
+  <g fill="#e2e8f0" font-size="14" text-anchor="middle">
+    <text x="120" y="182">aₜ₋₂</text><text x="220" y="182">aₜ₋₁</text><text x="320" y="182">aₜ</text><text x="420" y="182">aₜ₊₁</text><text x="520" y="182">aₜ₊₂</text>
+  </g>
+
+  <line x1="132" y1="86" x2="310" y2="156" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="232" y1="86" x2="410" y2="156" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="300" y="112" fill="#f59e0b" font-size="13">k = 2 step 늦게</text>
+  <text x="300" y="236" fill="#94a3b8" font-size="13" text-anchor="middle">Ant-v5 에서 1 step 은 0.05 s 라서 k = 2 는 0.1 s 의 지연이다</text>
+</svg>

@@ -18,6 +18,7 @@ wandb/
 outputs/
 runs/
 data/
+MUJOCO_LOG.TXT
 
 # os / editor
 .DS_Store

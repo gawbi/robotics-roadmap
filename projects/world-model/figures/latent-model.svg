@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>world model 의 구성: encoder 가 64×64 image 를 latent z 로 줄이고, dynamics 와 reward model 이 latent 와 action 으로 다음 latent 와 reward 를 예측한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- image -->
+  <rect x="24" y="60" width="80" height="80" rx="4" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="64" y1="100" x2="88" y2="76" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="64" cy="100" r="4" fill="#94a3b8"/>
+  <text x="64" y="162" fill="#e2e8f0" font-size="13" text-anchor="middle">oₜ</text>
+  <text x="64" y="180" fill="#94a3b8" font-size="13" text-anchor="middle">64×64×3</text>
+
+  <!-- encoder -->
+  <line x1="104" y1="100" x2="136" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <polygon points="140,64 200,84 200,116 140,136" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="170" y="105" fill="#e2e8f0" font-size="13" text-anchor="middle">encoder</text>
+  <text x="170" y="158" fill="#94a3b8" font-size="13" text-anchor="middle">q<tspan baseline-shift="sub" font-size="12">φ</tspan>(z | o)</text>
+
+  <!-- latent -->
+  <line x1="200" y1="100" x2="232" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="236" y="80" width="56" height="40" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="264" y="105" fill="#e2e8f0" font-size="15" text-anchor="middle">zₜ</text>
+  <text x="264" y="70" fill="#94a3b8" font-size="13" text-anchor="middle">수십 차원</text>
+
+  <!-- action -->
+  <text x="352" y="40" fill="#f59e0b" font-size="14" text-anchor="middle">aₜ</text>
+  <line x1="352" y1="46" x2="352" y2="76" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- dynamics -->
+  <line x1="292" y1="100" x2="318" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="322" y="80" width="62" height="40" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="353" y="105" fill="#e2e8f0" font-size="14" text-anchor="middle">f<tspan baseline-shift="sub" font-size="12">ψ</tspan>, g<tspan baseline-shift="sub" font-size="12">ψ</tspan></text>
+
+  <line x1="384" y1="92" x2="440" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="444" y="50" width="62" height="40" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="475" y="75" fill="#e2e8f0" font-size="15" text-anchor="middle">ẑₜ₊₁</text>
+  <line x1="384" y1="108" x2="440" y2="128" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="444" y="110" width="62" height="40" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="475" y="135" fill="#e2e8f0" font-size="15" text-anchor="middle">r̂ₜ</text>
+
+  <!-- feed back -->
+  <path d="M506 70 H560 V220 H264 V124" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="412" y="212" fill="#94a3b8" font-size="13" text-anchor="middle">예측한 ẑₜ₊₁ 에 다시 f<tspan baseline-shift="sub" font-size="12">ψ</tspan> 를 적용해 여러 step 을 펼친다</text>
+
+  <text x="300" y="254" fill="#94a3b8" font-size="13" text-anchor="middle">image 는 처음 한 번만 encoder 에 넣고, 그 뒤 계획은 latent 안에서만 한다</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>모듈 파이프라인. 영상에서 cube 를 찾고 base frame 위치로 바꾼 뒤 waypoint, IK, trajectory 순으로 실행한다. 각 모듈의 오차는 다음 모듈로 넘어간다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="15" y="34" width="178" height="104" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="104.0" y="59" fill="#38bdf8" font-size="15" text-anchor="middle">1. 영상</text>
+  <text x="104.0" y="83" fill="#e2e8f0" font-size="13" text-anchor="middle">고정 카메라 RGB</text>
+  <text x="104.0" y="105" fill="#94a3b8" font-size="13" text-anchor="middle">(H, W, 3) uint8</text>
+  <text x="104.0" y="127" fill="#f87171" font-size="13" text-anchor="middle">오차: 조명·색이 바뀌면 실패</text>
+  <line x1="195" y1="86.0" x2="207" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="211" y="34" width="178" height="104" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="300.0" y="59" fill="#38bdf8" font-size="15" text-anchor="middle">2. detect_cube</text>
+  <text x="300.0" y="83" fill="#e2e8f0" font-size="13" text-anchor="middle">색 분할 → 윗면 중심·yaw</text>
+  <text x="300.0" y="105" fill="#94a3b8" font-size="13" text-anchor="middle">pixel (u, v), yaw</text>
+  <text x="300.0" y="127" fill="#f87171" font-size="13" text-anchor="middle">오차: pixel 오차</text>
+  <line x1="391" y1="86.0" x2="403" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="407" y="34" width="178" height="104" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="496.0" y="59" fill="#38bdf8" font-size="15" text-anchor="middle">3. pixel_to_table</text>
+  <text x="496.0" y="83" fill="#e2e8f0" font-size="13" text-anchor="middle">ray 와 평면 z = h 의 교점</text>
+  <text x="496.0" y="105" fill="#94a3b8" font-size="13" text-anchor="middle">base frame 위치 (3,)</text>
+  <text x="496.0" y="127" fill="#f87171" font-size="13" text-anchor="middle">오차: extrinsics 오차</text>
+  <rect x="15" y="182" width="178" height="104" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="104.0" y="207" fill="#f59e0b" font-size="15" text-anchor="middle">4. plan_waypoints</text>
+  <text x="104.0" y="231" fill="#e2e8f0" font-size="13" text-anchor="middle">top-down grasp 규칙</text>
+  <text x="104.0" y="253" fill="#94a3b8" font-size="13" text-anchor="middle">(4, 4) pose 목록</text>
+  <text x="104.0" y="275" fill="#f87171" font-size="13" text-anchor="middle">오차: grasp 높이·yaw 선택</text>
+  <line x1="195" y1="234.0" x2="207" y2="234.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="211" y="182" width="178" height="104" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="300.0" y="207" fill="#f59e0b" font-size="15" text-anchor="middle">5. IK</text>
+  <text x="300.0" y="231" fill="#e2e8f0" font-size="13" text-anchor="middle">pose → joint angle</text>
+  <text x="300.0" y="253" fill="#94a3b8" font-size="13" text-anchor="middle">q (joint 5개)</text>
+  <text x="300.0" y="275" fill="#f87171" font-size="13" text-anchor="middle">오차: 해 없음·관절 한계</text>
+  <line x1="391" y1="234.0" x2="403" y2="234.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="407" y="182" width="178" height="104" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="496.0" y="207" fill="#34d399" font-size="15" text-anchor="middle">6. 실행</text>
+  <text x="496.0" y="231" fill="#e2e8f0" font-size="13" text-anchor="middle">minimum-jerk + gripper</text>
+  <text x="496.0" y="253" fill="#94a3b8" font-size="13" text-anchor="middle">MuJoCo step</text>
+  <text x="496.0" y="275" fill="#f87171" font-size="13" text-anchor="middle">오차: 미끄러짐·충돌</text>
+  <polyline points="496,138 496,160 104,160 104,178" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="318" fill="#94a3b8" font-size="13" text-anchor="middle">앞 모듈의 오차는 고쳐지지 않고 뒤 모듈로 그대로 넘어간다</text>
+</svg>

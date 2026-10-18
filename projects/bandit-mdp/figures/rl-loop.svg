@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>agent 가 action 을 내면 environment 가 다음 state 와 reward 를 돌려주는 reinforcement learning 의 반복</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="238" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <rect x="40" y="60" width="170" height="110" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="125" y="102" fill="#e2e8f0" font-size="18" text-anchor="middle">agent</text>
+  <text x="125" y="132" fill="#94a3b8" font-size="14" text-anchor="middle">policy π(a | s)</text>
+
+  <rect x="390" y="60" width="170" height="110" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="475" y="102" fill="#e2e8f0" font-size="18" text-anchor="middle">environment</text>
+  <text x="475" y="132" fill="#94a3b8" font-size="14" text-anchor="middle">P(s′ | s, a), r</text>
+
+  <line x1="210" y1="85" x2="388" y2="85" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="75" fill="#f59e0b" font-size="15" text-anchor="middle">action aₜ</text>
+
+  <line x1="390" y1="130" x2="212" y2="130" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="121" fill="#38bdf8" font-size="15" text-anchor="middle">다음 state sₜ₊₁</text>
+  <line x1="390" y1="152" x2="212" y2="152" stroke="#34d399" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="174" fill="#34d399" font-size="15" text-anchor="middle">reward rₜ₊₁</text>
+
+  <text x="300" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">t 를 하나 늘려 되풀이한다. reward 합(return)이 커지는 π 를 찾는 것이 목표다</text>
+</svg>

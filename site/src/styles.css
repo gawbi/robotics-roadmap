@@ -1153,17 +1153,22 @@ code {
   margin: 4px 0;
 }
 
+/* text and inline code must flow as one paragraph, so the checkbox sits in the padding instead of a flex row */
 .markdown li.task-list-item {
   list-style: none;
+  position: relative;
   margin-left: -22px;
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
+  padding-left: 26px;
 }
 
 .markdown li.task-list-item input {
+  position: absolute;
+  left: 0;
+  top: calc(0.875em - 7px);
+  width: 14px;
+  height: 14px;
+  margin: 0;
   accent-color: var(--branch);
-  transform: translateY(2px);
 }
 
 .markdown strong {

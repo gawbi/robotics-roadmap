@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>damped least squares IK 의 한 반복. FK 로 오차를 재고 Jacobian 으로 Δq 를 구해 q 를 고친다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- top row -->
+  <rect x="30" y="36" width="100" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="80" y="58" fill="#e2e8f0" font-size="15" text-anchor="middle">q</text>
+  <text x="80" y="76" fill="#94a3b8" font-size="13" text-anchor="middle">joint angle</text>
+
+  <rect x="170" y="36" width="150" height="48" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="245" y="58" fill="#e2e8f0" font-size="15" text-anchor="middle">FK: T = f(q)</text>
+  <text x="245" y="76" fill="#94a3b8" font-size="13" text-anchor="middle">forward-kinematics</text>
+
+  <rect x="360" y="36" width="210" height="48" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="465" y="58" fill="#e2e8f0" font-size="15" text-anchor="middle">e = pose_error(T, T_d)</text>
+  <text x="465" y="76" fill="#94a3b8" font-size="13" text-anchor="middle">(위치 오차, rotation 오차)</text>
+
+  <line x1="132" y1="60" x2="167" y2="60" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="322" y1="60" x2="357" y2="60" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- check -->
+  <rect x="390" y="124" width="180" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="480" y="151" fill="#e2e8f0" font-size="15" text-anchor="middle">e 가 tol 안인가?</text>
+  <line x1="480" y1="86" x2="480" y2="121" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="480" y="192" fill="#34d399" font-size="13" text-anchor="middle">예 → 수렴, 끝</text>
+
+  <!-- jacobian -->
+  <rect x="190" y="124" width="160" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="270" y="151" fill="#e2e8f0" font-size="15" text-anchor="middle">J = J(q)</text>
+  <line x1="388" y1="146" x2="353" y2="146" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="370" y="116" fill="#94a3b8" font-size="13" text-anchor="middle">아니오</text>
+
+  <!-- DLS step -->
+  <rect x="170" y="216" width="260" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="300" y="245" fill="#e2e8f0" font-size="15" text-anchor="middle">Δq = Jᵀ (J Jᵀ + λ² I)⁻¹ e</text>
+  <line x1="270" y1="170" x2="270" y2="213" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- update -->
+  <rect x="20" y="216" width="120" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="80" y="238" fill="#e2e8f0" font-size="15" text-anchor="middle">q ← q + Δq</text>
+  <text x="80" y="256" fill="#94a3b8" font-size="13" text-anchor="middle">limit 으로 clip</text>
+  <line x1="168" y1="240" x2="143" y2="240" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="80" y1="214" x2="80" y2="87" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="460" y="240" fill="#94a3b8" font-size="13">jacobian.py · ik.py</text>
+  <text x="460" y="260" fill="#94a3b8" font-size="13">ik_dls 의 한 반복</text>
+</svg>

@@ -1,0 +1,13 @@
+[project]
+name = "physical-ai-teleop-dataset"
+version = "0.1.0"
+description = "Physical AI from Scratch — Teleop Dataset"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lerobot[dataset-viz,feetech]>=0.6",
+    "mujoco",
+    "numpy",
+    "pygame",
+    "pynput",
+    "pytest",
+]

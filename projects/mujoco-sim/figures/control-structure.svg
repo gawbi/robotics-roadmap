@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>두 가지 제어 구조. motor actuator 위에 직접 짠 PD + gravity compensation 과, Menagerie 기본 position actuator 의 engine 안 PD</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="24" y="34" fill="#38bdf8" font-size="14">내 PD — motor actuator (so101_motor.xml)</text>
+  <rect x="20" y="52" width="64" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="52" y="81" fill="#e2e8f0" font-size="15" text-anchor="middle">q_d</text>
+  <line x1="86" y1="76" x2="113" y2="76" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="116" y="52" width="232" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="232" y="72" fill="#e2e8f0" font-size="13" text-anchor="middle">τ = Kp(q_d − q) − Kd·qvel</text>
+  <text x="232" y="90" fill="#e2e8f0" font-size="13" text-anchor="middle">+ qfrc_bias</text>
+  <line x1="350" y1="76" x2="373" y2="76" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="376" y="52" width="82" height="48" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="417" y="72" fill="#e2e8f0" font-size="14" text-anchor="middle">clip</text>
+  <text x="417" y="90" fill="#94a3b8" font-size="13" text-anchor="middle">±2.94 N·m</text>
+  <line x1="460" y1="76" x2="483" y2="76" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="471" y="66" fill="#94a3b8" font-size="13" text-anchor="middle">ctrl</text>
+  <rect x="486" y="52" width="94" height="48" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="533" y="72" fill="#e2e8f0" font-size="14" text-anchor="middle">mj_step</text>
+  <text x="533" y="90" fill="#94a3b8" font-size="13" text-anchor="middle">5 ms 진행</text>
+  <path d="M533,102 L533,128 L232,128 L232,104" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="382" y="146" fill="#94a3b8" font-size="13" text-anchor="middle">qpos, qvel, qfrc_bias</text>
+
+  <line x1="20" y1="166" x2="580" y2="166" stroke="#1e293b" stroke-width="1.5"/>
+
+  <text x="24" y="194" fill="#34d399" font-size="14">Menagerie 기본 — position actuator (so101.xml)</text>
+  <rect x="20" y="212" width="64" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="52" y="241" fill="#e2e8f0" font-size="15" text-anchor="middle">q_d</text>
+  <line x1="86" y1="236" x2="157" y2="236" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="120" y="228" fill="#94a3b8" font-size="13" text-anchor="middle">ctrl</text>
+  <rect x="160" y="212" width="298" height="48" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="309" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">engine 안의 PD: kp 998.22 · kv 2.731</text>
+  <text x="309" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">힘은 forcerange ±2.94 N·m 로 자른다</text>
+  <line x1="460" y1="236" x2="483" y2="236" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="486" y="212" width="94" height="48" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="533" y="232" fill="#e2e8f0" font-size="14" text-anchor="middle">mj_step</text>
+  <text x="533" y="250" fill="#94a3b8" font-size="13" text-anchor="middle">5 ms 진행</text>
+</svg>

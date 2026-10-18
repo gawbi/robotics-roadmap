@@ -1,0 +1,14 @@
+[project]
+name = "physical-ai-real-robot"
+version = "0.1.0"
+description = "Physical AI from Scratch — Real Robot"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lerobot[core-scripts,feetech,training]",
+    "matplotlib",
+    "mujoco",
+    "numpy",
+    "pytest",
+    "torch",
+    "torchvision",
+]

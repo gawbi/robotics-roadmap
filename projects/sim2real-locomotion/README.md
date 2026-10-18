@@ -41,22 +41,73 @@ papers:
 ## 배경
 
 [PPO](../ppo/README.md) 로 학습한 HalfCheetah policy 가 잘 달린다는 보장은 학습에 쓴 바로 그 simulator parameter 에서만 성립한다.
-실물 로봇은 링크 질량, 바닥 마찰, 모터가 내는 힘, 센서 값을 읽어 명령을 내기까지의 지연(latency)이 simulator 와 조금씩 다르고,
-sim 의 한 점에 과하게 맞춘 policy 는 이 차이(reality gap) 앞에서 쉽게 넘어진다. domain randomization 은 학습 중 episode 마다 이
-parameter $\xi$ 를 범위 안에서 무작위로 뽑아서, policy 가 특정 값 하나가 아니라 분포 전체에서 return 을 높이도록 만든다.
+실물 로봇으로 옮기면 그 보장이 깨지는데, 이 과제는 그 차이를 simulator 안에서 흉내 내고, 학습 방법을 바꿔 policy 가 차이를
+견디게 만든다.
+
+### reality gap
+
+실물 로봇은 링크 질량, 바닥 마찰, 모터가 내는 힘, 센서 값을 읽고 명령을 내기까지의 지연(latency)이 simulator 와 조금씩 다르다.
+이 차이를 reality gap 이라고 한다. sim 의 한 점에 과하게 맞춘 policy 는 이 차이 앞에서 쉽게 넘어진다. 예를 들어 sim 바닥의
+마찰에 맞춰 발을 세게 밀어 나아가던 policy 는, 실물 바닥의 마찰이 sim 의 70% 뿐이면 미끄러져 균형을 잃는다.
+
+### domain randomization
+
+domain randomization 은 학습 중 episode 를 시작할 때마다 이 parameter 들을 정한 범위 안에서 무작위로 다시 뽑는다. policy 는 특정
+값 하나가 아니라 범위 전체에서 return 이 높아지도록 학습되고, 실물의 값이 그 범위 안 어딘가에 있다면 실물에서도 버틸 가능성이
+커진다.
 
 $$
 \max_\pi\ \mathbb E_{\xi\sim p(\xi)}\Big[\ \mathbb E_{\tau\sim\pi,\ \xi}\Big[\sum_t\gamma^t r_t\Big]\Big],
 \qquad \xi=(\text{mass},\ \text{friction},\ \text{motor strength},\ \text{latency},\ \dots)
 $$
 
-Tobin et al. 2017 은 렌더링을 무작위화해 sim 에서만 학습한 object detector 를 실물 grasping 에 썼고, Peng et al. 2018 은
-dynamics 를 무작위화해 sim 에서만 학습한 policy 를 실물 로봇 팔로 옮겼다. Tan et al. 2018 은 4족 보행에 latency 와 actuator model 까지 sim 에 넣었고, Rudin et al. 2021 은 GPU 한 장에서 수천 개
-환경을 병렬로 돌려 평지 보행 학습을 4 분 안쪽으로 줄였다. 지금은 이런 GPU 병렬 sim 과 PPO, randomization 의 조합이 보행 학습의
-표준 구성이다.
+$\xi$ 는 episode 하나의 dynamics 를 정하는 parameter 묶음이고, $p(\xi)$ 는 그것을 뽑는 분포다. 안쪽 기댓값은 그 dynamics 에서
+policy 로 얻는 return, 바깥 기댓값은 여러 $\xi$ 에 대한 평균이다. 이 과제의 `DRRange` 기본값은 질량 0.8–1.2 배, 마찰 0.5–1.25 배,
+actuator gear 0.9–1.1 배를 균등분포로 뽑는다. 질량 배율로 1.13 이 뽑히면 Ant 몸통의 질량 0.327 은 0.370 이 되는데, 배율은 늘
+처음 저장해 둔 nominal 값에 곱해야 episode 마다 쌓이지 않는다.
 
-이 과제는 실물 로봇 없이 sim-to-sim 으로 평가한다. 학습 때 쓰지 않은 dynamics 범위를 실물 대역으로 정해 두고, randomization 을 넣은
-policy 와 넣지 않은 policy 가 그 범위에서 얼마나 버티는지 비교한다.
+![nominal 학습은 모든 episode 를 같은 dynamics 에서 돌리고, domain randomization 학습은 reset 마다 질량·마찰·gear·latency 를 새로 뽑는다](figures/dr-episodes.svg)
+
+Tobin et al. 2017 은 렌더링을 무작위화해 sim 에서만 학습한 object detector 를 실물 grasping 에 썼고, Peng et al. 2018 은
+dynamics 를 무작위화해 sim 에서만 학습한 policy 를 실물 로봇 팔로 옮겼다. Tan et al. 2018 은 4족 보행에 latency 와 actuator model
+까지 sim 에 넣었고, Rudin et al. 2021 은 GPU 한 장에서 수천 개 환경을 병렬로 돌려 평지 보행 학습을 4 분 안쪽으로 줄였다. 지금은
+이런 GPU 병렬 sim 과 PPO, randomization 의 조합이 보행 학습의 표준 구성이다.
+
+### Ant-v5 환경
+
+`Ant-v5` 는 다리 4 개짜리 로봇을 앞으로 걷게 하는 gymnasium 의 MuJoCo 환경이다. 다리마다 엉덩이와 발목 관절이 있어서 action
+은 관절 토크 명령 8 개이고, contact force 를 뺀 observation(`include_cfrc_ext_in_observation=False`)은 연속값 27 개다. reward 는
+넘어지지 않은 step 마다 주는 healthy reward 와 앞으로 간 속도를 더하고, 토크와 접촉력이 클수록 조금씩 뺀다. 몸통 높이가
+0.2–1.0 범위를 벗어나면 넘어진 것으로 보고 episode 가 terminated 되며, 넘어지지 않으면 1000 step 에서 끝난다. step 하나는 0.05 초라
+1000 step 은 50 초다.
+
+randomize 할 값은 [MuJoCo Sim](../mujoco-sim/README.md) 에서 다룬 MuJoCo model 에 있다.
+
+| 값 | 자리 | Ant 의 nominal 값 |
+| --- | --- | --- |
+| 질량 | `model.body_mass` (body 마다 하나) | 몸통 0.327, 다리 조각 0.039·0.068 |
+| 마찰 | `model.geom_friction` (geom 마다 sliding·torsional·rolling 세 값) | sliding 1.0 |
+| actuator gear | `model.actuator_gear` 의 첫 열 (관절 토크 = gear × 명령) | 150 |
+
+### latency 와 observation noise
+
+latency 는 policy 가 action 을 고른 시점과 그 action 이 실제로 적용되는 시점 사이의 지연이다. `ActionLatency` 는 step $t$ 에서
+고른 action 을 $k$ step 뒤에 env 에 넣는다. Ant-v5 에서 $k = 2$ 는 0.1 초의 지연이고, episode 첫 $k$ step 에는 아직 고른 action 이
+없으므로 0 action 같은 정해 둔 값을 넣는다. `ObservationNoise` 는 observation 에 표준편차 `std` 의 Gaussian noise 를 더해 센서
+noise 를 흉내 낸다.
+
+![latency k = 2 step. step t 에 고른 action 이 두 step 뒤인 t + 2 에 env 에 적용된다](figures/latency.svg)
+
+### sim-to-sim 평가
+
+이 과제는 실물 로봇 없이 sim-to-sim 으로 평가한다. 학습 때 쓰지 않은 dynamics 범위를 실물 대역으로 정해 두고, randomization 을
+넣은 policy(DR policy)와 넣지 않은 policy(nominal policy)가 그 범위에서 얼마나 버티는지 비교한다. 평가 격자는 질량 배율과 마찰
+배율의 조합에 latency 를 더한 3 차원 격자이고, 칸마다 episode 를 여러 번 돌려 평균 return 과 넘어짐 비율(1000 step 전에
+terminated 된 episode 의 비율)을 적는다. 격자는 학습 범위보다 넓게 잡아야 학습 범위 밖에서의 차이가 드러난다.
+
+![평가 격자 예. 질량 배율 × 마찰 배율 칸 가운데 파란 테두리 안이 학습 범위이고, latency 마다 같은 격자를 하나씩 둔다](figures/eval-grid.svg)
+
+robustness 에는 비용이 따를 수 있어서, nominal 조건에서 두 policy 의 return 차이도 함께 잰다.
 
 ## 목표
 
@@ -70,7 +121,9 @@ policy 와 넣지 않은 policy 가 그 범위에서 얼마나 버티는지 비�
 
 ## 준비물
 
-- Python 3.12, `torch`, `gymnasium[mujoco]`, matplotlib
+- Python 3.12, numpy, `torch`, `gymnasium[mujoco]`(MuJoCo 가 함께 설치된다), matplotlib, pytest. ppo 과제의 코드를 import 하므로 그
+  과제의 `gymnasium[classic_control]`·`tensorboard` 도 함께 들어 있다
+- [PPO](../ppo/README.md) 과제에서 채운 `projects/ppo/` 의 코드
 - 기본 구성은 CPU MuJoCo 의 `Ant-v5` 를 `gymnasium.vector.AsyncVectorEnv` 로 8–16 개 띄우는 것이다. 수백만 step 이 필요해서
   CPU 코어 수에 따라 학습 한 번에 몇 시간이 걸리고, GPU 는 policy update 에만 쓰므로 8 GB 로 충분하다
 - (선택) [MuJoCo Playground](https://github.com/google-deepmind/mujoco_playground) 의 `Go1JoystickFlatTerrain` 은 MJX(JAX) 로
@@ -81,56 +134,47 @@ policy 와 넣지 않은 policy 가 그 범위에서 얼마나 버티는지 비�
 
 ## 진행 순서
 
-1. contact force 를 뺀 `Ant-v5`(`include_cfrc_ext_in_observation=False`)를 내 PPO 로 학습해 nominal policy 를 얻는다
-2. `reset()` 때마다 body 질량·geom 마찰·actuator gear 를 범위 안에서 다시 뽑는 wrapper 를 짠다
-3. action 을 $k$ step 늦게 적용하는 latency wrapper 와 observation 에 Gaussian noise 를 더하는 wrapper 를 짠다
-4. 세 wrapper 를 씌운 환경에서 nominal policy 와 같은 step 수만큼 DR policy 를 학습한다
-5. 학습 범위 밖까지 걸치는 (질량 배율 × 마찰 배율) 격자와 latency 0–3 step 을 평가 세트로 정한다
-6. 평가 세트의 칸마다 두 policy 를 20 episode 씩 돌려 평균 return 과 넘어짐 비율을 잰다
-7. 두 policy 의 결과를 칸별 heatmap 과 latency 곡선으로 나란히 그린다
+1. `train.py` 에서 ppo 과제의 `train` 으로 contact force 를 뺀 `Ant-v5`(`include_cfrc_ext_in_observation=False`)를 학습해
+   nominal policy 를 얻는다. wrapper 를 씌운 env 는 `train` 의 `make_env` 로 넘기고, `AsyncVectorEnv` 는 `async_envs=True` 로
+   켠다
+2. `wrappers.py` 의 `DynamicsRandomization` 을 채운다. 처음에 nominal 값을 복사해 두고, `reset()` 때마다 body 질량·geom 마찰·
+   actuator gear 에 새로 뽑은 배율을 곱한다
+3. 같은 파일의 `ActionLatency` 와 `ObservationNoise` 를 채운다
+4. `set_params(1, 1, 1)`·latency 0·noise 0 인 wrapper 환경이 같은 seed·같은 action 열에서 원래 `Ant-v5` 와 똑같은 observation 을
+   내는지 `test_wrappers.py` 에 pytest 로 쓴다
+5. 세 wrapper 를 씌운 환경에서 nominal policy 와 같은 step 수만큼 DR policy 를 학습한다
+6. `evaluate.py` 의 `evaluate_grid` 를 채운다. 학습 범위 밖까지 걸치는 (질량 배율 × 마찰 배율) 격자와 latency 0–3 step 을 평가
+   세트로 정하고, 칸마다 두 policy 를 20 episode 씩 돌려 평균 return 과 넘어짐 비율을 잰다
+7. `plots.py` 에서 두 policy 의 결과를 칸별 heatmap 과 latency 곡선으로 나란히 그려 `results/` 에 저장하고, nominal 조건의 return
+   차이를 % 로 함께 적는다
 8. (선택) MuJoCo Menagerie 의 Go1 을 velocity command 추종 reward 로 감싼 환경에서 같은 실험을 반복한다
 
 ## 시작점
 
+아래 파일은 모두 리포에 들어 있다.
+
 ```text
 sim2real-locomotion/
-├── wrappers.py
-├── train.py          # imports the PPO from the ppo project
-├── evaluate.py
-├── plots.py
-└── test_wrappers.py
+├── pyproject.toml    # 이 과제의 Python 버전과 패키지
+├── uv.lock
+├── wrappers.py       # DRRange, DynamicsRandomization, ActionLatency, ObservationNoise 의 stub
+├── train.py          # ppo 과제의 PPO 를 import 해 nominal·DR policy 를 학습한다
+├── evaluate.py       # evaluate_grid 의 stub
+├── plots.py          # 평가 격자 heatmap 과 latency 곡선
+└── test_wrappers.py  # wrapper 가 nominal dynamics 를 건드리지 않는지 확인하는 test 를 직접 쓴다
 ```
 
-```python
-from dataclasses import dataclass
-import gymnasium as gym
-import numpy as np
+[wrappers.py](wrappers.py)·[evaluate.py](evaluate.py) 의 함수와 method 는 몸통이 `raise NotImplementedError` 인 stub 이고, 이름과
+signature 는 그대로 둔 채 몸통을 채운다. [train.py](train.py) 는 옆 폴더 `projects/ppo/` 를 `sys.path` 에 더해 ppo 과제의
+`PPOConfig` 와 `train` 을 import 하므로, ppo 과제를 먼저 채워 둬야 한다. 채점용 test 는 없어서 평가 기준은
+[test_wrappers.py](test_wrappers.py) 에 직접 쓴 test 와 `plots.py` 의 그림, 학습 기록으로 확인한다. 패키지는 `pyproject.toml` 에
+있고, 이 폴더에서 `uv run` 을 처음 실행할 때 `.venv/` 에 설치된다.
 
-@dataclass
-class DRRange:
-    mass_scale: tuple[float, float] = (0.8, 1.2)
-    friction_scale: tuple[float, float] = (0.5, 1.25)
-    gear_scale: tuple[float, float] = (0.9, 1.1)
-
-class DynamicsRandomization(gym.Wrapper):
-    """resample physical parameters on every reset, always scaling from a saved nominal copy"""
-    def __init__(self, env: gym.Env, ranges: DRRange | None, seed: int = 0): ...
-    def reset(self, *, seed: int | None = None, options: dict | None = None): ...
-    def set_params(self, mass_scale: float, friction_scale: float, gear_scale: float) -> None:
-        """fix the parameters (used for evaluation); ranges=None disables resampling"""
-
-class ActionLatency(gym.Wrapper):
-    """apply the action chosen k steps ago; k may be resampled per episode from a range"""
-    def __init__(self, env: gym.Env, k: int | tuple[int, int]): ...
-
-class ObservationNoise(gym.ObservationWrapper):
-    def __init__(self, env: gym.Env, std: float): ...
-
-# evaluate.py
-def evaluate_grid(policy_fn, mass_scales: list[float], friction_scales: list[float],
-                  latencies: list[int], episodes: int = 20, seed: int = 0
-                  ) -> dict[str, np.ndarray]:
-    """returns {'return': ..., 'fall_rate': ...}, each indexed [latency, mass, friction]"""
+```bash
+cd projects/sim2real-locomotion
+uv run pytest
+uv run python train.py
+uv run python plots.py
 ```
 
 ## 평가 기준
@@ -179,12 +223,27 @@ nominal policy 에서 이어서 학습한다.
 
 ## 참고 자료
 
+- Josh Tobin 외, [Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World](https://arxiv.org/abs/1703.06907)
+  (2017) — 렌더링 randomization 으로 sim 에서만 학습한 detector 를 실물에 쓴 첫 사례
+- Xue Bin Peng 외, [Sim-to-Real Transfer of Robotic Control with Dynamics Randomization](https://arxiv.org/abs/1710.06537) (2018) — 이
+  과제와 같은 dynamics randomization. 무작위화한 parameter 와 범위 표가 범위를 정할 때 참고가 된다
+- Jie Tan 외, [Sim-to-Real: Learning Agile Locomotion For Quadruped Robots](https://arxiv.org/abs/1804.10332) (2018) — latency 와
+  actuator model 을 sim 에 넣은 4족 보행
+- Nikita Rudin 외, [Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning](https://arxiv.org/abs/2109.11978)
+  (2021) — GPU 병렬 sim 과 PPO, terrain curriculum
+- Ashish Kumar 외, [RMA: Rapid Motor Adaptation for Legged Robots](https://arxiv.org/abs/2107.04034) (2021)·[프로젝트 페이지](https://ashish-kmr.github.io/rma-legged-robots/)
+  — 최근 이력으로 dynamics 를 추정하는 adaptation module 과 실물 영상
+- Lilian Weng, [Domain Randomization for Sim2Real Transfer](https://lilianweng.github.io/posts/2019-05-05-domain-randomization/)
+  — randomization 의 종류와 범위 정하는 방법을 정리한 글
 - Gymnasium [Ant](https://gymnasium.farama.org/environments/mujoco/ant/) 문서 — observation·reward·종료 조건과 생성자 인자
+- Gymnasium [Wrappers](https://gymnasium.farama.org/api/wrappers/) 문서 — `gym.Wrapper`·`ObservationWrapper` 를 상속해 `reset`·`step`·
+  `observation` 을 고치는 방법
+- MuJoCo [XML reference](https://mujoco.readthedocs.io/en/stable/XMLreference.html)·[API types](https://mujoco.readthedocs.io/en/stable/APIreference/APItypes.html)
+  — `body_mass`·`geom_friction`·`actuator_gear` 가 무엇을 뜻하는지
 - MuJoCo Menagerie [unitree_go1](https://github.com/google-deepmind/mujoco_menagerie/tree/main/unitree_go1) — (선택) 실제 4족 로봇 모델
 - [MuJoCo Playground](https://playground.mujoco.org/) — GPU 병렬 학습과 sim-to-real 사례
 - [legged_gym](https://github.com/leggedrobotics/legged_gym)·[rsl_rl](https://github.com/leggedrobotics/rsl_rl) — Rudin et al. 의 보행 환경과
-  PPO 구현. Isaac Gym 기반이라 실행보다 reward 항과 randomization 설정을 읽는 용도. 막혔을 때만 열기
-- [RMA 프로젝트 페이지](https://ashish-kmr.github.io/rma-legged-robots/) — base policy 와 adaptation module 의 실물 영상
+  PPO 구현. Isaac Gym 기반이라 실행보다 reward 항과 randomization 설정을 읽는 용도. 막혔을 때만 연다
 
 ## 남은 한계
 

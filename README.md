@@ -6,20 +6,101 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 
 **커리큘럼 지도**: https://woolimi.github.io/physical-ai-from-scratch/
 
-## 진행 방식
+## 처음 준비
 
-1. 이 리포를 fork 한다
-2. 지도 가운데의 [NumPy Warm-up](projects/warmup/README.md) 부터 연다
-3. 과제 설명을 읽고 fork 의 `projects/<과제>/` 폴더 안에 직접 구현한다
-4. Claude Code 로 `/evaluate <과제>` 를 실행해 평가를 받는다
-5. 통과하면 `progress.yaml` 에 완료로 기록되고, 밝아진 다음 과제로 넘어간다
+### 필요한 것
 
-채점용 `tests/` 가 있는 과제는 함수 몸통이 비어 있는 stub 파일을 채워 나가며 `pytest projects/<과제>/tests -x` 로 바로 확인할
-수 있다. stub 의 docstring 에는 수식과 변수의 대응, 손으로 따라 할 수 있는 숫자 예시가 있다. test 통과는 평가 기준의
-하나일 뿐이고 완료는 평가로만 기록된다.
+- GitHub 계정과 git
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) — 과제마다 Python 3.12 와 패키지를 설치한다. Python 을 따로
+  설치할 필요가 없다
+- [Claude Code](https://claude.com/claude-code) — 과제 평가에 쓴다
+- GPU 는 중반부터 필요하다. 모든 과제의 내 구현은 8 GB 급 소비자 GPU 나 Colab 으로 돌아가고, 비교용 SmolVLA
+  fine-tuning 처럼 더 큰 메모리가 필요한 경우는 각 과제의 "준비물" 에 cloud GPU 대안이 있다
+- LIBERO 를 쓰는 VLA 과제는 macOS 에서 돌지 않으므로 Linux 나 Colab 을 쓴다
+- 실물 로봇 과제는 LeRobot 이 지원하는 저가 로봇 팔(SO-101 등)을 기준으로 한다. 장비가 없으면 simulation 으로 대신한다
 
-선수 관계는 권장 순서이고 잠금이 아니어서, 막히면 선수 과제로 돌아가면 된다. 대부분의 과제는 공식
-구현(torchvision, Hugging Face, LeRobot, CleanRL 등)과 출력을 비교하는 평가 기준을 갖고 있다.
+### fork 와 clone
+
+GitHub 에서 이 리포의 **Fork** 버튼을 눌러 내 계정으로 복사한다. 구현과 평가 기록은 모두 이 fork 에 쌓이고, 진행 기록을
+지도로 공유하려면 fork 가 public 이어야 한다. 그다음 fork 를 clone 하고, 커리큘럼 업데이트를 받아 올 `upstream` 을
+등록한다.
+
+```bash
+git clone https://github.com/<계정>/physical-ai-from-scratch.git
+cd physical-ai-from-scratch
+git remote add upstream https://github.com/woolimi/physical-ai-from-scratch.git
+```
+
+### 과제별 Python 환경
+
+Python 환경은 과제 폴더마다 따로 있다. 과제 폴더의 `pyproject.toml` 에 그 과제의 Python 버전과 패키지가, `uv.lock` 에
+패키지의 정확한 버전이 적혀 있다. 과제 폴더에서 `uv run <명령>` 을 처음 실행하면 uv 가 그 폴더에 `.venv/` 를 만들고 패키지를
+설치한 뒤 명령을 실행하므로, 가상환경을 켜거나 `pip install` 을 할 일이 없고 한 과제의 패키지가 다른 과제에 섞이지 않는다.
+`.venv/` 는 `.gitignore` 에 걸려 있어서 커밋되지 않는다.
+
+설치가 되는지는 perceptron 의 채점용 test 로 확인한다. 아직 아무것도 구현하지 않았으므로 첫 test 가
+`NotImplementedError` 로 실패하면 정상이다.
+
+```bash
+cd projects/perceptron
+uv run pytest tests -x
+```
+
+과제에 패키지를 더하려면 과제 폴더에서 `uv add <패키지>` 를 쓴다. `pyproject.toml` 과 `uv.lock` 이 함께 바뀌므로 둘 다
+커밋한다.
+
+### Claude Code
+
+Claude Code 를 설치하고 로그인한 뒤 **fork 루트에서** `claude` 를 실행한다. 평가 skill 이 리포 안의
+`.claude/skills/evaluate/` 에 있어서, 다른 폴더에서 열면 `/evaluate` 가 보이지 않는다.
+
+## 과제 하나의 진행
+
+과제 id 는 `projects/` 아래 폴더 이름(`warmup`, `perceptron` 등)이다. 지도 가운데의
+[NumPy Warm-up](projects/warmup/README.md) 부터 시작해 바깥쪽으로 넓혀 간다.
+
+1. 지도에서 과제를 열어 "평가 기준" 까지 읽는다. "생각해 볼 질문" 은 구두 평가에서 그대로 묻는 질문이니 미리 읽어 둔다
+2. "준비물" 중 데이터·장비처럼 패키지가 아닌 것을 준비한다. 패키지는 `uv run` 이 설치한다
+3. `cd projects/<과제>` 로 과제 폴더에 들어가 "시작점" 의 stub 을 채운다. 명령은 모두 과제 폴더에서 `uv run` 으로 실행한다
+4. 막히면 "힌트" 를 펼치고, 그래도 막히면 선수 과제로 돌아간다. "참고 자료" 의 공식 구현은 마지막에 연다
+5. "평가 기준" 을 스스로 확인한 뒤 커밋한다. 평가는 커밋된 상태만 본다
+6. fork 루트에서 연 Claude Code 에 `/evaluate <과제>` 를 입력해 평가를 받는다
+7. 평가가 남긴 결과 커밋을 `git push` 한다. 재평가가 나오면 "고칠 것" 을 반영해 커밋하고 6번부터 다시 한다
+
+선수 관계는 권장 순서이고 잠금이 아니다. 대부분의 과제는 공식 구현(torchvision, Hugging Face, LeRobot, CleanRL 등)과
+출력을 비교하는 평가 기준을 갖고 있다.
+
+### 시작점과 채점용 test
+
+과제 README 의 "시작점" 에 나오는 파일은 모두 과제 폴더에 들어 있다. 함수는 몸통이 `raise NotImplementedError` 인 stub
+이라서, 이름과 signature 는 그대로 두고 몸통을 채운다. 과제는 채점용 `tests/` 가 있는지로 나뉜다.
+
+| 구분 | 채점용 test 가 있는 과제 | 채점용 test 가 없는 과제 |
+| --- | --- | --- |
+| 과제 폴더 | stub 과 채점용 `tests/` | stub 과 직접 채울 test 파일(`test_*.py`) |
+| 확인 방법 | `uv run pytest tests -x` | 평가 기준을 확인하는 test·script 를 직접 짜서 돌린다 |
+
+`pytest -x` 는 처음 실패한 test 에서 멈추면서 그 test 가 부른 함수를 보여 주므로, 함수 하나를 채울 때마다 돌리면 다음에
+채울 함수를 알 수 있다. 채점용 `tests/` 는 고치지 않고, 직접 쓰는 test 는 `tests/` 밖의 파일에 둔다. test 통과는 평가
+기준의 하나일 뿐이고, 완료는 평가로만 기록된다.
+
+### 앞 과제 코드의 재사용
+
+앞 과제에서 짠 코드를 다시 쓰는 과제는 그 과제 폴더를 `sys.path` 에 더해 import 한다. 이 import 는 그 코드를 쓰는 stub
+첫머리에 들어 있어서, 내가 풀어 둔 앞 과제 코드가 그대로 쓰이고 복사본을 따로 관리할 필요가 없다.
+
+```python
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parents[1] / "forward-kinematics"))
+from urdf import Robot  # forward-kinematics 과제의 코드
+```
+
+`append` 는 목록 끝에 더하므로 이름이 같은 파일이 있으면 지금 과제의 파일이 먼저 import 된다. 그래서 다른 과제가 import
+하는 모듈은 리포 안에 같은 이름의 파일이 없고, 과제의 중심 모듈은 과제 이름(`gpt.py`·`ppo.py`·`rt1.py`)을, 나머지는 그
+과제에만 있는 개념(`urdf.py`·`noise_schedule.py`·`gae.py`)을 이름으로 쓴다. 지금 과제에 파일을 새로 만들 때도 앞 과제 폴더에
+있는 이름은 피한다. 앞 과제 코드가 쓰는 패키지가 지금 과제의 환경에 없으면 지금 과제 폴더에서 `uv add` 로 더한다.
 
 ## 평가
 
@@ -28,7 +109,8 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 - **규칙 검사**: 과제의 "직접 짤 것" 을 library 호출로 대신하지 않았는지, 채점용 `tests/` 를 고치지 않았는지 본다
 - **평가 기준 검사**: 제출 코드를 실행해 항목을 하나씩 판정한다. GPU 학습이나 실물 로봇처럼 그 자리에서 돌릴 수 없는
   항목은 커밋된 기록물(log, 결과 표, 그래프, 영상)로 판정한다
-- **구두 평가**: "생각해 볼 질문" 과 제출 코드에 관한 질문 2개를 하나씩 묻고, 학습자는 코드를 보지 않고 답한다
+- **구두 평가**: "생각해 볼 질문" 과 제출 코드에 관한 질문 2개를 하나씩 묻고, 학습자는 코드를 보지 않고 답한다.
+  판정과 해설은 질문을 모두 마친 뒤에 한꺼번에 나온다
 
 필수 평가 기준을 모두 통과하고 구두 평가에서 틀리거나 설명하지 못한 답이 없으면 통과다. 결과는 `projects/<과제>/EVALUATION.md` 에
 회차별로 쌓이고 `progress.yaml` 이 갱신된다. 학습 결과 기록물은 `projects/<과제>/results/` 처럼 과제 폴더 안에
@@ -37,12 +119,36 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 다른 리포에 이미 구현해 둔 것이 있으면 평가를 시작할 때 그 위치를 알려 주면 되고, 그 위치는 `progress.yaml` 의
 `evidence` 에 링크로 남는다.
 
+## 커리큘럼 업데이트 반영
+
+과제 설명이나 stub·채점용 test 가 바뀌면 upstream 에서 받아 fork 에 합친다. GitHub 의 fork 페이지에 있는
+**Sync fork** 버튼으로 합쳐도 되는데, 그때는 로컬에서 `git pull` 을 한 번 더 한다.
+
+```bash
+git pull --no-rebase upstream main
+git push
+```
+
+내가 채운 stub 이나 직접 만든 파일을 커리큘럼도 고쳤으면 merge 충돌이 난다. 이때는 내 구현을 남기고 merge 를 마친다.
+
+```bash
+git checkout --ours projects/<과제>/<파일>
+git add projects/<과제>/<파일>
+git commit --no-edit
+```
+
+`uv add` 로 패키지를 더한 과제에서 `uv.lock` 이 충돌하면, `pyproject.toml` 을 먼저 손으로 합친 뒤 과제 폴더에서
+`uv lock` 을 실행해 `uv.lock` 을 다시 만든다.
+
 ## 진행 기록 공유
 
-fork 루트의 `progress.yaml` 이 진행 기록이다. 평가 skill 이 갱신하고, 시작한 과제는 직접 `in_progress` 로 적는다.
+fork 루트의 `progress.yaml` 이 진행 기록이다. 평가 skill 이 갱신하고, 시작한 과제는 직접 `status: in_progress` 로
+적는다. 파일이 없으면 아래 모양으로 만든다.
 
 ```yaml
 projects:
+  perceptron:
+    status: in_progress
   autograd:
     status: done # in_progress | done
     evaluated: 2026-10-21 # 마지막 평가 날짜
@@ -86,21 +192,12 @@ https://woolimi.github.io/physical-ai-from-scratch/?from=<계정>/<리포>&embed
 | 목표 | 만들 것, 직접 짤 부분과 가져다 써도 되는 부분 |
 | 준비물 | 패키지, 데이터·simulator, 필요한 GPU |
 | 진행 순서 | 한 번에 하나씩 끝낼 수 있는 단계 |
-| 시작점 | 파일 구조와 함수 signature, 채점용 test 가 있는 과제는 stub 과 실행 명령 |
+| 시작점 | 과제 폴더에 들어 있는 파일 구조와 stub, 실행 명령 |
 | 평가 기준 | 평가에서 하나씩 판정하는 항목 |
 | 생각해 볼 질문 | 구두 평가에서 받는 질문 |
 | 힌트 | 막혔을 때 펼쳐 보는 단서 |
 | 참고 자료 | 논문, 강의, 참고 구현 |
 | 남은 한계 | 이 과제로 풀리지 않는 문제와 이어지는 과제 |
-
-## 준비
-
-- Python 3.12, [uv](https://docs.astral.sh/uv/) 권장. 과제마다 필요한 패키지는 각 과제의 "준비물" 에 있다
-- 평가에는 [Claude Code](https://claude.com/claude-code) 를 쓴다
-- GPU 는 중반부터 필요하다. 모든 과제의 내 구현은 8 GB 급 소비자 GPU 나 Colab 으로 돌아가고, 비교용 SmolVLA
-  fine-tuning 처럼 더 큰 메모리가 필요한 경우는 각 과제의 "준비물" 에 cloud GPU 대안이 있다
-- LIBERO 를 쓰는 VLA 과제는 macOS 에서 돌지 않으므로 Linux 나 Colab 을 쓴다
-- 실물 로봇 과제는 LeRobot 이 지원하는 저가 로봇 팔(SO-101 등)을 기준으로 한다. 장비가 없으면 simulation 으로 대신한다
 
 ## 지도 사이트
 
@@ -112,7 +209,7 @@ https://woolimi.github.io/physical-ai-from-scratch/?from=<계정>/<리포>&embed
 cd site
 npm install
 npm run dev     # http://localhost:5173
-npm test        # frontmatter·선수 관계·섹션 순서·레이아웃 검사
+npm test        # frontmatter·선수 관계·섹션 순서·시작점 파일·과제 환경·과제 사이 import·레이아웃 검사
 npm run build   # site/dist
 ```
 
@@ -123,10 +220,19 @@ npm run build   # site/dist
 1. `projects/<id>/README.md` 를 만든다. 폴더 이름이 곧 `id` 다
 2. frontmatter 에 `id`, `title`, `branch`, `requires`, `hours`, `summary`, `papers` 를 채운다
 3. 본문은 위 섹션 순서를 따른다. 다른 과제는 `[제목](../<id>/README.md)` 로 링크한다
-4. 계산 결과가 하나로 정해지는 과제는 함수 몸통을 `raise NotImplementedError` 로 둔 stub 과 채점용 `tests/` 를 함께 둔다.
-   `tests/conftest.py` 는 [perceptron](projects/perceptron/tests/conftest.py) 의 것을 복사하고, test 는 torch·numpy 결과나
-   손으로 계산되는 값과 비교한다. stub 에서는 모든 test 가 실패하고 정답 구현에서는 모두 통과하는지 확인하되, 정답 구현은
-   커밋하지 않는다
-5. `cd site && npm test` 로 선수 관계 순환, 없는 과제 참조, 섹션 누락, 지도 라벨 겹침을 검사한다
+4. 과제 폴더에 [warmup](projects/warmup/pyproject.toml) 과 같은 모양의 `pyproject.toml` 을 두고 `uv lock` 으로 `uv.lock` 을
+   만든다. 패키지는 "준비물" 과 맞춘다
+5. "시작점" 의 파일을 모두 과제 폴더에 만든다. 함수는 몸통을 `raise NotImplementedError` 로 둔 stub 이고, 실행 script 는
+   [warmup/plot.py](projects/warmup/plot.py) 처럼 `main()` 과 `__main__` guard 만 둔다. "시작점" 은 "아래 파일은 모두 리포에
+   들어 있다." 로 시작하고, 파일 tree 에는 학습 결과물(그림·영상·checkpoint)을 넣지 않는다. 앞 과제의 코드를 쓰는 stub
+   에는 그 과제 폴더를 `sys.path` 에 더하는 import 를 넣는다. 뒤 과제가 import 할 모듈과 그 모듈이 import 하는 같은 폴더의
+   모듈은 리포 안에 같은 이름이 없게 짓고, `model`·`config`·`data` 같은 흔한 이름은 쓰지 않는다
+6. 계산 결과가 하나로 정해지는 과제는 채점용 `tests/` 를 함께 둔다. `tests/conftest.py` 는
+   [perceptron](projects/perceptron/tests/conftest.py) 의 것을 복사하고, test 는 torch·numpy 결과나 손으로 계산되는 값과
+   비교한다. stub 에서는 모든 test 가 실패하고 정답 구현에서는 모두 통과하는지 확인하되, 정답 구현은 커밋하지 않는다
+7. 설명을 돕는 그림은 `figures/` 에 SVG 로 두고 README 에서 `![설명](figures/<이름>.svg)` 로 넣는다. 지도의 과제 창이 어두운
+   배경이라 [perceptron 의 그림](projects/perceptron/figures/perceptron.svg) 과 같은 어두운 카드와 색을 쓴다
+8. `cd site && npm test` 로 선수 관계 순환, 없는 과제 참조, 섹션 누락, 시작점 tree 의 파일과 실제 파일의 불일치,
+   `pyproject.toml`·`uv.lock` 누락, 과제 사이 import 의 이름 충돌과 `requires` 누락, 지도 라벨 겹침을 검사한다
 
 branch 의 이름·색·배치는 [`projects/branches.yaml`](projects/branches.yaml) 에서 정한다.

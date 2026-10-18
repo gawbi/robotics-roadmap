@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>noise x0 와 데이터 x1 을 무작위로 짝지어 직선으로 잇는다. 직선 위의 x_t 에서 network 는 x1 − x0 방향을 맞히도록 학습한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="20" width="320" height="320" rx="6" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="199.7" y1="134.1" x2="178.3" y2="77.5" stroke="#334155" stroke-width="1.2"/>
+  <line x1="167.0" y1="177.5" x2="279.6" y2="189.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="213.1" y1="148.9" x2="248.3" y2="110.8" stroke="#334155" stroke-width="1.2"/>
+  <line x1="202.3" y1="141.6" x2="107.5" y2="107.5" stroke="#334155" stroke-width="1.2"/>
+  <line x1="116.7" y1="116.4" x2="281.9" y2="179.9" stroke="#334155" stroke-width="1.2"/>
+  <line x1="117.9" y1="224.3" x2="283.9" y2="180.5" stroke="#334155" stroke-width="1.2"/>
+  <line x1="238.3" y1="150.7" x2="278.6" y2="179.3" stroke="#334155" stroke-width="1.2"/>
+  <line x1="218.9" y1="159.8" x2="109.9" y2="247.3" stroke="#334155" stroke-width="1.2"/>
+  <line x1="292.3" y1="195.4" x2="101.7" y2="246.1" stroke="#334155" stroke-width="1.2"/>
+  <line x1="145.0" y1="311.4" x2="110.6" y2="112.8" stroke="#334155" stroke-width="1.2"/>
+  <line x1="120.3" y1="186.8" x2="177.7" y2="68.9" stroke="#334155" stroke-width="1.2"/>
+  <line x1="194.2" y1="218.7" x2="107.4" y2="110.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="180.9" y1="62.1" x2="254.3" y2="111.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="140.2" y1="170.7" x2="248.1" y2="112.7" stroke="#334155" stroke-width="1.2"/>
+  <line x1="219.7" y1="181.3" x2="184.8" y2="86.4" stroke="#334155" stroke-width="1.2"/>
+  <line x1="176.1" y1="181.3" x2="101.0" y2="246.6" stroke="#334155" stroke-width="1.2"/>
+  <line x1="262.9" y1="228.8" x2="251.7" y2="251.7" stroke="#334155" stroke-width="1.2"/>
+  <line x1="154.4" y1="215.2" x2="177.9" y2="276.6" stroke="#334155" stroke-width="1.2"/>
+  <line x1="141.7" y1="259.3" x2="279.6" y2="182.1" stroke="#334155" stroke-width="1.2"/>
+  <line x1="171.2" y1="126.9" x2="82.1" y2="181.3" stroke="#334155" stroke-width="1.2"/>
+  <line x1="269.4" y1="120.0" x2="89.9" y2="178.2" stroke="#334155" stroke-width="1.2"/>
+  <line x1="174.7" y1="215.4" x2="102.3" y2="251.5" stroke="#334155" stroke-width="1.2"/>
+  <line x1="157.2" y1="223.2" x2="252.3" y2="250.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="108.6" y1="252.5" x2="176.9" y2="280.1" stroke="#334155" stroke-width="1.2"/>
+  <line x1="229.6" y1="173.9" x2="285.5" y2="180.1" stroke="#334155" stroke-width="1.2"/>
+  <line x1="110.0" y1="154.2" x2="176.6" y2="81.5" stroke="#334155" stroke-width="1.2"/>
+  <line x1="181.1" y1="134.1" x2="253.3" y2="113.7" stroke="#334155" stroke-width="1.2"/>
+  <line x1="179.5" y1="221.4" x2="182.8" y2="72.8" stroke="#334155" stroke-width="1.2"/>
+  <circle cx="199.7" cy="134.1" r="3" fill="#94a3b8"/>
+  <circle cx="167.0" cy="177.5" r="3" fill="#94a3b8"/>
+  <circle cx="213.1" cy="148.9" r="3" fill="#94a3b8"/>
+  <circle cx="202.3" cy="141.6" r="3" fill="#94a3b8"/>
+  <circle cx="116.7" cy="116.4" r="3" fill="#94a3b8"/>
+  <circle cx="117.9" cy="224.3" r="3" fill="#94a3b8"/>
+  <circle cx="238.3" cy="150.7" r="3" fill="#94a3b8"/>
+  <circle cx="218.9" cy="159.8" r="3" fill="#94a3b8"/>
+  <circle cx="292.3" cy="195.4" r="3" fill="#94a3b8"/>
+  <circle cx="145.0" cy="311.4" r="3" fill="#94a3b8"/>
+  <circle cx="120.3" cy="186.8" r="3" fill="#94a3b8"/>
+  <circle cx="194.2" cy="218.7" r="3" fill="#94a3b8"/>
+  <circle cx="180.9" cy="62.1" r="3" fill="#94a3b8"/>
+  <circle cx="140.2" cy="170.7" r="3" fill="#94a3b8"/>
+  <circle cx="219.7" cy="181.3" r="3" fill="#94a3b8"/>
+  <circle cx="176.1" cy="181.3" r="3" fill="#94a3b8"/>
+  <circle cx="262.9" cy="228.8" r="3" fill="#94a3b8"/>
+  <circle cx="154.4" cy="215.2" r="3" fill="#94a3b8"/>
+  <circle cx="141.7" cy="259.3" r="3" fill="#94a3b8"/>
+  <circle cx="171.2" cy="126.9" r="3" fill="#94a3b8"/>
+  <circle cx="269.4" cy="120.0" r="3" fill="#94a3b8"/>
+  <circle cx="174.7" cy="215.4" r="3" fill="#94a3b8"/>
+  <circle cx="157.2" cy="223.2" r="3" fill="#94a3b8"/>
+  <circle cx="108.6" cy="252.5" r="3" fill="#94a3b8"/>
+  <circle cx="229.6" cy="173.9" r="3" fill="#94a3b8"/>
+  <circle cx="110.0" cy="154.2" r="3" fill="#94a3b8"/>
+  <circle cx="181.1" cy="134.1" r="3" fill="#94a3b8"/>
+  <circle cx="179.5" cy="221.4" r="3" fill="#94a3b8"/>
+  <circle cx="178.3" cy="77.5" r="3" fill="#38bdf8"/>
+  <circle cx="279.6" cy="189.0" r="3" fill="#38bdf8"/>
+  <circle cx="248.3" cy="110.8" r="3" fill="#38bdf8"/>
+  <circle cx="107.5" cy="107.5" r="3" fill="#38bdf8"/>
+  <circle cx="281.9" cy="179.9" r="3" fill="#38bdf8"/>
+  <circle cx="283.9" cy="180.5" r="3" fill="#38bdf8"/>
+  <circle cx="278.6" cy="179.3" r="3" fill="#38bdf8"/>
+  <circle cx="109.9" cy="247.3" r="3" fill="#38bdf8"/>
+  <circle cx="101.7" cy="246.1" r="3" fill="#38bdf8"/>
+  <circle cx="110.6" cy="112.8" r="3" fill="#38bdf8"/>
+  <circle cx="177.7" cy="68.9" r="3" fill="#38bdf8"/>
+  <circle cx="107.4" cy="110.0" r="3" fill="#38bdf8"/>
+  <circle cx="254.3" cy="111.0" r="3" fill="#38bdf8"/>
+  <circle cx="248.1" cy="112.7" r="3" fill="#38bdf8"/>
+  <circle cx="184.8" cy="86.4" r="3" fill="#38bdf8"/>
+  <circle cx="101.0" cy="246.6" r="3" fill="#38bdf8"/>
+  <circle cx="251.7" cy="251.7" r="3" fill="#38bdf8"/>
+  <circle cx="177.9" cy="276.6" r="3" fill="#38bdf8"/>
+  <circle cx="279.6" cy="182.1" r="3" fill="#38bdf8"/>
+  <circle cx="82.1" cy="181.3" r="3" fill="#38bdf8"/>
+  <circle cx="89.9" cy="178.2" r="3" fill="#38bdf8"/>
+  <circle cx="102.3" cy="251.5" r="3" fill="#38bdf8"/>
+  <circle cx="252.3" cy="250.0" r="3" fill="#38bdf8"/>
+  <circle cx="176.9" cy="280.1" r="3" fill="#38bdf8"/>
+  <circle cx="285.5" cy="180.1" r="3" fill="#38bdf8"/>
+  <circle cx="176.6" cy="81.5" r="3" fill="#38bdf8"/>
+  <circle cx="253.3" cy="113.7" r="3" fill="#38bdf8"/>
+  <circle cx="182.8" cy="72.8" r="3" fill="#38bdf8"/>
+  <line x1="205.0" y1="230.0" x2="280.0" y2="180.0" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="205.0" cy="230.0" r="6" fill="#94a3b8" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="280.0" cy="180.0" r="6" fill="#38bdf8" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="223.75" cy="217.5" r="6" fill="#f59e0b"/>
+  <line x1="214.75" y1="204.5" x2="253.75" y2="178.5" stroke="#34d399" stroke-width="2.5"/>
+  <polygon points="261.2,173.5 256.5,182.7 251.0,174.3" fill="#34d399"/>
+  <text x="195.0" y="252.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₀</text>
+  <text x="294.0" y="200.0" fill="#e2e8f0" font-size="14">x₁</text>
+  <text x="211.75" y="239.5" fill="#f59e0b" font-size="14" text-anchor="end">x_t</text>
+  <circle cx="366" cy="40" r="4" fill="#94a3b8"/>
+  <text x="378" y="45" fill="#e2e8f0" font-size="13">x₀ ~ N(0, I) noise (t = 0)</text>
+  <circle cx="366" cy="64" r="4" fill="#38bdf8"/>
+  <text x="378" y="69" fill="#e2e8f0" font-size="13">x₁ 8 gaussians 데이터 (t = 1)</text>
+  <line x1="360" y1="88" x2="374" y2="88" stroke="#334155" stroke-width="2"/>
+  <text x="378" y="93" fill="#e2e8f0" font-size="13">무작위로 짝지은 쌍의 직선</text>
+  <text x="360" y="140" fill="#f59e0b" font-size="14">주황 쌍의 예</text>
+  <text x="360" y="166" fill="#e2e8f0" font-size="13">x₀ = (0.5, −1.0)</text>
+  <text x="360" y="188" fill="#e2e8f0" font-size="13">x₁ = (2.0, 0.0)</text>
+  <text x="360" y="210" fill="#e2e8f0" font-size="13">t = 0.25 → x_t = (0.875, −0.75)</text>
+  <text x="360" y="232" fill="#34d399" font-size="13">target velocity</text>
+  <text x="360" y="254" fill="#34d399" font-size="13">x₁ − x₀ = (1.5, 1.0)</text>
+  <text x="360" y="300" fill="#94a3b8" font-size="13">초록 화살표: x_t 에서 network 가</text>
+  <text x="360" y="318" fill="#94a3b8" font-size="13">맞혀야 하는 방향</text>
+</svg>

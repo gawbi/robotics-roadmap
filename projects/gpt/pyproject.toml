@@ -1,0 +1,13 @@
+[project]
+name = "physical-ai-gpt"
+version = "0.1.0"
+description = "Physical AI from Scratch — GPT-2"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy",
+    "pytest",
+    "regex",
+    "tiktoken",
+    "torch",
+    "transformers",
+]

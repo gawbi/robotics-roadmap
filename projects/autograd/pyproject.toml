@@ -1,0 +1,11 @@
+[project]
+name = "physical-ai-autograd"
+version = "0.1.0"
+description = "Physical AI from Scratch — Backpropagation"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "graphviz",
+    "matplotlib",
+    "pytest",
+    "torch",
+]

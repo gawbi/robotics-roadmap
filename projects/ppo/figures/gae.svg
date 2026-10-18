@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>GAE: TD error δ 를 γλ 의 거듭제곱으로 줄여 가며 더한다. rollout 끝에서부터 거꾸로 한 번 훑으면 모든 step 의 advantage 가 나온다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="30" y="36" fill="#e2e8f0" font-size="14">δ<tspan baseline-shift="sub" font-size="12">t</tspan> = r<tspan baseline-shift="sub" font-size="12">t</tspan> + γV(s<tspan baseline-shift="sub" font-size="12">t+1</tspan>) − V(s<tspan baseline-shift="sub" font-size="12">t</tspan>),   γ = 0.99, λ = 0.95, γλ = 0.9405</text>
+
+  <!-- step columns -->
+  <g fill="#94a3b8" font-size="14" text-anchor="middle">
+    <text x="150" y="76">step 0</text><text x="300" y="76">step 1</text><text x="450" y="76">step 2 (마지막)</text>
+  </g>
+  <g fill="#111a2e" stroke="#38bdf8" stroke-width="2">
+    <rect x="100" y="88" width="100" height="40" rx="8"/><rect x="250" y="88" width="100" height="40" rx="8"/><rect x="400" y="88" width="100" height="40" rx="8"/>
+  </g>
+  <g fill="#e2e8f0" font-size="14" text-anchor="middle">
+    <text x="150" y="113">δ = 0.5</text><text x="300" y="113">δ = −0.2</text><text x="450" y="113">δ = 0.3</text>
+  </g>
+  <text x="30" y="113" fill="#38bdf8" font-size="13">TD error</text>
+
+  <!-- backward recursion -->
+  <g fill="#111a2e" stroke="#34d399" stroke-width="2">
+    <rect x="100" y="176" width="100" height="40" rx="8"/><rect x="250" y="176" width="100" height="40" rx="8"/><rect x="400" y="176" width="100" height="40" rx="8"/>
+  </g>
+  <g fill="#e2e8f0" font-size="14" text-anchor="middle">
+    <text x="150" y="201">Â = 0.577</text><text x="300" y="201">Â = 0.082</text><text x="450" y="201">Â = 0.3</text>
+  </g>
+  <text x="30" y="201" fill="#34d399" font-size="13">advantage</text>
+  <line x1="450" y1="128" x2="450" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="300" y1="128" x2="300" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="150" y1="128" x2="150" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M400 196 H358" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M250 196 H208" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="375" y="160" fill="#f59e0b" font-size="13" text-anchor="middle">× γλ</text>
+  <text x="225" y="160" fill="#f59e0b" font-size="13" text-anchor="middle">× γλ</text>
+
+  <text x="300" y="248" fill="#e2e8f0" font-size="14" text-anchor="middle">Â<tspan baseline-shift="sub" font-size="12">t</tspan> = δ<tspan baseline-shift="sub" font-size="12">t</tspan> + γλ · Â<tspan baseline-shift="sub" font-size="12">t+1</tspan>   (episode 경계에서는 뒤 항을 0 으로 끊는다)</text>
+  <text x="300" y="272" fill="#94a3b8" font-size="13" text-anchor="middle">0.3 → −0.2 + 0.9405 × 0.3 = 0.082 → 0.5 + 0.9405 × 0.082 = 0.577</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>training loop 의 한 step. batch 를 꺼내 forward 와 loss 를 계산하고, gradient 를 0 으로 되돌린 뒤 backward 하고 optimizer 로 parameter 를 고친다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="17" y="38" width="176" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="105" y="63" fill="#e2e8f0" font-size="15" text-anchor="middle">1. batch 꺼내기</text>
+  <text x="105" y="86" fill="#38bdf8" font-size="13" text-anchor="middle">x, y = next(loader)</text>
+  <rect x="212" y="38" width="176" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="300" y="63" fill="#e2e8f0" font-size="15" text-anchor="middle">2. forward</text>
+  <text x="300" y="86" fill="#38bdf8" font-size="13" text-anchor="middle">logits = model(x)</text>
+  <rect x="407" y="38" width="176" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="495" y="63" fill="#e2e8f0" font-size="15" text-anchor="middle">3. loss 계산</text>
+  <text x="495" y="86" fill="#38bdf8" font-size="13" text-anchor="middle">cross_entropy(logits, y)</text>
+  <rect x="312" y="168" width="176" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="400" y="193" fill="#e2e8f0" font-size="15" text-anchor="middle">4. gradient 계산</text>
+  <text x="400" y="216" fill="#38bdf8" font-size="13" text-anchor="middle">zero_grad(); backward()</text>
+  <rect x="112" y="168" width="176" height="64" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="200" y="193" fill="#e2e8f0" font-size="15" text-anchor="middle">5. parameter 수정</text>
+  <text x="200" y="216" fill="#38bdf8" font-size="13" text-anchor="middle">optimizer.step()</text>
+  <line x1="193" y1="70" x2="210" y2="70" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="388" y1="70" x2="405" y2="70" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="480" y1="102" x2="420" y2="166" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="310" y1="200" x2="290" y2="200" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="180" y1="166" x2="120" y2="104" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="300" y="272" fill="#94a3b8" font-size="13" text-anchor="middle">다섯 단계를 batch 마다 되풀이하고, train set 을 한 바퀴 다 돌면 epoch 하나다</text>
+  <text x="300" y="294" fill="#94a3b8" font-size="13" text-anchor="middle">batch 크기를 128 로 두면 MNIST train 60,000 장의 epoch 하나가 469 step 이다</text>
+</svg>

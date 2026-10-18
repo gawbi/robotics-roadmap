@@ -20,14 +20,21 @@ papers:
 
 ## 배경
 
-Behavior Cloning 의 MLP 는 MSE 로 학습했는데, MSE 를 최소로 만드는 출력은 그 관측에서 나온 정답들의 평균
-$\mathbb{E}[a \mid o]$ 다. 같은 장면에서 시연자가 어떤 때는 물체 왼쪽으로, 어떤 때는 오른쪽으로 돌아갔다면 policy 는 그
-가운데로 곧장 들어가는데, 그 가운데 경로는 어느 시연에도 없던 잘못된 행동이다. 한 관측에 정답이 여럿인 이런 시연을
-multimodal 하다고 부른다.
+### multimodal 시연과 MSE
 
-Google 의 RT-1(2022) 은 action 을 regression 하지 않고 분류 문제로 바꿨다. action 의 각 차원을 범위 안에서 균등한 256 개
-bin 으로 나누고, 차원마다 256-way softmax 를 cross-entropy 로 학습한다. softmax 는 떨어진 두 bin 에 확률을 동시에 줄 수
-있어서 두 갈래 시연을 평균으로 뭉개지 않는다.
+[Behavior Cloning](../behavior-cloning/README.md) 의 MLP 는 MSE 로 학습했는데, MSE 를 최소로 만드는 출력은 그 관측에서 나온
+정답들의 평균 $\mathbb{E}[a \mid o]$ 다. 같은 장면에서 시연자가 어떤 때는 물체 왼쪽으로, 어떤 때는 오른쪽으로 돌아갔다면
+policy 는 그 가운데로 곧장 들어가는데, 그 가운데 경로는 어느 시연에도 없던 잘못된 행동이다. 왼쪽으로 도는 첫 action 을
+−1, 오른쪽을 +1 이라 하고 두 시연이 반반이면 평균은 0 이다. 한 관측에 정답이 여럿인 이런 시연을 multimodal 하다고 부른다.
+
+![같은 장면에서 시연이 장애물 왼쪽과 오른쪽으로 갈라지면 MSE 의 최적 출력은 두 정답의 평균인 직진이 되어 장애물에 부딪힌다](figures/multimodal.svg)
+
+### action binning 과 분류
+
+Google 의 RT-1(2022)은 action 을 regression 하지 않고 분류 문제로 바꿨다. action 의 각 차원 $d$ 를 범위
+$[a^{(d)}_{\min}, a^{(d)}_{\max}]$ 안에서 균등한 256 개 구간(bin)으로 나누고, 연속값 $a^{(d)}$ 대신 그 값이 들어간 bin 번호
+$b^{(d)}$ 를 정답으로 삼는다. 모델은 차원마다 256 개 점수(logits)를 내고, softmax 로 바꾼 256 개 확률 가운데 정답 bin 의
+확률을 키우도록 cross-entropy 로 학습한다.
 
 $$
 b^{(d)} = \min\!\Big(255,\ \Big\lfloor 256\cdot\frac{a^{(d)} - a^{(d)}_{\min}}{a^{(d)}_{\max} - a^{(d)}_{\min}} \Big\rfloor\Big),
@@ -35,11 +42,36 @@ b^{(d)} = \min\!\Big(255,\ \Big\lfloor 256\cdot\frac{a^{(d)} - a^{(d)}_{\min}}{a
 \mathcal{L} = -\sum_{d} \log p_\theta\big(b^{(d)} \mid o\big)
 $$
 
+$\lfloor\cdot\rfloor$ 은 내림이고, $\min(255, \cdot)$ 은 범위 끝값 $a_{\max}$ 가 256 번이라는 없는 bin 으로 가지 않게 막는다.
+$p_\theta(b \mid o)$ 는 관측 $o$ 에서 모델이 bin $b$ 에 준 확률이다. 실행할 때는 고른 bin 의 중심값을 action 으로 쓴다.
+PushT 의 x 범위 0~512 px 를 256 칸으로 나누면 한 칸이 2 px 이고, $a = 100.7$ 은 $\lfloor 256 \times 100.7 / 512 \rfloor = 50$ 번
+bin 이 되며 되돌리면 칸의 중심 101.0 이 된다.
+
+![PushT 의 x 범위를 256 칸으로 나누면 한 칸은 2 px 이고, 100.7 은 50 번 bin 이 되어 중심값 101.0 으로 되돌아온다](figures/binning.svg)
+
+softmax 는 서로 떨어진 두 bin 에 확률을 동시에 줄 수 있어서 두 갈래 시연을 평균으로 뭉개지 않는다.
+
+### RT-1 의 구조
+
 RT-1 은 이미지 6 장의 history 를 ImageNet 사전학습 EfficientNet-B3 에 넣어 장마다 9×9 feature map, 곧 81 개 token 을
-얻고, 언어 지시는 FiLM 으로 이 encoder 에 섞는다. TokenLearner 가 81 개를 8 개로 줄여 총 48 개 token 이 8 층 decoder-only
-Transformer 로 들어가고, 출력은 11 개 action 차원의 bin 이다. 로봇 13 대로 17 개월 동안 모은 episode 13 만 개 이상으로
-학습했다. 이번 과제에서는 같은 구조를 줄여 gym-pusht 의 PushT 에 학습하고, 같은 encoder 에 regression head 를 단
-모델과 비교한다. PushT 는 원형 end-effector 로 T 자 블록을 목표 위치로 밀어 넣는 2D 과제이고, 블록을 어느 쪽으로
+얻는다. feature map 의 cell 하나는 이미지의 한 영역을 요약한 벡터라서 이것을 token 하나로 쓴다. 언어 지시는 FiLM 으로 이
+encoder 에 섞는데, FiLM 은 지시 문장의 embedding 에서 channel 마다 scale 과 bias 를 만들어 feature 를 조절하는 방식이다.
+TokenLearner 가 장마다 81 개 token 을 8 개로 줄여 총 48 개 token 이 8 층 decoder-only Transformer 로 들어가고, 출력은 11 개
+action 차원의 bin 이다. 로봇 13 대로 17 개월 동안 모은 episode 13 만 개 이상으로 학습했다.
+
+이번 과제의 mini RT-1 은 같은 생각을 줄인 모델이다. 언어 지시와 TokenLearner 는 빼고, [ResNet](../resnet/README.md) 에서 짠
+ResNet-18 의 feature map cell 을 token 으로 쓴다. 여기에 agent 위치 token 과 학습하는 action query token 2 개를 붙여
+[Transformer](../transformer/README.md) 에 넣고, query 자리의 출력 2 개에서 x·y 의 256 logits 를 각각 낸다. 같은 encoder 에
+MSE head 를 단 모델이 비교 기준(regression baseline)이다.
+
+![mini RT-1 의 데이터 흐름: feature map cell 과 agent_pos 와 action query 를 token 으로 Transformer 에 넣고, query 출력에서 256-way head 또는 MSE head 로 action 을 낸다](figures/mini-rt1.svg)
+
+### PushT 와 평가 지표
+
+PushT 는 원형 end-effector 로 T 자 블록을 목표 위치로 밀어 넣는 2D 과제다. 관측은 96×96 이미지와 agent 위치 2 개이고,
+action 은 agent 가 갈 목표 좌표 (x, y) 로 범위가 0~512 px 다. 블록이 목표 영역과 겹친 비율이 coverage 이고, gym-pusht 는
+coverage 가 95% 를 넘으면 성공으로 친다. episode 마다 가장 높았던 coverage 를 max coverage 라 하고, 여러 episode 의 평균을
+평균 max coverage 라 한다. `lerobot/pusht` dataset 은 사람이 10 fps 로 모은 206 episode, 25,650 frame 이고, 블록을 어느 쪽으로
 돌아가 밀지가 시연마다 달라서 multimodal 하다.
 
 ## 목표
@@ -56,71 +88,56 @@ torchvision 의 ImageNet weight(내 ResNet-18 에 옮겨 넣기), gym-pusht, `Le
 
 ## 준비물
 
-- Python 3.12, torch, torchvision, matplotlib
-- `pip install "lerobot[pusht]"` — gym-pusht 와 dataset loader 가 함께 설치된다
+- Python 3.12, numpy, torch, torchvision, matplotlib, pytest
+- `lerobot[pusht]` — gym-pusht 와 dataset loader 가 함께 설치된다
 - dataset: Hugging Face Hub 의 `lerobot/pusht` (206 episode, 25,650 frame, 10 fps, 96×96 이미지, 2 차원 state·action)
+- ResNet 과제의 ResNet-18 과 Transformer 과제의 Transformer 코드
 - 8 GB GPU 로 충분
 
 ## 진행 순서
 
-1. `LeRobotDataset("lerobot/pusht")` 로 데이터를 읽고 action 범위와 episode 길이를 확인한다
-2. action 을 차원별 256 bin 으로 바꾸는 `ActionBinner` 와 bin 중심값으로 되돌리는 역변환을 짠다
-3. 최근 2 frame 의 이미지를 ResNet-18 feature map token 으로 바꾸고 agent_pos token 과 시간·위치 embedding 을 붙인다
-4. 학습 가능한 action query token 2 개를 덧붙여 Transformer 에 넣고, 각 query 출력에서 256 logits 를 내는 head 를 단다
-5. 같은 encoder 위에 MSE head 를 단 regression baseline 을 만든다
-6. 두 모델을 같은 step·batch·optimizer 로 학습한다
-7. gym-pusht 에서 모델마다 50 episode 를 돌려 성공률과 평균 max coverage 를 잰다
-8. 시연이 갈라지는 초기 상태 하나를 골라 두 모델의 action 분포와 반복 rollout 궤적을 그린다
+1. `data.py` 에서 `LeRobotDataset("lerobot/pusht")` 로 데이터를 읽고 action 범위와 episode 길이를 확인한 뒤, 최근 2 frame 의
+   이미지·agent_pos 와 그 시점의 action 을 한 샘플로 묶는다
+2. `binning.py` 의 `ActionBinner` 에 차원별 256 bin 의 `encode` 와 bin 중심값으로 되돌리는 `decode` 를 짠다. 위의 100.7 → 50
+   → 101.0 예시가 그대로 나오고, 임의의 action 을 encode·decode 한 오차가 1 px 이하인지 `test_binning.py` 에 test 로 적는다
+3. `rt1.py` 의 `ImageTokenizer` 로 최근 2 frame 의 이미지를 ResNet-18 feature map token 으로 바꾸고 위치·시간 embedding 을
+   붙인다. 출력 shape 이 (B, 2·h·w, d_model) 인지 확인한다
+4. `MiniRT1` 에서 image token 뒤에 agent_pos 를 Linear 로 옮긴 token 하나와 학습하는 action query token 2 개를 덧붙여
+   Transformer 에 넣고, 각 query 출력에서 256 logits 를 내는 head 를 단다. `act` 는 argmax 나 sampling 으로 고른 bin 을 `ActionBinner.decode` 로 되돌린다
+5. 같은 encoder 위에 MSE head 를 단 `RegressionPolicy` 를 만든다
+6. `train.py` 로 두 모델을 같은 step·batch·optimizer 로 학습한다
+7. `eval_pusht.py` 의 `evaluate` 로 gym-pusht 에서 모델마다 50 episode 를 돌려 성공률과 평균 max coverage 를 재고, 결과 표를
+   `results/` 에 저장한다
+8. 시연이 갈라지는 초기 상태 하나를 골라 두 모델의 action 분포와 반복 rollout 궤적을 그려 `results/` 에 저장하고 커밋한다
 
 ## 시작점
 
+아래 파일은 모두 리포에 들어 있다.
+
 ```text
 rt1/
-├── data.py          # LeRobotDataset + 2-frame history
+├── pyproject.toml   # 이 과제의 Python 버전과 패키지
+├── uv.lock
+├── data.py          # LeRobotDataset + 2 frame history
 ├── binning.py       # ActionBinner
-├── model.py         # ImageTokenizer, MiniRT1, RegressionPolicy
-├── train.py
-└── eval_pusht.py    # success, max coverage, multimodal plots
+├── rt1.py           # ImageTokenizer, MiniRT1, RegressionPolicy
+├── train.py         # 두 모델 학습
+├── eval_pusht.py    # evaluate: 성공률, max coverage, multimodal 그림
+└── test_binning.py  # ActionBinner 의 encode·decode 오차를 직접 쓰는 test
 ```
 
-```python
-import numpy as np
-import torch
-from torch import nn
+class·method·함수는 몸통이 `raise NotImplementedError` 인 stub 이고, 이름과 signature 는 그대로 둔 채 몸통을 채운다.
+`data.py` 에는 정해진 signature 가 없어서 dataset 을 만드는 함수를 직접 정한다. [rt1.py](rt1.py) 첫머리에서 Transformer
+과제 폴더를 `sys.path` 에 더해 `EncoderLayer` 를, [train.py](train.py) 첫머리에서 ResNet 과제 폴더를 더해 `resnet18`·
+`load_torchvision_weights` 를 import 해 두었다. 채점용 test 는 없어서 평가 기준은 [test_binning.py](test_binning.py) 에 직접 쓴
+test 와 `results/` 에 저장한 평가 표·그림으로 확인한다. 패키지는 `pyproject.toml` 에 있고, 이 폴더에서
+`uv run` 을 처음 실행할 때 `.venv/` 에 설치된다.
 
-
-class ActionBinner:
-    def __init__(self, low: np.ndarray, high: np.ndarray, n_bins: int = 256) -> None: ...
-    def encode(self, action: torch.Tensor) -> torch.Tensor:
-        """(B, D) float -> (B, D) long in [0, n_bins)."""
-    def decode(self, bins: torch.Tensor) -> torch.Tensor:
-        """(B, D) long -> (B, D) bin centers."""
-
-
-class ImageTokenizer(nn.Module):
-    def __init__(self, backbone: nn.Module, feat_channels: int, d_model: int) -> None: ...
-    def forward(self, images: torch.Tensor) -> torch.Tensor:
-        """(B, T_obs, 3, H, W) -> (B, T_obs * h * w, d_model), one token per feature-map cell."""
-
-
-class MiniRT1(nn.Module):
-    def __init__(self, tokenizer: ImageTokenizer, d_model: int = 256, n_layers: int = 6,
-                 action_dim: int = 2, n_bins: int = 256) -> None: ...
-    def forward(self, images: torch.Tensor, agent_pos: torch.Tensor) -> torch.Tensor:
-        """returns logits (B, action_dim, n_bins)."""
-    @torch.no_grad()
-    def act(self, images: torch.Tensor, agent_pos: torch.Tensor, sample: bool = False) -> torch.Tensor:
-        """argmax (or sampled) bins -> continuous action (B, action_dim)."""
-
-
-class RegressionPolicy(nn.Module):
-    def __init__(self, tokenizer: ImageTokenizer, d_model: int = 256, n_layers: int = 6, action_dim: int = 2) -> None: ...
-    def forward(self, images: torch.Tensor, agent_pos: torch.Tensor) -> torch.Tensor:
-        """returns action (B, action_dim)."""
-
-
-def evaluate(policy: nn.Module, n_episodes: int = 50, seed: int = 0) -> dict[str, float]:
-    """gym_pusht/PushT-v0 rollouts -> {'success_rate': ..., 'avg_max_coverage': ...}."""
+```bash
+cd projects/rt1
+uv run pytest
+uv run python train.py
+uv run python eval_pusht.py
 ```
 
 ## 평가 기준
@@ -169,8 +186,17 @@ argmax 와 sampling 두 방식으로 모두 재 본다.
 
 ## 참고 자료
 
+- Anthony Brohan et al., [RT-1: Robotics Transformer for Real-World Control at Scale](https://arxiv.org/abs/2212.06817) (2022) —
+  "RT-1: Robotics Transformer" 절의 구조 설명(FiLM EfficientNet, TokenLearner, action tokenization)과 Figure 3 의 구조 그림
 - [RT-1 project page](https://robotics-transformer1.github.io/) — 구조 그림과 데이터 규모
-- 공식 TensorFlow 구현 [google-research/robotics_transformer](https://github.com/google-research/robotics_transformer), PyTorch 구현 [lucidrains/robotic-transformer-pytorch](https://github.com/lucidrains/robotic-transformer-pytorch) — 막혔을 때만 열기
+- Nur Muhammad Mahi Shafiullah et al., [Behavior Transformers: Cloning k modes with one stone](https://arxiv.org/abs/2206.11251) (2022) —
+  action 을 k-means 로 묶어 분류하고 offset 을 regression 하는 방식. multimodal 시연에서 MSE 가 실패하는 예를 그림으로 보인다
+- Pete Florence et al., [Implicit Behavioral Cloning](https://arxiv.org/abs/2109.00137) (2021) — 정답이 여럿이거나 불연속인
+  action 에서 explicit regression 이 평균을 내는 문제를 다룬다
+- Michael S. Ryoo et al., [TokenLearner: What Can 8 Learned Tokens Do for Images and Videos?](https://arxiv.org/abs/2106.11297) (2021) —
+  RT-1 이 token 81 개를 8 개로 줄이는 데 쓴 모듈
+- Mingxing Tan, Quoc V. Le, [EfficientNet](https://arxiv.org/abs/1905.11946) (2019) — RT-1 의 image encoder
+- 공식 TensorFlow 구현 [google-research/robotics_transformer](https://github.com/google-research/robotics_transformer), PyTorch 구현 [lucidrains/robotic-transformer-pytorch](https://github.com/lucidrains/robotic-transformer-pytorch) — 막혔을 때만 연다
 - [gym-pusht](https://github.com/huggingface/gym-pusht) — observation·action 정의와 성공 기준(coverage 95% 이상)
 - [lerobot/pusht](https://huggingface.co/datasets/lerobot/pusht) dataset, 기준선 모델 [lerobot/diffusion_pusht](https://huggingface.co/lerobot/diffusion_pusht)
 

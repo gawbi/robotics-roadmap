@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>temporal ensembling: 매 step 낸 chunk 가운데 지금 시각 t 를 덮는 예측들을 오래된 것부터 w₀, w₁, … 의 weight 로 가중 평균한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+    <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="71.0" fill="#e2e8f0" font-size="13" text-anchor="start">t − 3 에 낸 chunk</text>
+  <rect x="131" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="161" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="191" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="221" y="52" width="28" height="28" rx="3" fill="#f59e0b" fill-opacity="0.85"/>
+  <rect x="251" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="281" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="311" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="341" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="371" y="52" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <text x="235.0" y="71.0" fill="#e2e8f0" font-size="13" text-anchor="middle"></text>
+  <text x="472.0" y="71.0" fill="#f59e0b" font-size="13" text-anchor="start">w₀ = 1.000</text>
+  <text x="30.0" y="113.0" fill="#e2e8f0" font-size="13" text-anchor="start">t − 2 에 낸 chunk</text>
+  <rect x="161" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="191" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="221" y="94" width="28" height="28" rx="3" fill="#f59e0b" fill-opacity="0.85"/>
+  <rect x="251" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="281" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="311" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="341" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="371" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="401" y="94" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <text x="235.0" y="113.0" fill="#e2e8f0" font-size="13" text-anchor="middle"></text>
+  <text x="472.0" y="113.0" fill="#f59e0b" font-size="13" text-anchor="start">w₁ = 0.990</text>
+  <text x="30.0" y="155.0" fill="#e2e8f0" font-size="13" text-anchor="start">t − 1 에 낸 chunk</text>
+  <rect x="191" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="221" y="136" width="28" height="28" rx="3" fill="#f59e0b" fill-opacity="0.85"/>
+  <rect x="251" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="281" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="311" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="341" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="371" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="401" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="431" y="136" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <text x="235.0" y="155.0" fill="#e2e8f0" font-size="13" text-anchor="middle"></text>
+  <text x="472.0" y="155.0" fill="#f59e0b" font-size="13" text-anchor="start">w₂ = 0.980</text>
+  <text x="30.0" y="197.0" fill="#e2e8f0" font-size="13" text-anchor="start">t 에 낸 chunk</text>
+  <rect x="221" y="178" width="28" height="28" rx="3" fill="#f59e0b" fill-opacity="0.85"/>
+  <rect x="251" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="281" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="311" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="341" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="371" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="401" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="431" y="178" width="28" height="28" rx="3" fill="#38bdf8" fill-opacity="0.25"/>
+  <text x="235.0" y="197.0" fill="#e2e8f0" font-size="13" text-anchor="middle"></text>
+  <text x="472.0" y="197.0" fill="#f59e0b" font-size="13" text-anchor="start">w₃ = 0.970</text>
+  <rect x="218" y="44" width="34" height="172" rx="5" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="145.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t−3</text>
+  <text x="175.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t−2</text>
+  <text x="205.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t−1</text>
+  <text x="235.0" y="238.0" fill="#f59e0b" font-size="13" text-anchor="middle">t</text>
+  <text x="265.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+1</text>
+  <text x="295.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+2</text>
+  <text x="325.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+3</text>
+  <text x="355.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+4</text>
+  <text x="385.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+5</text>
+  <text x="415.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+6</text>
+  <text x="445.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="middle">t+7</text>
+  <text x="30.0" y="238.0" fill="#94a3b8" font-size="13" text-anchor="start">시각</text>
+  <text x="30.0" y="268.0" fill="#94a3b8" font-size="13" text-anchor="start">지금 실행할 action = Σ wᵢ · (시각 t 에 대한 i 번째 예측) / Σ wᵢ,  wᵢ = exp(−m i), m = 0.01</text>
+  <text x="30.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="start">chunk 하나의 길이는 k 지만 그림에는 앞부분만 그렸다</text>
+</svg>

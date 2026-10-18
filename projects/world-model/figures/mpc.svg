@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MPC: 매 step 길이 H 의 action sequence 를 계획하지만 첫 action 하나만 실행하고, 다음 step 에서 새 관측으로 다시 계획한다</title>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <g fill="#94a3b8" font-size="13" text-anchor="middle">
+    <text x="110" y="214">t</text><text x="140" y="214">t+1</text><text x="170" y="214">t+2</text>
+  </g>
+  <line x1="90" y1="200" x2="560" y2="200" stroke="#475569"/>
+
+  <!-- plan at t -->
+  <text x="24" y="58" fill="#e2e8f0" font-size="14">step t</text>
+  <rect x="96" y="40" width="28" height="26" fill="#34d399" fill-opacity="0.8"/>
+  <g fill="#1e293b" stroke="#38bdf8">
+    <rect x="126" y="40" width="28" height="26"/><rect x="156" y="40" width="28" height="26"/><rect x="186" y="40" width="28" height="26"/>
+    <rect x="216" y="40" width="28" height="26"/><rect x="246" y="40" width="28" height="26"/><rect x="276" y="40" width="28" height="26"/>
+    <rect x="306" y="40" width="28" height="26"/><rect x="336" y="40" width="28" height="26"/><rect x="366" y="40" width="28" height="26"/>
+    <rect x="396" y="40" width="28" height="26"/><rect x="426" y="40" width="28" height="26"/>
+  </g>
+
+  <!-- plan at t+1 -->
+  <text x="24" y="108" fill="#e2e8f0" font-size="14">step t+1</text>
+  <rect x="126" y="90" width="28" height="26" fill="#34d399" fill-opacity="0.8"/>
+  <g fill="#1e293b" stroke="#38bdf8">
+    <rect x="156" y="90" width="28" height="26"/><rect x="186" y="90" width="28" height="26"/><rect x="216" y="90" width="28" height="26"/>
+    <rect x="246" y="90" width="28" height="26"/><rect x="276" y="90" width="28" height="26"/><rect x="306" y="90" width="28" height="26"/>
+    <rect x="336" y="90" width="28" height="26"/><rect x="366" y="90" width="28" height="26"/><rect x="396" y="90" width="28" height="26"/>
+    <rect x="426" y="90" width="28" height="26"/><rect x="456" y="90" width="28" height="26"/>
+  </g>
+
+  <!-- plan at t+2 -->
+  <text x="24" y="158" fill="#e2e8f0" font-size="14">step t+2</text>
+  <rect x="156" y="140" width="28" height="26" fill="#34d399" fill-opacity="0.8"/>
+  <g fill="#1e293b" stroke="#38bdf8">
+    <rect x="186" y="140" width="28" height="26"/><rect x="216" y="140" width="28" height="26"/><rect x="246" y="140" width="28" height="26"/>
+    <rect x="276" y="140" width="28" height="26"/><rect x="306" y="140" width="28" height="26"/><rect x="336" y="140" width="28" height="26"/>
+    <rect x="366" y="140" width="28" height="26"/><rect x="396" y="140" width="28" height="26"/><rect x="426" y="140" width="28" height="26"/>
+    <rect x="456" y="140" width="28" height="26"/><rect x="486" y="140" width="28" height="26"/>
+  </g>
+
+  <g font-size="13">
+    <rect x="470" y="40" width="14" height="14" fill="#34d399" fill-opacity="0.8"/><text x="490" y="52" fill="#e2e8f0">실행</text>
+    <rect x="520" y="40" width="14" height="14" fill="#1e293b" stroke="#38bdf8"/><text x="540" y="52" fill="#e2e8f0">버림</text>
+  </g>
+  <text x="300" y="238" fill="#94a3b8" font-size="13" text-anchor="middle">한 줄이 cem_plan 이 낸 H = 12 개의 action. 첫 칸만 실행하고 나머지는 다음 계획에서 새로 정한다</text>
+</svg>

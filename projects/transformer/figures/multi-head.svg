@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 406" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>multi-head attention 의 shape 변화. 64차원을 16차원 head 4개로 나눠 따로 attention 을 하고 다시 이어 붙인다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="404" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="34" fill="#94a3b8" font-size="14">d_model = 64, n_heads = 4 → head 하나의 차원 d_k = 64 / 4 = 16</text>
+  <rect x="40" y="52" width="280" height="30" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="180" y="72" fill="#e2e8f0" font-size="14" text-anchor="middle">x : token 하나의 vector 64칸</text>
+  <text x="332" y="64" fill="#e2e8f0" font-size="14">(B, T, 64)</text>
+  <text x="332" y="80" fill="#94a3b8" font-size="13">입력</text>
+  <line x1="180" y1="84" x2="180" y2="106" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="101" fill="#94a3b8" font-size="13">W_Q · W_K · W_V (Linear 64 → 64)</text>
+  <rect x="40.0" y="110" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="110.0" y="110" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="180.0" y="110" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="250.0" y="110" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="332" y="123.0" fill="#e2e8f0" font-size="14">(B, T, 64)</text>
+  <text x="332" y="140.0" fill="#94a3b8" font-size="13">Q, K, V 각각</text>
+  <line x1="180" y1="142" x2="180" y2="164" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="159" fill="#94a3b8" font-size="13">view → transpose</text>
+  <rect x="40" y="168" width="64" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="72" y="188" fill="#38bdf8" font-size="13" text-anchor="middle">head 1</text>
+  <line x1="72" y1="200" x2="72" y2="222" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="226" width="64" height="44" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="72" y="245" fill="#e2e8f0" font-size="13" text-anchor="middle">attention</text>
+  <text x="72" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">16차원</text>
+  <rect x="112" y="168" width="64" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="144" y="188" fill="#f59e0b" font-size="13" text-anchor="middle">head 2</text>
+  <line x1="144" y1="200" x2="144" y2="222" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="112" y="226" width="64" height="44" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="144" y="245" fill="#e2e8f0" font-size="13" text-anchor="middle">attention</text>
+  <text x="144" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">16차원</text>
+  <rect x="184" y="168" width="64" height="30" rx="3" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="216" y="188" fill="#34d399" font-size="13" text-anchor="middle">head 3</text>
+  <line x1="216" y1="200" x2="216" y2="222" stroke="#34d399" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="184" y="226" width="64" height="44" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="216" y="245" fill="#e2e8f0" font-size="13" text-anchor="middle">attention</text>
+  <text x="216" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">16차원</text>
+  <rect x="256" y="168" width="64" height="30" rx="3" fill="#111a2e" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="288" y="188" fill="#c084fc" font-size="13" text-anchor="middle">head 4</text>
+  <line x1="288" y1="200" x2="288" y2="222" stroke="#c084fc" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="256" y="226" width="64" height="44" rx="6" fill="#111a2e" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="288" y="245" fill="#e2e8f0" font-size="13" text-anchor="middle">attention</text>
+  <text x="288" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">16차원</text>
+  <text x="332" y="184" fill="#e2e8f0" font-size="14">(B, 4, T, 16)</text>
+  <text x="332" y="200" fill="#94a3b8" font-size="13">head 축을 앞으로</text>
+  <text x="332" y="245" fill="#e2e8f0" font-size="14">head 마다 따로</text>
+  <text x="332" y="262" fill="#94a3b8" font-size="13">scaled dot-product attention</text>
+  <line x1="180" y1="272" x2="180" y2="294" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="289" fill="#94a3b8" font-size="13">transpose → 이어 붙이기</text>
+  <rect x="40.0" y="298" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="110.0" y="298" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="180.0" y="298" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="250.0" y="298" width="70.0" height="30" rx="3" fill="#111a2e" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="332" y="311.0" fill="#e2e8f0" font-size="14">(B, T, 64)</text>
+  <text x="332" y="328.0" fill="#94a3b8" font-size="13">head 4개의 출력</text>
+  <line x1="180" y1="330" x2="180" y2="352" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="347" fill="#94a3b8" font-size="13">W_O (Linear 64 → 64)</text>
+  <rect x="40" y="356" width="280" height="30" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="180" y="376" fill="#e2e8f0" font-size="14" text-anchor="middle">multi-head attention 출력</text>
+  <text x="332" y="376" fill="#e2e8f0" font-size="14">(B, T, 64)</text>
+</svg>

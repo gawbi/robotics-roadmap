@@ -23,21 +23,22 @@ argument-hint: <과제 id>
 
 1. 인자로 받은 과제 id 의 `projects/<id>/README.md` 를 읽는다. id 가 없으면 progress.yaml 에서 `in_progress` 인 과제를
    보여 주고 고르게 한다.
-2. 제출물은 `projects/<id>/` 에서 `README.md`·`EVALUATION.md`·`tests/` 를 뺀 파일이고, stub 이 주어진 과제는 학습자가
-   채운 stub 파일도 여기에 든다. 학습자가 다른 리포나 경로에 이미 구현해 둔 것이 있다고 하면 그 위치를 제출물로 보고,
+2. 제출물은 `projects/<id>/` 에서 `README.md`·`EVALUATION.md`·`tests/`·`figures/` 를 뺀 파일이고, 학습자가 채운 stub
+   파일도 여기에 든다. `pyproject.toml`·`uv.lock` 은 과제 환경이라 제출물 판정에서 뺀다. 학습자가 다른 리포나 경로에 이미 구현해 둔 것이 있다고 하면 그 위치를 제출물로 보고,
    기록과 progress.yaml 의 `evidence` 에 남긴다.
 3. `git status --porcelain -- projects/<id>` 에 변경이 있으면 커밋부터 요청하고 멈춘다. 평가할 commit 은
    `git rev-parse --short HEAD` 다. 다른 리포가 제출물이면 기록에는 그 리포의 commit 을 적고, progress.yaml 의 `commit` 은
    비워 둔다(지도가 `commit` 으로 이 리포의 `projects/<id>/` 를 링크하기 때문이다).
 4. 제출물이 비어 있으면 평가하지 않고 끝낸다. 커리큘럼 원본은 아래 `git fetch` 로 늘 받아 둔다(2단계의 test 비교에
-   쓴다). stub 이 주어진 과제에서 제출물이 `projects/<id>/` 이면 아래 diff 로 제출물이 원본 그대로인지 보고, 0 으로
-   끝나면(손대지 않은 stub) 역시 평가하지 않는다. 학습자 리포가 커리큘럼과 history 를 공유하지 않아 `merge-base` 가
+   쓴다). 제출물이 `projects/<id>/` 이면 아래 diff 로 제출물이 원본 그대로인지 보고, 0 으로 끝나면(손대지 않은 stub)
+   역시 평가하지 않는다. 학습자 리포가 커리큘럼과 history 를 공유하지 않아 `merge-base` 가
    실패하면 `FETCH_HEAD` 와 바로 비교한다.
 
    ```bash
    git fetch --quiet https://github.com/woolimi/physical-ai-from-scratch.git main
    git diff --quiet "$(git merge-base HEAD FETCH_HEAD || echo FETCH_HEAD)" HEAD -- projects/<id> \
-     ':!projects/<id>/tests' ':!projects/<id>/README.md' ':!projects/<id>/EVALUATION.md'
+     ':!projects/<id>/tests' ':!projects/<id>/README.md' ':!projects/<id>/EVALUATION.md' ':!projects/<id>/figures' \
+     ':!projects/<id>/pyproject.toml' ':!projects/<id>/uv.lock'
    ```
 
 ### 2. 규칙 검사
@@ -66,9 +67,12 @@ git checkout --no-overlay FETCH_HEAD -- projects/<id>/tests
 "평가 기준" 의 항목을 하나씩 판정한다.
 
 - **실행 확인**: 이 자리에서 돌릴 수 있는 항목은 제출된 test·script 를 실행하고, 명령과 핵심 출력을 근거로 남긴다.
-  채점용 `tests/` 가 있으면 `pytest projects/<id>/tests` 부터 돌려 passed·failed 수를 남긴다. 학습자가 `tests/` 밖에 쓴
-  test 는 따로 돌려 해당 `(선택)` 항목의 근거로만 쓴다. 제출물이 다른 위치에 있어 채점용 test 를 그대로 돌릴 수 없으면
-  test 가 확인하는 내용을 평가용 script 로 확인한다.
+  명령은 학습자와 같이 과제 폴더를 cwd 로 두고 그 폴더의 환경에서 돌도록 `uv run --directory projects/<id> <명령>` 으로
+  실행한다. 채점용 `tests/` 가 있으면 `uv run --directory projects/<id> pytest tests` 부터 돌려 passed·failed 수를 남기고,
+  학습자가 `tests/` 밖에 쓴 test 는 따로 돌려 해당 `(선택)` 항목의 근거로만 쓴다. 채점용 `tests/` 가 없는 과제는 학습자가
+  쓴 `test_*.py` 가 평가 기준을 확인하는 test 이므로, 그 test 가 기준이 요구하는 내용을 실제로 확인하는지 읽어 본 뒤 돌린
+  결과를 해당 항목의 근거로 쓴다. 제출물이 다른 위치에 있어 채점용 test 를 그대로 돌릴 수 없으면 test 가 확인하는 내용을
+  평가용 script 로 확인한다.
   제출물에 없는 확인 코드가 필요하면 평가용 script 를 scratch 위치에 따로 써서 돌리고, 학습자 리포에는 넣지 않는다.
 - **기록 확인**: GPU 학습, 실물 로봇, 수 시간 걸리는 rollout 처럼 이 자리에서 돌릴 수 없는 항목은 제출된 기록물(log,
   결과 표, 그래프, 영상, W&B 링크)로 판정한다. 기록물의 조건(seed, 데이터, step 수)이 기준과 같은지도 확인한다.
@@ -111,7 +115,7 @@ commit 에서 처음부터 다시 하고, 구두 질문은 같은 원리를 다�
 
 | 기준 | 판정 | 근거 |
 | --- | --- | --- |
-| `pytest projects/autograd/tests` 전부 통과 | 통과 | 23 passed, `tests/` 는 원본과 같음 |
+| `uv run pytest tests` 전부 통과 | 통과 | 23 passed, `tests/` 는 원본과 같음 |
 | (선택) make_moons decision boundary | 미흡 | 제출물에 없음 |
 
 ### 구두 평가

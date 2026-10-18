@@ -1,0 +1,33 @@
+# 실물 과제 설정. run_trials.py 가 읽는다. LeRobot 명령에는 같은 값을 --robot.port·--robot.id·--teleop.port·--teleop.id·
+# --robot.cameras 인자로 넘긴다.
+
+robot:
+  port: /dev/ttyACM0         # follower 팔의 USB 포트. `uv run lerobot-find-port` 로 찾는다
+  id: my_follower            # calibration 파일 이름. teleop·기록·추론에서 같은 값을 쓴다
+
+leader:
+  port: /dev/ttyACM1
+  id: my_leader
+
+cameras:                     # 이름은 dataset 의 observation.images.<이름> 이 된다
+  front:
+    type: opencv             # LeRobot 의 camera config 종류
+    index_or_path: 0         # `uv run lerobot-find-cameras opencv` 로 찾는다
+    width: 640
+    height: 480
+    fps: 30
+  wrist:
+    type: opencv
+    index_or_path: 1
+    width: 640
+    height: 480
+    fps: 30
+
+fps: 30                      # 기록과 추론 제어 루프의 주기
+task: "Pick up the cube and place it in the box."   # dataset 에 함께 기록하는 과제 문장
+
+layouts:                     # 20 개 초기 배치. 물체 위치와 사진 경로를 적는다
+  - id: 0
+    object_xy_cm: [0, 0]     # 작업대에 표시한 기준점에서의 위치
+    seen_in_training: true   # 시연을 모은 위치 5 곳 가운데 하나인지
+    photo: results/layouts/00.jpg

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 336" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>loss L(w) 위에서 gradient descent 가 움직이는 모습. learning rate 가 작으면 최솟값으로 다가가고, 크면 최솟값을 넘어 점점 멀어진다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="334" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="10" y="44" width="280" height="250" rx="8" fill="#0e1628" stroke="#1e293b"/>
+  <text x="150" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">learning rate 가 작을 때</text>
+  <polyline points="43.1,117.9 46.7,128.0 50.3,137.7 53.9,147.1 57.5,156.1 61.1,164.8 64.7,173.2 68.3,181.2 71.9,188.8 75.5,196.1 79.1,203.1 82.7,209.7 86.3,216.0 89.9,221.9 93.5,227.5 97.1,232.8 100.7,237.7 104.3,242.2 107.9,246.4 111.5,250.3 115.1,253.8 118.7,257.0 122.3,259.8 125.9,262.3 129.5,264.4 133.1,266.2 136.7,267.6 140.3,268.7 143.9,269.5 147.5,269.9 151.1,270.0 154.7,269.7 158.3,269.1 161.9,268.1 165.5,266.8 169.1,265.2 172.7,263.1 176.3,260.8 179.9,258.1 183.5,255.1 187.1,251.7 190.7,248.0 194.3,243.9 197.9,239.5 201.5,234.7 205.1,229.6 208.7,224.2 212.3,218.4 215.9,212.2 219.5,205.8 223.1,198.9 226.7,191.8 230.3,184.2 233.9,176.4 237.5,168.2 241.1,159.6 244.7,150.7 248.3,141.5 251.9,131.9 255.5,121.9 259.1,111.7" fill="none" stroke="#475569" stroke-width="2"/>
+  <line x1="22" y1="270" x2="278" y2="270" stroke="#475569" stroke-width="1"/>
+  <text x="272" y="288" fill="#94a3b8" font-size="14" text-anchor="end">w</text>
+  <text x="150.0" y="288" fill="#64748b" font-size="13" text-anchor="middle">최솟값</text>
+  <line x1="150.0" y1="266" x2="150.0" y2="274" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="55.9" y1="149.8" x2="96.8" y2="229.9" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="107.3" y1="244.2" x2="119.0" y2="255.7" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <circle cx="51.8" cy="141.8" r="6" fill="#f59e0b"/>
+  <circle cx="100.9" cy="237.9" r="6" fill="#f59e0b"/>
+  <circle cx="125.5" cy="262.0" r="6" fill="#f59e0b"/>
+  <circle cx="137.7" cy="268.0" r="6" fill="#f59e0b"/>
+  <text x="41.8" y="146.8" fill="#e2e8f0" font-size="13" text-anchor="end">w₀</text>
+  <text x="150" y="316" fill="#94a3b8" font-size="13" text-anchor="middle">한 step 마다 최솟값에 조금씩 다가간다</text>
+  <rect x="310" y="44" width="280" height="250" rx="8" fill="#0e1628" stroke="#1e293b"/>
+  <text x="450" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">learning rate 가 클 때</text>
+  <polyline points="343.1,117.9 346.7,128.0 350.3,137.7 353.9,147.1 357.5,156.1 361.1,164.8 364.7,173.2 368.3,181.2 371.9,188.8 375.5,196.1 379.1,203.1 382.7,209.7 386.3,216.0 389.9,221.9 393.5,227.5 397.1,232.8 400.7,237.7 404.3,242.2 407.9,246.4 411.5,250.3 415.1,253.8 418.7,257.0 422.3,259.8 425.9,262.3 429.5,264.4 433.1,266.2 436.7,267.6 440.3,268.7 443.9,269.5 447.5,269.9 451.1,270.0 454.7,269.7 458.3,269.1 461.9,268.1 465.5,266.8 469.1,265.2 472.7,263.1 476.3,260.8 479.9,258.1 483.5,255.1 487.1,251.7 490.7,248.0 494.3,243.9 497.9,239.5 501.5,234.7 505.1,229.6 508.7,224.2 512.3,218.4 515.9,212.2 519.5,205.8 523.1,198.9 526.7,191.8 530.3,184.2 533.9,176.4 537.5,168.2 541.1,159.6 544.7,150.7 548.3,141.5 551.9,131.9 555.5,121.9 559.1,111.7" fill="none" stroke="#475569" stroke-width="2"/>
+  <line x1="322" y1="270" x2="578" y2="270" stroke="#475569" stroke-width="1"/>
+  <text x="572" y="288" fill="#94a3b8" font-size="14" text-anchor="end">w</text>
+  <text x="450.0" y="288" fill="#64748b" font-size="13" text-anchor="middle">최솟값</text>
+  <line x1="450.0" y1="266" x2="450.0" y2="274" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="393.4" y1="211.5" x2="519.7" y2="189.5" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="519.7" y1="186.1" x2="364.6" y2="153.6" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="364.5" y1="149.6" x2="554.4" y2="102.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <circle cx="384.5" cy="213.0" r="6" fill="#f59e0b"/>
+  <circle cx="528.5" cy="187.9" r="6" fill="#f59e0b"/>
+  <circle cx="355.7" cy="151.8" r="6" fill="#f59e0b"/>
+  <circle cx="563.1" cy="99.8" r="6" fill="#f59e0b"/>
+  <text x="374.5" y="218.0" fill="#e2e8f0" font-size="13" text-anchor="end">w₀</text>
+  <text x="450" y="316" fill="#94a3b8" font-size="13" text-anchor="middle">최솟값을 넘어 반대편으로 더 멀리 튄다</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>mini RT-1 의 데이터 흐름: 두 frame 의 feature map cell 과 agent_pos 를 token 으로 만들고, action query token 의 Transformer 출력에서 차원마다 256 logits 를 낸다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+    <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="30.0" y="30.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="105.0" y="51.5" fill="#e2e8f0" font-size="14" text-anchor="middle">이미지 2 frame</text>
+  <text x="105.0" y="70.5" fill="#94a3b8" font-size="13" text-anchor="middle">(B, 2, 3, 96, 96)</text>
+  <line x1="182.0" y1="56.0" x2="206.0" y2="56.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210.0" y="30.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="285.0" y="51.5" fill="#e2e8f0" font-size="14" text-anchor="middle">내 ResNet-18</text>
+  <text x="285.0" y="70.5" fill="#94a3b8" font-size="13" text-anchor="middle">앞부분 layer 까지</text>
+  <line x1="362.0" y1="56.0" x2="386.0" y2="56.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="390.0" y="30.0" width="180.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="480.0" y="51.5" fill="#e2e8f0" font-size="14" text-anchor="middle">feature map → token</text>
+  <text x="480.0" y="70.5" fill="#94a3b8" font-size="13" text-anchor="middle">cell 하나가 token 하나</text>
+  <rect x="30.0" y="104.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="105.0" y="125.5" fill="#e2e8f0" font-size="14" text-anchor="middle">agent_pos 2 frame</text>
+  <text x="105.0" y="144.5" fill="#94a3b8" font-size="13" text-anchor="middle">linear → token</text>
+  <rect x="210.0" y="104.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="285.0" y="125.5" fill="#e2e8f0" font-size="14" text-anchor="middle">action query</text>
+  <text x="285.0" y="144.5" fill="#94a3b8" font-size="13" text-anchor="middle">학습하는 token 2 개</text>
+  <line x1="480.0" y1="84.0" x2="480.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="390.0" y="104.0" width="180.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="480.0" y="125.5" fill="#e2e8f0" font-size="14" text-anchor="middle">+ 위치·시간 embedding</text>
+  <text x="480.0" y="144.5" fill="#94a3b8" font-size="13" text-anchor="middle">2D 위치, frame 순서</text>
+  <path d="M105,158 L105,180 L495,180 L495,158 M285,158 L285,180" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="300.0" y1="180.0" x2="300.0" y2="200.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="150.0" y="204.0" width="300.0" height="46.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="300.0" y="232.0" fill="#e2e8f0" font-size="14" text-anchor="middle">Transformer (d_model 256, 6 layer)</text>
+  <line x1="300.0" y1="252.0" x2="300.0" y2="274.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="170.0" y="278.0" width="260.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="300.0" y="303.0" fill="#e2e8f0" font-size="14" text-anchor="middle">action query 위치의 출력 2 개</text>
+  <line x1="240.0" y1="320.0" x2="150.0" y2="344.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="360.0" y1="320.0" x2="450.0" y2="344.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40.0" y="348.0" width="220.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="150.0" y="373.0" fill="#e2e8f0" font-size="14" text-anchor="middle">MiniRT1: 256-way head × 2</text>
+  <rect x="340.0" y="348.0" width="230.0" height="40.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="455.0" y="373.0" fill="#e2e8f0" font-size="14" text-anchor="middle">RegressionPolicy: MSE head</text>
+</svg>

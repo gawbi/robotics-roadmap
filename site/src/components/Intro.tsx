@@ -46,7 +46,9 @@ export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props)
         <li>
           <strong>리포를 fork 해서 직접 구현</strong>
           <span>
-            <code>projects/&lt;과제&gt;/</code> 폴더에 코드를 둡니다. 정답 코드는 막혔을 때만 참고 자료에서 엽니다.
+            <code>projects/&lt;과제&gt;/</code> 에 들어 있는 stub 의 함수 몸통을 채웁니다. 과제 폴더에서{' '}
+            <code>uv run</code> 으로 실행하면 그 과제의 Python 환경이 자동으로 준비됩니다. 정답 코드는 막혔을 때만 참고
+            자료에서 엽니다.
           </span>
         </li>
         <li>
@@ -58,7 +60,8 @@ export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props)
         </li>
       </ol>
       <p className="intro-note">
-        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. fork 의 진행 기록은 주소 뒤에 <code>?from=계정/리포</code> 를 붙여
+        fork·Python 환경·Claude Code 준비와 과제 하나의 진행 순서는 GitHub 리포의 README 에 있습니다. 선수 관계는 권장
+        순서일 뿐 잠금이 아닙니다. fork 의 진행 기록은 주소 뒤에 <code>?from=계정/리포</code> 를 붙여
         지도로 공유할 수 있습니다. 평가 없이 쓸 때는 과제 창에서 직접 완료로 표시하고, 그 기록은 이 브라우저에만
         저장됩니다.
       </p>

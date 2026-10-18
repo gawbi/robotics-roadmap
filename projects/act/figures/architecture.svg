@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ACT 의 구조: 학습 때만 쓰는 CVAE encoder 가 시연 action chunk 를 style 변수 z 로 압축하고, policy 는 카메라 token·관절 token·z token 을 Transformer encoder 에, 고정 query 100 개를 decoder 에 넣어 (100, 14) action chunk 를 낸다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+    <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="20" width="200" height="300" rx="10" fill="none" stroke="#f59e0b" stroke-dasharray="6 5"/>
+  <text x="120.0" y="42.0" fill="#f59e0b" font-size="13" text-anchor="middle">CVAE encoder (학습 때만)</text>
+  <rect x="36.0" y="56.0" width="168.0" height="64.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="120.0" y="74.0" fill="#e2e8f0" font-size="14" text-anchor="middle">입력 token 102 개</text>
+  <text x="120.0" y="93.0" fill="#94a3b8" font-size="13" text-anchor="middle">[CLS] 1 · 관절 1</text>
+  <text x="120.0" y="112.0" fill="#94a3b8" font-size="13" text-anchor="middle">· 시연 action 100</text>
+  <line x1="120.0" y1="122.0" x2="120.0" y2="142.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="36.0" y="146.0" width="168.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="120.0" y="164.5" fill="#e2e8f0" font-size="14" text-anchor="middle">Transformer encoder</text>
+  <text x="120.0" y="183.5" fill="#94a3b8" font-size="13" text-anchor="middle">4 layer</text>
+  <line x1="120.0" y1="194.0" x2="120.0" y2="214.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="36.0" y="218.0" width="168.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="120.0" y="236.5" fill="#e2e8f0" font-size="14" text-anchor="middle">[CLS] 출력 → linear</text>
+  <text x="120.0" y="255.5" fill="#94a3b8" font-size="13" text-anchor="middle">μ, log σ² 각 32</text>
+  <line x1="120.0" y1="266.0" x2="120.0" y2="284.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="56.0" y="288.0" width="128.0" height="26.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="120.0" y="306.0" fill="#e2e8f0" font-size="14" text-anchor="middle">z = μ + σ ⊙ ε</text>
+  <text x="120.0" y="346.0" fill="#94a3b8" font-size="13" text-anchor="middle">추론 때는 encoder 를 버리고</text>
+  <text x="120.0" y="366.0" fill="#94a3b8" font-size="13" text-anchor="middle">z = 0 으로 고정한다</text>
+  <rect x="240" y="20" width="340" height="430" rx="10" fill="none" stroke="#38bdf8" stroke-dasharray="6 5"/>
+  <text x="410.0" y="42.0" fill="#38bdf8" font-size="13" text-anchor="middle">policy (CVAE decoder)</text>
+  <rect x="256.0" y="56.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="331.0" y="76.5" fill="#e2e8f0" font-size="14" text-anchor="middle">top 카메라</text>
+  <text x="331.0" y="95.5" fill="#94a3b8" font-size="13" text-anchor="middle">(3, 480, 640)</text>
+  <line x1="408.0" y1="81.0" x2="424.0" y2="81.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="428.0" y="56.0" width="136.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="496.0" y="76.5" fill="#e2e8f0" font-size="14" text-anchor="middle">ResNet-18</text>
+  <text x="496.0" y="95.5" fill="#94a3b8" font-size="13" text-anchor="middle">(512, 15, 20)</text>
+  <line x1="496.0" y1="108.0" x2="496.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="400.0" y="130.0" width="164.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="482.0" y="150.5" fill="#e2e8f0" font-size="14" text-anchor="middle">token 300 개</text>
+  <text x="482.0" y="169.5" fill="#94a3b8" font-size="13" text-anchor="middle">+ 2D sinusoidal 위치</text>
+  <rect x="256.0" y="130.0" width="64.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="288.0" y="150.5" fill="#e2e8f0" font-size="14" text-anchor="middle">관절</text>
+  <text x="288.0" y="169.5" fill="#94a3b8" font-size="13" text-anchor="middle">token</text>
+  <rect x="326.0" y="130.0" width="64.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="358.0" y="150.5" fill="#e2e8f0" font-size="14" text-anchor="middle">z</text>
+  <text x="358.0" y="169.5" fill="#94a3b8" font-size="13" text-anchor="middle">token</text>
+  <path d="M220,301 L232,301 L232,196 L358,196 L358,182" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M288,182 L288,206 L482,206 L482,182" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="410.0" y1="206.0" x2="410.0" y2="226.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="300.0" y="230.0" width="220.0" height="46.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="410.0" y="248.5" fill="#e2e8f0" font-size="14" text-anchor="middle">Transformer encoder</text>
+  <text x="410.0" y="267.5" fill="#94a3b8" font-size="13" text-anchor="middle">302 token, 4 layer</text>
+  <line x1="410.0" y1="278.0" x2="410.0" y2="300.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="256.0" y="304.0" width="110.0" height="50.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="311.0" y="324.5" fill="#e2e8f0" font-size="14" text-anchor="middle">고정 query</text>
+  <text x="311.0" y="343.5" fill="#94a3b8" font-size="13" text-anchor="middle">100 개</text>
+  <line x1="368.0" y1="329.0" x2="384.0" y2="329.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="388.0" y="304.0" width="176.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="476.0" y="324.5" fill="#e2e8f0" font-size="14" text-anchor="middle">Transformer decoder</text>
+  <text x="476.0" y="343.5" fill="#94a3b8" font-size="13" text-anchor="middle">encoder 출력을 참고</text>
+  <line x1="476.0" y1="356.0" x2="476.0" y2="376.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="380.0" y="380.0" width="184.0" height="50.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="472.0" y="400.5" fill="#e2e8f0" font-size="14" text-anchor="middle">linear → action chunk</text>
+  <text x="472.0" y="419.5" fill="#94a3b8" font-size="13" text-anchor="middle">(100, 14)</text>
+</svg>

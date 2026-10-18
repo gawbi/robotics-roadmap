@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>pinhole model 을 옆에서 본 그림. 3D 점은 camera 중심을 지나는 직선이 image plane 과 만나는 곳에 찍히고, 같은 직선 위의 점은 같은 pixel 에 찍힌다</title>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- optical axis -->
+  <line x1="90" y1="170" x2="575" y2="170" stroke="#475569" stroke-width="1.5"/>
+  <text x="575" y="190" fill="#94a3b8" font-size="13" text-anchor="end">z (광축)</text>
+
+  <!-- camera center -->
+  <circle cx="90" cy="170" r="7" fill="#e2e8f0"/>
+  <text x="90" y="198" fill="#e2e8f0" font-size="13" text-anchor="middle">camera 중심</text>
+
+  <!-- image plane at f -->
+  <line x1="190" y1="70" x2="190" y2="250" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="196" y="66" fill="#38bdf8" font-size="13">image plane</text>
+  <line x1="90" y1="228" x2="190" y2="228" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="140" y="246" fill="#94a3b8" font-size="14" text-anchor="middle">f</text>
+
+  <!-- ray through X1 and X2 -->
+  <line x1="90" y1="170" x2="540" y2="61" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <circle cx="420" cy="90" r="7" fill="#f59e0b"/>
+  <text x="434" y="114" fill="#f59e0b" font-size="14">X = (X, Y, Z)</text>
+  <circle cx="530" cy="63.4" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="520" y="44" fill="#94a3b8" font-size="13" text-anchor="end">같은 직선 위의 더 먼 점</text>
+  <circle cx="190" cy="145.8" r="6" fill="#34d399"/>
+  <text x="200" y="140" fill="#34d399" font-size="14">pixel</text>
+
+  <!-- Y and Z annotations -->
+  <line x1="420" y1="96" x2="420" y2="170" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="410" y="140" fill="#94a3b8" font-size="14" text-anchor="end">Y</text>
+  <line x1="90" y1="270" x2="420" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="420" y1="262" x2="420" y2="278" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="300" y="288" fill="#94a3b8" font-size="14" text-anchor="middle">Z (깊이)</text>
+
+  <!-- formula -->
+  <text x="300" y="214" fill="#e2e8f0" font-size="14">x = X / Z,  y = Y / Z</text>
+  <text x="300" y="238" fill="#e2e8f0" font-size="14">u = f_x x + c_x,  v = f_y y + c_y</text>
+</svg>

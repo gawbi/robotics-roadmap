@@ -1,0 +1,11 @@
+[project]
+name = "physical-ai-pytorch-mlp"
+version = "0.1.0"
+description = "Physical AI from Scratch — PyTorch Training Loop"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib",
+    "pytest",
+    "torch",
+    "torchvision",
+]

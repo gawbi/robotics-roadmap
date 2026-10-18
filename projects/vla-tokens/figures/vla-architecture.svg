@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>action token 을 내는 VLA. 영상은 SigLIP 으로, 지시문은 tokenizer 로 token 이 되고, SmolLM2 decoder 가 action token 7 개를 하나씩 생성한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="15" y="30" width="150" height="58" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="90" y="54" fill="#38bdf8" font-size="14" text-anchor="middle">카메라 영상</text>
+  <text x="90" y="76" fill="#94a3b8" font-size="13" text-anchor="middle">(3, 256, 256)</text>
+  <rect x="15" y="110" width="150" height="58" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="90" y="134" fill="#38bdf8" font-size="14" text-anchor="middle">SigLIP</text>
+  <text x="90" y="156" fill="#94a3b8" font-size="13" text-anchor="middle">vision encoder 93M</text>
+  <line x1="90" y1="90" x2="90" y2="106" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="190" y="30" width="150" height="58" rx="10" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="265" y="54" fill="#e2e8f0" font-size="14" text-anchor="middle">지시문</text>
+  <text x="265" y="76" fill="#94a3b8" font-size="13" text-anchor="middle">"pick up the …"</text>
+  <rect x="190" y="110" width="150" height="58" rx="10" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="265" y="134" fill="#e2e8f0" font-size="14" text-anchor="middle">tokenizer</text>
+  <text x="265" y="156" fill="#94a3b8" font-size="13" text-anchor="middle">token id 11 개</text>
+  <line x1="265" y1="90" x2="265" y2="106" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="362" y="52" fill="#e2e8f0" font-size="14">RT-2·OpenVLA 방식</text>
+  <text x="362" y="76" fill="#94a3b8" font-size="13">action 을 text 처럼</text>
+  <text x="362" y="96" fill="#94a3b8" font-size="13">VLM vocab 의 token 으로 낸다</text>
+  <text x="362" y="130" fill="#94a3b8" font-size="13">action token 하나 = 한 차원의</text>
+  <text x="362" y="150" fill="#94a3b8" font-size="13">bin 하나 (256 개 중 하나)</text>
+  <rect x="15" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="27.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="43" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="55.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="71" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="83.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="99" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="111.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="127" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="139.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="155" y="196" width="25" height="26" rx="3" fill="#38bdf8"/>
+  <text x="167.5" y="213.0" fill="#0b1220" font-size="13" text-anchor="middle">img</text>
+  <rect x="190" y="196" width="25" height="26" rx="3" fill="#334155"/>
+  <text x="202.5" y="213.0" fill="#e2e8f0" font-size="13" text-anchor="middle">txt</text>
+  <rect x="218" y="196" width="25" height="26" rx="3" fill="#334155"/>
+  <text x="230.5" y="213.0" fill="#e2e8f0" font-size="13" text-anchor="middle">txt</text>
+  <rect x="246" y="196" width="25" height="26" rx="3" fill="#334155"/>
+  <text x="258.5" y="213.0" fill="#e2e8f0" font-size="13" text-anchor="middle">txt</text>
+  <rect x="274" y="196" width="25" height="26" rx="3" fill="#334155"/>
+  <text x="286.5" y="213.0" fill="#e2e8f0" font-size="13" text-anchor="middle">txt</text>
+  <rect x="302" y="196" width="25" height="26" rx="3" fill="#334155"/>
+  <text x="314.5" y="213.0" fill="#e2e8f0" font-size="13" text-anchor="middle">txt</text>
+  <rect x="352" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="364.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a1</text>
+  <rect x="380" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="392.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a2</text>
+  <rect x="408" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="420.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a3</text>
+  <rect x="436" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="448.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a4</text>
+  <rect x="464" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="476.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a5</text>
+  <rect x="492" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="504.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a6</text>
+  <rect x="520" y="196" width="25" height="26" rx="3" fill="#f59e0b"/>
+  <text x="532.5" y="213.0" fill="#0b1220" font-size="12" text-anchor="middle">a7</text>
+  <text x="96" y="240" fill="#38bdf8" font-size="13" text-anchor="middle">image token</text>
+  <text x="257" y="240" fill="#94a3b8" font-size="13" text-anchor="middle">지시문 token</text>
+  <text x="445" y="240" fill="#f59e0b" font-size="13" text-anchor="middle">action token 7 개</text>
+  <line x1="90" y1="170" x2="90" y2="192" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="260" y1="170" x2="257" y2="192" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="15" y="256" width="530" height="40" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="280" y="281" fill="#e2e8f0" font-size="13" text-anchor="middle">SmolLM2-135M decoder: 앞쪽 token 을 모두 보고 다음 token 하나를 낸다</text>
+  <line x1="560" y1="276" x2="560" y2="226" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <polyline points="546,276 560,276" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="568" y="254" fill="#f59e0b" font-size="13">생성</text>
+  <text x="300" y="326" fill="#e2e8f0" font-size="13" text-anchor="middle">a₁ … a₇ → ActionTokenizer.decode → (7,) action: 변위 6 + gripper 1 → env.step</text>
+</svg>

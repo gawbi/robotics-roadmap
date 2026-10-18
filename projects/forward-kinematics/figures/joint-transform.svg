@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>joint 하나의 변환. parent link frame 에서 origin 만큼 옮긴 joint frame 을 axis 기준으로 q 만큼 돌리면 child link frame 이 된다</title>
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="ay" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- parent link frame at (80, 170) -->
+  <line x1="80" y1="170" x2="150" y2="170" stroke="#f87171" stroke-width="2.5" marker-end="url(#ax)"/>
+  <line x1="80" y1="170" x2="80" y2="100" stroke="#34d399" stroke-width="2.5" marker-end="url(#ay)"/>
+  <text x="36" y="194" fill="#e2e8f0" font-size="14">parent link frame</text>
+
+  <!-- origin transform, drawn below the frames -->
+  <path d="M160,180 Q250,250 328,184" fill="none" stroke="#e2e8f0" stroke-width="1.8" marker-end="url(#at)"/>
+  <text x="196" y="242" fill="#e2e8f0" font-size="14">T_origin</text>
+  <text x="196" y="261" fill="#94a3b8" font-size="13">&lt;origin xyz rpy&gt; · q 와 무관</text>
+
+  <!-- joint frame at (340, 170), 20 deg from parent -->
+  <line x1="340" y1="170" x2="415.2" y2="142.6" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ad)"/>
+  <line x1="340" y1="170" x2="312.6" y2="94.8" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ad)"/>
+  <!-- child link frame: joint frame rotated by q = 50 deg -->
+  <line x1="340" y1="170" x2="369.1" y2="90.1" stroke="#f87171" stroke-width="2.5" marker-end="url(#ax)"/>
+  <line x1="340" y1="170" x2="260.1" y2="140.9" stroke="#34d399" stroke-width="2.5" marker-end="url(#ay)"/>
+  <path d="M391.7,151.2 A55,55 0 0,0 358.8,118.3" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="392" y="120" fill="#f59e0b" font-size="16">q</text>
+  <circle cx="340" cy="170" r="6" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="340" cy="170" r="2" fill="#38bdf8"/>
+  <text x="352" y="196" fill="#38bdf8" font-size="13">axis â (화면 밖)</text>
+
+  <!-- legend -->
+  <line x1="446" y1="60" x2="474" y2="60" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="482" y="65" fill="#94a3b8" font-size="13">joint frame</text>
+  <line x1="446" y1="86" x2="474" y2="86" stroke="#f87171" stroke-width="2.5"/>
+  <text x="482" y="91" fill="#94a3b8" font-size="13">child link frame</text>
+  <text x="446" y="122" fill="#94a3b8" font-size="13">q = 0 이면 두 frame 이</text>
+  <text x="446" y="142" fill="#94a3b8" font-size="13">겹친다</text>
+
+  <!-- formula and motion table -->
+  <line x1="20" y1="276" x2="580" y2="276" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="24" y="302" fill="#e2e8f0" font-size="15">T_parent,child(q) = T_origin · T_motion(q)</text>
+  <text x="24" y="326" fill="#94a3b8" font-size="13">revolute·continuous: â 기준 q rad 회전</text>
+  <text x="300" y="326" fill="#94a3b8" font-size="13">prismatic: â 방향 q m 이동</text>
+  <text x="480" y="326" fill="#94a3b8" font-size="13">fixed: 단위행렬</text>
+</svg>

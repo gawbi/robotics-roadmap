@@ -1,0 +1,11 @@
+[project]
+name = "physical-ai-bandit-mdp"
+version = "0.1.0"
+description = "Physical AI from Scratch — Bandits & MDPs"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "gymnasium",
+    "matplotlib",
+    "numpy",
+    "pytest",
+]

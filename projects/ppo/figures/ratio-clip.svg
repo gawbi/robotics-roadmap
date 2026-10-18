@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>probability ratio 와 clip 함수: ε = 0.2 이면 ratio 를 0.8 과 1.2 사이로 자른다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="30" y="38" fill="#e2e8f0" font-size="15">r = π<tspan baseline-shift="sub" font-size="12">θ</tspan>(a | s) / π<tspan baseline-shift="sub" font-size="12">θold</tspan>(a | s)</text>
+  <text x="30" y="62" fill="#94a3b8" font-size="13">예: 데이터를 모을 때 0.5 였던 확률이 update 뒤 0.65 가 되면 r = 1.3</text>
+
+  <!-- number line 0.6 .. 1.5, 500 px per unit, 0.6 at x = 75 -->
+  <rect x="175" y="110" width="200" height="40" fill="#38bdf8" fill-opacity="0.15"/>
+  <line x1="75" y1="150" x2="525" y2="150" stroke="#475569" stroke-width="1.5"/>
+  <g fill="#64748b" font-size="13" text-anchor="middle">
+    <line x1="75" y1="145" x2="75" y2="155" stroke="#475569"/><text x="75" y="174">0.6</text>
+    <line x1="125" y1="145" x2="125" y2="155" stroke="#475569"/><text x="125" y="174">0.7</text>
+    <line x1="175" y1="145" x2="175" y2="155" stroke="#475569"/><text x="175" y="174">0.8</text>
+    <line x1="225" y1="145" x2="225" y2="155" stroke="#475569"/><text x="225" y="174">0.9</text>
+    <line x1="275" y1="145" x2="275" y2="155" stroke="#475569"/><text x="275" y="174">1.0</text>
+    <line x1="325" y1="145" x2="325" y2="155" stroke="#475569"/><text x="325" y="174">1.1</text>
+    <line x1="375" y1="145" x2="375" y2="155" stroke="#475569"/><text x="375" y="174">1.2</text>
+    <line x1="425" y1="145" x2="425" y2="155" stroke="#475569"/><text x="425" y="174">1.3</text>
+    <line x1="475" y1="145" x2="475" y2="155" stroke="#475569"/><text x="475" y="174">1.4</text>
+    <line x1="525" y1="145" x2="525" y2="155" stroke="#475569"/><text x="525" y="174">1.5</text>
+  </g>
+  <text x="275" y="102" fill="#38bdf8" font-size="13" text-anchor="middle">[1 − ε, 1 + ε] = [0.8, 1.2] 는 그대로</text>
+
+  <!-- examples -->
+  <circle cx="225" cy="132" r="7" fill="#e2e8f0"/>
+  <circle cx="425" cy="132" r="7" fill="#e2e8f0"/>
+  <line x1="417" y1="132" x2="384" y2="132" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <circle cx="375" cy="132" r="6" fill="#f59e0b"/>
+  <circle cx="125" cy="132" r="7" fill="#e2e8f0"/>
+  <line x1="133" y1="132" x2="166" y2="132" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <circle cx="175" cy="132" r="6" fill="#f59e0b"/>
+
+  <g font-size="13" text-anchor="middle">
+    <text x="125" y="204" fill="#e2e8f0">clip(0.7) = 0.8</text>
+    <text x="250" y="204" fill="#e2e8f0">clip(0.9) = 0.9</text>
+    <text x="425" y="204" fill="#e2e8f0">clip(1.3) = 1.2</text>
+  </g>
+  <text x="300" y="232" fill="#94a3b8" font-size="13" text-anchor="middle">clip 은 범위 밖의 값을 가까운 경계로 옮기고, 경계 밖에서는 r 이 바뀌어도 값이 그대로다</text>
+</svg>

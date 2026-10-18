@@ -28,10 +28,31 @@ papers:
 
 ## 배경
 
-mujoco-sim 의 팔은 사람이 짠 controller 를 따라 움직였다. imitation learning 은 그 controller 대신 사람이 보여 준 동작을
-데이터로 삼는데, 그러려면 사람이 로봇을 실시간으로 움직이면서(teleoperation) 그때의 observation 과 명령을 일정한 주기로
-남겨야 한다. RoboTurk(2018)은 스마트폰을 움직여 end-effector 를 조종하는 방식을 썼고, ALOHA(2023)는 똑같이 생긴 leader 팔을
-손으로 움직이면 follower 팔이 joint angle 을 그대로 따라 하는 방식을 썼다. SO-101 도 leader·follower 한 쌍으로 쓰는 팔이다.
+### teleoperation 과 시연 데이터
+
+[MuJoCo Simulation](../mujoco-sim/README.md) 의 팔은 사람이 짠 controller 를 따라 움직였다. imitation learning 은 그 controller 대신
+사람이 보여 준 동작을 데이터로 삼는데, 그러려면 사람이 로봇을 실시간으로 움직이면서(teleoperation) 그때의 observation 과
+명령을 일정한 주기로 남겨야 한다. RoboTurk(2018)은 스마트폰을 움직여 end-effector 를 조종하는 방식을 썼고, ALOHA(2023)는
+똑같이 생긴 leader 팔을 손으로 움직이면 follower 팔이 joint angle 을 그대로 따라 하는 방식을 썼다. SO-101 도 leader·follower
+한 쌍으로 쓰는 팔이다.
+
+### 입력 장치별 명령 변환
+
+입력 장치가 내는 값과 로봇이 받는 값이 다르므로 그 사이를 바꿔 주는 부분이 필요하다. 이 과제의 action 은 언제나 joint 6 개의
+목표 위치이고, 장치마다 바꾸는 방법이 다르다.
+
+| 장치 | 장치가 내는 값 | action 으로 바꾸는 방법 |
+| --- | --- | --- |
+| 키보드·gamepad | end-effector 를 x·y·z 로 얼마나 옮길지 | IK 로 joint 변화량을 구해 지금 joint 에 더한다 |
+| leader 팔 | leader 의 joint 각도 6 개 | joint 마다 부호와 offset 을 맞춰 그대로 쓴다 |
+
+IK(inverse kinematics)는 end-effector 를 원하는 만큼 옮기려면 joint 를 얼마나 돌려야 하는지 구하는 계산이다. 작은 움직임에서는
+joint 변화량 $\Delta q$ 와 end-effector 변화량 $\Delta x$ 가 Jacobian $J$ 로 $\Delta x \approx J\,\Delta q$ 관계라서, 거꾸로
+$\Delta q \approx J^{+}\Delta x$ 로 구한다. $J$ 는 (3, 관절 수) 행렬로 MuJoCo 의 `mj_jacSite` 가 계산해 주고, $J^{+}$ 는
+pseudo-inverse 다. 자세한 원리는 [Inverse Kinematics](../inverse-kinematics/README.md) 에서 다룬다. 예를 들어 키를 누르고 있는
+동안 frame 마다 end-effector 를 5 mm 씩 옮기게 하면 30 fps 에서 초당 15 cm 로 움직인다.
+
+### 기록하는 데이터
 
 기록하는 데이터는 episode 마다 observation 과 action 이 짝을 이룬 sequence 다.
 
@@ -41,10 +62,32 @@ o_t = \big(s_t,\ I^{\text{front}}_t,\ I^{\text{wrist}}_t\big), \qquad
 t_k = k / \text{fps}
 $$
 
-$s_t$ 는 joint position, $I_t$ 는 카메라 영상, $a_t$ 는 그 시점에 보낸 목표 joint position 이다. dataset 마다 형식이 다르면
-policy 코드를 매번 고쳐야 해서, Open X-Embodiment(2023)는 21개 기관의 데이터를 한 형식(RLDS)으로 모았다. LeRobot 은 joint
-값 같은 표 데이터를 Parquet 에, 영상을 MP4 에, schema·통계·episode 경계를 `meta/` 에 두는 LeRobotDataset 형식(현재 v3.0)을
-쓴다. sim 시연을 이 형식으로 저장해 두면 실물 SO-101 데이터와 같은 코드로 학습할 수 있다.
+$s_t$ 는 joint position 6 개, $I_t$ 는 카메라 영상 (480, 640, 3), $a_t$ 는 그 시점에 보낸 목표 joint position 6 개다. $o_t$ 는
+$a_t$ 를 넣기 전의 상태라서, policy 는 나중에 "이 관측에서 이 action 을 냈다" 를 배운다. $t_k$ 는 $k$ 번째 frame 의 시각으로,
+30 fps 면 frame 1 이 0.033 초, 10 초짜리 episode 는 300 frame 이다. frame 마다 정확히 $1/\text{fps}$ 초만큼 sim 을 진행해야
+영상·state·action 의 시각이 서로 맞는다.
+
+![teleop 기록 loop: 관측 oₜ 를 읽고 입력 장치의 명령을 action aₜ 로 바꿔 한 frame 으로 쌓은 뒤 sim 을 1/fps 초 진행한다](figures/teleop-loop.svg)
+
+### LeRobotDataset 형식
+
+dataset 마다 형식이 다르면 policy 코드를 매번 고쳐야 해서, Open X-Embodiment(2023)는 21개 기관의 데이터를 한 형식(RLDS)으로
+모았다. LeRobot 은 joint 값 같은 표 데이터를 Parquet 에, 영상을 MP4 에, schema·통계·episode 경계를 `meta/` 에 두는
+LeRobotDataset 형식(현재 v3.0)을 쓴다. Parquet 은 열(column) 단위로 저장하는 표 파일 형식이고, 영상은 frame 을 하나씩 저장하지
+않고 MP4 로 압축해 두었다가 timestamp 로 찾아 꺼낸다.
+
+![LeRobotDataset v3.0 의 폴더 구조: meta 에 schema·통계·task·episode 정보, data 의 Parquet 에 frame 마다 한 행, videos 의 MP4 에 카메라 영상](figures/dataset-layout.svg)
+
+`meta/info.json` 의 `features` 가 각 열의 이름·shape·dtype 을 적는다. 실물 SO-101 로 모은
+[lerobot/svla_so101_pickplace](https://huggingface.co/datasets/lerobot/svla_so101_pickplace) 는 30 fps 이고, `action` 과
+`observation.state` 가 모두 shape (6,) 에 `shoulder_pan.pos` 부터 `gripper.pos` 까지 이름이 붙어 있다. sim 시연을 같은 이름·
+shape·단위로 저장해 두면 실물 SO-101 데이터와 같은 코드로 학습할 수 있다.
+
+### replay
+
+replay 는 기록한 episode 와 같은 초기 상태에서 저장된 action 만 차례로 다시 넣는 것이다. policy 처럼 관측을 보고 action 을
+고르지 않고, 기록된 action 을 시간 순서대로 그대로 넣는다. sim 은 같은 초기 상태와 같은 입력에 같은 결과를 내므로, replay 한
+joint trajectory 와 기록된 `observation.state` 를 비교하면 기록이 빠짐없이 저장되었는지 확인할 수 있다.
 
 ## 목표
 
@@ -61,68 +104,59 @@ library, leader 팔이 있으면 LeRobot 의 `SO101Leader`.
 
 ## 준비물
 
-- Python 3.12, `mujoco`, `lerobot[dataset]`(LeRobot 0.6 기준), numpy
-- 입력 장치: 키보드면 `pynput`, gamepad 면 `pygame`, SO-101 leader 팔이면 `lerobot[feetech]`
+- Python 3.12, `mujoco`, numpy, pytest
+- `lerobot[dataset-viz,feetech]`(LeRobot 0.6 이상) — `LeRobotDataset`, `lerobot-dataset-viz`, SO-101 leader 팔을 읽는 feetech
+  servo driver 가 함께 설치된다
+- 입력 장치: 키보드면 `pynput`, gamepad 면 `pygame`, SO-101 leader 팔이면 LeRobot 의 `SO101Leader`. 세 가지 모두 이 과제
+  환경에 들어 있다
 - mujoco-sim 과제의 SO-101 scene 에 cube 와 고정 카메라를 더한 것(Menagerie 의 `scene_box.xml` 에서 시작해도 된다)
 - GPU 불필요
 
 ## 진행 순서
 
-1. 입력 장치를 읽어 end-effector 속도 명령(키보드·gamepad)이나 joint angle(leader 팔)을 내는 함수를 짠다
-2. 그 명령을 목표 joint position 으로 바꿔 sim 을 정해진 주기로 움직이는 teleop loop 를 만든다
-3. episode 마다 cube 를 무작위 위치에 놓고, 성공 조건(cube 를 들어 목표 영역에 놓기)을 판정하는 함수를 짠다
-4. `LeRobotDataset.create` 에 줄 feature 정의를 실물 SO-101 dataset 과 같은 이름·단위로 만든다
-5. 매 frame `add_frame`, episode 끝에 `save_episode`, 기록이 끝나면 `finalize` 를 부르는 기록 loop 를 짠다
-6. 저장한 dataset 을 `LeRobotDataset(repo_id, root=...)` 로 다시 불러 한 episode 를 꺼내 본다
-7. 같은 초기 상태에서 기록한 action 만 다시 넣어 replay 하고, 그 결과를 기록한 joint trajectory 와 비교한다
+1. `teleop/` 에서 쓸 입력 장치 하나를 골라, 장치를 읽어 end-effector 이동량(키보드·gamepad)이나 joint angle(leader 팔)을 내고
+   `sim_so101.py` 의 `Teleop` protocol 대로 `get_action` 이 목표 joint position (6,) 을 돌려주는 class 를 짠다
+2. `sim_so101.py` 의 `SimSO101` 에 `reset`·`step`·`observe` 를 짠다. `step` 한 번에 sim 시각이 정확히 $1/\text{fps}$ 초 늘어나는지
+   `data.time` 으로 확인한다
+3. `reset` 에서 cube 를 무작위 위치에 놓고, 성공 조건(cube 를 들어 목표 영역에 놓기)을 판정하는 `success` 를 짠다
+4. `record.py` 의 `make_features` 에 `LeRobotDataset.create` 에 줄 feature 정의를 실물 SO-101 dataset 과 같은 이름·단위로 만든다
+5. `record` 에 매 frame `add_frame`, episode 끝에 `save_episode`, 기록이 끝나면 `finalize` 를 부르는 기록 loop 를 짠다
+6. `test_dataset.py` 에서 저장한 dataset 을 `LeRobotDataset(repo_id, root=...)` 로 다시 불러 episode 수·frame 수·feature 를
+   확인한다
+7. `replay.py` 의 `replay` 로 같은 초기 상태에서 기록한 action 만 다시 넣고, 그 결과를 기록한 joint trajectory 와 비교한다
 8. 시연을 20개 이상 모으고 `lerobot-dataset-viz` 로 훑어본다
 
 ## 시작점
 
+아래 파일은 모두 리포에 들어 있다.
+
 ```text
 teleop-dataset/
+├── pyproject.toml       # 이 과제의 Python 버전과 패키지
+├── uv.lock
 ├── teleop/
-│   ├── keyboard.py      # end-effector deltas -> IK -> joint targets
-│   ├── gamepad.py
-│   └── leader.py        # SO101Leader degrees -> sim joint targets
-├── env.py               # SimSO101: reset, step, observe, success
-├── record.py            # teleop loop + LeRobotDataset writer
-├── replay.py
-└── test_dataset.py
+│   ├── keyboard.py      # 키보드 → end-effector 이동량 → IK → 목표 joint
+│   ├── gamepad.py       # gamepad → end-effector 이동량 → IK → 목표 joint
+│   └── leader.py        # SO101Leader 각도 → sim 목표 joint
+├── sim_so101.py         # JOINTS, Teleop, SimSO101: reset, step, observe, success
+├── record.py            # make_features, record: teleop loop + LeRobotDataset 기록
+├── replay.py            # replay: 기록과 재생의 joint 차이
+└── test_dataset.py      # 저장한 dataset 을 검사하는 test
 ```
 
-```python
-from typing import Protocol
-import numpy as np
+`sim_so101.py`·`record.py`·`replay.py` 의 함수와 method 는 몸통이 `raise NotImplementedError` 인 stub 이고, 이름과 signature 는
+그대로 둔 채 몸통을 채운다. [Real Robot](../real-robot/README.md) 의 sim follower 가 `sim_so101.py` 의 `SimSO101` 을 import 해서
+쓰므로 signature 를 바꾸지 않는다. `Teleop` 은 입력 장치 class 가 따를 protocol 이라 몸통이 `...` 이다. `teleop/` 의 세 파일에는 정해진
+signature 가 없어서, 쓰려는 장치의 파일에 `get_action` 을 가진 class 를 직접 만든다. 채점용 test 는 없어서 평가 기준은
+`test_dataset.py` 에 직접 쓴 test 와 replay 결과로 확인한다. 패키지는 `pyproject.toml` 에 있고, 이 폴더에서 `uv run` 을 처음
+실행할 때 `.venv/` 에 설치된다.
 
-JOINTS = ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll", "gripper"]
-
-class Teleop(Protocol):
-    def get_action(self, obs: dict[str, np.ndarray]) -> np.ndarray:
-        """(6,) joint position targets in the dataset's units."""
-        ...
-
-class SimSO101:
-    def __init__(self, xml_path: str, fps: int = 30, cameras: dict[str, str] | None = None):
-        """cameras maps dataset names to MJCF camera names, e.g. {"front": "front_cam", "wrist": "wrist_cam"}."""
-        ...
-    def reset(self, seed: int) -> dict[str, np.ndarray]: ...
-    def step(self, action: np.ndarray) -> dict[str, np.ndarray]:
-        """applies one action and advances physics by exactly 1 / fps seconds."""
-        ...
-    def observe(self) -> dict[str, np.ndarray]:
-        """{"observation.state": (6,), "observation.images.front": (H, W, 3) uint8, ...}"""
-        ...
-    def success(self) -> bool: ...
-
-def make_features(height: int = 480, width: int = 640) -> dict: ...
-
-def record(env: SimSO101, teleop: Teleop, repo_id: str, root: str,
-           num_episodes: int, task: str) -> None: ...
-
-def replay(env: SimSO101, repo_id: str, root: str, episode: int) -> float:
-    """returns the max joint deviation between replay and recording, in dataset units."""
-    ...
+```bash
+cd projects/teleop-dataset
+uv run python record.py
+uv run python replay.py
+uv run pytest
+uv run lerobot-dataset-viz --repo-id <repo_id> --root <저장 폴더> --episode-index 0
 ```
 
 ## 평가 기준
@@ -185,6 +219,18 @@ joint range 의 가운데라서 URDF 의 0 rad 와 다르고, joint 마다 부�
 - [lerobot/svla_so101_pickplace](https://huggingface.co/datasets/lerobot/svla_so101_pickplace) — 실물 SO-101 로 모은 v3.0
   dataset(30 fps, 50 episode, 카메라 두 대). `meta/info.json` 을 내 dataset 과 나란히 놓고 비교한다
 - [visualize_dataset](https://huggingface.co/spaces/lerobot/visualize_dataset) Space — Hub 에 올린 dataset 을 브라우저에서 본다
+- Remi Cadene et al., [LeRobot: An Open-Source Library for End-to-End Robot Learning](https://arxiv.org/abs/2602.22818) (2026) —
+  LeRobotDataset 형식을 정한 이유와 데이터 수집 흐름
+- Ajay Mandlekar et al., [RoboTurk](https://arxiv.org/abs/1811.02790) (2018) — 스마트폰으로 end-effector 를 조종해 시연을 모으는
+  방식과 그 한계
+- Tony Z. Zhao et al., [ALOHA](https://arxiv.org/abs/2304.13705) (2023) — leader·follower 팔로 시연을 모으는 하드웨어 구성
+- Open X-Embodiment Collaboration, [Open X-Embodiment](https://arxiv.org/abs/2310.08864) (2023) — 여러 기관의 로봇 데이터를 한
+  형식으로 모은 이유
+- MuJoCo 문서의 [`mj_jacSite`](https://mujoco.readthedocs.io/en/stable/APIreference/APIfunctions.html#mj-jacsite) — 키보드·gamepad
+  teleop 의 IK 에 쓰는 Jacobian, [Simulation 장](https://mujoco.readthedocs.io/en/stable/programming/simulation.html) — timestep 과
+  `mj_step`
+- [MuJoCo Menagerie robotstudio_so101](https://github.com/google-deepmind/mujoco_menagerie/tree/main/robotstudio_so101) — SO-101
+  model 과 `scene_box.xml`
 - 막혔을 때만 열기: [huggingface/lerobot](https://github.com/huggingface/lerobot) 의 `lerobot-record` 구현,
   [gym-hil](https://github.com/huggingface/gym-hil) — gamepad·키보드로 MuJoCo Panda 를 조종하는 LeRobot 용 환경
 

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>추론 루프. 관측마다 prefix 를 한 번 계산하고 Euler 10 step 으로 action chunk 50 개를 만든 뒤, 앞부분만 실행하고 다시 관측한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="308" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="15" y="40" width="92" height="100" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="61" y="66" fill="#38bdf8" font-size="14" text-anchor="middle">관측</text>
+  <text x="61" y="92" fill="#e2e8f0" font-size="13" text-anchor="middle">이미지·지시문</text>
+  <text x="61" y="114" fill="#94a3b8" font-size="13" text-anchor="middle">state</text>
+  <rect x="135" y="40" width="92" height="100" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="181" y="66" fill="#38bdf8" font-size="14" text-anchor="middle">prefix</text>
+  <text x="181" y="92" fill="#e2e8f0" font-size="13" text-anchor="middle">VLM forward</text>
+  <text x="181" y="114" fill="#94a3b8" font-size="13" text-anchor="middle">1 회</text>
+  <rect x="255" y="40" width="92" height="100" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="301" y="66" fill="#f59e0b" font-size="14" text-anchor="middle">Euler</text>
+  <text x="301" y="92" fill="#e2e8f0" font-size="13" text-anchor="middle">expert forward</text>
+  <text x="301" y="114" fill="#94a3b8" font-size="13" text-anchor="middle">10 회</text>
+  <rect x="375" y="40" width="92" height="100" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="421" y="66" fill="#f59e0b" font-size="14" text-anchor="middle">chunk</text>
+  <text x="421" y="92" fill="#e2e8f0" font-size="13" text-anchor="middle">(50, 7)</text>
+  <text x="421" y="114" fill="#94a3b8" font-size="13" text-anchor="middle">action 50 개</text>
+  <rect x="495" y="40" width="92" height="100" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="541" y="66" fill="#34d399" font-size="14" text-anchor="middle">실행</text>
+  <text x="541" y="92" fill="#e2e8f0" font-size="13" text-anchor="middle">앞 n 개</text>
+  <text x="541" y="114" fill="#94a3b8" font-size="13" text-anchor="middle">tick 마다 하나</text>
+  <line x1="109" y1="90" x2="131" y2="90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="229" y1="90" x2="251" y2="90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="349" y1="90" x2="371" y2="90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="469" y1="90" x2="491" y2="90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <polyline points="541,142 541,176 61,176 61,146" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="198" fill="#94a3b8" font-size="13" text-anchor="middle">n 개를 실행하면 다시 관측하고 새 chunk 를 만든다</text>
+  <text x="20" y="236" fill="#e2e8f0" font-size="13">Euler 10 step</text>
+  <rect x="130" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="149.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.0</text>
+  <rect x="174" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="193.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.1</text>
+  <rect x="218" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="237.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.2</text>
+  <rect x="262" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="281.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.3</text>
+  <rect x="306" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="325.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.4</text>
+  <rect x="350" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="369.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.5</text>
+  <rect x="394" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="413.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.6</text>
+  <rect x="438" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="457.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.7</text>
+  <rect x="482" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="501.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.8</text>
+  <rect x="526" y="222" width="38" height="22" rx="3" fill="#f59e0b"/>
+  <text x="545.0" y="238.0" fill="#0b1220" font-size="13" text-anchor="middle">τ=0.9</text>
+  <text x="130" y="268" fill="#94a3b8" font-size="13">같은 prefix 를 10 번 다시 쓰고, step 마다 A ← A + 0.1 · v 로</text>
+  <text x="130" y="288" fill="#94a3b8" font-size="13">noise 를 action 쪽으로 옮긴다</text>
+</svg>

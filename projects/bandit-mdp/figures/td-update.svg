@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Q-learning update 한 번: Q(s, a) = 0.5 가 target 0.9 쪽으로 TD error 0.4 의 α = 0.1 배인 0.04 만큼 움직인다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- one transition -->
+  <circle cx="70" cy="52" r="20" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="57" fill="#e2e8f0" font-size="15" text-anchor="middle">s</text>
+  <line x1="90" y1="52" x2="186" y2="52" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <text x="138" y="43" fill="#f59e0b" font-size="14" text-anchor="middle">a</text>
+  <text x="138" y="73" fill="#94a3b8" font-size="13" text-anchor="middle">r = 0</text>
+  <circle cx="210" cy="52" r="20" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="210" y="57" fill="#e2e8f0" font-size="15" text-anchor="middle">s′</text>
+  <text x="250" y="47" fill="#94a3b8" font-size="13">max Q(s′, ·) = 1.0</text>
+  <text x="250" y="66" fill="#94a3b8" font-size="13">γ = 0.9, α = 0.1</text>
+
+  <text x="40" y="118" fill="#e2e8f0" font-size="15">target = r + γ · max Q(s′, ·) = 0 + 0.9 × 1.0 = 0.9</text>
+
+  <!-- number line 0.4 .. 1.0, 800 px per unit, 0.4 at x = 60 -->
+  <line x1="60" y1="200" x2="540" y2="200" stroke="#475569" stroke-width="1.5"/>
+  <g fill="#64748b" font-size="13" text-anchor="middle">
+    <line x1="60" y1="195" x2="60" y2="205" stroke="#475569"/><text x="60" y="224">0.4</text>
+    <line x1="140" y1="195" x2="140" y2="205" stroke="#475569"/><text x="140" y="224">0.5</text>
+    <line x1="220" y1="195" x2="220" y2="205" stroke="#475569"/><text x="220" y="224">0.6</text>
+    <line x1="300" y1="195" x2="300" y2="205" stroke="#475569"/><text x="300" y="224">0.7</text>
+    <line x1="380" y1="195" x2="380" y2="205" stroke="#475569"/><text x="380" y="224">0.8</text>
+    <line x1="460" y1="195" x2="460" y2="205" stroke="#475569"/><text x="460" y="224">0.9</text>
+    <line x1="540" y1="195" x2="540" y2="205" stroke="#475569"/><text x="540" y="224">1.0</text>
+  </g>
+
+  <!-- TD error bracket -->
+  <path d="M140 160 L140 152 L460 152 L460 160" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="300" y="145" fill="#94a3b8" font-size="13" text-anchor="middle">TD error = 0.9 − 0.5 = 0.4</text>
+
+  <!-- move -->
+  <line x1="140" y1="182" x2="170" y2="182" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <circle cx="140" cy="200" r="7" fill="#e2e8f0"/>
+  <circle cx="172" cy="200" r="7" fill="#34d399"/>
+  <circle cx="460" cy="200" r="7" fill="#f59e0b"/>
+  <text x="140" y="250" fill="#e2e8f0" font-size="13" text-anchor="middle">Q = 0.5</text>
+  <text x="200" y="250" fill="#34d399" font-size="13">새 Q = 0.5 + 0.1 × 0.4 = 0.54</text>
+  <text x="460" y="250" fill="#f59e0b" font-size="13" text-anchor="middle">target</text>
+</svg>

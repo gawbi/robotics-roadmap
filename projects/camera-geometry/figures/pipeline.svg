@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>calibration 과 marker pose 의 파이프라인. 사진에서 corner 를 찾고 homography, closed-form K, pose, refinement 순서로 계산한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- row 1 -->
+  <rect x="20" y="30" width="130" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="85" y="51" fill="#e2e8f0" font-size="14" text-anchor="middle">checkerboard</text>
+  <text x="85" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">사진 13장</text>
+  <rect x="180" y="30" width="150" height="48" rx="8" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <text x="255" y="51" fill="#e2e8f0" font-size="14" text-anchor="middle">corner 검출</text>
+  <text x="255" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">cv2 · 장마다 54개</text>
+  <rect x="360" y="30" width="220" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="470" y="51" fill="#e2e8f0" font-size="14" text-anchor="middle">estimate_homography</text>
+  <text x="470" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">homography.py · 장마다 H</text>
+  <line x1="152" y1="54" x2="177" y2="54" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="332" y1="54" x2="357" y2="54" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- row 2, right to left -->
+  <rect x="360" y="112" width="220" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="470" y="133" fill="#e2e8f0" font-size="14" text-anchor="middle">intrinsics_from_homographies</text>
+  <text x="470" y="151" fill="#94a3b8" font-size="13" text-anchor="middle">zhang.py · 초기값 K₀</text>
+  <line x1="470" y1="80" x2="470" y2="109" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="160" y="112" width="170" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="245" y="133" fill="#e2e8f0" font-size="13" text-anchor="middle">extrinsics_from_homography</text>
+  <text x="245" y="151" fill="#94a3b8" font-size="13" text-anchor="middle">zhang.py · 장마다 (R, t)</text>
+  <line x1="358" y1="136" x2="333" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="20" y="112" width="110" height="48" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="75" y="133" fill="#e2e8f0" font-size="14" text-anchor="middle">refine</text>
+  <text x="75" y="151" fill="#94a3b8" font-size="13" text-anchor="middle">refine.py</text>
+  <line x1="158" y1="136" x2="133" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- output -->
+  <rect x="20" y="194" width="250" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="145" y="221" fill="#e2e8f0" font-size="14" text-anchor="middle">K, (k1, k2), 사진별 pose, RMS</text>
+  <line x1="75" y1="162" x2="75" y2="191" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <line x1="20" y1="256" x2="580" y2="256" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- marker row -->
+  <rect x="20" y="276" width="150" height="48" rx="8" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <text x="95" y="297" fill="#e2e8f0" font-size="14" text-anchor="middle">ArUco 검출</text>
+  <text x="95" y="315" fill="#94a3b8" font-size="13" text-anchor="middle">cv2 · corner 4개</text>
+  <rect x="200" y="276" width="170" height="48" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="285" y="297" fill="#e2e8f0" font-size="14" text-anchor="middle">marker_pose</text>
+  <text x="285" y="315" fill="#94a3b8" font-size="13" text-anchor="middle">marker_pose.py</text>
+  <rect x="400" y="276" width="180" height="48" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="490" y="297" fill="#e2e8f0" font-size="14" text-anchor="middle">marker pose</text>
+  <text x="490" y="315" fill="#94a3b8" font-size="13" text-anchor="middle">camera frame 기준 (R, t)</text>
+  <line x1="172" y1="300" x2="197" y2="300" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="372" y1="300" x2="397" y2="300" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M272,216 L285,216 L285,273" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="294" y="248" fill="#34d399" font-size="13">K</text>
+</svg>

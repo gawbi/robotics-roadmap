@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 326" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>&quot;cat hat cat that&quot; 의 byte 16개가 merge 세 번으로 token 7개가 되는 과정. 가장 많이 붙어 나오는 pair 를 새 id 하나로 합친다</title>
+  <rect x="1" y="1" width="598" height="324" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="110" y="36" fill="#94a3b8" font-size="14">시작 · UTF-8 byte 하나가 token 하나</text>
+  <text x="24" y="66" fill="#e2e8f0" font-size="14">token 16개</text>
+  <rect x="111.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="125.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="141.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="155.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="171.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="185.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="201.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="215.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="231.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="261.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="275.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="291.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="321.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="335.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="351.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="381.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="395.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="411.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="425.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="441.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="455.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="471.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="485.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="501.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="531.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="545.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="561.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="575.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <text x="110" y="112" fill="#94a3b8" font-size="14">merge 1 · (a, t) 가 4번으로 가장 많다 → 256 = at</text>
+  <text x="24" y="142" fill="#e2e8f0" font-size="14">token 12개</text>
+  <rect x="111.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="125.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="141.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="170.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <rect x="201.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="215.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="231.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="261.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="290.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <rect x="321.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="335.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="351.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="381.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="410.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <rect x="441.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="455.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="471.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="485.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="501.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="531.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="560.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <text x="110" y="188" fill="#94a3b8" font-size="14">merge 2 · (256, ␣) 가 3번 → 257 = at␣</text>
+  <text x="24" y="218" fill="#e2e8f0" font-size="14">token 9개</text>
+  <rect x="111.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="125.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="141.5" y="198" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="185.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="231.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="261.5" y="198" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="305.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="351.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="381.5" y="198" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="425.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="471.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="485.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="501.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="531.5" y="198" width="57" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="560.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">at</text>
+  <text x="110" y="264" fill="#94a3b8" font-size="14">merge 3 · (c, 257) 가 2번 → 258 = cat␣</text>
+  <text x="24" y="294" fill="#e2e8f0" font-size="14">token 7개</text>
+  <rect x="111.5" y="274" width="117" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="170.0" y="294" fill="#38bdf8" font-size="14" text-anchor="middle">cat␣</text>
+  <rect x="231.5" y="274" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="261.5" y="274" width="87" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="351.5" y="274" width="117" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="410.0" y="294" fill="#38bdf8" font-size="14" text-anchor="middle">cat␣</text>
+  <rect x="471.5" y="274" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="485.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="501.5" y="274" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="531.5" y="274" width="57" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="560.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">at</text>
+</svg>
