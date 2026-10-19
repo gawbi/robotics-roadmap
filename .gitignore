@@ -24,3 +24,6 @@ MUJOCO_LOG.TXT
 .DS_Store
 .idea/
 .vscode/
+
+# personal quiz records
+lessons/*/quiz-result.json
