@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>autoregressive 생성: 고른 token 을 입력 끝에 붙인다</title>
+  <defs>
+<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+<marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+<marker id="ae2e8f0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="28.0" y="64.0" fill="#94a3b8" font-size="12" text-anchor="start">단계 1</text>
+  <rect x="84.0" y="44.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="113.0" y="64.3" fill="#e2e8f0" font-size="12" text-anchor="middle">&lt;bos&gt;</text>
+  <rect x="150.0" y="44.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="179.0" y="64.3" fill="#e2e8f0" font-size="12" text-anchor="middle">빨간</text>
+  <line x1="352.0" y1="60.0" x2="386.0" y2="60.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="392.0" y="42.0" width="80.0" height="36.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="432.0" y="64.7" fill="#e2e8f0" font-size="13" text-anchor="middle">GPT</text>
+  <line x1="476.0" y1="60.0" x2="502.0" y2="60.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="508.0" y="44.0" width="66.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#34d399" stroke-width="1.5"/>
+  <text x="541.0" y="64.3" fill="#e2e8f0" font-size="12" text-anchor="middle">컵</text>
+  <text x="541.0" y="92.0" fill="#94a3b8" font-size="11" text-anchor="middle">확률 0.8</text>
+  <path d="M541,98 C541,118 245,106 245,122" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#a34d399)" stroke-dasharray="4 3"/>
+  <text x="28.0" y="144.0" fill="#94a3b8" font-size="12" text-anchor="start">단계 2</text>
+  <rect x="84.0" y="124.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="113.0" y="144.3" fill="#e2e8f0" font-size="12" text-anchor="middle">&lt;bos&gt;</text>
+  <rect x="150.0" y="124.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="179.0" y="144.3" fill="#e2e8f0" font-size="12" text-anchor="middle">빨간</text>
+  <rect x="216.0" y="124.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#34d399" stroke-width="1.5"/>
+  <text x="245.0" y="144.3" fill="#e2e8f0" font-size="12" text-anchor="middle">컵</text>
+  <line x1="352.0" y1="140.0" x2="386.0" y2="140.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="392.0" y="122.0" width="80.0" height="36.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="432.0" y="144.7" fill="#e2e8f0" font-size="13" text-anchor="middle">GPT</text>
+  <line x1="476.0" y1="140.0" x2="502.0" y2="140.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="508.0" y="124.0" width="66.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#34d399" stroke-width="1.5"/>
+  <text x="541.0" y="144.3" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
+  <text x="541.0" y="172.0" fill="#94a3b8" font-size="11" text-anchor="middle">확률 0.609</text>
+  <path d="M541,178 C541,198 311,186 311,202" fill="none" stroke="#34d399" stroke-width="1.4" marker-end="url(#a34d399)" stroke-dasharray="4 3"/>
+  <text x="28.0" y="224.0" fill="#94a3b8" font-size="12" text-anchor="start">단계 3</text>
+  <rect x="84.0" y="204.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="113.0" y="224.3" fill="#e2e8f0" font-size="12" text-anchor="middle">&lt;bos&gt;</text>
+  <rect x="150.0" y="204.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="179.0" y="224.3" fill="#e2e8f0" font-size="12" text-anchor="middle">빨간</text>
+  <rect x="216.0" y="204.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="224.3" fill="#e2e8f0" font-size="12" text-anchor="middle">컵</text>
+  <rect x="282.0" y="204.0" width="58.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#34d399" stroke-width="1.5"/>
+  <text x="311.0" y="224.3" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
+  <line x1="352.0" y1="220.0" x2="386.0" y2="220.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="392.0" y="202.0" width="80.0" height="36.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="432.0" y="224.7" fill="#e2e8f0" font-size="13" text-anchor="middle">GPT</text>
+  <line x1="476.0" y1="220.0" x2="502.0" y2="220.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a94a3b8)"/>
+  <rect x="508.0" y="204.0" width="66.0" height="32.0" rx="6" fill="#111a2e" fill-opacity="1" stroke="#34d399" stroke-width="1.5"/>
+  <text x="541.0" y="224.3" fill="#e2e8f0" font-size="12" text-anchor="middle">&lt;eos&gt;</text>
+  <text x="541.0" y="252.0" fill="#94a3b8" font-size="11" text-anchor="middle">확률 0.9</text>
+  <text x="541.0" y="280.0" fill="#f59e0b" font-size="12" text-anchor="middle">→ 멈춤</text>
+</svg>

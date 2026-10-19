@@ -1,0 +1,331 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: frame-translation
+  title: frame 과 좌표의 기준
+  variants:
+    - question: |
+        책상 위의 컵 하나를 천장 카메라의 frame 과 로봇 팔 몸통의 frame 에서 각각 재었더니 좌표가 서로 다르게 나왔다. 이
+        상황을 바르게 설명한 것은?
+      choices:
+        - '두 좌표 중 하나는 측정 오차가 섞인 틀린 값이다'
+        - '원점과 축이 다른 두 기준에서 같은 자리를 잰 것이라 두 좌표가 모두 맞다'
+        - '컵이 두 번 재는 사이에 움직였기 때문이다'
+        - 'frame 이 달라도 같은 점의 좌표는 같아야 하므로 카메라를 다시 보정해야 한다'
+      answer: 1
+      explanation: |
+        좌표는 "원점에서 각 축 방향으로 얼마나 가는가" 를 적은 숫자라서 원점이나 축이 다르면 같은 점도 다른 숫자가 된다. 그래서
+        두 좌표는 모두 맞고, 좌표를 적을 때 어느 frame 에서 잰 값인지를 함께 적어야 한다. 측정 오차나 컵의 움직임을 탓하는 보기는
+        frame 마다 좌표가 원래 다르다는 것을 놓쳤고, 보정이 필요하다는 보기도 같은 오해에서 나온다.
+    - question: |
+        $p_{ab}$ 처럼 아래첨자가 두 글자인 위치 기호의 뜻으로 맞는 것은?
+      choices:
+        - 'frame $b$ 에서 잰 frame $a$ 원점의 위치'
+        - 'frame $a$ 와 frame $b$ 원점 사이의 거리 한 숫자'
+        - '같은 점을 frame $a$ 와 frame $b$ 에서 잰 좌표의 평균'
+        - 'frame $a$ 에서 잰 frame $b$ 원점의 위치'
+      answer: 3
+      explanation: |
+        앞 글자는 기준이 되는 frame, 뒤 글자는 위치를 잰 대상이라서 $p_{ab}$ 는 "frame $a$ 에서 본 frame $b$ 원점의 좌표" 다.
+        글자 순서를 거꾸로 읽으면 frame $b$ 에서 본 frame $a$ 원점이 되는데, 이것은 다른 값이다. 거리는 방향 정보가 빠진 숫자
+        하나라서 좌표가 아니고, 두 좌표의 평균은 어떤 기호에도 해당하지 않는다.
+    - question: |
+        frame $b$ 는 frame $a$ 와 축 방향이 같고, 원점만 frame $a$ 의 $x$ 방향으로 3 만큼 옮겨져 있다. 아무 점이나 하나 골라
+        frame $b$ 에서 잰 $x$ 좌표를 frame $a$ 에서 잰 $x$ 좌표와 비교하면?
+      choices:
+        - '점의 위치에 따라 3 크기도 하고 3 작기도 하다'
+        - '항상 3 크다'
+        - '항상 3 작다'
+        - '방향이 같으므로 항상 같다'
+      answer: 2
+      explanation: |
+        frame $b$ 의 원점이 이미 $x$ 방향으로 3 만큼 와 있으므로, 같은 점까지 남은 거리는 frame $a$ 에서 잰 것보다 3 짧다. 그래서
+        $p_b = p_a - p_{ab}$ 이고 $x$ 좌표는 어느 점이든 3 작다. "항상 3 크다" 는 빼야 할 원점 위치를 더한 것이고, "항상 같다" 는
+        원점이 옮겨진 것을 무시한 것이다. 축 방향이 같고 원점만 옮겨졌으면 차이는 점과 상관없이 일정하다.
+
+- topic: unit-circle
+  title: 단위원과 cos·sin, radian
+  variants:
+    - question: |
+        반지름이 1 인 원(단위원) 위에서 $(1, 0)$ 부터 시계 반대 방향으로 각도 $\theta$ 만큼 간 점이 있다. 이 점과 cos·sin 의 관계로
+        맞는 것은?
+      choices:
+        - '점의 가로 좌표가 $\cos\theta$, 세로 좌표가 $\sin\theta$ 다'
+        - '점의 가로 좌표가 $\sin\theta$, 세로 좌표가 $\cos\theta$ 다'
+        - '$\cos\theta$ 는 원점에서 점까지의 거리이고 $\sin\theta$ 는 각도다'
+        - '이 관계는 $\theta$ 가 0° 와 90° 사이일 때만 성립한다'
+      answer: 0
+      explanation: |
+        단위원 위의 점은 $(\cos\theta, \sin\theta)$ 이고, 이것이 cos 과 sin 의 정의다. 가로와 세로를 바꾸면 $x$ 축이 아니라 $y$
+        축에서 잰 각도가 되어 버린다. 원점까지의 거리는 단위원이라 늘 1 이고, 각도 $\theta$ 는 cos·sin 의 입력이지 출력이 아니다.
+        90° 를 넘어 원을 계속 돌아도 점은 원 위에 있으므로 관계는 어느 각도에서나 성립한다.
+    - question: |
+        어떤 각도 $\theta$ 에서든 $\cos^2\theta + \sin^2\theta = 1$ 이 성립하는 이유로 맞는 것은?
+      choices:
+        - '$\cos\theta + \sin\theta = 1$ 이라서 양변을 제곱한 것이다'
+        - '작은 각도에서만 맞는 근사를 모든 각도로 넓힌 것이다'
+        - 'radian 으로 잴 때만 성립하고 도로 재면 성립하지 않는다'
+        - '$(\cos\theta, \sin\theta)$ 는 단위원 위의 점이라 원점까지의 거리가 1 이고, 피타고라스 정리로 그 거리의 제곱을 적은 것이다'
+      answer: 3
+      explanation: |
+        점 $(\cos\theta, \sin\theta)$ 에서 원점까지의 거리는 가로·세로를 두 변으로 하는 직각삼각형의 빗변이라 피타고라스 정리로
+        $\sqrt{\cos^2\theta + \sin^2\theta}$ 이고, 단위원 위라서 이 값이 1 이다. $\cos\theta + \sin\theta$ 는 1 이 아니다. 30° 에서
+        $0.866 + 0.5 \approx 1.37$ 이다. 근사가 아니라 정확한 관계이고, 각도를 어떤 단위로 적든 같은 점이므로 단위와도 상관없다.
+    - question: |
+        로봇 소프트웨어가 관절 각도를 $1.5708$ 로 보고했다. 각도를 radian 으로 적는 방식에 대한 설명으로 맞는 것은?
+      choices:
+        - 'radian 은 도를 100 으로 나눈 단위라서 이 값은 약 157° 다'
+        - 'radian 은 단위원 위를 걸은 거리로 잰 각도라서 한 바퀴가 $2\pi$ 이고, 이 값은 약 90° 다'
+        - '1 radian 은 1° 와 같으므로 이 값은 약 1.6° 다'
+        - 'radian 은 한 바퀴를 $\pi$ 로 잡으므로 이 값은 반 바퀴 근처다'
+      answer: 1
+      explanation: |
+        radian 은 단위원 위를 $(1, 0)$ 에서 출발해 원을 따라 걸은 거리를 각도로 쓴다. 단위원의 둘레가 $2\pi \approx 6.283$ 이라
+        한 바퀴가 $2\pi$, 4분의 1 바퀴인 90° 가 $\frac{\pi}{2} \approx 1.5708$ 이다. 1 radian 은 약 57° 라서 1° 와 다르고, 도를 100 으로
+        나눈 단위도 아니다. $\pi$ 는 한 바퀴가 아니라 반 바퀴(180°)다.
+
+- topic: rotation-2d
+  title: rotation matrix 의 성질
+  variants:
+    - question: |
+        2D rotation matrix $R(\theta)$ 의 두 열은 각각 무엇을 뜻하는가?
+      choices:
+        - '첫째 열은 회전 각도, 둘째 열은 회전 중심이다'
+        - '첫째 열은 $\cos\theta$ 두 개, 둘째 열은 $\sin\theta$ 두 개를 모아 둔 것이다'
+        - '$x$ 축 화살표 $(1, 0)$ 과 $y$ 축 화살표 $(0, 1)$ 이 회전한 뒤 도착한 방향이다'
+        - '회전하기 전 점과 회전한 뒤 점의 좌표다'
+      answer: 2
+      explanation: |
+        행렬에 $(1, 0)$ 을 곱하면 첫째 열이, $(0, 1)$ 을 곱하면 둘째 열이 그대로 나온다. 그래서 첫째 열은 $x$ 축 화살표가 돈 뒤의
+        방향 $(\cos\theta, \sin\theta)$, 둘째 열은 $y$ 축 화살표가 돈 뒤의 방향 $(-\sin\theta, \cos\theta)$ 다. 각 열에는 cos 과 sin 이
+        섞여 있고, 회전 중심은 원점으로 정해져 있어 행렬에 따로 적지 않는다. 특정 점의 좌표는 행렬이 아니라 행렬을 곱한 결과다.
+    - question: |
+        어떤 $2 \times 2$ 행렬을 점에 곱했더니 원점에서 점까지의 거리가 두 배가 됐다. 이 행렬에 대해 맞는 것은?
+      choices:
+        - '각도가 큰 rotation matrix 다'
+        - '역행렬이 transpose 인 행렬이다'
+        - 'rotation matrix 를 두 번 곱한 행렬이다'
+        - 'rotation matrix 가 아니다. rotation 은 원점까지의 거리를 바꾸지 않는다'
+      answer: 3
+      explanation: |
+        rotation 은 점을 원점 중심의 원을 따라 옮길 뿐이라 원점까지의 거리, 곧 vector 의 길이가 그대로다. 각도가 커도 길이는
+        변하지 않고, rotation 을 두 번 해도 또 rotation 이라 길이가 그대로다. 역행렬이 transpose 인 것은 rotation matrix 의
+        성질인데, 길이를 늘리는 행렬은 열의 길이가 1 이 아니라서 이 성질도 갖지 못한다.
+    - question: |
+        rotation matrix $R$ 이 한 회전을 되돌리는 행렬 $R^{-1}$ 에 대한 설명으로 맞는 것은?
+      choices:
+        - '행과 열을 맞바꾼 transpose $R^\top$ 이고, 반대 각도로 도는 rotation 이다'
+        - '모든 칸에 $-1$ 을 곱한 $-R$ 이다'
+        - '모든 칸의 역수를 취한 행렬이다'
+        - 'rotation matrix 의 역행렬은 일반 행렬처럼 복잡하게 계산해야만 구할 수 있다'
+      answer: 0
+      explanation: |
+        $\theta$ 만큼 돈 것을 되돌리려면 $-\theta$ 만큼 돌면 되고, $R(-\theta)$ 를 적어 보면 $R(\theta)$ 의 행과 열을 맞바꾼
+        모양이라 $R^{-1} = R^\top$ 이다. $-R$ 은 180° 를 더 돈 rotation 이라 되돌리지 못하고, 칸마다 역수를 취하면 0 인 칸에서
+        계산이 안 될뿐더러 회전도 아니다. 일반 행렬의 역행렬은 계산이 복잡하지만 rotation matrix 는 transpose 만으로 구한다.
+
+- topic: frame-change
+  title: 돌아가고 옮겨진 frame 의 좌표 변환
+  variants:
+    - question: |
+        frame $b$ 가 frame $a$ 에 대해 회전 $R_{ab}$ 만큼 돌아가 있고 원점이 $p_{ab}$ 에 있다. frame $b$ 에서 잰 점 $p_b$ 를
+        frame $a$ 의 좌표 $p_a$ 로 바꾸는 식으로 맞는 것은?
+      choices:
+        - '$p_a = R_{ab}\,(p_b + p_{ab})$'
+        - '$p_a = R_{ab}\,p_b + p_{ab}$'
+        - '$p_a = p_b + p_{ab}$'
+        - '$p_a = R_{ab}\,p_b - p_{ab}$'
+      answer: 1
+      explanation: |
+        $p_b$ 는 frame $b$ 의 축 방향으로 적힌 값이라 먼저 $R_{ab}$ 로 돌려 frame $a$ 의 방향으로 바꾼 뒤, frame $a$ 에서 잰 원점
+        위치 $p_{ab}$ 를 더한다. 더한 뒤에 돌리면 이미 frame $a$ 기준인 $p_{ab}$ 까지 돌아가 엉뚱한 자리가 된다. 회전을 빼먹으면
+        frame 이 돌아간 것을 무시한 것이고, $p_{ab}$ 를 빼면 원점이 있는 쪽의 반대로 간다.
+    - question: |
+        frame 변환에서 rotation 을 먼저 하고 translation 을 나중에 하는 이유로 맞는 것은?
+      choices:
+        - '행렬 곱이 덧셈보다 계산이 빨라서 먼저 한다'
+        - '순서는 관례일 뿐 바꿔도 결과는 같다'
+        - '$p_{ab}$ 는 이미 frame $a$ 에서 잰 값이라 더 돌리면 안 되고, 돌려야 하는 것은 frame $b$ 방향으로 적힌 $p_b$ 뿐이기 때문이다'
+        - 'translation 을 먼저 하면 점의 길이가 변하기 때문이다'
+      answer: 2
+      explanation: |
+        $p_a = R_{ab}\,p_b + p_{ab}$ 에서 회전이 필요한 것은 frame $b$ 의 축으로 적힌 $p_b$ 다. 먼저 더하면 frame $a$ 기준인
+        $p_{ab}$ 까지 함께 돌아가 결과가 달라지므로 순서를 바꾸면 답이 틀린다. 계산 속도와는 관계없고, 어느 순서로 하든 길이가 변하는
+        것이 문제가 아니라 자리가 달라지는 것이 문제다.
+    - question: |
+        frame $b$ 가 frame $a$ 에 대해 90° 돌아가 있고 원점은 frame $a$ 의 원점과 같다. frame $b$ 에서 "자기 $x$ 축 방향으로
+        1" 인 점은 frame $a$ 에서 어느 방향에 있는가?
+      choices:
+        - 'frame $a$ 의 $y$ 축 방향'
+        - 'frame $a$ 의 $x$ 축 방향'
+        - 'frame $a$ 의 $-x$ 축 방향'
+        - 'frame $a$ 의 $-y$ 축 방향'
+      answer: 0
+      explanation: |
+        frame $b$ 의 $x$ 축 화살표는 frame $a$ 의 $x$ 축을 시계 반대 방향으로 90° 돌린 방향, 곧 frame $a$ 의 $y$ 축 방향이다.
+        그 축으로 1 간 점이므로 frame $a$ 에서는 $y$ 방향에 있다. frame $a$ 의 $x$ 방향이라고 답하면 frame $b$ 가 돌아간 것을
+        무시한 것이다. $-y$ 는 시계 방향으로 90° 돌린 경우이고, $-x$ 는 180° 돌린 경우다.
+
+- topic: composition
+  title: 변환의 합성과 곱하는 순서
+  variants:
+    - question: |
+        world 에서 본 로봇 base 의 pose $T_{wb}$ 와 base 에서 본 카메라의 pose $T_{bc}$ 를 알 때, world 에서 본 카메라의 pose
+        $T_{wc}$ 를 얻는 곱으로 맞는 것은?
+      choices:
+        - '$T_{bc}\,T_{wb}$'
+        - '$T_{wb} + T_{bc}$'
+        - '$T_{wb}\,T_{bc}$'
+        - '곱하는 순서와 상관없이 둘 중 어느 쪽이든 된다'
+      answer: 2
+      explanation: |
+        homogeneous transform 은 아래첨자가 맞닿게 곱한다. $T_{wb}\,T_{bc}$ 는 가운데 $b$ 가 맞닿아 지워지고 $T_{wc}$ 가 남는다.
+        $T_{bc}\,T_{wb}$ 는 $c$ 와 $w$ 가 맞닿지 않아 이름부터 맞지 않고 실제로 다른 행렬이 나온다. rotation 이 섞인 변환은 순서를
+        바꾸면 결과가 달라지며, 두 변환을 이어 붙이는 것은 덧셈이 아니라 행렬 곱이다.
+    - question: |
+        로봇의 pose $T$ 에 "$x$ 방향으로 2 m 이동" 하는 변환 $M$ 을 곱한다. $T\,M$ 과 $M\,T$ 의 차이로 맞는 것은?
+      choices:
+        - '둘 다 같은 pose 가 된다'
+        - '$T\,M$ 은 로봇 자신이 바라보는 $x$ 방향으로, $M\,T$ 는 world 의 $x$ 방향으로 2 m 간다'
+        - '$T\,M$ 은 world 의 $x$ 방향으로, $M\,T$ 는 로봇 자신의 $x$ 방향으로 2 m 간다'
+        - '$M\,T$ 는 로봇을 회전시키고 $T\,M$ 은 이동시킨다'
+      answer: 1
+      explanation: |
+        오른쪽에 곱한 변환은 움직이는 물체 자신의 frame 에서 잰 움직임이라 "앞으로 2 m" 처럼 로봇이 보는 방향으로 간다. 왼쪽에
+        곱한 변환은 바깥의 고정된 frame 에서 잰 움직임이라 "동쪽으로 2 m" 처럼 로봇이 어디를 보든 world 의 $x$ 방향으로 간다.
+        로봇이 world 와 다른 방향을 보고 있으면 두 결과는 다르다. $M$ 은 이동만 하는 변환이라 어느 쪽에 곱해도 회전을 만들지 않는다.
+    - question: |
+        $T_1\,T_2\,p$ 처럼 변환 두 개를 점 $p$ 에 곱할 때, 점에 먼저 적용되는 변환은?
+      choices:
+        - '$T_1$ 과 $T_2$ 가 동시에 적용되므로 순서가 없다'
+        - '왼쪽의 $T_1$ 이다. 글을 읽는 방향대로 적용된다'
+        - '둘 중 rotation 이 큰 쪽이다'
+        - '점에 가까운 오른쪽의 $T_2$ 다'
+      answer: 3
+      explanation: |
+        $T_1\,T_2\,p$ 는 $T_1\,(T_2\,p)$ 라서 $p$ 에 바로 붙은 $T_2$ 가 먼저 적용되고 그 결과에 $T_1$ 이 적용된다. 그래서 변환의 곱은
+        오른쪽부터 읽는다. 왼쪽부터 읽는 것은 흔한 실수이고, rotation 이 섞이면 순서를 바꿨을 때 결과가 달라지므로 "동시에" 라고 볼
+        수 없다. 어느 것이 먼저인지는 각도 크기가 아니라 곱한 자리로 정해진다.
+
+- topic: inverse
+  title: 역변환
+  variants:
+    - question: |
+        $T_{ab}$ 가 rotation $R$ 과 translation $p$ 로 되어 있을 때, 역변환 $T_{ba}$ 의 translation 칸에 들어가는 값은?
+      choices:
+        - '$-R^\top p$'
+        - '$-p$'
+        - '$p$'
+        - '$R\,p$'
+      answer: 0
+      explanation: |
+        $p_a = R\,p_b + p$ 를 $p_b$ 에 대해 풀면 $p_b = R^\top p_a - R^\top p$ 라서 translation 칸은 $-R^\top p$ 다. $p$ 는 frame
+        $a$ 의 방향으로 적힌 값이라, frame $b$ 의 좌표에서 빼려면 먼저 $R^\top$ 로 frame $b$ 방향으로 바꿔야 한다. $-p$ 를 그대로
+        넣는 것이 가장 흔한 실수이고 rotation 이 없을 때만 맞다. $p$ 나 $R\,p$ 는 부호와 회전 방향이 모두 틀렸다.
+    - question: |
+        역변환의 translation 칸에 $-p$ 를 그대로 넣어도 맞는 답이 나오는 경우는?
+      choices:
+        - 'translation 이 0 일 때만'
+        - '항상 맞다'
+        - 'rotation 이 없을 때, 곧 $R$ 이 identity matrix 일 때'
+        - 'rotation 이 180° 일 때만'
+      answer: 2
+      explanation: |
+        정확한 값은 $-R^\top p$ 이고, $R$ 이 identity matrix 이면 $R^\top p = p$ 라서 $-p$ 와 같아진다. 축 방향이 같고 원점만 옮긴
+        frame 이 이 경우다. 평면에서 180° 돌린 frame 이면 $R^\top p = -p$ 라서 정확한 값은 $+p$ 가 되므로 $-p$ 는 틀린다. translation 이 0 이면
+        어떤 식이든 0 이라 구분이 안 되고, rotation 이 있으면 일반적으로 $-p$ 는 틀린 답을 준다.
+    - question: |
+        rigid transform 의 역변환을 구할 때 일반 $3 \times 3$ 행렬처럼 복잡한 역행렬 계산을 하지 않아도 되는 이유로 맞는 것은?
+      choices:
+        - 'homogeneous transform 은 모든 칸이 0 아니면 1 이라서'
+        - 'translation 칸만 부호를 바꾸면 되기 때문이다'
+        - '역변환은 원래 변환과 같은 행렬이기 때문이다'
+        - 'rotation 부분의 역행렬이 transpose 라서, $R^\top$ 과 $-R^\top p$ 로 바로 적을 수 있기 때문이다'
+      answer: 3
+      explanation: |
+        rotation matrix 는 열의 길이가 1 이고 서로 직각이라 $R^{-1} = R^\top$ 이다. 그래서 역변환은 rotation 칸에 $R^\top$,
+        translation 칸에 $-R^\top p$ 를 넣으면 끝난다. translation 칸만 부호를 바꾸면 rotation 을 되돌리지 못하고, rotation 이 있으면
+        translation 값도 틀린다. 칸에는 cos·sin 같은 일반 실수가 들어가며, 역변환은 원래 변환과 다른 행렬이다.
+
+- topic: rotation-3d
+  title: 3D rotation 의 순서와 roll-pitch-yaw
+  variants:
+    - question: |
+        책을 먼저 앞으로 90° 넘어뜨린 뒤 세로축으로 90° 돌린 자세와, 먼저 세로축으로 90° 돌린 뒤 앞으로 90° 넘어뜨린 자세를
+        비교하면?
+      choices:
+        - '두 자세는 일반적으로 다르다. 3D rotation 은 순서를 바꾸면 결과가 달라진다'
+        - '같은 두 rotation 을 했으므로 항상 같다'
+        - '각도가 모두 90° 일 때만 다르고 작은 각도면 항상 같다'
+        - '2D 와 마찬가지로 각도가 그냥 더해지므로 같다'
+      answer: 0
+      explanation: |
+        평면의 rotation 은 축이 하나뿐이라 각도가 더해지고 순서가 상관없지만, 3D 에서는 첫 rotation 이 다음 rotation 이 돌릴 축의
+        상대 위치를 바꿔 놓는다. 그래서 $R_z R_x$ 와 $R_x R_z$ 는 일반적으로 다른 행렬이다. 작은 각도에서는 차이가 작아질 뿐 0 이
+        되지는 않는다. 2D 의 성질을 3D 에 그대로 가져온 보기가 흔한 오해다.
+    - question: |
+        자세를 roll-pitch-yaw 세 각도로 적을 때 pitch 가 90° 이면 생기는 gimbal lock 에 대한 설명으로 맞는 것은?
+      choices:
+        - '로봇의 관절이 물리적으로 걸려 더 돌 수 없게 되는 현상이다'
+        - 'pitch 가 90° 를 넘을 수 없어 그 이상의 자세를 적지 못하는 현상이다'
+        - 'roll 과 yaw 가 같은 축을 도는 꼴이 되어, 돌릴 수 있는 방향 하나가 사라지고 같은 자세를 여러 각도 조합으로 적게 된다'
+        - '숫자가 커져 컴퓨터의 소수 표현이 넘치는 현상이다'
+      answer: 2
+      explanation: |
+        pitch 90° 가 roll 이 돌던 $x$ 축을 눕혀 $z$ 축과 겹치게 하면, roll 로 돈 양과 yaw 로 돈 양이 같은 일을 하게 된다. 그래서
+        roll 과 yaw 를 서로 다르게 넣어도 같은 행렬이 나오고, 그 근처에서는 자세가 조금만 바뀌어도 각도 숫자가 크게 튄다. 각도
+        세 개로 적는 표현 방식의 문제이지 관절이 걸리는 기계 문제가 아니며, pitch 90° 이상도 적을 수 있고 수치가 넘치는 것도 아니다.
+    - question: |
+        로봇 소프트웨어가 사람이 읽는 입출력에는 roll-pitch-yaw 를 쓰면서도 내부 계산에는 rotation matrix 나 quaternion 을 쓰는
+        이유로 맞는 것은?
+      choices:
+        - 'roll-pitch-yaw 는 숫자 세 개라서 rotation 하나를 다 적지 못하기 때문이다'
+        - 'roll-pitch-yaw 는 gimbal lock 이 생기고, 두 자세를 합칠 때 결국 행렬로 바꿔 곱해야 해서 계산에 불편하기 때문이다'
+        - 'rotation matrix 가 숫자가 더 많아 계산이 더 빠르기 때문이다'
+        - 'roll-pitch-yaw 는 2D 회전에만 쓸 수 있기 때문이다'
+      answer: 1
+      explanation: |
+        roll-pitch-yaw 는 사람이 읽기 쉽지만 pitch 90° 근처에서 gimbal lock 이 생기고, 두 rotation 을 합치려면 행렬로 바꿔 곱한 뒤 다시
+        각도로 돌려야 한다. 그래서 계산은 합성이 곱 하나로 끝나는 rotation matrix 나 quaternion 으로 한다. 3D rotation 은 자유도가
+        셋이라 숫자 세 개로도 적을 수 있고, roll-pitch-yaw 는 3D 자세를 적는 방법이다. 숫자가 많다고 계산이 빨라지는 것도 아니다.
+
+- topic: quaternion
+  title: quaternion 과 slerp
+  variants:
+    - question: |
+        quaternion $q$ 와 모든 칸의 부호를 바꾼 $-q$ 는 어떤 관계인가?
+      choices:
+        - '같은 축을 반대 방향으로 도는, 서로 반대인 rotation 이다'
+        - '$-q$ 는 길이가 $-1$ 이라 rotation 을 나타내지 않는다'
+        - '$-q$ 는 각도가 두 배인 rotation 이다'
+        - '같은 rotation 이다. quaternion 에는 각도의 절반이 들어가서 rotation 하나에 quaternion 이 두 개씩 있다'
+      answer: 3
+      explanation: |
+        quaternion 은 $\big(\cos\frac{\theta}{2},\ \hat\omega\sin\frac{\theta}{2}\big)$ 로 각도의 절반을 쓴다. $\theta$ 에 360° 를 더하면
+        자세는 같은데 절반 각도는 180° 커져 cos·sin 의 부호가 모두 뒤집히므로, $q$ 와 $-q$ 는 같은 rotation 이다. 반대 rotation 은
+        축 부분의 부호만 바꾼 켤레 $q^*$ 다. 길이는 부호를 바꿔도 여전히 1 이고, 각도가 두 배가 되지도 않는다.
+    - question: |
+        두 자세 사이의 중간 자세를 만들려고 두 rotation matrix 를 칸마다 평균했다. 이 방법의 문제로 맞는 것은?
+      choices:
+        - '평균한 행렬은 열의 길이가 1 이 아니게 되어 rotation matrix 가 아니고, 곱하면 물체가 쪼그라든다'
+        - '평균은 항상 정확한 중간 자세지만 계산이 느리다'
+        - '평균한 행렬은 rotation matrix 지만 각도가 두 배가 된다'
+        - '문제없다. 행렬은 칸마다 평균해도 성질이 유지된다'
+      answer: 0
+      explanation: |
+        rotation matrix 의 열은 길이 1 이고 서로 직각이어야 하는데, 서로 다른 방향의 화살표 두 개를 평균하면 길이가 1 보다 짧아진다.
+        그래서 결과는 rotation 이 아니라 물체를 줄이는 행렬이 된다. 이 때문에 자세 보간은 quaternion 을 원호를 따라 일정한 속도로
+        잇는 slerp 로 한다. 평균이 정확하다거나 성질이 유지된다는 보기는 열의 길이 조건을 놓친 것이다.
+    - question: |
+        slerp 로 $q_0$ 에서 $q_1$ 까지 보간하기 전에, 두 quaternion 의 내적 $q_0 \cdot q_1$ 이 음수이면 $q_1$ 을 $-q_1$ 로 바꾼다.
+        그 이유로 맞는 것은?
+      choices:
+        - '부호를 바꾸면 도착하는 자세가 달라져서 원하는 자세로 맞추기 위해서다'
+        - '내적이 음수이면 slerp 공식에 0 으로 나누는 일이 생기기 때문이다'
+        - '$-q_1$ 은 같은 자세라서, 둘 중 짧은 호를 골라 먼 길로 돌아가지 않게 하려는 것이다'
+        - 'quaternion 의 길이를 1 로 맞추기 위해서다'
+      answer: 2
+      explanation: |
+        $q_1$ 과 $-q_1$ 은 같은 rotation 이라 도착 자세는 바뀌지 않고, 가는 길만 달라진다. 내적이 음수이면 $q_1$ 쪽 원호가 긴 쪽이라
+        손이 90° 를 돌면 될 것을 270° 반대로 돌아가는 식이 된다. 0 으로 나누는 일은 두 quaternion 이 같거나 정반대일 때 생기는 다른
+        문제이고, 부호를 바꿔도 길이는 1 그대로다.

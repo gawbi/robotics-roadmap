@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>같은 w = 0.1 인 plain block 과 residual block 의 forward 와 backward</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="185" y="32" fill="#e2e8f0" font-size="15" text-anchor="middle">plain block  y = 0.1·x</text>
+  <rect x="140" y="50" width="90" height="40" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="185" y="76" fill="#38bdf8" font-size="14" text-anchor="middle">x = 2</text>
+  <rect x="50" y="130" width="120" height="44" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="110" y="150" fill="#e2e8f0" font-size="13" text-anchor="middle">F(x) = 0.1·x</text>
+  <text x="110" y="167" fill="#38bdf8" font-size="13" text-anchor="middle">0.2</text>
+  <line x1="170" y1="90" x2="125" y2="128" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <line x1="110" y1="174" x2="110" y2="272" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <rect x="50" y="274" width="120" height="36" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="110" y="297" fill="#38bdf8" font-size="14" text-anchor="middle">y = 0.2</text>
+  <text x="535" y="32" fill="#e2e8f0" font-size="15" text-anchor="middle">residual block  y = 0.1·x + x</text>
+  <rect x="490" y="50" width="90" height="40" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="535" y="76" fill="#38bdf8" font-size="14" text-anchor="middle">x = 2</text>
+  <rect x="400" y="130" width="120" height="44" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="460" y="150" fill="#e2e8f0" font-size="13" text-anchor="middle">F(x) = 0.1·x</text>
+  <text x="460" y="167" fill="#38bdf8" font-size="13" text-anchor="middle">0.2</text>
+  <line x1="520" y1="90" x2="475" y2="128" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <path d="M560,90 L630,150 L630,215 L558,233" fill="none" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#ar-amber)"/>
+  <text x="642" y="160" fill="#f59e0b" font-size="12" text-anchor="start">shortcut</text>
+  <text x="642" y="177" fill="#f59e0b" font-size="12" text-anchor="start">x = 2</text>
+  <line x1="460" y1="174" x2="522" y2="224" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <circle cx="535" cy="235" r="16" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="535" y="241" fill="#e2e8f0" font-size="18" text-anchor="middle">+</text>
+  <line x1="535" y1="251" x2="535" y2="272" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <rect x="475" y="274" width="120" height="36" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="535" y="297" fill="#38bdf8" font-size="14" text-anchor="middle">y = 2.2</text>
+  <text x="185" y="338" fill="#f59e0b" font-size="14" text-anchor="middle">backward: gradient × 0.1</text>
+  <text x="185" y="360" fill="#f59e0b" font-size="14" text-anchor="middle">= 0.1</text>
+  <text x="555" y="338" fill="#f59e0b" font-size="14" text-anchor="middle">backward: shortcut 1 + F 길 0.1</text>
+  <text x="555" y="360" fill="#f59e0b" font-size="14" text-anchor="middle">= 1.1</text>
+  <line x1="360" y1="40" x2="360" y2="370" stroke="#1e293b" stroke-width="1"/>
+</svg>

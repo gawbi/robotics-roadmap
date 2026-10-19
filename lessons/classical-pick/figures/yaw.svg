@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>위에서 본 cube. yaw 10°, 100°, 190° 인 정사각형은 모양이 똑같다. 손가락 방향의 후보 10°, 100°, −80°, −170° 가운데 지금 wrist_roll 0° 에 가장 가까운 10° 를 고른다</title>
+  <rect x="1" y="1" width="718" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="200" y="34" fill="#e2e8f0" font-size="14" text-anchor="middle">위에서 본 cube 윗면</text>
+  <g>
+    <line x1="40" y1="110" x2="120" y2="110" stroke="#334155" stroke-dasharray="3 3"/>
+    <rect x="55" y="85" width="50" height="50" fill="#c0392b" stroke="#f87171" stroke-width="2" transform="rotate(-10 80 110)"/>
+    <text x="80" y="170" fill="#e2e8f0" font-size="14" text-anchor="middle">yaw 10°</text>
+    <line x1="160" y1="110" x2="240" y2="110" stroke="#334155" stroke-dasharray="3 3"/>
+    <rect x="175" y="85" width="50" height="50" fill="#c0392b" stroke="#f87171" stroke-width="2" transform="rotate(-100 200 110)"/>
+    <text x="200" y="170" fill="#e2e8f0" font-size="14" text-anchor="middle">yaw 100°</text>
+    <line x1="280" y1="110" x2="360" y2="110" stroke="#334155" stroke-dasharray="3 3"/>
+    <rect x="295" y="85" width="50" height="50" fill="#c0392b" stroke="#f87171" stroke-width="2" transform="rotate(-190 320 110)"/>
+    <text x="320" y="170" fill="#e2e8f0" font-size="14" text-anchor="middle">yaw 190°</text>
+  </g>
+  <text x="200" y="204" fill="#94a3b8" font-size="13" text-anchor="middle">90° 돌려도 모양이 같아 사진으로 가릴 수 없다</text>
+  <text x="200" y="232" fill="#94a3b8" font-size="13" text-anchor="middle">오차 예: 인식 88°, 실제 2° → 88° − 90° = −2°</text>
+  <text x="200" y="254" fill="#f59e0b" font-size="13" text-anchor="middle">실제 오차는 4° (86° 가 아니다)</text>
+
+  <line x1="400" y1="30" x2="400" y2="310" stroke="#1e293b"/>
+  <text x="560" y="34" fill="#e2e8f0" font-size="14" text-anchor="middle">손가락 방향 후보 (지금 wrist_roll 0°)</text>
+  <text x="470" y="66" fill="#94a3b8" font-size="12" text-anchor="middle">후보</text>
+  <text x="620" y="66" fill="#94a3b8" font-size="12" text-anchor="middle">0° 와의 차이</text>
+  <rect x="425" y="76" width="270" height="28" rx="6" fill="#0f2a22" stroke="#34d399"/>
+  <text x="470" y="95" fill="#34d399" font-size="14" text-anchor="middle">10°</text>
+  <text x="620" y="95" fill="#34d399" font-size="14" text-anchor="middle">10° ← 고른다</text>
+  <text x="470" y="129" fill="#e2e8f0" font-size="14" text-anchor="middle">100°</text>
+  <text x="620" y="129" fill="#e2e8f0" font-size="14" text-anchor="middle">100°</text>
+  <text x="470" y="159" fill="#e2e8f0" font-size="14" text-anchor="middle">−80°</text>
+  <text x="620" y="159" fill="#e2e8f0" font-size="14" text-anchor="middle">80°</text>
+  <text x="470" y="189" fill="#e2e8f0" font-size="14" text-anchor="middle">−170°</text>
+  <text x="620" y="189" fill="#e2e8f0" font-size="14" text-anchor="middle">170°</text>
+  <!-- gripper top view at 10 deg -->
+  <g transform="rotate(-10 560 260)">
+    <rect x="535" y="235" width="50" height="50" fill="#c0392b" stroke="#f87171" stroke-width="2"/>
+    <rect x="519" y="242" width="10" height="36" rx="2" fill="#94a3b8"/>
+    <rect x="591" y="242" width="10" height="36" rx="2" fill="#94a3b8"/>
+  </g>
+  <text x="640" y="256" fill="#94a3b8" font-size="12">회색: 손가락</text>
+  <text x="640" y="274" fill="#94a3b8" font-size="12">옆면 둘을 쥔다</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>world·base·camera 세 frame 을 위에서 내려다본 그림. base 는 world 의 (1, 2, 0) 에서 z 축 중심으로 90° 돌아 있고, camera 는 base 의 (0.5, 0, 0.4) 에 있다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80.0" y1="290.0" x2="140.0" y2="290.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="80.0" y1="290.0" x2="80.0" y2="230.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="80.0" cy="290.0" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="62.0" y="312.0" fill="#e2e8f0" font-size="17" text-anchor="start">w</text>
+  <line x1="300.0" y1="200.0" x2="300.0" y2="146.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="300.0" y1="200.0" x2="246.0" y2="200.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="300.0" cy="200.0" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="266.0" y="184.0" fill="#e2e8f0" font-size="17" text-anchor="start">b</text>
+  <line x1="300.0" y1="80.0" x2="300.0" y2="30.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="300.0" y1="80.0" x2="250.0" y2="80.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="300.0" cy="80.0" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="266.0" y="64.0" fill="#e2e8f0" font-size="17" text-anchor="start">c</text>
+  <path d="M96,280 Q200,272 288,212" fill="none" stroke="#e2e8f0" stroke-width="1.8" marker-end="url(#arrow-white)"/>
+  <text x="196.0" y="292.0" fill="#e2e8f0" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan></text>
+  <path d="M314,190 Q352,140 314,92" fill="none" stroke="#e2e8f0" stroke-width="1.8" marker-end="url(#arrow-white)"/>
+  <text x="344.0" y="146.0" fill="#e2e8f0" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
+  <path d="M84,274 Q120,140 292,94" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+  <text x="36.0" y="118.0" fill="#f59e0b" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan> = T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan> T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
+  <text x="400.0" y="56.0" fill="#e2e8f0" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan></text>
+  <text x="400.0" y="78.0" fill="#94a3b8" font-size="13" text-anchor="start">R<tspan dy="4" font-size="10">z</tspan><tspan dy="-4">​</tspan>(90°), p = (1, 2, 0)</text>
+  <text x="400.0" y="112.0" fill="#e2e8f0" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
+  <text x="400.0" y="134.0" fill="#94a3b8" font-size="13" text-anchor="start">R = I, p = (0.5, 0, 0.4)</text>
+  <text x="400.0" y="168.0" fill="#f59e0b" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan></text>
+  <text x="400.0" y="190.0" fill="#94a3b8" font-size="13" text-anchor="start">R<tspan dy="4" font-size="10">z</tspan><tspan dy="-4">​</tspan>(90°), p = (1, 2.5, 0.4)</text>
+  <line x1="400.0" y1="236.0" x2="428.0" y2="236.0" stroke="#f87171" stroke-width="2.5"/>
+  <text x="438.0" y="241.0" fill="#94a3b8" font-size="13" text-anchor="start">x 축</text>
+  <line x1="400.0" y1="260.0" x2="428.0" y2="260.0" stroke="#34d399" stroke-width="2.5"/>
+  <text x="438.0" y="265.0" fill="#94a3b8" font-size="13" text-anchor="start">y 축</text>
+  <circle cx="414.0" cy="284.0" r="5" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
+  <text x="438.0" y="289.0" fill="#94a3b8" font-size="13" text-anchor="start">z 축 (화면 밖)</text>
+  <text x="400.0" y="318.0" fill="#64748b" font-size="13" text-anchor="start">위에서 본 그림, 거리 비율은 무시</text>
+</svg>

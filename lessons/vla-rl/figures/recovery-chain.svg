@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>chunk 20 개로 된 episode. 위 줄은 회복을 모르는 policy 로, chunk 7 에서 미끄러진 뒤 끝까지 실패한다. chunk 마다 미끄러질 확률이 2% 면 성공률은 0.98 의 20 제곱인 66.8% 다. 아래 줄은 미끄러짐의 80% 를 회복하는 policy 로, chunk 마다 실패 확률이 0.4% 가 되어 성공률이 92.3% 다</title>
+  <rect x="1" y="1" width="698" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="24" y="36" fill="#e2e8f0" font-size="15">회복을 모르는 policy</text>
+  <text x="676" y="36" fill="#f87171" font-size="14" text-anchor="end">성공률 0.98²⁰ ≈ 66.8%</text>
+  <g>
+    <rect x="24" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="57" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="90" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="123" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="156" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="189" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="222" y="52" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="255" y="52" width="26" height="30" rx="4" fill="#f59e0b"/>
+    <rect x="288" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="321" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="354" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="387" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="420" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="453" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="486" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="519" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="552" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="585" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="618" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+    <rect x="651" y="52" width="26" height="30" rx="4" fill="#f87171" fill-opacity="0.55"/>
+  </g>
+  <text x="268" y="102" fill="#f59e0b" font-size="13" text-anchor="middle">chunk 7: 미끄러짐</text>
+  <text x="480" y="102" fill="#f87171" font-size="13" text-anchor="middle">시연에 없던 상태라 다음 chunk 도 어긋나 실패</text>
+
+  <line x1="24" y1="128" x2="676" y2="128" stroke="#1e293b"/>
+
+  <text x="24" y="160" fill="#e2e8f0" font-size="15">회복을 아는 policy</text>
+  <text x="676" y="160" fill="#34d399" font-size="14" text-anchor="end">성공률 0.996²⁰ ≈ 92.3%</text>
+  <g>
+    <rect x="24" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="57" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="90" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="123" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="156" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="189" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="222" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="255" y="176" width="26" height="30" rx="4" fill="#f59e0b"/>
+    <rect x="288" y="176" width="26" height="30" rx="4" fill="#34d399" fill-opacity="0.85"/>
+    <rect x="321" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="354" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="387" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="420" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="453" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="486" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="519" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="552" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="585" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="618" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+    <rect x="651" y="176" width="26" height="30" rx="4" fill="#38bdf8" fill-opacity="0.8"/>
+  </g>
+  <text x="268" y="226" fill="#f59e0b" font-size="13" text-anchor="middle">chunk 7: 미끄러짐</text>
+  <text x="330" y="246" fill="#34d399" font-size="13" text-anchor="start">chunk 8: 다시 잡기 → 이어서 성공</text>
+
+  <text x="350" y="282" fill="#94a3b8" font-size="13" text-anchor="middle">chunk 마다 미끄러질 확률 2% · 회복을 알면 그 가운데 80% 를 되돌려 chunk 마다 실패 확률 0.4%</text>
+</svg>

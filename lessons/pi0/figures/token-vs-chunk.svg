@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>1 초 동안의 시간표. 위 줄은 OpenVLA 로, 약 167 ms 마다 token 7 개를 하나씩 내서 1 초에 action 이 약 6 개 나온다. 아래 줄은 π0 로, 추론 한 번(약 73 ms)에 1 초 분량의 action 50 개가 한꺼번에 나오고 로봇은 20 ms 마다 하나씩 실행한다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="758" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="40.0" fill="#e2e8f0" font-size="15" text-anchor="start">1 초 동안 로봇이 받는 action</text>
+  <text x="20.0" y="92.0" fill="#e2e8f0" font-size="14" text-anchor="start">OpenVLA</text>
+  <text x="20.0" y="110.0" fill="#94a3b8" font-size="12" text-anchor="start">약 6 Hz</text>
+  <rect x="171.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="184.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="197.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="211.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="224.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="237.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="251.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="263.3" y1="72.0" x2="263.3" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="264.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="277.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="291.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="304.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="317.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="331.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="344.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="356.7" y1="72.0" x2="356.7" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="357.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="371.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="384.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="397.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="411.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="424.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="437.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="450.0" y1="72.0" x2="450.0" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="451.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="464.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="477.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="491.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="504.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="517.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="531.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="543.3" y1="72.0" x2="543.3" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="544.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="557.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="571.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="584.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="597.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="611.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="624.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="636.7" y1="72.0" x2="636.7" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="637.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.35"/>
+  <rect x="651.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.43999999999999995"/>
+  <rect x="664.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.53"/>
+  <rect x="677.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.62"/>
+  <rect x="691.0" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.71"/>
+  <rect x="704.3" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.7999999999999999"/>
+  <rect x="717.7" y="78.0" width="11.3" height="22.0" rx="2" fill="#a78bfa" fill-opacity="0.89"/>
+  <line x1="730.0" y1="72.0" x2="730.0" y2="122.0" stroke="#38bdf8" stroke-width="3"/>
+  <text x="216.7" y="120.0" fill="#94a3b8" font-size="11" text-anchor="middle">token 7 개 = 167 ms</text>
+  <text x="726.0" y="136.0" fill="#38bdf8" font-size="12" text-anchor="end">1 초에 action 약 6 개 (파란 선)</text>
+  <text x="20.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="start">50 Hz 목표</text>
+  <text x="20.0" y="200.0" fill="#94a3b8" font-size="12" text-anchor="start">20 ms 마다</text>
+  <line x1="181.2" y1="170.0" x2="181.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="192.4" y1="170.0" x2="192.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="203.6" y1="170.0" x2="203.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="214.8" y1="170.0" x2="214.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="226.0" y1="170.0" x2="226.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="237.2" y1="170.0" x2="237.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="248.4" y1="170.0" x2="248.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="259.6" y1="170.0" x2="259.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="270.8" y1="170.0" x2="270.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="282.0" y1="170.0" x2="282.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="293.2" y1="170.0" x2="293.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="304.4" y1="170.0" x2="304.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="315.6" y1="170.0" x2="315.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="326.8" y1="170.0" x2="326.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="338.0" y1="170.0" x2="338.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="349.2" y1="170.0" x2="349.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="360.4" y1="170.0" x2="360.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="371.6" y1="170.0" x2="371.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="382.8" y1="170.0" x2="382.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="394.0" y1="170.0" x2="394.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="405.2" y1="170.0" x2="405.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="416.4" y1="170.0" x2="416.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="427.6" y1="170.0" x2="427.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="438.8" y1="170.0" x2="438.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="450.0" y1="170.0" x2="450.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="461.2" y1="170.0" x2="461.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="472.4" y1="170.0" x2="472.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="483.6" y1="170.0" x2="483.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="494.8" y1="170.0" x2="494.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="506.0" y1="170.0" x2="506.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="517.2" y1="170.0" x2="517.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="528.4" y1="170.0" x2="528.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="539.6" y1="170.0" x2="539.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="550.8" y1="170.0" x2="550.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="562.0" y1="170.0" x2="562.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="573.2" y1="170.0" x2="573.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="584.4" y1="170.0" x2="584.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="595.6" y1="170.0" x2="595.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="606.8" y1="170.0" x2="606.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="618.0" y1="170.0" x2="618.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="629.2" y1="170.0" x2="629.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="640.4" y1="170.0" x2="640.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="651.6" y1="170.0" x2="651.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="662.8" y1="170.0" x2="662.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="674.0" y1="170.0" x2="674.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="685.2" y1="170.0" x2="685.2" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="696.4" y1="170.0" x2="696.4" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="707.6" y1="170.0" x2="707.6" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="718.8" y1="170.0" x2="718.8" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="730.0" y1="170.0" x2="730.0" y2="194.0" stroke="#34d399" stroke-width="2"/>
+  <text x="726.0" y="212.0" fill="#34d399" font-size="12" text-anchor="end">1 초에 action 50 개</text>
+  <text x="20.0" y="262.0" fill="#e2e8f0" font-size="14" text-anchor="start">π0</text>
+  <text x="20.0" y="280.0" fill="#94a3b8" font-size="12" text-anchor="start">추론 한 번 → 50 개</text>
+  <rect x="170.0" y="238.0" width="40.9" height="18.0" rx="3" fill="#f59e0b"/>
+  <text x="216.9" y="252.0" fill="#f59e0b" font-size="12" text-anchor="start">추론 73 ms → 1 초 분량 action 50 개</text>
+  <line x1="181.2" y1="262.0" x2="181.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="192.4" y1="262.0" x2="192.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="203.6" y1="262.0" x2="203.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="214.8" y1="262.0" x2="214.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="226.0" y1="262.0" x2="226.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="237.2" y1="262.0" x2="237.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="248.4" y1="262.0" x2="248.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="259.6" y1="262.0" x2="259.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="270.8" y1="262.0" x2="270.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="282.0" y1="262.0" x2="282.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="293.2" y1="262.0" x2="293.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="304.4" y1="262.0" x2="304.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="315.6" y1="262.0" x2="315.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="326.8" y1="262.0" x2="326.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="338.0" y1="262.0" x2="338.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="349.2" y1="262.0" x2="349.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="360.4" y1="262.0" x2="360.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="371.6" y1="262.0" x2="371.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="382.8" y1="262.0" x2="382.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="394.0" y1="262.0" x2="394.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="405.2" y1="262.0" x2="405.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="416.4" y1="262.0" x2="416.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="427.6" y1="262.0" x2="427.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="438.8" y1="262.0" x2="438.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="450.0" y1="262.0" x2="450.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="461.2" y1="262.0" x2="461.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="472.4" y1="262.0" x2="472.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="483.6" y1="262.0" x2="483.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="494.8" y1="262.0" x2="494.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="506.0" y1="262.0" x2="506.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="517.2" y1="262.0" x2="517.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="528.4" y1="262.0" x2="528.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="539.6" y1="262.0" x2="539.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="550.8" y1="262.0" x2="550.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="562.0" y1="262.0" x2="562.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="573.2" y1="262.0" x2="573.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="584.4" y1="262.0" x2="584.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="595.6" y1="262.0" x2="595.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="606.8" y1="262.0" x2="606.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="618.0" y1="262.0" x2="618.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="629.2" y1="262.0" x2="629.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="640.4" y1="262.0" x2="640.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="651.6" y1="262.0" x2="651.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="662.8" y1="262.0" x2="662.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="674.0" y1="262.0" x2="674.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="685.2" y1="262.0" x2="685.2" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="696.4" y1="262.0" x2="696.4" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="707.6" y1="262.0" x2="707.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="718.8" y1="262.0" x2="718.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <line x1="730.0" y1="262.0" x2="730.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
+  <text x="726.0" y="304.0" fill="#34d399" font-size="12" text-anchor="end">덩어리에서 20 ms 마다 하나씩 꺼낸다</text>
+  <line x1="170.0" y1="322.0" x2="730.0" y2="322.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="170.0" y1="318.0" x2="170.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="310.0" y1="318.0" x2="310.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="450.0" y1="318.0" x2="450.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="590.0" y1="318.0" x2="590.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="730.0" y1="318.0" x2="730.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
+  <text x="170.0" y="344.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="450.0" y="344.0" fill="#94a3b8" font-size="11" text-anchor="middle">500 ms</text>
+  <text x="730.0" y="344.0" fill="#94a3b8" font-size="11" text-anchor="middle">1 초</text>
+</svg>

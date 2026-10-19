@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>episode 20 개짜리 batch 네 개. 성공률이 0% 면 모든 advantage 가 0 이라 배울 것이 없고, 5% 면 성공 1 개만 +0.95, 30% 면 성공 6 개가 +0.7 이고 실패 14 개가 −0.3, 95% 면 실패 1 개만 −0.95 다</title>
+  <rect x="1" y="1" width="698" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="34" fill="#94a3b8" font-size="13">초록 = 성공(reward 1) · 회색 = 실패(reward 0) · baseline = batch 의 평균 성공률</text>
+
+  <g font-size="14" fill="#e2e8f0">
+    <text x="24" y="80">성공률 0%</text>
+    <text x="24" y="150">성공률 5%</text>
+    <text x="24" y="220">성공률 30%</text>
+    <text x="24" y="290">성공률 95%</text>
+  </g>
+
+  <!-- row helper: 20 circles from x=130 step 18 -->
+  <g id="r0" fill="#475569">
+    <circle cx="130" cy="75" r="7"/><circle cx="148" cy="75" r="7"/><circle cx="166" cy="75" r="7"/><circle cx="184" cy="75" r="7"/><circle cx="202" cy="75" r="7"/>
+    <circle cx="220" cy="75" r="7"/><circle cx="238" cy="75" r="7"/><circle cx="256" cy="75" r="7"/><circle cx="274" cy="75" r="7"/><circle cx="292" cy="75" r="7"/>
+    <circle cx="310" cy="75" r="7"/><circle cx="328" cy="75" r="7"/><circle cx="346" cy="75" r="7"/><circle cx="364" cy="75" r="7"/><circle cx="382" cy="75" r="7"/>
+    <circle cx="400" cy="75" r="7"/><circle cx="418" cy="75" r="7"/><circle cx="436" cy="75" r="7"/><circle cx="454" cy="75" r="7"/><circle cx="472" cy="75" r="7"/>
+  </g>
+  <g fill="#475569">
+    <circle cx="130" cy="145" r="7" fill="#34d399"/><circle cx="148" cy="145" r="7"/><circle cx="166" cy="145" r="7"/><circle cx="184" cy="145" r="7"/><circle cx="202" cy="145" r="7"/>
+    <circle cx="220" cy="145" r="7"/><circle cx="238" cy="145" r="7"/><circle cx="256" cy="145" r="7"/><circle cx="274" cy="145" r="7"/><circle cx="292" cy="145" r="7"/>
+    <circle cx="310" cy="145" r="7"/><circle cx="328" cy="145" r="7"/><circle cx="346" cy="145" r="7"/><circle cx="364" cy="145" r="7"/><circle cx="382" cy="145" r="7"/>
+    <circle cx="400" cy="145" r="7"/><circle cx="418" cy="145" r="7"/><circle cx="436" cy="145" r="7"/><circle cx="454" cy="145" r="7"/><circle cx="472" cy="145" r="7"/>
+  </g>
+  <g fill="#475569">
+    <circle cx="130" cy="215" r="7" fill="#34d399"/><circle cx="148" cy="215" r="7" fill="#34d399"/><circle cx="166" cy="215" r="7" fill="#34d399"/><circle cx="184" cy="215" r="7" fill="#34d399"/><circle cx="202" cy="215" r="7" fill="#34d399"/>
+    <circle cx="220" cy="215" r="7" fill="#34d399"/><circle cx="238" cy="215" r="7"/><circle cx="256" cy="215" r="7"/><circle cx="274" cy="215" r="7"/><circle cx="292" cy="215" r="7"/>
+    <circle cx="310" cy="215" r="7"/><circle cx="328" cy="215" r="7"/><circle cx="346" cy="215" r="7"/><circle cx="364" cy="215" r="7"/><circle cx="382" cy="215" r="7"/>
+    <circle cx="400" cy="215" r="7"/><circle cx="418" cy="215" r="7"/><circle cx="436" cy="215" r="7"/><circle cx="454" cy="215" r="7"/><circle cx="472" cy="215" r="7"/>
+  </g>
+  <g fill="#34d399">
+    <circle cx="130" cy="285" r="7"/><circle cx="148" cy="285" r="7"/><circle cx="166" cy="285" r="7"/><circle cx="184" cy="285" r="7"/><circle cx="202" cy="285" r="7"/>
+    <circle cx="220" cy="285" r="7"/><circle cx="238" cy="285" r="7"/><circle cx="256" cy="285" r="7"/><circle cx="274" cy="285" r="7"/><circle cx="292" cy="285" r="7"/>
+    <circle cx="310" cy="285" r="7"/><circle cx="328" cy="285" r="7"/><circle cx="346" cy="285" r="7"/><circle cx="364" cy="285" r="7"/><circle cx="382" cy="285" r="7"/>
+    <circle cx="400" cy="285" r="7"/><circle cx="418" cy="285" r="7"/><circle cx="436" cy="285" r="7"/><circle cx="454" cy="285" r="7"/><circle cx="472" cy="285" r="7" fill="#475569"/>
+  </g>
+
+  <g font-size="13">
+    <text x="500" y="72" fill="#f87171">advantage 모두 0</text>
+    <text x="500" y="90" fill="#94a3b8">배울 신호 없음</text>
+    <text x="500" y="142" fill="#34d399">성공 1 개: +0.95</text>
+    <text x="500" y="160" fill="#94a3b8">실패 19 개: −0.05</text>
+    <text x="500" y="212" fill="#34d399">성공 6 개: +0.7</text>
+    <text x="500" y="230" fill="#94a3b8">실패 14 개: −0.3</text>
+    <text x="500" y="282" fill="#34d399">성공 19 개: +0.05</text>
+    <text x="500" y="300" fill="#94a3b8">실패 1 개: −0.95</text>
+  </g>
+</svg>

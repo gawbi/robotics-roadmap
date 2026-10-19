@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>왼쪽 linear regression 은 입력 2 V 에 정답 8 cm 가 함께 주어져 예측 5 cm 의 오차 −3 을 계산한다. 오른쪽 로봇 청소기는 위로 한 칸 움직인 뒤 reward 0 만 받고 어느 방향이 옳았는지는 모른다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="678" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="20.0" width="310.0" height="260.0" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="175.0" y="48.0" fill="#38bdf8" font-size="15" text-anchor="middle">linear regression</text>
+  <rect x="40.0" y="70.0" width="80.0" height="44.0" rx="6" fill="#0e1628" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80.0" y="97.0" fill="#e2e8f0" font-size="13" text-anchor="middle">입력 2 V</text>
+  <line x1="120.0" y1="92.0" x2="150.0" y2="92.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
+  <rect x="152.0" y="70.0" width="60.0" height="44.0" rx="6" fill="#0e1628" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="182.0" y="97.0" fill="#e2e8f0" font-size="13" text-anchor="middle">모델</text>
+  <line x1="212.0" y1="92.0" x2="240.0" y2="92.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
+  <rect x="242.0" y="70.0" width="76.0" height="44.0" rx="6" fill="#0e1628" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="280.0" y="97.0" fill="#e2e8f0" font-size="13" text-anchor="middle">예측 5 cm</text>
+  <rect x="242.0" y="140.0" width="76.0" height="44.0" rx="6" fill="#0e1628" stroke="#34d399" stroke-width="1.5"/>
+  <text x="280.0" y="167.0" fill="#34d399" font-size="13" text-anchor="middle">정답 8 cm</text>
+  <text x="175.0" y="222.0" fill="#f87171" font-size="15" text-anchor="middle">오차 = 5 − 8 = −3</text>
+  <text x="175.0" y="252.0" fill="#94a3b8" font-size="12" text-anchor="middle">얼마나, 어느 쪽으로 틀렸는지 안다</text>
+  <rect x="350.0" y="20.0" width="310.0" height="260.0" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="505.0" y="48.0" fill="#f59e0b" font-size="15" text-anchor="middle">reinforcement learning</text>
+  <rect x="380.0" y="74.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="420.0" y="74.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="460.0" y="74.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="380.0" y="114.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="420.0" y="114.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="460.0" y="114.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="380.0" y="154.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="420.0" y="154.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <rect x="460.0" y="154.0" width="40.0" height="40.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.2"/>
+  <circle cx="440.0" cy="174.0" r="9" fill="#38bdf8"/>
+  <line x1="440.0" y1="162.0" x2="440.0" y2="140.0" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#ar-amber)"/>
+  <text x="510.0" y="92.0" fill="#e2e8f0" font-size="12" text-anchor="start">state: 방 가운데 아래</text>
+  <text x="510.0" y="116.0" fill="#f59e0b" font-size="12" text-anchor="start">action: 위</text>
+  <text x="510.0" y="140.0" fill="#34d399" font-size="12" text-anchor="start">reward: 0</text>
+  <text x="510.0" y="172.0" fill="#f87171" font-size="12" text-anchor="start">정답 행동: 알려 주지 않음</text>
+  <text x="505.0" y="222.0" fill="#e2e8f0" font-size="15" text-anchor="middle">받는 것은 결과 점수 하나뿐</text>
+  <text x="505.0" y="252.0" fill="#94a3b8" font-size="12" text-anchor="middle">다른 방향이 더 좋았는지는 모른다</text>
+</svg>

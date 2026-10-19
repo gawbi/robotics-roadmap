@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>policy 가 운전해 가운데에서 벗어난 위치마다, 실행한 조향은 policy 의 것이지만 저장하는 정답은 그 위치에서 expert 가 냈을 조향이다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+    <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="30" y="40" width="540" height="150" fill="#0e1628"/>
+  <line x1="30" y1="40" x2="570" y2="40" stroke="#475569" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="30" y1="190" x2="570" y2="190" stroke="#475569" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="30" y1="115.0" x2="570" y2="115.0" stroke="#94a3b8" stroke-width="1" opacity="0.6"/>
+  <text x="564.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="end">차선 경계</text>
+  <text x="564.0" y="109.0" fill="#94a3b8" font-size="13" text-anchor="end">차선 가운데</text>
+  <polyline points="50.0,115.0 54.0,115.0 58.0,114.9 62.0,114.8 66.0,114.8 70.0,114.7 74.0,114.6 78.0,114.5 82.0,114.4 86.0,114.3 90.0,114.2 94.0,114.1 98.0,113.9 102.0,113.8 106.0,113.7 110.0,113.5 114.0,113.3 118.0,113.2 122.0,113.0 126.0,112.8 130.0,112.6 134.0,112.4 138.0,112.2 142.0,112.0 146.0,111.7 150.0,111.5 154.0,111.3 158.0,111.0 162.0,110.7 166.0,110.5 170.0,110.2 174.0,109.9 178.0,109.6 182.0,109.3 186.0,109.0 190.0,108.7 194.0,108.4 198.0,108.0 202.0,107.7 206.0,107.4 210.0,107.0 214.0,106.6 218.0,106.3 222.0,105.9 226.0,105.5 230.0,105.1 234.0,104.7 238.0,104.3 242.0,103.9 246.0,103.4 250.0,103.0 254.0,102.6 258.0,102.1 262.0,101.6 266.0,101.2 270.0,100.7 274.0,100.2 278.0,99.7 282.0,99.2 286.0,98.7 290.0,98.2 294.0,97.7 298.0,97.1 302.0,96.6 306.0,96.1 310.0,95.5 314.0,94.9 318.0,94.4 322.0,93.8 326.0,93.2 330.0,92.6 334.0,92.0 338.0,91.4 342.0,90.8 346.0,90.1 350.0,89.5 354.0,88.9 358.0,88.2 362.0,87.5 366.0,86.9 370.0,86.2 374.0,85.5 378.0,84.8 382.0,84.1 386.0,83.4 390.0,82.7 394.0,82.0 398.0,81.2 402.0,80.5 406.0,79.8 410.0,79.0 414.0,78.2 418.0,77.5 422.0,76.7 426.0,75.9 430.0,75.1 434.0,74.3 438.0,73.5 442.0,72.7 446.0,71.8 450.0,71.0 454.0,70.2 458.0,69.3 462.0,68.4 466.0,67.6 470.0,66.7 474.0,65.8 478.0,64.9 482.0,64.0 486.0,63.1 490.0,62.2 494.0,61.3 498.0,60.3 502.0,59.4 506.0,58.5 510.0,57.5 514.0,56.5 518.0,55.6" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.45"/>
+  <line x1="170.0" y1="110.2" x2="212.9" y2="93.6" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-acc)"/>
+  <line x1="170.0" y1="110.2" x2="215.9" y2="113.9" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-acc2)"/>
+  <circle cx="170.0" cy="110.2" r="5" fill="#e2e8f0"/>
+  <line x1="300.0" y1="96.9" x2="341.7" y2="77.5" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-acc)"/>
+  <line x1="300.0" y1="96.9" x2="344.0" y2="110.2" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-acc2)"/>
+  <circle cx="300.0" cy="96.9" r="5" fill="#e2e8f0"/>
+  <line x1="430.0" y1="75.1" x2="470.4" y2="53.2" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-acc)"/>
+  <line x1="430.0" y1="75.1" x2="468.3" y2="100.6" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-acc2)"/>
+  <circle cx="430.0" cy="75.1" r="5" fill="#e2e8f0"/>
+  <rect x="38" y="103.0" width="34" height="24" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="40.0" y1="219.0" x2="70.0" y2="219.0" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-acc)"/>
+  <text x="80.0" y="224.0" fill="#38bdf8" font-size="14" text-anchor="start">실행한 조향 — policy 의 출력</text>
+  <line x1="40.0" y1="247.0" x2="70.0" y2="247.0" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-acc2)"/>
+  <text x="80.0" y="252.0" fill="#f59e0b" font-size="14" text-anchor="start">저장하는 정답 — 그 위치에서 expert 가 냈을 조향</text>
+  <circle cx="55" cy="276" r="5" fill="#e2e8f0"/>
+  <text x="80.0" y="281.0" fill="#e2e8f0" font-size="14" text-anchor="start">지나간 위치 — policy 가 데려간, 시연에 없던 위치</text>
+</svg>

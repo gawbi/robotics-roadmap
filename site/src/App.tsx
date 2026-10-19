@@ -1,23 +1,17 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Legend, NextUp, TopBar, ZoomControls } from './components/Chrome'
 import { Holygraph, type GraphControls, type Insets } from './components/Holygraph'
 import { Intro } from './components/Intro'
 import { PanelResizer, usePanelWidth } from './components/PanelResizer'
 import { CONFIG } from './config'
-import { computeLayout } from './curriculum/layout'
+import { computeLayout, type Layout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
-import { sanitize, useProgress } from './curriculum/progress'
-import { parseSource, useSharedProgress } from './curriculum/shared'
+import { useProgress } from './curriculum/progress'
 
 // the panel pulls in markdown, KaTeX and highlighting; the graph does not need them to show up
-const ProjectPanel = lazy(() => import('./components/ProjectPanel').then((m) => ({ default: m.ProjectPanel })))
+const LessonPanel = lazy(() => import('./components/LessonPanel').then((m) => ({ default: m.LessonPanel })))
 
 const ROUTE = /^#\/p\/([a-z0-9-]+)$/
-
-const params = new URLSearchParams(window.location.search)
-const sharedSource = parseSource(params.get(CONFIG.shared.fromParam))
-const embedded = params.get(CONFIG.shared.embedParam) === '1'
-const NO_PROGRESS = sanitize(null)
 
 function readRoute(): string | null {
   const m = ROUTE.exec(window.location.hash)
@@ -44,20 +38,23 @@ function introSeen(): boolean {
 }
 
 export function App() {
-  const layout = useMemo(() => computeLayout(curriculum), [])
-  const localProgress = useProgress()
-  const shared = useSharedProgress(sharedSource)
-  const progressFile = shared === null ? localProgress : shared.kind === 'ready' ? shared.data.progress : NO_PROGRESS
-  const records = shared?.kind === 'ready' ? shared.data.records : {}
+  const [layout, setLayout] = useState<Layout | null>(null)
+  useEffect(() => {
+    let live = true
+    computeLayout(curriculum).then((l) => live && setLayout(l))
+    return () => {
+      live = false
+    }
+  }, [])
+  const progressFile = useProgress()
   const [selectedId, setSelectedId] = useState<string | null>(readRoute)
   const [hoverId, setHoverId] = useState<string | null>(null)
   const [hoverBranch, setHoverBranch] = useState<string | null>(null)
-  const [showIntro, setShowIntro] = useState(() => !sharedSource && !embedded && !introSeen() && !readRoute())
-  const [wheelHint, setWheelHint] = useState(false)
+  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute())
   const controls = useRef<GraphControls>(null)
   const wide = useMediaQuery('(min-width: 960px)')
   const sidebarInset = wide ? 280 : 0
-  const panel = usePanelWidth(sidebarInset)
+  const panel = usePanelWidth()
   const [resizing, setResizing] = useState(false)
 
   useEffect(() => {
@@ -82,13 +79,6 @@ export function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [selectedId, showIntro, close])
 
-  useEffect(() => {
-    if (!wheelHint) return
-    const t = setTimeout(() => setWheelHint(false), CONFIG.shared.wheelHintMs)
-    return () => clearTimeout(t)
-  }, [wheelHint])
-  const showWheelHint = useCallback(() => setWheelHint(true), [])
-
   const closeIntro = useCallback(() => {
     try {
       localStorage.setItem(CONFIG.storage.introSeenKey, '1')
@@ -106,41 +96,33 @@ export function App() {
     left: sidebarInset,
   }
 
-  const root = curriculum.projects.find((p) => p.requires.length === 0 && p.branch === 'core') ?? curriculum.projects[0]
+  const root = curriculum.lessons.find((p) => p.requires.length === 0 && p.branch === 'core') ?? curriculum.lessons[0]
 
   return (
     <div
       className={`app ${panelOpen ? 'has-panel' : ''} ${resizing ? 'is-resizing' : ''}`}
       style={{ ['--panel-width' as string]: `${panel.width}px` }}
     >
-      <Holygraph
-        ref={controls}
-        curriculum={curriculum}
-        layout={layout}
-        progress={progressFile}
-        selectedId={selectedId}
-        hoverId={hoverId}
-        hoverBranch={hoverBranch}
-        insets={insets}
-        wheelNeedsModifier={embedded}
-        onSelect={select}
-        onHover={setHoverId}
-        onBlockedWheel={showWheelHint}
-      />
+      {layout && (
+        <Holygraph
+          ref={controls}
+          curriculum={curriculum}
+          layout={layout}
+          progress={progressFile}
+          selectedId={selectedId}
+          hoverId={hoverId}
+          hoverBranch={hoverBranch}
+          insets={insets}
+          onSelect={select}
+          onHover={setHoverId}
+        />
+      )}
 
       <TopBar
         curriculum={curriculum}
         progressFile={progressFile}
-        shared={sharedSource && shared ? { source: sharedSource, state: shared } : null}
-        embedded={embedded}
         onHelp={() => setShowIntro(true)}
       />
-
-      {wheelHint && (
-        <p className="wheel-hint" role="status">
-          Ctrl(⌘) + 스크롤로 확대·축소
-        </p>
-      )}
 
       <div className="sidebar">
         <NextUp curriculum={curriculum} progressFile={progressFile} onSelect={select} onHover={setHoverId} />
@@ -153,12 +135,11 @@ export function App() {
 
       {selectedId && (
         <Suspense fallback={<aside className="panel" aria-busy="true" />}>
-          <ProjectPanel
+          <LessonPanel
             key={selectedId}
             curriculum={curriculum}
             progressFile={progressFile}
-            shared={sharedSource ? { source: sharedSource, record: records[selectedId] } : null}
-            projectId={selectedId}
+            lessonId={selectedId}
             onClose={close}
             onSelect={select}
           />
@@ -167,8 +148,8 @@ export function App() {
 
       {showIntro && (
         <Intro
-          firstProjectId={root.id}
-          projectCount={curriculum.projects.length}
+          firstLessonId={root.id}
+          lessonCount={curriculum.lessons.length}
           onClose={closeIntro}
           onStart={(id) => {
             closeIntro()

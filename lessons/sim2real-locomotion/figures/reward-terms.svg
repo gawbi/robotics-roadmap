@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>두 걸음의 reward 항목. 걸음 1 은 속도 추종 0.9608 에서 penalty 0.02, 0.1, 0.02 를 빼 0.8208 이고, 걸음 2 는 0.8521 에서 0.18, 0.3, 0.1 을 빼 0.2721 이다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="77" fill="#e2e8f0" font-size="14" text-anchor="start">걸음 1</text>
+  <rect x="130" y="56" width="403.5" height="32" fill="#34d399" fill-opacity="0.75"/>
+  <rect x="525.1" y="56" width="8.4" height="32" fill="#f87171"/>
+  <rect x="483.1" y="56" width="42.0" height="32" fill="#f59e0b"/>
+  <rect x="474.7" y="56" width="8.4" height="32" fill="#a78bfa"/>
+  <line x1="474.736" y1="50" x2="474.736" y2="94" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="543.5360000000001" y="77" fill="#e2e8f0" font-size="14" text-anchor="start">합 0.8208</text>
+  <text x="130" y="110" fill="#94a3b8" font-size="13" text-anchor="start">0.9608 − 0.02 − 0.1 − 0.02 = 0.8208</text>
+  <text x="20" y="167" fill="#e2e8f0" font-size="14" text-anchor="start">걸음 2</text>
+  <rect x="130" y="146" width="357.9" height="32" fill="#34d399" fill-opacity="0.75"/>
+  <rect x="412.3" y="146" width="75.6" height="32" fill="#f87171"/>
+  <rect x="286.3" y="146" width="126.0" height="32" fill="#f59e0b"/>
+  <rect x="244.3" y="146" width="42.0" height="32" fill="#a78bfa"/>
+  <line x1="244.282" y1="140" x2="244.282" y2="184" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="497.882" y="167" fill="#e2e8f0" font-size="14" text-anchor="start">합 0.2721</text>
+  <text x="130" y="200" fill="#94a3b8" font-size="13" text-anchor="start">0.8521 − 0.18 − 0.3 − 0.1 = 0.2721</text>
+  <line x1="130" y1="218" x2="550" y2="218" stroke="#334155" stroke-width="1"/>
+  <line x1="130" y1="214" x2="130" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="130" y="238" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <line x1="235.0" y1="214" x2="235.0" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="235.0" y="238" fill="#94a3b8" font-size="12" text-anchor="middle">0.25</text>
+  <line x1="340.0" y1="214" x2="340.0" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="340.0" y="238" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
+  <line x1="445.0" y1="214" x2="445.0" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="445.0" y="238" fill="#94a3b8" font-size="12" text-anchor="middle">0.75</text>
+  <line x1="550.0" y1="214" x2="550.0" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="550.0" y="238" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <rect x="40" y="258" width="14" height="14" fill="#34d399"/>
+  <text x="60" y="270" fill="#e2e8f0" font-size="13" text-anchor="start">속도 추종</text>
+  <rect x="190" y="258" width="14" height="14" fill="#f87171"/>
+  <text x="210" y="270" fill="#e2e8f0" font-size="13" text-anchor="start">흔들림 penalty</text>
+  <rect x="340" y="258" width="14" height="14" fill="#f59e0b"/>
+  <text x="360" y="270" fill="#e2e8f0" font-size="13" text-anchor="start">torque penalty</text>
+  <rect x="490" y="258" width="14" height="14" fill="#a78bfa"/>
+  <text x="510" y="270" fill="#e2e8f0" font-size="13" text-anchor="start">action 변화 penalty</text>
+  <text x="20" y="34" fill="#94a3b8" font-size="13" text-anchor="start">초록 막대가 속도 추종 점수이고, 오른쪽 끝에서 penalty 만큼 깎은 자리(흰 선)가 reward 다</text>
+</svg>

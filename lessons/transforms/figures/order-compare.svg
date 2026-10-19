@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>회전과 이동의 순서 비교. 90° 회전 뒤 (3, 1) 이동하면 (2, 1) 이 (2, 3) 이 되고, 먼저 (3, 1) 이동한 뒤 회전하면 (−2, 5) 가 된다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="638" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="30.0" fill="#34d399" font-size="14" text-anchor="start">① 회전 먼저, 이동 나중</text>
+  <text x="336.0" y="30.0" fill="#f87171" font-size="14" text-anchor="start">② 이동 먼저, 회전 나중</text>
+  <line x1="8.0" y1="290.0" x2="8.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="42.0" y1="290.0" x2="42.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="76.0" y1="290.0" x2="76.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="110.0" y1="290.0" x2="110.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="144.0" y1="290.0" x2="144.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="178.0" y1="290.0" x2="178.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="212.0" y1="290.0" x2="212.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="246.0" y1="290.0" x2="246.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="280.0" y1="290.0" x2="280.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="290.0" x2="280.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="256.0" x2="280.0" y2="256.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="222.0" x2="280.0" y2="222.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="188.0" x2="280.0" y2="188.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="154.0" x2="280.0" y2="154.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="120.0" x2="280.0" y2="120.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="86.0" x2="280.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="8.0" y1="290.0" x2="280.0" y2="290.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="110.0" y1="290.0" x2="110.0" y2="86.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="8.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−3</text>
+  <text x="42.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−2</text>
+  <text x="76.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−1</text>
+  <text x="144.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="178.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="212.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="246.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="280.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">5</text>
+  <text x="103.0" y="260.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="103.0" y="226.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="103.0" y="192.0" fill="#64748b" font-size="12" text-anchor="end">3</text>
+  <text x="103.0" y="158.0" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <text x="103.0" y="124.0" fill="#64748b" font-size="12" text-anchor="end">5</text>
+  <text x="103.0" y="90.0" fill="#64748b" font-size="12" text-anchor="end">6</text>
+  <circle cx="178.0" cy="256.0" r="5" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+  <text x="186.0" y="270.0" fill="#94a3b8" font-size="12" text-anchor="start">(2, 1)</text>
+  <path d="M175.8,252.0 L174.4,249.6 L172.9,247.3 L171.3,245.1 L169.7,242.9 L167.9,240.8 L166.1,238.7 L164.2,236.7 L162.2,234.8 L160.2,232.9 L158.1,231.1 L155.9,229.4 L153.7,227.8 L151.4,226.3 L149.1,224.8 L146.7,223.4 L144.3,222.1 L141.8,220.9 L139.3,219.8 L136.7,218.8 L134.1,217.9 L131.5,217.1 L128.8,216.3 L126.2,215.7 L123.5,215.2 L120.7,214.7 L118.0,214.4 L115.3,214.2 L112.5,214.0 L109.8,214.0 L107.0,214.0 L104.3,214.2 L101.5,214.4 L98.8,214.8 L96.1,215.3 L93.4,215.8 L90.7,216.5 L88.1,217.2 L85.4,218.1 L82.8,219.0 L80.3,220.0" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+  <line x1="76.0" y1="222.0" x2="178.0" y2="188.0" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow-violet)"/>
+  <circle cx="76.0" cy="222.0" r="4" fill="#94a3b8"/>
+  <text x="68.0" y="226.0" fill="#94a3b8" font-size="12" text-anchor="end">(−1, 2)</text>
+  <circle cx="178.0" cy="188.0" r="7" fill="#34d399"/>
+  <text x="188.0" y="180.0" fill="#34d399" font-size="14" text-anchor="start">(2, 3)</text>
+  <line x1="318.0" y1="290.0" x2="318.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="352.0" y1="290.0" x2="352.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="386.0" y1="290.0" x2="386.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="420.0" y1="290.0" x2="420.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="454.0" y1="290.0" x2="454.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="488.0" y1="290.0" x2="488.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="522.0" y1="290.0" x2="522.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="556.0" y1="290.0" x2="556.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="590.0" y1="290.0" x2="590.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="290.0" x2="590.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="256.0" x2="590.0" y2="256.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="222.0" x2="590.0" y2="222.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="188.0" x2="590.0" y2="188.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="154.0" x2="590.0" y2="154.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="120.0" x2="590.0" y2="120.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="86.0" x2="590.0" y2="86.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="318.0" y1="290.0" x2="590.0" y2="290.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="420.0" y1="290.0" x2="420.0" y2="86.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="318.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−3</text>
+  <text x="352.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−2</text>
+  <text x="386.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">−1</text>
+  <text x="454.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="488.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="522.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="556.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="590.0" y="306.0" fill="#64748b" font-size="12" text-anchor="middle">5</text>
+  <text x="413.0" y="260.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="413.0" y="226.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="413.0" y="192.0" fill="#64748b" font-size="12" text-anchor="end">3</text>
+  <text x="413.0" y="158.0" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <text x="413.0" y="124.0" fill="#64748b" font-size="12" text-anchor="end">5</text>
+  <text x="413.0" y="90.0" fill="#64748b" font-size="12" text-anchor="end">6</text>
+  <circle cx="488.0" cy="256.0" r="5" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+  <text x="496.0" y="270.0" fill="#94a3b8" font-size="12" text-anchor="start">(2, 1)</text>
+  <line x1="488.0" y1="256.0" x2="590.0" y2="222.0" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow-violet)"/>
+  <path d="M587.5,216.1 L584.7,209.9 L581.6,203.9 L578.3,198.0 L574.8,192.2 L571.0,186.5 L567.1,181.0 L562.9,175.6 L558.6,170.4 L554.1,165.3 L549.4,160.4 L544.5,155.7 L539.4,151.2 L534.2,146.9 L528.8,142.7 L523.2,138.8 L517.6,135.1 L511.8,131.6 L505.8,128.3 L499.8,125.2 L493.6,122.3 L487.3,119.7 L481.0,117.4 L474.5,115.2 L468.0,113.3 L461.4,111.7 L454.8,110.2 L448.1,109.1 L441.4,108.2 L434.6,107.5 L427.8,107.1 L421.0,106.9 L414.2,107.0 L407.5,107.3 L400.7,107.9 L394.0,108.8 L387.3,109.9 L380.6,111.2 L374.0,112.8 L367.5,114.6 L361.0,116.7" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+  <circle cx="590.0" cy="222.0" r="4" fill="#94a3b8"/>
+  <text x="586.0" y="212.0" fill="#94a3b8" font-size="12" text-anchor="end">(5, 2)</text>
+  <circle cx="352.0" cy="120.0" r="7" fill="#f87171"/>
+  <text x="352.0" y="144.0" fill="#f87171" font-size="14" text-anchor="middle">(−2, 5)</text>
+  <text x="24.0" y="336.0" fill="#94a3b8" font-size="12" text-anchor="start">(2, 1) 을 90° 돌린 뒤 (3, 1) 만큼 이동</text>
+  <text x="336.0" y="336.0" fill="#94a3b8" font-size="12" text-anchor="start">(2, 1) 을 (3, 1) 만큼 이동한 뒤 90° 회전</text>
+</svg>

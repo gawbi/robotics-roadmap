@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>칸 1 의 그림을 encoder 에 한 번 넣어 z_0 = 1 을 얻고, f 에 +1 을 세 번 넣어 2, 3, 4 를 예측한다. 예측 reward 는 −2, −1, 0 이다. 이 동안 실제 로봇은 움직이지 않는다</title>
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="31.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="42.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="53.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="64.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="75.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="86.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="97.0" y="80.0" width="11.0" height="11.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <text x="64.0" y="72.0" fill="#94a3b8" font-size="12" text-anchor="middle">칸 1 그림</text>
+  <line x1="110.0" y1="86.0" x2="130.0" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M134,64 L178,76 L178,96 L134,108 Z" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="156.0" y="90.0" fill="#e2e8f0" font-size="11" text-anchor="middle">enc</text>
+  <line x1="178.0" y1="86.0" x2="196.0" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="200.0" y="66.0" width="54.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="227.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z<tspan baseline-shift="sub" font-size="11">0</tspan>=1</text>
+  <rect x="266.0" y="40.0" width="360.0" height="160.0" rx="10" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="446.0" y="222.0" fill="#38bdf8" font-size="12" text-anchor="middle">상상 속 rollout: world model 안에서만 계산 (실제 로봇은 그대로)</text>
+  <line x1="254.0" y1="86.0" x2="310.0" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="282.0" y="62.0" fill="#34d399" font-size="12" text-anchor="middle">f, a = +1</text>
+  <rect x="314.0" y="66.0" width="54.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="341.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">ẑ<tspan baseline-shift="sub" font-size="11">1</tspan>=2</text>
+  <line x1="341.0" y1="106.0" x2="341.0" y2="136.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="311.0" y="140.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="341.0" y="162.0" fill="#f59e0b" font-size="13" text-anchor="middle">r̂ −2</text>
+  <line x1="370.0" y1="86.0" x2="426.0" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="398.0" y="62.0" fill="#34d399" font-size="12" text-anchor="middle">f, a = +1</text>
+  <rect x="430.0" y="66.0" width="54.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="457.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">ẑ<tspan baseline-shift="sub" font-size="11">2</tspan>=3</text>
+  <line x1="457.0" y1="106.0" x2="457.0" y2="136.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="427.0" y="140.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="457.0" y="162.0" fill="#f59e0b" font-size="13" text-anchor="middle">r̂ −1</text>
+  <line x1="486.0" y1="86.0" x2="542.0" y2="86.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="514.0" y="62.0" fill="#34d399" font-size="12" text-anchor="middle">f, a = +1</text>
+  <rect x="546.0" y="66.0" width="54.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="573.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">ẑ<tspan baseline-shift="sub" font-size="11">3</tspan>=4</text>
+  <line x1="573.0" y1="106.0" x2="573.0" y2="136.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="543.0" y="140.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="573.0" y="162.0" fill="#f59e0b" font-size="13" text-anchor="middle">r̂ 0</text>
+  <text x="320.0" y="254.0" fill="#94a3b8" font-size="13" text-anchor="middle">카메라는 처음 한 번만 쓰고, 그 뒤로는 예측을 다시 f 에 넣는다</text>
+</svg>

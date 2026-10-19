@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>길이 2 인 팔에서 base joint 각도가 5° 어긋나면 손끝은 약 2 × 0.0873 ≈ 0.175 만큼 어긋난다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="37.0" y="89.0" width="287.5" height="184.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="37.0" y1="89.0" x2="37.0" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="94.5" y1="89.0" x2="94.5" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="152.0" y1="89.0" x2="152.0" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="209.5" y1="89.0" x2="209.5" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="267.0" y1="89.0" x2="267.0" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="324.5" y1="89.0" x2="324.5" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="37.0" y1="273.0" x2="324.5" y2="273.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="37.0" y1="215.5" x2="324.5" y2="215.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="37.0" y1="158.0" x2="324.5" y2="158.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="37.0" y1="100.5" x2="324.5" y2="100.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="37.0" y1="250.0" x2="324.5" y2="250.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60.0" y1="89.0" x2="60.0" y2="273.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="175.0" y="266.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="290.0" y="266.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="53.0" y="139.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="53.0" y="266.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="330.5" y="255.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
+  <text x="65.0" y="83.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
+  <path d="M123.2,250.0 A63.3,63.3 0 0,0 119.4,228.4" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="130.3" y="244.4" fill="#f59e0b" font-size="12" text-anchor="start">20°</text>
+  <line x1="60.0" y1="250.0" x2="164.2" y2="201.4" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+  <line x1="164.2" y1="201.4" x2="268.5" y2="152.8" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="268.5" cy="152.8" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="60.0" y1="250.0" x2="168.1" y2="210.7" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="168.1" y1="210.7" x2="276.1" y2="171.3" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="60.0" cy="250.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="168.1" cy="210.7" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="276.1" cy="171.3" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M276.1,171.3 A230.0,230.0 0 0,0 268.5,152.8" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+  <text x="288.1" y="187.3" fill="#f59e0b" font-size="13" text-anchor="start">계산한 손끝 (θ₁ = 20°)</text>
+  <text x="280.5" y="146.8" fill="#f87171" font-size="13" text-anchor="start">실제 손끝 (θ₁ = 25°)</text>
+  <text x="340.0" y="220.0" fill="#94a3b8" font-size="13" text-anchor="start">어긋난 거리 ≈ 팔 길이 × 각도(rad)</text>
+  <text x="340.0" y="244.0" fill="#94a3b8" font-size="13" text-anchor="start">5° ≈ 0.0873 rad → 2 × 0.0873 ≈ 0.175</text>
+  <text x="340.0" y="268.0" fill="#94a3b8" font-size="13" text-anchor="start">1° ≈ 0.01745 rad → 2 × 0.01745 ≈ 0.035</text>
+</svg>

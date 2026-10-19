@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>pre-tokenization. cat hat cat that 을 단어 조각 넷으로 먼저 나누면 조각 경계를 넘는 쌍(빨강)은 세지 않는다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="36" fill="#94a3b8" font-size="13" text-anchor="start">조각으로 나누기 전: 쌍을 text 전체에서 센다</text>
+  <rect x="40" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="53.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="70" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="83.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="100" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="113.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="130" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="143.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="160" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="173.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="190" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="203.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="220" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="233.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="250" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="263.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="280" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="293.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="310" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="323.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="340" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="353.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="370" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="383.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="400" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="413.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="430" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="443.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="460" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="473.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="490" y="48" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="503.0" y="68.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <text x="24" y="124" fill="#94a3b8" font-size="13" text-anchor="start">조각으로 나눈 뒤: 조각 안에서만 센다</text>
+  <rect x="36" y="132" width="92" height="42" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="40" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="53.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="69" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="82.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="98" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="111.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <line x1="115" y1="182" x2="153" y2="182" stroke="#f87171" stroke-width="2"/>
+  <text x="134" y="202" fill="#f87171" font-size="12" text-anchor="middle">(t, ␣) ✕</text>
+  <rect x="137" y="132" width="121" height="42" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="141" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="154.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="170" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="183.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="199" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="212.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="228" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="241.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <line x1="245" y1="182" x2="283" y2="182" stroke="#f87171" stroke-width="2"/>
+  <text x="264" y="202" fill="#f87171" font-size="12" text-anchor="middle">(t, ␣) ✕</text>
+  <rect x="267" y="132" width="121" height="42" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="271" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="284.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="300" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="313.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="329" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="342.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="358" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="371.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <line x1="375" y1="182" x2="413" y2="182" stroke="#f87171" stroke-width="2"/>
+  <text x="394" y="202" fill="#f87171" font-size="12" text-anchor="middle">(t, ␣) ✕</text>
+  <rect x="397" y="132" width="150" height="42" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="401" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="414.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="430" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="443.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="459" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="472.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="488" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="501.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="517" y="138" width="26" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="530.0" y="158.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <text x="24" y="244" fill="#e2e8f0" font-size="13" text-anchor="start">경계를 넘는 (t, ␣) 세 번은 세지 않는다</text>
+  <text x="24" y="268" fill="#e2e8f0" font-size="13" text-anchor="start">그래서 at␣ · cat␣ 처럼 단어 끝과 다음 공백을 묶은 token 은 생기지 않는다</text>
+</svg>

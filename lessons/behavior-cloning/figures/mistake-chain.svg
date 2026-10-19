@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>10 step episode 에서 step 4 의 첫 실수가 이어지지 않으면 1 번, 이어지면 7 번 틀린다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="598" height="218" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="50.0" fill="#94a3b8" font-size="13" text-anchor="start">실수가 이어지지 않을 때</text>
+  <rect x="30.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="48.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="74.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="92.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">2</text>
+  <rect x="118.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="136.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">3</text>
+  <rect x="162.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="180.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">4</text>
+  <rect x="206.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="224.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">5</text>
+  <rect x="250.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="268.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">6</text>
+  <rect x="294.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="312.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">7</text>
+  <rect x="338.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="356.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">8</text>
+  <rect x="382.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="400.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">9</text>
+  <rect x="426.0" y="62.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="444.0" y="86.0" fill="#e2e8f0" font-size="14" text-anchor="middle">10</text>
+  <text x="490.0" y="86.0" fill="#f87171" font-size="14" text-anchor="start">1 번 틀림</text>
+  <text x="30.0" y="135.0" fill="#94a3b8" font-size="13" text-anchor="start">실수가 이어질 때</text>
+  <rect x="30.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="48.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="74.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="92.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">2</text>
+  <rect x="118.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="136.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">3</text>
+  <rect x="162.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="180.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">4</text>
+  <rect x="206.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="224.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">5</text>
+  <rect x="250.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="268.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">6</text>
+  <rect x="294.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="312.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">7</text>
+  <rect x="338.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="356.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">8</text>
+  <rect x="382.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="400.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">9</text>
+  <rect x="426.0" y="147.0" width="36.0" height="36.0" rx="6" fill="#f87171" stroke="#f87171" stroke-width="2" fill-opacity="0.85"/>
+  <text x="444.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">10</text>
+  <text x="490.0" y="171.0" fill="#f87171" font-size="14" text-anchor="start">7 번 틀림</text>
+  <text x="30.0" y="205.0" fill="#94a3b8" font-size="12" text-anchor="start">초록 테두리: 맞힌 step, 빨간 칸: 틀린 step</text>
+</svg>

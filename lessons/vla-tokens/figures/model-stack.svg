@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Transformer 에서 VLA 까지 쌓이는 관계: Transformer 구조로 글을 학습하면 LLM, image encoder 를 붙여 사진·글로 학습하면 VLM, 로봇 시연으로 action 까지 학습하면 VLA</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="32" fill="#e2e8f0" font-size="14" text-anchor="start">아래에서 위로: 무엇을 더 붙이고, 어떤 데이터로 더 학습하는가</text>
+  <rect x="40" y="276" width="470" height="50" rx="8" fill="#111a2e" stroke="#475569" stroke-width="1.5"/>
+  <text x="56" y="306" fill="#94a3b8" font-size="17" text-anchor="start" font-weight="bold">Transformer</text>
+  <text x="160" y="306" fill="#e2e8f0" font-size="12.5" text-anchor="start">token 목록을 받아 서로 참고하게 하는 network 구조</text>
+  <text x="530" y="306" fill="#94a3b8" font-size="13" text-anchor="start">구조의 이름</text>
+  <rect x="54" y="210" width="442" height="50" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="70" y="240" fill="#a78bfa" font-size="17" text-anchor="start" font-weight="bold">LLM</text>
+  <text x="174" y="240" fill="#e2e8f0" font-size="12.5" text-anchor="start">다음 token 맞히기로 엄청난 양의 글을 학습</text>
+  <text x="530" y="240" fill="#a78bfa" font-size="13" text-anchor="start">GPT-2, Llama 2</text>
+  <line x1="275" y1="274" x2="275" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="68" y="144" width="414" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="84" y="174" fill="#38bdf8" font-size="17" text-anchor="start" font-weight="bold">VLM</text>
+  <text x="188" y="174" fill="#e2e8f0" font-size="12.5" text-anchor="start">LLM 앞에 image encoder 를 붙여 사진·글 쌍으로 학습</text>
+  <text x="530" y="174" fill="#38bdf8" font-size="13" text-anchor="start">PaliGemma, Prismatic-7B</text>
+  <line x1="275" y1="208" x2="275" y2="196" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="82" y="78" width="386" height="50" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="98" y="108" fill="#34d399" font-size="17" text-anchor="start" font-weight="bold">VLA</text>
+  <text x="202" y="108" fill="#e2e8f0" font-size="12.5" text-anchor="start">VLM 이 action 까지 내도록 로봇 시연으로 학습</text>
+  <text x="530" y="108" fill="#34d399" font-size="13" text-anchor="start">RT-2, OpenVLA</text>
+  <line x1="275" y1="142" x2="275" y2="130" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="530" y="52" fill="#64748b" font-size="12" text-anchor="start">예</text>
+</svg>

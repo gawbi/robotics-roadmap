@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>pixel 세 개짜리 그림 (0.4, 0.6, 0.5) 를 encoder 가 평균 0.5 로 줄이고, decoder 가 (0.5, 0.5, 0.5) 로 되살리는 흐름</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="698" height="218" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="24.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#666666" stroke="#64748b" stroke-width="1"/>
+  <text x="44.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.4</text>
+  <rect x="68.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#999999" stroke="#64748b" stroke-width="1"/>
+  <text x="88.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.6</text>
+  <rect x="112.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#808080" stroke="#64748b" stroke-width="1"/>
+  <text x="132.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5</text>
+  <text x="88.0" y="68.0" fill="#94a3b8" font-size="13" text-anchor="middle">그림 x</text>
+  <line x1="156.0" y1="102.0" x2="186.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="190.0" y="76.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="245.0" y="99.0" fill="#e2e8f0" font-size="14" text-anchor="middle">encoder</text>
+  <text x="245.0" y="116.0" fill="#94a3b8" font-size="12" text-anchor="middle">세 칸의 평균</text>
+  <line x1="300.0" y1="102.0" x2="324.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="354.0" cy="102.0" r="26" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="354.0" y="107.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0.5</text>
+  <text x="354.0" y="160.0" fill="#34d399" font-size="13" text-anchor="middle">z (숫자 하나)</text>
+  <line x1="380.0" y1="102.0" x2="404.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="408.0" y="76.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="463.0" y="99.0" fill="#e2e8f0" font-size="14" text-anchor="middle">decoder</text>
+  <text x="463.0" y="116.0" fill="#94a3b8" font-size="12" text-anchor="middle">세 칸에 똑같이</text>
+  <line x1="518.0" y1="102.0" x2="544.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#808080" stroke="#64748b" stroke-width="1"/>
+  <text x="570.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5</text>
+  <rect x="594.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#808080" stroke="#64748b" stroke-width="1"/>
+  <text x="614.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5</text>
+  <rect x="638.0" y="82.0" width="40.0" height="40.0" rx="3" fill="#808080" stroke="#64748b" stroke-width="1"/>
+  <text x="658.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5</text>
+  <text x="614.0" y="68.0" fill="#94a3b8" font-size="13" text-anchor="middle">되살린 그림 x̂</text>
+  <text x="350.0" y="202.0" fill="#94a3b8" font-size="13" text-anchor="middle">(0.4 + 0.6 + 0.5) ÷ 3 = 0.5</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>0.5 를 곱하는 층 세 개의 forward 와 backward</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30" y="36" fill="#38bdf8" font-size="14" text-anchor="start">forward: 층마다 0.5 를 곱한다</text>
+  <rect x="40" y="56" width="110" height="56" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="95" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">x</text>
+  <text x="95" y="100" fill="#38bdf8" font-size="16" text-anchor="middle">8</text>
+  <line x1="150" y1="84" x2="205" y2="84" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <text x="177" y="74" fill="#38bdf8" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="215" y="56" width="110" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">h₁</text>
+  <text x="270" y="100" fill="#38bdf8" font-size="16" text-anchor="middle">4</text>
+  <line x1="325" y1="84" x2="380" y2="84" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <text x="352" y="74" fill="#38bdf8" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="390" y="56" width="110" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="445" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">h₂</text>
+  <text x="445" y="100" fill="#38bdf8" font-size="16" text-anchor="middle">2</text>
+  <line x1="500" y1="84" x2="555" y2="84" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <text x="527" y="74" fill="#38bdf8" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="565" y="56" width="110" height="56" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="620" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">h₃</text>
+  <text x="620" y="100" fill="#38bdf8" font-size="16" text-anchor="middle">1</text>
+  <text x="30" y="160" fill="#f59e0b" font-size="14" text-anchor="start">backward: 출력의 gradient 1 에서 출발해 층마다 0.5 를 곱한다</text>
+  <rect x="40" y="180" width="110" height="56" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="95" y="202" fill="#e2e8f0" font-size="13" text-anchor="middle">∂h₃/∂x</text>
+  <text x="95" y="224" fill="#f59e0b" font-size="16" text-anchor="middle">0.125</text>
+  <line x1="205" y1="208" x2="152" y2="208" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#ar-amber)"/>
+  <text x="177" y="198" fill="#f59e0b" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="215" y="180" width="110" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="202" fill="#e2e8f0" font-size="13" text-anchor="middle">∂h₃/∂h₁</text>
+  <text x="270" y="224" fill="#f59e0b" font-size="16" text-anchor="middle">0.25</text>
+  <line x1="380" y1="208" x2="327" y2="208" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#ar-amber)"/>
+  <text x="352" y="198" fill="#f59e0b" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="390" y="180" width="110" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="445" y="202" fill="#e2e8f0" font-size="13" text-anchor="middle">∂h₃/∂h₂</text>
+  <text x="445" y="224" fill="#f59e0b" font-size="16" text-anchor="middle">0.5</text>
+  <line x1="555" y1="208" x2="502" y2="208" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#ar-amber)"/>
+  <text x="527" y="198" fill="#f59e0b" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="565" y="180" width="110" height="56" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="620" y="202" fill="#e2e8f0" font-size="13" text-anchor="middle">∂h₃/∂h₃</text>
+  <text x="620" y="224" fill="#f59e0b" font-size="16" text-anchor="middle">1</text>
+  <text x="360" y="275" fill="#34d399" font-size="13" text-anchor="middle">x 를 0.01 늘리면 h₃ 은 0.00125 늘어 비율 0.125 = 0.5 × 0.5 × 0.5</text>
+</svg>

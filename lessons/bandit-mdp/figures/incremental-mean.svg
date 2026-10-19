@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>어떤 기계에서 받은 reward 6, 2, 4, 0 에 따라 Q 가 0 에서 6, 4, 4, 3 으로 바뀐다. 매번 reward 쪽으로 차이의 1/n 만큼 옮긴다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="65.0" fill="#e2e8f0" font-size="14" text-anchor="start">n = 1</text>
+  <line x1="120.0" y1="60.0" x2="590.0" y2="60.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="120.0" y1="56.0" x2="120.0" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="120.0" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="198.3" y1="56.0" x2="198.3" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="198.3" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="276.7" y1="56.0" x2="276.7" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="276.7" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="355.0" y1="56.0" x2="355.0" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="355.0" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <line x1="433.3" y1="56.0" x2="433.3" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="433.3" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <line x1="511.7" y1="56.0" x2="511.7" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="511.7" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="590.0" y1="56.0" x2="590.0" y2="64.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="590.0" y="80.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
+  <line x1="120.0" y1="46.0" x2="584.0" y2="46.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#ar-green)"/>
+  <circle cx="590.0" cy="60.0" r="7" fill="#f59e0b"/>
+  <circle cx="120.0" cy="60.0" r="6" fill="#94a3b8"/>
+  <circle cx="590.0" cy="60.0" r="6" fill="#34d399"/>
+  <text x="120.0" y="98.0" fill="#e2e8f0" font-size="1" text-anchor="middle"></text>
+  <text x="590.0" y="38.0" fill="#34d399" font-size="12" text-anchor="end">Q 0 → 6  (차이 6 의 1/1 = 6)</text>
+  <text x="30.0" y="135.0" fill="#e2e8f0" font-size="14" text-anchor="start">n = 2</text>
+  <line x1="120.0" y1="130.0" x2="590.0" y2="130.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="120.0" y1="126.0" x2="120.0" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="120.0" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="198.3" y1="126.0" x2="198.3" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="198.3" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="276.7" y1="126.0" x2="276.7" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="276.7" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="355.0" y1="126.0" x2="355.0" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="355.0" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <line x1="433.3" y1="126.0" x2="433.3" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="433.3" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <line x1="511.7" y1="126.0" x2="511.7" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="511.7" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="590.0" y1="126.0" x2="590.0" y2="134.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="590.0" y="150.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
+  <line x1="590.0" y1="116.0" x2="439.3" y2="116.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#ar-green)"/>
+  <circle cx="276.7" cy="130.0" r="7" fill="#f59e0b"/>
+  <circle cx="590.0" cy="130.0" r="6" fill="#94a3b8"/>
+  <circle cx="433.3" cy="130.0" r="6" fill="#34d399"/>
+  <text x="120.0" y="104.0" fill="#e2e8f0" font-size="1" text-anchor="middle"></text>
+  <text x="590.0" y="108.0" fill="#34d399" font-size="12" text-anchor="end">Q 6 → 4  (차이 −4 의 1/2 = −2)</text>
+  <text x="30.0" y="205.0" fill="#e2e8f0" font-size="14" text-anchor="start">n = 3</text>
+  <line x1="120.0" y1="200.0" x2="590.0" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="120.0" y1="196.0" x2="120.0" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="120.0" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="198.3" y1="196.0" x2="198.3" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="198.3" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="276.7" y1="196.0" x2="276.7" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="276.7" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="355.0" y1="196.0" x2="355.0" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="355.0" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <line x1="433.3" y1="196.0" x2="433.3" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="433.3" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <line x1="511.7" y1="196.0" x2="511.7" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="511.7" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="590.0" y1="196.0" x2="590.0" y2="204.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="590.0" y="220.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
+  <circle cx="433.3" cy="200.0" r="7" fill="#f59e0b"/>
+  <circle cx="433.3" cy="200.0" r="6" fill="#94a3b8"/>
+  <text x="120.0" y="174.0" fill="#e2e8f0" font-size="1" text-anchor="middle"></text>
+  <text x="590.0" y="178.0" fill="#94a3b8" font-size="12" text-anchor="end">Q 4 → 4  (차이 0 의 1/3 = 0)</text>
+  <text x="30.0" y="275.0" fill="#e2e8f0" font-size="14" text-anchor="start">n = 4</text>
+  <line x1="120.0" y1="270.0" x2="590.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="120.0" y1="266.0" x2="120.0" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="120.0" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="198.3" y1="266.0" x2="198.3" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="198.3" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="276.7" y1="266.0" x2="276.7" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="276.7" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="355.0" y1="266.0" x2="355.0" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="355.0" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <line x1="433.3" y1="266.0" x2="433.3" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="433.3" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <line x1="511.7" y1="266.0" x2="511.7" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="511.7" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="590.0" y1="266.0" x2="590.0" y2="274.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="590.0" y="290.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
+  <line x1="433.3" y1="256.0" x2="361.0" y2="256.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#ar-green)"/>
+  <circle cx="120.0" cy="270.0" r="7" fill="#f59e0b"/>
+  <circle cx="433.3" cy="270.0" r="6" fill="#94a3b8"/>
+  <circle cx="355.0" cy="270.0" r="6" fill="#34d399"/>
+  <text x="120.0" y="244.0" fill="#e2e8f0" font-size="1" text-anchor="middle"></text>
+  <text x="590.0" y="248.0" fill="#34d399" font-size="12" text-anchor="end">Q 4 → 3  (차이 −4 의 1/4 = −1)</text>
+  <circle cx="130.0" cy="318.0" r="6" fill="#94a3b8"/>
+  <text x="142.0" y="322.0" fill="#94a3b8" font-size="12" text-anchor="start">고치기 전 Q</text>
+  <circle cx="260.0" cy="318.0" r="7" fill="#f59e0b"/>
+  <text x="272.0" y="322.0" fill="#f59e0b" font-size="12" text-anchor="start">받은 reward</text>
+  <circle cx="380.0" cy="318.0" r="6" fill="#34d399"/>
+  <text x="392.0" y="322.0" fill="#34d399" font-size="12" text-anchor="start">고친 Q</text>
+</svg>

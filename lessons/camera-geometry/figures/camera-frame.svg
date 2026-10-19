@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>camera frame. 렌즈 중심이 원점이고 z 축은 앞, x 축은 오른쪽, y 축은 아래를 향한다. 점 (0.1, −0.05, 1.0) 은 앞으로 1 m, 오른쪽으로 0.1 m, 위로 0.05 m 떨어져 있다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <!-- camera body -->
+  <rect x="44" y="120" width="70" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="114" y="132" width="16" height="32" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="79" y="110" fill="#94a3b8" font-size="12" text-anchor="middle">카메라</text>
+  <!-- axes from origin O (130,148) -->
+  <line x1="130" y1="148" x2="590" y2="148" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="590" y="134" fill="#38bdf8" font-size="14" text-anchor="end">z (앞, optical axis)</text>
+  <line x1="130" y1="148" x2="62" y2="230" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="50" y="250" fill="#38bdf8" font-size="14">x (사진의 오른쪽)</text>
+  <line x1="130" y1="148" x2="130" y2="290" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="140" y="300" fill="#38bdf8" font-size="14">y (사진의 아래쪽)</text>
+  <circle cx="130" cy="148" r="5" fill="#e2e8f0"/>
+  <text x="140" y="172" fill="#e2e8f0" font-size="12">렌즈 중심 (원점)</text>
+  <!-- path to point: z 1.0 => 330 px, x 0.1 => (-40,48), y -0.05 => up 30 -->
+  <line x1="130" y1="148" x2="460" y2="148" stroke="#f59e0b" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="300" y="138" fill="#f59e0b" font-size="13" text-anchor="middle">앞으로 1.0 m (Z = 1.0)</text>
+  <line x1="460" y1="148" x2="400" y2="220" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="440" y="200" fill="#f87171" font-size="13">오른쪽으로 0.1 m (X = 0.1)</text>
+  <line x1="400" y1="220" x2="400" y2="184" stroke="#a78bfa" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <circle cx="400" cy="176" r="7" fill="#f59e0b"/>
+  <text x="390" y="214" fill="#a78bfa" font-size="13" text-anchor="end">위로 0.05 m (Y = −0.05)</text>
+  <text x="360" y="258" fill="#e2e8f0" font-size="14">점 (X, Y, Z) = (0.1, −0.05, 1.0)</text>
+  <text x="360" y="280" fill="#94a3b8" font-size="12">Y 가 음수 = y 축 반대 = 위쪽</text>
+  <text x="360" y="300" fill="#64748b" font-size="12">길이는 알아보기 쉽게 늘려 그렸다</text>
+</svg>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>두 칸짜리 덩어리의 Euler 10 step. 가로축은 τ 이고, 첫째 칸은 −0.5 에서 출발해 step 마다 0.25 씩 올라 2.0 에, 둘째 칸은 1.0 에서 출발해 step 마다 0.05 씩 내려 0.5 에 닿는다. 오른쪽은 봉우리가 +2 와 −2 인 시연에서 noise 0.3 은 +2 로, −0.3 은 −2 로 가고, 1 step 만 밟으면 평균 0 에 머무는 모습이다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="798" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="215.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">정답이 하나: 두 칸의 Euler 10 step</text>
+  <line x1="60.0" y1="300.0" x2="370.0" y2="300.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="60.0" y1="300.0" x2="60.0" y2="60.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="56.0" y1="265.7" x2="60.0" y2="265.7" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="269.7" fill="#94a3b8" font-size="11" text-anchor="end">-0.5</text>
+  <line x1="60.0" y1="265.7" x2="370.0" y2="265.7" stroke="#1e293b" stroke-width="1"/>
+  <line x1="56.0" y1="231.4" x2="60.0" y2="231.4" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="235.4" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+  <line x1="60.0" y1="231.4" x2="370.0" y2="231.4" stroke="#1e293b" stroke-width="1"/>
+  <line x1="56.0" y1="197.1" x2="60.0" y2="197.1" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="201.1" fill="#94a3b8" font-size="11" text-anchor="end">0.5</text>
+  <line x1="60.0" y1="197.1" x2="370.0" y2="197.1" stroke="#1e293b" stroke-width="1"/>
+  <line x1="56.0" y1="162.9" x2="60.0" y2="162.9" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="166.9" fill="#94a3b8" font-size="11" text-anchor="end">1</text>
+  <line x1="60.0" y1="162.9" x2="370.0" y2="162.9" stroke="#1e293b" stroke-width="1"/>
+  <line x1="56.0" y1="128.6" x2="60.0" y2="128.6" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="132.6" fill="#94a3b8" font-size="11" text-anchor="end">1.5</text>
+  <line x1="60.0" y1="128.6" x2="370.0" y2="128.6" stroke="#1e293b" stroke-width="1"/>
+  <line x1="56.0" y1="94.3" x2="60.0" y2="94.3" stroke="#64748b" stroke-width="1"/>
+  <text x="52.0" y="98.3" fill="#94a3b8" font-size="11" text-anchor="end">2</text>
+  <line x1="60.0" y1="94.3" x2="370.0" y2="94.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="60.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="215.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
+  <text x="370.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="215.0" y="336.0" fill="#94a3b8" font-size="12" text-anchor="middle">τ</text>
+  <path d="M60.0,265.7 L91.0,248.6 L122.0,231.4 L153.0,214.3 L184.0,197.1 L215.0,180.0 L246.0,162.9 L277.0,145.7 L308.0,128.6 L339.0,111.4 L370.0,94.3" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="60.0" cy="265.7" r="3.5" fill="#38bdf8"/>
+  <circle cx="91.0" cy="248.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="122.0" cy="231.4" r="3.5" fill="#38bdf8"/>
+  <circle cx="153.0" cy="214.3" r="3.5" fill="#38bdf8"/>
+  <circle cx="184.0" cy="197.1" r="3.5" fill="#38bdf8"/>
+  <circle cx="215.0" cy="180.0" r="3.5" fill="#38bdf8"/>
+  <circle cx="246.0" cy="162.9" r="3.5" fill="#38bdf8"/>
+  <circle cx="277.0" cy="145.7" r="3.5" fill="#38bdf8"/>
+  <circle cx="308.0" cy="128.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="339.0" cy="111.4" r="3.5" fill="#38bdf8"/>
+  <circle cx="370.0" cy="94.3" r="3.5" fill="#38bdf8"/>
+  <path d="M60.0,162.9 L91.0,166.3 L122.0,169.7 L153.0,173.1 L184.0,176.6 L215.0,180.0 L246.0,183.4 L277.0,186.9 L308.0,190.3 L339.0,193.7 L370.0,197.1" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="60.0" cy="162.9" r="3.5" fill="#f59e0b"/>
+  <circle cx="91.0" cy="166.3" r="3.5" fill="#f59e0b"/>
+  <circle cx="122.0" cy="169.7" r="3.5" fill="#f59e0b"/>
+  <circle cx="153.0" cy="173.1" r="3.5" fill="#f59e0b"/>
+  <circle cx="184.0" cy="176.6" r="3.5" fill="#f59e0b"/>
+  <circle cx="215.0" cy="180.0" r="3.5" fill="#f59e0b"/>
+  <circle cx="246.0" cy="183.4" r="3.5" fill="#f59e0b"/>
+  <circle cx="277.0" cy="186.9" r="3.5" fill="#f59e0b"/>
+  <circle cx="308.0" cy="190.3" r="3.5" fill="#f59e0b"/>
+  <circle cx="339.0" cy="193.7" r="3.5" fill="#f59e0b"/>
+  <circle cx="370.0" cy="197.1" r="3.5" fill="#f59e0b"/>
+  <text x="66.2" y="70.3" fill="#38bdf8" font-size="11" text-anchor="start">첫째 칸: −0.5 → 2.0 (step 마다 +0.25)</text>
+  <text x="66.2" y="138.9" fill="#f59e0b" font-size="11" text-anchor="start">둘째 칸: 1.0 → 0.5 (step 마다 −0.05)</text>
+  <text x="620.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">봉우리가 +2 와 −2 인 시연</text>
+  <line x1="470.0" y1="300.0" x2="770.0" y2="300.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="470.0" y1="300.0" x2="470.0" y2="60.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="466.0" y1="276.0" x2="470.0" y2="276.0" stroke="#64748b" stroke-width="1"/>
+  <text x="462.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="end">-2</text>
+  <line x1="470.0" y1="276.0" x2="770.0" y2="276.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="466.0" y1="228.0" x2="470.0" y2="228.0" stroke="#64748b" stroke-width="1"/>
+  <text x="462.0" y="232.0" fill="#94a3b8" font-size="11" text-anchor="end">-1</text>
+  <line x1="470.0" y1="228.0" x2="770.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="466.0" y1="180.0" x2="470.0" y2="180.0" stroke="#64748b" stroke-width="1"/>
+  <text x="462.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+  <line x1="470.0" y1="180.0" x2="770.0" y2="180.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="466.0" y1="132.0" x2="470.0" y2="132.0" stroke="#64748b" stroke-width="1"/>
+  <text x="462.0" y="136.0" fill="#94a3b8" font-size="11" text-anchor="end">1</text>
+  <line x1="470.0" y1="132.0" x2="770.0" y2="132.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="466.0" y1="84.0" x2="470.0" y2="84.0" stroke="#64748b" stroke-width="1"/>
+  <text x="462.0" y="88.0" fill="#94a3b8" font-size="11" text-anchor="end">2</text>
+  <line x1="470.0" y1="84.0" x2="770.0" y2="84.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="470.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="620.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
+  <text x="770.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="620.0" y="336.0" fill="#94a3b8" font-size="12" text-anchor="middle">τ</text>
+  <path d="M470.0,165.6 L500.0,167.0 L530.0,167.8 L560.0,167.4 L590.0,164.9 L620.0,157.8 L650.0,144.0 L680.0,129.0 L710.0,114.0 L740.0,99.0 L770.0,84.0" fill="none" stroke="#34d399" stroke-width="2"/>
+  <circle cx="470.0" cy="165.6" r="3" fill="#34d399"/>
+  <circle cx="500.0" cy="167.0" r="3" fill="#34d399"/>
+  <circle cx="530.0" cy="167.8" r="3" fill="#34d399"/>
+  <circle cx="560.0" cy="167.4" r="3" fill="#34d399"/>
+  <circle cx="590.0" cy="164.9" r="3" fill="#34d399"/>
+  <circle cx="620.0" cy="157.8" r="3" fill="#34d399"/>
+  <circle cx="650.0" cy="144.0" r="3" fill="#34d399"/>
+  <circle cx="680.0" cy="129.0" r="3" fill="#34d399"/>
+  <circle cx="710.0" cy="114.0" r="3" fill="#34d399"/>
+  <circle cx="740.0" cy="99.0" r="3" fill="#34d399"/>
+  <circle cx="770.0" cy="84.0" r="3" fill="#34d399"/>
+  <path d="M470.0,194.4 L500.0,193.0 L530.0,192.2 L560.0,192.6 L590.0,195.1 L620.0,202.2 L650.0,216.0 L680.0,231.0 L710.0,246.0 L740.0,261.0 L770.0,276.0" fill="none" stroke="#34d399" stroke-width="2"/>
+  <circle cx="470.0" cy="194.4" r="3" fill="#34d399"/>
+  <circle cx="500.0" cy="193.0" r="3" fill="#34d399"/>
+  <circle cx="530.0" cy="192.2" r="3" fill="#34d399"/>
+  <circle cx="560.0" cy="192.6" r="3" fill="#34d399"/>
+  <circle cx="590.0" cy="195.1" r="3" fill="#34d399"/>
+  <circle cx="620.0" cy="202.2" r="3" fill="#34d399"/>
+  <circle cx="650.0" cy="216.0" r="3" fill="#34d399"/>
+  <circle cx="680.0" cy="231.0" r="3" fill="#34d399"/>
+  <circle cx="710.0" cy="246.0" r="3" fill="#34d399"/>
+  <circle cx="740.0" cy="261.0" r="3" fill="#34d399"/>
+  <circle cx="770.0" cy="276.0" r="3" fill="#34d399"/>
+  <line x1="470.0" y1="165.6" x2="770.0" y2="180.0" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="770.0" cy="180.0" r="4" fill="#f87171"/>
+  <text x="766.0" y="72.0" fill="#34d399" font-size="11" text-anchor="end">10 step: +2.00</text>
+  <text x="766.0" y="296.0" fill="#34d399" font-size="11" text-anchor="end">10 step: −2.00</text>
+  <text x="764.0" y="170.0" fill="#f87171" font-size="11" text-anchor="end">1 step: 0 (평균)</text>
+  <text x="476.0" y="155.6" fill="#94a3b8" font-size="11" text-anchor="start">noise 0.3</text>
+  <text x="476.0" y="212.4" fill="#94a3b8" font-size="11" text-anchor="start">noise −0.3</text>
+</svg>

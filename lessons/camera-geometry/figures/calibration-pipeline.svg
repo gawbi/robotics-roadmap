@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>calibration 의 전체 흐름. checkerboard 사진에서 corner 를 찾고, 사진마다 homography 를 구해 Zhang 의 방법으로 K 와 사진별 extrinsics 를 얻은 뒤, 이를 첫 추측으로 refinement 해 K, k1, k2, 사진별 extrinsics 와 RMS 를 낸다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="24" width="180" height="58" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="110.0" y="48" fill="#e2e8f0" font-size="15" text-anchor="middle">checkerboard 사진</text>
+  <text x="110.0" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">13장, 640×480</text>
+  <rect x="230" y="24" width="180" height="58" rx="10" fill="#111a2e" stroke="#475569" stroke-width="2"/>
+  <text x="320.0" y="48" fill="#e2e8f0" font-size="15" text-anchor="middle">corner 검출</text>
+  <text x="320.0" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">장마다 9×6 = 54개</text>
+  <rect x="440" y="24" width="180" height="58" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="530.0" y="48" fill="#e2e8f0" font-size="15" text-anchor="middle">homography H</text>
+  <text x="530.0" y="69" fill="#94a3b8" font-size="13" text-anchor="middle">사진마다 하나</text>
+  <rect x="440" y="120" width="180" height="58" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="530.0" y="144" fill="#e2e8f0" font-size="15" text-anchor="middle">Zhang closed-form</text>
+  <text x="530.0" y="165" fill="#94a3b8" font-size="13" text-anchor="middle">K 의 첫 추측</text>
+  <rect x="230" y="120" width="180" height="58" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="320.0" y="144" fill="#e2e8f0" font-size="15" text-anchor="middle">사진별 extrinsics</text>
+  <text x="320.0" y="165" fill="#94a3b8" font-size="13" text-anchor="middle">사진마다 (R, t)</text>
+  <rect x="20" y="120" width="180" height="58" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="110.0" y="144" fill="#e2e8f0" font-size="15" text-anchor="middle">첫 추측에서 refinement</text>
+  <text x="110.0" y="165" fill="#94a3b8" font-size="13" text-anchor="middle">reprojection error RMS 최소화</text>
+  <rect x="20" y="216" width="600" height="58" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="320" y="240" fill="#e2e8f0" font-size="15" text-anchor="middle">결과: K, k1, k2, 사진별 extrinsics</text>
+  <text x="320" y="261" fill="#94a3b8" font-size="13" text-anchor="middle">OpenCV 예제 13장: fx ≈ 536.5, fy ≈ 536.7, cx ≈ 342.4, cy ≈ 234.3, RMS 0.418 pixel</text>
+  <line x1="202" y1="53.0" x2="228" y2="53.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="412" y1="53.0" x2="438" y2="53.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="530.0" y1="84" x2="530.0" y2="118" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="438" y1="149.0" x2="412" y2="149.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="228" y1="149.0" x2="202" y2="149.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="110.0" y1="180" x2="110.0" y2="214" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

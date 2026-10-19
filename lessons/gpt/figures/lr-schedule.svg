@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>learning rate schedule: warmup 과 cosine decay</title>
+  <defs>
+<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+<marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+<marker id="ae2e8f0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80.0" y1="270.0" x2="610.0" y2="270.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="80.0" y1="270.0" x2="80.0" y2="40.0" stroke="#334155" stroke-width="1.2"/>
+  <text x="80.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="132.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="184.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">2</text>
+  <text x="236.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">3</text>
+  <text x="288.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">4</text>
+  <text x="340.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">5</text>
+  <text x="392.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">6</text>
+  <text x="444.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">7</text>
+  <text x="496.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">8</text>
+  <text x="548.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">9</text>
+  <text x="600.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">10</text>
+  <text x="340.0" y="308.0" fill="#94a3b8" font-size="12" text-anchor="middle">step t</text>
+  <text x="72.0" y="221.5" fill="#94a3b8" font-size="10" text-anchor="end">0.00025</text>
+  <line x1="80.0" y1="217.5" x2="600.0" y2="217.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="169.0" fill="#94a3b8" font-size="10" text-anchor="end">0.0005</text>
+  <line x1="80.0" y1="165.0" x2="600.0" y2="165.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="116.5" fill="#94a3b8" font-size="10" text-anchor="end">0.00075</text>
+  <line x1="80.0" y1="112.5" x2="600.0" y2="112.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="64.0" fill="#94a3b8" font-size="10" text-anchor="end">0.001</text>
+  <line x1="80.0" y1="60.0" x2="600.0" y2="60.0" stroke="#1e293b" stroke-width="1"/>
+  <rect x="80.0" y="40.0" width="208.0" height="230.0" rx="0" fill="#a78bfa" fill-opacity="0.06" stroke="#a78bfa" stroke-width="0"/>
+  <text x="184.0" y="56.0" fill="#a78bfa" font-size="12" text-anchor="middle">warmup</text>
+  <text x="392.0" y="56.0" fill="#34d399" font-size="12" text-anchor="middle">cosine decay</text>
+  <polyline points="80.0,270.0 85.2,264.8 90.4,259.5 95.6,254.2 100.8,249.0 106.0,243.8 111.2,238.5 116.4,233.2 121.6,228.0 126.8,222.8 132.0,217.5 137.2,212.2 142.4,207.0 147.6,201.8 152.8,196.5 158.0,191.2 163.2,186.0 168.4,180.8 173.6,175.5 178.8,170.2 184.0,165.0 189.2,159.8 194.4,154.5 199.6,149.2 204.8,144.0 210.0,138.8 215.2,133.5 220.4,128.2 225.6,123.0 230.8,117.8 236.0,112.5 241.2,107.2 246.4,102.0 251.6,96.8 256.8,91.5 262.0,86.2 267.2,81.0 272.4,75.8 277.6,70.5 282.8,65.2 288.0,60.0 293.2,60.3 298.4,61.2 303.6,62.6 308.8,64.6 314.0,67.2 319.2,70.3 324.4,73.9 329.6,78.0 334.8,82.6 340.0,87.7 345.2,93.1 350.4,99.0 355.6,105.1 360.8,111.6 366.0,118.3 371.2,125.3 376.4,132.4 381.6,139.7 386.8,147.1 392.0,154.5 397.2,161.9 402.4,169.3 407.6,176.6 412.8,183.7 418.0,190.7 423.2,197.4 428.4,203.9 433.6,210.0 438.8,215.9 444.0,221.3 449.2,226.4 454.4,231.0 459.6,235.1 464.8,238.7 470.0,241.8 475.2,244.4 480.4,246.4 485.6,247.8 490.8,248.7 496.0,249.0 501.2,249.0 506.4,249.0 511.6,249.0 516.8,249.0 522.0,249.0 527.2,249.0 532.4,249.0 537.6,249.0 542.8,249.0 548.0,249.0 553.2,249.0 558.4,249.0 563.6,249.0 568.8,249.0 574.0,249.0 579.2,249.0 584.4,249.0 589.6,249.0 594.8,249.0 600.0,249.0" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
+  <circle cx="132.0" cy="217.5" r="4" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="128.0" y="207.5" fill="#e2e8f0" font-size="11" text-anchor="end">0.00025</text>
+  <circle cx="184.0" cy="165.0" r="4" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="180.0" y="155.0" fill="#e2e8f0" font-size="11" text-anchor="end">0.0005</text>
+  <circle cx="236.0" cy="112.5" r="4" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="232.0" y="102.5" fill="#e2e8f0" font-size="11" text-anchor="end">0.00075</text>
+  <circle cx="288.0" cy="60.0" r="4" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="284.0" y="50.0" fill="#e2e8f0" font-size="11" text-anchor="end">0.001</text>
+  <circle cx="340.0" cy="87.7" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+  <text x="348.0" y="77.7" fill="#e2e8f0" font-size="11" text-anchor="start">0.000868</text>
+  <circle cx="392.0" cy="154.5" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+  <text x="400.0" y="144.5" fill="#e2e8f0" font-size="11" text-anchor="start">0.00055</text>
+  <circle cx="444.0" cy="221.3" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+  <text x="452.0" y="211.3" fill="#e2e8f0" font-size="11" text-anchor="start">0.000232</text>
+  <circle cx="496.0" cy="249.0" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+  <text x="504.0" y="239.0" fill="#e2e8f0" font-size="11" text-anchor="start">0.0001</text>
+  <circle cx="548.0" cy="249.0" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+  <circle cx="600.0" cy="249.0" r="4" fill="#34d399" stroke="none" stroke-width="1.5"/>
+</svg>

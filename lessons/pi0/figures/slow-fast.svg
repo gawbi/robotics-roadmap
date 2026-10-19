@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>느린 큰 부분과 빠른 작은 부분의 비교. π0, GR00T N1, Helix, Gemini Robotics 마다 위 칸에 느린 부분의 크기와 주기를, 아래 칸에 빠른 부분의 크기와 주기를 적었다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="798" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="132.0" y="34.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">π0</text>
+  <text x="132.0" y="52.0" fill="#94a3b8" font-size="11" text-anchor="middle">Physical Intelligence, 2024</text>
+  <rect x="46.0" y="66.0" width="172.0" height="110.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="132.0" y="92.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">PaliGemma</text>
+  <text x="132.0" y="114.0" fill="#e2e8f0" font-size="12" text-anchor="middle">약 30 억</text>
+  <text x="132.0" y="136.0" fill="#e2e8f0" font-size="12" text-anchor="middle">덩어리마다 1 번</text>
+  <line x1="132.0" y1="178.0" x2="132.0" y2="202.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="46.0" y="206.0" width="172.0" height="116.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="132.0" y="232.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">action expert</text>
+  <text x="132.0" y="254.0" fill="#e2e8f0" font-size="12" text-anchor="middle">약 3 억</text>
+  <text x="132.0" y="276.0" fill="#e2e8f0" font-size="12" text-anchor="middle">덩어리마다 10 번</text>
+  <text x="132.0" y="298.0" fill="#e2e8f0" font-size="12" text-anchor="middle">50 Hz 실행</text>
+  <text x="318.0" y="34.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">GR00T N1</text>
+  <text x="318.0" y="52.0" fill="#94a3b8" font-size="11" text-anchor="middle">NVIDIA, 2025</text>
+  <rect x="232.0" y="66.0" width="172.0" height="110.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="318.0" y="92.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">System 2: VLM</text>
+  <text x="318.0" y="114.0" fill="#e2e8f0" font-size="12" text-anchor="middle">13.4 억</text>
+  <text x="318.0" y="136.0" fill="#e2e8f0" font-size="12" text-anchor="middle">10 Hz</text>
+  <line x1="318.0" y1="178.0" x2="318.0" y2="202.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="232.0" y="206.0" width="172.0" height="116.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="318.0" y="232.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">System 1</text>
+  <text x="318.0" y="254.0" fill="#e2e8f0" font-size="12" text-anchor="middle">flow matching</text>
+  <text x="318.0" y="276.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Euler 4 step</text>
+  <text x="318.0" y="298.0" fill="#e2e8f0" font-size="12" text-anchor="middle">120 Hz</text>
+  <text x="504.0" y="34.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">Helix</text>
+  <text x="504.0" y="52.0" fill="#94a3b8" font-size="11" text-anchor="middle">Figure, 2025 (발표 자료)</text>
+  <rect x="418.0" y="66.0" width="172.0" height="110.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="504.0" y="92.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">S2: VLM</text>
+  <text x="504.0" y="114.0" fill="#e2e8f0" font-size="12" text-anchor="middle">70 억</text>
+  <text x="504.0" y="136.0" fill="#e2e8f0" font-size="12" text-anchor="middle">7 ~ 9 Hz</text>
+  <line x1="504.0" y1="178.0" x2="504.0" y2="202.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="418.0" y="206.0" width="172.0" height="116.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="504.0" y="232.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">S1: transformer</text>
+  <text x="504.0" y="254.0" fill="#e2e8f0" font-size="12" text-anchor="middle">8 천만</text>
+  <text x="504.0" y="276.0" fill="#e2e8f0" font-size="12" text-anchor="middle">200 Hz</text>
+  <text x="504.0" y="298.0" fill="#e2e8f0" font-size="12" text-anchor="middle">35 DoF</text>
+  <text x="690.0" y="34.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">Gemini Robotics</text>
+  <text x="690.0" y="52.0" fill="#94a3b8" font-size="11" text-anchor="middle">Google DeepMind, 2025</text>
+  <rect x="604.0" y="66.0" width="172.0" height="110.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="690.0" y="92.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">cloud 의 몸통</text>
+  <text x="690.0" y="114.0" fill="#e2e8f0" font-size="12" text-anchor="middle">응답 160 ms 미만</text>
+  <line x1="690.0" y1="178.0" x2="690.0" y2="202.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="604.0" y="206.0" width="172.0" height="116.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="690.0" y="232.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">로봇 안 decoder</text>
+  <text x="690.0" y="254.0" fill="#e2e8f0" font-size="12" text-anchor="middle">전체 약 250 ms</text>
+  <text x="690.0" y="276.0" fill="#e2e8f0" font-size="12" text-anchor="middle">덩어리로</text>
+  <text x="690.0" y="298.0" fill="#e2e8f0" font-size="12" text-anchor="middle">실효 50 Hz</text>
+  <text x="14.0" y="125.0" fill="#a78bfa" font-size="12" text-anchor="start">느림</text>
+  <text x="14.0" y="265.0" fill="#34d399" font-size="12" text-anchor="start">빠름</text>
+  <text x="400.0" y="346.0" fill="#94a3b8" font-size="12" text-anchor="middle">위: 장면과 지시를 이해하는 큰 부분 · 아래: 연속된 action 을 내는 작은 부분</text>
+</svg>

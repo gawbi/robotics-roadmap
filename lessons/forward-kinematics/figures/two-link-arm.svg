@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>링크 길이 1, θ₁ = 30°, θ₂ = 60° 인 팔. 팔꿈치는 (0.866, 0.5), link 2 는 30° + 60° = 90° 방향이라 손끝은 (0.866, 1.5)</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="55.0" y="50.0" width="280.0" height="301.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="55.0" y1="50.0" x2="55.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="125.0" y1="50.0" x2="125.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="195.0" y1="50.0" x2="195.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="265.0" y1="50.0" x2="265.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="335.0" y1="50.0" x2="335.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="351.0" x2="335.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="281.0" x2="335.0" y2="281.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="211.0" x2="335.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="141.0" x2="335.0" y2="141.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="71.0" x2="335.0" y2="71.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="55.0" y1="330.0" x2="335.0" y2="330.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="90.0" y1="50.0" x2="90.0" y2="351.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="230.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="83.0" y="194.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="83.0" y="54.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="83.0" y="346.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="341.0" y="335.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
+  <text x="95.0" y="44.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
+  <line x1="211.2" y1="260.0" x2="265.8" y2="228.5" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M132.0,330.0 A42.0,42.0 0 0,0 126.4,309.0" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="138.2" y="323.5" fill="#f59e0b" font-size="13" text-anchor="start">θ₁ = 30°</text>
+  <path d="M237.9,244.6 A30.8,30.8 0 0,0 211.2,229.2" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
+  <text x="235.3" y="231.3" fill="#a78bfa" font-size="13" text-anchor="start">θ₂ = 60°</text>
+  <line x1="90.0" y1="330.0" x2="211.2" y2="260.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="211.2" y1="260.0" x2="211.2" y2="120.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="90.0" cy="330.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="211.2" cy="260.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="211.2" cy="120.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="211.2" y1="260.0" x2="211.2" y2="330.0" stroke="#f87171" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="211.2" y1="260.0" x2="90.0" y2="260.0" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="211.2" y1="120.0" x2="90.0" y2="120.0" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="223.2" y="278.0" fill="#e2e8f0" font-size="13" text-anchor="start">팔꿈치 (0.866, 0.5)</text>
+  <text x="223.2" y="116.0" fill="#f59e0b" font-size="13" text-anchor="start">손끝 (0.866, 1.5)</text>
+  <text x="400.0" y="40.0" fill="#e2e8f0" font-size="13" text-anchor="start">link 1 의 방향: θ₁ = 30°</text>
+  <text x="400.0" y="62.0" fill="#94a3b8" font-size="13" text-anchor="start">팔꿈치 = (cos 30°, sin 30°)</text>
+  <text x="400.0" y="84.0" fill="#94a3b8" font-size="13" text-anchor="start">         = (0.866, 0.5)</text>
+  <text x="400.0" y="124.0" fill="#e2e8f0" font-size="13" text-anchor="start">link 2 의 방향: θ₁ + θ₂ = 90°</text>
+  <text x="400.0" y="146.0" fill="#94a3b8" font-size="13" text-anchor="start">더할 칸 = (cos 90°, sin 90°)</text>
+  <text x="400.0" y="168.0" fill="#94a3b8" font-size="13" text-anchor="start">         = (0, 1)</text>
+  <text x="400.0" y="208.0" fill="#e2e8f0" font-size="13" text-anchor="start">손끝 = 팔꿈치 + 더할 칸</text>
+  <text x="400.0" y="230.0" fill="#94a3b8" font-size="13" text-anchor="start">     = (0.866 + 0, 0.5 + 1)</text>
+  <text x="400.0" y="252.0" fill="#f59e0b" font-size="14" text-anchor="start">     = (0.866, 1.5)</text>
+</svg>

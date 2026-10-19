@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>길이 16 인 action chunk 를 한꺼번에 denoising 하는 모습. k = 5 에서는 16 개 값이 제멋대로 흩어져 있다가 k = 3, 1 을 지나 k = 0 에서 오른쪽으로 비켜 가는 시연 궤적과 겹친다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="14.0" y="30.0" width="136.0" height="190.0" rx="8" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="82.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 5</text>
+  <line x1="22.0" y1="135.0" x2="142.0" y2="135.0" stroke="#334155" stroke-width="1.5"/>
+  <polyline points="24.0,135.0 31.7,142.3 39.5,149.2 47.2,155.6 54.9,161.0 62.7,165.3 70.4,168.3 78.1,169.8 85.9,169.8 93.6,168.3 101.3,165.3 109.1,161.0 116.8,155.6 124.5,149.2 132.3,142.3 140.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="24.0,135.0 31.7,127.7 39.5,120.8 47.2,114.4 54.9,109.0 62.7,104.7 70.4,101.7 78.1,100.2 85.9,100.2 93.6,101.7 101.3,104.7 109.1,109.0 116.8,114.4 124.5,120.8 132.3,127.7 140.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="24.0,185.6 31.7,126.8 39.5,144.7 47.2,151.8 54.9,101.2 62.7,132.7 70.4,144.6 78.1,71.9 85.9,152.3 93.6,179.2 101.3,183.1 109.1,153.4 116.8,112.0 124.5,105.2 132.3,95.1 140.0,70.2" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="24.0" cy="185.6" r="2.4" fill="#38bdf8"/>
+  <circle cx="31.7" cy="126.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="39.5" cy="144.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="47.2" cy="151.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="54.9" cy="101.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="62.7" cy="132.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="70.4" cy="144.6" r="2.4" fill="#38bdf8"/>
+  <circle cx="78.1" cy="71.9" r="2.4" fill="#38bdf8"/>
+  <circle cx="85.9" cy="152.3" r="2.4" fill="#38bdf8"/>
+  <circle cx="93.6" cy="179.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="101.3" cy="183.1" r="2.4" fill="#38bdf8"/>
+  <circle cx="109.1" cy="153.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="116.8" cy="112.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="124.5" cy="105.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="132.3" cy="95.1" r="2.4" fill="#38bdf8"/>
+  <circle cx="140.0" cy="70.2" r="2.4" fill="#38bdf8"/>
+  <rect x="158.0" y="30.0" width="136.0" height="190.0" rx="8" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="226.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 3</text>
+  <line x1="166.0" y1="135.0" x2="286.0" y2="135.0" stroke="#334155" stroke-width="1.5"/>
+  <polyline points="168.0,135.0 175.7,142.3 183.5,149.2 191.2,155.6 198.9,161.0 206.7,165.3 214.4,168.3 222.1,169.8 229.9,169.8 237.6,168.3 245.3,165.3 253.1,161.0 260.8,155.6 268.5,149.2 276.3,142.3 284.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="168.0,135.0 175.7,127.7 183.5,120.8 191.2,114.4 198.9,109.0 206.7,104.7 214.4,101.7 222.1,100.2 229.9,100.2 237.6,101.7 245.3,104.7 253.1,109.0 260.8,114.4 268.5,120.8 276.3,127.7 284.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="168.0,115.0 175.7,106.2 183.5,123.8 191.2,132.4 198.9,124.0 206.7,117.9 214.4,104.8 222.1,68.2 229.9,118.1 237.6,111.9 245.3,165.8 253.1,145.8 260.8,91.2 268.5,119.1 276.3,117.2 284.0,162.3" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="168.0" cy="115.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="175.7" cy="106.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="183.5" cy="123.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="191.2" cy="132.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="198.9" cy="124.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="206.7" cy="117.9" r="2.4" fill="#38bdf8"/>
+  <circle cx="214.4" cy="104.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="222.1" cy="68.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="229.9" cy="118.1" r="2.4" fill="#38bdf8"/>
+  <circle cx="237.6" cy="111.9" r="2.4" fill="#38bdf8"/>
+  <circle cx="245.3" cy="165.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="253.1" cy="145.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="260.8" cy="91.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="268.5" cy="119.1" r="2.4" fill="#38bdf8"/>
+  <circle cx="276.3" cy="117.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="284.0" cy="162.3" r="2.4" fill="#38bdf8"/>
+  <rect x="302.0" y="30.0" width="136.0" height="190.0" rx="8" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="370.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 1</text>
+  <line x1="310.0" y1="135.0" x2="430.0" y2="135.0" stroke="#334155" stroke-width="1.5"/>
+  <polyline points="312.0,135.0 319.7,142.3 327.5,149.2 335.2,155.6 342.9,161.0 350.7,165.3 358.4,168.3 366.1,169.8 373.9,169.8 381.6,168.3 389.3,165.3 397.1,161.0 404.8,155.6 412.5,149.2 420.3,142.3 428.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="312.0,135.0 319.7,127.7 327.5,120.8 335.2,114.4 342.9,109.0 350.7,104.7 358.4,101.7 366.1,100.2 373.9,100.2 381.6,101.7 389.3,104.7 397.1,109.0 404.8,114.4 412.5,120.8 420.3,127.7 428.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="312.0,120.2 319.7,109.6 327.5,145.5 335.2,95.4 342.9,99.0 350.7,103.5 358.4,88.5 366.1,71.0 373.9,95.7 381.6,95.1 389.3,123.9 397.1,102.9 404.8,83.4 412.5,113.0 420.3,129.6 428.0,123.7" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="312.0" cy="120.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="319.7" cy="109.6" r="2.4" fill="#38bdf8"/>
+  <circle cx="327.5" cy="145.5" r="2.4" fill="#38bdf8"/>
+  <circle cx="335.2" cy="95.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="342.9" cy="99.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="350.7" cy="103.5" r="2.4" fill="#38bdf8"/>
+  <circle cx="358.4" cy="88.5" r="2.4" fill="#38bdf8"/>
+  <circle cx="366.1" cy="71.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="373.9" cy="95.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="381.6" cy="95.1" r="2.4" fill="#38bdf8"/>
+  <circle cx="389.3" cy="123.9" r="2.4" fill="#38bdf8"/>
+  <circle cx="397.1" cy="102.9" r="2.4" fill="#38bdf8"/>
+  <circle cx="404.8" cy="83.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="412.5" cy="113.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="420.3" cy="129.6" r="2.4" fill="#38bdf8"/>
+  <circle cx="428.0" cy="123.7" r="2.4" fill="#38bdf8"/>
+  <rect x="446.0" y="30.0" width="136.0" height="190.0" rx="8" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="514.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 0</text>
+  <line x1="454.0" y1="135.0" x2="574.0" y2="135.0" stroke="#334155" stroke-width="1.5"/>
+  <polyline points="456.0,135.0 463.7,142.3 471.5,149.2 479.2,155.6 486.9,161.0 494.7,165.3 502.4,168.3 510.1,169.8 517.9,169.8 525.6,168.3 533.3,165.3 541.1,161.0 548.8,155.6 556.5,149.2 564.3,142.3 572.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="456.0,135.0 463.7,127.7 471.5,120.8 479.2,114.4 486.9,109.0 494.7,104.7 502.4,101.7 510.1,100.2 517.9,100.2 525.6,101.7 533.3,104.7 541.1,109.0 548.8,114.4 556.5,120.8 564.3,127.7 572.0,135.0" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 3"/>
+  <polyline points="456.0,135.0 463.7,127.7 471.5,120.8 479.2,114.4 486.9,109.0 494.7,104.7 502.4,101.7 510.1,100.2 517.9,100.2 525.6,101.7 533.3,104.7 541.1,109.0 548.8,114.4 556.5,120.8 564.3,127.7 572.0,135.0" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="456.0" cy="135.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="463.7" cy="127.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="471.5" cy="120.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="479.2" cy="114.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="486.9" cy="109.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="494.7" cy="104.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="502.4" cy="101.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="510.1" cy="100.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="517.9" cy="100.2" r="2.4" fill="#38bdf8"/>
+  <circle cx="525.6" cy="101.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="533.3" cy="104.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="541.1" cy="109.0" r="2.4" fill="#38bdf8"/>
+  <circle cx="548.8" cy="114.4" r="2.4" fill="#38bdf8"/>
+  <circle cx="556.5" cy="120.8" r="2.4" fill="#38bdf8"/>
+  <circle cx="564.3" cy="127.7" r="2.4" fill="#38bdf8"/>
+  <circle cx="572.0" cy="135.0" r="2.4" fill="#38bdf8"/>
+  <text x="300.0" y="240.0" fill="#94a3b8" font-size="11" text-anchor="middle">점선: 왼쪽·오른쪽으로 비켜 가는 두 시연 궤적 (가로 위치를 정규화한 값, 가로축은 chunk 안의 step 0 ~ 15)</text>
+</svg>

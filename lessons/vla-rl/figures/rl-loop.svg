@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>SFT 다음의 RL fine-tuning. 시연으로 SFT 한 VLA 가 출발점이고, 그 VLA 로 rollout 을 모아 성공하면 reward 1, 실패하면 0 을 받은 뒤, reward 로 VLA 를 고치고 다시 rollout 을 모으는 고리를 되풀이한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="698" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="110" y="34" fill="#94a3b8" font-size="14" text-anchor="middle">1 단계: 시연 학습 (SFT)</text>
+  <text x="460" y="34" fill="#94a3b8" font-size="14" text-anchor="middle">2 단계: reward 로 하는 추가 학습</text>
+  <line x1="215" y1="48" x2="215" y2="300" stroke="#1e293b" stroke-dasharray="4 4"/>
+
+  <rect x="30" y="70" width="160" height="70" rx="10" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="110" y="100" fill="#e2e8f0" font-size="14" text-anchor="middle">사람의 시연</text>
+  <text x="110" y="122" fill="#94a3b8" font-size="12" text-anchor="middle">teleoperation 기록</text>
+  <line x1="110" y1="142" x2="110" y2="186" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="120" y="170" fill="#94a3b8" font-size="12">SFT</text>
+  <rect x="30" y="190" width="160" height="70" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="110" y="220" fill="#38bdf8" font-size="14" text-anchor="middle">SFT 한 VLA</text>
+  <text x="110" y="242" fill="#94a3b8" font-size="12" text-anchor="middle">성공률 = 출발점</text>
+  <line x1="192" y1="225" x2="246" y2="225" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="190" width="160" height="70" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="330" y="220" fill="#f59e0b" font-size="14" text-anchor="middle">VLA policy</text>
+  <text x="330" y="242" fill="#94a3b8" font-size="12" text-anchor="middle">chunk 단위로 행동</text>
+
+  <rect x="500" y="190" width="170" height="70" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="585" y="220" fill="#34d399" font-size="14" text-anchor="middle">environment</text>
+  <text x="585" y="242" fill="#94a3b8" font-size="12" text-anchor="middle">simulation 또는 실물</text>
+
+  <line x1="412" y1="215" x2="496" y2="215" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="454" y="207" fill="#94a3b8" font-size="12" text-anchor="middle">action chunk</text>
+  <line x1="496" y1="240" x2="412" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="454" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">관측</text>
+
+  <rect x="500" y="70" width="170" height="70" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="585" y="98" fill="#e2e8f0" font-size="14" text-anchor="middle">rollout 모음</text>
+  <text x="585" y="120" fill="#94a3b8" font-size="12" text-anchor="middle">성공 1 · 실패 0</text>
+  <line x1="585" y1="188" x2="585" y2="144" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="70" width="160" height="70" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="330" y="98" fill="#a78bfa" font-size="14" text-anchor="middle">update</text>
+  <text x="330" y="120" fill="#94a3b8" font-size="12" text-anchor="middle">PPO · filtered BC 등</text>
+  <line x1="498" y1="105" x2="414" y2="105" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="330" y1="142" x2="330" y2="186" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="340" y="170" fill="#94a3b8" font-size="12">고친 weight</text>
+
+  <text x="350" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">오른쪽 고리 한 바퀴가 PPO 의 iteration 과 같다: 모으고, 고치고, 다시 모은다</text>
+</svg>

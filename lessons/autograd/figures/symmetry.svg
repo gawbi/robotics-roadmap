@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>두 hidden neuron 이 같은 값에서 출발하면 끝까지 같다</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="110.0" y="36.0" fill="#38bdf8" font-size="16" text-anchor="middle">h₁</text>
+  <text x="270.0" y="36.0" fill="#38bdf8" font-size="16" text-anchor="middle">h₂</text>
+  <rect x="38.0" y="52.0" width="144.0" height="44.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="110.0" y="79.0" fill="#e2e8f0" font-size="13" text-anchor="middle">w = [1, 1], b = 0</text>
+  <rect x="38.0" y="122.0" width="144.0" height="44.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="110.0" y="149.0" fill="#f59e0b" font-size="13" text-anchor="middle">z 의 grad −0.0113</text>
+  <rect x="38.0" y="192.0" width="144.0" height="56.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="110.0" y="216.0" fill="#e2e8f0" font-size="13" text-anchor="middle">w = [5.34, 5.34]</text>
+  <text x="110.0" y="236.0" fill="#e2e8f0" font-size="13" text-anchor="middle">b = −0.38</text>
+  <line x1="110.0" y1="97.0" x2="110.0" y2="119.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="110.0" y1="167.0" x2="110.0" y2="189.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <rect x="198.0" y="52.0" width="144.0" height="44.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="270.0" y="79.0" fill="#e2e8f0" font-size="13" text-anchor="middle">w = [1, 1], b = 0</text>
+  <rect x="198.0" y="122.0" width="144.0" height="44.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="270.0" y="149.0" fill="#f59e0b" font-size="13" text-anchor="middle">z 의 grad −0.0113</text>
+  <rect x="198.0" y="192.0" width="144.0" height="56.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="270.0" y="216.0" fill="#e2e8f0" font-size="13" text-anchor="middle">w = [5.34, 5.34]</text>
+  <text x="270.0" y="236.0" fill="#e2e8f0" font-size="13" text-anchor="middle">b = −0.38</text>
+  <line x1="270.0" y1="97.0" x2="270.0" y2="119.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="270.0" y1="167.0" x2="270.0" y2="189.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="190.0" y="79.0" fill="#94a3b8" font-size="18" text-anchor="middle">=</text>
+  <text x="190.0" y="149.0" fill="#94a3b8" font-size="18" text-anchor="middle">=</text>
+  <text x="190.0" y="225.0" fill="#94a3b8" font-size="18" text-anchor="middle">=</text>
+  <text x="190.0" y="280.0" fill="#94a3b8" font-size="13" text-anchor="middle">같은 값 → 같은 gradient → 같은 update</text>
+  <text x="190.0" y="300.0" fill="#94a3b8" font-size="13" text-anchor="middle">두 neuron 이 직선 하나를 함께 긋는다</text>
+  <rect x="400" y="40" width="240" height="240" fill="#0e1628" stroke="#1e293b"/>
+  <line x1="440.0" y1="40.0" x2="440.0" y2="280.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="400.0" y1="240.0" x2="640.0" y2="240.0" stroke="#475569" stroke-width="1.2"/>
+  <polyline points="400.0,188.6 491.4,280.0" fill="none" stroke="#34d399" stroke-width="2.2"/>
+  <circle cx="440.0" cy="240.0" r="7" fill="#0e1628" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="440.0" cy="80.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="600.0" cy="240.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="600.0" cy="80.0" r="7" fill="#0e1628" stroke="#f59e0b" stroke-width="2"/>
+  <text x="452.0" y="260.0" fill="#94a3b8" font-size="12" text-anchor="start">0.069</text>
+  <text x="452.0" y="100.0" fill="#94a3b8" font-size="12" text-anchor="start">0.662</text>
+  <text x="596.0" y="262.0" fill="#94a3b8" font-size="12" text-anchor="end">0.662</text>
+  <text x="596.0" y="102.0" fill="#f87171" font-size="12" text-anchor="end">0.670 (틀림)</text>
+  <text x="520.0" y="300.0" fill="#34d399" font-size="12" text-anchor="middle">h₁·h₂ 의 경계가 같은 직선 x₁ + x₂ ≈ 0.07</text>
+</svg>

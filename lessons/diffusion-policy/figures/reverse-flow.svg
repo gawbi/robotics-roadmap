@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 312" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>관측을 조건으로 받는 reverse 한 step. 상자 장면 관측과 A⁵ = 0.60, k = 5 를 받은 network 가 ε = 0.54 를 내면, 0.54 × 0.54 = 0.29 를 빼고 1.41 을 곱한 뒤 새 noise 0.21 을 더해 A⁴ = 0.65 가 된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="310" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="30.0" width="150.0" height="58.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="95.0" y="54.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관측 O</text>
+  <text x="95.0" y="74.0" fill="#94a3b8" font-size="11" text-anchor="middle">상자 장면 사진 + 핸들 0°</text>
+  <rect x="20.0" y="100.0" width="150.0" height="44.0" rx="8" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="95.0" y="127.0" fill="#e2e8f0" font-size="13" text-anchor="middle">A⁵ = 0.60</text>
+  <rect x="20.0" y="156.0" width="150.0" height="44.0" rx="8" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="95.0" y="183.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 5</text>
+  <line x1="170.0" y1="59.0" x2="218.0" y2="118.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="170.0" y1="122.0" x2="218.0" y2="118.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="170.0" y1="178.0" x2="218.0" y2="118.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="222.0" y="92.0" width="130.0" height="54.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="287.0" y="115.0" fill="#34d399" font-size="14" text-anchor="middle">network ε_θ</text>
+  <text x="287.0" y="134.0" fill="#94a3b8" font-size="11" text-anchor="middle">noise 를 맞힌다</text>
+  <line x1="352.0" y1="119.0" x2="392.0" y2="119.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="396.0" y="96.0" width="88.0" height="46.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="440.0" y="124.0" fill="#34d399" font-size="14" text-anchor="middle">ε_θ = 0.54</text>
+  <rect x="30.0" y="226.0" width="170.0" height="58.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="115.0" y="248.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.60 − 0.54 × 0.54</text>
+  <text x="115.0" y="270.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.31</text>
+  <text x="38.0" y="218.0" fill="#94a3b8" font-size="11" text-anchor="start">이번 step 몫 빼기</text>
+  <line x1="200.0" y1="255.0" x2="218.0" y2="255.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220.0" y="226.0" width="170.0" height="58.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="305.0" y="248.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.31 × 1.41</text>
+  <text x="305.0" y="270.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.44</text>
+  <text x="228.0" y="218.0" fill="#94a3b8" font-size="11" text-anchor="start">√α 로 나누기</text>
+  <line x1="390.0" y1="255.0" x2="408.0" y2="255.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="410.0" y="226.0" width="170.0" height="58.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="495.0" y="248.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.44 + 0.71 × 0.3</text>
+  <text x="495.0" y="270.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.65</text>
+  <text x="418.0" y="218.0" fill="#94a3b8" font-size="11" text-anchor="start">새 noise 더하기</text>
+  <line x1="440.0" y1="142.0" x2="190.0" y2="222.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
+  <text x="520.0" y="58.0" fill="#94a3b8" font-size="11" text-anchor="middle">곧은 길 관측이었다면</text>
+  <text x="520.0" y="76.0" fill="#94a3b8" font-size="11" text-anchor="middle">같은 0.60 에서 ε_θ = 0.65</text>
+  <text x="300.0" y="304.0" fill="#94a3b8" font-size="11" text-anchor="middle">계수 0.54 · 1.41 · 0.71 은 DDPM 강의의 T = 5 schedule 에서 k = 5 의 값</text>
+</svg>

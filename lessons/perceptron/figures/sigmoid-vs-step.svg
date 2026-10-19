@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>step function 과 sigmoid 의 비교. step 은 0 에서 1 로 계단처럼 뛰고, sigmoid 는 0 과 1 사이를 부드럽게 잇는다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="60" y="40" width="360" height="230" fill="#0e1628" stroke="#1e293b"/>
+  <line x1="60" y1="240" x2="420" y2="240" stroke="#475569" stroke-width="1.5"/>
+  <line x1="240" y1="40" x2="240" y2="270" stroke="#475569" stroke-width="1.5"/>
+  <text x="60" y="258" fill="#64748b" font-size="12" text-anchor="middle">−4</text>
+  <text x="150" y="258" fill="#64748b" font-size="12" text-anchor="middle">−2</text>
+  <text x="330" y="258" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="420" y="258" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="234" y="258" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="232" y="85" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="232" y="165" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
+  <text x="414" y="232" fill="#94a3b8" font-size="15" text-anchor="end">z</text>
+  <line x1="60" y1="240" x2="240" y2="240" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="240" y1="80" x2="420" y2="80" stroke="#f59e0b" stroke-width="3"/>
+  <polyline points="60.0,237.1 64.5,236.8 69.0,236.5 73.5,236.1 78.0,235.7 82.5,235.3 87.0,234.8 91.5,234.3 96.0,233.7 100.5,233.1 105.0,232.4 109.5,231.7 114.0,230.8 118.5,229.9 123.0,228.9 127.5,227.9 132.0,226.7 136.5,225.4 141.0,224.0 145.5,222.5 150.0,220.9 154.5,219.2 159.0,217.3 163.5,215.3 168.0,213.1 172.5,210.8 177.0,208.3 181.5,205.7 186.0,203.0 190.5,200.0 195.0,197.0 199.5,193.8 204.0,190.4 208.5,186.9 213.0,183.3 217.5,179.6 222.0,175.8 226.5,171.9 231.0,168.0 235.5,164.0 240.0,160.0 244.5,156.0 249.0,152.0 253.5,148.1 258.0,144.2 262.5,140.4 267.0,136.7 271.5,133.1 276.0,129.6 280.5,126.2 285.0,123.0 289.5,120.0 294.0,117.0 298.5,114.3 303.0,111.7 307.5,109.2 312.0,106.9 316.5,104.7 321.0,102.7 325.5,100.8 330.0,99.1 334.5,97.5 339.0,96.0 343.5,94.6 348.0,93.3 352.5,92.1 357.0,91.1 361.5,90.1 366.0,89.2 370.5,88.3 375.0,87.6 379.5,86.9 384.0,86.3 388.5,85.7 393.0,85.2 397.5,84.7 402.0,84.3 406.5,83.9 411.0,83.5 415.5,83.2 420.0,82.9" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="450" y1="70" x2="470" y2="70" stroke="#f59e0b" stroke-width="3"/>
+  <text x="478" y="75" fill="#e2e8f0" font-size="14" text-anchor="start">step function</text>
+  <line x1="450" y1="100" x2="470" y2="100" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="478" y="105" fill="#e2e8f0" font-size="14" text-anchor="start">sigmoid</text>
+  <text x="450" y="150" fill="#94a3b8" font-size="13" text-anchor="start">z 를 0.1 → 0.11 로 바꾸면</text>
+  <text x="450" y="174" fill="#f59e0b" font-size="13" text-anchor="start">step: 1 → 1 (변화 0)</text>
+  <text x="450" y="198" fill="#38bdf8" font-size="13" text-anchor="start">sigmoid: 0.5250 → 0.5275</text>
+  <text x="450" y="222" fill="#38bdf8" font-size="13" text-anchor="start">(약 0.0025 변화)</text>
+
+</svg>

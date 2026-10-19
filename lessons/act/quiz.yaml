@@ -1,0 +1,335 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: chunk-timing
+  title: chunk 길이와 추론 시한
+  variants:
+    - question: |
+        action chunking(관측 한 번에 앞으로 $k$ step 의 action 을 묶어 내는 방식)을 쓰면, 모델의 추론이 로봇의 제어 주기보다
+        느려도 로봇이 명령을 기다리지 않는다. 그 이유로 옳은 것은?
+      choices:
+        - 'chunk 를 쓰면 모델 안의 계산량이 $k$ 분의 1 로 줄어 추론이 빨라지기 때문에'
+        - 'chunk 를 쓰면 로봇의 제어 주기가 $k$ 배 느려져 명령이 덜 필요하기 때문에'
+        - '추론 한 번이 $k$ step 분량의 action 을 내므로, 다음 추론은 그 chunk 를 다 실행하기 전에만 끝나면 되기 때문에'
+        - '로봇이 chunk 의 마지막 action 하나만 실행하고 나머지는 버리기 때문에'
+      answer: 2
+      explanation: |
+        추론 한 번으로 $k$ 개의 action 이 나오고 로봇은 그것을 제어 주기마다 하나씩 꺼내 쓰므로, 추론이 끝나야 하는 시한이
+        step 하나의 길이에서 chunk 하나의 길이($k$ step)로 늘어난다. 추론 한 번의 계산량은 chunk 를 써도 줄지 않고, 로봇의
+        제어 주기도 그대로다. chunk 의 action 은 버리지 않고 차례로 모두 실행한다.
+    - question: |
+        1 초에 50 번 명령을 받는 로봇이 2 초 분량의 action chunk 를 쓰는 policy 로 움직인다. 이 로봇의 움직임에 대한 설명으로
+        옳은 것은?
+      choices:
+        - '로봇은 계속 짧은 간격마다 새 목표를 받아 움직이고, 줄어드는 것은 관측을 보고 결정하는 횟수다'
+        - '로봇은 2 초에 한 번만 움직이고 그 사이에는 멈춰 있다'
+        - '로봇은 2 초 동안 같은 목표 각도 하나를 계속 유지한다'
+        - '로봇은 chunk 를 쓰지 않을 때보다 2 배 빨리 움직인다'
+      answer: 0
+      explanation: |
+        chunk 안에는 step 마다의 목표가 하나씩 들어 있어서, 로봇은 chunk 를 쓰든 안 쓰든 같은 간격으로 새 목표를 받아 움직인다.
+        2 초에 한 번으로 줄어드는 것은 사진과 관절 각도를 보고 chunk 를 새로 내는 결정이다. 같은 목표를 2 초 동안 유지하는 것도
+        아니고, 움직이는 속도가 빨라지는 것도 아니다.
+    - question: |
+        chunk 를 끝까지 실행한 뒤 다음 chunk 를 추론하는 policy 에서, 모델이 커져 추론 한 번에 걸리는 시간이 chunk 하나를 실행하는
+        시간보다 길어졌다. 어떤 일이 생길까?
+      choices:
+        - '로봇이 이전 chunk 를 처음부터 다시 실행한다'
+        - '추론이 끝나지 않은 chunk 의 앞부분만 먼저 실행된다'
+        - '아무 문제가 없다. 추론 시간은 chunk 길이와 상관이 없다'
+        - 'chunk 를 다 실행한 뒤 다음 chunk 가 나올 때까지 로봇이 새 명령을 받지 못하고 기다린다'
+      answer: 3
+      explanation: |
+        로봇이 멈추지 않으려면 추론 시간이 chunk 하나의 길이($k$ × step 길이)보다 짧아야 한다. 이 조건이 깨지면 chunk 를 다 쓴
+        뒤 다음 chunk 가 아직 없어서 로봇이 기다린다. 이전 chunk 를 다시 실행하거나 미완성 chunk 를 쪼개 쓰는 동작은 없고,
+        그래서 큰 모델일수록 chunk 길이를 길게 잡거나 추론을 앞당겨 시작해야 한다.
+
+- topic: effective-horizon
+  title: 결정 횟수와 compounding error
+  variants:
+    - question: |
+        action chunking 이 compounding error(작은 실수가 로봇을 낯선 상황으로 옮겨 실수가 점점 쌓이는 현상)를 줄이는 이유로 옳은
+        것은?
+      choices:
+        - 'chunk 안의 action 하나하나가 step 마다 낸 action 보다 언제나 정확하기 때문에'
+        - 'episode 동안 관측을 보고 결정하는 횟수가 줄어, 실수가 생기고 쌓일 기회가 줄기 때문에'
+        - '로봇이 움직이는 횟수가 줄어 실제로 덜 움직이기 때문에'
+        - '학습 때 loss 가 더 작아지기 때문에'
+      answer: 1
+      explanation: |
+        결정 한 번이 $k$ step 을 맡으므로 길이 $T$ 인 episode 의 결정 횟수가 $T / k$ 로 줄고, 실수가 이어져 쌓일 기회도 그만큼
+        준다. 먼 미래까지 내다보는 chunk 의 예측이 더 정확하다는 보장은 없고 오히려 더 어렵다. 로봇은 여전히 매 step 움직이며,
+        loss 의 크기는 실행 중에 쌓이는 실수와 다른 이야기다.
+    - question: |
+        가장 나쁜 경우 틀리는 결정의 수가 결정 횟수의 제곱에 비례한다고 하자. chunk 길이를 10 배로 늘려 결정 횟수를 10 분의 1 로
+        줄이면, 가장 나쁜 경우의 틀린 결정 수는 어떻게 될까?
+      choices:
+        - '그대로다'
+        - '10 배가 된다'
+        - '10 분의 1 이 된다'
+        - '100 분의 1 이 된다'
+      answer: 3
+      explanation: |
+        제곱에 비례하므로 결정 횟수가 10 분의 1 이 되면 그 제곱은 $10 \times 10 = 100$ 분의 1 이 된다. 10 분의 1 은 결정 횟수가
+        줄어드는 비율일 뿐이고, 실수가 앞의 실수를 이어 받아 커지는 경우에는 결정 횟수를 줄인 효과가 그보다 훨씬 크게 나타난다.
+        결정이 줄었는데 그대로이거나 늘어날 이유는 없다.
+    - question: |
+        결정 횟수가 적을수록 좋다면, chunk 길이를 episode 전체 길이로 늘려 첫 관측 한 번으로 모든 action 을 정하면 어떻게 될까?
+      choices:
+        - '실행 중에 물체가 밀리는 등 상황이 바뀌어도 새 관측을 보지 않아 대응하지 못하고, 먼 미래의 예측도 어려워 오히려 나빠질 수 있다'
+        - '결정이 한 번뿐이라 compounding error 가 없으므로 언제나 가장 좋다'
+        - '추론 시한이 너무 짧아져 로봇이 멈춘다'
+        - '로봇이 episode 동안 움직이지 않는다'
+      answer: 0
+      explanation: |
+        chunk 를 실행하는 동안에는 새 관측을 보지 않으므로 chunk 가 길수록 open-loop 제어에 가까워진다. episode 전체를 한 chunk 로
+        정하면 중간에 바뀐 상황을 반영할 길이 없고, 몇 초 뒤까지 맞히는 예측 자체도 어렵다. 그래서 chunk 길이는 결정 횟수를
+        줄이는 이득과 반응이 늦어지는 손해 사이에서 고른다. 추론 시한은 chunk 가 길수록 늘어나고, 로봇은 chunk 의 action 을
+        차례로 실행하며 움직인다.
+
+- topic: temporal-ensembling
+  title: 겹치는 chunk 예측의 가중 평균
+  variants:
+    - question: |
+        chunk 를 끝까지 실행한 뒤 다음 chunk 로 넘어가는 policy 에서 팔이 chunk 가 바뀔 때마다 덜컥거린다. 원인과 temporal
+        ensembling 의 해결 방식으로 옳은 것은?
+      choices:
+        - '모터가 느려서 생기는 문제라, temporal ensembling 은 모터 속도를 높인다'
+        - '학습 데이터가 부족해서 생기는 문제라, temporal ensembling 은 시연을 늘린다'
+        - '새 chunk 의 첫 목표가 이전 chunk 의 마지막 목표와 크게 다를 수 있어서이고, temporal ensembling 은 step 마다 추론해 같은 시각에 대한 여러 예측을 평균한다'
+        - '관측이 너무 자주 바뀌어서 생기는 문제라, temporal ensembling 은 관측을 덜 보게 한다'
+      answer: 2
+      explanation: |
+        새 관측을 보고 낸 chunk 는 이전 chunk 와 상황을 조금 다르게 읽을 수 있어서, 경계에서 목표 각도가 한 step 사이에 크게
+        튄다. temporal ensembling 은 step 마다 chunk 를 새로 내서 한 시각을 여러 chunk 가 덮게 하고, 그 예측들을 가중 평균해
+        목표가 조금씩만 바뀌게 한다. 모터 속도나 시연 수를 바꾸는 방법이 아니고, 관측을 덜 보는 것도 아니다.
+    - question: |
+        temporal ensembling 과 흔히 쓰는 smoothing(바로 옆 시각의 action 과 섞어 매끄럽게 만드는 처리)의 차이로 옳은 것은?
+      choices:
+        - '둘은 같은 계산이고 이름만 다르다'
+        - 'temporal ensembling 은 서로 다른 chunk 가 같은 시각에 대해 낸 예측만 섞고, smoothing 은 다른 시각의 action 을 섞는다'
+        - 'temporal ensembling 은 학습 때만 쓰고 smoothing 은 추론 때만 쓴다'
+        - 'temporal ensembling 은 가장 최근 예측 하나만 남기고 나머지를 버린다'
+      answer: 1
+      explanation: |
+        smoothing 은 옆 시각의 값을 섞으므로 그 시각에 가야 할 각도에서 벗어날 수 있다. temporal ensembling 은 같은 시각을
+        두고 여러 chunk 가 낸 예측끼리만 합치므로 그런 어긋남이 없다. 학습은 그대로 두고 추론 때 계산만 더하는 방법이며, 예측을
+        하나만 남기는 것이 아니라 모두 weight 를 매겨 평균한다.
+    - question: |
+        temporal ensembling 을 쓰면 무엇을 대가로 치를까?
+      choices:
+        - '학습을 처음부터 다시 해야 한다'
+        - 'chunk 길이를 1 로 줄여야 한다'
+        - '학습 loss 에 새로운 항을 더해야 한다'
+        - 'step 마다 추론해야 하므로, 추론 한 번이 제어 주기 안에 끝나야 해서 chunk 로 얻던 넉넉한 추론 시한을 잃는다'
+      answer: 3
+      explanation: |
+        chunk 를 끝까지 실행할 때는 추론이 chunk 하나의 길이 안에만 끝나면 됐지만, temporal ensembling 은 매 step 새 chunk 를
+        내야 하므로 추론 시한이 step 하나의 길이로 줄어든다. 학습과 loss 는 그대로이고 추론 때 계산만 더하는 방법이다. chunk
+        길이도 그대로 두며, chunk 가 겹쳐야 평균할 예측이 생긴다.
+
+- topic: ensemble-weight
+  title: weight 식 exp(−m·i) 와 m 의 역할
+  variants:
+    - question: |
+        ACT 의 temporal ensembling 은 같은 시각에 대한 예측들에 $w_i = \exp(-m \cdot i)$ 의 weight 를 준다. $i = 0$ 이 가장 오래전에
+        낸 예측이고 최근 것일수록 $i$ 가 크다. $m$ 을 크게 하면 어떻게 될까?
+      choices:
+        - '오래된 예측이 결과를 거의 정해, 움직임은 매끄럽지만 새 관측이 실행에 늦게 반영된다'
+        - '최근 예측이 결과를 거의 정해, 새 관측이 바로 반영된다'
+        - '모든 예측이 같은 weight 를 받는다'
+        - 'weight 의 합이 0 이 되어 계산할 수 없다'
+      answer: 0
+      explanation: |
+        $m$ 이 크면 $i$ 가 커질수록 $\exp(-m \cdot i)$ 가 빠르게 0 쪽으로 작아지므로 최근 예측은 거의 반영되지 않고, $w_0 = 1$ 인
+        가장 오래된 예측이 결과를 끌고 간다. 최근 예측이 최근 관측을 담고 있으니 새 관측이 늦게 반영되는 대신 움직임은 더
+        매끄럽다. weight 가 고르게 되는 것은 $m$ 이 작을 때이고, weight 는 모두 양수라 합이 0 이 되지 않는다.
+    - question: |
+        weight 식 $w_i = \exp(-m \cdot i)$ 에서 $m = 0$ 으로 두면 temporal ensembling 은 어떤 계산이 될까?
+      choices:
+        - '가장 오래된 예측 하나만 쓰는 계산'
+        - '가장 최근 예측 하나만 쓰는 계산'
+        - '모든 예측을 똑같이 세는 보통 평균'
+        - '예측들의 차이를 더하는 계산'
+      answer: 2
+      explanation: |
+        $m = 0$ 이면 모든 $i$ 에서 $\exp(0) = 1$ 이라 weight 가 전부 같고, weight 를 곱해 더한 뒤 weight 의 합으로 나누는 가중
+        평균이 보통 평균이 된다. 하나의 예측만 쓰려면 그 예측 말고는 weight 가 0 이어야 하는데 $\exp$ 값은 0 이 되지 않는다.
+        차이를 더하는 계산은 이 식과 관계가 없다.
+    - question: |
+        ACT 의 weight 식 $w_i = \exp(-m \cdot i)$ ($m > 0$, $i = 0$ 이 가장 오래된 예측)에서 가장 큰 weight 를 받는 예측은?
+      choices:
+        - '가장 최근 관측을 보고 낸 예측'
+        - '가장 오래전에 낸 예측'
+        - '값이 가장 큰 예측'
+        - '모든 예측이 언제나 같은 weight 를 받는다'
+      answer: 1
+      explanation: |
+        $i = 0$ 일 때 $w_0 = e^0 = 1$ 이고, $i$ 가 커질수록 weight 가 작아지므로 가장 오래된 예측이 가장 큰 weight 를 받는다.
+        최근 예측이 가장 정확할 테니 가장 클 것이라는 생각은 흔한 오해다. weight 는 예측 값의 크기와 상관없이 번호 $i$ 로만
+        정해지고, $m > 0$ 이면 모두 같지 않다. $m$ 이 아주 작으면 차이가 작아 거의 고른 평균이 된다.
+
+- topic: style-average
+  title: style 이 갈린 시연과 평균의 함정
+  variants:
+    - question: |
+        같은 장면에서 사람이 어떤 때는 곧장 내려가 큐브를 잡고, 어떤 때는 잠깐 멈췄다가 내려가 잡았다. 둘 다 성공한 시연이다.
+        관측만 받는 policy 를 MSE loss 로 학습하면 이 장면에서 무엇을 낼 가능성이 클까?
+      choices:
+        - '시연 수가 더 많은 쪽의 움직임을 그대로'
+        - '두 움직임을 번갈아 가며'
+        - '아무 움직임도 내지 않고 멈춰 있는 동작'
+        - '두 움직임을 칸마다 평균한, 어느 시연과도 다른 어정쩡하게 느린 하강'
+      answer: 3
+      explanation: |
+        MSE 를 가장 작게 만드는 출력은 같은 입력에 대한 정답들의 평균이라, step 마다 두 움직임의 평균이 나온다. 이 평균은
+        멈추지도 바로 내려가지도 않는 움직임이라 어느 시연과도 같지 않다. 더 많은 쪽을 고르거나 번갈아 내려면 policy 가 둘을
+        구분할 정보가 있어야 하는데, 관측이 같으니 그런 정보가 없다.
+    - question: |
+        L1 loss(오차의 절댓값 합)는 정답들의 평균 대신 한가운데 값을 고르므로 평균의 함정을 피한다는 주장이 있다. 시연이 정확히
+        두 가지 방식으로 반반 갈린 경우에 대한 설명으로 옳은 것은?
+      choices:
+        - '두 시연 사이의 어떤 값을 내도 loss 가 같아 평균이나 두 시연을 섞은 출력도 똑같이 좋은 답이 되므로, L1 만으로는 막지 못한다'
+        - 'L1 은 언제나 둘 중 하나를 정확히 고르므로 문제가 없다'
+        - 'L1 은 MSE 보다 평균 쪽으로 더 강하게 끌린다'
+        - 'L1 은 gradient 가 없어 학습이 되지 않는다'
+      answer: 0
+      explanation: |
+        두 정답 사이에서 출력을 옮기면 한쪽 오차가 느는 만큼 다른 쪽 오차가 줄어서 L1 의 합이 변하지 않는다. loss 의 바닥이
+        평평해지니 평균이든 섞인 출력이든 막을 근거가 없다. 그래서 L1 이 둘 중 하나를 고른다는 보장도 없고, MSE 처럼 평균에서
+        가장 낮은 것도 아니다. L1 도 gradient 로 학습할 수 있다.
+    - question: |
+        평균의 함정이 생기는 근본 원인으로 가장 알맞은 것은?
+      choices:
+        - '시연의 개수가 너무 적어서'
+        - 'learning rate 가 너무 커서'
+        - '같은 입력에 정답 action 이 여럿인데, policy 는 그 입력에 출력 하나만 낼 수 있어서'
+        - 'neural network 의 층이 너무 적어서'
+      answer: 2
+      explanation: |
+        관측이 같으면 policy 의 입력이 같으므로 출력도 하나뿐이고, loss 를 줄이려면 여러 정답 사이에서 타협하는 수밖에 없다.
+        그 타협이 어느 정답과도 다른 평균이다. 시연을 늘리거나 모델을 키워도 같은 입력에 정답이 여럿인 상황은 그대로이고,
+        learning rate 는 학습 속도의 문제라 이 현상과 관계가 없다.
+
+- topic: cvae-latent
+  title: style 변수 z 와 KL
+  variants:
+    - question: |
+        ACT 는 학습 때 CVAE encoder 가 시연의 정답 chunk 를 보고 style 변수 $z$ 를 만들어 policy 에 함께 넣는다. 이것이 평균의 함정을
+        피하게 하는 이유는?
+      choices:
+        - '$z$ 가 시연 중 성공한 것만 골라 주기 때문에'
+        - '$z$ 가 다르면 policy 의 입력이 달라지므로, 같은 관측이라도 style 마다 제 chunk 를 내면 되어 정답들 사이에서 타협할 필요가 없어지기 때문에'
+        - '$z$ 가 loss 를 0 으로 고정하기 때문에'
+        - '$z$ 가 관측 사진의 해상도를 높여 주기 때문에'
+      answer: 1
+      explanation: |
+        평균의 함정은 같은 입력에 정답이 여럿이라 생긴다. $z$ 에 "이번 시연은 멈췄다 내려갔다" 같은 style 이 담기면 (관측, $z$)
+        의 짝이 시연마다 달라져, 한 입력에 정답이 하나가 된다. $z$ 는 시연을 걸러내지 않고, loss 를 강제로 고정하지도 않으며,
+        사진을 바꾸는 장치도 아니다.
+    - question: |
+        CVAE 의 loss 에서 KL 항(encoder 가 낸 $z$ 의 분포가 표준 정규분포에서 얼마나 먼지)을 빼고 학습하면 어떤 일이 생길 수 있을까?
+      choices:
+        - '$z$ 가 언제나 0 이 되어 style 을 담지 못한다'
+        - '학습이 전혀 진행되지 않는다'
+        - 'policy 가 관측을 더 꼼꼼히 보게 된다'
+        - 'encoder 가 정답 chunk 를 통째로 $z$ 에 적어 넘기고, policy 는 관측을 보지 않고 $z$ 를 베끼기만 하게 될 수 있다'
+      answer: 3
+      explanation: |
+        encoder 는 정답 chunk 를 보고 $z$ 를 정하므로, 아무 제약이 없으면 $z$ 에 정답을 그대로 담는 것이 loss 를 가장 쉽게 줄이는
+        길이다. 그러면 policy 는 관측을 무시하고 $z$ 만 읽게 되고, 정답이 없는 추론 때에는 쓸 수 없는 모델이 된다. KL 항은
+        $z$ 를 0 근처에 모아 꼭 필요한 style 만 담게 한다. KL 을 빼면 $z$ 가 0 으로 가는 것이 아니라 반대로 마음대로 퍼진다.
+    - question: |
+        ACT 의 loss 는 L1 에 KL 을 $\beta$ 배 해서 더한다. $\beta$ 를 크게 키우면 $z$ 는 어떻게 될까?
+      choices:
+        - '$z$ 들이 0 근처로 더 강하게 모여 $z$ 에 담기는 정보가 줄어든다'
+        - '$z$ 에 chunk 의 세세한 숫자까지 더 많이 담긴다'
+        - '$z$ 의 칸 수가 늘어난다'
+        - '$\beta$ 는 학습 속도만 바꾸고 $z$ 와는 관계없다'
+      answer: 0
+      explanation: |
+        $\beta$ 가 크면 $z$ 를 표준 정규분포에서 멀리 보내는 데 드는 벌이 커지므로, encoder 는 $z$ 를 0 근처에 모으고 꼭 필요한
+        정보만 담는다. 너무 크면 style 조차 담지 못해 평균의 함정이 돌아올 수 있다. 정보가 더 담기는 것은 $\beta$ 가 작을 때이고,
+        $z$ 의 칸 수는 모델 구조로 정해진다.
+
+- topic: inference-z
+  title: 추론 때 z = 0 을 쓰는 이유
+  variants:
+    - question: |
+        학습이 끝난 ACT 로 로봇을 움직일 때는 CVAE encoder 를 쓰지 않는다. 가장 직접적인 이유는?
+      choices:
+        - 'encoder 의 계산이 너무 느려서'
+        - 'encoder 가 학습 중에 망가져서'
+        - 'encoder 의 입력인 시연의 정답 chunk 가 로봇을 움직이는 순간에는 없어서'
+        - 'encoder 를 쓰면 메모리가 부족해서'
+      answer: 2
+      explanation: |
+        CVAE encoder 는 시연의 정답 chunk 를 보고 그 style 을 $z$ 로 요약한다. 로봇을 실제로 움직일 때는 앞으로 할 정답이 없으므로
+        encoder 에 넣을 것이 없다. 그래서 encoder 는 학습 때만 쓰고, 추론 때는 KL 이 $z$ 를 모아 둔 자리인 $z = 0$ 을 넣는다.
+        속도나 메모리, 고장은 이유가 아니다.
+    - question: |
+        추론 때 step 마다 $z$ 를 표준 정규분포에서 무작위로 새로 뽑고, 겹치는 chunk 들을 temporal ensembling 으로 평균한다면 어떤
+        문제가 생길까?
+      choices:
+        - '추론이 빨라져 아무 문제가 없다'
+        - '연달아 낸 chunk 들이 서로 다른 style 을 따를 수 있어서, 같은 시각의 예측을 평균하면 어느 시연에도 없는 움직임이 나와 평균의 함정이 다시 생긴다'
+        - 'chunk 길이가 1 로 줄어든다'
+        - 'policy 가 관측을 보지 않게 된다'
+      answer: 1
+      explanation: |
+        $z$ 가 바뀌면 policy 가 다른 style 의 chunk 를 낸다. 한 시각을 두고 "바로 내려감" chunk 와 "멈췄다 내려감" chunk 가
+        서로 다른 높이를 내면, 그 둘의 평균은 어느 시연과도 다른 높이다. $z = 0$ 으로 고정하면 같은 관측에 같은 chunk 가 나와
+        연달아 낸 chunk 들이 한 style 을 유지한다. 추론 속도나 chunk 길이, 관측 사용 여부와는 관계가 없다.
+    - question: |
+        추론 때 $z = 0$ 으로 고정하는 방식에 대한 설명으로 옳은 것은?
+      choices:
+        - '$z = 0$ 이면 policy 가 시연에 있던 모든 style 을 번갈아 낸다'
+        - '$z = 0$ 은 학습 때 한 번도 나오지 않은 값이라 policy 가 무엇을 낼지 알 수 없다'
+        - '$z = 0$ 이면 policy 가 chunk 대신 action 하나만 낸다'
+        - 'policy 는 0 자리에 놓인 style 하나만 내고, 시연이 정반대 두 방식으로 반반 갈렸다면 둘 중 하나를 확실히 고른다는 보장이 없다'
+      answer: 3
+      explanation: |
+        KL 이 $z$ 를 0 근처에 모았으므로 0 은 policy 가 가장 많이 본 익숙한 자리이고, 그 자리에 해당하는 style 하나가 나온다.
+        그래서 다른 style 은 쓰지 않으며, 0 이 두 무리의 경계에 놓이면 어느 쪽도 확실히 고르지 못할 수 있다. 0 은 학습 때 낯선
+        값이 아니고, $z$ 를 고정해도 출력은 여전히 chunk 다.
+
+- topic: act-architecture
+  title: token 과 action head
+  variants:
+    - question: |
+        ACT 의 Transformer decoder 에는 학습으로 정해지는 고정 query 가 chunk 길이만큼 들어간다. 이 query 들의 역할은?
+      choices:
+        - '각 query 가 chunk 의 한 step 을 맡아 encoder 출력을 cross-attention 으로 읽고, 모든 step 의 action 을 한꺼번에 낸다'
+        - '각 query 가 카메라 사진의 한 구역을 나타낸다'
+        - '각 query 가 시연 하나를 저장해 두었다가 꺼낸다'
+        - '각 query 가 관절 하나의 각도를 입력으로 받는다'
+      answer: 0
+      explanation: |
+        query 하나는 "1 번째 step 의 action", "2 번째 step 의 action" 처럼 chunk 의 한 자리를 찾는 vector 이고, cross-attention 으로
+        encoder 가 요약한 상황을 읽은 뒤 같은 linear layer 를 거쳐 그 step 의 관절값이 된다. 사진의 구역은 encoder 쪽 사진 token
+        이 맡고, 관절 각도도 encoder 쪽 token 으로 들어간다. query 는 시연을 저장하는 장치가 아니다.
+    - question: |
+        ACT 는 카메라 사진의 각 구역을 token 으로 만든 뒤 2D positional embedding 을 더한다. 이것이 필요한 이유는?
+      choices:
+        - '사진의 밝기를 고르게 맞추려고'
+        - '사진 token 의 개수를 줄이려고'
+        - 'attention 은 token 이 사진의 어느 줄·어느 칸에서 왔는지 모르므로, 위치를 알려 주어야 물체가 왼쪽인지 오른쪽인지 구분할 수 있어서'
+        - '관절 token 과 사진 token 을 구분하지 않으려고'
+      answer: 2
+      explanation: |
+        attention 은 token 들을 순서 없는 묶음처럼 다뤄서, 위치 표시가 없으면 같은 내용이 사진의 어디에 있었는지 알 수 없다.
+        사진은 위치가 줄과 칸 두 가지라서 vector 의 절반은 줄 번호, 절반은 칸 번호로 위치를 적는다. 밝기 보정이나 token 수
+        줄이기와는 관계가 없고, 관절 token 과의 구분을 없애려는 것도 아니다.
+    - question: |
+        글을 번역하는 Transformer decoder 는 앞에서 만든 출력을 다시 입력으로 넣어 token 을 하나씩 만든다. ACT 의 decoder 가 이것과
+        다른 점과 그 결과로 옳은 것은?
+      choices:
+        - 'ACT 도 action 을 하나씩 만들어 앞 action 을 다시 넣는다'
+        - 'query 전부를 한꺼번에 넣어 chunk 의 모든 action 을 동시에 내므로, 추론 한 번에 decoder 를 한 번만 계산하면 된다'
+        - 'ACT 의 decoder 는 encoder 출력을 읽지 않는다'
+        - 'ACT 의 decoder 는 학습 때만 쓰고 추론 때는 쓰지 않는다'
+      answer: 1
+      explanation: |
+        ACT 의 decoder 는 앞 출력을 기다리지 않고 고정 query 를 모두 한 번에 넣어 chunk 전체를 동시에 낸다. 그래서 chunk 가 길어도
+        decoder 를 chunk 길이만큼 반복하지 않는다. decoder 는 cross-attention 으로 encoder 출력을 읽으며, 학습 때만 쓰고 버리는
+        것은 decoder 가 아니라 CVAE encoder 다.

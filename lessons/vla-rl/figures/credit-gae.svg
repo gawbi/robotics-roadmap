@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>chunk 4 개짜리 성공 episode. critic 의 예측은 0.3, 0.3, 0.8, 0.9 이고 reward 는 마지막에 1 만 받는다. TD error 는 0, 0.5, 0.1, 0.1 이라 컵을 잡은 chunk 1 이 가장 큰 몫을 받고, γλ = 0.5 의 GAE 는 0.2875, 0.575, 0.15, 0.1 이다</title>
+  <rect x="1" y="1" width="698" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <g font-size="13" fill="#94a3b8" text-anchor="middle">
+    <text x="170" y="30">chunk 0</text><text x="310" y="30">chunk 1</text><text x="450" y="30">chunk 2</text><text x="590" y="30">chunk 3</text>
+  </g>
+  <g font-size="13" fill="#e2e8f0" text-anchor="middle">
+    <text x="170" y="50">컵으로 다가감</text><text x="310" y="50">컵을 잡음</text><text x="450" y="50">들어 옮김</text><text x="590" y="50">상자에 놓음</text>
+  </g>
+
+  <text x="24" y="92" fill="#94a3b8" font-size="13">예측 V(s)</text>
+  <g font-size="15" fill="#38bdf8" text-anchor="middle">
+    <text x="170" y="92">0.3</text><text x="310" y="92">0.3</text><text x="450" y="92">0.8</text><text x="590" y="92">0.9</text>
+  </g>
+  <text x="24" y="124" fill="#94a3b8" font-size="13">reward</text>
+  <g font-size="15" fill="#e2e8f0" text-anchor="middle">
+    <text x="170" y="124">0</text><text x="310" y="124">0</text><text x="450" y="124">0</text><text x="590" y="124">1</text>
+  </g>
+  <text x="24" y="156" fill="#94a3b8" font-size="13">δ (TD error)</text>
+  <g font-size="13" fill="#e2e8f0" text-anchor="middle">
+    <text x="170" y="156">0 + 0.3 − 0.3 = 0</text><text x="310" y="156">0 + 0.8 − 0.3 = 0.5</text><text x="450" y="156">0 + 0.9 − 0.8 = 0.1</text><text x="590" y="156">1 + 0 − 0.9 = 0.1</text>
+  </g>
+
+  <!-- bars: baseline y=300, scale 160 per 1 -->
+  <line x1="110" y1="300" x2="670" y2="300" stroke="#475569" stroke-width="1.5"/>
+  <text x="24" y="250" fill="#94a3b8" font-size="13">GAE</text>
+  <text x="24" y="268" fill="#94a3b8" font-size="13">γλ = 0.5</text>
+  <rect x="140" y="254" width="60" height="46" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
+  <rect x="280" y="208" width="60" height="92" rx="3" fill="#f59e0b"/>
+  <rect x="420" y="276" width="60" height="24" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
+  <rect x="560" y="284" width="60" height="16" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
+  <g font-size="14" fill="#e2e8f0" text-anchor="middle">
+    <text x="170" y="246">0.2875</text><text x="310" y="200">0.575</text><text x="450" y="268">0.15</text><text x="590" y="276">0.1</text>
+  </g>
+  <text x="350" y="326" fill="#94a3b8" font-size="13" text-anchor="middle">reward 는 끝에서 받았지만, 예측이 크게 뛴 "컵을 잡음" chunk 가 가장 큰 advantage 를 받는다</text>
+</svg>

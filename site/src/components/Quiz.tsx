@@ -1,11 +1,10 @@
 import { Check, ListChecks, X } from 'lucide-react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { hasQuiz, loadBank } from '../curriculum/load'
-import { parseBank, passed, pickVariants, type Attempt, type Pick, type QuizStatus, type Topic } from '../curriculum/quiz'
+import { progress } from '../curriculum/progress'
+import { clearedAt, parseBank, passed, pickVariants, wrongTopics, type Attempt, type Pick, type Topic } from '../curriculum/quiz'
 import { Markdown } from './Markdown'
-
-type ServerState = { kind: 'loading' } | { kind: 'offline' } | { kind: 'ready'; status: QuizStatus }
 
 const url = (id: string) => `${CONFIG.quiz.endpoint}/${id}`
 
@@ -19,86 +18,49 @@ async function request<T>(id: string, init?: RequestInit): Promise<T> {
 
 const score = (a: Attempt) => `${a.answers.filter((x) => x.correct).length} / ${a.answers.length}`
 
-/** Panel card that starts the multiple-choice part of /evaluate. Renders nothing for projects without a bank. */
-export function QuizSection({ projectId, title }: { projectId: string; title: string }) {
-  const [server, setServer] = useState<ServerState>({ kind: 'loading' })
+/** Quiz card at the end of a lecture. Renders nothing for lessons without a bank. */
+export function QuizSection({ lessonId, title, attempts }: { lessonId: string; title: string; attempts: readonly Attempt[] }) {
   const [open, setOpen] = useState(false)
-  const enabled = hasQuiz(projectId)
-  const live = useRef(true)
-
-  // HEAD and the working tree change in the terminal, so re-read them whenever the learner comes back to the map
-  const refresh = useCallback(async (): Promise<QuizStatus | null> => {
-    try {
-      const status = await request<QuizStatus>(projectId)
-      if (live.current) setServer({ kind: 'ready', status })
-      return status
-    } catch {
-      if (live.current) setServer({ kind: 'offline' })
-      return null
-    }
-  }, [projectId])
-
-  useEffect(() => {
-    if (!enabled) return
-    live.current = true
-    refresh()
-    const onFocus = () => void refresh()
-    window.addEventListener('focus', onFocus)
-    return () => {
-      live.current = false
-      window.removeEventListener('focus', onFocus)
-    }
-  }, [enabled, refresh])
-
-  async function start() {
-    const status = await refresh()
-    if (status && !status.dirty) setOpen(true)
-  }
-
-  if (!enabled) return null
-  const last = server.kind === 'ready' ? server.status.attempts.at(-1) : undefined
+  // bumped by "틀린 문제 다시 풀기" so the dialog remounts and picks its questions from the attempts that include the last one
+  const [run, setRun] = useState(0)
+  if (!hasQuiz(lessonId)) return null
+  const last = attempts.at(-1)
+  const cleared = clearedAt(attempts) >= 0
+  const wrong = cleared ? 0 : wrongTopics(attempts).length
 
   return (
     <section className="quiz-card" aria-labelledby="quiz-card-title">
       <h3 id="quiz-card-title">
-        <ListChecks size={15} aria-hidden="true" /> 객관식 평가
+        <ListChecks size={15} aria-hidden="true" /> 퀴즈
       </h3>
-      {server.kind === 'loading' && <p className="quiz-card-text">응시 정보 확인 중…</p>}
-      {server.kind === 'offline' && (
-        <p className="quiz-card-text">
-          로컬에서 띄운 지도에서만 응시할 수 있습니다. 리포의 <code>site/</code> 에서 <code>npm run dev</code> 로 띄웁니다.
+      <p className="quiz-card-text">
+        강의의 핵심을 한 문항씩 묻습니다. 틀린 문항은 해설을 보여 주고, 틀린 문항만 같은 원리의 다른 문항으로 다시 풉니다.
+        틀린 문항이 남지 않으면 이 강의를 통과합니다.
+      </p>
+      {last && (
+        <p className={`quiz-card-last ${cleared ? 'is-pass' : 'is-fail'}`}>
+          마지막 응시 {last.date} · {score(last)} 정답{wrong > 0 && ` · 남은 문항 ${wrong}개`}
         </p>
       )}
-      {server.kind === 'ready' && (
-        <>
-          {last && (
-            <p className={`quiz-card-last ${passed(last.answers) ? 'is-pass' : 'is-fail'}`}>
-              마지막 응시 {last.date} · {score(last)} 정답 · <code>{last.commit}</code>
-            </p>
-          )}
-          {server.status.dirty ? (
-            <p className="quiz-card-text">
-              <code>projects/{projectId}/</code> 에 commit 하지 않은 변경이 있습니다. 평가는 commit 된 코드만 보므로 commit 한 뒤
-              응시합니다.
-            </p>
-          ) : (
-            <button type="button" className="primary-button quiz-start" onClick={start}>
-              {last ? '다시 응시' : '응시 시작'}
-            </button>
-          )}
-        </>
+      {import.meta.env.DEV ? (
+        <button type="button" className="primary-button quiz-start" onClick={() => setOpen(true)}>
+          {!last ? '퀴즈 풀기' : wrong > 0 ? `틀린 문제 다시 풀기 (${wrong}문항)` : '처음부터 다시 풀기'}
+        </button>
+      ) : (
+        <p className="quiz-card-text">
+          답안은 리포에 저장되므로 로컬에서 띄운 지도에서만 풀 수 있습니다. 리포의 <code>site/</code> 에서{' '}
+          <code>npm run dev</code> 로 띄웁니다.
+        </p>
       )}
-      {open && server.kind === 'ready' && (
+      {open && (
         <QuizDialog
-          projectId={projectId}
+          key={run}
+          lessonId={lessonId}
           title={title}
-          status={server.status}
+          attempts={attempts}
           onClose={() => setOpen(false)}
-          onSubmitted={(attempt) =>
-            setServer((prev) =>
-              prev.kind === 'ready' ? { kind: 'ready', status: { ...prev.status, attempts: [...prev.status.attempts, attempt] } } : prev,
-            )
-          }
+          onSubmitted={(attempt) => progress.add(lessonId, attempt)}
+          onRetry={() => setRun((r) => r + 1)}
         />
       )}
     </section>
@@ -106,16 +68,17 @@ export function QuizSection({ projectId, title }: { projectId: string; title: st
 }
 
 interface DialogProps {
-  projectId: string
+  lessonId: string
   title: string
-  status: QuizStatus
+  attempts: readonly Attempt[]
   onClose(): void
   onSubmitted(attempt: Attempt): void
+  onRetry(): void
 }
 
-function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: DialogProps) {
-  // the questions and the commit are fixed when the dialog opens; later status refreshes must not re-pick them
-  const [status] = useState(opened)
+function QuizDialog({ lessonId, title, attempts: opened, onClose, onSubmitted, onRetry }: DialogProps) {
+  // the questions are fixed when the dialog opens; the submission below must not re-pick them
+  const [attempts] = useState(opened)
   const dialogRef = useRef<HTMLDialogElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const [bank, setBank] = useState<Topic[] | null>(null)
@@ -129,21 +92,22 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
   useEffect(() => {
     dialogRef.current?.showModal()
     let live = true
-    loadBank(projectId)
+    loadBank(lessonId)
       .then(parseBank)
       .then(
         (b) => {
           if (!live) return
+          const next = pickVariants(b, attempts)
           setBank(b)
-          setPicks(pickVariants(b, status.attempts))
-          setChoices(b.map(() => null))
+          setPicks(next)
+          setChoices(next.map(() => null))
         },
         (e) => live && setError(`문항을 불러오지 못했습니다: ${e instanceof Error ? e.message : e}`),
       )
     return () => {
       live = false
     }
-  }, [projectId, status.attempts])
+  }, [lessonId, attempts])
 
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true })
@@ -151,8 +115,8 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
   }, [step, result])
 
   const total = picks.length
-  const topic = bank?.[step]
-  const variant = topic && picks[step] ? topic.variants[picks[step].variant] : undefined
+  const topic = bank?.find((t) => t.topic === picks[step]?.topic)
+  const variant = topic ? topic.variants[picks[step].variant] : undefined
   const chosen = choices[step]
   const isLast = step === total - 1
 
@@ -160,10 +124,10 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
     setSending(true)
     setError(null)
     try {
-      const attempt = await request<Attempt>(projectId, {
+      const attempt = await request<Attempt>(lessonId, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ commit: status.head, answers: picks.map((p, i) => ({ ...p, choice: choices[i] })) }),
+        body: JSON.stringify({ answers: picks.map((p, i) => ({ ...p, choice: choices[i] })) }),
       })
       setResult(attempt)
       onSubmitted(attempt)
@@ -185,8 +149,8 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
       }}
     >
       <header className="quiz-head">
-        <p className="quiz-kicker">객관식 평가 · {title}</p>
-        <button type="button" className="icon-button" onClick={onClose} aria-label="평가 닫기">
+        <p className="quiz-kicker">퀴즈 · {title}</p>
+        <button type="button" className="icon-button" onClick={onClose} aria-label="퀴즈 닫기">
           <X size={20} aria-hidden="true" />
         </button>
         {!result && total > 0 && (
@@ -198,7 +162,7 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
 
       <div className="quiz-body">
         {result && bank ? (
-          <Results projectId={projectId} bank={bank} attempt={result} headingRef={headingRef} />
+          <Results lessonId={lessonId} bank={bank} attempt={result} cleared={clearedAt([...attempts, result]) >= 0} headingRef={headingRef} />
         ) : topic && variant ? (
           <fieldset className="quiz-question">
             <legend className="sr-only">
@@ -210,7 +174,7 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
             <h2 id="quiz-heading" ref={headingRef} tabIndex={-1} className="sr-only">
               {step + 1}번 문항
             </h2>
-            <Markdown projectId={projectId} source={variant.question} />
+            <Markdown lessonId={lessonId} source={variant.question} />
             <div className="quiz-choices">
               {variant.choices.map((choice, i) => (
                 <label key={i} className={`quiz-choice ${chosen === i ? 'is-on' : ''}`}>
@@ -223,7 +187,7 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
                   <span className="quiz-choice-key" aria-hidden="true">
                     {i + 1}
                   </span>
-                  <Markdown projectId={projectId} source={choice} inline />
+                  <Markdown lessonId={lessonId} source={choice} inline />
                 </label>
               ))}
             </div>
@@ -244,9 +208,20 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
 
       <footer className="quiz-foot">
         {result ? (
-          <button type="button" className="primary-button" onClick={onClose}>
-            닫기
-          </button>
+          passed(result.answers) ? (
+            <button type="button" className="primary-button" onClick={onClose}>
+              닫기
+            </button>
+          ) : (
+            <>
+              <button type="button" className="text-button" onClick={onClose}>
+                강의 다시 읽기
+              </button>
+              <button type="button" className="primary-button" onClick={onRetry}>
+                틀린 문제 다시 풀기
+              </button>
+            </>
+          )
         ) : (
           <>
             <button type="button" className="text-button" onClick={() => setStep(step - 1)} disabled={step === 0 || sending}>
@@ -269,17 +244,21 @@ function QuizDialog({ projectId, title, status: opened, onClose, onSubmitted }: 
 }
 
 function Results({
-  projectId,
+  lessonId,
   bank,
   attempt,
+  cleared,
   headingRef,
 }: {
-  projectId: string
+  lessonId: string
   bank: Topic[]
   attempt: Attempt
+  /** no wrong answer is left across all attempts, this one included */
+  cleared: boolean
   headingRef: React.RefObject<HTMLHeadingElement | null>
 }) {
   const ok = passed(attempt.answers)
+  const wrong = attempt.answers.filter((a) => !a.correct).length
   return (
     <div className="quiz-results">
       <h2 id="quiz-heading" ref={headingRef} tabIndex={-1} className={ok ? 'is-pass' : 'is-fail'}>
@@ -287,11 +266,10 @@ function Results({
       </h2>
       <p className="quiz-verdict">
         {ok
-          ? '구두 평가 기준을 통과했습니다.'
-          : '틀린 문항이 있어 구두 평가는 재평가입니다. 아래 해설을 읽고 다시 응시하면 같은 원리를 다른 문항으로 묻습니다.'}
-      </p>
-      <p className="soft-note">
-        터미널에서 <code>/evaluate {projectId}</code> 를 실행하면 실행 검사와 함께 이 결과가 평가 기록에 남습니다.
+          ? cleared
+            ? '틀린 문항이 남지 않아 이 강의를 통과했습니다. 지도에서 이어지는 강의가 밝아집니다.'
+            : '모두 맞혔습니다.'
+          : `틀린 문항이 ${wrong}개입니다. 아래 해설을 읽은 뒤 "틀린 문제 다시 풀기" 를 누르면 그 ${wrong}문항만 같은 원리의 다른 문항으로 다시 묻습니다.`}
       </p>
       <ol className="quiz-review">
         {attempt.answers.map((a) => {
@@ -304,22 +282,22 @@ function Results({
                 <span className="sr-only">{a.correct ? '정답' : '오답'}</span>
                 {topic.title}
               </p>
-              <Markdown projectId={projectId} source={v.question} />
+              <Markdown lessonId={lessonId} source={v.question} />
               <dl>
                 {!a.correct && (
                   <>
                     <dt>고른 답</dt>
                     <dd>
-                      <Markdown projectId={projectId} source={v.choices[a.choice]} inline />
+                      <Markdown lessonId={lessonId} source={v.choices[a.choice]} inline />
                     </dd>
                   </>
                 )}
                 <dt>정답</dt>
                 <dd>
-                  <Markdown projectId={projectId} source={v.choices[v.answer]} inline />
+                  <Markdown lessonId={lessonId} source={v.choices[v.answer]} inline />
                 </dd>
               </dl>
-              <Markdown projectId={projectId} source={v.explanation} />
+              <Markdown lessonId={lessonId} source={v.explanation} />
             </li>
           )
         })}

@@ -1,11 +1,10 @@
-export type BranchLayout = 'hub' | 'sector' | 'float'
-
 export interface Branch {
   id: string
   title: string
   summary: string
   color: string
-  layout: BranchLayout
+  /** the foundations every other branch builds on; its chain is drawn as the graph's trunk */
+  core: boolean
 }
 
 export interface Paper {
@@ -15,7 +14,7 @@ export interface Paper {
   url?: string
 }
 
-export interface Project {
+export interface Lesson {
   id: string
   title: string
   branch: string
@@ -31,8 +30,8 @@ export interface Project {
 
 export interface Curriculum {
   branches: Branch[]
-  projects: Project[]
-  byId: Map<string, Project>
+  lessons: Lesson[]
+  byId: Map<string, Lesson>
   /** direct dependents: id -> ids that list it in `requires` */
   unlocks: Map<string, string[]>
 }

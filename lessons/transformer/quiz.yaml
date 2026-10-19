@@ -1,0 +1,323 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: embedding
+  title: token id 에서 vector 로, embedding
+  variants:
+    - question: |
+        Transformer 가 token id 를 그대로 입력 숫자로 쓰지 않고 embedding 표에서 vector 를 꺼내 쓰는 까닭은?
+      choices:
+        - 'token id 는 너무 큰 숫자라서 메모리에 담을 수 없기 때문에'
+        - 'token id 는 정수라서 곱셈·덧셈을 할 수 없기 때문에'
+        - 'token id 는 vocabulary 에 넣은 차례일 뿐 크기에 뜻이 없는데, 그대로 곱하면 의미 없는 크기 차이가 계산에 들어가기 때문에'
+        - 'vector 가 token id 보다 짧아서 계산이 줄기 때문에'
+      answer: 2
+      explanation: |
+        id 가 2 와 3 인 두 token 은 id 가 가까워 보여도 뜻이 가까운 것이 아니고, 한쪽이 1.5 배인 것도 아무 의미가 없다. 그런
+        숫자에 weight 를 곱하면 엉뚱한 크기 차이가 계산에 섞인다. 정수도 곱하고 더할 수 있고, 메모리 문제도 아니며, vector 는
+        숫자 하나인 id 보다 오히려 길다.
+    - question: |
+        embedding 표에 든 숫자들은 어떻게 정해지는가?
+      choices:
+        - '처음에는 무작위 값으로 채우고, 학습하면서 loss 가 줄어드는 쪽으로 고쳐 나가는 parameter 다'
+        - '사람이 단어의 뜻을 보고 칸마다 값을 정해 넣는다'
+        - 'tokenizer 가 BPE 학습을 할 때 함께 정한다'
+        - 'token id 를 이진수로 바꾼 값을 그대로 쓴다'
+      answer: 0
+      explanation: |
+        embedding 표의 숫자는 weight 처럼 학습으로 정해지는 parameter 라서, 칸마다의 뜻도 사람이 읽을 수 있게 정해지지 않는다.
+        사람이 직접 넣지 않고, tokenizer 는 text 와 id 를 오갈 뿐 vector 를 만들지 않는다. id 를 이진수로 바꾸면 id 의 의미
+        없는 크기 정보가 그대로 남는다.
+    - question: |
+        "배를 먹었다" 와 "배를 탔다" 에서 token "배" 가 embedding 표에서 꺼내는 vector 는 어떤가?
+      choices:
+        - '다르다. embedding 표가 뒤에 오는 동사를 보고 다른 행을 꺼낸다'
+        - '다르다. 문장 길이에 따라 다른 표를 쓴다'
+        - '다르다. 과일과 탈것은 vocabulary 에 따로 들어 있기 때문이다'
+        - '같다. embedding 은 id 로 행을 꺼낼 뿐이고, 문맥에 따라 뜻을 고치는 일은 attention 이 한다'
+      answer: 3
+      explanation: |
+        두 문장의 "배" 는 token id 가 같으므로 표에서 같은 행을 꺼낸다. embedding 은 주변 token 을 보지 않는다. 과일인지
+        탈것인지는 attention 이 "먹었다" 나 "탔다" 를 참고해 vector 를 고치면서 정해진다. 같은 글자는 vocabulary 에 하나만
+        있고, 문장 길이에 따라 표가 바뀌지도 않는다.
+
+- topic: softmax
+  title: 점수를 합이 1 인 비율로, softmax
+  variants:
+    - question: |
+        attention 에서 관련도 점수를 비율로 바꿀 때, 점수를 그 합으로 나누지 않고 softmax 를 쓰는 까닭은?
+      choices:
+        - '합으로 나누는 것보다 계산이 빠르기 때문에'
+        - '점수에는 음수도 있어서 합으로 나누면 음수 비율이 나오거나 0 으로 나누게 되므로, 먼저 모두 양수로 바꾸되 순서를 지키려고'
+        - '가장 큰 점수만 1 로, 나머지는 모두 0 으로 만들려고'
+        - '점수의 합을 0 으로 맞추려고'
+      answer: 1
+      explanation: |
+        비율은 모두 0 이상이고 합이 1 이어야 한다. 점수에 음수가 섞이면 합으로 나눈 값이 음수가 되거나 합이 0 이라 나눌 수 없다.
+        softmax 는 $e^{s}$ 로 모든 점수를 양수로 바꾸되 큰 점수는 큰 양수로 바꿔 순서를 지킨 뒤 합으로 나눈다. 가장 큰 점수만
+        남기는 것은 softmax 가 아니고, 합은 0 이 아니라 1 로 맞춘다.
+    - question: |
+        softmax 에 넣는 점수 모두에 똑같이 10 을 더하면 softmax 결과(weight)는 어떻게 될까?
+      choices:
+        - '모든 weight 가 커진다'
+        - '가장 큰 점수 쪽으로 더 쏠린다'
+        - '모든 weight 가 똑같아진다'
+        - '변하지 않는다'
+      answer: 3
+      explanation: |
+        softmax 는 점수끼리의 차이로 weight 를 정한다. 모두에 같은 수를 더하면 $e^{s}$ 가 모두 같은 배수로 커지고, 합으로 나눌
+        때 그 배수가 지워져 weight 가 그대로다. weight 합은 언제나 1 이라 모두 커질 수 없고, 차이가 그대로이므로 쏠림 정도도
+        변하지 않는다.
+    - question: |
+        softmax 결과에 대한 설명으로 옳은 것은?
+      choices:
+        - '모든 값이 0 이상이고 합이 1 이며, 점수가 큰 쪽이 더 큰 값을 받는다'
+        - '가장 큰 점수만 1 이고 나머지는 모두 0 이다'
+        - '음수 점수를 받은 쪽은 음수 값을 받는다'
+        - '값의 합이 원래 점수의 합과 같다'
+      answer: 0
+      explanation: |
+        softmax 는 점수를 양수로 바꾼 뒤 합으로 나누므로 모든 값이 0 보다 크고 합이 1 이며, 점수의 순서도 지킨다. 가장 큰
+        점수만 남기는 것은 "가장 큰 것 고르기" 이고, 음수 점수도 $e^{s}$ 를 거쳐 작은 양수가 된다. 합은 점수의 합이 아니라
+        언제나 1 이다.
+
+- topic: attention
+  title: query·key·value 의 역할과 attention 출력
+  variants:
+    - question: |
+        attention 에서 한 token 의 출력은 무엇인가?
+      choices:
+        - 'weight 가 가장 큰 token 의 value 하나를 그대로 복사한 것'
+        - '점수들을 모두 더한 숫자 하나'
+        - 'softmax 로 만든 weight 로 모든 token 의 value 를 가중 평균한 vector'
+        - '자기 query 와 key 를 이어 붙인 vector'
+      answer: 2
+      explanation: |
+        attention 은 가장 잘 맞는 token 하나만 고르지 않고, 맞는 정도(weight)만큼 모든 value 를 섞는다. 그래서 출력은 value 와
+        같은 길이의 vector 다. 점수는 weight 를 만드는 데 쓰일 뿐 출력이 아니고, query·key 는 점수를 매기는 데만 쓴다.
+    - question: |
+        embedding 하나를 그대로 써서 점수도 매기고 내용도 넘기지 않고, query·key·value 세 vector 로 나누는 까닭은?
+      choices:
+        - '계산을 세 배 빠르게 하려고'
+        - '찾는 기준·보여 주는 표지·넘기는 내용이 한 vector 면 token 이 자기 자신과 점수가 커지기 쉽고, "동작이 물건을 찾는" 것 같은 관계를 담기 어렵기 때문에'
+        - 'vector 길이를 줄여 메모리를 아끼려고'
+        - '서로 다른 세 문장을 동시에 처리하려고'
+      answer: 1
+      explanation: |
+        같은 vector 끼리의 dot product 는 칸마다 제곱을 더한 값이라 크게 나오기 쉬워서, 각 token 이 자기 자신만 많이 보게 된다.
+        또 "집어" 처럼 물건을 찾아야 하는 token 은 찾는 것(query)과 자기를 보여 주는 것(key)이 달라야 한다. 행렬을 세 번
+        곱하므로 계산은 오히려 늘고, 메모리나 문장 수와는 관계없다.
+    - question: |
+        token $i$ 가 token $j$ 에서 정보를 얼마나 가져올지 정하는 점수와, 실제로 가져오는 내용은 각각 무엇인가?
+      choices:
+        - '점수는 $\mathbf{q}_i \cdot \mathbf{q}_j$, 내용은 $\mathbf{k}_j$'
+        - '점수는 $\mathbf{v}_i \cdot \mathbf{v}_j$, 내용은 $\mathbf{q}_j$'
+        - '점수는 $\mathbf{k}_i \cdot \mathbf{v}_j$, 내용은 $\mathbf{k}_j$'
+        - '점수는 $\mathbf{q}_i \cdot \mathbf{k}_j$, 내용은 $\mathbf{v}_j$'
+      answer: 3
+      explanation: |
+        query 는 token $i$ 가 찾는 것, key 는 token $j$ 가 보여 주는 표지라서 둘의 dot product 가 관련도 점수다. 점수로 weight
+        를 정한 뒤 가져오는 것은 token $j$ 의 value 다. 나머지 보기는 세 역할을 뒤섞었다.
+
+- topic: scaling
+  title: √d 로 나누는 scaling
+  variants:
+    - question: |
+        attention 점수를 query·key 의 차원 $d_k$ 의 제곱근 $\sqrt{d_k}$ 로 나누는 까닭은?
+      choices:
+        - '차원이 크면 점수가 커져 softmax 가 한 token 에 쏠리고, 그러면 gradient 가 거의 0 이 되어 학습이 막히기 때문에'
+        - '점수에서 음수를 없애려고'
+        - 'weight 의 합을 1 로 맞추려고'
+        - '계산량을 줄이려고'
+      answer: 0
+      explanation: |
+        dot product 는 칸 $d_k$ 개의 곱을 더한 값이라 차원이 크면 점수의 크기가 대략 $\sqrt{d_k}$ 로 자란다. 점수가 크면 softmax
+        가 거의 한 token 에 몰리고, 그 상태에서는 점수를 바꿔도 weight 가 거의 움직이지 않는다. 나눗셈은 음수를 없애지 않고, 합
+        1 은 softmax 가 이미 맞추며, 계산량은 그대로다.
+    - question: |
+        점수를 $\sqrt{d_k}$ 로 나누면 가장 큰 점수를 받던 token 은 어떻게 되는가?
+      choices:
+        - '점수가 작아져 순위가 밀려나고, 다른 token 이 가장 큰 weight 를 받는다'
+        - '모든 token 의 weight 가 똑같아진다'
+        - '점수의 순서는 그대로라 여전히 가장 큰 weight 를 받고, 쏠림의 정도만 줄어든다'
+        - '음수 점수가 양수로 바뀌어 순서가 뒤집힌다'
+      answer: 2
+      explanation: |
+        모든 점수를 같은 양수로 나누므로 크기 순서는 바뀌지 않는다. 바뀌는 것은 점수 사이의 간격이라서, weight 가 한 token 에
+        덜 몰린다. 순위가 밀리지 않고, 간격이 줄 뿐 0 이 되지 않아 weight 가 같아지지도 않으며, 양수로 나눠도 부호는 그대로다.
+    - question: |
+        softmax weight 가 $[0.9997, 0.0003, 0.0000]$ 처럼 한 token 에 거의 다 몰려 있다. 이때 점수를 조금 바꾸면 학습에
+        어떤 일이 생길까?
+      choices:
+        - 'weight 가 크게 흔들려 학습이 발산한다'
+        - 'weight 가 거의 움직이지 않아 gradient 가 0 에 가깝고, 모델이 다른 token 을 보는 법을 배우지 못한다'
+        - '모델이 이미 확신하고 있으므로 학습이 더 빨라진다'
+        - '점수를 바꾸는 크기와 상관없이 weight 가 늘 같은 만큼 변한다'
+      answer: 1
+      explanation: |
+        softmax 가 한쪽에 쏠린 영역에서는 점수를 바꿔도 weight 가 거의 변하지 않는다. 학습은 이 변화량, 곧 gradient 를 보고
+        parameter 를 고치므로, gradient 가 거의 0 이면 처음 쏠린 곳에 머문다. 발산하거나 빨라지는 것이 아니라 멈추는 쪽이고,
+        weight 의 변화량은 점수의 크기 영역에 따라 달라진다.
+
+- topic: multi-head
+  title: 여러 head 로 나누는 multi-head attention
+  variants:
+    - question: |
+        attention 을 head 하나로만 하면 생기는 한계는?
+      choices:
+        - 'token 이 자기 자신을 볼 수 없다'
+        - 'token 의 순서를 지나치게 따진다'
+        - '문장 길이가 vector 차원보다 길면 계산할 수 없다'
+        - 'token 마다 weight 한 줄만 만들어서, "꾸미는 말" 과 "동작의 대상" 처럼 여러 종류의 관계를 따로 담지 못하고 섞어 버린다'
+      answer: 3
+      explanation: |
+        "컵" 은 어떤 컵인지(빨간)와 무엇을 할지(집어)를 함께 알아야 하는데, weight 한 줄로는 두 token 에 비중을 나눠 준 뒤
+        value 를 한 vector 로 섞을 수밖에 없다. head 를 나누면 head 마다 다른 관계를 따로 본다. head 하나로도 자기 자신을 볼 수
+        있고, attention 은 원래 순서를 모르며, 문장 길이와 차원은 관계없다.
+    - question: |
+        multi-head attention 에서 head 마다 서로 다른 weight 가 나오는 까닭은?
+      choices:
+        - 'head 마다 자기 $W_Q$, $W_K$, $W_V$ 를 따로 가져서 query·key·value 가 다르게 나오기 때문에'
+        - 'head 마다 서로 다른 문장을 입력으로 받기 때문에'
+        - 'head 마다 무작위 noise 를 더하기 때문에'
+        - 'head 마다 softmax 대신 다른 함수를 쓰기 때문에'
+      answer: 0
+      explanation: |
+        모든 head 는 같은 token vector 를 받지만, 각자의 행렬로 query·key·value 를 만들기 때문에 점수와 weight 가 달라진다.
+        학습하면서 head 마다 다른 관계를 보도록 행렬이 정해진다. 입력 문장은 같고, noise 를 더하지 않으며, 모든 head 가 같은
+        softmax 를 쓴다.
+    - question: |
+        vector 차원 $d_\text{model}$ 을 head $h$ 개로 나누면 head 하나의 차원은 $d_\text{model} / h$ 다. head 수를 늘릴 때
+        전체 계산량은 어떻게 되는가?
+      choices:
+        - 'head 수에 비례해 늘어난다'
+        - 'head 수의 제곱으로 늘어난다'
+        - 'head 하나가 맡는 차원이 그만큼 줄어서, head 하나로 전체 차원을 계산할 때와 비슷하다'
+        - 'head 수에 반비례해 줄어든다'
+      answer: 2
+      explanation: |
+        head 를 늘리면 개수는 많아지지만 head 하나의 차원이 $d_\text{model} / h$ 로 줄어서, 전체 칸 수는 $d_\text{model}$ 그대로다.
+        그래서 계산량은 크게 변하지 않는다. head 마다 전체 차원을 쓰는 것이 아니라서 비례하거나 제곱으로 늘지 않고, 일이
+        사라지는 것도 아니라서 줄어들지도 않는다.
+
+- topic: positional-encoding
+  title: 순서를 알려 주는 positional encoding
+  variants:
+    - question: |
+        위치 정보를 더하지 않은 attention 에 "dog bites man" 과 "man bites dog" 를 넣으면 bites 의 출력은 어떻게 될까?
+      choices:
+        - '다르다. attention 은 앞쪽 token 을 더 많이 보기 때문이다'
+        - '같다. 점수는 vector 끼리의 dot product 이고 가중 평균은 더하는 순서와 상관없어서, 위치가 계산에 들어가지 않기 때문이다'
+        - '다르다. 마지막 token 이 출력을 정하기 때문이다'
+        - '순서가 바뀐 문장은 계산할 수 없다'
+      answer: 1
+      explanation: |
+        두 문장은 token 세 개가 같고 순서만 다르다. 점수와 weight 는 vector 로만 정해지고 가중 평균은 순서를 바꿔 더해도 같아서,
+        bites 는 두 문장에서 똑같은 출력을 얻는다. 그래서 위치를 따로 알려 줘야 한다. attention 에는 앞쪽이나 마지막 token 을
+        특별히 대하는 규칙이 없고, 순서가 바뀐 문장도 문제없이 계산된다.
+    - question: |
+        위치를 알려 주려고 위치 번호 0, 1, 2, … 를 그대로 embedding 에 더하지 않는 까닭은?
+      choices:
+        - '위치 번호는 정수라서 vector 에 더할 수 없기 때문에'
+        - '위치 번호는 모든 token 에서 같은 값이라 구별이 안 되기 때문에'
+        - '문장이 길수록 위치 번호가 한없이 커져서, 1 근처인 embedding 의 숫자를 덮어 버리기 때문에'
+        - '위치 번호는 학습할 수 없어서 gradient 가 흐르지 않기 때문에'
+      answer: 2
+      explanation: |
+        1000 번째 token 에 1000 을 더하면 위치 값이 token 의 뜻을 담은 숫자를 압도한다. 그래서 위치 vector 는 일정한 범위
+        안에 있으면서 위치마다 달라야 하고, sin·cos 는 언제나 $-1$ 과 1 사이에 머문다. 정수도 더할 수 있고, 위치 번호는 token
+        마다 다르며, 위치 vector 는 학습하지 않는 고정값이어도 쓸 수 있다.
+    - question: |
+        sin·cos 로 만드는 positional encoding 은 위치에 따라 빠르게 변하는 칸과 아주 천천히 변하는 칸을 함께 둔다. 그렇게
+        섞는 까닭은?
+      choices:
+        - '빠른 칸은 가까운 token 의 뜻을, 느린 칸은 먼 token 의 뜻을 담으려고'
+        - '짝수 칸에는 단어의 뜻을, 홀수 칸에는 위치를 담으려고'
+        - '느린 칸으로 learning rate 를 조절하려고'
+        - '빠른 칸만으로는 값이 일정한 간격마다 되풀이되어 먼 위치끼리 헷갈리지만, 느린 칸을 함께 보면 위치마다 다른 숫자 조합이 나오기 때문에'
+      answer: 3
+      explanation: |
+        sin·cos 는 주기마다 같은 값이 되풀이되므로 빠른 칸 하나만 보면 멀리 떨어진 두 위치가 같은 값을 가질 수 있다. 그사이
+        거의 변하지 않으면서 조금씩 커지는 느린 칸이 있으면 둘을 가려 낼 수 있다. 시계에서 분침과 시침을 함께 보아야 시각이
+        정해지는 것과 같다. 칸들은 token 의 뜻이 아니라 위치만 나타내고, learning rate 와도 관계없다.
+
+- topic: layer-parts
+  title: residual connection, layer normalization, FFN
+  variants:
+    - question: |
+        Transformer 의 feed-forward network(FFN) 는 행렬 $W_1$ 곱하기 → ReLU → 행렬 $W_2$ 곱하기로 되어 있다. 가운데 ReLU 를
+        빼면 어떻게 될까?
+      choices:
+        - '두 행렬을 차례로 곱한 것이 행렬 하나를 곱한 것과 같아져서, 층을 둘로 나눈 의미가 없어진다'
+        - '음수 값이 쌓여 학습이 발산한다'
+        - 'token 들 사이에 정보가 섞이지 않게 된다'
+        - '출력 vector 의 길이가 입력과 달라진다'
+      answer: 0
+      explanation: |
+        행렬 곱 두 번은 두 행렬을 미리 곱한 행렬 하나로 바꿔 쓸 수 있으므로, 꺾임을 넣는 ReLU 가 없으면 복잡한 관계를 표현할
+        수 없다. FFN 은 원래 token 마다 따로 계산해서 token 사이를 섞지 않고(그 일은 attention 이 한다), $W_2$ 가 길이를
+        되돌리므로 출력 길이도 그대로다. ReLU 를 뺀다고 발산하지도 않는다.
+    - question: |
+        attention 이나 FFN 의 출력에 입력을 더해 넘기는 residual connection 의 역할로 옳은 것은?
+      choices:
+        - 'vector 의 평균을 0, 크기를 1 로 맞춘다'
+        - 'token 의 순서를 알려 준다'
+        - 'sub-layer 가 0 에 가까운 값을 내도 입력이 그대로 전해지고, 덧셈 경로로 gradient 가 앞 층까지 줄어들지 않고 닿는다'
+        - '뒤쪽 token 을 보지 못하게 막는다'
+      answer: 2
+      explanation: |
+        출력 = 입력 + sub-layer 출력 이라서, sub-layer 가 아직 쓸모 있는 것을 배우지 못해도 입력 정보가 사라지지 않는다. 또
+        backward 때 덧셈 경로의 비율 1 이 더해져 gradient 가 층을 지나며 줄어드는 것을 막는다. 평균·크기를 맞추는 것은
+        layer normalization, 순서는 positional encoding, 뒤쪽을 막는 것은 causal mask 의 일이다.
+    - question: |
+        layer normalization 은 무엇을 기준으로 정규화하는가?
+      choices:
+        - '문장의 모든 token 에서 같은 칸끼리 모아 평균 0, 크기 1 로 맞춘다'
+        - 'token vector 하나마다 그 칸들의 평균을 0, 표준편차를 1 로 맞춘 뒤, 학습되는 $\gamma$, $\beta$ 로 다시 조절한다'
+        - '모든 값을 0 과 1 사이로 잘라 낸다'
+        - 'vector 의 칸들을 크기 순서로 정렬한다'
+      answer: 1
+      explanation: |
+        LayerNorm 은 token 하나의 vector 안에서 평균과 표준편차를 구해 정규화하므로, 크기가 10 배 다른 두 vector 도 같은 범위로
+        맞춰진다. 맞춘 뒤 $\gamma$ 를 곱하고 $\beta$ 를 더해 필요한 크기와 위치를 학습하게 한다. token 들 사이의 같은 칸끼리
+        모으는 것이 아니고, 값을 잘라 내거나 정렬하지도 않는다.
+
+- topic: decoder
+  title: decoder 의 causal mask 와 cross-attention
+  variants:
+    - question: |
+        decoder 를 학습할 때 정답 sequence 를 한꺼번에 입력으로 넣으면서(teacher forcing) causal mask 를 거는 까닭은?
+      choices:
+        - '계산량을 절반으로 줄이려고'
+        - '짧은 문장 뒤를 채운 `<pad>` 칸을 막으려고'
+        - 'decoder 가 encoder 의 출력을 보지 못하게 하려고'
+        - '막지 않으면 각 위치가 뒤에 있는 정답 token 을 베껴서, 학습 때만 쉽게 맞히고 실제로 한 token 씩 만들 때는 맞히지 못하기 때문에'
+      answer: 3
+      explanation: |
+        self-attention 은 모든 token 이 모든 token 을 보므로, 막지 않으면 "다음 token" 을 맞혀야 하는 자리에서 바로 옆의 정답을
+        본다. 실제로 생성할 때는 뒤쪽 token 이 아직 없으므로 학습과 쓸 때의 조건이 어긋난다. `<pad>` 를 막는 것은 padding
+        mask 이고, encoder 출력은 cross-attention 이 일부러 보는 것이며, 계산량을 줄이려는 장치가 아니다.
+    - question: |
+        causal mask 를 적용하는 방법으로 옳은 것은?
+      choices:
+        - '막을 칸의 점수를 softmax 전에 $-\infty$ 로 바꿔서, 그 칸의 weight 는 0 이 되고 남은 칸들이 합 1 을 나눠 갖게 한다'
+        - '막을 칸의 점수를 0 으로 바꾸면 충분하다'
+        - 'softmax 를 먼저 하고 뒤쪽 weight 를 0 으로 지워도 결과가 같다'
+        - '$-\infty$ 는 계산할 수 없는 값이라 실제로는 mask 를 쓰지 않는다'
+      answer: 0
+      explanation: |
+        $e^{-\infty} = 0$ 이라서 $-\infty$ 로 바꾼 칸은 weight 가 0 이 되고, 나머지 칸만으로 합 1 을 다시 나눈다. 점수를 0 으로
+        바꾸면 $e^{0} = 1$ 이라 weight 가 남는다. softmax 뒤에 지우면 남은 weight 의 합이 1 보다 작아진다. 실제 구현은 아주 큰
+        음수나 $-\infty$ 를 써서 mask 를 건다.
+    - question: |
+        encoder-decoder Transformer 의 cross-attention 에 대한 설명으로 옳은 것은?
+      choices:
+        - 'query 는 encoder 출력에서, key·value 는 decoder 쪽 vector 에서 만든다'
+        - 'query 는 decoder 쪽 vector 에서, key·value 는 encoder 출력에서 만들어 decoder 가 입력 문장을 들여다보게 한다'
+        - 'encoder 의 self-attention 에 causal mask 를 건 것이다'
+        - 'decoder 만 쌓은 language model 에도 반드시 들어 있다'
+      answer: 1
+      explanation: |
+        decoder 가 지금 쓰는 위치에서 입력의 어디를 볼지 찾아야 하므로, 찾는 쪽(query)은 decoder 이고 찾아지는 쪽(key·value)은
+        encoder 출력이다. 계산은 self-attention 과 같고 query 와 key·value 의 출처만 다르다. encoder 는 입력 전체가 주어지므로
+        mask 를 걸지 않고, decoder 만 쓰는 모델은 encoder 가 없으니 cross-attention 도 없다.

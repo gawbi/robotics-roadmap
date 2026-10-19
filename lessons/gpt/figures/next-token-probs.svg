@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>빨간 컵 다음 token 의 확률표. 지시문 10 개에서 센 확률과 language model 이 계산한 확률</title>
+  <defs>
+<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+<marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+<marker id="ae2e8f0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="160.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="middle">센 확률 (지시문 10 개)</text>
+  <text x="480.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="middle">계산한 확률 (softmax)</text>
+  <text x="160.0" y="52.0" fill="#94a3b8" font-size="12" text-anchor="middle">6, 2, 1, 1 번 ÷ 10</text>
+  <text x="480.0" y="52.0" fill="#94a3b8" font-size="12" text-anchor="middle">logits 2.0, 1.0, 0.5, −1.0</text>
+  <line x1="34.0" y1="250.0" x2="290.0" y2="250.0" stroke="#334155" stroke-width="1.2"/>
+  <line x1="354.0" y1="250.0" x2="610.0" y2="250.0" stroke="#334155" stroke-width="1.2"/>
+  <rect x="44.0" y="88.0" width="46.0" height="162.0" rx="3" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1"/>
+  <text x="67.0" y="82.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.6</text>
+  <text x="67.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <rect x="106.0" y="196.0" width="46.0" height="54.0" rx="3" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1"/>
+  <text x="129.0" y="190.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.2</text>
+  <text x="129.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">놓아</text>
+  <rect x="168.0" y="223.0" width="46.0" height="27.0" rx="3" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1"/>
+  <text x="191.0" y="217.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.1</text>
+  <text x="191.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">밀어</text>
+  <rect x="230.0" y="223.0" width="46.0" height="27.0" rx="3" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1"/>
+  <text x="253.0" y="217.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.1</text>
+  <text x="253.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">던져</text>
+  <rect x="364.0" y="85.6" width="46.0" height="164.4" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1"/>
+  <text x="387.0" y="79.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.609</text>
+  <text x="387.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <rect x="426.0" y="189.5" width="46.0" height="60.5" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1"/>
+  <text x="449.0" y="183.5" fill="#e2e8f0" font-size="12" text-anchor="middle">0.224</text>
+  <text x="449.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">놓아</text>
+  <rect x="488.0" y="213.3" width="46.0" height="36.7" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1"/>
+  <text x="511.0" y="207.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.136</text>
+  <text x="511.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">밀어</text>
+  <rect x="550.0" y="241.9" width="46.0" height="8.1" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1"/>
+  <text x="573.0" y="235.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.030</text>
+  <text x="573.0" y="267.0" fill="#94a3b8" font-size="12" text-anchor="middle">던져</text>
+  <text x="320.0" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">p(다음 token | 빨간 컵)</text>
+</svg>

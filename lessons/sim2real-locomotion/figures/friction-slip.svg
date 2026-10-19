@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>발이 미는 힘 45 N 과 바닥별 마찰 힘의 한계. μ 가 1.0 과 0.8 이면 한계 60 N, 48 N 이 45 N 보다 커서 버티고, 0.7 과 0.6 이면 42 N, 36 N 이라 미끄러진다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80" y1="240.0" x2="560" y2="240.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="72" y="244.0" fill="#94a3b8" font-size="12" text-anchor="end">0 N</text>
+  <line x1="80" y1="240.0" x2="560" y2="240.0" stroke="#334155" stroke-width="1"/>
+  <text x="72" y="192.0" fill="#94a3b8" font-size="12" text-anchor="end">20 N</text>
+  <line x1="80" y1="188.0" x2="560" y2="188.0" stroke="#334155" stroke-width="1"/>
+  <text x="72" y="140.0" fill="#94a3b8" font-size="12" text-anchor="end">40 N</text>
+  <line x1="80" y1="136.0" x2="560" y2="136.0" stroke="#334155" stroke-width="1"/>
+  <text x="72" y="88.0" fill="#94a3b8" font-size="12" text-anchor="end">60 N</text>
+  <line x1="80" y1="84.0" x2="560" y2="84.0" stroke="#334155" stroke-width="1"/>
+  <rect x="110" y="84.0" width="70" height="156.0" fill="#34d399" fill-opacity="0.75"/>
+  <text x="145" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">60 N</text>
+  <text x="145" y="260.0" fill="#e2e8f0" font-size="13" text-anchor="middle">μ = 1.0</text>
+  <text x="145" y="278.0" fill="#34d399" font-size="12" text-anchor="middle">버팀</text>
+  <rect x="225" y="115.19999999999999" width="70" height="124.8" fill="#34d399" fill-opacity="0.75"/>
+  <text x="260" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">48 N</text>
+  <text x="260" y="260.0" fill="#e2e8f0" font-size="13" text-anchor="middle">μ = 0.8</text>
+  <text x="260" y="278.0" fill="#34d399" font-size="12" text-anchor="middle">버팀</text>
+  <rect x="340" y="130.8" width="70" height="109.2" fill="#f87171" fill-opacity="0.75"/>
+  <text x="375" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">42 N</text>
+  <text x="375" y="260.0" fill="#e2e8f0" font-size="13" text-anchor="middle">μ = 0.7</text>
+  <text x="375" y="278.0" fill="#f87171" font-size="12" text-anchor="middle">미끄러짐</text>
+  <rect x="455" y="146.39999999999998" width="70" height="93.6" fill="#f87171" fill-opacity="0.75"/>
+  <text x="490" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">36 N</text>
+  <text x="490" y="260.0" fill="#e2e8f0" font-size="13" text-anchor="middle">μ = 0.6</text>
+  <text x="490" y="278.0" fill="#f87171" font-size="12" text-anchor="middle">미끄러짐</text>
+  <line x1="80" y1="123.0" x2="560" y2="123.0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="565" y="127.0" fill="#f59e0b" font-size="13" text-anchor="start">미는 힘 45 N</text>
+  <text x="30" y="30" fill="#94a3b8" font-size="13" text-anchor="start">막대: 마찰 힘의 한계 μ × 60 N (발 하나가 받치는 힘 60 N)</text>
+</svg>

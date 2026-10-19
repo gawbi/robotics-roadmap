@@ -1,0 +1,334 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: bc-supervised
+  title: supervised learning 으로서의 behavior cloning
+  variants:
+    - question: |
+        behavior cloning 으로 policy 를 학습할 때 각 관측에 붙는 "정답" 은 무엇인가?
+      choices:
+        - '학습 중인 policy 가 rollout 에서 그 관측에 낸 action'
+        - '그 관측에서 expert 가 실제로 낸 action'
+        - 'episode 가 끝났을 때 작업에 성공했는지를 나타내는 점수'
+        - '그 관측 바로 다음 step 의 관측'
+      answer: 1
+      explanation: |
+        behavior cloning 은 시연에서 모은 (관측, expert 의 action) 쌍을 (입력, 정답) 으로 삼는 supervised learning 이다.
+        policy 자신의 action 을 정답으로 쓰면 이미 내던 값을 다시 배울 뿐이라 배울 것이 없다. 성공 여부 점수는 관측마다 어떤
+        action 을 냈어야 했는지 알려 주지 않고, 다음 관측은 action 이 아니라 action 의 결과라서 정답 자리에 들어가지 않는다.
+    - question: |
+        behavior cloning 과 Linear Regression 의 학습을 비교한 설명으로 옳은 것은?
+      choices:
+        - 'behavior cloning 은 loss 없이 expert 의 행동을 그대로 저장해 두었다가 꺼내 쓴다'
+        - 'behavior cloning 은 MSE 대신 rollout 에서 이탈한 횟수를 loss 로 쓴다'
+        - 'behavior cloning 은 gradient 를 쓰지 않고 시연 쌍마다 parameter 를 정답으로 바꿔 넣는다'
+        - 'loss·gradient·update 는 같고, 정답이 "expert 가 그 관측에서 낸 action" 이라는 것만 다르다'
+      answer: 3
+      explanation: |
+        behavior cloning 은 (관측, expert 의 action) 쌍을 (입력, 정답) 으로 삼는 supervised learning 이라서, MSE loss 와 그
+        gradient, gradient 반대 방향으로 parameter 를 고치는 update 가 Linear Regression 과 같다. 시연을 저장해 꺼내 쓰기만 하면
+        시연에 없는 관측에서 action 을 낼 수 없다. 이탈 횟수는 rollout 을 해 봐야 아는 값이라 학습의 loss 로 쓰지 않고, parameter
+        를 정답으로 바꿔 넣는 방식도 아니다.
+    - question: |
+        차선을 따라 달리는 차가 비 오는 날 차선이 흐려 자꾸 흔들린다. behavior cloning 으로 학습한 policy 라면 이 문제를 고치는
+        자연스러운 방법은?
+      choices:
+        - '비 오는 날 expert 가 운전한 기록을 더 모아 데이터에 넣고 다시 학습한다'
+        - '"차선이 흐리면 핸들을 ~만큼 꺾는다" 는 규칙을 사람이 코드로 새로 덧붙인다'
+        - '기존 데이터 그대로 learning rate 만 키워 다시 학습한다'
+        - '비 오는 날 policy 가 낸 핸들 각도를 정답으로 저장해 다시 학습한다'
+      answer: 0
+      explanation: |
+        behavior cloning 은 규칙을 말로 적지 않고 시연에서 관계를 배우므로, 부족한 상황(비 오는 날)의 시연을 더 모아 다시 학습하면
+        된다. 규칙을 코드로 덧붙이는 것은 사람이 규칙을 직접 짜는 방법이다. learning rate 를 바꿔도 데이터에 비 오는 장면이 없으면
+        배울 것이 생기지 않고, policy 자신의 action 을 정답으로 저장하면 틀린 행동을 그대로 다시 배운다.
+
+- topic: action-head
+  title: 가장 단순한 action head 의 구조
+  variants:
+    - question: |
+        사진 feature 와 지금의 관절 각도를 concatenation 해 MLP head 에 넣는 policy 를 학습했다. 학습할 때는 앞쪽 칸이 사진
+        feature, 뒤쪽 칸이 관절 각도였는데, 실행할 때 실수로 두 vector 의 순서를 바꿔 이어 붙였다. 어떤 일이 생기나?
+      choices:
+        - '이어 붙인 칸 수가 같으므로 출력도 같다'
+        - '실행을 시작하면 head 가 바뀐 순서에 맞춰 스스로 다시 학습한다'
+        - 'policy 가 관절 각도를 사진 feature 로, 사진 feature 를 관절 각도로 읽어 엉뚱한 action 을 낸다'
+        - 'concatenation 은 두 vector 를 더하는 연산이라 순서와 상관없다'
+      answer: 2
+      explanation: |
+        weight 는 칸마다 따로 학습되므로, 어느 칸에 무엇이 들어가는지는 학습 때 정한 그대로 지켜야 한다. 순서를 바꾸면 각 칸의
+        weight 가 엉뚱한 값을 받아 출력이 틀어진다. 칸 수가 같아도 내용이 다르면 출력이 달라지고, 실행 중에는 학습이 일어나지
+        않는다. concatenation 은 더하기가 아니라 앞뒤로 이어 붙이는 연산이다.
+    - question: |
+        관절 목표 각도를 내는 action head 에서 hidden layer 에는 ReLU 를 쓰지만 출력 layer 에는 쓰지 않는다. 그 이유는?
+      choices:
+        - '출력 layer 에서 ReLU 를 쓰면 gradient 가 너무 커지기 때문이다'
+        - '출력 layer 에는 weight 가 없어서 ReLU 를 붙일 자리가 없기 때문이다'
+        - 'ReLU 는 hidden layer 에서만 정의되는 함수이기 때문이다'
+        - '관절 각도는 음수일 수 있는데 ReLU 는 음수를 0 으로 잘라 버리기 때문이다'
+      answer: 3
+      explanation: |
+        ReLU 는 음수를 0 으로 바꾸고 양수는 그대로 내보낸다. 관절 목표 각도가 음수여야 하는 경우에도 출력이 0 아래로 내려가지 못하게
+        되므로 출력 layer 에는 쓰지 않는다. gradient 가 커지는 것은 ReLU 의 성질이 아니고, 출력 layer 에도 weight 와 bias 가 있다.
+        ReLU 는 어느 layer 에든 붙일 수 있는 함수다.
+    - question: |
+        pretrained encoder 를 freeze 하고 뒤에 MLP head 를 붙여 시연으로 학습한다. 학습하는 동안 바뀌는 것은?
+      choices:
+        - 'encoder 뒤에 붙인 head 의 weight 만 바뀐다'
+        - 'encoder 와 head 의 weight 가 모두 바뀐다'
+        - 'encoder 의 weight 만 바뀌고 head 는 그대로다'
+        - 'freeze 는 학습 전체를 멈추므로 아무것도 바뀌지 않는다'
+      answer: 0
+      explanation: |
+        freeze 는 encoder 의 weight 를 고정한다는 뜻이라 시연으로 고치는 것은 그 뒤에 붙인 head 뿐이다. encoder 까지 바꾸려면
+        freeze 를 풀어야 하고, encoder 만 바뀌는 것은 반대다. freeze 는 일부 weight 만 고정할 뿐 학습 전체를 멈추지 않는다.
+
+- topic: head-mse
+  title: 관절 각도 여러 칸의 MSE
+  variants:
+    - question: |
+        관절 6 개와 집게, 모두 7 칸의 목표 각도를 MSE 로 학습한다. 어떤 시연 쌍에서 집게 칸의 오차가 다른 칸보다 훨씬 크다. 이때 각
+        출력에 대한 gradient 에 대한 설명으로 옳은 것은?
+      choices:
+        - 'MSE 는 7 칸을 평균하므로 모든 칸의 gradient 가 같다'
+        - '오차가 큰 집게 칸의 gradient 가 가장 커서, 그 칸을 크게 고치라는 신호가 간다'
+        - '오차가 너무 큰 칸은 gradient 가 0 이 되어 학습에서 빠진다'
+        - 'gradient 의 크기는 오차가 아니라 칸이 놓인 순서로 정해진다'
+      answer: 1
+      explanation: |
+        MSE 를 한 칸의 출력으로 미분하면 그 칸의 오차에 비례하는 값이 나온다. 그래서 크게 틀린 칸일수록 gradient 가 크고, 그 신호가
+        backpropagation 으로 앞 layer 까지 전해진다. 평균을 내도 칸마다 오차가 다르면 gradient 도 다르고, 오차가 클수록 gradient 가
+        0 이 되는 일은 없다. 칸의 순서는 gradient 크기와 관계없다.
+    - question: |
+        action 의 관절 칸은 radian 단위로 $-3$ 에서 $3$ 사이이고, 집게 칸은 mm 단위로 0 에서 80 사이다. 두 종류를 아무 처리 없이
+        한 MSE 로 평균해 학습하면 어떤 일이 생기나?
+      choices:
+        - '단위는 MSE 에 영향을 주지 않으므로 아무 문제가 없다'
+        - '값이 작은 관절 칸이 loss 를 독차지해 집게를 배우지 못한다'
+        - '집게 칸의 오차가 훨씬 커서 loss 가 거의 집게로 정해지고, 관절을 제대로 배우지 못한다'
+        - 'MSE 가 음수가 되어 학습이 거꾸로 진행된다'
+      answer: 2
+      explanation: |
+        오차는 값의 크기를 따라가므로 0~80 범위의 집게 칸 오차가 관절 칸보다 수십 배 크고, 제곱하면 차이가 더 벌어진다. 그러면
+        loss 를 줄이는 일이 거의 집게 맞추기가 되어 관절이 덜 학습된다. 그래서 칸마다 평균을 빼고 흩어진 정도로 나눠 크기를 맞춘 뒤
+        loss 를 잰다. 관절 칸은 오히려 작아서 묻히는 쪽이고, 제곱의 평균인 MSE 는 음수가 될 수 없다.
+    - question: |
+        MSE 는 오차를 제곱한 뒤 평균한다. 제곱하지 않고 오차를 그대로 평균해 loss 로 쓰면 생기는 문제는?
+      choices:
+        - '한 칸은 크게 넘치고 다른 칸은 크게 모자라도 $+$ 와 $-$ 가 서로 지워져 loss 가 0 에 가까워질 수 있다'
+        - '모든 오차가 양수가 되어 loss 가 너무 커진다'
+        - '오차를 그대로 평균한 loss 는 미분할 수 없어 gradient 를 구할 수 없다'
+        - '계산은 같고 속도만 느려진다'
+      answer: 0
+      explanation: |
+        오차를 그대로 더하면 $+3$ 과 $-3$ 처럼 부호가 다른 오차가 서로 지워져, 크게 틀렸는데도 loss 가 작게 나올 수 있다. 제곱하면
+        모든 오차가 양수가 되어 지워지지 않는다. 그대로 평균하면 음수 오차가 음수로 남으므로 "모두 양수" 는 틀린 설명이다. 오차를
+        그대로 평균한 식도 미분할 수 있어서 gradient 는 구해지고, 두 loss 는 계산 결과 자체가 다르다.
+
+- topic: image-features
+  title: 사진을 적은 숫자로 줄이는 세 방법
+  variants:
+    - question: |
+        사진 한 장의 pixel 값 십수만 개를 요약 없이 그대로 MLP policy 에 넣고, 시연 수만 쌍으로 학습했다. 가장 걱정되는 문제는?
+      choices:
+        - 'MLP 는 입력이 1000 개를 넘으면 계산할 수 없다'
+        - 'pixel 값은 정수라서 gradient 를 구할 수 없다'
+        - '입력이 많을수록 정보가 많으니 오히려 가장 잘 일반화된다'
+        - 'parameter 에 비해 데이터가 너무 적어 장면을 외워 버리고, 조명만 조금 바뀌어도 틀리기 쉽다'
+      answer: 3
+      explanation: |
+        입력이 십수만 칸이면 첫 layer 의 parameter 만 수천만 개가 된다. 시연 수만 쌍, 그것도 이웃 step 끼리 거의 같은 사진으로는
+        어느 숫자가 "물체의 위치" 인지 배우기 어려워 장면을 외우게 된다. MLP 는 입력 크기에 제한이 없고, pixel 값도 실수로 다루면
+        gradient 를 구할 수 있다. 정보가 많아도 데이터가 부족하면 일반화는 나빠진다.
+    - question: |
+        컵 하나를 집는 작업에 시연이 20 개뿐이고, 사람이 판단하기에 컵의 위치와 방향만 알면 충분하다. 사진을 줄이는 방법으로 가장
+        알맞은 것은?
+      choices:
+        - '사진 전체를 처음부터 학습하는 작은 CNN'
+        - '물체 mask 에서 중심·넓이·각도처럼 사람이 정한 feature 몇 개'
+        - '요약 없이 pixel 전체를 MLP 에 넣기'
+        - '사전학습 encoder 를 freeze 하지 않고 시연으로 함께 학습하기'
+      answer: 1
+      explanation: |
+        필요한 정보가 위치와 방향뿐이면 사람이 정한 feature 몇 개로 충분하고, 숫자가 적어 시연 20 개로도 배울 수 있다. 작은 CNN 은
+        사진을 보는 법부터 배워야 해서 시연이 많이 든다. pixel 전체는 parameter 가 너무 많고, 큰 encoder 를 시연 20 개로 함께
+        학습하면 쉽게 외워 버린다.
+    - question: |
+        인터넷 사진의 사물 이름을 맞히도록 사전학습한 encoder 를 로봇 policy 에 쓸 때의 약점으로 옳은 것은?
+      choices:
+        - '사진을 보는 법부터 배워야 해서 세 방법 중 시연이 가장 많이 든다'
+        - 'mask 모델이 물체를 잘못 찾으면 feature 전체가 틀린다'
+        - '"무엇이 있나" 는 잘 담지만 물체가 사진의 정확히 어디에 있는지 같은 위치 정보는 덜 담는다'
+        - '작업이 바뀔 때마다 무엇을 뽑을지 사람이 다시 정해야 한다'
+      answer: 2
+      explanation: |
+        사물 이름을 맞히는 것이 원래 목적이었으므로 feature 가 "컵이 있다" 는 잘 담지만 "컵이 몇 pixel 옆에 있다" 같은 정확한 위치는
+        덜 담는다. encoder 는 이미 보는 법을 익혀서 시연이 적게 드는 쪽이고, 시연이 많이 드는 것은 처음부터 학습하는 CNN 의 약점이다.
+        mask 오류와 작업마다 feature 를 다시 정하는 일은 사람이 정한 feature 의 약점이다.
+
+- topic: end-to-end
+  title: 사진에서 관절 각도로 바로 가는 end-to-end
+  variants:
+    - question: |
+        카메라 한 대는 pixel 하나가 얼마나 먼 곳인지 모른다. 그런데도 작업대 위에 고정한 카메라의 사진으로 3D 좌표 없이 관절 각도를
+        바로 배우는 end-to-end policy 가 통하는 이유는?
+      choices:
+        - '물체가 늘 책상 위에 놓여서, 고정 카메라의 pixel 하나가 책상 위의 자리 하나와 짝지어지기 때문이다'
+        - 'network 가 내부에서 depth 를 정확한 cm 단위로 계산하기 때문이다'
+        - '사진의 RGB 값에 거리 정보가 함께 들어 있기 때문이다'
+        - '관절 각도 입력이 물체까지의 거리를 알려 주기 때문이다'
+      answer: 0
+      explanation: |
+        pixel 하나에 찍히는 점은 카메라에서 뻗은 직선 위 어디든 될 수 있지만, 물체가 책상 높이에만 있으면 그 직선이 책상과 만나는 점은
+        하나뿐이다. 그래서 "이 pixel 이면 이 관절 각도" 를 시연에서 배울 수 있다. network 는 depth 를 따로 계산하지 않고, RGB 에는
+        거리가 들어 있지 않다. 관절 각도는 팔의 자세일 뿐 물체까지의 거리를 알려 주지 않는다.
+    - question: |
+        고정 카메라와 손목 카메라로 컵 집기 end-to-end policy 를 학습한 뒤, 누군가 고정 카메라를 살짝 건드려 각도가 바뀌었다. 컵은
+        시연 때와 같은 자리에 있다. 어떤 일이 생기나?
+      choices:
+        - '3D 좌표를 쓰지 않으므로 카메라 위치는 결과에 영향이 없다'
+        - 'policy 가 실행하면서 카메라의 새 위치를 스스로 calibration 한다'
+        - '같은 자리의 컵이 사진의 다른 pixel 에 보여서, policy 가 다른 자리에 맞는 관절 각도를 내 빗나간다'
+        - '손목 카메라가 있으므로 고정 카메라는 처음부터 쓰이지 않는다'
+      answer: 2
+      explanation: |
+        policy 가 배운 것은 "사진의 이 자리에 컵이 보이면 관절을 이만큼" 이라는 짝이다. 카메라가 움직이면 같은 자리의 컵이 다른 pixel
+        에 찍히고, policy 는 그 pixel 에 맞는 다른 자리의 각도를 낸다. 3D 좌표를 안 쓰는 대신 카메라 위치 고정이 조건이 되고, 실행
+        중에 스스로 calibration 하는 기능은 없다. 고정 카메라는 컵이 책상 어디에 있는지를 맡으므로 쓰이지 않는 것이 아니다.
+    - question: |
+        시연할 때 컵을 늘 책상의 왼쪽 절반에만 놓았다. 실행 때 오른쪽 끝에 놓인 컵을 집지 못했다. 가장 알맞은 설명은?
+      choices:
+        - 'end-to-end policy 는 "컵 집는 법" 을 이해했으므로 학습이 덜 된 것이다'
+        - 'policy 는 시연 범위 밖이라도 시연의 규칙을 그대로 늘려 쓰므로, 카메라 고장이 원인이다'
+        - '오른쪽 끝은 원래 로봇 팔이 닿지 않는 곳이라서다'
+        - 'network 는 시연 사이를 메우는 것은 잘하지만, 시연 범위 바깥으로 늘려 가는 것은 보장하지 못하기 때문이다'
+      answer: 3
+      explanation: |
+        policy 가 배운 것은 시연 장면과 관절 각도 사이의 짝이라, 시연이 덮지 않은 자리에서는 무엇을 낼지 알 수 없다. network 는 직선이
+        아니어서 시연 바깥에서 규칙을 그대로 이어 간다는 보장도 없다. "이해했다" 고 보는 것은 흔한 오해이고, 팔이 닿는 범위의 문제라는
+        근거도 없다. 해결책은 시연을 더 넓게 모으는 것이다.
+
+- topic: compounding-error
+  title: 오차가 쌓이는 compounding error
+  variants:
+    - question: |
+        behavior cloning 으로 학습한 차가 처음에는 차선을 잘 따라가다가 점점 벗어나 결국 이탈했다. compounding error 의 설명으로 옳은
+        것은?
+      choices:
+        - 'learning rate 가 너무 커서 학습 중 loss 가 발산한 결과다'
+        - '작은 오차가 차를 시연에 없던 상태로 옮기고, 그 상태에서 오차가 더 커지며 step 마다 쌓이는 현상이다'
+        - 'expert 의 시연에 실수가 섞여 있어서 생기는 현상이다'
+        - '매 step 같은 크기의 오차가 일정하게 더해질 뿐인 현상이다'
+      answer: 1
+      explanation: |
+        policy 의 작은 오차는 차를 움직여 다음 관측을 expert 가 가지 않았을 상태에서 나오게 한다. 그 낯선 상태에서는 정답을 배운 적이
+        없어 더 크게 틀리고, 그 오차가 다시 더 낯선 상태로 데려가며 불어난다. loss 발산은 학습 단계의 문제이고, 시연이 완벽해도 이
+        현상은 생긴다. 오차는 일정하게 더해지지 않고 step 이 지날수록 커지면서 쌓인다.
+    - question: |
+        behavior cloning policy 가 틀리는 step 수의 가장 나쁜 경우 상한은 $T^2\epsilon$ 이다($T$ 는 episode 길이, $\epsilon$ 은
+        step 마다 틀릴 확률). $\epsilon$ 은 그대로 두고 episode 를 두 배로 늘리면 이 상한은?
+      choices:
+        - '그대로다'
+        - '두 배가 된다'
+        - '네 배가 된다'
+        - '절반이 된다'
+      answer: 2
+      explanation: |
+        $T$ 가 제곱으로 들어가 있어서 $T$ 가 두 배면 $T^2$ 은 네 배다. 실수의 기회가 대략 $T\epsilon$ 번이고, 실수 한 번이 남은
+        step 을 많게는 $T$ 개까지 망치므로 둘을 곱해 $T^2$ 이 된다. 실수가 이어지지 않는다면 $T\epsilon$ 이라 두 배였겠지만,
+        compounding error 가 있으면 episode 가 길수록 피해가 훨씬 빠르게 커진다.
+    - question: |
+        다음 중 behavior cloning 의 compounding error 를 줄이는 방법으로 보기 어려운 것은?
+      choices:
+        - 'policy 를 직접 달리게 해서 policy 가 간 낯선 상태에 expert 의 정답을 받아 데이터에 더한다'
+        - '중심에서 벗어난 장면에 "가운데로 돌아오는" 정답을 붙여 시연에 일부러 채워 넣는다'
+        - 'action 을 여러 step 묶음으로 내서 policy 가 결정하는 횟수 자체를 줄인다'
+        - '같은 expert 가 같은 방식으로 운전한 시연을 몇 배 더 모은다'
+      answer: 3
+      explanation: |
+        같은 expert 의 시연은 아무리 늘려도 expert 가 가는 상태에서만 나오므로, policy 가 실수 뒤 들어가는 낯선 상태는 여전히 비어
+        있다. 나머지 셋은 그 빈 상태에 정답을 채우거나(DAgger, 돌아오는 장면 보강), 결정 횟수를 줄여 오차가 쌓일 기회를 줄이는(ACT)
+        방법이다.
+
+- topic: distribution-shift
+  title: distribution shift 와 validation loss
+  variants:
+    - question: |
+        behavior cloning 에서 말하는 distribution shift 는 무엇인가?
+      choices:
+        - '학습할 때 본 입력의 분포와 실행할 때 만나는 입력의 분포가 달라지는 것'
+        - '학습하는 동안 parameter 값의 분포가 바뀌는 것'
+        - 'learning rate 가 학습 도중 줄어드는 것'
+        - '시연하는 사람이 바뀌어 action 의 평균이 달라지는 것'
+      answer: 0
+      explanation: |
+        시연은 expert 가 지나간 상태에서만 나오는데, policy 가 실행할 때는 자기 실수로 다른 상태들을 지나간다. 이렇게 학습 입력과 실행
+        입력의 분포가 어긋나는 것이 distribution shift 다. parameter 나 learning rate 의 변화는 학습 과정의 이야기이고, 시연자가
+        바뀌는 것도 이 강의에서 말하는 학습 때와 실행 때의 입력 차이가 아니다.
+    - question: |
+        시연에서 떼어 둔 validation set 의 loss 가 아주 낮은 policy 가 실제 rollout 에서는 금방 차선을 벗어났다. 그 이유로 가장 알맞은
+        것은?
+      choices:
+        - 'validation loss 를 잘못 계산했다'
+        - 'validation set 도 expert 가 지나간 상태에서만 나와서, policy 가 스스로 만든 낯선 상태의 오차를 재지 못한다'
+        - 'validation loss 가 낮으면 overfitting 이므로 rollout 이 실패하는 것이 당연하다'
+        - 'rollout 은 학습 데이터와 같은 상태만 지나가므로 validation loss 와 결과가 같아야 한다'
+      answer: 1
+      explanation: |
+        validation set 은 시연의 일부라서 expert 가 간 상태만 담고 있다. 그곳에서는 policy 의 오차가 작아도, rollout 에서 policy 가
+        밀려나 들어간 상태는 validation set 에 하나도 없어 그 오차가 loss 에 드러나지 않는다. 계산 실수가 아니어도 이런 일은 생긴다.
+        validation loss 가 낮다는 것만으로 overfitting 이라 할 수 없고, rollout 은 학습 데이터에 없는 상태를 지나간다.
+    - question: |
+        distribution shift 와 compounding error 의 관계로 옳은 것은?
+      choices:
+        - '같은 현상을 부르는 두 이름이다'
+        - 'compounding error 가 원인이고, 그 때문에 학습 데이터의 분포가 바뀐다'
+        - 'distribution shift 가 원인이고, compounding error 는 그 결과로 오차가 쌓이는 현상이다'
+        - '서로 관계없다. 하나는 학습 단계, 다른 하나는 실행 단계의 문제다'
+      answer: 2
+      explanation: |
+        policy 가 실행 때 학습 분포 밖의 상태를 만나는 것(distribution shift)이 원인이고, 그 상태에서 더 크게 틀려 더 낯선 상태로
+        가면서 오차가 불어나는 것(compounding error)이 결과다. 둘은 같은 말이 아니고, 학습 데이터의 분포는 rollout 때문에 바뀌지
+        않는다. 둘 다 학습 분포와 실행 분포의 어긋남에서 나오므로 서로 깊이 이어져 있다.
+
+- topic: multimodal
+  title: 정답이 여럿인 시연과 multimodal
+  variants:
+    - question: |
+        차선 한가운데의 상자 앞에서 expert 는 시연의 절반은 왼쪽으로, 절반은 오른쪽으로 크게 꺾어 피했다. 관측은 모두 같다. 핸들
+        각도 하나를 내는 policy 를 MSE 로 학습하면 이 장면에서 무엇을 내기 쉬운가?
+      choices:
+        - '왼쪽으로 피하는 각도'
+        - '오른쪽으로 피하는 각도'
+        - '학습할 때마다 왼쪽과 오른쪽 중 하나를 무작위로'
+        - '두 정답의 평균인, 거의 꺾지 않고 상자로 곧장 가는 각도'
+      answer: 3
+      explanation: |
+        같은 관측에 정답이 여럿이면 MSE 를 가장 작게 만드는 하나의 값은 정답들의 평균이다. 왼쪽과 오른쪽 각도의 평균은 거의 0 이라
+        상자로 돌진한다. 피하는 두 각도는 반대쪽 시연과의 오차가 커서 MSE 가 오히려 크고, 숫자 하나를 내는 policy 에는 둘 중 하나를
+        무작위로 고르는 장치가 없다.
+    - question: |
+        위와 같이 왼쪽·오른쪽으로 갈라지는 시연 때문에 policy 가 평균 action 을 낸다. 같은 비율로 시연을 열 배 더 모으면 해결될까?
+      choices:
+        - '해결되지 않는다. 평균은 그대로이고, 문제는 "관측 하나에 숫자 하나" 를 내는 policy 와 MSE 의 조합에 있다'
+        - '해결된다. 데이터가 많으면 MSE 가 평균 대신 가장 흔한 값을 고른다'
+        - '해결된다. 데이터가 많으면 policy 가 두 action 을 동시에 낸다'
+        - '오히려 나빠진다. 데이터가 많을수록 평균이 0 에서 멀어진다'
+      answer: 0
+      explanation: |
+        같은 비율로 늘리면 정답들의 평균은 변하지 않으므로 MSE 로 학습한 policy 의 출력도 그대로다. MSE 는 데이터 양과 관계없이 평균을
+        향하고, 숫자 하나를 내는 policy 는 두 값을 동시에 낼 수 없다. 해결하려면 action 의 분포를 내거나 봉우리 하나를 골라 내는
+        방식(구간 분류, style 변수, diffusion 등)으로 바꿔야 한다.
+    - question: |
+        "이 모델은 카메라 영상과 음성 명령을 함께 받는 multimodal 모델이다" 와 "이 시연 데이터는 multimodal 이라 MSE 로 학습하면 안
+        된다" 에서 multimodal 의 뜻을 바르게 짝지은 것은?
+      choices:
+        - '둘 다 입력의 종류가 여럿이라는 뜻이다'
+        - '앞은 입력의 종류가 여럿, 뒤는 같은 관측에 정답 action 이 여럿이라 분포의 봉우리가 여럿이라는 뜻이다'
+        - '앞은 정답 action 이 여럿, 뒤는 입력의 종류가 여럿이라는 뜻이다'
+        - '둘 다 같은 관측에 정답 action 이 여럿이라는 뜻이다'
+      answer: 1
+      explanation: |
+        "multimodal 모델" 의 modal 은 시각·언어 같은 정보의 종류(modality)에서 왔고, 영상과 음성이라는 두 종류의 입력을 받는다는 뜻이다.
+        "multimodal 시연" 의 modal 은 통계의 mode(가장 자주 나온 값)에서 왔고, action 분포에 봉우리가 여럿이라는 뜻이다. 철자만 같고
+        가리키는 것이 다르므로 두 문장의 뜻도 다르다.

@@ -1,0 +1,341 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: degradation
+  title: 층을 쌓을수록 나빠지는 현상, degradation
+  variants:
+    - question: |
+        convolution 층을 차례로 쌓기만 한 plain network 를 더 깊게 만들었더니, 얕은 망보다 test error 는 물론 training error 까지
+        높아졌다. 이 현상을 바르게 설명한 것은?
+      choices:
+        - overfitting 이다. 층이 많아 학습 데이터를 외웠기 때문이다
+        - 학습 데이터가 부족해서 test 사진에서만 성능이 떨어진 것이다
+        - degradation 이다. 깊은 망이 학습 데이터조차 잘 맞히지 못하는, 덜 배운 상태다
+        - 깊은 망은 원래 얕은 망보다 표현할 수 있는 것이 적기 때문이다
+      answer: 2
+      explanation: |
+        overfitting 이라면 학습 데이터는 잘 맞히고 처음 보는 데이터만 못 맞혀야 하므로 training error 는 낮아야 한다. 여기서는
+        training error 자체가 높으니 외운 것이 아니라 덜 배운 것이고, 이것을 degradation 이라고 한다. 데이터 부족은 test error
+        만 올리는 쪽이라 맞지 않는다. 깊은 망은 얕은 망이 표현하는 것을 모두 표현할 수 있으므로 표현력이 적다는 설명도 틀렸다.
+    - question: |
+        "깊은 망의 training error 가 얕은 망보다 높을 이유가 없다" 고 말할 수 있는 근거는?
+      choices:
+        - 얕은 망 뒤에 입력을 그대로 내보내는 identity 층을 붙이면, 얕은 망과 똑같은 답을 내는 깊은 망이 되기 때문
+        - 깊은 망은 parameter 가 많아 학습이 언제나 더 빨리 끝나기 때문
+        - 깊은 망에는 overfitting 이 생기지 않기 때문
+        - 층이 많을수록 gradient 가 커져 학습이 잘 되기 때문
+      answer: 0
+      explanation: |
+        잘 학습한 얕은 망 뒤에 아무것도 바꾸지 않는 identity 층을 붙이면, 그 깊은 망은 얕은 망과 같은 답을 내고 같은 만큼만
+        틀린다. 깊은 망이 가질 수 있는 상태 안에 "얕은 망과 같은 상태" 가 이미 있으니, 제대로 학습되면 더 나쁠 수 없다. 그런데도
+        더 나빴다면 학습이 그 상태를 찾아가지 못한 것이다. parameter 가 많다고 학습이 빨라지지는 않고, 깊은 망도 overfitting 은
+        생길 수 있으며, 층이 많으면 gradient 는 오히려 작아지기 쉽다.
+    - question: |
+        A 망은 training error 2%, test error 30% 이고, B 망은 training error 25%, test error 27% 다. degradation 처럼 "덜 배운"
+        쪽과 그 근거로 옳은 것은?
+      choices:
+        - A, test error 가 더 높으므로
+        - A, training error 와 test error 의 차이가 크므로
+        - 둘 다, test error 가 training error 보다 높으므로
+        - B, 학습 사진에서도 많이 틀리므로
+      answer: 3
+      explanation: |
+        덜 배운 망은 학습 사진에서도 많이 틀린다. B 는 training error 가 25% 라 학습 데이터조차 잘 맞히지 못하므로 덜 배운 쪽이다.
+        A 는 학습 사진은 98% 맞히는데 처음 보는 사진에서 크게 틀리므로 학습 데이터를 외운 overfitting 에 가깝다. training error 와
+        test error 의 차이가 큰 것은 overfitting 의 신호이고, test error 가 training error 보다 조금 높은 것은 거의 모든 망에서
+        흔한 일이다.
+
+- topic: vanishing-product
+  title: 층마다 곱해지는 gradient
+  variants:
+    - question: |
+        backward 에서 층을 하나 거꾸로 지날 때마다 gradient 에 1 보다 작은 수가 곱해지는 깊은 망이 있다. 이 망에서 생기는 일은?
+      choices:
+        - 출력에 가까운 층들이 거의 학습되지 않는다
+        - 입력 쪽 층에 도착하는 gradient 가 거의 0 이 되어, 앞쪽 층이 거의 학습되지 않는다
+        - gradient 가 층을 지날수록 커져 weight 가 튄다
+        - 곱하는 수가 1 보다 작기만 하면 층 수와 상관없이 gradient 크기가 일정하다
+      answer: 1
+      explanation: |
+        chain rule 때문에 입력 쪽 gradient 는 층마다의 비율을 모두 곱한 값이다. 1 보다 작은 수를 여러 번 곱하면 0 에 가까워지므로
+        출력에서 먼 앞쪽 층일수록 gradient 가 작아지는데, 이것이 vanishing gradient 다. 출력에 가까운 층은 곱셈을 적게 겪어
+        gradient 가 크다. 커지는 쪽은 1 보다 큰 수를 곱할 때의 exploding gradient 이고, 곱셈이 쌓이므로 층 수에 따라 크기가 바뀐다.
+    - question: |
+        깊은 망의 앞쪽 층 gradient 가 아주 작다. "learning rate 를 크게 키우면 앞쪽 층도 잘 배운다" 는 생각에 대한 평가로 옳은 것은?
+      choices:
+        - 맞다. learning rate 는 gradient 가 작은 층에만 적용된다
+        - 맞다. learning rate 를 키우면 gradient 의 곱셈 자체가 사라진다
+        - 틀렸다. learning rate 는 앞쪽 층에는 적용되지 않는다
+        - 틀렸다. learning rate 는 모든 층에 똑같이 곱해져서, gradient 가 큰 뒤쪽 층이 너무 크게 움직여 발산할 수 있다
+      answer: 3
+      explanation: |
+        update 는 $w \leftarrow w - \eta g$ 이고 learning rate $\eta$ 는 모든 층에 같은 값으로 곱해진다. 앞쪽 층에 맞춰 $\eta$ 를
+        아주 크게 키우면 gradient 가 큰 뒤쪽 층은 한 번에 엄청나게 움직여 값이 발산한다. learning rate 는 층을 가리지 않고 적용되며,
+        backward 에서 층마다 비율이 곱해지는 구조는 learning rate 와 상관없이 그대로다.
+    - question: |
+        backward 에서 층마다 gradient 에 1.1 을 곱하는 망과 0.9 를 곱하는 망을 각각 20 층 쌓았다. 옳은 설명은?
+      choices:
+        - 1.1 쪽은 크게 불어나고 0.9 쪽은 크게 줄어들어, 1 에서 조금만 벗어나도 층이 많으면 차이가 크게 벌어진다
+        - 두 수 모두 1 에 가까워서 20 층 뒤에도 gradient 는 거의 1 이다
+        - 1.1 쪽은 커지지만 0.9 쪽은 줄어들지 않는다
+        - 곱하는 수가 1 보다 크면 학습이 언제나 더 잘 된다
+      answer: 0
+      explanation: |
+        같은 수를 여러 번 곱하면 1 보다 큰 수는 계속 커지고 1 보다 작은 수는 계속 작아진다. 한 층에서는 0.1 차이지만 20 번
+        곱하면 한쪽은 몇 배로 불어나고 다른 쪽은 몇 분의 1 로 줄어든다. 1 을 그대로 곱할 때만 끝까지 크기가 유지되는데, 실제
+        망에서 층마다 곱해지는 수는 weight 와 입력에 따라 달라져 모든 층을 정확히 1 로 맞출 수 없다. 너무 커진 gradient 는 오히려
+        weight 를 튀게 만든다.
+
+- topic: residual-gradient
+  title: residual block 의 gradient
+  variants:
+    - question: |
+        residual block $y = \mathcal F(x) + x$ 에서 입력이 출력에 주는 영향의 비율 $\frac{\partial y}{\partial x}$ 를 바르게 쓴 것은?
+      choices:
+        - '$\frac{\partial \mathcal F}{\partial x}$'
+        - '$1$'
+        - '$x \times \frac{\partial \mathcal F}{\partial x}$'
+        - '$1 + \frac{\partial \mathcal F}{\partial x}$'
+      answer: 3
+      explanation: |
+        $x$ 는 두 곳에 쓰인다. 하나는 block 의 층 $\mathcal F$ 로 들어가는 길이고, 다른 하나는 덧셈으로 곧장 가는 shortcut 이다.
+        한 값이 여러 곳에 쓰이면 길마다의 gradient 를 더하므로, shortcut 길의 1(덧셈의 local derivative)과 $\mathcal F$ 길의
+        $\frac{\partial \mathcal F}{\partial x}$ 를 더한다. $\frac{\partial \mathcal F}{\partial x}$ 만 쓰면 plain block 이고, $1$ 만
+        쓰면 $\mathcal F$ 길을 빠뜨린 것이다. 입력 $x$ 를 곱할 이유는 없다.
+    - question: |
+        block 층들의 weight 가 아주 작아서 $\mathcal F$ 쪽 비율이 거의 0 이 되었다. gradient 가 이 block 을 거꾸로 지날 때 plain
+        block 과 residual block 의 차이는?
+      choices:
+        - 둘 다 gradient 가 거의 0 이 된다
+        - plain block 에서는 거의 0 이 되지만, residual block 에서는 shortcut 을 따라 거의 그대로 지나간다
+        - residual block 에서는 0 이 되고, plain block 에서는 그대로 지나간다
+        - 둘 다 정확히 그대로 지나간다
+      answer: 1
+      explanation: |
+        plain block 의 비율은 $\frac{\partial \mathcal F}{\partial x}$ 뿐이라 이것이 0 에 가까우면 gradient 도 사라진다. residual
+        block 의 비율은 $1 + \frac{\partial \mathcal F}{\partial x}$ 라서, $\mathcal F$ 쪽이 0 에 가까워도 shortcut 의 1 이 남아
+        gradient 가 약 1 배로 전해진다. 셋째 보기는 두 block 을 뒤집었고, plain block 은 weight 가 작으면 gradient 를 지키지 못한다.
+    - question: |
+        "residual connection 이 있으면 gradient 가 언제나 정확히 1 로 전해진다" 는 주장에 대한 평가로 옳은 것은?
+      choices:
+        - 맞다. shortcut 이 gradient 를 1 로 고정한다
+        - 맞다. $\mathcal F$ 쪽 gradient 는 backward 에서 버려진다
+        - 틀렸다. block 마다 비율이 $1 + \frac{\partial \mathcal F}{\partial x}$ 라 1 에서 조금씩 벗어나지만, weight 를 거치지 않는 길이 하나 있어 0 으로 사라지지는 않는다
+        - 틀렸다. residual connection 은 gradient 를 언제나 두 배로 키운다
+      answer: 2
+      explanation: |
+        block 하나의 비율은 1 에 $\mathcal F$ 쪽 비율을 더한 값이라 정확히 1 이 아니고, 여러 block 을 곱하면 1 보다 커지거나 작아질
+        수 있다. residual connection 이 보장하는 것은 모든 shortcut 을 타는, weight 를 거치지 않는 길이 언제나 하나 있다는 것이고,
+        그 덕분에 plain 망처럼 gradient 가 0 에 붙어 버리지 않는다. $\mathcal F$ 쪽 gradient 도 더해지므로 버려지지 않고, 두 배가
+        되는 것은 $\mathcal F$ 쪽 비율이 정확히 1 인 특수한 경우뿐이다.
+
+- topic: identity-easy
+  title: residual block 과 identity
+  variants:
+    - question: |
+        block 층들의 weight 가 모두 0 이라 block 층들의 출력 $\mathcal F(x)$ 가 0 이다. residual block $y = \mathcal F(x) + x$ 와
+        plain block $y = \mathcal F(x)$ 의 출력은?
+      choices:
+        - residual block 은 입력을 그대로 내고(identity), plain block 은 0 을 내 입력의 정보가 사라진다
+        - residual block 은 0 을 내고, plain block 은 입력을 그대로 낸다
+        - 둘 다 입력을 그대로 낸다
+        - 둘 다 0 을 낸다
+      answer: 0
+      explanation: |
+        $\mathcal F(x) = 0$ 이면 residual block 은 $y = 0 + x = x$ 로 입력을 그대로 전한다. plain block 은 $y = 0$ 이라 어떤 입력이
+        들어와도 같은 0 을 내므로 입력의 정보가 모두 사라진다. 둘째 보기는 두 block 을 뒤집었고, 덧셈이 없는 plain block 이 입력을
+        그대로 낼 수는 없다.
+    - question: |
+        weight 를 0 근처의 작은 random 값으로 시작할 때, residual block 이 plain block 보다 identity 를 배우기 쉬운 이유는?
+      choices:
+        - residual block 은 weight 가 1 이 되어야 identity 가 되기 때문
+        - residual block 은 학습하지 않아도 언제나 정확히 identity 로 고정되기 때문
+        - residual block 은 weight 가 0 이면 이미 identity 라, 시작점에서 identity 까지의 거리가 짧기 때문
+        - plain block 은 weight 가 0 일 때 identity 가 되기 때문
+      answer: 2
+      explanation: |
+        residual block 은 weight 를 0 쪽으로 보내기만 하면 $y = x$ 가 되므로, 0 근처에서 출발한 weight 는 처음부터 identity 에
+        가깝다. plain block 이 identity 가 되려면 weight 가 1 근처까지 멀리 움직여야 하고, conv 와 ReLU 로 된 실제 block 에서는 그
+        모양을 맞추기가 더 어렵다. residual block 도 weight 를 학습하므로 identity 에 고정되지는 않고, 필요한 만큼 입력을 고친다.
+    - question: |
+        residual block $y = \mathcal F(x) + x$ 에서 block 의 층들 $\mathcal F$ 가 배우는 것은?
+      choices:
+        - block 이 내야 할 출력 전체를 처음부터
+        - block 이 내야 할 출력과 입력의 차이
+        - 입력을 그대로 복사하는 방법
+        - 입력과 출력의 곱
+      answer: 1
+      explanation: |
+        block 이 내야 할 출력을 $H$ 라고 하면 $\mathcal F(x) = H - x$ 이므로 층들은 출력 전체가 아니라 입력과의 차이만 내면 된다.
+        residual 이 "차이" 라는 뜻인 것도 이 때문이다. 입력을 그대로 전하는 일은 shortcut 이 맡으므로 층들이 복사를 배울 필요가
+        없고, 곱셈은 식 어디에도 없다.
+
+- topic: batchnorm-calc
+  title: batch normalization 의 정규화와 γ·β
+  variants:
+    - question: |
+        conv 층마다 batch normalization 을 넣는 이유로 가장 알맞은 것은?
+      choices:
+        - 값의 일부를 무작위로 0 으로 만들어 overfitting 을 막으려고
+        - parameter 수를 줄이려고
+        - 앞 층의 weight 가 학습으로 바뀌어 값의 크기가 달라져도, 다음 층이 받는 값을 일정한 크기로 맞추려고
+        - feature map 의 가로세로를 반으로 줄이려고
+      answer: 2
+      explanation: |
+        학습 중 앞 층의 weight 가 커지거나 작아지면 다음 층이 받는 값의 크기가 계속 바뀌어, 다음 층이 맞춰 둔 weight 가 어긋난다.
+        batch normalization 은 값을 평균 0, 분산 1 로 다시 맞춰 넘겨서 이런 흔들림을 줄인다. 값을 무작위로 0 으로 만드는 것은
+        다른 기법이고, BatchNorm 은 오히려 $\gamma$, $\beta$ 를 더하며, 크기를 줄이는 일은 stride 나 pooling 이 한다.
+    - question: |
+        BatchNorm 이 한 channel 의 값 1, 2, 3, 6 을 정규화한 결과와, 모두 10 배인 10, 20, 30, 60 을 정규화한 결과를 비교하면?
+      choices:
+        - 둘째 결과가 첫째의 10 배다
+        - 둘째 결과가 첫째의 10 분의 1 이다
+        - 평균을 뺀 위치는 같지만 퍼진 정도는 둘째가 10 배다
+        - 똑같다
+      answer: 3
+      explanation: |
+        정규화는 평균을 빼고 표준편차로 나눈다. 값이 모두 10 배가 되면 평균도 10 배, 표준편차도 10 배가 되어, 분자와 분모의
+        10 배가 나눗셈에서 지워진다. 그래서 앞 층의 크기가 바뀌어도 다음 층은 같은 값을 받는다. 결과가 10 배나 10 분의 1 이
+        되거나 퍼진 정도만 남는다는 보기는 표준편차로 나누는 단계를 고려하지 않은 것이다.
+    - question: |
+        BatchNorm 이 평균 0, 분산 1 로 맞춘 값에 학습하는 숫자 $\gamma$ 를 곱하고 $\beta$ 를 더하는 이유는?
+      choices:
+        - 모든 층을 평균 0, 분산 1 로 묶어 두면 표현할 수 있는 것이 줄어서, 층마다 퍼진 정도와 평균을 스스로 정하게 하려고
+        - 분산이 0 일 때 0 으로 나누는 일을 막으려고
+        - 평가 때 쌓아 둔 평균 대신 쓰려고
+        - 정규화한 값이 언제나 양수가 되게 하려고
+      answer: 0
+      explanation: |
+        어떤 층은 값이 더 넓게 퍼지거나 평균이 0 이 아니어야 잘 작동할 수 있다. $\gamma$ 는 퍼진 정도, $\beta$ 는 평균 위치를
+        정하고 gradient descent 로 학습되므로, 필요하면 원래 표준편차와 평균을 배워 정규화를 되돌릴 수도 있다. 0 으로 나누는
+        일을 막는 것은 분모에 더하는 작은 수 $\epsilon$ 의 역할이다. 평가 때 쓰는 것은 running mean·분산이고, $\beta$ 가 음수일
+        수도 있으니 양수를 보장하지도 않는다.
+
+- topic: bn-train-eval
+  title: 학습 때와 평가 때의 BatchNorm
+  variants:
+    - question: |
+        학습을 마친 BatchNorm 모델을 평가 모드로 두고, 로봇이 카메라 사진을 한 장씩 넣는다. 이때 BatchNorm 이 정규화에 쓰는
+        평균과 분산은?
+      choices:
+        - 지금 들어온 사진 한 장으로 구한 평균과 분산
+        - 학습하는 동안 batch 의 평균과 분산을 moving average 로 쌓아 둔 값
+        - 언제나 평균 0, 분산 1
+        - 학습의 마지막 batch 하나의 평균과 분산
+      answer: 1
+      explanation: |
+        BatchNorm 은 학습 때 batch 통계로 정규화하면서, 그 평균과 분산을 지난 값과 섞는 moving average 로 따로 쌓아 둔다. 평가
+        때는 이 쌓아 둔 값을 고정해 쓰므로, 사진 한 장을 넣어도 다른 사진과 무관하게 같은 결과가 나온다. 사진 한 장의 통계는 너무
+        적은 값으로 구해 흔들리고, 마지막 batch 하나의 통계는 그 batch 에 우연히 든 사진에 치우친다. 평균 0, 분산 1 은 정규화의
+        결과이지 쓰는 통계가 아니다.
+    - question: |
+        BatchNorm 이 평균과 분산을 구하는 데 쓸 수 있는 값이 하나뿐이라면 정규화 결과는 어떻게 되나?
+      choices:
+        - 그 값이 곧 평균이라 분산이 0 이 되어, 어떤 값을 넣어도 0 이 나온다
+        - 그 값이 그대로 나온다
+        - 언제나 1 이 나온다
+        - 0 으로 나누게 되어 계산이 멈춘다
+      answer: 0
+      explanation: |
+        값이 하나면 평균이 그 값 자신이라 평균을 뺀 값은 0 이고 분산도 0 이다. 분모에는 작은 수 $\epsilon$ 이 더해져 있어 0 으로
+        나누는 일은 생기지 않지만, 분자가 0 이라 결과는 언제나 0 이다. 어떤 입력을 넣어도 같은 값이 나오니 모델이 아무것도 구별하지
+        못하고, 그래서 평가 때는 학습 중 쌓아 둔 통계를 쓴다.
+    - question: |
+        batch 크기를 2 처럼 아주 작게 잡으면 BatchNorm 에 생기는 문제는?
+      choices:
+        - batch 가 작을수록 평균과 분산이 데이터 전체에 더 정확히 맞는다
+        - batch 크기와 BatchNorm 의 결과는 아무 관계가 없다
+        - batch 가 작으면 $\gamma$ 와 $\beta$ 가 학습되지 않는다
+        - batch 통계가 크게 흔들려, 같은 사진이라도 함께 들어온 사진에 따라 정규화한 값이 달라진다
+      answer: 3
+      explanation: |
+        batch 가 작으면 평균과 분산을 적은 값으로 구하므로 batch 마다 크게 흔들린다. 값이 두 개뿐이면 두 값이 무엇이든 정규화
+        결과가 $-1$ 과 $1$ 이 되어, 크기가 전혀 다른 값도 같은 숫자가 된다. batch 가 클수록 통계가 데이터 전체에 가까워지므로
+        첫 보기는 거꾸로 말했다. $\gamma$, $\beta$ 는 batch 크기와 상관없이 gradient descent 로 학습된다.
+
+- topic: resnet18-structure
+  title: ResNet-18 의 구조
+  variants:
+    - question: |
+        어떤 residual block 에서 $\mathcal F(x)$ 는 가로세로가 입력의 반이고 channel 이 두 배라, 입력 $x$ 를 그대로 더할 수 없다.
+        ResNet 은 이때 어떻게 하나?
+      choices:
+        - 이 block 만 shortcut 을 없애고 plain block 으로 쓴다
+        - $\mathcal F(x)$ 를 다시 키워 입력 $x$ 의 모양에 맞춘다
+        - 두 묶음을 더하지 않고 channel 방향으로 이어 붙인다
+        - shortcut 에 stride 2 의 1×1 conv(와 BatchNorm)를 두어 $x$ 를 $\mathcal F(x)$ 와 같은 모양으로 맞춘 뒤 더한다
+      answer: 3
+      explanation: |
+        $\mathcal F(x) + x$ 는 같은 자리끼리 더하는 원소별 덧셈이라 두 묶음의 channel 수와 가로세로가 모두 같아야 한다. 1×1 conv
+        는 칸마다 channel 값들을 섞어 channel 수를 바꾸고, stride 2 는 한 칸씩 건너뛰어 가로세로를 반으로 줄인다. shortcut 을
+        없애면 이 block 에서 gradient 의 지름길이 끊기고, $\mathcal F(x)$ 를 키우면 크기를 줄이려던 목적이 사라진다. ResNet 은
+        이어 붙이지 않고 더한다.
+    - question: |
+        ResNet-18 의 마지막 feature map 에 거는 global average pooling 에 대한 설명으로 옳은 것은?
+      choices:
+        - 2×2 묶음마다 평균을 내 가로세로를 반으로 줄인다
+        - channel 마다 값이 가장 큰 칸의 위치 좌표를 뽑는다
+        - channel 마다 feature map 전체의 평균을 숫자 하나로 내서, "어디에" 는 버리고 "무엇이 얼마나" 만 남긴다
+        - 모든 channel 을 평균해 feature map 한 장으로 합친다
+      answer: 2
+      explanation: |
+        global average pooling 은 channel 하나의 feature map 전체를 평균해 숫자 하나로 만든다. 그래서 출력 개수는 channel 수와
+        같고, 사진 크기가 달라 feature map 이 커져도 개수는 그대로라 뒤의 fc 를 바꾸지 않아도 된다. 2×2 묶음 평균은 보통의
+        average pooling 이고, 위치 좌표를 뽑는 것은 spatial softmax 다. channel 들을 서로 평균하면 channel 마다 다른 특징이
+        섞여 버린다.
+    - question: |
+        ResNet-18 의 parameter 가 대부분 channel 이 가장 많은 마지막 stage 에 몰려 있는 이유는?
+      choices:
+        - 마지막 stage 의 feature map 가로세로가 가장 크기 때문
+        - 3×3 conv 의 parameter 는 입력 channel 수와 출력 channel 수의 곱에 비례해, channel 이 두 배가 되면 네 배가 되기 때문
+        - 마지막 stage 의 filter 크기가 가장 크기 때문
+        - 마지막 stage 에만 BatchNorm 이 있기 때문
+      answer: 1
+      explanation: |
+        conv 층의 weight 수는 출력 channel 수 × 입력 channel 수 × filter 크기다. stage 를 지날 때마다 channel 이 두 배가 되면 이
+        곱은 네 배가 되므로, channel 이 가장 많은 마지막 stage 가 parameter 대부분을 차지한다. 마지막 stage 는 오히려 가로세로가
+        가장 작고, parameter 수는 feature map 크기와 상관없다. 모든 stage 가 같은 3×3 filter 를 쓰고, BatchNorm 은 모든 conv
+        뒤에 있다.
+
+- topic: robot-encoder
+  title: 로봇 policy 의 image encoder 로 쓰는 ResNet-18
+  variants:
+    - question: |
+        물체 10 종류를 가려내야 하는 로봇에, 1000 class 사진 분류로 사전학습한 ResNet-18 을 쓰려 한다. 알맞은 방법은?
+      choices:
+        - 1000 점수를 내는 마지막 fc 를 떼고 10 개를 내는 새 head 를 붙여, backbone 은 pretrained weight 에서 출발한다
+        - 1000 class 출력을 그대로 두고, 그중 아무 class 10 개를 골라 쓴다
+        - pretrained weight 는 로봇 사진과 맞지 않으니 언제나 random 값에서 처음부터 학습한다
+        - backbone 을 떼고 마지막 fc 만 가져다 쓴다
+      answer: 0
+      explanation: |
+        fc 앞까지의 backbone 은 선·경계·물체의 부분을 찾는 filter 를 이미 배워 두어 로봇 사진에도 쓸모 있다. 그래서 과제에 맞는
+        새 head 만 붙이고, backbone 은 고정(freeze)하거나 조금씩 고치는(fine-tuning) 방식으로 쓴다. 원래 class 10 개를 골라 쓰면
+        로봇의 물체와 뜻이 맞지 않고, 데이터가 적을수록 pretrained weight 에서 출발하는 쪽이 유리하다. fc 만으로는 사진을 읽을 수
+        없다.
+    - question: |
+        물체를 집는 로봇 policy 가 ResNet-18 의 global average pooling 출력 대신 그 앞의 feature map 을 칸마다 token 으로 꺼내 쓰는
+        이유는?
+      choices:
+        - feature map 이 pooling 출력보다 숫자가 적어 계산이 가볍기 때문
+        - global average pooling 은 "어디에" 를 버리는데, 물체를 집으려면 물체가 사진의 어느 구역에 있는지가 중요하기 때문
+        - pooling 층은 학습되지 않아 성능이 떨어지기 때문
+        - transformer 는 숫자 512 개짜리 vector 를 입력으로 받을 수 없기 때문
+      answer: 1
+      explanation: |
+        global average pooling 은 feature map 전체를 평균해 "무엇이 얼마나 있는가" 만 남기고 위치를 버린다. pooling 전의 feature
+        map 은 칸마다 사진의 한 구역을 대표하므로, 칸을 token 으로 쓰면 위치 정보가 살아 있다. feature map 은 pooling 출력보다
+        숫자가 훨씬 많고, pooling 에 학습할 숫자가 없는 것은 문제가 아니다. token 하나가 바로 512 개 숫자짜리 vector 다.
+    - question: |
+        로봇 policy 를 학습할 때 BatchNorm 대신 FrozenBatchNorm 이나 GroupNorm 을 쓰는 이유는?
+      choices:
+        - parameter 수를 크게 늘려 표현력을 높이려고
+        - GroupNorm 은 batch 의 모든 사진을 모아 통계를 구해 더 정확하기 때문
+        - 로봇 학습은 batch 가 작은 경우가 많아 batch 통계가 흔들리는데, 두 방식은 batch 통계를 쓰지 않아 batch 크기의 영향을 받지 않기 때문
+        - 두 방식은 평가 모드가 없어서 계산이 빠르기 때문
+      answer: 2
+      explanation: |
+        로봇 학습은 사진이 크고 모델이 여러 개라 batch 를 작게 잡는 일이 많고, 그러면 BatchNorm 의 batch 통계가 크게 흔들린다.
+        FrozenBatchNorm 은 사전학습 때 쌓아 둔 통계와 $\gamma$·$\beta$ 를 고정해 쓰고, GroupNorm 은 사진 한 장 안에서 channel
+        묶음별로 통계를 구한다. 둘 다 batch 의 다른 사진과 무관하다. GroupNorm 은 batch 로 모으지 않는 방식이고, 두 방식 모두
+        parameter 를 늘리거나 속도를 위한 것이 아니다.

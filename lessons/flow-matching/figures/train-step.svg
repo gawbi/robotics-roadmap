@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 316" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>학습 한 step. 데이터에서 x₁ = 2, N(0, 1) 에서 ε = −1, 0 과 1 사이에서 t = 0.5 를 뽑아 x_t = 0.5 × (−1) + 0.5 × 2 = 0.5 를 만든다. network 가 x_t = 0.5, t = 0.5 를 받아 2.5 를 내면, 정답 속도 x₁ − ε = 3 과의 차이로 loss (3 − 2.5)² = 0.25 를 구한다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="314" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="24.0" y="30.0" width="160.0" height="52.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="104.0" y="52.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 0.5</text>
+  <text x="104.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">0 ~ 1 에서 고르게</text>
+  <rect x="24.0" y="100.0" width="160.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="104.0" y="122.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₁ = 2</text>
+  <text x="104.0" y="140.0" fill="#94a3b8" font-size="12" text-anchor="middle">데이터에서 하나</text>
+  <rect x="24.0" y="170.0" width="160.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="104.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">ε = −1</text>
+  <text x="104.0" y="210.0" fill="#94a3b8" font-size="12" text-anchor="middle">N(0, 1) 에서 뽑음</text>
+  <rect x="244.0" y="84.0" width="200.0" height="84.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="344.0" y="113.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_t = (1 − t) ε + t x₁</text>
+  <text x="344.0" y="131.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 0.5 × (−1) + 0.5 × 2</text>
+  <text x="344.0" y="149.0" fill="#e2e8f0" font-size="14" text-anchor="middle">= 0.5</text>
+  <line x1="184.0" y1="56.0" x2="242.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="184.0" y1="126.0" x2="242.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="184.0" y1="196.0" x2="242.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="500.0" y="84.0" width="196.0" height="84.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="598.0" y="113.0" fill="#34d399" font-size="14" text-anchor="middle">network v_θ</text>
+  <text x="598.0" y="131.0" fill="#94a3b8" font-size="12" text-anchor="middle">입력: x_t = 0.5, t = 0.5</text>
+  <text x="598.0" y="149.0" fill="#e2e8f0" font-size="13" text-anchor="middle">출력: 2.5</text>
+  <line x1="444.0" y1="126.0" x2="498.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="244.0" y="236.0" width="200.0" height="60.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="344.0" y="262.0" fill="#e2e8f0" font-size="13" text-anchor="middle">정답 속도 x₁ − ε</text>
+  <text x="344.0" y="280.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 2 − (−1) = 3</text>
+  <rect x="500.0" y="236.0" width="196.0" height="60.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="598.0" y="262.0" fill="#e2e8f0" font-size="14" text-anchor="middle">loss = (3 − 2.5)²</text>
+  <text x="598.0" y="280.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.25</text>
+  <line x1="598.0" y1="168.0" x2="598.0" y2="234.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="444.0" y1="266.0" x2="498.0" y2="266.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="104.0" y1="222.0" x2="104.0" y2="266.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="104.0" y1="266.0" x2="242.0" y2="266.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="112.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="start">x₁ 과 ε 로 계산</text>
+</svg>

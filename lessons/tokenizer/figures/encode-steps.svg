@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 368" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>that cat 을 학습한 merge 세 개로 encode 하는 과정. 배운 순서대로 merge 를 적용해 byte 8개가 token 5개가 된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="366" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="110" y="36" fill="#94a3b8" font-size="13" text-anchor="start">시작 · &quot;that cat&quot; 의 byte</text>
+  <text x="24" y="66" fill="#e2e8f0" font-size="13" text-anchor="start">token 8개</text>
+  <rect x="111.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="127.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="145.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="161.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="179.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="195.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="213.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="229.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="247.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="263.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="281.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="297.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="315.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="331.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="349.5" y="46" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <text x="110" y="112" fill="#94a3b8" font-size="13" text-anchor="start">merge 1 (a, t) → 256 · 두 자리에 적용</text>
+  <text x="24" y="142" fill="#e2e8f0" font-size="13" text-anchor="start">token 6개</text>
+  <rect x="111.5" y="122" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="127.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="145.5" y="122" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="161.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="179.5" y="122" width="65" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="212.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <rect x="247.5" y="122" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="263.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="281.5" y="122" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="297.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="315.5" y="122" width="65" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="348.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">at</text>
+  <text x="110" y="188" fill="#94a3b8" font-size="13" text-anchor="start">merge 2 (256, ␣) → 257 · 한 자리에 적용</text>
+  <text x="24" y="218" fill="#e2e8f0" font-size="13" text-anchor="start">token 5개</text>
+  <rect x="111.5" y="198" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="127.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="145.5" y="198" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="161.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="179.5" y="198" width="99" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="229.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="281.5" y="198" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="297.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="315.5" y="198" width="65" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="348.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">at</text>
+  <text x="110" y="264" fill="#94a3b8" font-size="13" text-anchor="start">merge 3 (c, 257) · 적용할 자리 없음</text>
+  <text x="24" y="294" fill="#e2e8f0" font-size="13" text-anchor="start">token 5개</text>
+  <rect x="111.5" y="274" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="127.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">t</text>
+  <rect x="145.5" y="274" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="161.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">h</text>
+  <rect x="179.5" y="274" width="99" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="229.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">at␣</text>
+  <rect x="281.5" y="274" width="31" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="297.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">c</text>
+  <rect x="315.5" y="274" width="65" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="348.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">at</text>
+  <text x="111" y="348" fill="#34d399" font-size="15" text-anchor="start">token id: 116 · 104 · 257 · 99 · 256</text>
+</svg>

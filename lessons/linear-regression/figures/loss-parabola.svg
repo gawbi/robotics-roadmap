@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>b = 2 로 고정했을 때 w 에 따른 loss</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="80.0" y="40.0" width="460.0" height="230.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80.0" y1="270.0" x2="540.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80.0" y1="40.0" x2="80.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="80.0" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">0</text>
+  <text x="156.7" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">1</text>
+  <text x="233.3" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">2</text>
+  <text x="310.0" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">3</text>
+  <text x="386.7" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">4</text>
+  <text x="463.3" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">5</text>
+  <text x="540.0" y="288.0" fill="#64748b" font-size="13" text-anchor="middle">6</text>
+  <text x="72.0" y="274.0" fill="#64748b" font-size="13" text-anchor="end">0</text>
+  <text x="72.0" y="222.9" fill="#64748b" font-size="13" text-anchor="end">10</text>
+  <text x="72.0" y="171.8" fill="#64748b" font-size="13" text-anchor="end">20</text>
+  <text x="72.0" y="120.7" fill="#64748b" font-size="13" text-anchor="end">30</text>
+  <text x="72.0" y="69.6" fill="#64748b" font-size="13" text-anchor="end">40</text>
+  <text x="548.0" y="275.0" fill="#94a3b8" font-size="14" text-anchor="start">w</text>
+  <text x="72.0" y="20.0" fill="#94a3b8" font-size="14" text-anchor="end">loss</text>
+  <polyline points="80.0,55.3 83.8,62.4 87.7,69.4 91.5,76.3 95.3,83.0 99.2,89.6 103.0,96.1 106.8,102.5 110.7,108.8 114.5,114.9 118.3,120.9 122.2,126.8 126.0,132.6 129.8,138.3 133.7,143.8 137.5,149.2 141.3,154.6 145.2,159.7 149.0,164.8 152.8,169.8 156.7,174.6 160.5,179.3 164.3,183.9 168.2,188.4 172.0,192.7 175.8,197.0 179.7,201.1 183.5,205.1 187.3,208.9 191.2,212.7 195.0,216.3 198.8,219.9 202.7,223.3 206.5,226.5 210.3,229.7 214.2,232.7 218.0,235.7 221.8,238.5 225.7,241.1 229.5,243.7 233.3,246.1 237.2,248.5 241.0,250.7 244.8,252.8 248.7,254.7 252.5,256.6 256.3,258.3 260.2,259.9 264.0,261.4 267.8,262.8 271.7,264.0 275.5,265.2 279.3,266.2 283.2,267.1 287.0,267.9 290.8,268.5 294.7,269.0 298.5,269.5 302.3,269.8 306.2,269.9 310.0,270.0 313.8,269.9 317.7,269.8 321.5,269.5 325.3,269.0 329.2,268.5 333.0,267.9 336.8,267.1 340.7,266.2 344.5,265.2 348.3,264.0 352.2,262.8 356.0,261.4 359.8,259.9 363.7,258.3 367.5,256.6 371.3,254.7 375.2,252.8 379.0,250.7 382.8,248.5 386.7,246.1 390.5,243.7 394.3,241.1 398.2,238.5 402.0,235.7 405.8,232.7 409.7,229.7 413.5,226.5 417.3,223.3 421.2,219.9 425.0,216.3 428.8,212.7 432.7,208.9 436.5,205.1 440.3,201.1 444.2,197.0 448.0,192.7 451.8,188.4 455.7,183.9 459.5,179.3 463.3,174.6 467.2,169.8 471.0,164.8 474.8,159.7 478.7,154.6 482.5,149.2 486.3,143.8 490.2,138.3 494.0,132.6 497.8,126.8 501.7,120.9 505.5,114.9 509.3,108.8 513.2,102.5 517.0,96.1 520.8,89.6 524.7,83.0 528.5,76.3 532.3,69.4 536.2,62.4 540.0,55.3" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="80.0" cy="55.3" r="6" fill="#f59e0b"/>
+  <text x="92.0" y="59.3" fill="#f59e0b" font-size="13" text-anchor="start">42</text>
+  <circle cx="156.7" cy="174.6" r="6" fill="#f59e0b"/>
+  <text x="144.7" y="178.6" fill="#f59e0b" font-size="13" text-anchor="end">18.67</text>
+  <circle cx="233.3" cy="246.1" r="6" fill="#f59e0b"/>
+  <text x="221.3" y="250.1" fill="#f59e0b" font-size="13" text-anchor="end">4.67</text>
+  <circle cx="310.0" cy="270.0" r="6" fill="#f59e0b"/>
+  <text x="310.0" y="258.0" fill="#f59e0b" font-size="13" text-anchor="middle">0</text>
+  <circle cx="386.7" cy="246.1" r="6" fill="#f59e0b"/>
+  <text x="398.7" y="250.1" fill="#f59e0b" font-size="13" text-anchor="start">4.67</text>
+  <circle cx="463.3" cy="174.6" r="6" fill="#f59e0b"/>
+  <text x="475.3" y="178.6" fill="#f59e0b" font-size="13" text-anchor="start">18.67</text>
+  <text x="300.0" y="316.0" fill="#94a3b8" font-size="13" text-anchor="middle">loss 는 w = 3 에서 0 으로 가장 작고, 3 에서 멀어질수록 커진다</text>
+</svg>

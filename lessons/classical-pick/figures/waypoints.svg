@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>옆에서 본 waypoint 여섯 개. cube 위 0.2 m 의 pre-grasp 에서 grasp 로 수직으로 내려가 쥐고, lift 로 올라가 pre-place 로 옮긴 뒤 place 로 내려가 놓고 retreat 로 물러난다</title>
+  <defs>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="40" y1="330" x2="420" y2="330" stroke="#475569" stroke-width="2"/>
+  <text x="44" y="348" fill="#64748b" font-size="12">책상 (높이 0)</text>
+  <!-- axis ticks -->
+  <line x1="220" y1="332" x2="220" y2="340" stroke="#64748b"/><text x="220" y="354" fill="#94a3b8" font-size="11" text-anchor="middle">x 0.20</text>
+  <line x1="340" y1="332" x2="340" y2="340" stroke="#64748b"/><text x="340" y="354" fill="#94a3b8" font-size="11" text-anchor="middle">x 0.30</text>
+  <line x1="60" y1="105" x2="420" y2="105" stroke="#334155" stroke-dasharray="3 4"/>
+  <text x="56" y="109" fill="#94a3b8" font-size="11" text-anchor="end">0.225</text>
+  <line x1="60" y1="305" x2="420" y2="305" stroke="#334155" stroke-dasharray="3 4"/>
+  <text x="56" y="309" fill="#94a3b8" font-size="11" text-anchor="end">0.025</text>
+  <text x="40" y="80" fill="#64748b" font-size="11">손끝 높이 (m)</text>
+  <!-- cube and place -->
+  <rect x="190" y="280" width="60" height="50" fill="#c0392b" stroke="#f87171" stroke-width="1.5" opacity="0.85"/>
+  <rect x="310" y="280" width="60" height="50" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="340" y="374" fill="#94a3b8" font-size="11" text-anchor="middle">놓을 자리</text>
+  <!-- path -->
+  <line x1="212" y1="110" x2="212" y2="296" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#aa)"/>
+  <line x1="228" y1="300" x2="228" y2="114" stroke="#34d399" stroke-width="2.5" marker-end="url(#ag)"/>
+  <line x1="232" y1="98" x2="328" y2="98" stroke="#34d399" stroke-width="2.5" marker-end="url(#ag)"/>
+  <line x1="332" y1="110" x2="332" y2="296" stroke="#34d399" stroke-width="2.5" marker-end="url(#ag)"/>
+  <line x1="348" y1="300" x2="348" y2="114" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#aa)"/>
+  <circle cx="220" cy="105" r="6" fill="#e2e8f0"/>
+  <circle cx="220" cy="305" r="6" fill="#e2e8f0"/>
+  <circle cx="340" cy="105" r="6" fill="#e2e8f0"/>
+  <circle cx="340" cy="305" r="6" fill="#e2e8f0"/>
+  <text x="208" y="94" fill="#e2e8f0" font-size="12" text-anchor="end">1 pre-grasp · 3 lift</text>
+  <text x="182" y="300" fill="#e2e8f0" font-size="12" text-anchor="end">2 grasp</text>
+  <text x="356" y="94" fill="#e2e8f0" font-size="12">4 pre-place · 6 retreat</text>
+  <text x="376" y="300" fill="#e2e8f0" font-size="12">5 place</text>
+  <text x="240" y="40" fill="#f59e0b" font-size="12" text-anchor="middle">주황: gripper 열림</text>
+  <text x="240" y="58" fill="#34d399" font-size="12" text-anchor="middle">초록: cube 를 쥔 채 이동</text>
+  <!-- table -->
+  <line x1="440" y1="30" x2="440" y2="360" stroke="#1e293b"/>
+  <text x="460" y="52" fill="#e2e8f0" font-size="14">손끝 위치 (x, y, 높이)</text>
+  <text x="460" y="84" fill="#94a3b8" font-size="13">1 pre-grasp (0.20, 0, 0.225) 열림</text>
+  <text x="460" y="110" fill="#94a3b8" font-size="13">2 grasp (0.20, 0, 0.025) 닫음</text>
+  <text x="460" y="136" fill="#94a3b8" font-size="13">3 lift (0.20, 0, 0.225) 닫힘</text>
+  <text x="460" y="162" fill="#94a3b8" font-size="13">4 pre-place (0.30, 0, 0.225) 닫힘</text>
+  <text x="460" y="188" fill="#94a3b8" font-size="13">5 place (0.30, 0, 0.025) 엶</text>
+  <text x="460" y="214" fill="#94a3b8" font-size="13">6 retreat (0.30, 0, 0.225) 열림</text>
+  <text x="460" y="256" fill="#e2e8f0" font-size="13">grasp 위로 0.2 m 에서</text>
+  <text x="460" y="278" fill="#e2e8f0" font-size="13">수직으로 내려가 쥔다</text>
+  <text x="460" y="312" fill="#64748b" font-size="12">0.2 m, 놓을 자리, 닫는 시점은</text>
+  <text x="460" y="330" fill="#64748b" font-size="12">모두 사람이 정한 규칙이다</text>
+</svg>

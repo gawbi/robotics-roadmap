@@ -228,145 +228,6 @@ code {
   gap: 4px;
 }
 
-.menu {
-  position: relative;
-}
-
-.menu-popover {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 8px);
-  width: 280px;
-  padding: 10px;
-  display: grid;
-  gap: 4px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-}
-
-.menu-popover button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 12px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  text-align: left;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.menu-popover button:hover {
-  background: var(--surface-raised);
-}
-
-.menu-popover button.is-danger {
-  color: var(--danger);
-}
-
-.menu-note,
-.menu-status {
-  margin: 0 4px 6px;
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.menu-status {
-  margin: 6px 4px 0;
-  color: var(--accent);
-}
-
-/* ---------- shared progress (?from=) ---------- */
-
-.shared-chip {
-  gap: 6px;
-  max-width: 280px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.shared-chip svg {
-  flex: none;
-  width: 16px;
-  height: 16px;
-  color: var(--text-muted);
-}
-
-.shared-name {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.shared-repo {
-  color: var(--text-muted);
-}
-
-.shared-loading {
-  flex: none;
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--border-strong);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 800ms linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.shared-alert {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: calc(100vw - 32px);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 14px;
-  padding: 10px 16px;
-  background: var(--surface-solid);
-  border: 1px solid var(--danger);
-  border-radius: var(--radius);
-  font-size: 14px;
-  color: var(--text);
-}
-
-.shared-alert a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-}
-
-.wheel-hint {
-  position: absolute;
-  z-index: 30;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: calc(100% - 32px);
-  margin: 0;
-  padding: 12px 18px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-  font-size: 14px;
-  text-align: center;
-  pointer-events: none;
-}
-
 /* ---------- sidebar ---------- */
 
 .sidebar {
@@ -580,47 +441,8 @@ code {
   user-select: none;
 }
 
-/* inside an iframe one-finger drags scroll the host page; two-finger gestures still reach d3 */
-.holygraph[data-embed] {
-  touch-action: pan-x pan-y;
-}
-
 .holygraph:active {
   cursor: grabbing;
-}
-
-.hg-wedge {
-  opacity: 0.035;
-  transition: opacity 200ms var(--ease);
-}
-
-.hg-wedge.is-hot {
-  opacity: 0.1;
-}
-
-.hg-sector-edge {
-  stroke: #17213a;
-  stroke-width: 1;
-}
-
-.hg-ring {
-  fill: none;
-  stroke: #131c30;
-  stroke-width: 1;
-  stroke-dasharray: 2 6;
-}
-
-.hg-hub {
-  fill: rgba(203, 213, 225, 0.03);
-  stroke: #24304a;
-  stroke-width: 1;
-}
-
-.hg-sector-label {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
 }
 
 .hg-edge {
@@ -643,6 +465,12 @@ code {
 
 .hg-edge.is-lit {
   stroke-opacity: 1;
+  stroke-width: 2.6;
+  stroke-dasharray: none;
+}
+
+.hg-edge.is-trunk {
+  stroke-opacity: 0.9;
   stroke-width: 2.6;
   stroke-dasharray: none;
 }
@@ -763,7 +591,7 @@ code {
   opacity: 0;
 }
 
-/* ---------- project panel ---------- */
+/* ---------- lesson panel ---------- */
 
 .panel {
   position: absolute;
@@ -878,48 +706,6 @@ code {
   color: var(--text-muted);
 }
 
-.status-switch {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0 0 16px;
-  padding: 4px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--bg);
-}
-
-.status-switch label {
-  display: grid;
-  place-items: center;
-  min-height: 44px;
-  border-radius: 9px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: background 150ms var(--ease), color 150ms var(--ease);
-}
-
-.status-switch label:hover {
-  color: var(--text);
-}
-
-.status-switch label.is-on {
-  background: var(--branch);
-  color: #0a0f1a;
-}
-
-.status-switch label:has(input:focus-visible) {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
-
-.status-switch input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .record {
   margin: 0 0 16px;
   padding: 12px 14px;
@@ -976,6 +762,11 @@ code {
   align-items: center;
   gap: 4px;
   min-height: 32px;
+}
+
+.record-jump {
+  margin-top: 8px;
+  gap: 6px;
 }
 
 .soft-note {
@@ -1387,9 +1178,15 @@ code {
 }
 
 .quiz-card-text {
-  margin: 0;
+  margin: 0 0 10px;
   font-size: 14px;
   color: var(--text-muted);
+}
+
+/* the quiz closes the lecture; scrollIntoView stops here with a little air above */
+.panel-quiz {
+  margin-top: 32px;
+  scroll-margin-top: 16px;
 }
 
 .quiz-card-last {
@@ -1676,10 +1473,6 @@ code {
 
   .topbar-actions .text-button {
     padding: 0 10px;
-  }
-
-  .shared-repo {
-    display: none;
   }
 
   .sidebar {

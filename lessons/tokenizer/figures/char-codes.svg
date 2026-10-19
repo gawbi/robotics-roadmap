@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>문자 코드: 글자마다 정해 둔 번호. &quot;cat&quot; 은 99, 97, 116 세 숫자로 저장된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="36" fill="#94a3b8" font-size="14" text-anchor="start">글자 → 번호 (문자 코드)</text>
+  <rect x="60" y="52" width="60" height="44" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="90.0" y="79.0" fill="#e2e8f0" font-size="20" text-anchor="middle">c</text>
+  <line x1="90" y1="100" x2="90" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="60" y="138" width="60" height="44" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="90.0" y="165.0" fill="#38bdf8" font-size="18" text-anchor="middle">99</text>
+  <rect x="150" y="52" width="60" height="44" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="180.0" y="79.0" fill="#e2e8f0" font-size="20" text-anchor="middle">a</text>
+  <line x1="180" y1="100" x2="180" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="150" y="138" width="60" height="44" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="180.0" y="165.0" fill="#38bdf8" font-size="18" text-anchor="middle">97</text>
+  <rect x="240" y="52" width="60" height="44" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270.0" y="79.0" fill="#e2e8f0" font-size="20" text-anchor="middle">t</text>
+  <line x1="270" y1="100" x2="270" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="240" y="138" width="60" height="44" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="270.0" y="165.0" fill="#38bdf8" font-size="18" text-anchor="middle">116</text>
+  <text x="150" y="212" fill="#e2e8f0" font-size="13" text-anchor="middle">&quot;cat&quot; 은 숫자 셋 99 · 97 · 116 으로 저장된다</text>
+  <text x="370" y="36" fill="#94a3b8" font-size="14" text-anchor="start">문자 코드 표의 일부</text>
+  <rect x="370" y="48" width="200" height="186" rx="8" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="390" y="72" fill="#e2e8f0" font-size="15" text-anchor="start">A</text>
+  <text x="550" y="72" fill="#38bdf8" font-size="15" text-anchor="end">65</text>
+  <line x1="380" y1="82" x2="560" y2="82" stroke="#1e293b" stroke-width="1"/>
+  <text x="390" y="102" fill="#e2e8f0" font-size="15" text-anchor="start">a</text>
+  <text x="550" y="102" fill="#38bdf8" font-size="15" text-anchor="end">97</text>
+  <line x1="380" y1="112" x2="560" y2="112" stroke="#1e293b" stroke-width="1"/>
+  <text x="390" y="132" fill="#e2e8f0" font-size="15" text-anchor="start">c</text>
+  <text x="550" y="132" fill="#38bdf8" font-size="15" text-anchor="end">99</text>
+  <line x1="380" y1="142" x2="560" y2="142" stroke="#1e293b" stroke-width="1"/>
+  <text x="390" y="162" fill="#e2e8f0" font-size="15" text-anchor="start">h</text>
+  <text x="550" y="162" fill="#38bdf8" font-size="15" text-anchor="end">104</text>
+  <line x1="380" y1="172" x2="560" y2="172" stroke="#1e293b" stroke-width="1"/>
+  <text x="390" y="192" fill="#e2e8f0" font-size="15" text-anchor="start">t</text>
+  <text x="550" y="192" fill="#38bdf8" font-size="15" text-anchor="end">116</text>
+  <line x1="380" y1="202" x2="560" y2="202" stroke="#1e293b" stroke-width="1"/>
+  <text x="390" y="222" fill="#e2e8f0" font-size="15" text-anchor="start">␣ (공백)</text>
+  <text x="550" y="222" fill="#38bdf8" font-size="15" text-anchor="end">32</text>
+</svg>

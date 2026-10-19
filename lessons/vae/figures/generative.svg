@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>위는 그림을 받아 정답 숫자 하나를 고르는 모델, 아래는 무작위 숫자 두 개를 받아 학습한 그림을 닮은 새 손글씨 그림을 만드는 생성 모델이다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="34.0" fill="#38bdf8" font-size="15" text-anchor="start">정답을 고르는 모델</text>
+  <rect x="60.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="56.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="66.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="76.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="86.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="96.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="106.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="70.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="80.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="90.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="100.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="110.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="120.0" y="116.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="60.0" y="56.0" width="70.0" height="70.0" rx="0" fill="none" stroke="#64748b" stroke-width="1.2"/>
+  <text x="95.0" y="142.0" fill="#94a3b8" font-size="12" text-anchor="middle">그림 (784 개 숫자)</text>
+  <line x1="140.0" y1="91.0" x2="238.0" y2="91.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="242.0" y="66.0" width="140.0" height="50.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="312.0" y="88.0" fill="#e2e8f0" font-size="14" text-anchor="middle">MLP</text>
+  <text x="312.0" y="105.0" fill="#94a3b8" font-size="12" text-anchor="middle">앞 강의의 분류 모델</text>
+  <line x1="382.0" y1="91.0" x2="478.0" y2="91.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="512.0" cy="91.0" r="28" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="512.0" y="99.0" fill="#e2e8f0" font-size="22" text-anchor="middle">7</text>
+  <text x="512.0" y="142.0" fill="#94a3b8" font-size="12" text-anchor="middle">정답 하나</text>
+  <line x1="24.0" y1="162.0" x2="616.0" y2="162.0" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="24.0" y="192.0" fill="#e879f9" font-size="15" text-anchor="start">생성 모델</text>
+  <rect x="36.0" y="214.0" width="118.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="95.0" y="236.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = (0.4, −1.4)</text>
+  <text x="95.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">무작위로 고른 숫자</text>
+  <line x1="154.0" y1="239.0" x2="238.0" y2="239.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="242.0" y="214.0" width="140.0" height="50.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="312.0" y="236.0" fill="#e2e8f0" font-size="14" text-anchor="middle">decoder</text>
+  <text x="312.0" y="253.0" fill="#94a3b8" font-size="12" text-anchor="middle">이 강의에서 배울 모델</text>
+  <line x1="382.0" y1="239.0" x2="470.0" y2="239.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="476.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="204.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#999999" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#999999" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="214.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#999999" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="224.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#999999" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="234.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="244.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#999999" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#ffffff" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="254.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="486.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="496.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="506.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="516.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="526.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="536.0" y="264.0" width="10.0" height="10.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
+  <rect x="476.0" y="204.0" width="70.0" height="70.0" rx="0" fill="none" stroke="#64748b" stroke-width="1.2"/>
+  <text x="511.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">새 손글씨 그림</text>
+  <text x="560.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="start">z 를 바꾸면</text>
+  <text x="560.0" y="254.0" fill="#94a3b8" font-size="12" text-anchor="start">다른 그림</text>
+</svg>

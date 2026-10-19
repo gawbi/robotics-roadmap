@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>reverse 한 step 의 계산. x₅ = 0.60 에서 network 가 낸 ε_θ = 0.23 에 0.54 를 곱한 0.12 를 빼면 0.48, 1.41 을 곱하면 0.68, 새 noise 0.71 × 0.3 = 0.21 을 더하면 x₄ = 0.89 다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16.0" y="40.0" width="84.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="58.0" y="73.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₅ = 0.60</text>
+  <line x1="102.0" y1="68.0" x2="124.0" y2="68.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="128.0" y="32.0" width="116.0" height="72.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="186.0" y="55.0" fill="#34d399" font-size="13" text-anchor="middle">network</text>
+  <text x="186.0" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">ε_θ(0.60, 5)</text>
+  <text x="186.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.23</text>
+  <line x1="246.0" y1="68.0" x2="268.0" y2="68.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="272.0" y="32.0" width="116.0" height="72.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="330.0" y="55.0" fill="#f59e0b" font-size="13" text-anchor="middle">이번 step 몫</text>
+  <text x="330.0" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.54 × 0.23</text>
+  <text x="330.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.12</text>
+  <line x1="390.0" y1="68.0" x2="412.0" y2="68.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="416.0" y="32.0" width="116.0" height="72.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="474.0" y="55.0" fill="#e2e8f0" font-size="13" text-anchor="middle">빼기</text>
+  <text x="474.0" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.60 − 0.12</text>
+  <text x="474.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.48</text>
+  <line x1="534.0" y1="68.0" x2="556.0" y2="68.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="560.0" y="32.0" width="144.0" height="72.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="632.0" y="55.0" fill="#e2e8f0" font-size="13" text-anchor="middle">줄인 만큼 되돌리기</text>
+  <text x="632.0" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">× 1.41</text>
+  <text x="632.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">= 0.68</text>
+  <line x1="632.0" y1="106.0" x2="632.0" y2="140.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="470.0" y="144.0" width="232.0" height="72.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="586.0" y="167.0" fill="#a78bfa" font-size="13" text-anchor="middle">새 noise 더하기</text>
+  <text x="586.0" y="185.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.68 + 0.71 × 0.3 = 0.68 + 0.21</text>
+  <text x="586.0" y="203.0" fill="#e2e8f0" font-size="14" text-anchor="middle">= 0.89 = x₄</text>
+  <text x="24.0" y="160.0" fill="#94a3b8" font-size="12" text-anchor="start">0.54 = β₅ ÷ √(1 − <tspan text-decoration="overline">α</tspan>₅) = 0.5 ÷ 0.92</text>
+  <text x="24.0" y="182.0" fill="#94a3b8" font-size="12" text-anchor="start">1.41 = 1 ÷ √α₅ = 1 ÷ √0.5</text>
+  <text x="24.0" y="204.0" fill="#94a3b8" font-size="12" text-anchor="start">0.71 = σ₅ = √β₅ = √0.5,  z = 0.3 은 N(0, 1) 에서 새로 뽑음</text>
+  <text x="360.0" y="254.0" fill="#94a3b8" font-size="12" text-anchor="middle">마지막 step(t = 1)에서는 새 noise 를 더하지 않는다</text>
+</svg>

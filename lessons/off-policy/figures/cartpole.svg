@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>CartPole 의 state 는 연속된 숫자 네 개다: 수레 위치 0.02 m, 수레 속도 0.10 m/s, 막대 각도 1.5°, 막대 각속도 −2.0°/s. action 은 수레를 왼쪽이나 오른쪽으로 미는 것 두 가지다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="30.0" y1="220.0" x2="350.0" y2="220.0" stroke="#475569" stroke-width="2"/>
+  <line x1="40.0" y1="220.0" x2="32.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="220.0" x2="52.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80.0" y1="220.0" x2="72.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="100.0" y1="220.0" x2="92.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="120.0" y1="220.0" x2="112.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="140.0" y1="220.0" x2="132.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="160.0" y1="220.0" x2="152.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="180.0" y1="220.0" x2="172.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="200.0" y1="220.0" x2="192.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="220.0" y1="220.0" x2="212.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="240.0" y1="220.0" x2="232.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="260.0" y1="220.0" x2="252.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="280.0" y1="220.0" x2="272.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="300.0" y1="220.0" x2="292.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="320.0" y1="220.0" x2="312.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="340.0" y1="220.0" x2="332.0" y2="228.0" stroke="#1e293b" stroke-width="1"/>
+  <rect x="140.0" y="184.0" width="100.0" height="30.0" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="160.0" cy="216.0" r="6" fill="#64748b" stroke="none" stroke-width="2"/>
+  <circle cx="220.0" cy="216.0" r="6" fill="#64748b" stroke="none" stroke-width="2"/>
+  <line x1="190.0" y1="184.0" x2="190.0" y2="44.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="190.0" y1="184.0" x2="214.3" y2="46.1" stroke="#f59e0b" stroke-width="7"/>
+  <circle cx="190.0" cy="184.0" r="5" fill="#e2e8f0" stroke="none" stroke-width="2"/>
+  <path d="M190.0,124.0 A60,60 0 0,1 200.4,124.9" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="208.0" y="118.0" fill="#f59e0b" font-size="12" text-anchor="start">각도</text>
+  <line x1="130.0" y1="199.0" x2="80.0" y2="199.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#ar-red)"/>
+  <text x="78.0" y="190.0" fill="#f87171" font-size="12" text-anchor="end">왼쪽으로 밀기</text>
+  <line x1="250.0" y1="199.0" x2="300.0" y2="199.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#ar-green)"/>
+  <text x="302.0" y="190.0" fill="#34d399" font-size="12" text-anchor="start">오른쪽으로 밀기</text>
+  <text x="190.0" y="260.0" fill="#94a3b8" font-size="12" text-anchor="middle">막대가 12° 넘게 기울거나 수레가 2.4 m 넘게 벗어나면 끝</text>
+  <rect x="390.0" y="50.0" width="225.0" height="190.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="502.0" y="76.0" fill="#38bdf8" font-size="14" text-anchor="middle">state = 숫자 네 개</text>
+  <text x="408.0" y="112.0" fill="#94a3b8" font-size="13" text-anchor="start">수레 위치</text>
+  <text x="595.0" y="112.0" fill="#e2e8f0" font-size="13" text-anchor="end">0.02 m</text>
+  <text x="408.0" y="144.0" fill="#94a3b8" font-size="13" text-anchor="start">수레 속도</text>
+  <text x="595.0" y="144.0" fill="#e2e8f0" font-size="13" text-anchor="end">0.10 m/s</text>
+  <text x="408.0" y="176.0" fill="#94a3b8" font-size="13" text-anchor="start">막대 각도</text>
+  <text x="595.0" y="176.0" fill="#e2e8f0" font-size="13" text-anchor="end">1.5°</text>
+  <text x="408.0" y="208.0" fill="#94a3b8" font-size="13" text-anchor="start">막대 각속도</text>
+  <text x="595.0" y="208.0" fill="#e2e8f0" font-size="13" text-anchor="end">−2.0°/s</text>
+  <text x="502.0" y="265.0" fill="#e2e8f0" font-size="13" text-anchor="middle">action: 왼쪽 또는 오른쪽</text>
+  <text x="502.0" y="287.0" fill="#94a3b8" font-size="12" text-anchor="middle">막대가 서 있는 step 마다 reward 1</text>
+</svg>

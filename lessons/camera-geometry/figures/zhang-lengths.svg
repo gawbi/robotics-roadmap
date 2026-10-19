@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 428" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>기울여 찍은 판의 homography 에서 f 를 400, 500, 600 으로 추측해 되돌린 두 축. f = 500 일 때만 두 축의 길이가 같고, 정면으로 찍은 판에서는 f 를 무엇으로 추측해도 길이가 같아 단서가 되지 않는다</title>
+  <rect x="1" y="1" width="678" height="426" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="34" fill="#e2e8f0" font-size="15">기울여 찍은 판: H = [[208, 0, 320], [−144, 500, 240], [−0.6, 0, 1]]</text>
+  <rect x="430" y="48" width="12" height="12" rx="2" fill="#38bdf8"/><text x="448" y="59" fill="#94a3b8" font-size="13">되돌린 h₁ 의 길이</text>
+  <rect x="560" y="48" width="12" height="12" rx="2" fill="#f59e0b"/><text x="578" y="59" fill="#94a3b8" font-size="13">되돌린 h₂</text>
+  <text x="28" y="109" fill="#e2e8f0" font-size="15">f = 400</text>
+  <rect x="110" y="82" width="233.2" height="18" rx="3" fill="#38bdf8"/>
+  <text x="351.2" y="96" fill="#e2e8f0" font-size="13">1.166  (1.0, 0, −0.6)</text>
+  <rect x="110" y="106" width="250.0" height="18" rx="3" fill="#f59e0b"/>
+  <text x="368.0" y="120" fill="#e2e8f0" font-size="13">1.25  (0, 1.25, 0)</text>
+  <text x="650" y="109" fill="#f87171" font-size="15" text-anchor="end">길이가 다르다</text>
+  <rect x="14" y="148" width="652" height="64" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <text x="28" y="185" fill="#e2e8f0" font-size="15">f = 500</text>
+  <rect x="110" y="158" width="200.0" height="18" rx="3" fill="#38bdf8"/>
+  <text x="318.0" y="172" fill="#e2e8f0" font-size="13">1  (0.8, 0, −0.6)</text>
+  <rect x="110" y="182" width="200.0" height="18" rx="3" fill="#f59e0b"/>
+  <text x="318.0" y="196" fill="#e2e8f0" font-size="13">1  (0, 1, 0)</text>
+  <text x="650" y="185" fill="#34d399" font-size="15" text-anchor="end">길이가 같다</text>
+  <text x="28" y="261" fill="#e2e8f0" font-size="15">f = 600</text>
+  <rect x="110" y="234" width="179.4" height="18" rx="3" fill="#38bdf8"/>
+  <text x="297.4" y="248" fill="#e2e8f0" font-size="13">0.897  (0.667, 0, −0.6)</text>
+  <rect x="110" y="258" width="166.6" height="18" rx="3" fill="#f59e0b"/>
+  <text x="284.6" y="272" fill="#e2e8f0" font-size="13">0.833  (0, 0.833, 0)</text>
+  <text x="650" y="261" fill="#f87171" font-size="15" text-anchor="end">길이가 다르다</text>
+  <line x1="310" y1="70" x2="310" y2="296" stroke="#64748b" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="310" y="308" fill="#64748b" font-size="12" text-anchor="middle">길이 1</text>
+  <text x="110" y="308" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <rect x="14" y="324" width="652" height="90" rx="10" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="28" y="348" fill="#e2e8f0" font-size="14">정면으로 찍은 판: h₁ = (500, 0, 0), h₂ = (0, 500, 0)</text>
+  <text x="28" y="372" fill="#94a3b8" font-size="13">f = 400 → 1.25 와 1.25,  f = 500 → 1 과 1,  f = 600 → 0.833 과 0.833</text>
+  <text x="28" y="394" fill="#f87171" font-size="13">어떤 f 를 추측해도 두 길이가 같아서 f 의 단서가 되지 않는다</text>
+</svg>

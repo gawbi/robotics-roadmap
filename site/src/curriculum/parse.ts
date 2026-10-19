@@ -1,8 +1,7 @@
 import { parse as parseYaml } from 'yaml'
-import type { Branch, BranchLayout, Curriculum, Paper, Project } from './types'
+import type { Branch, Curriculum, Paper, Lesson } from './types'
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/
-const LAYOUTS: BranchLayout[] = ['hub', 'sector', 'float']
 
 export class CurriculumError extends Error {}
 
@@ -21,14 +20,13 @@ export function parseBranches(source: string): Branch[] {
   return data.map((raw, i) => {
     const where = `branches.yaml[${i}]`
     const b = raw as Record<string, unknown>
-    const layout = str(b.layout, where, 'layout') as BranchLayout
-    if (!LAYOUTS.includes(layout)) fail(where, `layout must be one of ${LAYOUTS.join(', ')}`)
+    if (b.core !== undefined && typeof b.core !== 'boolean') fail(where, '"core" must be true or false')
     return {
       id: str(b.id, where, 'id'),
       title: str(b.title, where, 'title'),
       summary: str(b.summary, where, 'summary'),
       color: str(b.color, where, 'color'),
-      layout,
+      core: b.core === true,
     }
   })
 }
@@ -49,9 +47,9 @@ function parsePapers(value: unknown, where: string): Paper[] {
   })
 }
 
-/** Parse one `projects/<id>/README.md`. `dir` is the folder name, which must equal the id. */
-export function parseProject(dir: string, source: string): Project {
-  const path = `projects/${dir}/README.md`
+/** Parse one `lessons/<id>/README.md`. `dir` is the folder name, which must equal the id. */
+export function parseLesson(dir: string, source: string): Lesson {
+  const path = `lessons/${dir}/README.md`
   const match = FRONTMATTER.exec(source)
   if (!match) fail(path, 'missing YAML frontmatter')
   const fm = (parseYaml(match[1]) ?? {}) as Record<string, unknown>
@@ -60,7 +58,7 @@ export function parseProject(dir: string, source: string): Project {
   if (id !== dir) fail(path, `id "${id}" must match folder name "${dir}"`)
   const requires = fm.requires ?? []
   if (!Array.isArray(requires) || requires.some((r) => typeof r !== 'string')) {
-    fail(path, '"requires" must be a list of project ids')
+    fail(path, '"requires" must be a list of lesson ids')
   }
   if (typeof fm.hours !== 'number' || fm.hours <= 0) fail(path, '"hours" must be a positive number')
 
@@ -77,23 +75,23 @@ export function parseProject(dir: string, source: string): Project {
   }
 }
 
-/** Link projects into a graph and check references, branches and cycles. */
-export function buildCurriculum(branches: Branch[], projects: Project[]): Curriculum {
+/** Link lessons into a graph and check references, branches and cycles. */
+export function buildCurriculum(branches: Branch[], lessons: Lesson[]): Curriculum {
   const branchIds = new Set(branches.map((b) => b.id))
   if (branchIds.size !== branches.length) fail('branches.yaml', 'duplicate branch id')
-  if (branches.filter((b) => b.layout === 'hub').length !== 1) fail('branches.yaml', 'exactly one hub branch required')
+  if (branches.filter((b) => b.core).length !== 1) fail('branches.yaml', 'exactly one core branch required')
 
-  const byId = new Map<string, Project>()
-  for (const p of projects) {
+  const byId = new Map<string, Lesson>()
+  for (const p of lessons) {
     if (byId.has(p.id)) fail(p.path, `duplicate id "${p.id}"`)
     if (!branchIds.has(p.branch)) fail(p.path, `unknown branch "${p.branch}"`)
     byId.set(p.id, p)
   }
 
-  const unlocks = new Map<string, string[]>(projects.map((p) => [p.id, []]))
-  for (const p of projects) {
+  const unlocks = new Map<string, string[]>(lessons.map((p) => [p.id, []]))
+  for (const p of lessons) {
     for (const r of p.requires) {
-      if (!byId.has(r)) fail(p.path, `requires unknown project "${r}"`)
+      if (!byId.has(r)) fail(p.path, `requires unknown lesson "${r}"`)
       unlocks.get(r)!.push(p.id)
     }
   }
@@ -108,12 +106,12 @@ export function buildCurriculum(branches: Branch[], projects: Project[]): Curric
     for (const r of byId.get(id)!.requires) visit(r, [...trail, id])
     color.set(id, 2)
   }
-  for (const p of projects) visit(p.id, [])
+  for (const p of lessons) visit(p.id, [])
 
-  return { branches, projects, byId, unlocks }
+  return { branches, lessons, byId, unlocks }
 }
 
-/** All transitive prerequisites of a project. */
+/** All transitive prerequisites of a lesson. */
 export function ancestors(c: Curriculum, id: string): Set<string> {
   const out = new Set<string>()
   const stack = [...c.byId.get(id)!.requires]

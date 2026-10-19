@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>5×5 입력의 왼쪽 위 3×3 window 와 3×3 filter 를 칸끼리 곱하면 9 개의 곱이 나오고, 모두 더한 −1 이 출력의 왼쪽 위 칸이 된다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="758" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="110" y="44" fill="#e2e8f0" font-size="14" text-anchor="middle">입력 5×5</text>
+  <rect x="30" y="60" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="46.0" y="80.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="62" y="60" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="78.0" y="80.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="94" y="60" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="110.0" y="80.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="126" y="60" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="142.0" y="80.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="158" y="60" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="174.0" y="80.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="30" y="92" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="46.0" y="112.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="62" y="92" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="78.0" y="112.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="94" y="92" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="110.0" y="112.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="126" y="92" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="142.0" y="112.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="158" y="92" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="174.0" y="112.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="30" y="124" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="46.0" y="144.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="62" y="124" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="78.0" y="144.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="94" y="124" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="110.0" y="144.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="126" y="124" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="142.0" y="144.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="158" y="124" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="174.0" y="144.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="30" y="156" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="46.0" y="176.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="62" y="156" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="78.0" y="176.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="94" y="156" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="110.0" y="176.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="126" y="156" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="142.0" y="176.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="158" y="156" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="174.0" y="176.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="30" y="188" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="46.0" y="208.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="62" y="188" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="78.0" y="208.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="94" y="188" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="110.0" y="208.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="126" y="188" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="142.0" y="208.9" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="158" y="188" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="174.0" y="208.9" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="30" y="60" width="96" height="96" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="214" y="145" fill="#e2e8f0" font-size="24" text-anchor="middle">×</text>
+  <text x="290" y="44" fill="#f59e0b" font-size="14" text-anchor="middle">filter 3×3</text>
+  <rect x="242" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="258.0" y="96.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <rect x="274" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="290.0" y="96.9" fill="#f59e0b" font-size="14" text-anchor="middle">2</text>
+  <rect x="306" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="322.0" y="96.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <rect x="242" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="258.0" y="128.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <rect x="274" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="290.0" y="128.9" fill="#f59e0b" font-size="14" text-anchor="middle">2</text>
+  <rect x="306" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="322.0" y="128.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <rect x="242" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="258.0" y="160.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <rect x="274" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="290.0" y="160.9" fill="#f59e0b" font-size="14" text-anchor="middle">2</text>
+  <rect x="306" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="322.0" y="160.9" fill="#f59e0b" font-size="14" text-anchor="middle">−1</text>
+  <text x="368" y="145" fill="#e2e8f0" font-size="24" text-anchor="middle">=</text>
+  <text x="450" y="44" fill="#e2e8f0" font-size="14" text-anchor="middle">칸끼리 곱한 값</text>
+  <rect x="402" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="418.0" y="96.9" fill="#38bdf8" font-size="14" text-anchor="middle">0</text>
+  <rect x="434" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="450.0" y="96.9" fill="#38bdf8" font-size="14" text-anchor="middle">0</text>
+  <rect x="466" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="482.0" y="96.9" fill="#38bdf8" font-size="14" text-anchor="middle">−1</text>
+  <rect x="402" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="418.0" y="128.9" fill="#38bdf8" font-size="14" text-anchor="middle">0</text>
+  <rect x="434" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="450.0" y="128.9" fill="#38bdf8" font-size="14" text-anchor="middle">2</text>
+  <rect x="466" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="482.0" y="128.9" fill="#38bdf8" font-size="14" text-anchor="middle">−1</text>
+  <rect x="402" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="418.0" y="160.9" fill="#38bdf8" font-size="14" text-anchor="middle">0</text>
+  <rect x="434" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="450.0" y="160.9" fill="#38bdf8" font-size="14" text-anchor="middle">0</text>
+  <rect x="466" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="482.0" y="160.9" fill="#38bdf8" font-size="14" text-anchor="middle">−1</text>
+  <line x1="510" y1="124" x2="570" y2="124" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="540" y="112" fill="#94a3b8" font-size="12" text-anchor="middle">모두 더함</text>
+  <text x="650" y="44" fill="#e2e8f0" font-size="14" text-anchor="middle">출력 3×3</text>
+  <rect x="600" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="616.0" y="96.9" fill="#34d399" font-size="14" text-anchor="middle">−1</text>
+  <rect x="632" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="664" y="76" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="600" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="632" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="664" y="108" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="600" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="632" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="664" y="140" width="32" height="32" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <rect x="600" y="76" width="32" height="32" fill="#34d399" fill-opacity="0.18" stroke="#34d399" stroke-width="2.5"/>
+  <text x="380" y="262" fill="#e2e8f0" font-size="14" text-anchor="middle">0×(−1) + 0×2 + 1×(−1) + 0×(−1) + 1×2 + 1×(−1) + 0×(−1) + 0×2 + 1×(−1)</text>
+  <text x="380" y="290" fill="#34d399" font-size="14" text-anchor="middle">= 0 + 0 − 1 + 0 + 2 − 1 + 0 + 0 − 1 = −1</text>
+</svg>

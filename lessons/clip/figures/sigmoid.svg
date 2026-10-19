@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>sigmoid 함수 σ(x) = 1 / (1 + e^(−x)). x = −3 에서 0.047, 0 에서 0.5, 3 에서 0.953 이고, 어떤 x 를 넣어도 0 과 1 사이 값이 나온다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40" y="30" width="340" height="220" rx="0" fill="#0e1628"/>
+  <line x1="60" y1="230" x2="380" y2="230" stroke="#475569" stroke-width="1.5"/>
+  <line x1="220" y1="40" x2="220" y2="240" stroke="#475569" stroke-width="1.5"/>
+  <text x="60" y="246" fill="#64748b" font-size="11" text-anchor="middle">−4</text>
+  <text x="140" y="246" fill="#64748b" font-size="11" text-anchor="middle">−2</text>
+  <text x="300" y="246" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <text x="380" y="246" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <text x="214" y="54" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <text x="214" y="144.0" fill="#64748b" font-size="11" text-anchor="end">0.5</text>
+  <line x1="60" y1="50" x2="380" y2="50" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
+  <polyline points="60.0,226.8 64.0,226.4 68.0,226.1 72.0,225.7 76.0,225.2 80.0,224.7 84.0,224.2 88.0,223.6 92.0,223.0 96.0,222.2 100.0,221.5 104.0,220.6 108.0,219.7 112.0,218.7 116.0,217.6 120.0,216.3 124.0,215.0 128.0,213.6 132.0,212.0 136.0,210.4 140.0,208.5 144.0,206.6 148.0,204.5 152.0,202.2 156.0,199.8 160.0,197.2 164.0,194.4 168.0,191.5 172.0,188.3 176.0,185.0 180.0,181.6 184.0,178.0 188.0,174.2 192.0,170.3 196.0,166.2 200.0,162.0 204.0,157.8 208.0,153.4 212.0,149.0 216.0,144.5 220.0,140.0 224.0,135.5 228.0,131.0 232.0,126.6 236.0,122.2 240.0,118.0 244.0,113.8 248.0,109.7 252.0,105.8 256.0,102.0 260.0,98.4 264.0,95.0 268.0,91.7 272.0,88.5 276.0,85.6 280.0,82.8 284.0,80.2 288.0,77.8 292.0,75.5 296.0,73.4 300.0,71.5 304.0,69.6 308.0,68.0 312.0,66.4 316.0,65.0 320.0,63.7 324.0,62.4 328.0,61.3 332.0,60.3 336.0,59.4 340.0,58.5 344.0,57.8 348.0,57.0 352.0,56.4 356.0,55.8 360.0,55.3 364.0,54.8 368.0,54.3 372.0,53.9 376.0,53.6 380.0,53.2" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="100" cy="221.5" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="112" y="211.5" fill="#f59e0b" font-size="12" text-anchor="start">0.047</text>
+  <circle cx="220" cy="140.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="232" y="130.0" fill="#f59e0b" font-size="12" text-anchor="start">0.5</text>
+  <circle cx="340" cy="58.5" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="330" y="48.5" fill="#f59e0b" font-size="12" text-anchor="end">0.953</text>
+  <text x="376" y="222" fill="#94a3b8" font-size="13" text-anchor="end">x</text>
+  <text x="410" y="70" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
+  <text x="470" y="70" fill="#94a3b8" font-size="13" text-anchor="start">e^(−x)</text>
+  <text x="560" y="70" fill="#94a3b8" font-size="13" text-anchor="start">σ(x)</text>
+  <text x="410" y="100" fill="#e2e8f0" font-size="14" text-anchor="start">−3</text>
+  <text x="470" y="100" fill="#e2e8f0" font-size="14" text-anchor="start">20.086</text>
+  <text x="560" y="100" fill="#f59e0b" font-size="14" text-anchor="start">0.047</text>
+  <text x="410" y="134" fill="#e2e8f0" font-size="14" text-anchor="start">0</text>
+  <text x="470" y="134" fill="#e2e8f0" font-size="14" text-anchor="start">1</text>
+  <text x="560" y="134" fill="#f59e0b" font-size="14" text-anchor="start">0.5</text>
+  <text x="410" y="168" fill="#e2e8f0" font-size="14" text-anchor="start">3</text>
+  <text x="470" y="168" fill="#e2e8f0" font-size="14" text-anchor="start">0.050</text>
+  <text x="560" y="168" fill="#f59e0b" font-size="14" text-anchor="start">0.953</text>
+  <text x="410" y="214" fill="#94a3b8" font-size="12" text-anchor="start">1 ÷ (1 + e^(−x)) 로 계산한다</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>숫자 x₀ = 2 에 한 step 마다 0.8 을 곱하고 0.6 × ε 를 더한 두 번의 실행. 파란 실행은 1.9, 0.92, 0.86, 1.59, 0.97, 주황 실행은 1.3, 0.32, 0.50, −0.20, 0.02 를 지나고, 점선은 noise 없이 0.8 만 곱한 2, 1.6, 1.28, 1.02, 0.82, 0.66 이다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70.0" y="40.0" width="400.0" height="240.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="70.0" y1="271.7" x2="470.0" y2="271.7" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="275.7" fill="#94a3b8" font-size="12" text-anchor="end">−0.5</text>
+  <line x1="70.0" y1="230.3" x2="470.0" y2="230.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="234.3" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="70.0" y1="189.0" x2="470.0" y2="189.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="193.0" fill="#94a3b8" font-size="12" text-anchor="end">0.5</text>
+  <line x1="70.0" y1="147.6" x2="470.0" y2="147.6" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="151.6" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <line x1="70.0" y1="106.2" x2="470.0" y2="106.2" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="110.2" fill="#94a3b8" font-size="12" text-anchor="end">1.5</text>
+  <line x1="70.0" y1="64.8" x2="470.0" y2="64.8" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="68.8" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
+  <line x1="84.8" y1="280.0" x2="84.8" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="84.8" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <line x1="158.9" y1="280.0" x2="158.9" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="158.9" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <line x1="233.0" y1="280.0" x2="233.0" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="233.0" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <line x1="307.0" y1="280.0" x2="307.0" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="307.0" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <line x1="381.1" y1="280.0" x2="381.1" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="381.1" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <line x1="455.2" y1="280.0" x2="455.2" y2="285.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="455.2" y="299.0" fill="#94a3b8" font-size="12" text-anchor="middle">5</text>
+  <text x="270.0" y="328.0" fill="#94a3b8" font-size="13" text-anchor="middle">step t</text>
+  <polyline points="84.8,64.8 158.9,97.9 233.0,124.4 307.0,145.6 381.1,162.5 455.2,176.1" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <polyline points="84.8,64.8 158.9,73.1 233.0,154.2 307.0,159.2 381.1,98.8 455.2,150.1" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="84.8" cy="64.8" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <circle cx="158.9" cy="73.1" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="158.9" y="63.1" fill="#38bdf8" font-size="12" text-anchor="middle">1.90</text>
+  <circle cx="233.0" cy="154.2" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="233.0" y="144.2" fill="#38bdf8" font-size="12" text-anchor="middle">0.92</text>
+  <circle cx="307.0" cy="159.2" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="307.0" y="149.2" fill="#38bdf8" font-size="12" text-anchor="middle">0.86</text>
+  <circle cx="381.1" cy="98.8" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="381.1" y="88.8" fill="#38bdf8" font-size="12" text-anchor="middle">1.59</text>
+  <circle cx="455.2" cy="150.1" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="455.2" y="140.1" fill="#38bdf8" font-size="12" text-anchor="middle">0.97</text>
+  <polyline points="84.8,64.8 158.9,122.8 233.0,203.9 307.0,189.0 381.1,246.9 455.2,228.7" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="84.8" cy="64.8" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <circle cx="158.9" cy="122.8" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="158.9" y="142.8" fill="#f59e0b" font-size="12" text-anchor="middle">1.30</text>
+  <circle cx="233.0" cy="203.9" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="233.0" y="223.9" fill="#f59e0b" font-size="12" text-anchor="middle">0.32</text>
+  <circle cx="307.0" cy="189.0" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="307.0" y="209.0" fill="#f59e0b" font-size="12" text-anchor="middle">0.50</text>
+  <circle cx="381.1" cy="246.9" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="381.1" y="266.9" fill="#f59e0b" font-size="12" text-anchor="middle">−0.20</text>
+  <circle cx="455.2" cy="228.7" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="455.2" y="248.7" fill="#f59e0b" font-size="12" text-anchor="middle">0.02</text>
+  <text x="98.8" y="56.8" fill="#e2e8f0" font-size="12" text-anchor="start">x₀ = 2</text>
+  <line x1="490.0" y1="70.0" x2="516.0" y2="70.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="524.0" y="75.0" fill="#e2e8f0" font-size="13" text-anchor="start">실행 1</text>
+  <text x="524.0" y="93.0" fill="#94a3b8" font-size="11" text-anchor="start">ε: 0.5, −1, 0.2, 1.5, −0.5</text>
+  <line x1="490.0" y1="122.0" x2="516.0" y2="122.0" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="524.0" y="127.0" fill="#e2e8f0" font-size="13" text-anchor="start">실행 2</text>
+  <text x="524.0" y="145.0" fill="#94a3b8" font-size="11" text-anchor="start">ε: −0.5, −1.2, 0.4, −1, 0.3</text>
+  <line x1="490.0" y1="174.0" x2="516.0" y2="174.0" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="524.0" y="179.0" fill="#e2e8f0" font-size="13" text-anchor="start">noise 없이 × 0.8</text>
+  <text x="524.0" y="197.0" fill="#94a3b8" font-size="11" text-anchor="start">2, 1.6, 1.28, 1.02, …</text>
+  <text x="490.0" y="236.0" fill="#e2e8f0" font-size="12" text-anchor="start">한 step: 0.8 × x + 0.6 × ε</text>
+</svg>

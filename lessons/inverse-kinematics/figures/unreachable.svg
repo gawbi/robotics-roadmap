@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>닿지 않는 목표 (3, 0). pseudo-inverse 의 손끝(빨강)은 여기저기 튀고, DLS 의 손끝(초록)은 팔을 쭉 편 (2, 0) 에 다가가 남은 거리 1 에서 멈춘다</title>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="30.0" width="420.0" height="330.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="47.1" y1="360.0" x2="47.1" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="118.8" y1="360.0" x2="118.8" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="190.5" y1="360.0" x2="190.5" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="262.3" y1="360.0" x2="262.3" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="334.0" y1="360.0" x2="334.0" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="405.8" y1="360.0" x2="405.8" y2="30.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="25.5" y1="338.5" x2="434.5" y2="338.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="25.5" y1="266.7" x2="434.5" y2="266.7" stroke="#16213a" stroke-width="1"/>
+  <line x1="25.5" y1="195.0" x2="434.5" y2="195.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="25.5" y1="123.3" x2="434.5" y2="123.3" stroke="#16213a" stroke-width="1"/>
+  <line x1="25.5" y1="51.5" x2="434.5" y2="51.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="190.5" y1="360.0" x2="190.5" y2="30.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="25.5" y1="195.0" x2="434.5" y2="195.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="430.5" y="188.0" fill="#94a3b8" font-size="13" text-anchor="end">x</text>
+  <text x="196.5" y="44.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
+  <circle cx="190.5" cy="195.0" r="143.5" fill="#132036" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <polyline points="262.3,123.3 294.5,285.2 319.8,153.6 247.5,205.0 318.5,130.1 327.6,224.1 123.3,202.4 317.5,132.4 127.9,181.4" fill="none" stroke="#f87171" stroke-width="1.4" stroke-dasharray="4 4" stroke-linejoin="round"/>
+  <circle cx="262.3" cy="123.3" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="294.5" cy="285.2" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="319.8" cy="153.6" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="247.5" cy="205.0" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="318.5" cy="130.1" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="327.6" cy="224.1" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="123.3" cy="202.4" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="317.5" cy="132.4" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <circle cx="127.9" cy="181.4" r="4.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <polyline points="262.3,123.3 301.3,269.8 326.2,162.2 331.6,212.8 332.9,185.4 333.5,200.5 333.7,191.6 333.9,197.3 334.0,193.5 334.0,196.1 334.0,194.3 334.0,195.5 334.0,194.6" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="262.3" cy="123.3" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="301.3" cy="269.8" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="326.2" cy="162.2" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="331.6" cy="212.8" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="332.9" cy="185.4" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="333.5" cy="200.5" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="333.7" cy="191.6" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="333.9" cy="197.3" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="334.0" cy="193.5" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="334.0" cy="196.1" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="334.0" cy="194.3" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="334.0" cy="195.5" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <circle cx="334.0" cy="194.6" r="4.0" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <polyline points="190.5,195.0 262.3,195.4 334.0,194.6" fill="none" stroke="#34d399" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="190.5" cy="195.0" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="262.3" cy="195.4" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="405.8" cy="195.0" r="11.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="405.8" y="177.0" fill="#f59e0b" font-size="13" text-anchor="middle">목표 (3, 0)</text>
+  <line x1="335.5" y1="209.3" x2="404.3" y2="209.3" stroke="#f59e0b" stroke-width="1.4" marker-end="url(#a-amber)"/>
+  <text x="369.9" y="227.3" fill="#f59e0b" font-size="12" text-anchor="middle">남은 거리 1</text>
+  <text x="270.3" y="115.3" fill="#e2e8f0" font-size="12" text-anchor="start">시작 (1, 1)</text>
+  <text x="190.5" y="356.5" fill="#38bdf8" font-size="12" text-anchor="middle">팔이 닿는 범위 (반지름 2)</text>
+  <circle cx="461.0" cy="66.0" r="5.0" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="473.0" y="71.0" fill="#e2e8f0" font-size="13" text-anchor="start">pseudo-inverse 손끝</text>
+  <text x="473.0" y="91.0" fill="#94a3b8" font-size="12" text-anchor="start">step 0~8</text>
+  <circle cx="461.0" cy="126.0" r="5.0" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <text x="473.0" y="131.0" fill="#e2e8f0" font-size="13" text-anchor="start">DLS (λ = 0.5) 손끝</text>
+  <text x="473.0" y="151.0" fill="#94a3b8" font-size="12" text-anchor="start">step 0~12</text>
+  <text x="455.0" y="200.0" fill="#f87171" font-size="12" text-anchor="start">pseudo-inverse 는 step 4 에</text>
+  <text x="455.0" y="218.0" fill="#f87171" font-size="12" text-anchor="start">‖Δq‖ = 42 rad 을 낸다</text>
+  <text x="455.0" y="254.0" fill="#34d399" font-size="12" text-anchor="start">DLS 는 팔을 쭉 펴서</text>
+  <text x="455.0" y="272.0" fill="#34d399" font-size="12" text-anchor="start">(2, 0) 에 멈춘다</text>
+</svg>

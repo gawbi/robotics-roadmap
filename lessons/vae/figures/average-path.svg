@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>로봇 앞에 상자가 있고 시연은 왼쪽 +1 로 5 번, 오른쪽 −1 로 5 번 비켜 갔다. 평균 0 을 따라가면 상자에 부딪힌다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40.0" y="40.0" width="560.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="40.0" y1="80.0" x2="600.0" y2="80.0" stroke="#475569" stroke-width="1" stroke-dasharray="3 5"/>
+  <text x="592.0" y="74.0" fill="#94a3b8" font-size="12" text-anchor="end">+1 (왼쪽)</text>
+  <line x1="40.0" y1="150.0" x2="600.0" y2="150.0" stroke="#475569" stroke-width="1" stroke-dasharray="3 5"/>
+  <text x="592.0" y="144.0" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="40.0" y1="220.0" x2="600.0" y2="220.0" stroke="#475569" stroke-width="1" stroke-dasharray="3 5"/>
+  <text x="592.0" y="214.0" fill="#94a3b8" font-size="12" text-anchor="end">−1 (오른쪽)</text>
+  <circle cx="90.0" cy="150.0" r="20" fill="#111a2e" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="90.0" y1="150.0" x2="108.0" y2="150.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="90.0" y="192.0" fill="#38bdf8" font-size="13" text-anchor="middle">로봇</text>
+  <rect x="300.0" y="118.0" width="64.0" height="64.0" rx="4" fill="#3b2a12" stroke="#f59e0b" stroke-width="2"/>
+  <text x="332.0" y="155.0" fill="#f59e0b" font-size="14" text-anchor="middle">상자</text>
+  <path d="M112,150 C200,150 220,80 300,80 L380,80 C450,80 470,150 560,150" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <path d="M112,150 C200,150 220,220 300,220 L380,220 C450,220 470,150 560,150" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <text x="440.0" y="68.0" fill="#34d399" font-size="13" text-anchor="middle">시연 5 번</text>
+  <text x="440.0" y="244.0" fill="#34d399" font-size="13" text-anchor="middle">시연 5 번</text>
+  <line x1="112.0" y1="150.0" x2="268.0" y2="150.0" stroke="#f87171" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrow-red)"/>
+  <text x="56.0" y="64.0" fill="#f87171" font-size="13" text-anchor="start">빨간 점선: MSE 로 학습한 모델의 예측 (평균 0)</text>
+  <line x1="278.0" y1="141.0" x2="292.0" y2="159.0" stroke="#f87171" stroke-width="3"/>
+  <line x1="278.0" y1="159.0" x2="292.0" y2="141.0" stroke="#f87171" stroke-width="3"/>
+  <text x="320.0" y="286.0" fill="#94a3b8" font-size="12" text-anchor="middle">위에서 내려다본 모습. 로봇은 오른쪽으로 간다</text>
+</svg>

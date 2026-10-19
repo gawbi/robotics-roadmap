@@ -1,10 +1,10 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { grade, parseBank, parseResult, passed, pickVariants, type Attempt } from '../src/curriculum/quiz'
+import { clearedAt, grade, parseBank, parseResult, passed, pickVariants, wrongTopics, type Attempt } from '../src/curriculum/quiz'
 
-const projectsDir = new URL('../../projects/', import.meta.url)
-const banks = readdirSync(projectsDir, { withFileTypes: true })
-  .filter((d) => d.isDirectory() && existsSync(new URL(`${d.name}/quiz.yaml`, projectsDir)))
+const lessonsDir = new URL('../../lessons/', import.meta.url)
+const banks = readdirSync(lessonsDir, { withFileTypes: true })
+  .filter((d) => d.isDirectory() && existsSync(new URL(`${d.name}/quiz.yaml`, lessonsDir)))
   .map((d) => d.name)
 
 const bank = parseBank(`
@@ -22,13 +22,12 @@ const bank = parseBank(`
 
 const attempt = (variants: number[]): Attempt => ({
   date: '2026-10-18',
-  commit: 'abc1234',
   answers: variants.map((variant, i) => ({ topic: bank[i].topic, variant, choice: 0, correct: false })),
 })
 
 describe('quiz', () => {
-  it.each(banks)('projects/%s/quiz.yaml is a valid bank', (id) => {
-    const parsed = parseBank(readFileSync(new URL(`${id}/quiz.yaml`, projectsDir), 'utf8'))
+  it.each(banks)('lessons/%s/quiz.yaml is a valid bank', (id) => {
+    const parsed = parseBank(readFileSync(new URL(`${id}/quiz.yaml`, lessonsDir), 'utf8'))
     expect(parsed.length).toBeGreaterThan(0)
   })
 
@@ -49,6 +48,27 @@ describe('quiz', () => {
     expect(pickVariants(bank, [attempt([0, 0]), attempt([1, 0])]).map((p) => p.variant)).toEqual([0, 1])
   })
 
+  it('retries only the wrong topics, then asks everything again after clearing', () => {
+    const first: Attempt = {
+      date: 'd',
+      answers: [
+        { topic: 'a', variant: 0, choice: 1, correct: true },
+        { topic: 'b', variant: 0, choice: 1, correct: false },
+      ],
+    }
+    const retry: Attempt = { date: 'd', answers: [{ topic: 'b', variant: 1, choice: 3, correct: true }] }
+    expect(wrongTopics([first])).toEqual(['b'])
+    expect(pickVariants(bank, [first])).toEqual([{ topic: 'b', variant: 1 }])
+    expect(clearedAt([first])).toBe(-1)
+    expect(clearedAt([first, retry])).toBe(1)
+    const gone: Attempt = { date: 'd', answers: [{ topic: 'removed', variant: 0, choice: 0, correct: false }] }
+    expect(pickVariants(bank, [gone]).map((p) => p.topic)).toEqual(['a', 'b'])
+    expect(pickVariants(bank, [first, retry])).toEqual([
+      { topic: 'a', variant: 1 },
+      { topic: 'b', variant: 0 },
+    ])
+  })
+
   it('grades each answer and passes only when all are right', () => {
     const picks = pickVariants(bank, [attempt([0, 0])])
     const answers = grade(bank, picks, [2, 3])
@@ -56,6 +76,9 @@ describe('quiz', () => {
     expect(passed(answers)).toBe(true)
     expect(passed(grade(bank, picks, [1, 3]))).toBe(false)
     expect(() => grade(bank, picks, [2])).toThrow()
+    expect(grade(bank, [{ topic: 'b', variant: 1 }], [3])).toEqual([{ topic: 'b', variant: 1, choice: 3, correct: true }])
+    expect(() => grade(bank, [], [])).toThrow()
+    expect(() => grade(bank, [picks[0], picks[0]], [2, 2])).toThrow()
     expect(() => grade(bank, picks, [2, 9])).toThrow()
   })
 
@@ -63,7 +86,7 @@ describe('quiz', () => {
     expect(parseResult(null).attempts).toEqual([])
     expect(parseResult('not json').attempts).toEqual([])
     const good = attempt([0, 0])
-    const result = parseResult(JSON.stringify({ attempts: [good, { date: 'x', commit: 'nothex', answers: [] }] }))
+    const result = parseResult(JSON.stringify({ attempts: [good, { date: 3, answers: [] }] }))
     expect(result.attempts).toEqual([good])
   })
 })

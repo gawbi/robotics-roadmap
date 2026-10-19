@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>FK 와 IK 의 방향. FK 는 (30°, 60°) 에서 손끝 (0.866, 1.5) 하나를 내고, IK 는 (0.866, 1.5) 에서 joint angle 두 쌍을 내며, 닿지 않는 (3, 0) 에서는 답이 없다</title>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="40.0" fill="#94a3b8" font-size="14" text-anchor="start">forward kinematics (FK)</text>
+  <rect x="30.0" y="56.0" width="190.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="125.0" y="80.0" fill="#94a3b8" font-size="13" text-anchor="middle">joint angle</text>
+  <text x="125.0" y="100.0" fill="#e2e8f0" font-size="15" text-anchor="middle">(30°, 60°)</text>
+  <line x1="226.0" y1="84.0" x2="404.0" y2="84.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a-gray)"/>
+  <text x="315.0" y="74.0" fill="#94a3b8" font-size="13" text-anchor="middle">FK 공식</text>
+  <text x="315.0" y="104.0" fill="#34d399" font-size="13" text-anchor="middle">답은 늘 하나</text>
+  <rect x="410.0" y="56.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510.0" y="80.0" fill="#94a3b8" font-size="13" text-anchor="middle">손끝 위치</text>
+  <text x="510.0" y="100.0" fill="#e2e8f0" font-size="15" text-anchor="middle">(0.866, 1.5)</text>
+  <text x="30.0" y="152.0" fill="#94a3b8" font-size="14" text-anchor="start">inverse kinematics (IK)</text>
+  <rect x="410.0" y="168.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510.0" y="192.0" fill="#94a3b8" font-size="13" text-anchor="middle">손끝 목표</text>
+  <text x="510.0" y="212.0" fill="#e2e8f0" font-size="15" text-anchor="middle">(0.866, 1.5)</text>
+  <line x1="404.0" y1="196.0" x2="226.0" y2="196.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a-gray)"/>
+  <text x="315.0" y="186.0" fill="#94a3b8" font-size="13" text-anchor="middle">IK</text>
+  <text x="315.0" y="216.0" fill="#34d399" font-size="13" text-anchor="middle">답이 둘</text>
+  <rect x="30.0" y="168.0" width="190.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="125.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">(30°, 60°) 또는</text>
+  <text x="125.0" y="212.0" fill="#e2e8f0" font-size="14" text-anchor="middle">(90°, −60°)</text>
+  <rect x="410.0" y="238.0" width="200.0" height="44.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="510.0" y="265.0" fill="#e2e8f0" font-size="14" text-anchor="middle">손끝 목표 (3, 0)</text>
+  <line x1="404.0" y1="260.0" x2="226.0" y2="260.0" stroke="#f87171" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a-red)"/>
+  <text x="125.0" y="265.0" fill="#f87171" font-size="14" text-anchor="middle">답 없음 (닿지 않음)</text>
+</svg>

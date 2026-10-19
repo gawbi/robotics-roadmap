@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>층마다 0.5, 0.9, 1, 1.1 을 곱할 때 층 수에 따른 gradient 크기</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="40" width="440" height="260" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70" y1="300.0" x2="510" y2="300.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="304.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="70" y1="262.85714285714283" x2="510" y2="262.85714285714283" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="266.85714285714283" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="70" y1="225.71428571428572" x2="510" y2="225.71428571428572" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="229.71428571428572" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <line x1="70" y1="188.57142857142856" x2="510" y2="188.57142857142856" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="192.57142857142856" fill="#64748b" font-size="12" text-anchor="end">3</text>
+  <line x1="70" y1="151.42857142857142" x2="510" y2="151.42857142857142" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="155.42857142857142" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <line x1="70" y1="114.28571428571428" x2="510" y2="114.28571428571428" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="118.28571428571428" fill="#64748b" font-size="12" text-anchor="end">5</text>
+  <line x1="70" y1="77.14285714285714" x2="510" y2="77.14285714285714" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="81.14285714285714" fill="#64748b" font-size="12" text-anchor="end">6</text>
+  <line x1="70" y1="40.0" x2="510" y2="40.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62" y="44.0" fill="#64748b" font-size="12" text-anchor="end">7</text>
+  <text x="70.0" y="318" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="180.0" y="318" fill="#64748b" font-size="12" text-anchor="middle">5</text>
+  <text x="290.0" y="318" fill="#64748b" font-size="12" text-anchor="middle">10</text>
+  <text x="400.0" y="318" fill="#64748b" font-size="12" text-anchor="middle">15</text>
+  <text x="510.0" y="318" fill="#64748b" font-size="12" text-anchor="middle">20</text>
+  <text x="290.0" y="340" fill="#94a3b8" font-size="13" text-anchor="middle">층 수</text>
+  <text x="76" y="56" fill="#94a3b8" font-size="12" text-anchor="start">입력까지 전해진 gradient</text>
+  <polyline points="70.0,262.9 92.0,281.4 114.0,290.7 136.0,295.4 158.0,297.7 180.0,298.8 202.0,299.4 224.0,299.7 246.0,299.9 268.0,299.9 290.0,300.0 312.0,300.0 334.0,300.0 356.0,300.0 378.0,300.0 400.0,300.0 422.0,300.0 444.0,300.0 466.0,300.0 488.0,300.0 510.0,300.0" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <circle cx="70.0" cy="262.9" r="3.5" fill="#f87171"/>
+  <circle cx="180.0" cy="298.8" r="3.5" fill="#f87171"/>
+  <circle cx="290.0" cy="300.0" r="3.5" fill="#f87171"/>
+  <circle cx="400.0" cy="300.0" r="3.5" fill="#f87171"/>
+  <circle cx="510.0" cy="300.0" r="3.5" fill="#f87171"/>
+  <polyline points="70.0,262.9 92.0,266.6 114.0,269.9 136.0,272.9 158.0,275.6 180.0,278.1 202.0,280.3 224.0,282.2 246.0,284.0 268.0,285.6 290.0,287.0 312.0,288.3 334.0,289.5 356.0,290.6 378.0,291.5 400.0,292.4 422.0,293.1 444.0,293.8 466.0,294.4 488.0,295.0 510.0,295.5" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="70.0" cy="262.9" r="3.5" fill="#f59e0b"/>
+  <circle cx="180.0" cy="278.1" r="3.5" fill="#f59e0b"/>
+  <circle cx="290.0" cy="287.0" r="3.5" fill="#f59e0b"/>
+  <circle cx="400.0" cy="292.4" r="3.5" fill="#f59e0b"/>
+  <circle cx="510.0" cy="295.5" r="3.5" fill="#f59e0b"/>
+  <polyline points="70.0,262.9 92.0,262.9 114.0,262.9 136.0,262.9 158.0,262.9 180.0,262.9 202.0,262.9 224.0,262.9 246.0,262.9 268.0,262.9 290.0,262.9 312.0,262.9 334.0,262.9 356.0,262.9 378.0,262.9 400.0,262.9 422.0,262.9 444.0,262.9 466.0,262.9 488.0,262.9 510.0,262.9" fill="none" stroke="#34d399" stroke-width="2.5"/>
+  <circle cx="70.0" cy="262.9" r="3.5" fill="#34d399"/>
+  <circle cx="180.0" cy="262.9" r="3.5" fill="#34d399"/>
+  <circle cx="290.0" cy="262.9" r="3.5" fill="#34d399"/>
+  <circle cx="400.0" cy="262.9" r="3.5" fill="#34d399"/>
+  <circle cx="510.0" cy="262.9" r="3.5" fill="#34d399"/>
+  <polyline points="70.0,262.9 92.0,259.1 114.0,255.1 136.0,250.6 158.0,245.6 180.0,240.2 202.0,234.2 224.0,227.6 246.0,220.4 268.0,212.4 290.0,203.7 312.0,194.0 334.0,183.4 356.0,171.8 378.0,159.0 400.0,144.8 422.0,129.3 444.0,112.3 466.0,93.5 488.0,72.8 510.0,50.1" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="70.0" cy="262.9" r="3.5" fill="#38bdf8"/>
+  <circle cx="180.0" cy="240.2" r="3.5" fill="#38bdf8"/>
+  <circle cx="290.0" cy="203.7" r="3.5" fill="#38bdf8"/>
+  <circle cx="400.0" cy="144.8" r="3.5" fill="#38bdf8"/>
+  <circle cx="510.0" cy="50.1" r="3.5" fill="#38bdf8"/>
+  <text x="516.0" y="54.12143045362018" fill="#38bdf8" font-size="12" text-anchor="start">6.73</text>
+  <text x="516.0" y="266.85714285714283" fill="#34d399" font-size="12" text-anchor="start">1</text>
+  <text x="516.0" y="293.484295686636" fill="#f59e0b" font-size="12" text-anchor="start">0.12</text>
+  <line x1="530" y1="86" x2="552" y2="86" stroke="#38bdf8" stroke-width="3"/>
+  <text x="556" y="90" fill="#38bdf8" font-size="13" text-anchor="start">× 1.1</text>
+  <text x="556" y="107" fill="#38bdf8" font-size="12" text-anchor="start">1.1²⁰ ≈ 6.73</text>
+  <line x1="530" y1="122" x2="552" y2="122" stroke="#34d399" stroke-width="3"/>
+  <text x="556" y="126" fill="#34d399" font-size="13" text-anchor="start">× 1</text>
+  <text x="556" y="143" fill="#34d399" font-size="12" text-anchor="start">1²⁰ = 1</text>
+  <line x1="530" y1="158" x2="552" y2="158" stroke="#f59e0b" stroke-width="3"/>
+  <text x="556" y="162" fill="#f59e0b" font-size="13" text-anchor="start">× 0.9</text>
+  <text x="556" y="179" fill="#f59e0b" font-size="12" text-anchor="start">0.9²⁰ ≈ 0.12</text>
+  <line x1="530" y1="194" x2="552" y2="194" stroke="#f87171" stroke-width="3"/>
+  <text x="556" y="198" fill="#f87171" font-size="13" text-anchor="start">× 0.5</text>
+  <text x="556" y="215" fill="#f87171" font-size="12" text-anchor="start">0.5²⁰ ≈ 0.00000095</text>
+  <text x="530" y="260" fill="#94a3b8" font-size="12" text-anchor="start">× 2 는 20 층에서</text>
+  <text x="530" y="278" fill="#94a3b8" font-size="12" text-anchor="start">1,048,576 이라 그림 밖</text>
+</svg>

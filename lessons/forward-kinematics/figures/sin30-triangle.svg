@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>30° 와 −30° 로 돌린 길이 1 막대의 끝을 이으면 정삼각형이 되어 sin 30° = 0.5 다. 피타고라스 정리로 cos 30° ≈ 0.866</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="618" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <path d="M70.0,165.0 L269.2,50.0 L269.2,280.0 Z" fill="#38bdf81a" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="70.0" y1="165.0" x2="334.5" y2="165.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="340.5" y="170.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
+  <path d="M120.6,165.0 A50.6,50.6 0 0,0 113.8,139.7" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <path d="M113.8,190.3 A50.6,50.6 0 0,0 120.6,165.0" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
+  <text x="127.8" y="153.5" fill="#f59e0b" font-size="12" text-anchor="start">30°</text>
+  <text x="127.8" y="188.5" fill="#a78bfa" font-size="12" text-anchor="start">30°</text>
+  <text x="159.6" y="99.5" fill="#e2e8f0" font-size="14" text-anchor="end">1</text>
+  <text x="159.6" y="238.5" fill="#e2e8f0" font-size="14" text-anchor="end">1</text>
+  <line x1="281.2" y1="50.0" x2="281.2" y2="165.0" stroke="#34d399" stroke-width="2"/>
+  <text x="287.2" y="112.5" fill="#34d399" font-size="14" text-anchor="start">0.5</text>
+  <line x1="281.2" y1="165.0" x2="281.2" y2="280.0" stroke="#34d399" stroke-width="2"/>
+  <text x="287.2" y="227.5" fill="#34d399" font-size="14" text-anchor="start">0.5</text>
+  <line x1="70.0" y1="165.0" x2="269.2" y2="165.0" stroke="#f87171" stroke-width="3.5"/>
+  <text x="261.2" y="185.0" fill="#f87171" font-size="13" text-anchor="end">cos 30° = ?</text>
+  <circle cx="269.2" cy="165.0" r="3" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="269.2" cy="50.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <circle cx="269.2" cy="280.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="340.0" y="46.0" fill="#e2e8f0" font-size="13" text-anchor="start">① 세 변이 모두 1 인 정삼각형</text>
+  <text x="340.0" y="68.0" fill="#94a3b8" font-size="13" text-anchor="start">   (가운데 각이 30° + 30° = 60°)</text>
+  <text x="340.0" y="100.0" fill="#e2e8f0" font-size="13" text-anchor="start">② 오른쪽 세로 변의 길이 1 을</text>
+  <text x="340.0" y="122.0" fill="#94a3b8" font-size="13" text-anchor="start">   x 축이 반으로 나눈다</text>
+  <text x="340.0" y="144.0" fill="#34d399" font-size="14" text-anchor="start">   → sin 30° = 0.5</text>
+  <text x="340.0" y="180.0" fill="#e2e8f0" font-size="13" text-anchor="start">③ 위쪽 직각삼각형에서</text>
+  <text x="340.0" y="202.0" fill="#94a3b8" font-size="13" text-anchor="start">   가로² + 0.5² = 1²</text>
+  <text x="340.0" y="224.0" fill="#94a3b8" font-size="13" text-anchor="start">   가로² = 1 − 0.25 = 0.75</text>
+  <text x="340.0" y="246.0" fill="#f87171" font-size="14" text-anchor="start">   → cos 30° ≈ 0.866</text>
+  <text x="340.0" y="270.0" fill="#94a3b8" font-size="13" text-anchor="start">   (0.866 × 0.866 ≈ 0.75)</text>
+</svg>

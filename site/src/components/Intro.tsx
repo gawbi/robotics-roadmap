@@ -3,13 +3,13 @@ import { useEffect, useRef } from 'react'
 import { CONFIG } from '../config'
 
 interface Props {
-  firstProjectId: string
-  projectCount: number
+  firstLessonId: string
+  lessonCount: number
   onClose(): void
   onStart(id: string): void
 }
 
-export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props) {
+export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -28,46 +28,36 @@ export function Intro({ firstProjectId, projectCount, onClose, onStart }: Props)
       <button type="button" className="icon-button intro-close" onClick={onClose} aria-label="안내 닫기">
         <X size={20} aria-hidden="true" />
       </button>
-      <p className="intro-kicker">project-based self-study</p>
-      <h2 id="intro-title">Physical AI from Scratch</h2>
+      <p className="intro-kicker">lecture &amp; quiz self-study</p>
+      <h2 id="intro-title">Physical AI Study</h2>
       <p className="intro-lead">
-        perceptron 부터 VLA·실물 로봇 배포까지, Physical AI 를 이루는 아이디어 {projectCount}개를 직접 구현하며 따라가는
-        과제 지도입니다. 원 하나가 과제 하나이고, 선은 먼저 해 두면 좋은 과제를 잇습니다.
+        perceptron 부터 VLA·실물 로봇 배포까지, Physical AI 를 이루는 아이디어 {lessonCount}개를 강의로 읽고 퀴즈로 확인하는
+        지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다.
       </p>
       <ol className="intro-steps">
         <li>
-          <strong>가운데 원에서 출발</strong>
-          <span>NumPy Warm-up 부터 시작해 바깥쪽으로 넓혀 갑니다.</span>
+          <strong>맨 위 원에서 출발</strong>
+          <span>Linear Regression 부터 시작해 아래로 내려갑니다.</span>
         </li>
         <li>
-          <strong>원을 눌러 과제 읽기</strong>
-          <span>배경, 만들 것, 시작 코드 모양, 평가 기준이 들어 있습니다.</span>
+          <strong>원을 눌러 강의 읽기</strong>
+          <span>처음 보는 사람 기준으로 숫자 예시부터 한 단계씩 설명합니다. 코드를 짤 일은 없습니다.</span>
         </li>
         <li>
-          <strong>리포를 fork 해서 직접 구현</strong>
+          <strong>강의 끝의 퀴즈 풀기</strong>
           <span>
-            <code>projects/&lt;과제&gt;/</code> 에 들어 있는 stub 의 함수 몸통을 채웁니다. 과제 폴더에서{' '}
-            <code>uv run</code> 으로 실행하면 그 과제의 Python 환경이 자동으로 준비됩니다. 정답 코드는 막혔을 때만 참고
-            자료에서 엽니다.
-          </span>
-        </li>
-        <li>
-          <strong>평가 받고 완료</strong>
-          <span>
-            fork 에서 Claude Code 로 <code>/evaluate &lt;과제&gt;</code> 를 실행하면 평가 기준 검사와 구두 질문을 거쳐
-            통과한 과제가 <code>progress.yaml</code> 에 완료로 기록되고, 이어지는 과제가 밝아집니다.
+            틀린 문항은 해설을 보여 주고, 틀린 문항만 같은 원리의 다른 문항으로 다시 풉니다. 틀린 문항이 남지 않으면 통과이고 이어지는 강의가 밝아집니다.
+            답안은 <code>lessons/&lt;강의&gt;/quiz-result.json</code> 에 저장됩니다.
           </span>
         </li>
       </ol>
       <p className="intro-note">
-        fork·Python 환경·Claude Code 준비와 과제 하나의 진행 순서는 GitHub 리포의 README 에 있습니다. 선수 관계는 권장
-        순서일 뿐 잠금이 아닙니다. fork 의 진행 기록은 주소 뒤에 <code>?from=계정/리포</code> 를 붙여
-        지도로 공유할 수 있습니다. 평가 없이 쓸 때는 과제 창에서 직접 완료로 표시하고, 그 기록은 이 브라우저에만
-        저장됩니다.
+        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. 퀴즈 답안은 리포에 저장되므로 리포의 <code>site/</code> 에서{' '}
+        <code>npm run dev</code> 로 띄운 지도에서 풉니다.
       </p>
       <div className="intro-actions">
-        <button type="button" className="primary-button" onClick={() => onStart(firstProjectId)}>
-          첫 과제 열기
+        <button type="button" className="primary-button" onClick={() => onStart(firstLessonId)}>
+          첫 강의 열기
         </button>
         <a className="text-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer">
           GitHub 리포

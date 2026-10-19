@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Euler step 한 번이 a = 2ε + 1 이 되는 1 차원 예. noise 가 0 과 0.5 사이에 떨어질 확률 0.1915 가 action 에서는 폭이 두 배인 1 과 2 사이에 퍼져서, 곡선의 높이가 ε = 0 의 0.3989 에서 a = 1 의 0.1995 로 절반이 된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="698" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- top: noise -->
+  <text x="24" y="30" fill="#38bdf8" font-size="14">noise ε (표준 Gaussian)</text>
+  <polygon points="240,110 240.0,40.0 244.0,40.1 248.0,40.3 252.0,40.8 256.0,41.4 260.0,42.1 264.0,43.1 268.0,44.1 272.0,45.4 276.0,46.7 280.0,48.2 280,110" fill="#38bdf8" fill-opacity="0.35"/>
+  <polyline points="80.0,100.5 88.0,98.5 96.0,96.1 104.0,93.5 112.0,90.5 120.0,87.3 128.0,83.7 136.0,79.9 144.0,75.9 152.0,71.8 160.0,67.5 168.0,63.3 176.0,59.2 184.0,55.2 192.0,51.5 200.0,48.2 208.0,45.4 216.0,43.1 224.0,41.4 232.0,40.3 240.0,40.0 248.0,40.3 256.0,41.4 264.0,43.1 272.0,45.4 280.0,48.2 288.0,51.5 296.0,55.2 304.0,59.2 312.0,63.3 320.0,67.5 328.0,71.8 336.0,75.9 344.0,79.9 352.0,83.7 360.0,87.3 368.0,90.5 376.0,93.5 384.0,96.1 392.0,98.5 400.0,100.5" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="70" y1="110" x2="410" y2="110" stroke="#475569" stroke-width="1.5"/>
+  <g font-size="12" fill="#94a3b8" text-anchor="middle">
+    <text x="80" y="128">−2</text><text x="160" y="128">−1</text><text x="240" y="128">0</text><text x="280" y="128">0.5</text><text x="320" y="128">1</text><text x="400" y="128">2</text>
+  </g>
+  <text x="252" y="32" fill="#e2e8f0" font-size="13">높이 0.3989</text>
+  <text x="300" y="96" fill="#e2e8f0" font-size="12">확률 0.1915</text>
+
+  <!-- mapping arrows -->
+  <line x1="240" y1="134" x2="240" y2="222" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="280" y1="134" x2="320" y2="222" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="318" y="172" fill="#f59e0b" font-size="14">a = 2ε + 1</text>
+  <text x="318" y="192" fill="#94a3b8" font-size="12">폭이 2 배로 늘어남</text>
+
+  <!-- bottom: action -->
+  <polygon points="240,270 240.0,235.0 248.0,235.0 256.0,235.2 264.0,235.4 272.0,235.7 280.0,236.1 288.0,236.5 296.0,237.1 304.0,237.7 312.0,238.4 320.0,239.1 320,270" fill="#f59e0b" fill-opacity="0.35"/>
+  <polyline points="80.0,248.8 96.0,246.7 112.0,244.6 128.0,242.6 144.0,240.8 160.0,239.1 176.0,237.7 192.0,236.5 208.0,235.7 224.0,235.2 240.0,235.0 256.0,235.2 272.0,235.7 288.0,236.5 304.0,237.7 320.0,239.1 336.0,240.8 352.0,242.6 368.0,244.6 384.0,246.7 400.0,248.8" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="70" y1="270" x2="410" y2="270" stroke="#475569" stroke-width="1.5"/>
+  <g font-size="12" fill="#94a3b8" text-anchor="middle">
+    <text x="80" y="288">−1</text><text x="160" y="288">0</text><text x="240" y="288">1</text><text x="320" y="288">2</text><text x="400" y="288">3</text>
+  </g>
+  <text x="24" y="316" fill="#f59e0b" font-size="14">action a</text>
+  <text x="232" y="228" fill="#e2e8f0" font-size="13" text-anchor="end">높이 0.1995</text>
+  <text x="280" y="262" fill="#e2e8f0" font-size="12" text-anchor="middle">확률 0.1915</text>
+
+  <!-- right panel -->
+  <rect x="440" y="40" width="240" height="250" rx="10" fill="#111a2e" stroke="#475569"/>
+  <text x="560" y="68" fill="#e2e8f0" font-size="14" text-anchor="middle">action 의 높이</text>
+  <text x="560" y="94" fill="#e2e8f0" font-size="13" text-anchor="middle">= noise 의 높이 ÷ 늘어난 배수</text>
+  <text x="560" y="118" fill="#94a3b8" font-size="13" text-anchor="middle">0.3989 ÷ 2 ≈ 0.1995</text>
+  <line x1="460" y1="138" x2="660" y2="138" stroke="#1e293b"/>
+  <text x="560" y="164" fill="#e2e8f0" font-size="13" text-anchor="middle">π0 의 action chunk 는 숫자 350 개</text>
+  <text x="560" y="188" fill="#94a3b8" font-size="13" text-anchor="middle">"늘어난 배수" 를 알려면</text>
+  <text x="560" y="210" fill="#94a3b8" font-size="13" text-anchor="middle">출력 350 개 × 입력 350 개</text>
+  <text x="560" y="232" fill="#94a3b8" font-size="13" text-anchor="middle">= 122,500 개의 변화 비율</text>
+  <text x="560" y="254" fill="#94a3b8" font-size="13" text-anchor="middle">이 Euler step 마다 필요하다</text>
+</svg>

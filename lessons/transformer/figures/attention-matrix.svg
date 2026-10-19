@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>빨간 컵 집어 의 3 × 3 점수 표와 행마다 softmax 한 weight 표. 색이 진할수록 weight 가 크다</title>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="189.0" y="46.0" fill="#f59e0b" font-size="14" text-anchor="middle">점수 (query 행 · key 열)</text>
+  <text x="123.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>
+  <text x="189.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">컵</text>
+  <text x="255.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <text x="80.0" y="118.0" fill="#94a3b8" font-size="12" text-anchor="end">빨간</text>
+  <rect x="90.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.32" stroke="#f59e0b" stroke-width="1"/>
+  <text x="121.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="156.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.44" stroke="#f59e0b" stroke-width="1"/>
+  <text x="187.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="222.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="253.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <text x="80.0" y="184.0" fill="#94a3b8" font-size="12" text-anchor="end">컵</text>
+  <rect x="90.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.44" stroke="#f59e0b" stroke-width="1"/>
+  <text x="121.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="156.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.32" stroke="#f59e0b" stroke-width="1"/>
+  <text x="187.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <rect x="222.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.44" stroke="#f59e0b" stroke-width="1"/>
+  <text x="253.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <text x="80.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="end">집어</text>
+  <rect x="90.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="121.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <rect x="156.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.44" stroke="#f59e0b" stroke-width="1"/>
+  <text x="187.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="222.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
+  <text x="253.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−2</text>
+  <text x="489.0" y="46.0" fill="#34d399" font-size="14" text-anchor="middle">행마다 softmax 한 weight</text>
+  <text x="423.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>
+  <text x="489.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">컵</text>
+  <text x="555.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <text x="380.0" y="118.0" fill="#94a3b8" font-size="12" text-anchor="end">빨간</text>
+  <rect x="390.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.25825" stroke="#34d399" stroke-width="1"/>
+  <text x="421.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.245</text>
+  <rect x="456.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.6152500000000001" stroke="#34d399" stroke-width="1"/>
+  <text x="487.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.665</text>
+  <rect x="522.0" y="80.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.1265" stroke="#34d399" stroke-width="1"/>
+  <text x="553.0" y="116.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.090</text>
+  <text x="380.0" y="184.0" fill="#94a3b8" font-size="12" text-anchor="end">컵</text>
+  <rect x="390.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.40869999999999995" stroke="#34d399" stroke-width="1"/>
+  <text x="421.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.422</text>
+  <rect x="456.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.18175000000000002" stroke="#34d399" stroke-width="1"/>
+  <text x="487.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.155</text>
+  <rect x="522.0" y="146.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.40869999999999995" stroke="#34d399" stroke-width="1"/>
+  <text x="553.0" y="182.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.422</text>
+  <text x="380.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="end">집어</text>
+  <rect x="390.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.1469" stroke="#34d399" stroke-width="1"/>
+  <text x="421.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.114</text>
+  <rect x="456.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.7674" stroke="#34d399" stroke-width="1"/>
+  <text x="487.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.844</text>
+  <rect x="522.0" y="212.0" width="62.0" height="62.0" rx="4" fill="#34d399" fill-opacity="0.0857" stroke="#34d399" stroke-width="1"/>
+  <text x="553.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.042</text>
+  <line x1="300.0" y1="180.0" x2="350.0" y2="180.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <text x="325.0" y="170.0" fill="#94a3b8" font-size="11" text-anchor="middle">행마다</text>
+  <text x="300.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="middle">행은 query 를 낸 token, 열은 key 를 낸 token. 오른쪽 표의 각 행은 합이 1 이다</text>
+</svg>

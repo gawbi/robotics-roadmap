@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>step 90 부터 110 까지 목표 각도. 첫 chunk 는 step 99 에 40.0° 로 끝나고 둘째 chunk 는 step 100 에 44.0° 로 시작해 4.0° 가 튄다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="80.0" y="50.0" width="470.0" height="230.0" rx="0" fill="#0e1628"/>
+  <line x1="80.0" y1="263.6" x2="550.0" y2="263.6" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="267.6" fill="#64748b" font-size="12" text-anchor="end">36</text>
+  <line x1="80.0" y1="230.7" x2="550.0" y2="230.7" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="234.7" fill="#64748b" font-size="12" text-anchor="end">38</text>
+  <line x1="80.0" y1="197.9" x2="550.0" y2="197.9" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="201.9" fill="#64748b" font-size="12" text-anchor="end">40</text>
+  <line x1="80.0" y1="165.0" x2="550.0" y2="165.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="169.0" fill="#64748b" font-size="12" text-anchor="end">42</text>
+  <line x1="80.0" y1="132.1" x2="550.0" y2="132.1" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="136.1" fill="#64748b" font-size="12" text-anchor="end">44</text>
+  <line x1="80.0" y1="99.3" x2="550.0" y2="99.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="103.3" fill="#64748b" font-size="12" text-anchor="end">46</text>
+  <line x1="80.0" y1="66.4" x2="550.0" y2="66.4" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="70.4" fill="#64748b" font-size="12" text-anchor="end">48</text>
+  <text x="80.0" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">90</text>
+  <text x="197.5" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">95</text>
+  <text x="291.5" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">99</text>
+  <text x="315.0" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">100</text>
+  <text x="432.5" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">105</text>
+  <text x="550.0" y="298.0" fill="#64748b" font-size="12" text-anchor="middle">110</text>
+  <line x1="80.0" y1="280.0" x2="550.0" y2="280.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80.0" y1="280.0" x2="80.0" y2="50.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="550.0" y="316.0" fill="#94a3b8" font-size="13" text-anchor="end">step</text>
+  <text x="72.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">목표 각도 (°)</text>
+  <polyline points="80.0,257.0 103.5,250.4 127.0,243.9 150.5,237.3 174.0,230.7 197.5,224.1 221.0,217.6 244.5,211.0 268.0,204.4 291.5,197.9" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+  <polyline points="315.0,132.1 338.5,125.6 362.0,119.0 385.5,112.4 409.0,105.9 432.5,99.3 456.0,92.7 479.5,86.1 503.0,79.6 526.5,73.0 550.0,66.4" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="257.0" r="3" fill="#38bdf8"/>
+  <circle cx="103.5" cy="250.4" r="3" fill="#38bdf8"/>
+  <circle cx="127.0" cy="243.9" r="3" fill="#38bdf8"/>
+  <circle cx="150.5" cy="237.3" r="3" fill="#38bdf8"/>
+  <circle cx="174.0" cy="230.7" r="3" fill="#38bdf8"/>
+  <circle cx="197.5" cy="224.1" r="3" fill="#38bdf8"/>
+  <circle cx="221.0" cy="217.6" r="3" fill="#38bdf8"/>
+  <circle cx="244.5" cy="211.0" r="3" fill="#38bdf8"/>
+  <circle cx="268.0" cy="204.4" r="3" fill="#38bdf8"/>
+  <circle cx="291.5" cy="197.9" r="3" fill="#38bdf8"/>
+  <circle cx="315.0" cy="132.1" r="3" fill="#f59e0b"/>
+  <circle cx="338.5" cy="125.6" r="3" fill="#f59e0b"/>
+  <circle cx="362.0" cy="119.0" r="3" fill="#f59e0b"/>
+  <circle cx="385.5" cy="112.4" r="3" fill="#f59e0b"/>
+  <circle cx="409.0" cy="105.9" r="3" fill="#f59e0b"/>
+  <circle cx="432.5" cy="99.3" r="3" fill="#f59e0b"/>
+  <circle cx="456.0" cy="92.7" r="3" fill="#f59e0b"/>
+  <circle cx="479.5" cy="86.1" r="3" fill="#f59e0b"/>
+  <circle cx="503.0" cy="79.6" r="3" fill="#f59e0b"/>
+  <circle cx="526.5" cy="73.0" r="3" fill="#f59e0b"/>
+  <circle cx="550.0" cy="66.4" r="3" fill="#f59e0b"/>
+  <line x1="291.5" y1="197.9" x2="315.0" y2="132.1" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="285.5" y="165.0" fill="#f87171" font-size="13" text-anchor="end">4.0° 튐</text>
+  <text x="295.5" y="217.9" fill="#38bdf8" font-size="12" text-anchor="middle">40.0°</text>
+  <text x="319.0" y="122.1" fill="#f59e0b" font-size="12" text-anchor="start">44.0°</text>
+  <text x="103.5" y="74.6" fill="#38bdf8" font-size="12" text-anchor="start">첫 chunk (step 0 에 결정)</text>
+  <text x="103.5" y="94.4" fill="#f59e0b" font-size="12" text-anchor="start">둘째 chunk (step 100 에 결정)</text>
+  <text x="409.0" y="247.1" fill="#94a3b8" font-size="12" text-anchor="start">평소: step 마다 0.4°</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>(1, 1, 1) 방향 축을 중심으로 120° 돌면 x 축은 y 축 자리로, y 축은 z 축 자리로, z 축은 x 축 자리로 간다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="618" height="308" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="170.0" y1="190.0" x2="98.0" y2="244.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <text x="82.2" y="260.9" fill="#f87171" font-size="14" text-anchor="middle">x</text>
+  <line x1="170.0" y1="190.0" x2="284.0" y2="216.4" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <text x="309.1" y="227.2" fill="#34d399" font-size="14" text-anchor="middle">y</text>
+  <line x1="170.0" y1="190.0" x2="170.0" y2="70.0" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-sky)"/>
+  <text x="170.0" y="48.6" fill="#38bdf8" font-size="14" text-anchor="middle">z</text>
+  <line x1="170.0" y1="190.0" x2="218.3" y2="144.5" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrow-violet)"/>
+  <text x="226.3" y="138.5" fill="#a78bfa" font-size="14" text-anchor="start">축 (1, 1, 1)</text>
+  <path d="M110.7,257.7 L114.3,260.7 L118.0,263.6 L121.8,266.3 L125.7,268.9 L129.7,271.2 L133.9,273.4 L138.1,275.4 L142.4,277.3 L146.8,278.9 L151.3,280.3 L155.8,281.6 L160.4,282.6 L165.1,283.4 L169.7,284.1 L174.4,284.5 L179.1,284.7 L183.9,284.8 L188.6,284.6 L193.3,284.2 L198.0,283.6 L202.7,282.8 L207.3,281.8 L211.9,280.6 L216.4,279.2 L220.9,277.6 L225.3,275.8 L229.6,273.9 L233.9,271.7 L238.0,269.4 L242.1,266.9 L246.0,264.2 L249.8,261.3 L253.5,258.3 L257.1,255.1 L260.5,251.8 L263.8,248.4 L266.9,244.8 L269.8,241.1 L272.6,237.2 L275.3,233.2" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <path d="M289.7,198.4 L290.6,193.7 L291.4,189.0 L291.9,184.4 L292.2,179.7 L292.3,174.9 L292.2,170.2 L291.9,165.5 L291.4,160.9 L290.7,156.2 L289.8,151.6 L288.6,147.1 L287.3,142.6 L285.8,138.1 L284.1,133.8 L282.2,129.5 L280.1,125.3 L277.9,121.2 L275.4,117.2 L272.8,113.4 L270.0,109.6 L267.0,106.0 L263.9,102.5 L260.7,99.1 L257.3,95.9 L253.7,92.9 L250.0,90.0 L246.2,87.3 L242.3,84.7 L238.3,82.4 L234.1,80.2 L229.9,78.2 L225.6,76.3 L221.2,74.7 L216.7,73.3 L212.2,72.0 L207.6,71.0 L202.9,70.2 L198.3,69.5 L193.6,69.1 L188.9,68.9" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <path d="M151.6,74.4 L147.1,76.0 L142.7,77.8 L138.4,79.7 L134.1,81.9 L130.0,84.2 L125.9,86.7 L122.0,89.4 L118.2,92.3 L114.5,95.3 L110.9,98.5 L107.5,101.8 L104.2,105.2 L101.1,108.8 L98.2,112.5 L95.4,116.4 L92.7,120.4 L90.3,124.4 L88.0,128.6 L85.9,132.9 L84.0,137.2 L82.3,141.6 L80.8,146.1 L79.4,150.7 L78.3,155.2 L77.4,159.9 L76.6,164.6 L76.1,169.2 L75.8,173.9 L75.7,178.7 L75.8,183.4 L76.1,188.1 L76.6,192.7 L77.3,197.4 L78.2,202.0 L79.4,206.5 L80.7,211.0 L82.2,215.5 L83.9,219.8 L85.8,224.1 L87.9,228.3" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="370.0" y="50.0" fill="#94a3b8" font-size="13" text-anchor="start">돌기 전 → 돈 뒤</text>
+  <text x="370.0" y="78.0" fill="#f87171" font-size="14" text-anchor="start">x 축 → y 축 자리</text>
+  <text x="370.0" y="102.0" fill="#34d399" font-size="14" text-anchor="start">y 축 → z 축 자리</text>
+  <text x="370.0" y="126.0" fill="#38bdf8" font-size="14" text-anchor="start">z 축 → x 축 자리</text>
+  <text x="370.0" y="166.0" fill="#e2e8f0" font-size="15" text-anchor="start">R =</text>
+  <path d="M410,144 L404,144 L404,230 L410,230" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <path d="M534,144 L540,144 L540,230 L534,230" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="432.0" y="166.0" fill="#f87171" font-size="15" text-anchor="middle">0</text>
+  <text x="472.0" y="166.0" fill="#34d399" font-size="15" text-anchor="middle">0</text>
+  <text x="512.0" y="166.0" fill="#38bdf8" font-size="15" text-anchor="middle">1</text>
+  <text x="432.0" y="192.0" fill="#f87171" font-size="15" text-anchor="middle">1</text>
+  <text x="472.0" y="192.0" fill="#34d399" font-size="15" text-anchor="middle">0</text>
+  <text x="512.0" y="192.0" fill="#38bdf8" font-size="15" text-anchor="middle">0</text>
+  <text x="432.0" y="218.0" fill="#f87171" font-size="15" text-anchor="middle">0</text>
+  <text x="472.0" y="218.0" fill="#34d399" font-size="15" text-anchor="middle">1</text>
+  <text x="512.0" y="218.0" fill="#38bdf8" font-size="15" text-anchor="middle">0</text>
+  <text x="370.0" y="262.0" fill="#f59e0b" font-size="13" text-anchor="start">세 번 돌면 처음으로 → 한 번에 360° ÷ 3 = 120°</text>
+  <text x="370.0" y="284.0" fill="#a78bfa" font-size="13" text-anchor="start">축의 unit vector (0.577, 0.577, 0.577)</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>목표가 t = 1 초에 0 에서 1 로 바뀐 순간의 힘. 오차의 변화로 D 항을 계산하면 Δe / Δt = 1 ÷ 0.5 = 2 가 더해져 6 N 이 되고, 카트의 속도로 계산하면 D 항이 0 이라 4 N 이다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="60.0" y="50.0" width="220.0" height="170.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="198.8" x2="280.0" y2="198.8" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60.0" y1="50.0" x2="60.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="60.0" y="237.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="115.0" y="237.0" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
+  <text x="170.0" y="237.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="225.0" y="237.0" fill="#64748b" font-size="12" text-anchor="middle">1.5</text>
+  <text x="280.0" y="237.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="53.0" y="202.8" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="53.0" y="149.6" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
+  <text x="53.0" y="96.5" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="280.0" y="254.0" fill="#94a3b8" font-size="13" text-anchor="end">t (초)</text>
+  <text x="60.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">목표와 오차 e</text>
+  <polyline points="60.0,198.8 170.0,198.8 170.0,92.5 280.0,92.5" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
+  <polyline points="60.0,198.8 115.0,198.8 170.0,92.5" fill="none" stroke="#f87171" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"/>
+  <circle cx="60.0" cy="198.8" r="4" fill="#f87171"/>
+  <circle cx="115.0" cy="198.8" r="4" fill="#f87171"/>
+  <circle cx="170.0" cy="92.5" r="4" fill="#f87171"/>
+  <text x="194.0" y="84.5" fill="#f59e0b" font-size="12" text-anchor="start">목표</text>
+  <text x="178.0" y="150.9" fill="#f87171" font-size="12" text-anchor="start">Δe / Δt</text>
+  <text x="178.0" y="168.9" fill="#f87171" font-size="12" text-anchor="start">= 1 ÷ 0.5 = 2</text>
+  <rect x="360.0" y="50.0" width="200.0" height="170.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="360.0" y1="220.0" x2="560.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="360.0" y1="50.0" x2="360.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="353.0" y="224.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="353.0" y="175.4" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="353.0" y="126.9" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <text x="353.0" y="78.3" fill="#64748b" font-size="12" text-anchor="end">6</text>
+  <text x="360.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">t = 1 초의 힘 (N)</text>
+  <rect x="385.0" y="122.9" width="50.0" height="97.1" rx="1" fill="#38bdf8" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="385.0" y="74.3" width="50.0" height="48.6" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
+  <text x="410.0" y="68.3" fill="#e2e8f0" font-size="13" text-anchor="middle">6</text>
+  <text x="410.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">오차로 계산</text>
+  <rect x="485.0" y="122.9" width="50.0" height="97.1" rx="1" fill="#38bdf8" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1"/>
+  <text x="510.0" y="116.9" fill="#e2e8f0" font-size="13" text-anchor="middle">4</text>
+  <text x="510.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">속도로 계산</text>
+  <line x1="120.0" y1="268.0" x2="142.0" y2="268.0" stroke="#38bdf8" stroke-width="3"/>
+  <text x="148.0" y="272.0" fill="#e2e8f0" font-size="12" text-anchor="start">P 항 4 × 1 = 4</text>
+  <line x1="300.0" y1="268.0" x2="322.0" y2="268.0" stroke="#f87171" stroke-width="3"/>
+  <text x="328.0" y="272.0" fill="#e2e8f0" font-size="12" text-anchor="start">D 항 1 × 2 = 2</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 304" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>sim-to-real gap 의 네 가지 원인. 마찰은 μ 1.0 대 0.7 이라 미는 힘 45 N 이 한계를 넘고, 질량은 무릎 torque 가 20% 늘어 0.06 rad 처지며, 명령은 0.02 초 늦게 닿고, 센서 값은 ±0.05 rad 흔들린다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="302" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="20" width="310" height="124" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="36" y="48" fill="#38bdf8" font-size="15" text-anchor="start" font-weight="600">마찰</text>
+  <text x="36" y="76" fill="#e2e8f0" font-size="13" text-anchor="start">simulator μ 1.0 → 한계 60 N</text>
+  <text x="36" y="100" fill="#e2e8f0" font-size="13" text-anchor="start">실제 μ 0.7 → 한계 42 N</text>
+  <text x="36" y="124" fill="#94a3b8" font-size="13" text-anchor="start">미는 힘 45 N > 42 N → 미끄러짐</text>
+  <rect x="350" y="20" width="310" height="124" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="366" y="48" fill="#f59e0b" font-size="15" text-anchor="start" font-weight="600">질량</text>
+  <text x="366" y="76" fill="#e2e8f0" font-size="13" text-anchor="start">몸통이 무거워 무릎 torque 20% 증가</text>
+  <text x="366" y="100" fill="#e2e8f0" font-size="13" text-anchor="start">6 N·m → 7.2 N·m</text>
+  <text x="366" y="124" fill="#94a3b8" font-size="13" text-anchor="start">모자란 1.2 ÷ K_p 20 = 0.06 rad 처짐</text>
+  <rect x="20" y="160" width="310" height="124" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="36" y="188" fill="#f87171" font-size="15" text-anchor="start" font-weight="600">action 지연</text>
+  <text x="36" y="216" fill="#e2e8f0" font-size="13" text-anchor="start">명령이 0.02 초(1 step) 늦게 닿음</text>
+  <text x="36" y="240" fill="#e2e8f0" font-size="13" text-anchor="start">3 rad/s 로 돌면 0.06 rad 더 가 있음</text>
+  <text x="36" y="264" fill="#94a3b8" font-size="13" text-anchor="start">바로잡기가 끝없는 흔들림으로</text>
+  <rect x="350" y="160" width="310" height="124" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="366" y="188" fill="#a78bfa" font-size="15" text-anchor="start" font-weight="600">센서 noise</text>
+  <text x="366" y="216" fill="#e2e8f0" font-size="13" text-anchor="start">기울기가 ±0.05 rad 흔들림</text>
+  <text x="366" y="240" fill="#e2e8f0" font-size="13" text-anchor="start">10 배로 반응하면 action ±0.5</text>
+  <text x="366" y="264" fill="#94a3b8" font-size="13" text-anchor="start">서 있기만 해도 다리가 떨림</text>
+</svg>

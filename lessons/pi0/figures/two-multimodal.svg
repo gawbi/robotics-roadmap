@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>multimodal 의 두 뜻. 왼쪽은 사진·지시문·관절 각도처럼 종류가 다른 입력 세 가지가 모델에 들어가는 모습이다. 오른쪽은 같은 장면의 정답 action 이 +2 와 −2 두 봉우리로 갈린 분포로, 평균 0 은 상자에 부딪히는 길이고 flow matching 은 봉우리 하나에 도착한다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="778" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="190.0" y="36.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">① 입력의 종류가 여럿</text>
+  <rect x="30.0" y="64.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="115.0" y="86.0" fill="#e2e8f0" font-size="13" text-anchor="middle">카메라 사진 3 장</text>
+  <text x="115.0" y="104.0" fill="#94a3b8" font-size="11" text-anchor="middle">시각</text>
+  <line x1="202.0" y1="89.0" x2="278.0" y2="160.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <rect x="30.0" y="134.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="115.0" y="156.0" fill="#e2e8f0" font-size="13" text-anchor="middle">지시문</text>
+  <text x="115.0" y="174.0" fill="#94a3b8" font-size="11" text-anchor="middle">언어</text>
+  <line x1="202.0" y1="159.0" x2="278.0" y2="160.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <rect x="30.0" y="204.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="115.0" y="226.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관절 각도 7 개</text>
+  <text x="115.0" y="244.0" fill="#94a3b8" font-size="11" text-anchor="middle">몸의 감각</text>
+  <line x1="202.0" y1="229.0" x2="278.0" y2="160.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <rect x="282.0" y="130.0" width="80.0" height="60.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="322.0" y="165.0" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="600">π0</text>
+  <line x1="395.0" y1="30.0" x2="395.0" y2="360.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="590.0" y="36.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-weight="600">② 정답 action 이 여럿</text>
+  <line x1="425.0" y1="260.0" x2="755.0" y2="260.0" stroke="#64748b" stroke-width="1"/>
+  <line x1="480.0" y1="260.0" x2="480.0" y2="265.0" stroke="#64748b" stroke-width="1"/>
+  <text x="480.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="middle">-2</text>
+  <line x1="535.0" y1="260.0" x2="535.0" y2="265.0" stroke="#64748b" stroke-width="1"/>
+  <text x="535.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="middle">-1</text>
+  <line x1="590.0" y1="260.0" x2="590.0" y2="265.0" stroke="#64748b" stroke-width="1"/>
+  <text x="590.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <line x1="645.0" y1="260.0" x2="645.0" y2="265.0" stroke="#64748b" stroke-width="1"/>
+  <text x="645.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="middle">+1</text>
+  <line x1="700.0" y1="260.0" x2="700.0" y2="265.0" stroke="#64748b" stroke-width="1"/>
+  <text x="700.0" y="280.0" fill="#94a3b8" font-size="11" text-anchor="middle">+2</text>
+  <text x="590.0" y="300.0" fill="#94a3b8" font-size="11" text-anchor="middle">비켜 가는 거리 (cm)</text>
+  <path d="M414.0,260.0 L416.2,259.9 L418.4,259.9 L420.6,259.8 L422.8,259.7 L425.0,259.5 L427.2,259.3 L429.4,258.9 L431.6,258.4 L433.8,257.6 L436.0,256.6 L438.2,255.2 L440.4,253.3 L442.6,250.8 L444.8,247.7 L447.0,243.8 L449.2,239.0 L451.4,233.3 L453.6,226.6 L455.8,219.1 L458.0,210.7 L460.2,201.6 L462.4,192.1 L464.6,182.4 L466.8,172.9 L469.0,163.9 L471.2,155.9 L473.4,149.2 L475.6,144.2 L477.8,141.1 L480.0,140.0 L482.2,141.1 L484.4,144.2 L486.6,149.2 L488.8,155.9 L491.0,163.9 L493.2,172.9 L495.4,182.4 L497.6,192.1 L499.8,201.6 L502.0,210.7 L504.2,219.1 L506.4,226.6 L508.6,233.3 L510.8,239.0 L513.0,243.8 L515.2,247.7 L517.4,250.8 L519.6,253.3 L521.8,255.2 L524.0,256.6 L526.2,257.6 L528.4,258.4 L530.6,258.9 L532.8,259.3 L535.0,259.5 L537.2,259.7 L539.4,259.8 L541.6,259.9 L543.8,259.9 L546.0,260.0" fill="none" stroke="#34d399" stroke-width="2.5"/>
+  <path d="M634.0,260.0 L636.2,259.9 L638.4,259.9 L640.6,259.8 L642.8,259.7 L645.0,259.5 L647.2,259.3 L649.4,258.9 L651.6,258.4 L653.8,257.6 L656.0,256.6 L658.2,255.2 L660.4,253.3 L662.6,250.8 L664.8,247.7 L667.0,243.8 L669.2,239.0 L671.4,233.3 L673.6,226.6 L675.8,219.1 L678.0,210.7 L680.2,201.6 L682.4,192.1 L684.6,182.4 L686.8,172.9 L689.0,163.9 L691.2,155.9 L693.4,149.2 L695.6,144.2 L697.8,141.1 L700.0,140.0 L702.2,141.1 L704.4,144.2 L706.6,149.2 L708.8,155.9 L711.0,163.9 L713.2,172.9 L715.4,182.4 L717.6,192.1 L719.8,201.6 L722.0,210.7 L724.2,219.1 L726.4,226.6 L728.6,233.3 L730.8,239.0 L733.0,243.8 L735.2,247.7 L737.4,250.8 L739.6,253.3 L741.8,255.2 L744.0,256.6 L746.2,257.6 L748.4,258.4 L750.6,258.9 L752.8,259.3 L755.0,259.5 L757.2,259.7 L759.4,259.8 L761.6,259.9 L763.8,259.9 L766.0,260.0" fill="none" stroke="#34d399" stroke-width="2.5"/>
+  <text x="480.0" y="130.0" fill="#34d399" font-size="12" text-anchor="middle">왼쪽으로 비켜 감</text>
+  <text x="700.0" y="130.0" fill="#34d399" font-size="12" text-anchor="middle">오른쪽으로 비켜 감</text>
+  <rect x="572.0" y="190.0" width="36.0" height="30.0" rx="3" fill="#7c2d12" stroke="#f87171" stroke-width="1.5"/>
+  <text x="590.0" y="210.0" fill="#e2e8f0" font-size="11" text-anchor="middle">상자</text>
+  <line x1="590.0" y1="258.0" x2="590.0" y2="224.0" stroke="#f87171" stroke-width="2" marker-end="url(#arrow-red)" stroke-dasharray="4 3"/>
+  <text x="590.0" y="178.0" fill="#f87171" font-size="12" text-anchor="middle">평균 0: 부딪힘</text>
+  <text x="590.0" y="334.0" fill="#e2e8f0" font-size="12" text-anchor="middle">flow matching 은 noise 에서 출발해 두 봉우리 가운데 하나에 도착한다</text>
+  <text x="590.0" y="356.0" fill="#94a3b8" font-size="12" text-anchor="middle">차이의 제곱만 줄이도록 바로 맞히면 평균 0 을 낸다</text>
+</svg>

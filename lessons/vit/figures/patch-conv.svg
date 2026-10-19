@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>E 의 두 행을 2×2 filter 로 접어 stride 2 로 사진 위를 옮기면 겹치지 않고 patch 하나씩을 덮는 convolution 이 된다. 두 feature map 의 같은 자리 값을 모으면 patch embedding 과 같다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="678" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="100" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">사진 + stride 2</text>
+  <rect x="28" y="60" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="46.0" y="83.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="64" y="60" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="82.0" y="83.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="100" y="60" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="118.0" y="83.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="136" y="60" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="154.0" y="83.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="28" y="96" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="46.0" y="119.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="64" y="96" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="82.0" y="119.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="100" y="96" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="118.0" y="119.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="136" y="96" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="154.0" y="119.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="28" y="132" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="46.0" y="155.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="64" y="132" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="82.0" y="155.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="100" y="132" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="118.0" y="155.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="136" y="132" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="154.0" y="155.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="28" y="168" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="46.0" y="191.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="64" y="168" width="36" height="36" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="82.0" y="191.04" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+  <rect x="100" y="168" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="118.0" y="191.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="136" y="168" width="36" height="36" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <text x="154.0" y="191.04" fill="#0b1220" font-size="14" text-anchor="middle">1</text>
+  <rect x="31" y="63" width="66" height="66" rx="4" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <rect x="103" y="63" width="66" height="66" rx="4" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <rect x="31" y="135" width="66" height="66" rx="4" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <rect x="103" y="135" width="66" height="66" rx="4" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="100" y="230" fill="#94a3b8" font-size="13" text-anchor="middle">filter 가 겹치지 않고</text>
+  <text x="100" y="248" fill="#94a3b8" font-size="13" text-anchor="middle">patch 하나씩을 덮는다</text>
+  <text x="248" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">filter 두 개</text>
+  <rect x="212" y="60" width="32" height="32" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="228" y="81" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="246" y="60" width="32" height="32" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="262" y="81" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="212" y="94" width="32" height="32" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="228" y="115" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="246" y="94" width="32" height="32" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="262" y="115" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <text x="246" y="146" fill="#94a3b8" font-size="12" text-anchor="middle">E 의 첫째 행</text>
+  <rect x="212" y="160" width="32" height="32" rx="3" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="228" y="181" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="246" y="160" width="32" height="32" rx="3" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="262" y="181" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <rect x="212" y="194" width="32" height="32" rx="3" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="228" y="215" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <rect x="246" y="194" width="32" height="32" rx="3" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="262" y="215" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <text x="246" y="246" fill="#94a3b8" font-size="12" text-anchor="middle">E 의 둘째 행</text>
+  <line x1="300" y1="128" x2="336" y2="128" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="440" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">feature map 두 장</text>
+  <rect x="350" y="70" width="38" height="38" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="369" y="95" fill="#e2e8f0" font-size="15" text-anchor="middle">2</text>
+  <rect x="390" y="70" width="38" height="38" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="409" y="95" fill="#e2e8f0" font-size="15" text-anchor="middle">2</text>
+  <rect x="350" y="110" width="38" height="38" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="369" y="135" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="390" y="110" width="38" height="38" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="409" y="135" fill="#e2e8f0" font-size="15" text-anchor="middle">4</text>
+  <text x="390" y="172" fill="#94a3b8" font-size="12" text-anchor="middle">첫째 filter</text>
+  <rect x="450" y="70" width="38" height="38" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="469" y="95" fill="#e2e8f0" font-size="15" text-anchor="middle">−2</text>
+  <rect x="490" y="70" width="38" height="38" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="509" y="95" fill="#e2e8f0" font-size="15" text-anchor="middle">2</text>
+  <rect x="450" y="110" width="38" height="38" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="469" y="135" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="490" y="110" width="38" height="38" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="509" y="135" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <text x="490" y="172" fill="#94a3b8" font-size="12" text-anchor="middle">둘째 filter</text>
+  <line x1="548" y1="128" x2="574" y2="128" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="625" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">자리별로 모음</text>
+  <rect x="586" y="60" width="78" height="28" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="625" y="79" fill="#e2e8f0" font-size="14" text-anchor="middle">[2, −2]</text>
+  <rect x="586" y="100" width="78" height="28" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="625" y="119" fill="#e2e8f0" font-size="14" text-anchor="middle">[2, 2]</text>
+  <rect x="586" y="140" width="78" height="28" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="625" y="159" fill="#e2e8f0" font-size="14" text-anchor="middle">[0, 0]</text>
+  <rect x="586" y="180" width="78" height="28" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="625" y="199" fill="#e2e8f0" font-size="14" text-anchor="middle">[4, 0]</text>
+  <text x="340" y="272" fill="#e2e8f0" font-size="14" text-anchor="middle">patch 를 펼쳐 E 를 곱한 [2, −2], [2, 2], [0, 0], [4, 0] 과 똑같다</text>
+  <text x="340" y="296" fill="#94a3b8" font-size="13" text-anchor="middle">kernel 크기 = stride = patch 크기 P 인 convolution</text>
+</svg>

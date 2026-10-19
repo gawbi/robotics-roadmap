@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>stereo camera. 왼쪽 사진에서는 두 점이 같은 pixel 370 에 찍히지만, 0.1 m 오른쪽에 놓인 카메라에서는 1 m 점이 320, 2 m 점이 345 에 찍혀 disparity 50 과 25 로 갈린다</title>
+  <rect x="1" y="1" width="678" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- top view: lateral 1 m = 1000 px, forward 1 m = 120 px; cameras at y = 300 -->
+  <text x="20" y="28" fill="#94a3b8" font-size="13">위에서 내려다본 모습 (z 는 위쪽)</text>
+
+  <!-- left camera at x=140 -->
+  <rect x="124" y="300" width="32" height="22" rx="4" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <circle cx="140" cy="300" r="4" fill="#e2e8f0"/>
+  <text x="140" y="340" fill="#e2e8f0" font-size="13" text-anchor="middle">왼쪽 카메라</text>
+  <!-- right camera at x=240 -->
+  <rect x="224" y="300" width="32" height="22" rx="4" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <circle cx="240" cy="300" r="4" fill="#e2e8f0"/>
+  <text x="250" y="340" fill="#e2e8f0" font-size="13" text-anchor="middle">오른쪽 카메라</text>
+  <!-- baseline -->
+  <line x1="140" y1="290" x2="240" y2="290" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="140" y1="285" x2="140" y2="295" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="240" y1="285" x2="240" y2="295" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="190" y="282" fill="#94a3b8" font-size="13" text-anchor="middle">b = 0.1 m</text>
+
+  <!-- points: P1 (x 0.1, z 1) -> (240, 180); P2 (x 0.2, z 2) -> (340, 60) -->
+  <line x1="140" y1="300" x2="340" y2="60" stroke="#e2e8f0" stroke-width="1.3" stroke-dasharray="6 5"/>
+  <line x1="240" y1="300" x2="240" y2="180" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="240" y1="300" x2="340" y2="60" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <circle cx="240" cy="180" r="7" fill="#f59e0b"/>
+  <text x="226" y="172" fill="#f59e0b" font-size="13" text-anchor="end">1 m 점 (0.1, −0.05, 1.0)</text>
+  <circle cx="340" cy="60" r="7" fill="#a78bfa"/>
+  <text x="352" y="56" fill="#a78bfa" font-size="13">2 m 점 (0.2, −0.1, 2.0)</text>
+  <text x="96" y="210" fill="#94a3b8" font-size="12">왼쪽 카메라에서는</text>
+  <text x="96" y="226" fill="#94a3b8" font-size="12">같은 직선 위</text>
+
+  <!-- image strips -->
+  <text x="430" y="122" fill="#e2e8f0" font-size="14">왼쪽 사진의 u</text>
+  <rect x="430" y="134" width="220" height="14" rx="3" fill="#111a2e" stroke="#475569"/>
+  <!-- u scale: 0..640 -> 430..650 ; 370 -> 557.2 -->
+  <circle cx="557" cy="141" r="6" fill="#f59e0b"/>
+  <circle cx="557" cy="141" r="3" fill="#a78bfa"/>
+  <text x="557" y="168" fill="#e2e8f0" font-size="13" text-anchor="middle">370 (두 점 모두)</text>
+
+  <text x="430" y="206" fill="#e2e8f0" font-size="14">오른쪽 사진의 u</text>
+  <rect x="430" y="218" width="220" height="14" rx="3" fill="#111a2e" stroke="#475569"/>
+  <!-- 320 -> 540 ; 345 -> 548.6 -->
+  <circle cx="540" cy="225" r="5" fill="#f59e0b"/>
+  <circle cx="549" cy="225" r="5" fill="#a78bfa"/>
+  <text x="530" y="252" fill="#f59e0b" font-size="13" text-anchor="end">320</text>
+  <text x="559" y="252" fill="#a78bfa" font-size="13">345</text>
+
+  <text x="430" y="284" fill="#f59e0b" font-size="13">1 m 점: d = 370 − 320 = 50</text>
+  <text x="430" y="304" fill="#a78bfa" font-size="13">2 m 점: d = 370 − 345 = 25</text>
+  <text x="430" y="328" fill="#e2e8f0" font-size="13">Z = f × b ÷ d = 500 × 0.1 ÷ d</text>
+</svg>

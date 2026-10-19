@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>XOR 의 네 점. 정답이 1 인 두 점을 잇는 선분과 0 인 두 점을 잇는 선분이 (0.5, 0.5) 에서 만난다</title>
+  <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- plot area: x1, x2 in [-0.5, 1.5], 150 px per unit, origin (0, 0) at (135, 255) -->
+  <rect x="60" y="30" width="300" height="300" fill="#0e1628" stroke="#1e293b"/>
+
+  <!-- axes -->
+  <line x1="60" y1="255" x2="360" y2="255" stroke="#475569" stroke-width="1.5"/>
+  <line x1="135" y1="30" x2="135" y2="330" stroke="#475569" stroke-width="1.5"/>
+  <text x="352" y="276" fill="#94a3b8" font-size="15" text-anchor="end">x₁</text>
+  <text x="124" y="48" fill="#94a3b8" font-size="15" text-anchor="end">x₂</text>
+
+  <!-- segment between the two label-1 points: (0, 1) - (1, 0) -->
+  <line x1="135" y1="105" x2="285" y2="255" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <!-- segment between the two label-0 points: (0, 0) - (1, 1) -->
+  <line x1="135" y1="255" x2="285" y2="105" stroke="#e2e8f0" stroke-width="2.5" stroke-dasharray="7 5"/>
+
+  <!-- crossing point (0.5, 0.5) -->
+  <circle cx="210" cy="180" r="6" fill="#f87171"/>
+  <text x="224" y="185" fill="#f87171" font-size="13">(0.5, 0.5)</text>
+
+  <!-- points: filled = label 1, hollow = label 0 -->
+  <circle cx="135" cy="255" r="9" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="285" cy="105" r="9" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="135" cy="105" r="9" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="285" cy="255" r="9" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="146" y="282" fill="#94a3b8" font-size="13">(0, 0)</text>
+  <text x="150" y="98" fill="#94a3b8" font-size="13">(0, 1)</text>
+  <text x="300" y="250" fill="#94a3b8" font-size="13">(1, 0)</text>
+  <text x="300" y="100" fill="#94a3b8" font-size="13">(1, 1)</text>
+
+  <!-- legend -->
+  <circle cx="396" cy="64" r="8" fill="#f59e0b"/>
+  <text x="414" y="69" fill="#e2e8f0" font-size="14">정답 y = 1</text>
+  <circle cx="396" cy="96" r="8" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <text x="414" y="101" fill="#e2e8f0" font-size="14">정답 y = 0</text>
+  <line x1="386" y1="134" x2="406" y2="134" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="414" y="139" fill="#e2e8f0" font-size="14">1 인 두 점의 선분</text>
+  <line x1="386" y1="164" x2="406" y2="164" stroke="#e2e8f0" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="414" y="169" fill="#e2e8f0" font-size="14">0 인 두 점의 선분</text>
+
+  <text x="386" y="220" fill="#94a3b8" font-size="13">직선의 한쪽에 두 점이 있으면</text>
+  <text x="386" y="240" fill="#94a3b8" font-size="13">두 점을 잇는 선분도 그쪽에 있다.</text>
+  <text x="386" y="270" fill="#94a3b8" font-size="13">(0.5, 0.5) 는 두 선분에 모두</text>
+  <text x="386" y="290" fill="#94a3b8" font-size="13">속해 어느 쪽에도 둘 수 없다</text>
+</svg>

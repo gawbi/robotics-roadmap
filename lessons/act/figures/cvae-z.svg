@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>학습 때 encoder 는 바로 내려감을 z = −1, 1 step 멈춤을 z = 0, 2 step 멈춤을 z = +1 에 둔다. policy 는 같은 관측에 z 만 바꿔 받아 각자의 chunk 를 낸다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="150.0" y="34.0" fill="#f59e0b" font-size="14" text-anchor="middle">CVAE encoder (학습 때만)</text>
+  <text x="500.0" y="34.0" fill="#38bdf8" font-size="14" text-anchor="middle">policy: (관측, z) → chunk</text>
+  <line x1="50.0" y1="250.0" x2="250.0" y2="250.0" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="70.0" y1="244.0" x2="70.0" y2="256.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="70.0" y="274.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = −1</text>
+  <circle cx="70.0" cy="250.0" r="6" fill="#34d399"/>
+  <rect x="18.0" y="70.0" width="104.0" height="34.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="70.0" y="92.0" fill="#34d399" font-size="12" text-anchor="middle">바로 내려감</text>
+  <line x1="70.0" y1="106.0" x2="70.0" y2="240.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="150.0" y1="244.0" x2="150.0" y2="256.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="150.0" y="274.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = 0</text>
+  <circle cx="150.0" cy="250.0" r="6" fill="#38bdf8"/>
+  <rect x="98.0" y="122.0" width="104.0" height="34.0" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="150.0" y="144.0" fill="#38bdf8" font-size="12" text-anchor="middle">1 step 멈춤</text>
+  <line x1="150.0" y1="158.0" x2="150.0" y2="240.0" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="230.0" y1="244.0" x2="230.0" y2="256.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="230.0" y="274.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = +1</text>
+  <circle cx="230.0" cy="250.0" r="6" fill="#f59e0b"/>
+  <rect x="178.0" y="174.0" width="104.0" height="34.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="230.0" y="196.0" fill="#f59e0b" font-size="12" text-anchor="middle">2 step 멈춤</text>
+  <line x1="230.0" y1="210.0" x2="230.0" y2="240.0" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="150.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="middle">KL 이 z 들을 0 근처에 모은다</text>
+  <rect x="330.0" y="70.0" width="130.0" height="50.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="395.0" y="91.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관측</text>
+  <text x="395.0" y="109.0" fill="#34d399" font-size="13" text-anchor="middle">z = −1</text>
+  <line x1="462.0" y1="95.0" x2="500.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="504.0" y="70.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="579.0" y="100.0" fill="#34d399" font-size="14" text-anchor="middle">(6, 0, 0, 0)</text>
+  <rect x="330.0" y="148.0" width="130.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="395.0" y="169.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관측</text>
+  <text x="395.0" y="187.0" fill="#38bdf8" font-size="13" text-anchor="middle">z = 0</text>
+  <line x1="462.0" y1="173.0" x2="500.0" y2="173.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="504.0" y="148.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="579.0" y="178.0" fill="#38bdf8" font-size="14" text-anchor="middle">(12, 6, 0, 0)</text>
+  <rect x="330.0" y="226.0" width="130.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="395.0" y="247.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관측</text>
+  <text x="395.0" y="265.0" fill="#f59e0b" font-size="13" text-anchor="middle">z = +1</text>
+  <line x1="462.0" y1="251.0" x2="500.0" y2="251.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="504.0" y="226.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="579.0" y="256.0" fill="#f59e0b" font-size="14" text-anchor="middle">(12, 12, 6, 0)</text>
+  <text x="500.0" y="312.0" fill="#94a3b8" font-size="12" text-anchor="middle">입력이 서로 달라 정답이 겹치지 않는다</text>
+</svg>

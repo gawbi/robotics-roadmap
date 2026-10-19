@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>−50° 부터 +50° 까지를 폭 20° 인 칸 다섯 개로 나누면 17° 는 3 번 칸이 되어 가운데 값 20° 로, −23° 는 1 번 칸이 되어 −20° 로 되돌아온다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="start">핸들 각도 범위 −50° ~ +50°, 칸 5 개, 칸 폭 20°</text>
+  <rect x="60.0" y="100.0" width="120.0" height="60.0" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="120.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">칸 0</text>
+  <text x="120.0" y="144.0" fill="#94a3b8" font-size="11" text-anchor="middle">가운데 −40°</text>
+  <rect x="180.0" y="100.0" width="120.0" height="60.0" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="240.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">칸 1</text>
+  <text x="240.0" y="144.0" fill="#94a3b8" font-size="11" text-anchor="middle">가운데 −20°</text>
+  <rect x="300.0" y="100.0" width="120.0" height="60.0" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="360.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">칸 2</text>
+  <text x="360.0" y="144.0" fill="#94a3b8" font-size="11" text-anchor="middle">가운데 0°</text>
+  <rect x="420.0" y="100.0" width="120.0" height="60.0" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="480.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">칸 3</text>
+  <text x="480.0" y="144.0" fill="#94a3b8" font-size="11" text-anchor="middle">가운데 +20°</text>
+  <rect x="540.0" y="100.0" width="120.0" height="60.0" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1.2"/>
+  <text x="600.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">칸 4</text>
+  <text x="600.0" y="144.0" fill="#94a3b8" font-size="11" text-anchor="middle">가운데 +40°</text>
+  <text x="60.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">−50</text>
+  <text x="180.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">−30</text>
+  <text x="300.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">−10</text>
+  <text x="420.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">+10</text>
+  <text x="540.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">+30</text>
+  <text x="660.0" y="180.0" fill="#64748b" font-size="11" text-anchor="middle">+50</text>
+  <line x1="462.0" y1="78.0" x2="462.0" y2="98.0" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M462.0,100 l-6,-10 h12 z" fill="#f59e0b"/>
+  <path d="M462.0,160 l-6,10 h12 z" fill="#f59e0b"/>
+  <text x="462.0" y="72.0" fill="#f59e0b" font-size="12" text-anchor="middle">a = 17°</text>
+  <line x1="222.0" y1="78.0" x2="222.0" y2="98.0" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M222.0,100 l-6,-10 h12 z" fill="#38bdf8"/>
+  <path d="M222.0,160 l-6,10 h12 z" fill="#38bdf8"/>
+  <text x="222.0" y="72.0" fill="#38bdf8" font-size="12" text-anchor="middle">a = −23°</text>
+  <text x="40.0" y="214.0" fill="#f59e0b" font-size="13" text-anchor="start">17° :  ⌊(17 + 50) ÷ 20⌋ = ⌊3.35⌋ = 3 번 칸  →  가운데 −50 + 3.5 × 20 = 20°  →  오차 3°</text>
+  <text x="40.0" y="244.0" fill="#38bdf8" font-size="13" text-anchor="start">−23° :  ⌊(−23 + 50) ÷ 20⌋ = ⌊1.35⌋ = 1 번 칸  →  가운데 −50 + 1.5 × 20 = −20°  →  오차 3°</text>
+  <text x="40.0" y="274.0" fill="#94a3b8" font-size="12" text-anchor="start">⌊ ⌋ 은 소수점 아래를 버리는 내림이다</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>옆에서 본 장면. 높이 0.55 m 의 카메라에서 pixel (220, 240) 을 지나는 ray 위의 점들은 모두 같은 pixel 에 찍힌다. 그 ray 가 높이 0.05 m 평면과 만나는 점 (0.20, 0, 0.05) 이 cube 윗면 가운데다</title>
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+  </defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <!-- table -->
+  <line x1="30" y1="350" x2="330" y2="350" stroke="#475569" stroke-width="2"/>
+  <text x="300" y="370" fill="#64748b" font-size="12" text-anchor="end">책상 (높이 0)</text>
+  <rect x="30" y="320" width="34" height="30" rx="4" fill="#111a2e" stroke="#94a3b8"/>
+  <text x="47" y="390" fill="#94a3b8" font-size="12" text-anchor="middle">로봇 base (x = 0)</text>
+  <line x1="47" y1="352" x2="47" y2="377" stroke="#475569" stroke-dasharray="2 2"/>
+  <!-- cube -->
+  <rect x="137.5" y="325" width="25" height="25" fill="#c0392b" stroke="#f87171" stroke-width="1.5"/>
+  <line x1="30" y1="325" x2="330" y2="325" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="330" y="318" fill="#f59e0b" font-size="12" text-anchor="end">높이 0.05 m 평면</text>
+  <!-- camera -->
+  <rect x="186" y="58" width="28" height="16" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <circle cx="200" cy="75" r="3.5" fill="#e2e8f0"/>
+  <text x="222" y="56" fill="#e2e8f0" font-size="12">카메라 (x 0.3, 높이 0.55)</text>
+  <line x1="200" y1="78" x2="200" y2="348" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="206" y="290" fill="#64748b" font-size="11">수직 아래</text>
+  <!-- ray -->
+  <line x1="200" y1="75" x2="146" y2="345" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <circle cx="175" cy="200" r="4.5" fill="#94a3b8"/>
+  <text x="108" y="196" fill="#94a3b8" font-size="12" text-anchor="end">t = 0.25</text>
+  <text x="108" y="212" fill="#94a3b8" font-size="12" text-anchor="end">높이 0.30</text>
+  <line x1="112" y1="200" x2="169" y2="200" stroke="#475569" stroke-dasharray="2 2"/>
+  <circle cx="150" cy="325" r="5" fill="#34d399"/>
+  <text x="108" y="296" fill="#34d399" font-size="12" text-anchor="end">t = 0.5</text>
+  <text x="108" y="312" fill="#34d399" font-size="12" text-anchor="end">(0.20, 0, 0.05)</text>
+  <circle cx="145" cy="350" r="4" fill="#94a3b8"/>
+  <text x="166" y="140" fill="#38bdf8" font-size="12" text-anchor="end">ray</text>
+  <text x="200" y="104" fill="#38bdf8" font-size="11">pixel (220, 240) 의 방향</text>
+  <!-- right panel -->
+  <line x1="360" y1="30" x2="360" y2="370" stroke="#1e293b"/>
+  <text x="380" y="50" fill="#e2e8f0" font-size="14">ray 위의 점은 모두 같은 pixel 에 찍힌다</text>
+  <text x="380" y="84" fill="#94a3b8" font-size="13">② 의 값 (−0.2, 0) → camera 방향 (−0.2, 0, 1)</text>
+  <text x="380" y="106" fill="#94a3b8" font-size="13">base 방향 (−0.2, 0, −1)</text>
+  <text x="380" y="140" fill="#e2e8f0" font-size="13">p(t) = (0.3, 0, 0.55) + t × (−0.2, 0, −1)</text>
+  <text x="380" y="174" fill="#94a3b8" font-size="13">높이 0.55 − t = 0.05</text>
+  <text x="380" y="196" fill="#e2e8f0" font-size="13">→ t = 0.5</text>
+  <text x="380" y="230" fill="#94a3b8" font-size="13">p = (0.3 − 0.1, 0, 0.55 − 0.5)</text>
+  <text x="380" y="256" fill="#34d399" font-size="15">= (0.20, 0, 0.05)  cube 윗면 가운데</text>
+  <text x="380" y="300" fill="#94a3b8" font-size="12">depth camera 를 쓰면 depth 0.5 를 직접 재고,</text>
+  <text x="380" y="320" fill="#94a3b8" font-size="12">높이를 알면 ray 와 평면이 만나는 점으로 구한다</text>
+</svg>

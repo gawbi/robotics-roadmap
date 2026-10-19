@@ -28,8 +28,8 @@ export interface PanelWidth {
   setWidth(width: number, save?: boolean): void
 }
 
-/** The panel width the viewer chose, kept inside the window. `reserved` is the room the sidebar takes on the left. */
-export function usePanelWidth(reserved: number): PanelWidth {
+/** The panel width the viewer chose, kept inside the window. */
+export function usePanelWidth(): PanelWidth {
   const [preferred, setPreferred] = useState(storedWidth)
   const [viewport, setViewport] = useState(() => window.innerWidth)
 
@@ -40,7 +40,7 @@ export function usePanelWidth(reserved: number): PanelWidth {
   }, [])
 
   // never squeeze the panel below its default just because the window is narrow
-  const max = Math.max(P.defaultWidth, viewport - reserved - P.minGraphWidth)
+  const max = Math.max(P.defaultWidth, viewport - P.edgeGutter)
   const clamp = (w: number) => Math.round(Math.min(Math.max(w, P.minWidth), max))
   const setWidth = (w: number, save = false) => {
     setPreferred(clamp(w))
@@ -76,7 +76,7 @@ export function PanelResizer({ panel, onDragging }: Props) {
       className="panel-resizer"
       role="separator"
       aria-orientation="vertical"
-      aria-label="과제 창 너비"
+      aria-label="강의 창 너비"
       aria-valuemin={min}
       aria-valuemax={max}
       aria-valuenow={width}

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 366" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DDPM 의 reverse 경로와 직선 경로. 왼쪽은 DDPM 강의의 T = 5 실행 A 로, network 를 한 번 쓸 때마다 0.60, 0.89, 1.08, 1.65, 1.97, 2.00 으로 움직여 이동량이 0.29, 0.19, 0.57, 0.32, 0.03 으로 들쭉날쭉하다. 오른쪽은 noise −1 과 데이터 2 를 잇는 직선으로, 시각 t 가 0.25 늘 때마다 0.75 씩 일정하게 움직인다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="364" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="40.0" y="34.0" fill="#f59e0b" font-size="14" text-anchor="start">DDPM: T = 5 실행 A</text>
+  <rect x="60.0" y="50.0" width="270.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="60.0" y1="242.5" x2="330.0" y2="242.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="52.0" y="246.5" fill="#94a3b8" font-size="12" text-anchor="end">−1</text>
+  <line x1="60.0" y1="187.5" x2="330.0" y2="187.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="52.0" y="191.5" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="60.0" y1="132.5" x2="330.0" y2="132.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="52.0" y="136.5" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <line x1="60.0" y1="77.5" x2="330.0" y2="77.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="52.0" y="81.5" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
+  <line x1="60.0" y1="270.0" x2="60.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="60.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <line x1="114.0" y1="270.0" x2="114.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="114.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <line x1="168.0" y1="270.0" x2="168.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="168.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <line x1="222.0" y1="270.0" x2="222.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="222.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <line x1="276.0" y1="270.0" x2="276.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="276.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <line x1="330.0" y1="270.0" x2="330.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="330.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">5</text>
+  <line x1="60.0" y1="77.5" x2="330.0" y2="77.5" stroke="#34d399" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <polyline points="60.0,154.5 114.0,138.5 168.0,128.1 222.0,96.8 276.0,79.2 330.0,77.5" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="60.0" cy="154.5" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="60.0" y="144.5" fill="#f59e0b" font-size="12" text-anchor="middle">0.60</text>
+  <circle cx="114.0" cy="138.5" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="114.0" y="158.5" fill="#f59e0b" font-size="12" text-anchor="middle">0.89</text>
+  <circle cx="168.0" cy="128.1" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="168.0" y="148.1" fill="#f59e0b" font-size="12" text-anchor="middle">1.08</text>
+  <circle cx="222.0" cy="96.8" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="222.0" y="86.8" fill="#f59e0b" font-size="12" text-anchor="middle">1.65</text>
+  <circle cx="276.0" cy="79.2" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="276.0" y="69.2" fill="#f59e0b" font-size="12" text-anchor="middle">1.97</text>
+  <circle cx="330.0" cy="77.5" r="4.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <text x="326.0" y="67.5" fill="#f59e0b" font-size="12" text-anchor="middle">2.00</text>
+  <text x="195.0" y="314.0" fill="#94a3b8" font-size="12" text-anchor="middle">network 를 쓴 횟수</text>
+  <text x="40.0" y="344.0" fill="#94a3b8" font-size="12" text-anchor="start">step 마다 이동량: 0.29, 0.19, 0.57, 0.32, 0.03</text>
+  <text x="400.0" y="34.0" fill="#38bdf8" font-size="14" text-anchor="start">직선 경로: noise −1 에서 데이터 2 로</text>
+  <rect x="420.0" y="50.0" width="270.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="420.0" y1="242.5" x2="690.0" y2="242.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="412.0" y="246.5" fill="#94a3b8" font-size="12" text-anchor="end">−1</text>
+  <line x1="420.0" y1="187.5" x2="690.0" y2="187.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="412.0" y="191.5" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="420.0" y1="132.5" x2="690.0" y2="132.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="412.0" y="136.5" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <line x1="420.0" y1="77.5" x2="690.0" y2="77.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="412.0" y="81.5" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
+  <line x1="420.0" y1="270.0" x2="420.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="420.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <line x1="487.5" y1="270.0" x2="487.5" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="487.5" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.25</text>
+  <line x1="555.0" y1="270.0" x2="555.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="555.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
+  <line x1="622.5" y1="270.0" x2="622.5" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="622.5" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.75</text>
+  <line x1="690.0" y1="270.0" x2="690.0" y2="275.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="690.0" y="289.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <line x1="420.0" y1="77.5" x2="690.0" y2="77.5" stroke="#34d399" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="420.0" y1="242.5" x2="690.0" y2="77.5" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="420.0" cy="242.5" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="426.0" y="260.5" fill="#38bdf8" font-size="12" text-anchor="start">−1</text>
+  <circle cx="487.5" cy="201.2" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="493.5" y="219.2" fill="#38bdf8" font-size="12" text-anchor="start">−0.25</text>
+  <circle cx="555.0" cy="160.0" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="561.0" y="178.0" fill="#38bdf8" font-size="12" text-anchor="start">0.5</text>
+  <circle cx="622.5" cy="118.8" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="628.5" y="136.8" fill="#38bdf8" font-size="12" text-anchor="start">1.25</text>
+  <circle cx="690.0" cy="77.5" r="4.5" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <text x="696.0" y="95.5" fill="#38bdf8" font-size="12" text-anchor="end">2</text>
+  <text x="555.0" y="314.0" fill="#94a3b8" font-size="12" text-anchor="middle">시각 t</text>
+  <text x="400.0" y="344.0" fill="#94a3b8" font-size="12" text-anchor="start">t 가 0.25 늘 때마다 0.75 씩 일정하게 이동</text>
+</svg>

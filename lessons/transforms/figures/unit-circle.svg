@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>반지름 1 인 원(단위원) 위에서 각도 30° 인 점은 (0.866, 0.5) 다. 가로 좌표가 cos 30°, 세로 좌표가 sin 30° 다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="18.8" y1="175.0" x2="331.2" y2="175.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="175.0" y1="325.0" x2="175.0" y2="25.0" stroke="#475569" stroke-width="1.5"/>
+  <circle cx="175.0" cy="175.0" r="125" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="300.0" cy="175.0" r="4" fill="#94a3b8"/>
+  <text x="321.2" y="179.0" fill="#94a3b8" font-size="12" text-anchor="middle">0°</text>
+  <circle cx="175.0" cy="50.0" r="4" fill="#94a3b8"/>
+  <text x="175.0" y="32.8" fill="#94a3b8" font-size="12" text-anchor="middle">90°</text>
+  <circle cx="112.5" cy="66.7" r="4" fill="#94a3b8"/>
+  <text x="101.9" y="52.3" fill="#94a3b8" font-size="12" text-anchor="middle">120°</text>
+  <circle cx="50.0" cy="175.0" r="4" fill="#94a3b8"/>
+  <text x="28.8" y="179.0" fill="#94a3b8" font-size="12" text-anchor="middle">180°</text>
+  <circle cx="175.0" cy="300.0" r="4" fill="#94a3b8"/>
+  <text x="175.0" y="325.2" fill="#94a3b8" font-size="12" text-anchor="middle">270°</text>
+  <line x1="283.3" y1="112.5" x2="283.3" y2="175.0" stroke="#34d399" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="175.0" y1="175.0" x2="283.3" y2="175.0" stroke="#f87171" stroke-width="3"/>
+  <line x1="175.0" y1="112.5" x2="283.3" y2="112.5" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 4"/>
+  <line x1="175.0" y1="175.0" x2="283.3" y2="112.5" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="283.3" cy="112.5" r="6" fill="#f59e0b"/>
+  <text x="293.3" y="104.5" fill="#f59e0b" font-size="13" text-anchor="start">30°</text>
+  <path d="M210.0,175.0 L210.0,174.5 L210.0,174.1 L210.0,173.6 L210.0,173.2 L209.9,172.7 L209.9,172.3 L209.9,171.8 L209.8,171.3 L209.8,170.9 L209.7,170.4 L209.6,170.0 L209.6,169.5 L209.5,169.1 L209.4,168.6 L209.3,168.2 L209.2,167.7 L209.1,167.3 L209.0,166.8 L208.9,166.4 L208.8,165.9 L208.7,165.5 L208.6,165.1 L208.4,164.6 L208.3,164.2 L208.1,163.7 L208.0,163.3 L207.8,162.9 L207.7,162.5 L207.5,162.0 L207.3,161.6 L207.2,161.2 L207.0,160.8 L206.8,160.3 L206.6,159.9 L206.4,159.5 L206.2,159.1 L206.0,158.7 L205.8,158.3 L205.5,157.9 L205.3,157.5" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="214.5" y="169.5" fill="#e2e8f0" font-size="12" text-anchor="start">30°</text>
+  <text x="229.1" y="195.0" fill="#f87171" font-size="13" text-anchor="middle">cos 30° = 0.866</text>
+  <text x="277.3" y="147.5" fill="#34d399" font-size="13" text-anchor="end">sin 30°</text>
+  <text x="277.3" y="163.5" fill="#34d399" font-size="13" text-anchor="end">= 0.5</text>
+  <text x="221.2" y="136.5" fill="#f59e0b" font-size="13" text-anchor="start">1</text>
+  <text x="360.0" y="46.0" fill="#94a3b8" font-size="13" text-anchor="middle">각도</text>
+  <text x="440.0" y="46.0" fill="#f87171" font-size="13" text-anchor="middle">cos (가로)</text>
+  <text x="530.0" y="46.0" fill="#34d399" font-size="13" text-anchor="middle">sin (세로)</text>
+  <line x1="330.0" y1="56.0" x2="575.0" y2="56.0" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="360.0" y="80.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0°</text>
+  <text x="440.0" y="80.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <text x="530.0" y="80.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <text x="360.0" y="108.0" fill="#f59e0b" font-size="14" text-anchor="middle">30°</text>
+  <text x="440.0" y="108.0" fill="#f59e0b" font-size="14" text-anchor="middle">0.866</text>
+  <text x="530.0" y="108.0" fill="#f59e0b" font-size="14" text-anchor="middle">0.5</text>
+  <text x="360.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">60°</text>
+  <text x="440.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.5</text>
+  <text x="530.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.866</text>
+  <text x="360.0" y="164.0" fill="#e2e8f0" font-size="14" text-anchor="middle">90°</text>
+  <text x="440.0" y="164.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <text x="530.0" y="164.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
+  <text x="360.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">120°</text>
+  <text x="440.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−0.5</text>
+  <text x="530.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.866</text>
+  <text x="360.0" y="220.0" fill="#e2e8f0" font-size="14" text-anchor="middle">180°</text>
+  <text x="440.0" y="220.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <text x="530.0" y="220.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <text x="360.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">270°</text>
+  <text x="440.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
+  <text x="530.0" y="248.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−1</text>
+  <text x="330.0" y="300.0" fill="#94a3b8" font-size="13" text-anchor="start">원 위의 점 = (cos θ, sin θ)</text>
+  <text x="330.0" y="322.0" fill="#64748b" font-size="12" text-anchor="start">각도는 x 축에서 시계 반대 방향으로 잰다</text>
+</svg>

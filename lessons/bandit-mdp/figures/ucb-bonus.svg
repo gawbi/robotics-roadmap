@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>t = 100, c = 2 에서 세 arm 의 추정값 위에 bonus 를 쌓은 막대. A 는 1.5 + 0.48, B 는 1.2 + 1.11, C 는 0.5 + 1.92 로 C 가 가장 높아 C 를 고른다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="74.0" y1="270.0" x2="420.0" y2="270.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="274.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="74.0" y1="225.8" x2="420.0" y2="225.8" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="229.8" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
+  <line x1="74.0" y1="181.5" x2="420.0" y2="181.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="185.5" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="74.0" y1="137.3" x2="420.0" y2="137.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="141.3" fill="#64748b" font-size="12" text-anchor="end">1.5</text>
+  <line x1="74.0" y1="93.1" x2="420.0" y2="93.1" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="97.1" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <line x1="74.0" y1="48.8" x2="420.0" y2="48.8" stroke="#1e293b" stroke-width="1"/>
+  <text x="68.0" y="52.8" fill="#64748b" font-size="12" text-anchor="end">2.5</text>
+  <rect x="110.0" y="137.3" width="60.0" height="132.7" rx="2" fill="#38bdf8" fill-opacity="0.55" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="110.0" y="94.8" width="60.0" height="42.5" rx="2" fill="#f59e0b" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1"/>
+  <text x="140.0" y="208.7" fill="#e2e8f0" font-size="12" text-anchor="middle">1.5</text>
+  <text x="140.0" y="121.1" fill="#e2e8f0" font-size="12" text-anchor="middle">+0.48</text>
+  <text x="140.0" y="86.8" fill="#e2e8f0" font-size="13" text-anchor="middle">1.98</text>
+  <text x="140.0" y="292.0" fill="#e2e8f0" font-size="13" text-anchor="middle">arm A</text>
+  <text x="140.0" y="310.0" fill="#94a3b8" font-size="12" text-anchor="middle">N = 80</text>
+  <rect x="215.0" y="163.8" width="60.0" height="106.2" rx="2" fill="#38bdf8" fill-opacity="0.55" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="215.0" y="65.8" width="60.0" height="98.0" rx="2" fill="#f59e0b" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1"/>
+  <text x="245.0" y="221.9" fill="#e2e8f0" font-size="12" text-anchor="middle">1.2</text>
+  <text x="245.0" y="119.8" fill="#e2e8f0" font-size="12" text-anchor="middle">+1.11</text>
+  <text x="245.0" y="57.8" fill="#e2e8f0" font-size="13" text-anchor="middle">2.31</text>
+  <text x="245.0" y="292.0" fill="#e2e8f0" font-size="13" text-anchor="middle">arm B</text>
+  <text x="245.0" y="310.0" fill="#94a3b8" font-size="12" text-anchor="middle">N = 15</text>
+  <rect x="320.0" y="225.8" width="60.0" height="44.2" rx="2" fill="#38bdf8" fill-opacity="0.55" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="320.0" y="56.0" width="60.0" height="169.8" rx="2" fill="#f59e0b" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1"/>
+  <text x="350.0" y="252.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.5</text>
+  <text x="350.0" y="145.9" fill="#e2e8f0" font-size="12" text-anchor="middle">+1.92</text>
+  <text x="350.0" y="48.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="bold">2.42</text>
+  <text x="350.0" y="292.0" fill="#e2e8f0" font-size="13" text-anchor="middle">arm C</text>
+  <text x="350.0" y="310.0" fill="#94a3b8" font-size="12" text-anchor="middle">N = 5</text>
+  <text x="388.0" y="59.9" fill="#34d399" font-size="12" text-anchor="start">← C 를 고른다</text>
+  <rect x="440.0" y="100.0" width="140.0" height="80.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="452.0" y="116.0" width="14.0" height="14.0" rx="2" fill="#38bdf8" fill-opacity="0.55" stroke="#38bdf8" stroke-width="1"/>
+  <text x="474.0" y="128.0" fill="#e2e8f0" font-size="12" text-anchor="start">추정값 Q(a)</text>
+  <rect x="452.0" y="144.0" width="14.0" height="14.0" rx="2" fill="#f59e0b" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1"/>
+  <text x="474.0" y="156.0" fill="#e2e8f0" font-size="12" text-anchor="start">bonus</text>
+  <text x="510.0" y="206.0" fill="#94a3b8" font-size="12" text-anchor="middle">greedy 라면 Q 가 가장</text>
+  <text x="510.0" y="224.0" fill="#94a3b8" font-size="12" text-anchor="middle">큰 A 를 고른다</text>
+</svg>

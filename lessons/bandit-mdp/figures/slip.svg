@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>미끄러운 바닥에서 칸 2 에서 오른쪽을 고르면 0.8 의 확률로 칸 3, 0.1 의 확률로 위쪽 벽에 막혀 칸 2, 0.1 의 확률로 칸 5 에 도착한다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="458" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40.0" y="60.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="46.0" y="75.0" fill="#64748b" font-size="11" text-anchor="start">1</text>
+  <rect x="140.0" y="60.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="146.0" y="75.0" fill="#64748b" font-size="11" text-anchor="start">2</text>
+  <rect x="240.0" y="60.0" width="100.0" height="100.0" rx="0" fill="#34d399" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="246.0" y="75.0" fill="#64748b" font-size="11" text-anchor="start">3</text>
+  <text x="290.0" y="151.0" fill="#34d399" font-size="11" text-anchor="middle">충전기</text>
+  <rect x="40.0" y="160.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="46.0" y="175.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <rect x="140.0" y="160.0" width="100.0" height="100.0" rx="0" fill="#f87171" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="146.0" y="175.0" fill="#64748b" font-size="11" text-anchor="start">5</text>
+  <text x="190.0" y="251.0" fill="#f87171" font-size="11" text-anchor="middle">계단</text>
+  <rect x="240.0" y="160.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="246.0" y="175.0" fill="#64748b" font-size="11" text-anchor="start">6</text>
+  <rect x="40.0" y="260.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="46.0" y="275.0" fill="#64748b" font-size="11" text-anchor="start">7</text>
+  <rect x="140.0" y="260.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="146.0" y="275.0" fill="#64748b" font-size="11" text-anchor="start">8</text>
+  <rect x="240.0" y="260.0" width="100.0" height="100.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="246.0" y="275.0" fill="#64748b" font-size="11" text-anchor="start">9</text>
+  <circle cx="190.0" cy="110.0" r="11" fill="#38bdf8"/>
+  <text x="190.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="middle">칸 2 에서 오른쪽을 고름</text>
+  <line x1="204.0" y1="110.0" x2="264.0" y2="110.0" stroke="#f59e0b" stroke-width="3" marker-end="url(#ar-amber)"/>
+  <text x="234.0" y="100.0" fill="#f59e0b" font-size="15" text-anchor="middle">0.8</text>
+  <path d="M182.0,96.0 C176.0,58 204.0,58 199.0,94.0" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
+  <text x="224.0" y="82.0" fill="#94a3b8" font-size="14" text-anchor="middle">0.1</text>
+  <text x="166.0" y="78.0" fill="#64748b" font-size="11" text-anchor="middle">벽</text>
+  <line x1="190.0" y1="124.0" x2="190.0" y2="184.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#ar-red)"/>
+  <text x="212.0" y="156.0" fill="#f87171" font-size="14" text-anchor="middle">0.1</text>
+  <text x="230.0" y="382.0" fill="#94a3b8" font-size="13" text-anchor="middle">0.8 + 0.1 + 0.1 = 1</text>
+</svg>

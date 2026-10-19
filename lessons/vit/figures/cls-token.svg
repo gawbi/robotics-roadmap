@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>맨 앞의 [CLS] token 이 [0, 0] 이면 다섯 token 과의 점수가 모두 0 이라 weight 가 0.2 씩이고 출력은 평균 [1.6, 0] 이다. [CLS] 가 [1, 0] 이면 흰 사각형 patch 4 에 0.747 을 주어 출력이 [3.429, 0] 이 된다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="678" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="42" fill="#f59e0b" font-size="15" text-anchor="start" font-weight="bold">x_cls = [0, 0]</text>
+  <rect x="40" y="56" width="80" height="30" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="80" y="76" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
+  <text x="80" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">[CLS]</text>
+  <rect x="65" y="160.0" width="30" height="12.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="80" y="154.0" fill="#34d399" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="50" y1="172" x2="110" y2="172" stroke="#64748b" stroke-width="1"/>
+  <rect x="132" y="56" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="172" y="76" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −2]</text>
+  <text x="172" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <rect x="157" y="160.0" width="30" height="12.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="172" y="154.0" fill="#34d399" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="142" y1="172" x2="202" y2="172" stroke="#64748b" stroke-width="1"/>
+  <rect x="224" y="56" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="264" y="76" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 2]</text>
+  <text x="264" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <rect x="249" y="160.0" width="30" height="12.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="264" y="154.0" fill="#34d399" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="234" y1="172" x2="294" y2="172" stroke="#64748b" stroke-width="1"/>
+  <rect x="316" y="56" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="356" y="76" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
+  <text x="356" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <rect x="341" y="160.0" width="30" height="12.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="356" y="154.0" fill="#34d399" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="326" y1="172" x2="386" y2="172" stroke="#64748b" stroke-width="1"/>
+  <rect x="408" y="56" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="448" y="76" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 0]</text>
+  <text x="448" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <rect x="433" y="160.0" width="30" height="12.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="448" y="154.0" fill="#34d399" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="418" y1="172" x2="478" y2="172" stroke="#64748b" stroke-width="1"/>
+  <text x="505" y="132" fill="#94a3b8" font-size="12" text-anchor="start">weight 로</text>
+  <text x="505" y="148" fill="#94a3b8" font-size="12" text-anchor="start">가중 평균</text>
+  <line x1="560" y1="140" x2="586" y2="140" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="590" y="120" width="80" height="36" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="630" y="144" fill="#e2e8f0" font-size="14" text-anchor="middle">[1.6, 0]</text>
+  <text x="630" y="172" fill="#94a3b8" font-size="12" text-anchor="middle">[CLS] 출력</text>
+  <text x="20" y="212" fill="#f59e0b" font-size="15" text-anchor="start" font-weight="bold">x_cls = [1, 0]</text>
+  <rect x="40" y="226" width="80" height="30" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="80" y="246" fill="#e2e8f0" font-size="13" text-anchor="middle">[1, 0]</text>
+  <text x="80" y="274" fill="#94a3b8" font-size="12" text-anchor="middle">[CLS]</text>
+  <rect x="65" y="339.78" width="30" height="2.2199999999999998" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="80" y="333.78" fill="#34d399" font-size="12" text-anchor="middle">0.037</text>
+  <line x1="50" y1="342" x2="110" y2="342" stroke="#64748b" stroke-width="1"/>
+  <rect x="132" y="226" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="172" y="246" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −2]</text>
+  <text x="172" y="274" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <rect x="157" y="335.94" width="30" height="6.0600000000000005" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="172" y="329.94" fill="#34d399" font-size="12" text-anchor="middle">0.101</text>
+  <line x1="142" y1="342" x2="202" y2="342" stroke="#64748b" stroke-width="1"/>
+  <rect x="224" y="226" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="264" y="246" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 2]</text>
+  <text x="264" y="274" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <rect x="249" y="335.94" width="30" height="6.0600000000000005" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="264" y="329.94" fill="#34d399" font-size="12" text-anchor="middle">0.101</text>
+  <line x1="234" y1="342" x2="294" y2="342" stroke="#64748b" stroke-width="1"/>
+  <rect x="316" y="226" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="356" y="246" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
+  <text x="356" y="274" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <rect x="341" y="341.16" width="30" height="1" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="356" y="335.16" fill="#34d399" font-size="12" text-anchor="middle">0.014</text>
+  <line x1="326" y1="342" x2="386" y2="342" stroke="#64748b" stroke-width="1"/>
+  <rect x="408" y="226" width="80" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="448" y="246" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 0]</text>
+  <text x="448" y="274" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <rect x="433" y="297.18" width="30" height="44.82" rx="2" fill="#34d399" fill-opacity="0.85"/>
+  <text x="448" y="291.18" fill="#34d399" font-size="12" text-anchor="middle">0.747</text>
+  <line x1="418" y1="342" x2="478" y2="342" stroke="#64748b" stroke-width="1"/>
+  <text x="505" y="302" fill="#94a3b8" font-size="12" text-anchor="start">weight 로</text>
+  <text x="505" y="318" fill="#94a3b8" font-size="12" text-anchor="start">가중 평균</text>
+  <line x1="560" y1="310" x2="586" y2="310" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="590" y="290" width="80" height="36" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="630" y="314" fill="#e2e8f0" font-size="14" text-anchor="middle">[3.429, 0]</text>
+  <text x="630" y="342" fill="#94a3b8" font-size="12" text-anchor="middle">[CLS] 출력</text>
+  <line x1="20" y1="186" x2="660" y2="186" stroke="#1e293b" stroke-width="1"/>
+</svg>

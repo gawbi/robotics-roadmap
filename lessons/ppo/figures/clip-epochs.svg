@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>같은 운 나쁜 sample 로 10 epoch 학습할 때 B 를 고를 확률. clip 이 없으면 0.5 에서 0.0822 까지 계속 내려가고, clip 이 있으면 ratio 가 0.8 아래로 내려간 epoch 3 부터 0.3236 에 멈춘다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80.0" y1="270.0" x2="520.0" y2="270.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="274.0" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+  <line x1="80.0" y1="230.0" x2="520.0" y2="230.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="234.0" fill="#94a3b8" font-size="11" text-anchor="end">0.1</text>
+  <line x1="80.0" y1="190.0" x2="520.0" y2="190.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="194.0" fill="#94a3b8" font-size="11" text-anchor="end">0.2</text>
+  <line x1="80.0" y1="150.0" x2="520.0" y2="150.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="154.0" fill="#94a3b8" font-size="11" text-anchor="end">0.3</text>
+  <line x1="80.0" y1="110.0" x2="520.0" y2="110.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="114.0" fill="#94a3b8" font-size="11" text-anchor="end">0.4</text>
+  <line x1="80.0" y1="70.0" x2="520.0" y2="70.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="74.0" fill="#94a3b8" font-size="11" text-anchor="end">0.5</text>
+  <text x="80.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="124.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="168.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">2</text>
+  <text x="212.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">3</text>
+  <text x="256.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">4</text>
+  <text x="300.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">5</text>
+  <text x="344.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">6</text>
+  <text x="388.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">7</text>
+  <text x="432.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">8</text>
+  <text x="476.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">9</text>
+  <text x="520.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="middle">10</text>
+  <line x1="80.0" y1="270.0" x2="520.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80.0" y1="45.0" x2="80.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="300.0" y="306.0" fill="#94a3b8" font-size="12" text-anchor="middle">끝낸 epoch 수</text>
+  <text x="80.0" y="34.0" fill="#94a3b8" font-size="12" text-anchor="start">π(B)</text>
+  <line x1="80.0" y1="110.0" x2="520.0" y2="110.0" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="528.0" y="114.0" fill="#f59e0b" font-size="11" text-anchor="start">π(B) = 0.4</text>
+  <text x="528.0" y="129.0" fill="#f59e0b" font-size="11" text-anchor="start">(ratio 0.8)</text>
+  <path d="M80.0,70.0 L124.0,107.1 L168.0,140.6 L212.0,167.5 L256.0,187.8 L300.0,202.6 L344.0,213.6 L388.0,221.8 L432.0,228.2 L476.0,233.1 L520.0,237.1" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <path d="M80.0,70.0 L124.0,107.1 L168.0,140.6 L212.0,140.6 L256.0,140.6 L300.0,140.6 L344.0,140.6 L388.0,140.6 L432.0,140.6 L476.0,140.6 L520.0,140.6" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="80.0" cy="70.0" r="3.5" fill="#f87171"/>
+  <circle cx="124.0" cy="107.1" r="3.5" fill="#f87171"/>
+  <circle cx="168.0" cy="140.6" r="3.5" fill="#f87171"/>
+  <circle cx="212.0" cy="167.5" r="3.5" fill="#f87171"/>
+  <circle cx="256.0" cy="187.8" r="3.5" fill="#f87171"/>
+  <circle cx="300.0" cy="202.6" r="3.5" fill="#f87171"/>
+  <circle cx="344.0" cy="213.6" r="3.5" fill="#f87171"/>
+  <circle cx="388.0" cy="221.8" r="3.5" fill="#f87171"/>
+  <circle cx="432.0" cy="228.2" r="3.5" fill="#f87171"/>
+  <circle cx="476.0" cy="233.1" r="3.5" fill="#f87171"/>
+  <circle cx="520.0" cy="237.1" r="3.5" fill="#f87171"/>
+  <circle cx="168.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="212.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="256.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="300.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="344.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="388.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="432.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="476.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="520.0" cy="140.6" r="3.5" fill="#38bdf8"/>
+  <circle cx="80.0" cy="70.0" r="4" fill="#e2e8f0"/>
+  <circle cx="124.0" cy="107.1" r="4" fill="#e2e8f0"/>
+  <text x="88.0" y="64.0" fill="#e2e8f0" font-size="11" text-anchor="start">0.5</text>
+  <text x="132.0" y="101.1" fill="#e2e8f0" font-size="11" text-anchor="start">0.4073</text>
+  <text x="528.0" y="144.6" fill="#38bdf8" font-size="12" text-anchor="start">clip 있음 0.3236</text>
+  <text x="528.0" y="241.1" fill="#f87171" font-size="12" text-anchor="start">clip 없음 0.0822</text>
+  <text x="218.0" y="130.6" fill="#38bdf8" font-size="11" text-anchor="start">epoch 3 부터 gradient 0</text>
+  <text x="340.0" y="326.0" fill="#94a3b8" font-size="11" text-anchor="middle">B 를 골라 0 개(Â = −1.5) 인 sample 하나, θ_old = 0, η = 0.5</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>z 축 회전의 quaternion (w, 0, 0, z) 를 w–z 평면에 찍은 그림. 회전 각도 θ 의 절반만큼 원 위를 돌아서, 360° 를 더 돌면 반대편 점 −q 에 도착한다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="618" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="45.0" y1="170.0" x2="351.0" y2="170.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="195.0" y1="314.0" x2="195.0" y2="26.0" stroke="#475569" stroke-width="1.5"/>
+  <circle cx="195.0" cy="170.0" r="120" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="351.0" y="188.0" fill="#94a3b8" font-size="13" text-anchor="end">w</text>
+  <text x="203.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">z</text>
+  <line x1="279.9" y1="85.1" x2="110.1" y2="254.9" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <circle cx="315.0" cy="170.0" r="5" fill="#e2e8f0"/>
+  <text x="323.0" y="160.0" fill="#e2e8f0" font-size="13" text-anchor="start">θ = 0°</text>
+  <circle cx="279.9" cy="85.1" r="6" fill="#f59e0b"/>
+  <text x="289.9" y="79.1" fill="#f59e0b" font-size="13" text-anchor="start">θ = 90°</text>
+  <circle cx="195.0" cy="50.0" r="5" fill="#e2e8f0"/>
+  <text x="187.0" y="42.0" fill="#e2e8f0" font-size="13" text-anchor="end">θ = 180°</text>
+  <circle cx="75.0" cy="170.0" r="5" fill="#e2e8f0"/>
+  <text x="67.0" y="162.0" fill="#e2e8f0" font-size="13" text-anchor="end">θ = 360°</text>
+  <circle cx="110.1" cy="254.9" r="6" fill="#f59e0b"/>
+  <text x="102.1" y="274.9" fill="#f59e0b" font-size="13" text-anchor="end">θ = 450°</text>
+  <path d="M231.0,170.0 L231.0,169.3 L231.0,168.6 L230.9,167.9 L230.9,167.2 L230.8,166.5 L230.8,165.8 L230.7,165.1 L230.6,164.4 L230.4,163.7 L230.3,163.0 L230.2,162.3 L230.0,161.6 L229.8,160.9 L229.6,160.2 L229.4,159.5 L229.2,158.9 L229.0,158.2 L228.8,157.5 L228.5,156.9 L228.3,156.2 L228.0,155.6 L227.7,154.9 L227.4,154.3 L227.1,153.7 L226.7,153.0 L226.4,152.4 L226.1,151.8 L225.7,151.2 L225.3,150.6 L224.9,150.0 L224.5,149.4 L224.1,148.8 L223.7,148.3 L223.3,147.7 L222.8,147.2 L222.4,146.6 L221.9,146.1 L221.4,145.6 L221.0,145.0 L220.5,144.5" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="237.4" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="start">θ/2</text>
+  <text x="360.0" y="50.0" fill="#94a3b8" font-size="13" text-anchor="start">z 축으로 θ 만큼 도는 rotation</text>
+  <text x="360.0" y="74.0" fill="#e2e8f0" font-size="14" text-anchor="start">q = (cos(θ/2), 0, 0, sin(θ/2))</text>
+  <text x="360.0" y="118.0" fill="#f59e0b" font-size="14" text-anchor="start">θ = 90°: (0.707, 0, 0, 0.707)</text>
+  <text x="360.0" y="142.0" fill="#f59e0b" font-size="14" text-anchor="start">θ = 450°: (−0.707, 0, 0, −0.707)</text>
+  <text x="360.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="start">90° 와 450° 는 같은 자세</text>
+  <text x="360.0" y="194.0" fill="#e2e8f0" font-size="13" text-anchor="start">→ q 와 −q 는 같은 rotation</text>
+  <text x="360.0" y="236.0" fill="#94a3b8" font-size="13" text-anchor="start">가로 w = cos(θ/2), 세로 z = sin(θ/2)</text>
+  <text x="360.0" y="258.0" fill="#94a3b8" font-size="13" text-anchor="start">점은 θ 의 절반만큼 원을 돈다</text>
+  <text x="360.0" y="280.0" fill="#94a3b8" font-size="13" text-anchor="start">원을 한 바퀴 돌려면 θ = 720°</text>
+</svg>

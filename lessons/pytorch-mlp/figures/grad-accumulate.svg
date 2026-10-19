@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>gradient 를 0 으로 되돌릴 때와 되돌리지 않을 때</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="46.0" fill="#34d399" font-size="14" text-anchor="start">매 step 0 으로 되돌림</text>
+  <rect x="30.0" y="60.0" width="110.0" height="60.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="85.0" y="85.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w = 1</text>
+  <text x="85.0" y="106.0" fill="#94a3b8" font-size="11" text-anchor="middle">처음</text>
+  <line x1="142.0" y1="90.0" x2="184.0" y2="90.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="163.0" y="80.0" fill="#94a3b8" font-size="11" text-anchor="middle">step 1</text>
+  <rect x="188.0" y="60.0" width="170.0" height="60.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="273.0" y="84.0" fill="#e2e8f0" font-size="13" text-anchor="middle">쓰는 gradient 0.5</text>
+  <text x="273.0" y="106.0" fill="#e2e8f0" font-size="14" text-anchor="middle">새 w = 0.95</text>
+  <line x1="360.0" y1="90.0" x2="402.0" y2="90.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="381.0" y="80.0" fill="#94a3b8" font-size="11" text-anchor="middle">step 2</text>
+  <rect x="406.0" y="60.0" width="170.0" height="60.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="491.0" y="84.0" fill="#34d399" font-size="13" text-anchor="middle">쓰는 gradient 0.3</text>
+  <text x="491.0" y="106.0" fill="#e2e8f0" font-size="14" text-anchor="middle">새 w = 0.92</text>
+  <text x="30.0" y="166.0" fill="#f87171" font-size="14" text-anchor="start">되돌리지 않음</text>
+  <rect x="30.0" y="180.0" width="110.0" height="60.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="85.0" y="205.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w = 1</text>
+  <text x="85.0" y="226.0" fill="#94a3b8" font-size="11" text-anchor="middle">처음</text>
+  <line x1="142.0" y1="210.0" x2="184.0" y2="210.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="163.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="middle">step 1</text>
+  <rect x="188.0" y="180.0" width="170.0" height="60.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="273.0" y="204.0" fill="#e2e8f0" font-size="13" text-anchor="middle">쓰는 gradient 0.5</text>
+  <text x="273.0" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">새 w = 0.95</text>
+  <line x1="360.0" y1="210.0" x2="402.0" y2="210.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="381.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="middle">step 2</text>
+  <rect x="406.0" y="180.0" width="170.0" height="60.0" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="491.0" y="204.0" fill="#f87171" font-size="13" text-anchor="middle">쓰는 gradient 0.5 + 0.3 = 0.8</text>
+  <text x="491.0" y="226.0" fill="#e2e8f0" font-size="14" text-anchor="middle">새 w = 0.87</text>
+  <text x="360.0" y="284.0" fill="#94a3b8" font-size="12" text-anchor="middle">η = 0.1.  이번 gradient: step 1 은 0.5, step 2 는 0.3.  autograd 는 gradient 를 덮어쓰지 않고 더한다</text>
+</svg>

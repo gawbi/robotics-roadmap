@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>입력 2 개가 sigmoid neuron 4 개의 hidden layer 를 거쳐 sigmoid neuron 1 개로 가는 MLP. parameter 는 12 + 5 = 17 개</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="300.0" y="36.0" fill="#e2e8f0" font-size="16" text-anchor="middle">입력 2 · hidden 4 · 출력 1 — parameter 17 개</text>
+  <line x1="102.0" y1="130.0" x2="278.0" y2="80.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="130.0" x2="278.0" y2="140.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="130.0" x2="278.0" y2="200.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="130.0" x2="278.0" y2="260.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="210.0" x2="278.0" y2="80.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="210.0" x2="278.0" y2="140.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="210.0" x2="278.0" y2="200.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="102.0" y1="210.0" x2="278.0" y2="260.0" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.55"/>
+  <line x1="322.0" y1="80.0" x2="476.0" y2="170.0" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.7"/>
+  <line x1="322.0" y1="140.0" x2="476.0" y2="170.0" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.7"/>
+  <line x1="322.0" y1="200.0" x2="476.0" y2="170.0" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.7"/>
+  <line x1="322.0" y1="260.0" x2="476.0" y2="170.0" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.7"/>
+  <circle cx="80.0" cy="130.0" r="22" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="80.0" y="136.0" fill="#e2e8f0" font-size="17" text-anchor="middle">x₁</text>
+  <circle cx="80.0" cy="210.0" r="22" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="80.0" y="216.0" fill="#e2e8f0" font-size="17" text-anchor="middle">x₂</text>
+  <circle cx="300.0" cy="80.0" r="22" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="300.0" y="86.0" fill="#e2e8f0" font-size="17" text-anchor="middle">σ</text>
+  <circle cx="300.0" cy="140.0" r="22" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="300.0" y="146.0" fill="#e2e8f0" font-size="17" text-anchor="middle">σ</text>
+  <circle cx="300.0" cy="200.0" r="22" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="300.0" y="206.0" fill="#e2e8f0" font-size="17" text-anchor="middle">σ</text>
+  <circle cx="300.0" cy="260.0" r="22" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="300.0" y="266.0" fill="#e2e8f0" font-size="17" text-anchor="middle">σ</text>
+  <circle cx="500.0" cy="170.0" r="24" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="500.0" y="176.0" fill="#e2e8f0" font-size="17" text-anchor="middle">σ</text>
+  <line x1="524.0" y1="170.0" x2="548.0" y2="170.0" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="562.0" y="176.0" fill="#e2e8f0" font-size="17" text-anchor="middle">ŷ</text>
+  <text x="80.0" y="300.0" fill="#94a3b8" font-size="14" text-anchor="middle">입력 2 개</text>
+  <text x="300.0" y="300.0" fill="#38bdf8" font-size="14" text-anchor="middle">hidden layer</text>
+  <text x="300.0" y="322.0" fill="#94a3b8" font-size="13" text-anchor="middle">weight 2×4 + bias 4 = 12</text>
+  <text x="500.0" y="300.0" fill="#f59e0b" font-size="14" text-anchor="middle">출력 layer</text>
+  <text x="500.0" y="322.0" fill="#94a3b8" font-size="13" text-anchor="middle">weight 4×1 + bias 1 = 5</text>
+  <text x="190.0" y="75.0" fill="#94a3b8" font-size="13" text-anchor="middle">선 하나 = weight 하나</text>
+</svg>

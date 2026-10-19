@@ -1,1 +1,0 @@
-"""world-model 과제의 test. PixelPendulum 의 observation 모양과 info['state'], LatentDynamics.rollout 의 출력 모양, oracle score 가 gymnasium Pendulum 의 step 과 같은 reward 를 내는지, cem_plan 이 간단한 2차 함수의 최댓값을 찾는지를 여기에 쓴다."""

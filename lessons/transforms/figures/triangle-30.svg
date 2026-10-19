@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>세 변이 1 인 정삼각형을 가로축이 반으로 나눈다. 30° 꼭짓점의 높이는 0.5 이고, 가로 길이는 √0.75 ≈ 0.866 이다</title>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="60.0" y1="150.0" x2="233.2" y2="50.0" stroke="#f59e0b" stroke-width="2.5"/>
+  <line x1="60.0" y1="150.0" x2="233.2" y2="250.0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="233.2" y1="50.0" x2="233.2" y2="250.0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="44.0" y1="150.0" x2="270.0" y2="150.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60.0" y1="150.0" x2="233.2" y2="150.0" stroke="#f87171" stroke-width="3"/>
+  <line x1="233.2" y1="150.0" x2="233.2" y2="50.0" stroke="#34d399" stroke-width="3"/>
+  <circle cx="60.0" cy="150.0" r="4" fill="#e2e8f0"/>
+  <circle cx="233.2" cy="50.0" r="6" fill="#f59e0b"/>
+  <circle cx="233.2" cy="250.0" r="4" fill="#94a3b8"/>
+  <text x="140.6" y="90.0" fill="#f59e0b" font-size="14" text-anchor="start">1</text>
+  <text x="140.6" y="220.0" fill="#94a3b8" font-size="14" text-anchor="start">1</text>
+  <text x="243.2" y="104.0" fill="#34d399" font-size="14" text-anchor="start">0.5</text>
+  <text x="243.2" y="204.0" fill="#94a3b8" font-size="14" text-anchor="start">0.5</text>
+  <text x="176.0" y="170.0" fill="#f87171" font-size="14" text-anchor="middle">0.866</text>
+  <path d="M100.0,150.0 L100.0,149.5 L100.0,149.0 L100.0,148.4 L99.9,147.9 L99.9,147.4 L99.9,146.9 L99.8,146.3 L99.8,145.8 L99.7,145.3 L99.7,144.8 L99.6,144.3 L99.5,143.7 L99.4,143.2 L99.3,142.7 L99.2,142.2 L99.1,141.7 L99.0,141.2 L98.9,140.7 L98.8,140.2 L98.6,139.6 L98.5,139.1 L98.4,138.6 L98.2,138.1 L98.0,137.6 L97.9,137.1 L97.7,136.6 L97.5,136.2 L97.3,135.7 L97.2,135.2 L97.0,134.7 L96.8,134.2 L96.5,133.7 L96.3,133.3 L96.1,132.8 L95.9,132.3 L95.6,131.8 L95.4,131.4 L95.2,130.9 L94.9,130.5 L94.6,130.0" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <path d="M94.6,170.0 L94.9,169.5 L95.2,169.1 L95.4,168.6 L95.6,168.2 L95.9,167.7 L96.1,167.2 L96.3,166.7 L96.5,166.3 L96.8,165.8 L97.0,165.3 L97.2,164.8 L97.3,164.3 L97.5,163.8 L97.7,163.4 L97.9,162.9 L98.0,162.4 L98.2,161.9 L98.4,161.4 L98.5,160.9 L98.6,160.4 L98.8,159.8 L98.9,159.3 L99.0,158.8 L99.1,158.3 L99.2,157.8 L99.3,157.3 L99.4,156.8 L99.5,156.3 L99.6,155.7 L99.7,155.2 L99.7,154.7 L99.8,154.2 L99.8,153.7 L99.9,153.1 L99.9,152.6 L99.9,152.1 L100.0,151.6 L100.0,151.0 L100.0,150.5 L100.0,150.0" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="106.0" y="140.0" fill="#e2e8f0" font-size="12" text-anchor="start">30°</text>
+  <text x="106.0" y="178.0" fill="#94a3b8" font-size="12" text-anchor="start">30°</text>
+  <path d="M223.20508075688775,150 L223.20508075688775,140 L233.20508075688775,140" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="300.0" y="50.0" fill="#94a3b8" font-size="14" text-anchor="start">세 변이 모두 1 인 정삼각형</text>
+  <text x="300.0" y="74.0" fill="#94a3b8" font-size="13" text-anchor="start">가로축이 꼭짓점 각 60° 를 30° 둘로 나눈다</text>
+  <text x="300.0" y="112.0" fill="#34d399" font-size="15" text-anchor="start">세로 변 = 1 ÷ 2 = 0.5</text>
+  <text x="300.0" y="136.0" fill="#34d399" font-size="14" text-anchor="start">→ sin 30° = 0.5</text>
+  <text x="300.0" y="180.0" fill="#e2e8f0" font-size="15" text-anchor="start">가로² + 0.5² = 1²</text>
+  <text x="300.0" y="204.0" fill="#e2e8f0" font-size="14" text-anchor="start">가로² = 1 − 0.25 = 0.75</text>
+  <text x="300.0" y="228.0" fill="#f87171" font-size="15" text-anchor="start">가로 = √0.75 ≈ 0.866</text>
+  <text x="300.0" y="252.0" fill="#f87171" font-size="14" text-anchor="start">→ cos 30° ≈ 0.866</text>
+</svg>

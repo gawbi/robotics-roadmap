@@ -1,40 +1,34 @@
-import { Download, ExternalLink, HelpCircle, Maximize2, Minus, Plus, RotateCcw, Upload } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { HelpCircle, Maximize2, Minus, Plus } from 'lucide-react'
 import { CONFIG } from '../config'
-import { nodeState, progress, sanitize, statusOf, type ProgressFile } from '../curriculum/progress'
-import { sharedLinks, type SharedSource, type SharedState } from '../curriculum/shared'
+import { nodeState, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum } from '../curriculum/types'
 import type { GraphControls } from './Holygraph'
 
 export function TopBar({
   curriculum: c,
   progressFile,
-  shared,
-  embedded,
   onHelp,
 }: {
   curriculum: Curriculum
   progressFile: ProgressFile
-  shared: { source: SharedSource; state: SharedState } | null
-  embedded: boolean
   onHelp(): void
 }) {
-  const done = c.projects.filter((p) => statusOf(progressFile, p.id) === 'done')
-  const total = c.projects.length
+  const done = c.lessons.filter((p) => statusOf(progressFile, p.id) === 'done')
+  const total = c.lessons.length
   const hoursDone = done.reduce((a, p) => a + p.hours, 0)
-  const hoursTotal = c.projects.reduce((a, p) => a + p.hours, 0)
+  const hoursTotal = c.lessons.reduce((a, p) => a + p.hours, 0)
   const pct = Math.round((done.length / total) * 100)
 
   return (
     <header className="topbar">
-      <a className="brand" href="#/" aria-label="Physical AI from Scratch, 처음 화면">
+      <a className="brand" href="#/" aria-label="Physical AI Study, 처음 화면">
         <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
           <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" strokeWidth="2.5" />
           <circle cx="16" cy="16" r="6" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.6" />
           <circle cx="16" cy="16" r="2.5" fill="currentColor" />
         </svg>
         <span>
-          Physical AI <em>from Scratch</em>
+          Physical AI <em>Study</em>
         </span>
       </a>
 
@@ -52,57 +46,14 @@ export function TopBar({
       </div>
 
       <nav className="topbar-actions" aria-label="도구">
-        {shared ? <SharedChip source={shared.source} state={shared.state} /> : <ProgressMenu />}
         <button type="button" className="icon-button" onClick={onHelp} aria-label="사용 안내">
           <HelpCircle size={20} aria-hidden="true" />
         </button>
-        {embedded ? (
-          <a className="icon-button" href={standaloneUrl()} target="_blank" rel="noreferrer" aria-label="새 탭에서 크게 보기">
-            <ExternalLink size={18} aria-hidden="true" />
-          </a>
-        ) : (
-          <a className="icon-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer" aria-label="GitHub 리포">
-            <GithubMark />
-          </a>
-        )}
+        <a className="icon-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer" aria-label="GitHub 리포">
+          <GithubMark />
+        </a>
       </nav>
-
-      {shared?.state.kind === 'error' && (
-        <div className="shared-alert" role="alert">
-          <span>{shared.state.message}</span>
-          <a href={window.location.pathname}>빈 지도로 보기</a>
-        </div>
-      )}
     </header>
-  )
-}
-
-/** The same view outside the iframe: everything but the embed flag stays. */
-function standaloneUrl(): string {
-  const params = new URLSearchParams(window.location.search)
-  params.delete(CONFIG.shared.embedParam)
-  // keep owner/repo readable instead of owner%2Frepo
-  const query = params.toString().replace(/%2F/gi, '/')
-  return `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`
-}
-
-function SharedChip({ source, state }: { source: SharedSource; state: SharedState }) {
-  return (
-    <a
-      className="text-button shared-chip"
-      href={sharedLinks(source).repo}
-      target="_blank"
-      rel="noreferrer"
-      aria-busy={state.kind === 'loading'}
-      aria-label={`${source.owner}/${source.repo} 의 진행 기록${state.kind === 'loading' ? ', 불러오는 중' : ''}. GitHub 리포 열기`}
-    >
-      <GithubMark />
-      <span className="shared-name">
-        {source.owner}
-        <span className="shared-repo">/{source.repo}</span>
-      </span>
-      {state.kind === 'loading' && <span className="shared-loading" aria-hidden="true" />}
-    </a>
   )
 }
 
@@ -111,96 +62,6 @@ function GithubMark() {
     <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
     </svg>
-  )
-}
-
-function ProgressMenu() {
-  const [open, setOpen] = useState(false)
-  const [message, setMessage] = useState<string | null>(null)
-  const fileRef = useRef<HTMLInputElement>(null)
-
-  const exportFile = () => {
-    const blob = new Blob([JSON.stringify(progress.get(), null, 2)], { type: 'application/json' })
-    const a = document.createElement('a')
-    a.href = URL.createObjectURL(blob)
-    a.download = 'physical-ai-progress.json'
-    a.click()
-    URL.revokeObjectURL(a.href)
-    setMessage('진행 기록을 파일로 저장했습니다')
-  }
-
-  const importFile = async (file: File) => {
-    try {
-      const data = sanitize(JSON.parse(await file.text()))
-      progress.replace(data)
-      setMessage(`진행 기록 ${Object.keys(data.status).length}개를 불러왔습니다`)
-    } catch {
-      setMessage('JSON 파일을 읽지 못했습니다')
-    }
-  }
-
-  return (
-    <div className="menu">
-      <button
-        type="button"
-        className="text-button"
-        aria-expanded={open}
-        aria-controls="progress-menu"
-        onClick={() => {
-          setOpen(!open)
-          setMessage(null)
-        }}
-      >
-        진행 기록
-      </button>
-      {open && (
-        <div id="progress-menu" className="menu-popover" role="group" aria-label="진행 기록">
-          <p className="menu-note">진행 기록은 이 브라우저에만 저장됩니다. 다른 기기로 옮길 때는 파일로 내보내세요.</p>
-          <button type="button" onClick={exportFile}>
-            <Download size={16} aria-hidden="true" /> 파일로 내보내기
-          </button>
-          <button type="button" onClick={() => fileRef.current?.click()}>
-            <Upload size={16} aria-hidden="true" /> 파일에서 불러오기
-          </button>
-          <ResetButton onDone={() => setMessage('진행 기록을 지웠습니다')} />
-          <input
-            ref={fileRef}
-            type="file"
-            accept="application/json"
-            hidden
-            onChange={(e) => {
-              const f = e.target.files?.[0]
-              if (f) void importFile(f)
-              e.target.value = ''
-            }}
-          />
-          {message && (
-            <p className="menu-status" role="status">
-              {message}
-            </p>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function ResetButton({ onDone }: { onDone(): void }) {
-  const [armed, setArmed] = useState(false)
-  return (
-    <button
-      type="button"
-      className={armed ? 'is-danger' : ''}
-      onClick={() => {
-        if (!armed) return setArmed(true)
-        progress.reset()
-        setArmed(false)
-        onDone()
-      }}
-      onBlur={() => setArmed(false)}
-    >
-      <RotateCcw size={16} aria-hidden="true" /> {armed ? '한 번 더 누르면 모두 지웁니다' : '처음부터 다시'}
-    </button>
   )
 }
 
@@ -215,9 +76,9 @@ export function NextUp({
   onSelect(id: string): void
   onHover(id: string | null): void
 }) {
-  const rank = (id: string) => c.projects.findIndex((p) => p.id === id)
-  const doing = c.projects.filter((p) => statusOf(progressFile, p.id) === 'in_progress')
-  const ready = c.projects
+  const rank = (id: string) => c.lessons.findIndex((p) => p.id === id)
+  const doing = c.lessons.filter((p) => statusOf(progressFile, p.id) === 'in_progress')
+  const ready = c.lessons
     .filter((p) => nodeState(c, progressFile, p.id) === 'available')
     .sort((a, b) => a.hours - b.hours || rank(a.id) - rank(b.id))
   const items = [...doing, ...ready].slice(0, 5)
@@ -226,7 +87,7 @@ export function NextUp({
   if (items.length === 0) {
     return (
       <section className="nextup" aria-labelledby="nextup-title">
-        <h2 id="nextup-title">모든 과제 완료</h2>
+        <h2 id="nextup-title">모든 강의 완료</h2>
       </section>
     )
   }
@@ -286,7 +147,7 @@ export function Legend({
         </li>
         <li>
           <span className="lg-node is-locked" aria-hidden="true" />
-          선수 과제 남음
+          선수 강의 남음
         </li>
       </ul>
       <ul className="legend-branches">

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>3×3 homogeneous transform T₀₂. 왼쪽 위 2×2 칸이 방향(회전), 오른쪽 열이 위치, 맨 아래 줄은 항상 0 0 1</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="658" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="70.0" y="122.0" fill="#e2e8f0" font-size="16" text-anchor="end">T₀₂ =</text>
+  <rect x="112.0" y="72.0" width="150.0" height="76.0" rx="6" fill="#f59e0b14" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="270.0" y="72.0" width="74.0" height="76.0" rx="6" fill="#38bdf814" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="112.0" y="156.0" width="232.0" height="36.0" rx="6" fill="#64748b14" stroke="#64748b" stroke-width="1.2"/>
+  <text x="150.0" y="104.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0</text>
+  <text x="230.0" y="104.0" fill="#e2e8f0" font-size="17" text-anchor="middle">−1</text>
+  <text x="310.0" y="104.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0.866</text>
+  <text x="150.0" y="144.0" fill="#e2e8f0" font-size="17" text-anchor="middle">1</text>
+  <text x="230.0" y="144.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0</text>
+  <text x="310.0" y="144.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0.5</text>
+  <text x="150.0" y="184.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0</text>
+  <text x="230.0" y="184.0" fill="#e2e8f0" font-size="17" text-anchor="middle">0</text>
+  <text x="310.0" y="184.0" fill="#e2e8f0" font-size="17" text-anchor="middle">1</text>
+  <path d="M106,66 L98,66 L98,200 L106,200" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <path d="M350,66 L358,66 L358,200 L350,200" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="186.0" y="56.0" fill="#f59e0b" font-size="13" text-anchor="middle">방향 (회전 부분)</text>
+  <text x="307.0" y="56.0" fill="#38bdf8" font-size="13" text-anchor="middle">위치</text>
+  <text x="228.0" y="222.0" fill="#64748b" font-size="12" text-anchor="middle">맨 아래 줄은 항상 0, 0, 1</text>
+  <text x="400.0" y="60.0" fill="#f59e0b" font-size="13" text-anchor="start">방향 부분의 1열 (0, 1)</text>
+  <text x="400.0" y="82.0" fill="#94a3b8" font-size="13" text-anchor="start">= frame 의 x 축이 90° 방향</text>
+  <text x="400.0" y="104.0" fill="#94a3b8" font-size="13" text-anchor="start">   = (cos 90°, sin 90°)</text>
+  <text x="400.0" y="140.0" fill="#38bdf8" font-size="13" text-anchor="start">위치 열 (0.866, 0.5)</text>
+  <text x="400.0" y="162.0" fill="#94a3b8" font-size="13" text-anchor="start">= frame 원점이 놓인 곳</text>
+  <text x="400.0" y="184.0" fill="#94a3b8" font-size="13" text-anchor="start">   (팔꿈치)</text>
+  <text x="400.0" y="226.0" fill="#e2e8f0" font-size="13" text-anchor="start">점 (x, y) 는 (x, y, 1) 로 써서 곱한다</text>
+</svg>

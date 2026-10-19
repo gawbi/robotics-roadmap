@@ -1,0 +1,333 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: mse
+  title: 오차 제곱의 평균, MSE
+  variants:
+    - question: |
+        MSE 를 계산할 때 점마다의 오차(예측 − 정답)를 그냥 더하지 않고 제곱한 뒤 더하는 가장 큰 이유는?
+      choices:
+        - '제곱하면 계산이 더 빨라지기 때문에'
+        - 'loss 가 항상 1 보다 커지게 하려고'
+        - '위로 빗나간 오차와 아래로 빗나간 오차가 서로 지워지지 않게 하려고'
+        - '정답 $y$ 를 모두 양수로 바꾸려고'
+      answer: 2
+      explanation: |
+        오차를 그냥 더하면 $+1$ 과 $-1$ 처럼 반대쪽으로 빗나간 오차가 서로 지워져, 두 점을 모두 틀렸는데도 합이 0 이 될 수 있다.
+        제곱하면 부호가 사라져 틀린 만큼이 그대로 남는다. 제곱은 계산을 빠르게 하려는 것이 아니고, 오차가 0.5 처럼 작으면 제곱이 더
+        작아지니 loss 가 1 보다 커진다는 보장도 없다. 제곱하는 대상은 정답 $y$ 가 아니라 오차다.
+    - question: |
+        데이터는 그대로 두고 직선의 $w$, $b$ 만 바꿨더니 MSE 가 42 에서 0 으로 바뀌었다. 이 상황을 가장 바르게 읽은 것은?
+      choices:
+        - 'MSE 는 지금 고른 parameter 가 이 데이터에 얼마나 안 맞는지를 재는 값이라, parameter 가 바뀌면 값도 바뀐다'
+        - 'MSE 는 데이터에 noise 가 얼마나 섞였는지를 재는 값인데 계산이 잘못되었다'
+        - 'MSE 가 0 이 되었으니 데이터가 깨끗해졌다'
+        - 'MSE 는 데이터 점의 개수에 따라서만 정해지므로 이런 일은 일어날 수 없다'
+      answer: 0
+      explanation: |
+        데이터가 고정돼 있으면 MSE 를 바꾸는 것은 parameter $w$, $b$ 뿐이라서 MSE 는 parameter 의 함수다. 같은 데이터에서도 직선을
+        잘못 고르면 42, 모든 점을 지나는 직선을 고르면 0 이 나온다. 데이터 자체는 바뀌지 않았으므로 "데이터가 깨끗해졌다" 나 "noise
+        를 잰다" 는 해석은 틀렸고, 점의 개수만으로 MSE 가 정해진다는 것도 사실이 아니다.
+    - question: |
+        오차가 $1$ 인 점과 오차가 $2$ 인 점이 있다. MSE 처럼 오차를 제곱해 쓰면 두 점이 loss 에 기여하는 정도는 어떻게 되는가?
+      choices:
+        - '둘 다 같다. 제곱은 부호만 없애기 때문이다'
+        - '오차 $2$ 인 점이 2 배 기여한다'
+        - '오차 $1$ 인 점이 더 크게 기여한다'
+        - '오차 $2$ 인 점이 4 배 기여해서, 크게 빗나간 점을 줄이는 쪽으로 학습이 더 강하게 끌린다'
+      answer: 3
+      explanation: |
+        제곱하면 $1^2 = 1$, $2^2 = 4$ 라서 오차가 2 배인 점은 loss 에 4 배 기여한다. 그래서 MSE 를 줄이는 학습은 크게 빗나간 점을
+        먼저 바로잡으려 한다. 제곱은 부호를 없앨 뿐 아니라 크기도 바꾸므로 "같다" 는 틀렸고, 그냥 크기를 더했다면 2 배였겠지만
+        제곱에서는 4 배다. 작은 오차가 더 크게 기여하는 일은 없다.
+
+- topic: rate-of-change
+  title: loss 가 변하는 비율
+  variants:
+    - question: |
+        loss 가 $L(w, b)$ 처럼 parameter 두 개의 함수일 때, partial derivative $\frac{\partial L}{\partial b}$ 를 숫자로 재는 올바른 방법은?
+      choices:
+        - '$w$ 와 $b$ 를 함께 조금 바꾼 뒤 loss 의 변화를 잰다'
+        - '$w$ 는 고정하고 $b$ 만 조금 바꾼 뒤, loss 의 변화를 바꾼 양으로 나눈다'
+        - '$b$ 는 고정하고 $w$ 만 조금 바꾼 뒤 loss 의 변화를 잰다'
+        - '$b$ 를 0 으로 놓았을 때의 loss 를 잰다'
+      answer: 1
+      explanation: |
+        partial derivative 는 다른 parameter 를 고정하고 하나만 조금 바꿨을 때 loss 가 변하는 비율이다. 그래서 $w$ 는 그대로 두고 $b$ 만
+        조금 바꾼 뒤, loss 의 변화량을 바꾼 양으로 나눈다. 둘을 함께 바꾸면 어느 쪽 때문에 loss 가 변했는지 알 수 없고, $w$ 만 바꾸면
+        $\frac{\partial L}{\partial w}$ 를 재게 된다. $b = 0$ 에서의 loss 값은 변하는 비율이 아니라 loss 자체다.
+    - question: |
+        어떤 자리에서 $\frac{\partial L}{\partial w} = 0$ 이다. 이것이 뜻하는 것은?
+      choices:
+        - '그 자리에서 loss 가 0 이다'
+        - '그 자리에서 $w$ 가 0 이다'
+        - '그 자리에서 $w$ 를 조금 바꿔도 loss 가 거의 변하지 않는다'
+        - '학습이 실패해서 gradient 를 계산할 수 없다'
+      answer: 2
+      explanation: |
+        derivative 는 loss 의 값이 아니라 loss 가 변하는 비율이다. 비율이 0 이면 $w$ 를 조금 늘리거나 줄여도 loss 가 거의 변하지 않는
+        평평한 자리이고, U 자 loss 곡선에서는 가장 낮은 바닥이 그런 자리다. 바닥의 loss 가 0 보다 클 수도 있으므로 "loss 가 0" 은
+        틀렸고, $w$ 의 값 자체와도 상관없다. gradient 가 0 인 것은 계산 실패가 아니라 계산 결과다.
+    - question: |
+        미분 공식으로 구한 gradient 를 확인하려고 $w$ 를 $h$ 만큼 양쪽으로 옮긴 두 loss 의 차이를 $2h$ 로 나눴다(finite difference).
+        $h$ 를 $10^{-15}$ 처럼 극단적으로 작게 잡으면 어떻게 되는가?
+      choices:
+        - '컴퓨터가 기억하는 자릿수가 한정돼 두 loss 의 차이에 믿을 만한 자리가 거의 남지 않아 오히려 부정확해진다'
+        - '$h$ 가 작을수록 수학적 정의에 가까우므로 항상 더 정확해진다'
+        - '0 으로 나누는 오류가 나서 계산이 멈춘다'
+        - '$2h$ 로 나누므로 gradient 가 실제보다 훨씬 커진다'
+      answer: 0
+      explanation: |
+        수학에서는 $h$ 가 작을수록 정확하지만, 컴퓨터는 숫자를 앞에서부터 16 자리 정도만 기억한다. $h$ 가 너무 작으면 두 loss 가 그
+        16 자리 안에서 거의 같아져 차이에 의미 있는 자리가 남지 않으므로, 보통 $10^{-5}$ 근처를 쓴다. $10^{-15}$ 은 0 이 아니라서
+        나누기 오류는 나지 않고, 분모가 작아지는 만큼 분자도 작아지므로 gradient 가 체계적으로 커지는 것도 아니다.
+
+- topic: gradient-formula
+  title: MSE 의 gradient 공식
+  variants:
+    - question: |
+        직선 $\hat y = wx + b$ 의 MSE 에서 $\frac{\partial L}{\partial w}$ 공식에는 점마다 오차에 입력 $x_i$ 가 곱해지는데,
+        $\frac{\partial L}{\partial b}$ 공식에는 곱해지지 않는다. 그 이유는?
+      choices:
+        - '$b$ 는 학습하지 않는 고정값이기 때문에'
+        - '$x_i$ 를 곱하면 $b$ 의 gradient 가 너무 커져서 일부러 뺀 것이다'
+        - '$\frac{\partial L}{\partial b}$ 는 계산을 간단히 하려고 근사한 값이기 때문에'
+        - '$w$ 는 $x_i$ 에 곱해져 예측에 들어가고 $b$ 는 그냥 더해지므로, $w$ 를 조금 바꾸면 예측이 $x_i$ 배로 변하지만 $b$ 를 바꾸면 같은 양만큼 변하기 때문에'
+      answer: 3
+      explanation: |
+        예측 $wx_i + b$ 에서 $w$ 를 0.01 늘리면 예측은 $0.01 \times x_i$ 만큼 변하고, $b$ 를 0.01 늘리면 모든 점에서 0.01 만큼 변한다.
+        이 "예측이 변하는 비율" 이 $w$ 쪽은 $x_i$, $b$ 쪽은 1 이라서 공식의 모양이 갈린다. $b$ 도 학습하는 parameter 이고, 두 공식 모두
+        근사가 아니라 정확한 미분 결과이며, 크기를 맞추려고 일부러 뺀 것도 아니다.
+    - question: |
+        입력 $x$ 가 모두 양수이고, 지금 직선이 모든 점보다 아래에 있다(모든 점에서 예측 < 정답). MSE 의 두 partial derivative
+        $\frac{\partial L}{\partial w}$, $\frac{\partial L}{\partial b}$ 의 부호와 그 의미는?
+      choices:
+        - '둘 다 음수라서, $w$ 와 $b$ 를 모두 키워야 loss 가 줄어든다'
+        - '둘 다 양수라서, $w$ 와 $b$ 를 모두 키워야 loss 가 줄어든다'
+        - '둘 다 음수라서, $w$ 와 $b$ 를 모두 줄여야 loss 가 줄어든다'
+        - '부호는 데이터와 상관없이 항상 양수다'
+      answer: 0
+      explanation: |
+        예측이 정답보다 작으니 오차(예측 − 정답)가 모두 음수이고, 양수 $x_i$ 를 곱해도 음수라서 두 partial derivative 가 모두 음수다.
+        gradient 가 음수면 그 parameter 를 늘릴 때 loss 가 줄어드므로 $w$, $b$ 를 키운다. 직선을 위로 올려야 하는 상황과도 맞는다.
+        양수라고 하거나, 음수인데 줄이라고 한 보기는 부호와 방향의 관계를 거꾸로 읽었다. gradient 의 부호는 직선과 데이터의
+        위치에 따라 바뀐다.
+    - question: |
+        점 하나의 오차 $e = wx + b - y$ 와 그 제곱 $e^2$ 이 있다. $w$ 를 조금 바꾸면 $e$ 는 $x$ 배 비율로 변하고, $e$ 를 조금 바꾸면
+        $e^2$ 은 $2e$ 배 비율로 변한다. $w$ 를 조금 바꿀 때 $e^2$ 이 변하는 비율은?
+      choices:
+        - '두 비율의 합 $x + 2e$'
+        - '두 비율의 곱 $2e \times x$'
+        - '$2e$. $w$ 는 $e^2$ 에 직접 들어 있지 않으므로 마지막 칸만 본다'
+        - '$x$. $w$ 에 곱해진 수가 곧 비율이다'
+      answer: 1
+      explanation: |
+        $w$ 의 작은 변화는 첫 칸에서 $x$ 배가 되어 $e$ 를 바꾸고, 그 변화가 둘째 칸에서 다시 $2e$ 배가 되어 $e^2$ 을 바꾼다. 배율이
+        차례로 두 번 곱해지므로 전체 비율은 $2e \times x$ 이고, 이렇게 중간 값을 거치는 비율을 곱하는 규칙이 chain rule 이다. 합으로
+        잇는 것은 틀렸고, 한 칸의 비율만 쓰면 나머지 칸에서 생기는 배율을 빠뜨린다.
+
+- topic: update-step
+  title: gradient descent 의 update 와 step
+  variants:
+    - question: |
+        update 식 $w \leftarrow w - \eta \times \frac{\partial L}{\partial w}$ ($\eta > 0$)에서 지금 자리의 gradient 가 $-3$ 이다. update 후 $w$ 는?
+      choices:
+        - '줄어든다. gradient 가 음수이므로 그 방향으로 간다'
+        - '그대로다. gradient 가 0 이 아니면 움직이지 않는다'
+        - '늘어난다. 음수 gradient 를 빼면 더하는 셈이고, $w$ 를 늘릴 때 loss 가 줄어드는 자리이기 때문이다'
+        - '$\eta$ 의 크기에 따라 늘 수도 줄 수도 있다'
+      answer: 2
+      explanation: |
+        gradient 가 음수라는 것은 $w$ 를 늘리면 loss 가 줄어든다는 뜻이다. update 식은 gradient 에 양수 $\eta$ 를 곱해 빼므로, 음수를
+        빼는 셈이 되어 $w$ 가 커진다. 식의 빼기 부호가 "gradient 의 반대 방향" 을 만들기 때문에 gradient 방향으로 간다는 보기는
+        틀렸다. $\eta$ 는 양수라서 움직이는 크기만 바꾸고 방향은 바꾸지 못하며, gradient 가 0 이 아니면 $w$ 는 움직인다.
+    - question: |
+        learning rate 를 바꾸지 않았는데도 학습 초반에는 parameter 가 step 마다 크게 움직이다가 후반에는 거의 움직이지 않는다. 그
+        이유는?
+      choices:
+        - '학습이 진행되면 learning rate 가 저절로 줄어들기 때문에'
+        - '후반에는 데이터를 덜 쓰기 때문에'
+        - 'parameter 가 커질수록 update 가 작아지도록 식이 만들어져 있기 때문에'
+        - 'loss 가 가장 낮은 점에 가까워질수록 gradient 가 작아져, 같은 learning rate 를 곱해도 움직이는 양이 줄기 때문에'
+      answer: 3
+      explanation: |
+        한 step 에 움직이는 양은 learning rate 곱하기 gradient 다. 가장 낮은 점 근처는 loss 곡선이 평평해 gradient 가 작으므로, learning
+        rate 가 같아도 움직임이 줄어 parameter 가 한 값에 수렴한다. 기본 gradient descent 에서 learning rate 는 사람이 정한 값 그대로
+        이고, 데이터를 덜 쓰는 것도 아니다. update 크기는 parameter 의 크기가 아니라 gradient 의 크기에 비례한다.
+    - question: |
+        데이터를 mini-batch 로 나눠 학습한다. step 과 epoch 의 관계로 옳은 것은?
+      choices:
+        - 'step 과 epoch 는 같은 말이다'
+        - 'step 은 mini-batch 하나로 parameter 를 한 번 update 한 것이고, epoch 는 데이터 전체를 한 번씩 다 본 것이라 epoch 하나에 step 이 여러 번 들어 있다'
+        - 'epoch 는 update 한 번이고, step 은 데이터 전체를 한 번 본 것이다'
+        - 'epoch 하나에는 언제나 step 이 하나만 들어 있다'
+      answer: 1
+      explanation: |
+        step 은 update 한 번이고 epoch 는 데이터 전체를 한 번씩 다 본 횟수다. mini-batch 를 쓰면 mini-batch 마다 update 하므로 데이터를
+        다 보기까지 step 이 여러 번 일어난다. 데이터 전체로 gradient 를 구하는 경우에만 step 하나가 epoch 하나와 같아지므로, 둘을 같은
+        말로 보거나 epoch 마다 step 이 하나라고 한 보기는 특수한 경우를 일반화했다. 둘의 정의를 뒤바꾼 보기도 틀렸다.
+
+- topic: learning-rate-factor
+  title: update 마다 곱해지는 수
+  variants:
+    - question: |
+        loss 가 $L(w) = w^2$ 이면 gradient descent 의 update 는 $w$ 에 매번 같은 수 $1 - 2\eta$ 를 곱하는 일이 된다. 곱해지는 수가
+        $-0.5$ 이면 $w$ 는 어떻게 움직이는가?
+      choices:
+        - '부호를 바꾸며 0 으로 다가간다'
+        - '부호를 지키며 0 으로 다가간다'
+        - '부호를 바꾸며 0 에서 멀어진다'
+        - '한 step 만에 0 이 되어 멈춘다'
+      answer: 0
+      explanation: |
+        음수를 곱하니 step 마다 부호가 바뀌고, 크기가 0.5 라서 0 까지의 거리가 매번 절반이 된다. 그래서 가장 낮은 점 0 을 넘나들면서도
+        점점 다가간다. 부호를 지키는 것은 곱해지는 수가 0 과 1 사이일 때이고, 멀어지는 것은 크기가 1 보다 클 때다. 한 step 에 0 이
+        되는 것은 곱해지는 수가 정확히 0 일 때다.
+    - question: |
+        update 마다 parameter 에 같은 수가 곱해지는 상황에서, parameter 가 가장 낮은 점으로 수렴할지 발산할지를 가르는 기준은?
+      choices:
+        - '곱해지는 수가 양수인지 음수인지'
+        - '곱해지는 수에서 부호를 뗀 크기가 1 보다 작은지 큰지'
+        - 'learning rate 가 1 보다 작은지 큰지'
+        - '시작한 $w$ 가 양수인지 음수인지'
+      answer: 1
+      explanation: |
+        크기가 1 보다 작은 수를 거듭 곱하면 0 에 다가가고, 1 보다 큰 수를 거듭 곱하면 끝없이 커진다. 음수여도 크기가 1 보다 작으면
+        넘나들며 수렴하므로 부호는 기준이 아니다. learning rate 가 1 보다 작아도 loss 곡선이 가파르면 발산할 수 있어서 "1 보다
+        작은지" 도 기준이 아니고, 시작점의 부호는 수렴 여부와 상관없다.
+    - question: |
+        같은 loss 에서 learning rate 만 달리해 두 번 학습했다. 한 번은 update 마다 $w$ 에 $0.8$ 이 곱해지고, 다른 한 번은 $-0.5$ 가
+        곱해진다. 어느 쪽이 가장 낮은 점에 더 빨리 다가가는가?
+      choices:
+        - '$0.8$ 쪽. 부호가 바뀌면 진동하므로 언제나 더 느리다'
+        - '둘 다 같다. 둘 다 1 보다 작기 때문이다'
+        - '$0.8$ 쪽. 곱해지는 수가 클수록 한 번에 많이 움직이기 때문이다'
+        - '$-0.5$ 쪽. 넘나들긴 해도 거리가 매번 절반으로 줄어, 매번 0.8 배로 주는 것보다 빠르다'
+      answer: 3
+      explanation: |
+        다가가는 속도는 곱해지는 수의 크기로 정해진다. $-0.5$ 는 거리를 매번 0.5 배로, $0.8$ 은 0.8 배로 줄이므로 $-0.5$ 쪽이 더 빨리
+        0 에 다가간다. 부호가 바뀌어 넘나드는 모습이 불안해 보여도 크기가 작으면 더 빠르다. 곱해지는 수가 클수록 남는 거리가 크다는
+        뜻이므로 "많이 움직인다" 는 반대로 읽은 것이고, 둘 다 1 보다 작아 수렴은 하지만 빠르기는 다르다.
+
+- topic: divergence
+  title: 발산과 learning rate 의 상한
+  variants:
+    - question: |
+        학습 기록에서 loss 가 70, 104, 154, 229, 340 처럼 step 마다 커지고 있다. 가장 먼저 해 볼 조치는?
+      choices:
+        - 'learning rate 를 키운다'
+        - 'step 수를 늘려 더 오래 학습한다'
+        - 'learning rate 를 줄인다'
+        - '데이터를 더 모은다'
+      answer: 2
+      explanation: |
+        loss 가 step 마다 커지는 것은 걸음이 너무 커서 가장 낮은 점을 넘어 반대편으로 더 멀리 튀는 발산의 전형적인 모습이다. learning
+        rate 를 줄이면 걸음이 작아져 다시 수렴한다. learning rate 를 키우면 더 빨리 발산하고, 오래 돌리면 loss 가 inf 까지 커질
+        뿐이다. 데이터 양은 걸음의 크기를 정하는 원인이 아니다.
+    - question: |
+        학습 중 loss 가 inf 가 되더니 곧 nan 이 찍혔다. 가장 흔한 원인은?
+      choices:
+        - '모델이 완벽히 수렴해서 loss 가 0 이 되었다'
+        - 'learning rate 가 너무 커서 parameter 가 발산했다'
+        - 'gradient 가 0 이라 학습이 멈췄다'
+        - '데이터가 너무 적어서 평균을 낼 수 없었다'
+      answer: 1
+      explanation: |
+        발산하면 parameter 와 loss 가 끝없이 커지다가 컴퓨터가 담을 수 있는 가장 큰 수를 넘어 inf 가 되고, inf 끼리의 계산처럼 답이
+        정해지지 않는 계산에서 nan 이 나온다. 수렴해서 loss 가 0 이 되거나 gradient 가 0 이면 값이 멈출 뿐 inf 로 커지지 않는다.
+        데이터가 적다고 평균이 inf 가 되지도 않는다.
+    - question: |
+        잘 수렴하던 linear regression 에서 입력 $x$ 만 모두 10 배로 키웠더니 같은 learning rate 에서 발산했다. 이유로 옳은 것은?
+      choices:
+        - '입력이 커지면 loss 곡선이 훨씬 가팔라져 learning rate 의 상한이 크게 낮아졌기 때문에'
+        - '입력이 커지면 정답 직선이 바뀌어 원래 learning rate 로는 찾을 수 없기 때문에'
+        - '입력의 크기는 learning rate 와 상관없으므로 다른 원인이 있다'
+        - '입력이 커지면 learning rate 의 상한도 10 배 커지므로 오히려 learning rate 가 너무 작아졌기 때문에'
+      answer: 0
+      explanation: |
+        $w$ 의 gradient 에는 오차와 함께 $x_i$ 가 곱해지므로, 입력이 커지면 같은 $w$ 변화에 loss 가 훨씬 크게 변하는 가파른 곡선이 된다.
+        곡선이 가파를수록 쓸 수 있는 learning rate 의 상한이 낮아져서, 원래 괜찮던 값이 상한을 넘어 발산한다. 상한은 오히려 낮아지고,
+        learning rate 가 너무 작으면 느릴 뿐 발산하지 않는다. 그래서 학습 전에 standardization 으로 입력 크기를 맞추는 경우가 많다.
+
+- topic: mean-vs-sum
+  title: loss 의 mean 과 sum
+  variants:
+    - question: |
+        loss 를 오차 제곱의 평균(mean) 대신 합(sum)으로 정의했다. 무엇이 달라지는가?
+      choices:
+        - 'loss 가 가장 낮아지는 parameter, 곧 정답 직선이 달라진다'
+        - '아무것도 달라지지 않는다'
+        - 'gradient 가 작아져 같은 learning rate 로 더 조금 움직인다'
+        - '가장 낮은 점의 위치는 같고, gradient 가 점 개수 $N$ 배가 되어 같은 learning rate 로 $N$ 배 멀리 움직인다'
+      answer: 3
+      explanation: |
+        합은 평균에 $N$ 을 곱한 값이라 loss 곡선 전체가 $N$ 배로 늘어날 뿐 가장 낮은 점의 위치는 그대로다. 하지만 gradient 도 $N$ 배가
+        되어, 같은 learning rate 라면 한 step 에 $N$ 배 멀리 간다. 그래서 정답 직선이 바뀐다는 보기도, 아무것도 안 바뀐다는 보기도
+        틀렸다. gradient 는 작아지는 것이 아니라 커진다.
+    - question: |
+        대부분의 학습이 loss 를 sum 이 아니라 mean 으로 계산하는 가장 큰 이유는?
+      choices:
+        - 'mean 이 가장 낮은 점을 더 정확하게 찾기 때문에'
+        - 'sum 은 음수가 나올 수 있기 때문에'
+        - 'mean 이면 gradient 의 크기가 데이터 수와 거의 상관없어서, 데이터나 mini-batch 크기가 바뀌어도 같은 learning rate 를 쓸 수 있기 때문에'
+        - 'mean 이 sum 보다 계산이 훨씬 빠르기 때문에'
+      answer: 2
+      explanation: |
+        sum 의 gradient 는 점이 늘어날수록 커지므로 데이터 수가 바뀔 때마다 learning rate 를 다시 맞춰야 한다. mean 은 점마다의 기여를
+        평균하므로 gradient 크기가 데이터 수에 따라 거의 변하지 않는다. 두 정의의 가장 낮은 점은 같으니 정확도 차이는 없고, 오차
+        제곱의 합은 음수가 될 수 없으며, 평균은 합에 나누기 한 번을 더할 뿐이라 더 빠르지도 않다.
+    - question: |
+        loss 를 sum 으로 정의하고 잘 수렴하는 learning rate 를 찾았다. learning rate 는 그대로 두고 mini-batch 크기만 32 에서 64 로
+        늘리면 어떻게 될 가능성이 큰가?
+      choices:
+        - 'gradient 가 대략 2 배가 되어 걸음이 커지고, 발산할 위험이 생긴다'
+        - 'gradient 가 절반이 되어 학습이 느려진다'
+        - 'loss 를 sum 으로 정의했으므로 mini-batch 크기와 상관없이 똑같이 움직인다'
+        - '가장 낮은 점의 위치가 바뀌어 다른 직선으로 수렴한다'
+      answer: 0
+      explanation: |
+        sum 은 mini-batch 안 점들의 기여를 더하기만 하므로 점이 2 배가 되면 gradient 도 대략 2 배가 된다. 같은 learning rate 로 2 배
+        멀리 움직이니, 상한 근처였다면 발산할 수 있다. 절반이 되거나 그대로인 것은 mean 의 성질을 sum 에 잘못 붙인 것이고, 점이
+        늘어도 가장 낮은 점의 위치는 그대로다.
+
+- topic: matrix-product
+  title: vector·행렬 곱과 vectorization
+  variants:
+    - question: |
+        모든 점의 예측을 $\hat{\mathbf{y}} = A\boldsymbol\theta$ 로 한 번에 쓰려고, 행렬 $A$ 의 첫째 열에는 각 점의 입력 $x_i$ 를,
+        둘째 열에는 모두 $1$ 을 넣고 $\boldsymbol\theta = (w, b)$ 로 둔다. 둘째 열을 1 로 채우는 이유는?
+      choices:
+        - '행렬의 크기를 정사각형에 가깝게 맞추려고'
+        - '각 행과 $\boldsymbol\theta$ 의 내적이 $x_i w + 1 \times b$ 가 되어, $b$ 를 모든 점에 똑같이 더하려고'
+        - '입력을 standardization 하려고'
+        - '오차의 부호를 없애려고'
+      answer: 1
+      explanation: |
+        행렬과 vector 의 곱은 각 행과 $\boldsymbol\theta$ 의 내적을 세로로 쌓은 것이다. 행이 $(x_i, 1)$ 이면 내적은 $x_i w + b$ 로 곧
+        그 점의 예측이고, 1 이 있어야 $b$ 가 모든 점에 한 번씩 더해진다. 행렬 모양은 점 개수에 따라 정해지므로 정사각형과는 상관없고,
+        standardization 이나 오차의 부호는 이 열과 관계가 없다.
+    - question: |
+        점 하나씩 반복문으로 계산하는 대신 NumPy 같은 배열 연산으로 vectorization 하면 수십 배 빨라진다. 주된 이유는?
+      choices:
+        - '배열 연산은 근사값을 써서 계산량을 줄이기 때문에'
+        - '배열 연산은 데이터 중 일부만 골라 계산하기 때문에'
+        - '배열 연산은 곱셈의 개수 자체를 수학적으로 크게 줄이기 때문에'
+        - '같은 종류의 숫자를 나란히 담은 배열을 미리 빠르게 만들어 둔 계산 프로그램이 한 번에 훑어, 숫자마다 반복되던 처리 비용이 사라지기 때문에'
+      answer: 3
+      explanation: |
+        반복문은 숫자 하나를 처리할 때마다 그 값의 종류를 확인하고 알맞은 계산을 고르는 일을 되풀이한다. 배열 연산은 같은 종류의
+        숫자를 묶음으로 두고 미리 만든 빠른 프로그램이 한 번에 처리해 이 비용이 사라지고, 같은 계산은 GPU 로 옮기기도 쉽다. 결과는
+        반복문과 같아서 근사도 아니고 일부만 계산하는 것도 아니며, 곱셈과 덧셈의 개수도 그대로다.
+    - question: |
+        예측 $\hat{\mathbf{y}} = A\boldsymbol\theta$ 와 MSE 의 gradient $\frac{2}{N} A^\top (A\boldsymbol\theta - \mathbf{y})$ 를
+        쓰고 있다. 데이터 점이 3 개에서 100 만 개로 늘면 무엇이 바뀌는가?
+      choices:
+        - '$\boldsymbol\theta$ 의 칸 수가 100 만 개로 늘어난다'
+        - '$A$ 의 열이 100 만 개로 늘어난다'
+        - '식의 모양은 그대로이고, 점 하나가 행 하나라서 $A$ 의 행 수만 늘어난다'
+        - '점이 많으면 행렬 곱을 쓸 수 없어 식을 새로 유도해야 한다'
+      answer: 2
+      explanation: |
+        $A$ 에서 행 하나가 점 하나이므로 점이 늘면 행이 늘어 1,000,000 × 2 행렬이 될 뿐, 두 식의 모양은 그대로다. $\boldsymbol\theta$
+        의 칸 수는 parameter 개수라서 점 개수와 상관없고, 열은 입력 종류(여기서는 $x$ 와 상수 1)를 뜻하므로 그대로다. 행렬 곱으로 쓴
+        식은 크기와 상관없이 그대로 쓸 수 있어서 새로 유도할 필요가 없다.

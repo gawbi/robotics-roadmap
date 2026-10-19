@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>α = 1 인 Q-learning 에서 같은 경로를 네 episode 돈 뒤의 Q 값. episode 1 에 칸 2 의 1, episode 2 에 칸 1 의 0.9, episode 3 에 칸 4 의 0.81, episode 4 에 칸 7 의 0.729 가 생긴다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="108.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">episode 1 끝</text>
+  <rect x="30.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="36.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">1</text>
+  <rect x="82.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="88.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">2</text>
+  <rect x="134.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#34d399" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="140.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">3</text>
+  <rect x="30.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="36.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <rect x="82.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#f87171" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="88.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">5</text>
+  <rect x="134.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="140.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">6</text>
+  <rect x="30.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="36.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">7</text>
+  <rect x="82.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="88.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">8</text>
+  <rect x="134.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="140.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">9</text>
+  <line x1="56.0" y1="182.0" x2="56.0" y2="162.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="56.0" y="200.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="56.0" y1="130.0" x2="56.0" y2="110.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="56.0" y="148.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="50.0" y1="72.0" x2="70.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="56.0" y="96.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="102.0" y1="72.0" x2="122.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="108.0" y="96.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="bold">1</text>
+  <text x="108.0" y="234.0" fill="#34d399" font-size="12" text-anchor="middle">새로 생긴 값: 칸 2</text>
+  <text x="280.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">episode 2 끝</text>
+  <rect x="202.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="208.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">1</text>
+  <rect x="254.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="260.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">2</text>
+  <rect x="306.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#34d399" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="312.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">3</text>
+  <rect x="202.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="208.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <rect x="254.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#f87171" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="260.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">5</text>
+  <rect x="306.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="312.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">6</text>
+  <rect x="202.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="208.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">7</text>
+  <rect x="254.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="260.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">8</text>
+  <rect x="306.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="312.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">9</text>
+  <line x1="228.0" y1="182.0" x2="228.0" y2="162.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="228.0" y="200.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="228.0" y1="130.0" x2="228.0" y2="110.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="228.0" y="148.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="222.0" y1="72.0" x2="242.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="228.0" y="96.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="bold">0.9</text>
+  <line x1="274.0" y1="72.0" x2="294.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="280.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1</text>
+  <text x="280.0" y="234.0" fill="#34d399" font-size="12" text-anchor="middle">새로 생긴 값: 칸 1</text>
+  <text x="452.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">episode 3 끝</text>
+  <rect x="374.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="380.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">1</text>
+  <rect x="426.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="432.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">2</text>
+  <rect x="478.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#34d399" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="484.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">3</text>
+  <rect x="374.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="380.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <rect x="426.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#f87171" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="432.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">5</text>
+  <rect x="478.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="484.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">6</text>
+  <rect x="374.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="380.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">7</text>
+  <rect x="426.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="432.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">8</text>
+  <rect x="478.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="484.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">9</text>
+  <line x1="400.0" y1="182.0" x2="400.0" y2="162.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="400.0" y="200.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="400.0" y1="130.0" x2="400.0" y2="110.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="400.0" y="148.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="bold">0.81</text>
+  <line x1="394.0" y1="72.0" x2="414.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="400.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.9</text>
+  <line x1="446.0" y1="72.0" x2="466.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="452.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1</text>
+  <text x="452.0" y="234.0" fill="#34d399" font-size="12" text-anchor="middle">새로 생긴 값: 칸 4</text>
+  <text x="624.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">episode 4 끝</text>
+  <rect x="546.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="552.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">1</text>
+  <rect x="598.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="604.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">2</text>
+  <rect x="650.0" y="52.0" width="52.0" height="52.0" rx="0" fill="#34d399" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="656.0" y="67.0" fill="#64748b" font-size="11" text-anchor="start">3</text>
+  <rect x="546.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="552.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <rect x="598.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#f87171" fill-opacity="0.22" stroke="#334155" stroke-width="1.5"/>
+  <text x="604.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">5</text>
+  <rect x="650.0" y="104.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="656.0" y="119.0" fill="#64748b" font-size="11" text-anchor="start">6</text>
+  <rect x="546.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="552.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">7</text>
+  <rect x="598.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="604.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">8</text>
+  <rect x="650.0" y="156.0" width="52.0" height="52.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
+  <text x="656.0" y="171.0" fill="#64748b" font-size="11" text-anchor="start">9</text>
+  <line x1="572.0" y1="182.0" x2="572.0" y2="162.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="572.0" y="200.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="bold">0.729</text>
+  <line x1="572.0" y1="130.0" x2="572.0" y2="110.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="572.0" y="148.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.81</text>
+  <line x1="566.0" y1="72.0" x2="586.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="572.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.9</text>
+  <line x1="618.0" y1="72.0" x2="638.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="624.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1</text>
+  <text x="624.0" y="234.0" fill="#34d399" font-size="12" text-anchor="middle">새로 생긴 값: 칸 7</text>
+  <text x="360.0" y="262.0" fill="#94a3b8" font-size="12" text-anchor="middle">화살표는 경로의 action, 숫자는 그 action 의 Q (γ = 0.9). 값이 episode 마다 한 칸씩 출발 쪽으로 온다</text>
+</svg>

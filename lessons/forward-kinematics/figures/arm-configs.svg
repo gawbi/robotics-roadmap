@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>네 가지 joint angle 과 손끝. (0°, 90°) 와 (90°, −90°) 는 서로 다른 자세인데 손끝은 둘 다 (1, 1) 이다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="658" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="23.5" y="73.5" width="143.0" height="137.5" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="23.5" y1="73.5" x2="23.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="51.0" y1="73.5" x2="51.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="78.5" y1="73.5" x2="78.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="106.0" y1="73.5" x2="106.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="133.5" y1="73.5" x2="133.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="161.0" y1="73.5" x2="161.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="211.0" x2="166.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="183.5" x2="166.5" y2="183.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="156.0" x2="166.5" y2="156.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="128.5" x2="166.5" y2="128.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="101.0" x2="166.5" y2="101.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="73.5" x2="166.5" y2="73.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="23.5" y1="200.0" x2="166.5" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="40.0" y1="73.5" x2="40.0" y2="211.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="95.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="150.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="40.0" y1="200.0" x2="95.0" y2="200.0" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="95.0" y1="200.0" x2="150.0" y2="200.0" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="40.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="95.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="150.0" cy="200.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="95.0" y="44.0" fill="#e2e8f0" font-size="13" text-anchor="middle">θ₁ = 0°, θ₂ = 0°</text>
+  <text x="95.0" y="248.0" fill="#f59e0b" font-size="13" text-anchor="middle">손끝 (2, 0)</text>
+  <rect x="183.5" y="73.5" width="143.0" height="137.5" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="183.5" y1="73.5" x2="183.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="211.0" y1="73.5" x2="211.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="238.5" y1="73.5" x2="238.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="266.0" y1="73.5" x2="266.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="293.5" y1="73.5" x2="293.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="321.0" y1="73.5" x2="321.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="211.0" x2="326.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="183.5" x2="326.5" y2="183.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="156.0" x2="326.5" y2="156.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="128.5" x2="326.5" y2="128.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="101.0" x2="326.5" y2="101.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="73.5" x2="326.5" y2="73.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="183.5" y1="200.0" x2="326.5" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="200.0" y1="73.5" x2="200.0" y2="211.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="255.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="310.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="200.0" y1="200.0" x2="200.0" y2="145.0" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="200.0" y1="145.0" x2="200.0" y2="90.0" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="200.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="200.0" cy="145.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="200.0" cy="90.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="255.0" y="44.0" fill="#e2e8f0" font-size="13" text-anchor="middle">θ₁ = 90°, θ₂ = 0°</text>
+  <text x="255.0" y="248.0" fill="#f59e0b" font-size="13" text-anchor="middle">손끝 (0, 2)</text>
+  <rect x="343.5" y="73.5" width="143.0" height="137.5" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="343.5" y1="73.5" x2="343.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="371.0" y1="73.5" x2="371.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="398.5" y1="73.5" x2="398.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="426.0" y1="73.5" x2="426.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="453.5" y1="73.5" x2="453.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="481.0" y1="73.5" x2="481.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="211.0" x2="486.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="183.5" x2="486.5" y2="183.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="156.0" x2="486.5" y2="156.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="128.5" x2="486.5" y2="128.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="101.0" x2="486.5" y2="101.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="73.5" x2="486.5" y2="73.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="343.5" y1="200.0" x2="486.5" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="360.0" y1="73.5" x2="360.0" y2="211.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="415.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="470.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="360.0" y1="200.0" x2="415.0" y2="200.0" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+  <line x1="415.0" y1="200.0" x2="415.0" y2="145.0" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="360.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="415.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="415.0" cy="145.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="415.0" y="44.0" fill="#e2e8f0" font-size="13" text-anchor="middle">θ₁ = 0°, θ₂ = 90°</text>
+  <text x="415.0" y="248.0" fill="#f59e0b" font-size="13" text-anchor="middle">손끝 (1, 1)</text>
+  <rect x="503.5" y="73.5" width="143.0" height="137.5" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="503.5" y1="73.5" x2="503.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="531.0" y1="73.5" x2="531.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="558.5" y1="73.5" x2="558.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="586.0" y1="73.5" x2="586.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="613.5" y1="73.5" x2="613.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="641.0" y1="73.5" x2="641.0" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="211.0" x2="646.5" y2="211.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="183.5" x2="646.5" y2="183.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="156.0" x2="646.5" y2="156.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="128.5" x2="646.5" y2="128.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="101.0" x2="646.5" y2="101.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="73.5" x2="646.5" y2="73.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="503.5" y1="200.0" x2="646.5" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="520.0" y1="73.5" x2="520.0" y2="211.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="575.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="630.0" y="215.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="520.0" y1="200.0" x2="520.0" y2="145.0" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+  <line x1="520.0" y1="145.0" x2="575.0" y2="145.0" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="520.0" cy="200.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="520.0" cy="145.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="575.0" cy="145.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="575.0" y="44.0" fill="#e2e8f0" font-size="13" text-anchor="middle">θ₁ = 90°, θ₂ = −90°</text>
+  <text x="575.0" y="248.0" fill="#f59e0b" font-size="13" text-anchor="middle">손끝 (1, 1)</text>
+</svg>

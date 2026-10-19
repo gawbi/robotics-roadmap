@@ -1,0 +1,324 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: average-of-answers
+  title: 정답이 여럿일 때의 평균
+  variants:
+    - question: |
+        로봇이 정면의 상자를 비켜 가는 시연이 있다. 절반은 왼쪽($+1$)으로, 절반은 오른쪽($-1$)으로 비켜 갔다. 예측 하나를 내고
+        MSE(오차를 제곱해 평균한 값)를 줄이도록 학습한 모델로 로봇을 움직이면 어떻게 될까?
+      choices:
+        - '시연의 절반처럼 왼쪽으로 비켜 간다'
+        - '두 정답의 평균인 0 을 내서 상자에 정면으로 부딪힌다'
+        - '실행할 때마다 왼쪽과 오른쪽을 번갈아 고른다'
+        - '학습이 끝나지 않아 아무 값도 내지 못한다'
+      answer: 1
+      explanation: |
+        MSE 를 가장 작게 하는 예측은 정답들의 평균이다. $+1$ 과 $-1$ 이 반반이면 평균은 0 이고, 0 은 "비키지 않는다" 는 뜻이라 상자에
+        부딪힌다. 예측 하나만 내는 모델은 왼쪽이나 오른쪽 한쪽을 고르지도, 번갈아 고르지도 않는다. 학습은 정상적으로 끝나서 평균을
+        낼 뿐이다.
+    - question: |
+        "loss 가 가장 작은 예측이 언제나 가장 좋은 행동이다" 는 말이 틀리는 경우는?
+      choices:
+        - '정답이 하나의 값 근처에 모여 있을 때'
+        - '데이터가 아주 많을 때'
+        - '같은 상황의 정답이 여러 무리로 갈라져 있어(multimodal) MSE 를 가장 작게 하는 평균이 어느 정답과도 다를 때'
+        - 'learning rate 가 작을 때'
+      answer: 2
+      explanation: |
+        정답이 두 무리로 갈라지면 그 평균은 어느 무리에도 속하지 않는 값이고, 실제로 하면 실패하는 행동일 수 있다. 정답이 한 곳에
+        모여 있으면 평균이 곧 좋은 답이다. 데이터 양이나 learning rate 를 바꿔도 MSE 가 평균을 고르는 성질은 그대로다.
+    - question: |
+        같은 장면에서 시연의 정답이 여러 무리로 갈라질 때, 생성 모델이 택하는 방법으로 옳은 것은?
+      choices:
+        - '정답들의 퍼진 모양(분포)을 배운 뒤, 실행할 때마다 그 분포에서 하나를 뽑아 한 무리의 정답을 낸다'
+        - '정답들의 평균을 더 정확하게 계산한다'
+        - '가장 처음 나온 시연 하나만 학습한다'
+        - 'MSE 대신 오차의 절댓값을 써서 평균을 피한다'
+      answer: 0
+      explanation: |
+        "왼쪽이 절반, 오른쪽이 절반" 이라는 퍼진 모양을 배우면, 뽑을 때마다 왼쪽이나 오른쪽 하나가 나오고 가운데로는 가지 않는다.
+        평균을 정확히 구하는 것은 문제를 그대로 둔다. 시연 하나만 쓰면 나머지 데이터를 버리고, loss 를 바꾸더라도 예측을 하나만
+        내는 모델이면 여전히 정답 하나만 고른다.
+
+- topic: autoencoder
+  title: autoencoder 와 latent 공간의 빈 곳
+  variants:
+    - question: |
+        autoencoder 는 무엇을 정답으로 삼아 학습할까?
+      choices:
+        - '사람이 그림마다 달아 둔 label'
+        - 'latent 의 각 숫자가 무슨 뜻인지 사람이 정해 둔 값'
+        - '표준 정규분포에서 뽑은 무작위 값'
+        - '입력 그림 자기 자신. 줄였다가 되살린 그림이 원래 그림과 같아지도록 배운다'
+      answer: 3
+      explanation: |
+        encoder 가 그림을 숫자 몇 개(latent $z$)로 줄이고 decoder 가 되살리며, 되살린 그림과 원래 그림의 차이(reconstruction loss)를
+        줄인다. 정답을 따로 주지 않고 입력 자신을 정답으로 써서 auto(자기 자신)라는 이름이 붙었다. latent 의 뜻은 사람이 정하지
+        않고 학습이 정한다.
+    - question: |
+        잘 학습한 보통의 autoencoder 에서 latent $z$ 를 무작위로 골라 decoder 에 넣어도 그럴듯한 새 그림이 나온다는 보장이 없다.
+        그 이유는?
+      choices:
+        - 'decoder 는 latent 를 입력으로 받을 수 없기 때문에'
+        - '학습한 그림들의 $z$ 가 놓일 자리를 정하지 않아 그 사이에 decoder 가 본 적 없는 빈 곳이 생기고, 어느 범위에서 골라야 할지도 모르기 때문에'
+        - 'autoencoder 는 그림을 되살리지 못하기 때문에'
+        - 'latent 의 차원이 언제나 그림의 차원보다 크기 때문에'
+      answer: 1
+      explanation: |
+        autoencoder 는 학습 그림만 잘 되살리면 loss 가 작아지므로 $z$ 들이 어디에 흩어지든 상관하지 않는다. 그래서 무리 사이에 빈
+        곳이 생기고, 거기서는 얼룩이 나올 수 있다. decoder 는 latent 를 받아 그림을 내고, 학습 그림은 잘 되살린다. latent 는 그림보다
+        훨씬 적은 숫자로 줄인 것이다.
+    - question: |
+        손글씨 그림을 latent 로 줄이는 autoencoder 에서 latent 의 개수(z_dim)를 아주 작게 하면 어떻게 될까?
+      choices:
+        - '담을 수 있는 정보가 줄어 되살린 그림이 더 거칠어진다'
+        - '되살린 그림이 원래보다 더 선명해진다'
+        - 'latent 공간의 빈 곳이 모두 사라진다'
+        - '학습에 정답 label 이 필요해진다'
+      answer: 0
+      explanation: |
+        latent 가 적을수록 그림의 굵기·기울기 같은 정보를 담을 자리가 모자라서 복원이 거칠어진다. 개수를 줄인다고 선명해지지는
+        않는다. 빈 곳은 $z$ 의 자리를 정하지 않는 autoencoder 의 성질이라 z_dim 과 상관없이 생기고, autoencoder 는 여전히 label
+        없이 학습한다.
+
+- topic: vae-encoder
+  title: 점 대신 범위를 내는 encoder
+  variants:
+    - question: |
+        VAE 의 encoder 가 그림 하나를 latent 의 점 하나가 아니라 평균 $\mu$ 와 표준편차 $\sigma$ 로 정한 범위 하나로 바꾸는 이유는?
+      choices:
+        - '계산을 줄이려고'
+        - '그림마다 정답 label 을 붙이려고'
+        - '학습 중 그 범위에서 뽑은 여러 $z$ 를 모두 같은 그림으로 되살리게 해서, 범위들이 겹치며 latent 공간의 빈 곳을 채우려고'
+        - 'decoder 를 쓰지 않으려고'
+      answer: 2
+      explanation: |
+        같은 그림을 볼 때마다 범위 안의 다른 $z$ 가 뽑히므로, decoder 는 점 하나가 아니라 범위 전체를 그 그림으로 되살리는 법을
+        배운다. 그림마다의 범위가 서로 겹치면 빈 곳이 사라진다. 범위를 내려면 숫자를 두 배로 내야 해서 계산이 줄지 않고, label 이나
+        decoder 생략과는 관계가 없다.
+    - question: |
+        VAE 의 encoder 가 $\sigma$ 를 바로 내지 않고 logvar $= \log\sigma^2$ 을 내는 이유는?
+      choices:
+        - 'Linear layer 는 어떤 숫자든 낼 수 있는데 $\sigma$ 는 반드시 양수여야 하고, logvar 가 어떤 값이든 $e^{\text{logvar}}$ 는 언제나 양수이기 때문에'
+        - 'log 를 쓰면 encoder 의 계산이 빨라지기 때문에'
+        - 'logvar 를 쓰면 $\mu$ 가 필요 없어지기 때문에'
+        - '$\sigma$ 가 음수여야 latent 공간이 채워지기 때문에'
+      answer: 0
+      explanation: |
+        encoder 의 마지막 층은 음수도 낼 수 있는데, 퍼진 정도인 $\sigma$ 가 음수면 뜻이 없다. logvar 를 내고 $\sigma = e^{\text{logvar}/2}$
+        로 되돌리면 logvar 가 음수여도 작은 양수 $\sigma$ 가 된다. 속도 때문이 아니고, $\mu$ 는 여전히 따로 낸다. $\sigma$ 는 양수여야
+        한다.
+    - question: |
+        VAE 의 encoder 가 숫자 0 그림에는 $z = -1$ 근처의 범위를, 숫자 1 그림에는 $z = 1$ 근처의 범위를 내고, 두 범위가 가운데에서
+        겹친다. 학습을 마친 뒤 $z = 0$ 을 decoder 에 넣으면 어떤 그림을 기대할 수 있을까?
+      choices:
+        - '아무 뜻 없는 얼룩'
+        - '언제나 숫자 0'
+        - '아무 그림도 나오지 않는다'
+        - '0 과 1 의 중간쯤 되는 그림'
+      answer: 3
+      explanation: |
+        $z = 0$ 근처는 학습하는 동안 0 그림으로도, 1 그림으로도 되살려야 했던 자리라서 decoder 는 두 그림의 중간쯤을 낸다. 범위가
+        겹쳐 빈 곳이 없으므로 얼룩이 나오는 보통 autoencoder 와 다르다. 0 쪽 범위와 1 쪽 범위가 함께 쓰는 자리라 한쪽 숫자로만
+        정해지지 않는다.
+
+- topic: reparameterization
+  title: reparameterization trick
+  variants:
+    - question: |
+        VAE 에서 $z$ 를 $\mathcal N(\mu, \sigma^2)$ 에서 바로 뽑으면 encoder 의 weight 가 학습되지 않는다. 그 이유는?
+      choices:
+        - 'decoder 의 weight 가 너무 많기 때문에'
+        - '뽑을 때마다 운에 따라 $z$ 가 달라져 "$\mu$ 를 조금 바꾸면 $z$ 가 얼마나 변하는가" 라는 비율을 정할 수 없고, chain rule 이 뽑기에서 끊기기 때문에'
+        - '정규분포는 음수를 낼 수 없기 때문에'
+        - 'encoder 에는 loss 가 없기 때문에'
+      answer: 1
+      explanation: |
+        gradient 는 값을 조금 바꿨을 때 loss 가 변하는 비율이고, chain rule 로 칸마다의 비율을 곱해 구한다. $\mu$ 를 조금 바꿔
+        다시 뽑으면 $z$ 의 변화는 대부분 새로 뽑은 운이라 비율이 정해지지 않고, 그래서 encoder 까지 gradient 가 전해지지 않는다.
+        decoder 는 학습되고, 정규분포는 음수도 낸다. loss 는 encoder 출력에도 달려 있다.
+    - question: |
+        reparameterization trick $z = \mu + \sigma \epsilon$, $\epsilon \sim \mathcal N(0, 1)$ 에 대한 설명으로 옳은 것은?
+      choices:
+        - '$\epsilon$ 을 0 으로 고정해 $z$ 의 무작위성을 없앤다'
+        - '$z$ 가 언제나 $\mu$ 와 같아진다'
+        - '$\epsilon$ 은 매번 새로 뽑아 $z$ 는 여전히 무작위지만, 무작위성이 바깥 입력 $\epsilon$ 으로 옮겨 가서 $\mu$ 와 $\sigma$ 를 지나는 계산이 끊기지 않는다'
+        - 'encoder 대신 decoder 에서 $z$ 를 뽑는다'
+      answer: 2
+      explanation: |
+        $\mathcal N(0, 1)$ 에서 뽑은 $\epsilon$ 에 $\sigma$ 를 곱하고 $\mu$ 를 더하면 $\mathcal N(\mu, \sigma^2)$ 에서 뽑은 것과 같은
+        분포가 된다. $\epsilon$ 을 먼저 뽑아 두면 $z$ 는 곱하고 더하는 평범한 계산이라 gradient 가 지나간다. $\epsilon$ 을 0 으로
+        고정하거나 $z = \mu$ 로 두면 범위가 사라져 보통 autoencoder 와 같아진다.
+    - question: |
+        $z = \mu + \sigma \epsilon$ 에서 $\epsilon$ 은 이미 뽑아 둔 값이다. $\mu$ 를 조금 늘리면 $z$ 는 같은 양만큼 늘어난다. $\sigma$ 를
+        조금 늘리면 $z$ 가 변하는 양은 무엇에 달려 있을까?
+      choices:
+        - '$\epsilon$. $\sigma$ 가 1 늘면 $z$ 는 $\epsilon$ 만큼 변한다'
+        - '$\mu$. $\sigma$ 가 1 늘면 $z$ 는 $\mu$ 만큼 변한다'
+        - '아무것에도 달려 있지 않고 언제나 1 이다'
+        - '정할 수 없다'
+      answer: 0
+      explanation: |
+        $z$ 에서 $\sigma$ 가 들어간 부분은 $\sigma \epsilon$ 이라서, $\sigma$ 가 1 늘면 $z$ 는 $\epsilon$ 만큼 는다. 곧
+        $\partial z / \partial \sigma = \epsilon$ 이고 $\partial z / \partial \mu = 1$ 이다. $\epsilon$ 을 미리 뽑아 두었으므로 이 비율이
+        정해지고, 그래서 "정할 수 없다" 는 바로 뽑을 때의 이야기다.
+
+- topic: kl-divergence
+  title: KL divergence
+  variants:
+    - question: |
+        KL divergence $D_{\mathrm{KL}}(q \Vert p)$ 에 대한 설명으로 옳은 것은?
+      choices:
+        - '$q$ 와 $p$ 의 자리를 바꿔도 값이 같다'
+        - '두 분포가 다를수록 음수로 커진다'
+        - '두 분포가 같아도 0 보다 크다'
+        - '두 분포가 같으면 0 이고, 다르면 0 보다 크며, $q$ 와 $p$ 의 자리를 바꾸면 값이 달라질 수 있다'
+      answer: 3
+      explanation: |
+        KL divergence 는 결과마다 $q \log(q \div p)$ 를 더한 값이다. 두 분포가 같으면 모든 항이 $\log 1 = 0$ 이라 0 이고, 다르면 언제나
+        0 보다 크다. 자로 잰 거리와 달리 어느 쪽에서 재느냐에 따라 값이 달라져서, VAE 는 encoder 의 분포 $q$ 를 앞에, prior 를
+        뒤에 둔다.
+    - question: |
+        VAE 의 loss 에 들어 있는 KL 항, 곧 encoder 의 분포 $\mathcal N(\mu, \sigma^2)$ 와 prior $\mathcal N(0, 1)$ 의 KL divergence 가
+        encoder 에게 요구하는 것은?
+      choices:
+        - '$\mu$ 를 원점 쪽으로 끌어당기고, $\sigma$ 가 0 으로 줄어들지 않게 1 근처에 머물게 한다'
+        - '$\mu$ 를 원점에서 멀리 보내고, $\sigma$ 를 0 으로 줄인다'
+        - '$\mu$ 와 $\sigma$ 를 모두 0 으로 만든다'
+        - '$\sigma$ 를 될 수 있는 한 크게 한다'
+      answer: 0
+      explanation: |
+        KL 은 $\mu$ 가 0 에서 멀수록 커지고, $\sigma$ 가 1 보다 작아지거나 커져도 커진다. 그래서 그림마다의 범위를 원점 근처에 모으고
+        적당히 넓게 유지시킨다. $\mu$ 를 멀리 보내고 $\sigma$ 를 줄이는 쪽은 reconstruction 항이 원하는 방향이다. $\sigma = 0$ 이나
+        아주 큰 $\sigma$ 는 KL 을 키운다.
+    - question: |
+        어떤 그림을 받았을 때 encoder 가 모든 차원에서 $\mu = 0$, $\sigma = 1$ 을 냈다. 이 그림의 KL 항과 그 뜻으로 옳은 것은?
+      choices:
+        - 'KL 이 가장 커서 latent 가 그림의 정보를 가장 많이 담는다'
+        - 'KL 은 0 이고, posterior 가 prior 와 똑같아서 $z$ 에 이 그림만의 정보가 담기지 않는다'
+        - 'KL 은 1 이고, 그림이 완벽하게 되살아난다'
+        - 'KL 을 계산할 수 없다'
+      answer: 1
+      explanation: |
+        $\mathcal N(0, 1)$ 은 prior 와 같은 분포라서 KL 은 0 이다. 그런데 모든 그림이 이렇게 prior 와 같은 범위를 받으면 $z$ 만 보고
+        어느 그림인지 구별할 수 없다. KL 이 0 이라고 좋은 것만은 아니고, 정보를 담는 것과 KL 을 줄이는 것은 서로 당기는 관계다.
+
+- topic: loss-balance
+  title: 두 항의 비중과 β
+  variants:
+    - question: |
+        VAE loss $L_{\text{rec}} + \beta \cdot D_{\mathrm{KL}}$ 에서 $\beta$ 를 아주 크게 하면 어떤 일이 생길까?
+      choices:
+        - 'encoder 의 $\sigma$ 가 0 으로 줄어 latent 공간에 빈 곳이 생긴다'
+        - 'reconstruction 이 완벽해진다'
+        - 'encoder 가 어떤 그림에도 $\mu = 0$, $\sigma = 1$ 을 내서 $z$ 에 정보가 담기지 않고, decoder 는 흐릿한 평균 그림 하나만 낸다'
+        - '아무 변화가 없다'
+      answer: 2
+      explanation: |
+        $\beta$ 가 크면 KL 을 0 으로 만드는 것이 가장 중요해져, 모든 그림의 posterior 가 prior 하나로 합쳐진다. 이것을 posterior
+        collapse 라고 한다. $\sigma$ 가 0 으로 줄어 빈 곳이 생기는 것은 반대로 $\beta = 0$ 일 때의 실패다. $z$ 에 정보가 없으니
+        reconstruction 은 오히려 나빠진다.
+    - question: |
+        VAE loss 에서 $\beta = 0$ 으로 KL 항을 없애면 어떻게 될까?
+      choices:
+        - 'encoder 가 $\sigma$ 를 0 에 가깝게 줄이고 $\mu$ 를 마음대로 흩어 놓아, 보통 autoencoder 처럼 latent 공간에 빈 곳이 다시 생긴다'
+        - '모든 그림이 같은 $z$ 를 받는다'
+        - '생성이 더 좋아진다'
+        - 'decoder 가 학습되지 않는다'
+      answer: 0
+      explanation: |
+        reconstruction 항만 남으면 $z$ 가 늘 $\mu$ 에서 뽑히고 그림마다의 $\mu$ 가 멀리 떨어질수록 되살리기 쉽다. 그래서 범위가
+        사라지고 빈 곳이 생겨, prior 에서 $z$ 를 뽑아도 그럴듯한 그림이 나온다는 보장이 없다. 모든 그림이 같은 $z$ 를 받는 것은
+        $\beta$ 가 아주 클 때의 일이고, decoder 는 그대로 학습된다.
+    - question: |
+        VAE 논문은 loss 를 ELBO(evidence lower bound)로 설명한다. ELBO 와 VAE loss 의 관계로 옳은 것은?
+      choices:
+        - 'ELBO 는 $\log p_\theta(x)$ 를 정확히 계산한 값이다'
+        - 'ELBO 는 $\log p_\theta(x)$ 보다 언제나 크거나 같다'
+        - 'ELBO 를 줄이는 것이 VAE 의 학습이다'
+        - 'ELBO 는 $\log p_\theta(x)$ 의 아래쪽 경계이고, ELBO 를 키우는 것은 $\beta = 1$ 인 VAE loss 를 줄이는 것과 같다'
+      answer: 3
+      explanation: |
+        $\log p_\theta(x)$ 는 가능한 모든 $z$ 를 더해야 해서 직접 계산할 수 없다. ELBO 는 언제나 그 이하인 값이라 lower bound 라고
+        부르고, $-(L_{\text{rec}} + D_{\mathrm{KL}})$ 과 같다. 그래서 ELBO 를 키우면 VAE loss 가 줄고, "$\log p_\theta(x)$ 는 적어도
+        이 값 이상" 이라는 보장도 올라간다.
+
+- topic: latent-use
+  title: 생성·보간과 흐릿한 sample
+  variants:
+    - question: |
+        학습을 마친 VAE 로 새 손글씨 그림을 만드는 방법은?
+      choices:
+        - '아무 그림이나 encoder 에 넣고 나온 $\mu$ 를 그대로 출력한다'
+        - 'prior $\mathcal N(0, I)$ 에서 $z$ 를 뽑아 decoder 에 넣는다. encoder 는 쓰지 않는다'
+        - 'latent 를 $[-100, 100]$ 에서 고르게 뽑아 decoder 에 넣는다'
+        - 'decoder 에 무작위 pixel 그림을 넣는다'
+      answer: 1
+      explanation: |
+        KL 항이 학습 내내 그림마다의 범위를 $\mathcal N(0, I)$ 근처에 모아 두었으므로, prior 에서 뽑은 $z$ 는 어느 그림의 범위 안에
+        떨어질 가능성이 높다. encoder 는 학습할 때나 이미 있는 그림의 $z$ 를 알고 싶을 때만 쓴다. 아주 먼 $z$ 는 decoder 가 본 적
+        없는 자리이고, decoder 는 pixel 그림이 아니라 $z$ 를 받는다.
+    - question: |
+        VAE 가 만든 그림이 실제 손글씨보다 흐릿한 이유로 가장 알맞은 것은?
+      choices:
+        - '그림의 pixel 수가 너무 적기 때문에'
+        - 'decoder 가 학습되지 않았기 때문에'
+        - '범위가 겹친 자리의 $z$ 는 여러 그림으로 되살려야 했던 자리라, decoder 가 그 그림들의 평균에 가까운 그림을 내기 때문에'
+        - 'prior 가 정규분포가 아니기 때문에'
+      answer: 2
+      explanation: |
+        겹친 자리에서 decoder 는 어느 한 그림을 고를 수 없어, reconstruction loss 를 가장 작게 하는 평균 쪽 그림을 낸다. 정답이
+        갈라지면 MSE 가 평균을 내던 일이 pixel 마다 일어나 획의 가장자리가 번진다. pixel 수나 학습 실패 때문이 아니고, prior 는
+        정규분포다.
+    - question: |
+        두 손글씨 그림의 latent 평균 $z_a$ 와 $z_b$ 를 직선으로 잇고, 그 위의 점들을 decoder 에 넣어 차례로 늘어놓았다(보간). VAE 에서
+        중간 그림들이 대개 숫자 모양을 유지하는 이유는?
+      choices:
+        - 'latent 공간을 범위들로 빈 곳 없이 채워서 직선의 중간도 decoder 가 학습한 자리이기 때문에'
+        - '직선 위의 점은 모두 $z_a$ 나 $z_b$ 와 같기 때문에'
+        - '보간할 때는 encoder 가 중간 그림을 직접 만들기 때문에'
+        - 'decoder 는 어떤 $z$ 를 받아도 숫자 모양만 내도록 정해져 있기 때문에'
+      answer: 0
+      explanation: |
+        보통 autoencoder 는 직선의 중간이 빈 곳을 지날 수 있어 얼룩이 나오기 쉽다. VAE 는 범위가 겹쳐 빈 곳이 없으므로 중간 자리도
+        decoder 가 학습 중에 받아 본 자리다. 직선 위의 점은 양 끝 말고는 $z_a$, $z_b$ 와 다르고, 보간에는 decoder 만 쓴다. decoder
+        가 본 적 없는 먼 $z$ 에서는 숫자 모양이 보장되지 않는다.
+
+- topic: cvae
+  title: 조건을 붙인 CVAE 와 ACT
+  variants:
+    - question: |
+        CVAE 는 encoder 와 decoder 양쪽에 조건 $c$(예를 들어 어떤 숫자인지)를 함께 넣는다. 보통 VAE 와 비교해 얻는 것은?
+      choices:
+        - 'encoder 없이 학습할 수 있다'
+        - 'KL 항이 필요 없어진다'
+        - 'sample 이 언제나 선명해진다'
+        - '원하는 조건의 sample 을 만들 수 있고, $z$ 에는 조건으로 정해지지 않는 굵기·기울기 같은 나머지가 담긴다'
+      answer: 3
+      explanation: |
+        보통 VAE 는 $z$ 를 뽑으면 무슨 숫자가 나올지 고를 수 없다. CVAE 는 $c$ 로 숫자를 지정하고, 어떤 숫자인지는 $c$ 가 이미
+        알려 주므로 $z$ 에는 쓰는 방식이 담긴다. 학습에는 여전히 encoder 와 KL 항을 쓰고, 흐릿함이 사라지지는 않는다.
+    - question: |
+        학습한 CVAE 에 같은 $z$ 를 두고 조건 $c$ 만 숫자 0 부터 9 까지 바꿔 넣으면 어떤 그림들이 나올까?
+      choices:
+        - '모두 같은 숫자 그림'
+        - '같은 굵기와 기울기로 쓴 0 부터 9 까지의 그림'
+        - '모두 흐릿한 얼룩'
+        - '숫자마다 굵기와 기울기가 제멋대로인 그림'
+      answer: 1
+      explanation: |
+        $c$ 가 어떤 숫자인지를 정하고, $z$ 가 굵기·기울기 같은 쓰는 방식을 정한다. $z$ 를 고정하면 쓰는 방식이 같아서, 같은 사람이
+        같은 손버릇으로 쓴 0 부터 9 까지가 나온다. $c$ 를 바꾸면 숫자는 바뀌고, $z$ 가 학습한 자리라면 얼룩이 나오지 않는다.
+    - question: |
+        ACT 는 시연의 action chunk 를 CVAE 로 학습하고, 로봇을 실제로 움직일 때는 encoder 를 쓰지 않고 $z$ 를 0 으로 둔다. 그 이유는?
+      choices:
+        - '$z$ 가 0 이면 policy 가 계산을 건너뛰어 빨라지기 때문에'
+        - 'encoder 는 학습이 끝나면 지워지기 때문에'
+        - '따라 할 시연이 없어 encoder 에 넣을 action chunk 가 없고, KL 항이 $z$ 를 $\mathcal N(0, I)$ 근처에 모아 두어 가운데인 0 이 policy 에 가장 익숙한 자리이기 때문에'
+        - '$z$ 를 0 으로 두어야 reparameterization trick 이 동작하기 때문에'
+      answer: 2
+      explanation: |
+        encoder 는 시연의 action chunk 를 보고 $\mu$, $\sigma$ 를 내는데, 실제로 움직일 때는 그 시연이 없다. KL 항 덕분에 학습 때의
+        $z$ 는 prior 근처에 모여 있었으므로, prior 의 평균 0 은 policy 가 가장 많이 본 자리다. $z = 0$ 이어도 계산량은 같고,
+        reparameterization trick 은 학습 때 $z$ 를 뽑는 방법이다.

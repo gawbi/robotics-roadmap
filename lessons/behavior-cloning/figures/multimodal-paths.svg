@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>상자 앞 시연 5 개는 왼쪽, 5 개는 오른쪽으로 피하고, MSE 로 학습한 policy 는 평균 0° 로 상자에 부딪힌다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="50.0" width="560.0" height="180.0" rx="0" fill="#0e1628"/>
+  <line x1="20.0" y1="50.0" x2="580.0" y2="50.0" stroke="#475569" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="20.0" y1="230.0" x2="580.0" y2="230.0" stroke="#475569" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="320.0" y="114.0" width="52.0" height="52.0" rx="4" fill="#3f2a12" stroke="#f59e0b" stroke-width="2"/>
+  <text x="346.0" y="145.0" fill="#f59e0b" font-size="13" text-anchor="middle">상자</text>
+  <rect x="50.0" y="127.0" width="54.0" height="26.0" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="77.0" y="145.0" fill="#e2e8f0" font-size="13" text-anchor="middle">차</text>
+  <path d="M106,140.0 C200,140.0 250,72 346,72 S500,130.0 570,130.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,208 346,208 S500,150.0 570,150.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,77 346,77 S500,130.0 570,131.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,203 346,203 S500,150.0 570,149.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,82 346,82 S500,130.0 570,132.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,198 346,198 S500,150.0 570,148.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,87 346,87 S500,130.0 570,133.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,193 346,193 S500,150.0 570,147.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,92 346,92 S500,130.0 570,134.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <path d="M106,140.0 C200,140.0 250,188 346,188 S500,150.0 570,146.0" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+  <line x1="106.0" y1="140.0" x2="314.0" y2="140.0" stroke="#38bdf8" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#arrow-blue)"/>
+  <path d="M302,128.0 l16,16 M318,128.0 l-16,16" fill="none" stroke="#f87171" stroke-width="3"/>
+  <text x="220.0" y="68.0" fill="#f59e0b" font-size="13" text-anchor="middle">왼쪽으로 피한 시연 5 개: −20°</text>
+  <text x="220.0" y="222.0" fill="#f59e0b" font-size="13" text-anchor="middle">오른쪽으로 피한 시연 5 개: +20°</text>
+  <rect x="222.0" y="152.0" width="64.0" height="22.0" rx="4" fill="#0b1220"/>
+  <text x="254.0" y="168.0" fill="#38bdf8" font-size="13" text-anchor="middle">평균 0°</text>
+  <text x="300.0" y="262.0" fill="#e2e8f0" font-size="13" text-anchor="middle">MSE 가 가장 작은 출력은 두 정답의 평균 0° 이고, 0° 는 상자로 곧장 간다</text>
+  <text x="300.0" y="284.0" fill="#94a3b8" font-size="12" text-anchor="middle">−10° 에서 +10° 사이로 가면 부딪힌다</text>
+</svg>

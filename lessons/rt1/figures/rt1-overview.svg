@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>RT-1 의 전체 구조: 사진 6 장과 지시 문장이 FiLM EfficientNet 에서 사진마다 token 81 개가 되고, TokenLearner 가 8 개로 줄여 48 개가 Transformer 에 들어가며, 차원 11 개마다 칸 256 개의 확률이 나온다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="778" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#e2e8f0" font-size="15" text-anchor="start">RT-1 이 한 step 에 하는 계산 (1초에 3 번)</text>
+  <rect x="24.0" y="60.0" width="150.0" height="74.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="99.0" y="92.5" fill="#e2e8f0" font-size="13" text-anchor="middle">카메라 사진 6 장</text>
+  <text x="99.0" y="110.5" fill="#94a3b8" font-size="12" text-anchor="middle">최근 6 step, 300×300</text>
+  <rect x="24.0" y="200.0" width="150.0" height="74.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="99.0" y="232.6" fill="#e2e8f0" font-size="13" text-anchor="middle">지시 문장</text>
+  <text x="99.0" y="250.6" fill="#94a3b8" font-size="12" text-anchor="middle">"pick iced tea can"</text>
+  <rect x="214.0" y="200.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="299.0" y="232.6" fill="#e2e8f0" font-size="13" text-anchor="middle">Universal Sentence</text>
+  <text x="299.0" y="250.6" fill="#94a3b8" font-size="12" text-anchor="middle">Encoder → 숫자 512 개</text>
+  <rect x="214.0" y="60.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="299.0" y="92.5" fill="#e2e8f0" font-size="13" text-anchor="middle">EfficientNet-B3</text>
+  <text x="299.0" y="110.5" fill="#94a3b8" font-size="12" text-anchor="middle">+ FiLM (지시를 섞음)</text>
+  <rect x="424.0" y="60.0" width="150.0" height="74.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="499.0" y="92.5" fill="#e2e8f0" font-size="13" text-anchor="middle">사진마다 token 81 개</text>
+  <text x="499.0" y="110.5" fill="#94a3b8" font-size="12" text-anchor="middle">9×9 칸, 칸마다 512 개</text>
+  <rect x="614.0" y="60.0" width="142.0" height="74.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="685.0" y="92.5" fill="#e2e8f0" font-size="13" text-anchor="middle">TokenLearner</text>
+  <text x="685.0" y="110.5" fill="#94a3b8" font-size="12" text-anchor="middle">81 개 → 8 개</text>
+  <line x1="174.0" y1="97.0" x2="210.0" y2="97.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="174.0" y1="237.0" x2="210.0" y2="237.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="299.0" y1="200.0" x2="299.0" y2="138.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="384.0" y1="97.0" x2="420.0" y2="97.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="574.0" y1="97.0" x2="610.0" y2="97.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="424.0" y="200.0" width="150.0" height="74.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="499.0" y="232.6" fill="#e2e8f0" font-size="13" text-anchor="middle">token 48 개</text>
+  <text x="499.0" y="250.6" fill="#94a3b8" font-size="12" text-anchor="middle">6 장 × 8 개</text>
+  <path d="M685,134 L685,170 L499,170 L499,196" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="614.0" y="200.0" width="142.0" height="74.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="685.0" y="232.6" fill="#e2e8f0" font-size="13" text-anchor="middle">Transformer</text>
+  <text x="685.0" y="250.6" fill="#94a3b8" font-size="12" text-anchor="middle">decoder 8 층</text>
+  <line x1="574.0" y1="237.0" x2="610.0" y2="237.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="424.0" y="312.0" width="332.0" height="64.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="590.0" y="339.6" fill="#e2e8f0" font-size="13" text-anchor="middle">차원 11 개마다 칸 256 개의 확률</text>
+  <text x="590.0" y="357.6" fill="#94a3b8" font-size="12" text-anchor="middle">가장 높은 칸 → 칸의 가운데 값 → action 11 개</text>
+  <line x1="685.0" y1="274.0" x2="685.0" y2="308.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="24.0" y="312.0" fill="#34d399" font-size="13" text-anchor="start">action 11 개</text>
+  <text x="24.0" y="332.0" fill="#94a3b8" font-size="12" text-anchor="start">팔 7 개: x, y, z, roll, pitch, yaw, 집게</text>
+  <text x="24.0" y="350.0" fill="#94a3b8" font-size="12" text-anchor="start">바닥 바퀴 3 개: x, y, yaw</text>
+  <text x="24.0" y="368.0" fill="#94a3b8" font-size="12" text-anchor="start">mode 1 개: 팔 / 바퀴 / 끝내기</text>
+</svg>

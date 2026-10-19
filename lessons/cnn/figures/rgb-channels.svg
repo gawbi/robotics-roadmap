@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>2×2 컬러 사진은 빨강(R)·초록(G)·파랑(B) 세기를 적은 숫자 판 세 장으로 저장된다. 빨강 pixel 은 (255, 0, 0), 노랑은 (255, 255, 0), 흰색은 (255, 255, 255) 이다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="85" y="48" fill="#e2e8f0" font-size="14" text-anchor="middle">컬러 사진 2×2</text>
+  <rect x="35" y="70" width="50" height="50" rx="0" fill="#ff3b3b" stroke="#475569" stroke-width="1"/>
+  <rect x="85" y="70" width="50" height="50" rx="0" fill="#22c55e" stroke="#475569" stroke-width="1"/>
+  <rect x="35" y="120" width="50" height="50" rx="0" fill="#facc15" stroke="#475569" stroke-width="1"/>
+  <rect x="85" y="120" width="50" height="50" rx="0" fill="#ffffff" stroke="#475569" stroke-width="1"/>
+  <text x="60.0" y="100.0" fill="#0b1220" font-size="13" text-anchor="middle">빨강</text>
+  <text x="110.0" y="100.0" fill="#0b1220" font-size="13" text-anchor="middle">초록</text>
+  <text x="60.0" y="150.0" fill="#0b1220" font-size="13" text-anchor="middle">노랑</text>
+  <text x="110.0" y="150.0" fill="#0b1220" font-size="13" text-anchor="middle">흰색</text>
+  <line x1="150" y1="120" x2="200" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="265" y="48" fill="#f87171" font-size="14" text-anchor="middle">R (빨강 세기)</text>
+  <rect x="215" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="240.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <rect x="265" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="290.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="215" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="240.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <rect x="265" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="290.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <text x="430" y="48" fill="#34d399" font-size="14" text-anchor="middle">G (초록 세기)</text>
+  <rect x="380" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="405.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="430" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="455.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <rect x="380" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="405.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <rect x="430" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="455.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <text x="595" y="48" fill="#38bdf8" font-size="14" text-anchor="middle">B (파랑 세기)</text>
+  <rect x="545" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="570.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="595" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="620.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="545" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="570.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
+  <rect x="595" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
+  <text x="620.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
+  <text x="360" y="248" fill="#e2e8f0" font-size="14" text-anchor="middle">숫자 판 3 장 × 세로 2 × 가로 2 = 숫자 12 개</text>
+  <text x="360" y="272" fill="#94a3b8" font-size="13" text-anchor="middle">한 칸의 숫자는 0(그 색이 전혀 없음)부터 255(가장 셈)까지</text>
+</svg>

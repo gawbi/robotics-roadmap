@@ -1,14 +1,11 @@
-import { execFile } from 'node:child_process'
 import { readFile, writeFile } from 'node:fs/promises'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import path from 'node:path'
-import { promisify } from 'node:util'
 import type { Plugin } from 'vite'
 import { CONFIG } from './src/config'
-import { grade, parseBank, parseResult, type Attempt, type Pick, type QuizStatus } from './src/curriculum/quiz'
+import { grade, parseBank, parseResult, type Attempt, type Pick } from './src/curriculum/quiz'
 
-const run = promisify(execFile)
-const PROJECT_ID = /^[a-z0-9-]+$/
+const LESSON_ID = /^[a-z0-9-]+$/
 
 interface Submission extends Pick {
   choice: number
@@ -39,36 +36,22 @@ function send(res: ServerResponse, code: number, body: unknown) {
   res.end(JSON.stringify(body))
 }
 
-/** Dev-only endpoints that let the map take the multiple-choice part of /evaluate and save it in the learner repo. */
+/** Dev-only endpoint that grades a quiz submission and appends it to lessons/<id>/quiz-result.json. */
 export function quizServer(repoRoot: string): Plugin {
-  const git = async (...args: string[]) => (await run('git', args, { cwd: repoRoot })).stdout.trim()
-
-  async function status(id: string): Promise<QuizStatus> {
-    const dir = `projects/${id}`
-    const [head, changes, result] = await Promise.all([
-      git('rev-parse', '--short', 'HEAD'),
-      git('status', '--porcelain', '--', dir, `:!${dir}/${CONFIG.quiz.resultFile}`),
-      readText(path.join(repoRoot, dir, CONFIG.quiz.resultFile)),
-    ])
-    return { head, dirty: changes !== '', attempts: parseResult(result).attempts }
-  }
-
   async function submit(id: string, body: unknown): Promise<Attempt> {
-    const bankSource = await readText(path.join(repoRoot, 'projects', id, CONFIG.quiz.bankFile))
-    if (bankSource === null) throw new Error('이 과제에는 객관식 문항이 없습니다')
-    const { commit, answers } = (body ?? {}) as { commit?: unknown; answers?: Submission[] }
-    const current = await status(id)
-    if (current.dirty) throw new Error('commit 하지 않은 변경이 있습니다. commit 한 뒤 다시 응시하세요')
-    if (commit !== current.head) throw new Error('응시 중에 commit 이 바뀌었습니다. 처음부터 다시 응시하세요')
+    const dir = path.join(repoRoot, 'lessons', id)
+    const bankSource = await readText(path.join(dir, CONFIG.quiz.bankFile))
+    if (bankSource === null) throw new Error('이 강의에는 퀴즈가 없습니다')
+    const answers = (body as { answers?: Submission[] } | null)?.answers
     if (!Array.isArray(answers)) throw new Error('답안이 없습니다')
     const graded = grade(
       parseBank(bankSource),
       answers.map(({ topic, variant }) => ({ topic, variant })),
       answers.map((a) => a.choice),
     )
-    const attempt: Attempt = { date: today(), commit: current.head, answers: graded }
-    const file = path.join(repoRoot, 'projects', id, CONFIG.quiz.resultFile)
-    const attempts = [...current.attempts, attempt]
+    const attempt: Attempt = { date: today(), answers: graded }
+    const file = path.join(dir, CONFIG.quiz.resultFile)
+    const attempts = [...parseResult(await readText(file)).attempts, attempt]
     await writeFile(file, `${JSON.stringify({ attempts }, null, 2)}\n`)
     return attempt
   }
@@ -77,13 +60,15 @@ export function quizServer(repoRoot: string): Plugin {
     name: 'quiz-server',
     apply: 'serve',
     configureServer(server) {
+      // lessons/ sits outside the site root, so Vite does not watch it by default; without this a result file the first
+      // submission creates never enters the `quiz-result.json` glob in load.ts and the attempt vanishes on the next reload
+      server.watcher.add(path.join(repoRoot, 'lessons'))
       server.middlewares.use(CONFIG.quiz.endpoint, async (req, res) => {
         const id = (req.url ?? '').replace(/^\//, '').split('?')[0]
-        if (!PROJECT_ID.test(id)) return send(res, 404, { error: '없는 과제입니다' })
+        if (!LESSON_ID.test(id)) return send(res, 404, { error: '없는 강의입니다' })
+        if (req.method !== 'POST') return send(res, 405, { error: 'POST 만 받습니다' })
         try {
-          if (req.method === 'GET') return send(res, 200, await status(id))
-          if (req.method === 'POST') return send(res, 200, await submit(id, await readBody(req)))
-          send(res, 405, { error: 'GET 또는 POST 만 받습니다' })
+          send(res, 200, await submit(id, await readBody(req)))
         } catch (e) {
           send(res, 400, { error: e instanceof Error ? e.message : String(e) })
         }

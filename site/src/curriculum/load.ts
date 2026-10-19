@@ -1,51 +1,64 @@
-import branchesSource from '../../../projects/branches.yaml?raw'
-import { buildCurriculum, parseBranches, parseProject } from './parse'
+import branchesSource from '../../../lessons/branches.yaml?raw'
+import { buildCurriculum, parseBranches, parseLesson } from './parse'
+import { parseResult, type Attempt } from './quiz'
 
 // Headers are bundled with the graph; bodies are fetched when a subject is opened.
-const headers = import.meta.glob('../../../projects/*/README.md', {
+const headers = import.meta.glob('../../../lessons/*/README.md', {
   query: '?frontmatter',
   import: 'default',
   eager: true,
 }) as Record<string, string>
 
-const bodies = import.meta.glob('../../../projects/*/README.md', {
+const bodies = import.meta.glob('../../../lessons/*/README.md', {
   query: '?raw',
   import: 'default',
 }) as Record<string, () => Promise<string>>
 
-const assets = import.meta.glob('../../../projects/*/**/*.{png,jpg,jpeg,gif,svg,webp}', {
+const assets = import.meta.glob('../../../lessons/*/**/*.{png,jpg,jpeg,gif,svg,webp}', {
   query: '?url',
   import: 'default',
   eager: true,
 }) as Record<string, string>
 
-const subjectPath = (id: string) => `../../../projects/${id}/README.md`
+const subjectPath = (id: string) => `../../../lessons/${id}/README.md`
 
-const projects = Object.entries(headers).map(([file, header]) => parseProject(file.split('/').at(-2)!, header))
+const lessons = Object.entries(headers).map(([file, header]) => parseLesson(file.split('/').at(-2)!, header))
 
-export const curriculum = buildCurriculum(parseBranches(branchesSource), projects)
+export const curriculum = buildCurriculum(parseBranches(branchesSource), lessons)
 
 /** Full subject markdown without its frontmatter. */
 export async function loadBody(id: string): Promise<string> {
   const source = await bodies[subjectPath(id)]()
-  return parseProject(id, source).body
+  return parseLesson(id, source).body
 }
 
-/** Resolve an asset referenced from a project's README (e.g. `img/arch.png`). */
-export function assetUrl(projectId: string, relative: string): string | undefined {
+/** Resolve an asset referenced from a lesson's README (e.g. `img/arch.png`). */
+export function assetUrl(lessonId: string, relative: string): string | undefined {
   const clean = relative.replace(/^\.\//, '')
-  return assets[`../../../projects/${projectId}/${clean}`]
+  return assets[`../../../lessons/${lessonId}/${clean}`]
 }
 
-const banks = import.meta.glob('../../../projects/*/quiz.yaml', {
+const banks = import.meta.glob('../../../lessons/*/quiz.yaml', {
   query: '?raw',
   import: 'default',
 }) as Record<string, () => Promise<string>>
 
-/** Whether a project has a multiple-choice bank for /evaluate. */
-export const hasQuiz = (id: string) => `../../../projects/${id}/quiz.yaml` in banks
+/** Whether a lesson has a quiz bank. */
+export const hasQuiz = (id: string) => `../../../lessons/${id}/quiz.yaml` in banks
 
-/** Raw projects/<id>/quiz.yaml, fetched when the quiz opens. */
+/** Raw lessons/<id>/quiz.yaml, fetched when the quiz opens. */
 export async function loadBank(id: string): Promise<string> {
-  return banks[`../../../projects/${id}/quiz.yaml`]()
+  return banks[`../../../lessons/${id}/quiz.yaml`]()
 }
+
+// Results are small and decide every node's state, so they ship with the graph. In dev, a file the quiz server writes
+// re-runs this module through HMR, so the map stays in step with the repo.
+const results = import.meta.glob('../../../lessons/*/quiz-result.json', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>
+
+export const initialAttempts: Record<string, Attempt[]> = Object.fromEntries(
+  Object.entries(results).map(([file, source]) => [file.split('/').at(-2)!, parseResult(source).attempts]),
+)

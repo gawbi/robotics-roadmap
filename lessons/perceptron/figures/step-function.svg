@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>step function 의 그래프. z 가 0 이하이면 0, 0 보다 크면 1 이고, z = 0 에서는 0 이다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="618" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="40" width="340" height="220" fill="#0e1628" stroke="#1e293b"/>
+  <line x1="70" y1="230" x2="410" y2="230" stroke="#475569" stroke-width="1.5"/>
+  <line x1="240" y1="40" x2="240" y2="260" stroke="#475569" stroke-width="1.5"/>
+  <text x="70" y="248" fill="#64748b" font-size="12" text-anchor="middle">−2</text>
+  <text x="155" y="248" fill="#64748b" font-size="12" text-anchor="middle">−1</text>
+  <text x="325" y="248" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="410" y="248" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="234" y="248" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="232" y="95" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="404" y="222" fill="#94a3b8" font-size="15" text-anchor="end">z</text>
+  <text x="248" y="58" fill="#94a3b8" font-size="15" text-anchor="start">ŷ</text>
+  <line x1="70" y1="230" x2="240" y2="230" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="240" y1="90" x2="410" y2="90" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="240.0" cy="230" r="5" fill="#f59e0b"/>
+  <circle cx="240.0" cy="90" r="5" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="197.5" cy="230" r="6" fill="#38bdf8"/>
+  <circle cx="282.5" cy="90" r="6" fill="#38bdf8"/>
+  <text x="197.5" y="216" fill="#38bdf8" font-size="12" text-anchor="middle">z = −0.5 → 0</text>
+  <text x="290.5" y="112" fill="#38bdf8" font-size="12" text-anchor="start">z = 0.5 → 1</text>
+  <text x="440" y="80" fill="#e2e8f0" font-size="14" text-anchor="start">z 가 0 보다 크면 1</text>
+  <text x="440" y="104" fill="#e2e8f0" font-size="14" text-anchor="start">z 가 0 이하면 0</text>
+  <circle cx="446" cy="140" r="5" fill="#f59e0b"/>
+  <text x="460" y="145" fill="#94a3b8" font-size="13" text-anchor="start">점이 찬 쪽이 값이다</text>
+  <text x="440" y="168" fill="#94a3b8" font-size="13" text-anchor="start">z = 0 이면 ŷ = 0</text>
+  <text x="440" y="210" fill="#94a3b8" font-size="13" text-anchor="start">0 을 넘는 순간 계단처럼</text>
+  <text x="440" y="230" fill="#94a3b8" font-size="13" text-anchor="start">0 에서 1 로 뛴다</text>
+
+</svg>

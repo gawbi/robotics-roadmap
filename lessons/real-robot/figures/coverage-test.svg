@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 305" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>책상을 위에서 본 그림. 시연한 다섯 자리가 점선 영역을 이루고, 시연한 자리에서는 10 번 중 9 번, 영역 안의 새 자리에서는 7 번, 영역 밖에서는 1 번 성공했다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="303" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40" y="40" width="400" height="230" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="240" y="290" fill="#94a3b8" font-size="12" text-anchor="middle">책상 (위에서 본 모습)</text>
+  <rect x="212" y="250" width="56" height="16" rx="4" fill="#111a2e" stroke="#94a3b8" stroke-width="1"/>
+  <text x="240" y="262" fill="#94a3b8" font-size="11" text-anchor="middle">팔</text>
+  <path d="M140,110 L240,90 L340,110 L310,190 L170,190 Z" fill="#f59e0b14" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <circle cx="140" cy="110" r="8" fill="#f59e0b"/>
+  <circle cx="240" cy="90" r="8" fill="#f59e0b"/>
+  <circle cx="340" cy="110" r="8" fill="#f59e0b"/>
+  <circle cx="170" cy="190" r="8" fill="#f59e0b"/>
+  <circle cx="310" cy="190" r="8" fill="#f59e0b"/>
+  <circle cx="240" cy="140" r="7" fill="#34d399"/>
+  <circle cx="200" cy="125" r="7" fill="#34d399"/>
+  <circle cx="285" cy="160" r="7" fill="#34d399"/>
+  <circle cx="410" cy="150" r="7" fill="#f87171"/>
+  <circle cx="405" cy="215" r="7" fill="#f87171"/>
+  <circle cx="470" cy="76" r="7" fill="#f59e0b"/>
+  <text x="484" y="80" fill="#e2e8f0" font-size="12.5" text-anchor="start">시연한 다섯 자리</text>
+  <text x="484" y="100" fill="#f59e0b" font-size="12.5" text-anchor="start">10 번 중 9 번 (90%)</text>
+  <circle cx="470" cy="138" r="7" fill="#34d399"/>
+  <text x="484" y="142" fill="#e2e8f0" font-size="12.5" text-anchor="start">다섯 자리 사이 (영역 안)</text>
+  <text x="484" y="162" fill="#34d399" font-size="12.5" text-anchor="start">10 번 중 7 번 (70%)</text>
+  <circle cx="470" cy="200" r="7" fill="#f87171"/>
+  <text x="484" y="204" fill="#e2e8f0" font-size="12.5" text-anchor="start">영역 밖 (오른쪽 끝)</text>
+  <text x="484" y="224" fill="#f87171" font-size="12.5" text-anchor="start">10 번 중 1 번 (10%)</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>점 (1, 0) 과 (0, 1) 을 30° 돌리면 (0.866, 0.5) 와 (−0.5, 0.866) 이 되고, 이 둘이 R(30°) 의 두 열이 된다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="47.5" y="51.5" width="361.0" height="256.5" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="47.5" y1="51.5" x2="47.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="95.0" y1="51.5" x2="95.0" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="142.5" y1="51.5" x2="142.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="190.0" y1="51.5" x2="190.0" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="237.5" y1="51.5" x2="237.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="285.0" y1="51.5" x2="285.0" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="332.5" y1="51.5" x2="332.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="380.0" y1="51.5" x2="380.0" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="427.5" y1="51.5" x2="427.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="308.0" x2="408.5" y2="308.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="260.5" x2="408.5" y2="260.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="213.0" x2="408.5" y2="213.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="165.5" x2="408.5" y2="165.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="118.0" x2="408.5" y2="118.0" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="70.5" x2="408.5" y2="70.5" stroke="#16213a" stroke-width="1"/>
+  <line x1="47.5" y1="270.0" x2="408.5" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="190.0" y1="51.5" x2="190.0" y2="308.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="95.0" y="286.0" fill="#64748b" font-size="12" text-anchor="middle">−0.5</text>
+  <text x="285.0" y="286.0" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
+  <text x="380.0" y="286.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="183.0" y="179.0" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
+  <text x="183.0" y="84.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="190.0" y1="270.0" x2="380.0" y2="270.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="380.0" cy="270.0" r="5" fill="#0b1220" stroke="#f87171" stroke-width="2"/>
+  <text x="380.0" y="292.0" fill="#f87171" font-size="13" text-anchor="middle">(1, 0)</text>
+  <line x1="190.0" y1="270.0" x2="354.5" y2="175.0" stroke="#f87171" stroke-width="2.5"/>
+  <circle cx="354.5" cy="175.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
+  <text x="364.5" y="171.0" fill="#f87171" font-size="13" text-anchor="start">(0.866, 0.5)</text>
+  <line x1="190.0" y1="270.0" x2="190.0" y2="80.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="190.0" cy="80.0" r="5" fill="#0b1220" stroke="#34d399" stroke-width="2"/>
+  <text x="198.0" y="72.0" fill="#34d399" font-size="13" text-anchor="start">(0, 1)</text>
+  <line x1="190.0" y1="270.0" x2="95.0" y2="105.5" stroke="#34d399" stroke-width="2.5"/>
+  <circle cx="95.0" cy="105.5" r="5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
+  <text x="85.0" y="95.5" fill="#34d399" font-size="13" text-anchor="end">(−0.5, 0.866)</text>
+  <path d="M307.8,270.0 A117.8,117.8 0 0,0 292.0,211.1" fill="none" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+  <path d="M190.0,152.2 A117.8,117.8 0 0,0 131.1,168.0" fill="none" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+  <text x="316.7" y="247.9" fill="#f59e0b" font-size="12" text-anchor="start">30°</text>
+  <text x="145.2" y="148.7" fill="#f59e0b" font-size="12" text-anchor="end">30°</text>
+  <text x="440.0" y="60.0" fill="#e2e8f0" font-size="15" text-anchor="start">R(30°) =</text>
+  <text x="460.0" y="100.0" fill="#f87171" font-size="15" text-anchor="middle">0.866</text>
+  <text x="460.0" y="128.0" fill="#f87171" font-size="15" text-anchor="middle">0.5</text>
+  <text x="540.0" y="100.0" fill="#34d399" font-size="15" text-anchor="middle">−0.5</text>
+  <text x="540.0" y="128.0" fill="#34d399" font-size="15" text-anchor="middle">0.866</text>
+  <path d="M432,80 L426,80 L426,140 L432,140" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <path d="M568,80 L574,80 L574,140 L568,140" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="460.0" y="166.0" fill="#f87171" font-size="12" text-anchor="middle">1열</text>
+  <text x="540.0" y="166.0" fill="#34d399" font-size="12" text-anchor="middle">2열</text>
+  <text x="426.0" y="206.0" fill="#f87171" font-size="13" text-anchor="start">1열 = (1, 0) 을 돌린 곳</text>
+  <text x="426.0" y="230.0" fill="#34d399" font-size="13" text-anchor="start">2열 = (0, 1) 을 돌린 곳</text>
+  <text x="426.0" y="270.0" fill="#94a3b8" font-size="13" text-anchor="start">일반형  R(θ) =</text>
+  <text x="460.0" y="298.0" fill="#94a3b8" font-size="13" text-anchor="middle">cos θ</text>
+  <text x="540.0" y="298.0" fill="#94a3b8" font-size="13" text-anchor="middle">−sin θ</text>
+  <text x="460.0" y="320.0" fill="#94a3b8" font-size="13" text-anchor="middle">sin θ</text>
+  <text x="540.0" y="320.0" fill="#94a3b8" font-size="13" text-anchor="middle">cos θ</text>
+  <path d="M432,282 L426,282 L426,326 L432,326" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+  <path d="M568,282 L574,282 L574,326 L568,326" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+</svg>

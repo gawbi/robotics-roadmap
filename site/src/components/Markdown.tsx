@@ -12,23 +12,23 @@ import { CONFIG } from '../config'
 import { assetUrl } from '../curriculum/load'
 
 const LANGUAGES = { bash, json, python, yaml }
-const PROJECT_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
+const LESSON_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
 
 interface Props {
-  projectId: string
+  lessonId: string
   source: string
   /** render inside phrasing content (a quiz choice label): paragraphs become spans */
   inline?: boolean
 }
 
 /** Render a subject body. The leading `# Title` is dropped because the panel header shows it. */
-export function Markdown({ projectId, source, inline = false }: Props) {
+export function Markdown({ lessonId, source, inline = false }: Props) {
   const body = source.replace(/^\s*# .*\n/, '')
-  const blob = `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/projects/${projectId}/`
+  const blob = `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/lessons/${lessonId}/`
 
   const components: Components = {
     a({ href = '', children, ...rest }) {
-      const internal = PROJECT_LINK.exec(href)
+      const internal = LESSON_LINK.exec(href)
       if (internal) return <a href={`#/p/${internal[1]}`}>{children}</a>
       if (/^[a-z]+:/i.test(href) || href.startsWith('#')) {
         return (
@@ -44,7 +44,7 @@ export function Markdown({ projectId, source, inline = false }: Props) {
       )
     },
     img({ src = '', alt = '' }) {
-      const resolved = typeof src === 'string' && !/^[a-z]+:/i.test(src) ? assetUrl(projectId, src) : src
+      const resolved = typeof src === 'string' && !/^[a-z]+:/i.test(src) ? assetUrl(lessonId, src) : src
       return <img src={resolved as string} alt={alt} loading="lazy" />
     },
     ...(inline && { p: ({ children }) => <span>{children}</span> }),

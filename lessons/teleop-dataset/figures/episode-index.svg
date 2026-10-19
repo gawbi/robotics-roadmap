@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>여러 episode 를 이어 붙인 표 파일과 영상 파일. episode 1 은 행 240 부터, 영상 8.0 초부터 시작한다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="36.0" fill="#e2e8f0" font-size="13" text-anchor="start">표 파일 (frame 마다 한 행)</text>
+  <rect x="40.0" y="48.0" width="228.0" height="34.0" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="40.0" y="48" width="228.0" height="34" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="154.0" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">episode 0: 행 0 ~ 239</text>
+  <rect x="268.0" y="48.0" width="237.5" height="34.0" rx="3" fill="#38bdf8" fill-opacity="0.3"/>
+  <rect x="268.0" y="48" width="237.5" height="34" rx="3" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="386.8" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">episode 1: 행 240 ~ 489</text>
+  <rect x="505.5" y="48.0" width="66.5" height="34.0" rx="3" fill="#34d399" fill-opacity="0.3"/>
+  <rect x="505.5" y="48" width="66.5" height="34" rx="3" fill="none" stroke="#34d399" stroke-width="1.5"/>
+  <text x="538.8" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">ep 2 …</text>
+  <line x1="322.1" y1="92.0" x2="322.1" y2="84.0" stroke="#e2e8f0" stroke-width="1.5"/>
+  <circle cx="322.1" cy="100.0" r="4" fill="#e2e8f0"/>
+  <text x="322.1" y="120.0" fill="#e2e8f0" font-size="12" text-anchor="middle">행 297 = episode 1 의 frame 57</text>
+  <text x="20.0" y="168.0" fill="#e2e8f0" font-size="13" text-anchor="start">영상 파일 (카메라 하나, 30 fps)</text>
+  <rect x="40.0" y="180.0" width="228.0" height="34.0" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="40.0" y="180" width="228.0" height="34" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="154.0" y="202.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0 ~ 8.0 초</text>
+  <rect x="268.0" y="180.0" width="237.5" height="34.0" rx="3" fill="#38bdf8" fill-opacity="0.3"/>
+  <rect x="268.0" y="180" width="237.5" height="34" rx="3" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="386.8" y="202.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">8.0 ~ 16.3 초</text>
+  <rect x="505.5" y="180.0" width="66.5" height="34.0" rx="3" fill="#34d399" fill-opacity="0.3"/>
+  <rect x="505.5" y="180" width="66.5" height="34" rx="3" fill="none" stroke="#34d399" stroke-width="1.5"/>
+  <text x="538.8" y="202.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">…</text>
+  <circle cx="322.1" cy="232.0" r="4" fill="#e2e8f0"/>
+  <line x1="322.1" y1="216.0" x2="322.1" y2="226.0" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="322.1" y="252.0" fill="#e2e8f0" font-size="12" text-anchor="middle">8.0 + 1.9 = 9.9 초</text>
+  <text x="20.0" y="290.0" fill="#34d399" font-size="12.5" text-anchor="start">meta 의 episode 정보: episode 마다 표의 시작 행, 길이, 영상 안의 시작 시각</text>
+  <text x="20.0" y="312.0" fill="#94a3b8" font-size="12.5" text-anchor="start">episode 1 의 frame 57 → timestamp 57 ÷ 30 = 1.9 초 → 영상 파일의 9.9 초</text>
+</svg>

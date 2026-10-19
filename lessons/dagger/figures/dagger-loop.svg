@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DAgger 의 한 iteration: policy 로 운전하고, 지나간 위치마다 expert 의 정답 조향을 붙여 데이터에 합친 뒤 다시 학습한다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="30.0" y="30.0" width="250.0" height="92.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="155.0" y="62.0" fill="#e2e8f0" font-size="14" text-anchor="middle">① policy 로 운전</text>
+  <text x="155.0" y="83.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금의 policy 에게</text>
+  <text x="155.0" y="102.0" fill="#94a3b8" font-size="13" text-anchor="middle">운전대를 맡긴다</text>
+  <rect x="320.0" y="30.0" width="250.0" height="92.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="445.0" y="62.0" fill="#e2e8f0" font-size="14" text-anchor="middle">② 지나간 위치 기록</text>
+  <text x="445.0" y="83.0" fill="#94a3b8" font-size="13" text-anchor="middle">policy 가 데려간 위치의</text>
+  <text x="445.0" y="102.0" fill="#94a3b8" font-size="13" text-anchor="middle">센서 값 o 를 적는다</text>
+  <rect x="320.0" y="218.0" width="250.0" height="92.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="445.0" y="250.0" fill="#e2e8f0" font-size="14" text-anchor="middle">③ expert 에게 정답 묻기</text>
+  <text x="445.0" y="271.0" fill="#94a3b8" font-size="13" text-anchor="middle">그 위치에서 expert 가</text>
+  <text x="445.0" y="290.0" fill="#94a3b8" font-size="13" text-anchor="middle">냈을 조향 a = π*(o)</text>
+  <rect x="30.0" y="218.0" width="250.0" height="92.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="155.0" y="250.0" fill="#e2e8f0" font-size="14" text-anchor="middle">④ 합치고 다시 학습</text>
+  <text x="155.0" y="271.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금까지 모은 데이터</text>
+  <text x="155.0" y="290.0" fill="#94a3b8" font-size="13" text-anchor="middle">전체로 새 policy 학습</text>
+  <line x1="282.0" y1="76.0" x2="316.0" y2="76.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <line x1="445.0" y1="124.0" x2="445.0" y2="214.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <line x1="318.0" y1="264.0" x2="284.0" y2="264.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <line x1="155.0" y1="216.0" x2="155.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="300.0" y="163.0" fill="#94a3b8" font-size="13" text-anchor="middle">한 바퀴 = iteration 하나</text>
+  <text x="300.0" y="182.0" fill="#94a3b8" font-size="13" text-anchor="middle">새 policy 로 ① 부터 다시</text>
+  <text x="30.0" y="340.0" fill="#94a3b8" font-size="13" text-anchor="start">첫 iteration 은 expert 가 운전한 시연이라 behavior cloning 의 데이터와 같다</text>
+  <text x="30.0" y="360.0" fill="#94a3b8" font-size="13" text-anchor="start">예: 1000 → 1700 → 3100 → 4600 쌍으로 데이터가 쌓인다</text>
+</svg>

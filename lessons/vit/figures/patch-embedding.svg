@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ViT 의 입력. 224×224 이미지를 16×16 patch 196 개로 잘라 펼치고, 같은 linear projection E 로 768 차원 token 을 만든 뒤 맨 앞에 [CLS] token 을 붙이고 position embedding 을 더한다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="24" y="70" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <rect x="54" y="70" width="30" height="30" fill="#38bdf8" fill-opacity="0.40" stroke="#0b1220" stroke-width="2"/>
+  <rect x="84" y="70" width="30" height="30" fill="#38bdf8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="114" y="70" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <rect x="24" y="100" width="30" height="30" fill="#38bdf8" fill-opacity="0.40" stroke="#0b1220" stroke-width="2"/>
+  <rect x="54" y="100" width="30" height="30" fill="#38bdf8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="84" y="100" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <rect x="114" y="100" width="30" height="30" fill="#38bdf8" fill-opacity="0.40" stroke="#0b1220" stroke-width="2"/>
+  <rect x="24" y="130" width="30" height="30" fill="#38bdf8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="54" y="130" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <rect x="84" y="130" width="30" height="30" fill="#38bdf8" fill-opacity="0.40" stroke="#0b1220" stroke-width="2"/>
+  <rect x="114" y="130" width="30" height="30" fill="#38bdf8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="24" y="160" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <rect x="54" y="160" width="30" height="30" fill="#38bdf8" fill-opacity="0.40" stroke="#0b1220" stroke-width="2"/>
+  <rect x="84" y="160" width="30" height="30" fill="#38bdf8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="114" y="160" width="30" height="30" fill="#38bdf8" fill-opacity="0.25" stroke="#0b1220" stroke-width="2"/>
+  <text x="84" y="56" fill="#e2e8f0" font-size="13" text-anchor="middle">사진 3×224×224</text>
+  <text x="84" y="212" fill="#94a3b8" font-size="13" text-anchor="middle">16×16 patch</text>
+  <text x="84" y="230" fill="#94a3b8" font-size="13" text-anchor="middle">14 × 14 = 196 개</text>
+  <line x1="152" y1="130" x2="186" y2="130" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="169" y="118" fill="#94a3b8" font-size="13" text-anchor="middle">펼침</text>
+  <rect x="194" y="74" width="110" height="14" rx="3" fill="#38bdf8" fill-opacity="0.45"/>
+  <rect x="194" y="96" width="110" height="14" rx="3" fill="#38bdf8" fill-opacity="0.45"/>
+  <rect x="194" y="118" width="110" height="14" rx="3" fill="#38bdf8" fill-opacity="0.45"/>
+  <rect x="194" y="162" width="110" height="14" rx="3" fill="#38bdf8" fill-opacity="0.45"/>
+  <rect x="194" y="184" width="110" height="14" rx="3" fill="#38bdf8" fill-opacity="0.45"/>
+  <text x="249" y="150" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
+  <text x="249" y="222" fill="#94a3b8" font-size="13" text-anchor="middle">펼친 patch 196 개</text>
+  <text x="249" y="240" fill="#94a3b8" font-size="13" text-anchor="middle">patch 하나 = 숫자 768 개</text>
+  <line x1="312" y1="130" x2="346" y2="130" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="329" y="118" fill="#e2e8f0" font-size="14" text-anchor="middle">× E</text>
+  <rect x="354" y="60" width="96" height="14" rx="3" fill="#f59e0b"/>
+  <text x="402" y="52" fill="#f59e0b" font-size="13" text-anchor="middle">[CLS] x_cls</text>
+  <rect x="354" y="82" width="96" height="14" rx="3" fill="#e2e8f0" fill-opacity="0.75"/>
+  <rect x="354" y="104" width="96" height="14" rx="3" fill="#e2e8f0" fill-opacity="0.75"/>
+  <rect x="354" y="126" width="96" height="14" rx="3" fill="#e2e8f0" fill-opacity="0.75"/>
+  <rect x="354" y="170" width="96" height="14" rx="3" fill="#e2e8f0" fill-opacity="0.75"/>
+  <rect x="354" y="192" width="96" height="14" rx="3" fill="#e2e8f0" fill-opacity="0.75"/>
+  <text x="402" y="160" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
+  <text x="476" y="136" fill="#e2e8f0" font-size="22" text-anchor="middle">+</text>
+  <rect x="496" y="60" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <rect x="496" y="82" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <rect x="496" y="104" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <rect x="496" y="126" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <rect x="496" y="170" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <rect x="496" y="192" width="80" height="14" rx="3" fill="#34d399" fill-opacity="0.7"/>
+  <text x="536" y="160" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
+  <text x="536" y="52" fill="#34d399" font-size="13" text-anchor="middle">E_pos</text>
+  <text x="402" y="230" fill="#94a3b8" font-size="13" text-anchor="middle">token 197 개</text>
+  <text x="536" y="230" fill="#94a3b8" font-size="13" text-anchor="middle">position embedding</text>
+  <text x="300" y="274" fill="#e2e8f0" font-size="14" text-anchor="middle">z₀ = [x_cls; Ex₁; …; Ex₁₉₆] + E_pos  →  197 × 768</text>
+</svg>

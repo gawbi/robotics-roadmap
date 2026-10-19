@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>0° 에서 90° 로 1 초 동안 옮기는 세 가지 목표. 왼쪽은 각도, 오른쪽은 각속도다. minimum-jerk 는 0.5 초에 45° 를 지나며 그때 각속도가 가장 큰 168.75 °/s 이고, 출발과 도착에서 각속도가 0 이다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="308" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="55.0" y="45.0" width="220.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="55.0" y1="245.0" x2="275.0" y2="245.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="55.0" y1="45.0" x2="55.0" y2="245.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="73.3" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="165.0" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
+  <text x="256.7" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="48.0" y="249.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="48.0" y="159.0" fill="#64748b" font-size="12" text-anchor="end">45</text>
+  <text x="48.0" y="69.0" fill="#64748b" font-size="12" text-anchor="end">90</text>
+  <text x="275.0" y="279.0" fill="#94a3b8" font-size="13" text-anchor="end">t (초)</text>
+  <text x="55.0" y="35.0" fill="#94a3b8" font-size="13" text-anchor="start">목표 각도 (°)</text>
+  <polyline points="55.0,245.0 73.3,245.0 73.3,65.0 275.0,65.0" fill="none" stroke="#f87171" stroke-width="2.2" stroke-linejoin="round"/>
+  <polyline points="55.0,245.0 73.3,245.0 256.7,65.0 275.0,65.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="6 4"/>
+  <polyline points="55.0,245.0 73.3,245.0 75.2,245.0 77.0,245.0 78.8,245.0 80.7,244.9 82.5,244.8 84.3,244.6 86.2,244.4 88.0,244.2 89.8,243.9 91.7,243.5 93.5,243.0 95.3,242.4 97.2,241.8 99.0,241.0 100.8,240.2 102.7,239.3 104.5,238.3 106.3,237.1 108.2,235.9 110.0,234.6 111.8,233.1 113.7,231.6 115.5,230.0 117.3,228.2 119.2,226.4 121.0,224.4 122.8,222.4 124.7,220.2 126.5,218.0 128.3,215.6 130.2,213.2 132.0,210.7 133.8,208.1 135.7,205.4 137.5,202.7 139.3,199.8 141.2,196.9 143.0,194.0 144.8,190.9 146.7,187.9 148.5,184.7 150.3,181.5 152.2,178.3 154.0,175.1 155.8,171.8 157.7,168.4 159.5,165.1 161.3,161.7 163.2,158.4 165.0,155.0 166.8,151.6 168.7,148.3 170.5,144.9 172.3,141.6 174.2,138.2 176.0,134.9 177.8,131.7 179.7,128.5 181.5,125.3 183.3,122.1 185.2,119.1 187.0,116.0 188.8,113.1 190.7,110.2 192.5,107.3 194.3,104.6 196.2,101.9 198.0,99.3 199.8,96.8 201.7,94.4 203.5,92.0 205.3,89.8 207.2,87.6 209.0,85.6 210.8,83.6 212.7,81.8 214.5,80.0 216.3,78.4 218.2,76.9 220.0,75.4 221.8,74.1 223.7,72.9 225.5,71.7 227.3,70.7 229.2,69.8 231.0,69.0 232.8,68.2 234.7,67.6 236.5,67.0 238.3,66.5 240.2,66.1 242.0,65.8 243.8,65.6 245.7,65.4 247.5,65.2 249.3,65.1 251.2,65.0 253.0,65.0 254.8,65.0 256.7,65.0 275.0,65.0" fill="none" stroke="#34d399" stroke-width="2.8" stroke-linejoin="round"/>
+  <circle cx="165.0" cy="155.0" r="4.5" fill="#34d399"/>
+  <text x="173.0" y="167.0" fill="#34d399" font-size="12" text-anchor="start">45°</text>
+  <rect x="345.0" y="45.0" width="220.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="345.0" y1="245.0" x2="565.0" y2="245.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="345.0" y1="45.0" x2="345.0" y2="245.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="363.3" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="455.0" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
+  <text x="546.7" y="262.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="338.0" y="249.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="338.0" y="159.0" fill="#64748b" font-size="12" text-anchor="end">90</text>
+  <text x="338.0" y="80.2" fill="#64748b" font-size="12" text-anchor="end">168.75</text>
+  <text x="565.0" y="279.0" fill="#94a3b8" font-size="13" text-anchor="end">t (초)</text>
+  <text x="345.0" y="35.0" fill="#94a3b8" font-size="13" text-anchor="start">목표 각속도 (°/s)</text>
+  <polyline points="345.0,245.0 363.3,245.0 363.3,155.0 546.7,155.0 546.7,245.0 565.0,245.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="6 4"/>
+  <polyline points="345.0,245.0 363.3,245.0 365.2,244.7 367.0,244.0 368.8,242.7 370.7,241.0 372.5,238.9 374.3,236.4 376.2,233.6 378.0,230.4 379.8,226.9 381.7,223.1 383.5,219.1 385.3,214.9 387.2,210.5 389.0,205.9 390.8,201.1 392.7,196.2 394.5,191.2 396.3,186.2 398.2,181.0 400.0,175.9 401.8,170.7 403.7,165.5 405.5,160.3 407.3,155.2 409.2,150.1 411.0,145.1 412.8,140.1 414.7,135.3 416.5,130.5 418.3,125.9 420.2,121.5 422.0,117.2 423.8,113.0 425.7,109.0 427.5,105.3 429.3,101.7 431.2,98.3 433.0,95.1 434.8,92.2 436.7,89.5 438.5,87.0 440.3,84.8 442.2,82.8 444.0,81.1 445.8,79.6 447.7,78.4 449.5,77.5 451.3,76.8 453.2,76.4 455.0,76.2 456.8,76.4 458.7,76.8 460.5,77.5 462.3,78.4 464.2,79.6 466.0,81.1 467.8,82.8 469.7,84.8 471.5,87.0 473.3,89.5 475.2,92.2 477.0,95.1 478.8,98.3 480.7,101.7 482.5,105.3 484.3,109.0 486.2,113.0 488.0,117.2 489.8,121.5 491.7,125.9 493.5,130.5 495.3,135.3 497.2,140.1 499.0,145.1 500.8,150.1 502.7,155.2 504.5,160.3 506.3,165.5 508.2,170.7 510.0,175.9 511.8,181.0 513.7,186.2 515.5,191.2 517.3,196.2 519.2,201.1 521.0,205.9 522.8,210.5 524.7,214.9 526.5,219.1 528.3,223.1 530.2,226.9 532.0,230.4 533.8,233.6 535.7,236.4 537.5,238.9 539.3,241.0 541.2,242.7 543.0,244.0 544.8,244.7 546.7,245.0 565.0,245.0" fill="none" stroke="#34d399" stroke-width="2.8" stroke-linejoin="round"/>
+  <circle cx="455.0" cy="76.2" r="4.5" fill="#34d399"/>
+  <line x1="363.3" y1="245.0" x2="363.3" y2="49.0" stroke="#f87171" stroke-width="2.2" marker-end="url(#arrow-red)"/>
+  <text x="371.3" y="59.0" fill="#f87171" font-size="11" text-anchor="start">계단: 0 초에 끝없이 큼</text>
+  <line x1="95.0" y1="292.0" x2="117.0" y2="292.0" stroke="#f87171" stroke-width="3"/>
+  <text x="123.0" y="296.0" fill="#e2e8f0" font-size="12" text-anchor="start">계단</text>
+  <line x1="205.0" y1="292.0" x2="227.0" y2="292.0" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+  <text x="233.0" y="296.0" fill="#e2e8f0" font-size="12" text-anchor="start">일정한 속도</text>
+  <line x1="355.0" y1="292.0" x2="377.0" y2="292.0" stroke="#34d399" stroke-width="3"/>
+  <text x="383.0" y="296.0" fill="#e2e8f0" font-size="12" text-anchor="start">minimum-jerk</text>
+</svg>

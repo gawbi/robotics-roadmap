@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 540" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>XOR 학습이 빠지는 순환. epoch 마다 weight 가 A, B, C, D 네 상태를 거쳐 다시 A 로 돌아오고, 네 sample 을 모두 틀린다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="638" height="538" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="40" y="36" fill="#f59e0b" font-size="14" text-anchor="start">A: w = [−1, 0], b = 1</text>
+  <rect x="40" y="50" width="160" height="160" fill="#0e1628" stroke="#1e293b"/>
+  <polygon points="40.0,210.0 160.0,210.0 160.0,50.0 40.0,50.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <line x1="40" y1="170" x2="200" y2="170" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80" y1="50" x2="80" y2="210" stroke="#475569" stroke-width="1.5"/>
+  <text x="194" y="184" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
+  <text x="72" y="64" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
+  <text x="160" y="192" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="68" y="95" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <line x1="160" y1="210" x2="160" y2="50" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="80" cy="170" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="80" cy="170" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="80" cy="90" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="160" cy="170" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="160" cy="170" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="160" cy="90" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <text x="212" y="80" fill="#94a3b8" font-size="12" text-anchor="start">[0, 0] 을 볼 차례</text>
+  <text x="212" y="100" fill="#94a3b8" font-size="12" text-anchor="start">이 weight 로</text>
+  <text x="212" y="118" fill="#f87171" font-size="12" text-anchor="start">틀리는 점 2개</text>
+  <text x="360" y="36" fill="#f59e0b" font-size="14" text-anchor="start">B: w = [−1, 0], b = 0</text>
+  <rect x="360" y="50" width="160" height="160" fill="#0e1628" stroke="#1e293b"/>
+  <polygon points="360.0,210.0 400.0,210.0 400.0,50.0 360.0,50.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <line x1="360" y1="170" x2="520" y2="170" stroke="#475569" stroke-width="1.5"/>
+  <line x1="400" y1="50" x2="400" y2="210" stroke="#475569" stroke-width="1.5"/>
+  <text x="514" y="184" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
+  <text x="392" y="64" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
+  <text x="480" y="192" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="388" y="95" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <line x1="400" y1="210" x2="400" y2="50" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="400" cy="170" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="400" cy="90" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="400" cy="90" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="480" cy="170" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="480" cy="170" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="480" cy="90" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <text x="532" y="80" fill="#94a3b8" font-size="12" text-anchor="start">[0, 1] 을 볼 차례</text>
+  <text x="532" y="100" fill="#94a3b8" font-size="12" text-anchor="start">이 weight 로</text>
+  <text x="532" y="118" fill="#f87171" font-size="12" text-anchor="start">틀리는 점 2개</text>
+  <text x="360" y="316" fill="#f59e0b" font-size="14" text-anchor="start">C: w = [−1, 1], b = 1</text>
+  <rect x="360" y="330" width="160" height="160" fill="#0e1628" stroke="#1e293b"/>
+  <polygon points="360.0,490.0 440.0,490.0 520.0,410.0 520.0,330.0 360.0,330.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <line x1="360" y1="450" x2="520" y2="450" stroke="#475569" stroke-width="1.5"/>
+  <line x1="400" y1="330" x2="400" y2="490" stroke="#475569" stroke-width="1.5"/>
+  <text x="514" y="464" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
+  <text x="392" y="344" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
+  <text x="480" y="472" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="388" y="375" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <line x1="520" y1="410" x2="440" y2="490" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="400" cy="450" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="400" cy="450" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="400" cy="370" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="480" cy="450" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="480" cy="450" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="480" cy="370" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="480" cy="370" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <text x="532" y="360" fill="#94a3b8" font-size="12" text-anchor="start">[1, 0] 을 볼 차례</text>
+  <text x="532" y="380" fill="#94a3b8" font-size="12" text-anchor="start">이 weight 로</text>
+  <text x="532" y="398" fill="#f87171" font-size="12" text-anchor="start">틀리는 점 3개</text>
+  <text x="40" y="316" fill="#f59e0b" font-size="14" text-anchor="start">D: w = [0, 1], b = 2</text>
+  <rect x="40" y="330" width="160" height="160" fill="#0e1628" stroke="#1e293b"/>
+  <polygon points="40.0,490.0 200.0,490.0 200.0,330.0 40.0,330.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <line x1="40" y1="450" x2="200" y2="450" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80" y1="330" x2="80" y2="490" stroke="#475569" stroke-width="1.5"/>
+  <text x="194" y="464" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
+  <text x="72" y="344" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
+  <text x="160" y="472" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <text x="68" y="375" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <circle cx="80" cy="450" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="80" cy="450" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="80" cy="370" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="160" cy="450" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="160" cy="370" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="160" cy="370" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
+  <text x="212" y="360" fill="#94a3b8" font-size="12" text-anchor="start">[1, 1] 을 볼 차례</text>
+  <text x="212" y="380" fill="#94a3b8" font-size="12" text-anchor="start">이 weight 로</text>
+  <text x="212" y="398" fill="#f87171" font-size="12" text-anchor="start">틀리는 점 2개</text>
+  <line x1="290" y1="110" x2="350" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="320" y="100" fill="#e2e8f0" font-size="11" text-anchor="middle">[0,0] 틀림</text>
+  <text x="320" y="132" fill="#94a3b8" font-size="11" text-anchor="middle">b −1</text>
+  <line x1="440" y1="220" x2="440" y2="312" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="452" y="258" fill="#e2e8f0" font-size="11" text-anchor="start">[0,1] 틀림</text>
+  <text x="452" y="276" fill="#94a3b8" font-size="11" text-anchor="start">w₂ +1, b +1</text>
+  <line x1="350" y1="410" x2="290" y2="410" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="320" y="400" fill="#e2e8f0" font-size="11" text-anchor="middle">[1,0] 틀림</text>
+  <text x="320" y="432" fill="#94a3b8" font-size="11" text-anchor="middle">w₁ +1, b +1</text>
+  <line x1="120" y1="312" x2="120" y2="220" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="132" y="258" fill="#e2e8f0" font-size="11" text-anchor="start">[1,1] 틀림</text>
+  <text x="132" y="276" fill="#94a3b8" font-size="11" text-anchor="start">셋 다 −1</text>
+  <text x="310" y="524" fill="#94a3b8" font-size="12" text-anchor="middle">η = 1, epoch 3 부터 매 epoch 이 네 상태를 돌고 A 로 돌아온다 (파란 영역: 1 로 예측)</text>
+
+</svg>

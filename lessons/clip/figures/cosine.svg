@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>좌표평면 위의 vector. u = [3, 4] 와 v = [4, 3] 은 길이 1 로 줄이면 [0.6, 0.8], [0.8, 0.6] 이고 cosine similarity 는 0.96 이다. 같은 방향의 [6, 8] 은 1, 직각인 [4, −3] 은 0, 반대 방향인 [−3, −4] 는 −1 이다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16" y="16" width="330" height="328" rx="8" fill="#0e1628"/>
+  <line x1="40" y1="220" x2="292" y2="220" stroke="#475569" stroke-width="1.5"/>
+  <line x1="130" y1="328" x2="130" y2="49.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="58" y="236" fill="#64748b" font-size="11" text-anchor="middle">-4</text>
+  <text x="202" y="236" fill="#64748b" font-size="11" text-anchor="middle">4</text>
+  <text x="274" y="236" fill="#64748b" font-size="11" text-anchor="middle">8</text>
+  <text x="124" y="296" fill="#64748b" font-size="11" text-anchor="end">-4</text>
+  <text x="124" y="152" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <text x="124" y="80" fill="#64748b" font-size="11" text-anchor="end">8</text>
+  <circle cx="130" cy="220" r="18" fill="none" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="130" y1="220" x2="238" y2="76" stroke="#38bdf8" stroke-width="1.6" marker-end="url(#arrow-blue)" stroke-dasharray="5 4"/>
+  <text x="242" y="76" fill="#38bdf8" font-size="12" text-anchor="start">w = [6, 8]</text>
+  <line x1="130" y1="220" x2="184" y2="148" stroke="#38bdf8" stroke-width="2.2" marker-end="url(#arrow-blue)"/>
+  <text x="102" y="144" fill="#38bdf8" font-size="12" text-anchor="start">u = [3, 4]</text>
+  <line x1="130" y1="220" x2="202" y2="166" stroke="#f59e0b" stroke-width="2.2" marker-end="url(#arrow-amber)"/>
+  <text x="208" y="170" fill="#f59e0b" font-size="12" text-anchor="start">v = [4, 3]</text>
+  <line x1="130" y1="220" x2="202" y2="274" stroke="#34d399" stroke-width="2.2" marker-end="url(#arrow-green)"/>
+  <text x="208" y="278" fill="#34d399" font-size="12" text-anchor="start">[4, −3]</text>
+  <line x1="130" y1="220" x2="76" y2="292" stroke="#f87171" stroke-width="2.2" marker-end="url(#arrow-red)"/>
+  <text x="6" y="304" fill="#f87171" font-size="12" text-anchor="start">[−3, −4]</text>
+  <text x="108" y="196" fill="#34d399" font-size="11" text-anchor="end">길이 1 원</text>
+  <text x="380" y="50" fill="#e2e8f0" font-size="14" text-anchor="start">u 와 비교한 cosine similarity</text>
+  <text x="380" y="86" fill="#f59e0b" font-size="13" text-anchor="start">v = [4, 3]</text>
+  <text x="380" y="106" fill="#94a3b8" font-size="12" text-anchor="start">0.6×0.8 + 0.8×0.6</text>
+  <text x="612" y="96" fill="#f59e0b" font-size="18" text-anchor="end">0.96</text>
+  <text x="380" y="138" fill="#38bdf8" font-size="13" text-anchor="start">w = [6, 8]</text>
+  <text x="380" y="158" fill="#94a3b8" font-size="12" text-anchor="start">0.6×0.6 + 0.8×0.8</text>
+  <text x="612" y="148" fill="#38bdf8" font-size="18" text-anchor="end">1</text>
+  <text x="380" y="190" fill="#34d399" font-size="13" text-anchor="start">[4, −3]</text>
+  <text x="380" y="210" fill="#94a3b8" font-size="12" text-anchor="start">0.6×0.8 + 0.8×(−0.6)</text>
+  <text x="612" y="200" fill="#34d399" font-size="18" text-anchor="end">0</text>
+  <text x="380" y="242" fill="#f87171" font-size="13" text-anchor="start">[−3, −4]</text>
+  <text x="380" y="262" fill="#94a3b8" font-size="12" text-anchor="start">0.6×(−0.6) + 0.8×(−0.8)</text>
+  <text x="612" y="252" fill="#f87171" font-size="18" text-anchor="end">−1</text>
+  <text x="380" y="310" fill="#94a3b8" font-size="12" text-anchor="start">길이 1 로 줄인 u = [0.6, 0.8]</text>
+  <text x="380" y="330" fill="#34d399" font-size="12" text-anchor="start">방향이 같으면 1, 직각이면 0, 반대면 −1</text>
+</svg>

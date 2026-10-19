@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>커리큘럼이 VLA + RL 까지 이어진 길. 맨 위 기초(Linear Regression 에서 PyTorch Training Loop 까지)에서 언어·시각·모방 학습·생성 모델·강화학습 다섯 갈래가 나오고, 앞의 네 갈래가 RT-2 → OpenVLA 와 π0 로 모인 VLA 가 되며, 그 VLA 를 강화학습 갈래의 PPO 와 합친 것이 VLA + RL 이다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="718" height="438" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <rect x="60" y="20" width="600" height="50" rx="10" fill="#111a2e" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="360" y="41" fill="#cbd5e1" font-size="13" text-anchor="middle">기초: Linear Regression → Perceptron → Backpropagation → PyTorch Training Loop</text>
+  <text x="360" y="60" fill="#94a3b8" font-size="12" text-anchor="middle">loss · gradient · 학습 loop</text>
+
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="80" y1="72" x2="80" y2="96"/><line x1="220" y1="72" x2="220" y2="96"/><line x1="360" y1="72" x2="360" y2="96"/><line x1="500" y1="72" x2="500" y2="96"/><line x1="640" y1="72" x2="640" y2="96"/>
+  </g>
+
+  <!-- branch boxes -->
+  <rect x="18" y="100" width="124" height="140" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="80" y="122" fill="#a78bfa" font-size="13" text-anchor="middle">언어</text>
+  <g font-size="12" fill="#e2e8f0" text-anchor="middle"><text x="80" y="146">BPE Tokenizer</text><text x="80" y="166">Transformer</text><text x="80" y="186">GPT-2</text></g>
+  <text x="80" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">token · attention</text>
+
+  <rect x="158" y="100" width="124" height="140" rx="10" fill="#111a2e" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="220" y="122" fill="#60a5fa" font-size="13" text-anchor="middle">시각</text>
+  <g font-size="12" fill="#e2e8f0" text-anchor="middle"><text x="220" y="146">CNN · ResNet</text><text x="220" y="166">ViT</text><text x="220" y="186">CLIP</text></g>
+  <text x="220" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">사진 → token</text>
+
+  <rect x="298" y="100" width="124" height="140" rx="10" fill="#111a2e" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="360" y="122" fill="#fb923c" font-size="13" text-anchor="middle">모방 학습</text>
+  <g font-size="12" fill="#e2e8f0" text-anchor="middle"><text x="360" y="146">Behavior Cloning</text><text x="360" y="166">DAgger · RT-1</text><text x="360" y="186">ACT</text></g>
+  <text x="360" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">시연 · 개입 · chunk</text>
+
+  <rect x="438" y="100" width="124" height="140" rx="10" fill="#111a2e" stroke="#e879f9" stroke-width="1.5"/>
+  <text x="500" y="122" fill="#e879f9" font-size="13" text-anchor="middle">생성 모델</text>
+  <g font-size="12" fill="#e2e8f0" text-anchor="middle"><text x="500" y="146">VAE</text><text x="500" y="166">DDPM</text><text x="500" y="186">Flow Matching</text></g>
+  <text x="500" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">noise → 행동</text>
+
+  <rect x="578" y="100" width="124" height="140" rx="10" fill="#111a2e" stroke="#a3e635" stroke-width="1.5"/>
+  <text x="640" y="122" fill="#a3e635" font-size="13" text-anchor="middle">강화학습</text>
+  <g font-size="12" fill="#e2e8f0" text-anchor="middle"><text x="640" y="146">Bandits &amp; MDPs</text><text x="640" y="166">Policy Gradient</text><text x="640" y="186">PPO</text></g>
+  <text x="640" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">reward · ratio · clip</text>
+
+  <!-- to VLA -->
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <polyline points="80,242 80,290 156,290"/>
+    <line x1="220" y1="242" x2="220" y2="270"/>
+    <line x1="360" y1="242" x2="360" y2="270"/>
+    <line x1="500" y1="242" x2="500" y2="270"/>
+  </g>
+  <rect x="160" y="274" width="400" height="56" rx="10" fill="#111a2e" stroke="#facc15" stroke-width="2"/>
+  <text x="360" y="298" fill="#facc15" font-size="14" text-anchor="middle">VLA: RT-2 → OpenVLA → π0</text>
+  <text x="360" y="318" fill="#94a3b8" font-size="12" text-anchor="middle">사진과 지시를 읽고 행동을 낸다 · 시연으로 배운다</text>
+
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="360" y1="332" x2="360" y2="366"/>
+    <polyline points="640,242 640,390 476,390"/>
+  </g>
+  <rect x="244" y="370" width="230" height="52" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2.5"/>
+  <text x="359" y="393" fill="#f87171" font-size="15" text-anchor="middle">VLA + RL</text>
+  <text x="359" y="412" fill="#94a3b8" font-size="12" text-anchor="middle">시연을 넘어 reward 로 다듬는다</text>
+</svg>

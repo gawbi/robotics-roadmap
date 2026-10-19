@@ -1,0 +1,323 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: projection
+  title: 3D 점에서 pixel 까지의 투영
+  variants:
+    - question: |
+        pinhole model 에서 camera frame 의 3D 점을 pixel 좌표로 바꾸는 계산의 순서로 옳은 것은?
+      choices:
+        - 'principal point 더하기 → focal length 곱하기 → depth 로 나누기'
+        - 'focal length 곱하기 → principal point 더하기. depth 는 쓰지 않는다'
+        - 'depth 로 나누기 → focal length 곱하기 → principal point 더하기'
+        - 'principal point 빼기 → focal length 로 나누기 → depth 곱하기'
+      answer: 2
+      explanation: |
+        먼저 옆으로 간 거리를 depth 로 나눠 방향만 남긴 normalized coordinates 를 얻고, focal length 를 곱해 pixel 수로 바꾼 뒤,
+        principal point 를 더해 원점을 사진의 왼쪽 위로 옮긴다. 마지막 보기는 pixel 에서 3D 점으로 되돌리는 back-projection 의
+        순서라 방향이 반대다. depth 로 나누지 않으면 멀리 있는 물체가 작게 찍히는 현상을 설명할 수 없고, 첫 보기처럼 순서를
+        뒤집으면 원점을 옮긴 값까지 depth 로 나누게 되어 틀린 pixel 이 나온다.
+    - question: |
+        카메라를 같은 자리에 둔 채 렌즈만 바꿔 focal length 가 두 배가 되었다. 사진 중심(principal point)에서 떨어져 찍히던 점은
+        이제 어디에 찍히나?
+      choices:
+        - 'principal point 에서 두 배 멀리 찍힌다'
+        - '그대로다. focal length 는 depth 에만 영향을 준다'
+        - '사진의 왼쪽 위 모서리 쪽으로 두 배 다가간다'
+        - 'principal point 쪽으로 절반만큼 다가간다'
+      answer: 0
+      explanation: |
+        focal length 는 normalized coordinates 를 pixel 수로 바꾸는 확대 배율이라, 두 배가 되면 principal point 에서 잰 pixel 거리도
+        두 배가 된다. 휴대폰 카메라를 확대하면 물체가 커 보이는 것과 같다. focal length 는 depth 와 상관없는 카메라 자체의 숫자이고,
+        확대는 왼쪽 위 모서리가 아니라 principal point 를 중심으로 일어난다. 절반으로 다가가는 것은 focal length 가 줄었을 때다.
+    - question: |
+        카메라 정면, optical axis 위에 놓인 점을 카메라에서 점점 멀리 옮기며 찍으면 그 점은 사진의 어디에 찍히나?
+      choices:
+        - '가까울수록 사진의 위쪽, 멀수록 아래쪽에 찍힌다'
+        - '사진의 왼쪽 위 모서리 pixel $(0, 0)$ 에 찍힌다'
+        - '거리에 비례해 principal point 에서 점점 멀어진다'
+        - '거리와 상관없이 늘 principal point 에 찍힌다'
+      answer: 3
+      explanation: |
+        optical axis 위의 점은 옆으로 간 거리가 0 이라 depth 로 나눠도 normalized coordinates 가 $(0, 0)$ 이고, focal length 를 곱해도
+        0 이다. 여기에 principal point 를 더하므로 거리와 상관없이 principal point 에 찍힌다. pixel $(0, 0)$ 은 사진의 모서리일 뿐 optical
+        axis 와 관계가 없고, 거리를 바꿔도 방향이 같으니 위아래나 바깥으로 움직이지 않는다.
+
+- topic: depth-ambiguity
+  title: 카메라 한 대로 알 수 없는 거리
+  variants:
+    - question: |
+        카메라 한 대로 찍은 사진 한 장만으로는 물체까지의 거리를 알 수 없다. 그 이유로 옳은 것은?
+      choices:
+        - 'pixel 수가 적어 해상도가 부족하기 때문이다'
+        - '렌즈 중심에서 뻗은 한 직선 위의 점은 거리와 상관없이 모두 같은 pixel 에 찍히기 때문이다'
+        - 'lens distortion 이 거리 정보를 지우기 때문이다'
+        - 'calibration 을 하지 않았기 때문이다. calibration 을 하면 거리도 알 수 있다'
+      answer: 1
+      explanation: |
+        투영은 옆으로 간 거리를 depth 로 나누는 계산이라, 좌표를 모두 같은 비율로 키운 점(같은 직선 위의 더 먼 점)은 나눗셈에서 그
+        비율이 지워져 같은 pixel 에 찍힌다. 그래서 pixel 은 방향만 알려 주고 거리는 알려 주지 않는다. 해상도를 높여도 이 사실은 그대로이고,
+        distortion 은 가장자리를 휘게 할 뿐 거리와 무관하다. calibration 은 카메라의 숫자를 알려 줄 뿐 빠진 depth 를 채우지 못한다.
+    - question: |
+        같은 카메라 사진에서 물체 A 와 B 가 똑같은 pixel 높이로 찍혔다. A 가 B 보다 카메라에서 두 배 멀리 있다면 옳은 것은?
+      choices:
+        - '두 물체의 실제 높이는 같다'
+        - 'A 의 실제 높이가 B 의 절반이다'
+        - 'A 의 실제 높이가 B 의 두 배다'
+        - 'pixel 높이가 같으면 거리도 같아야 하므로 이런 상황은 생길 수 없다'
+      answer: 2
+      explanation: |
+        사진 속 높이는 focal length × 실제 높이 ÷ 거리라서, 거리가 두 배인 A 가 같은 pixel 높이로 찍히려면 실제 높이도 두 배여야 한다.
+        가까운 작은 물체와 먼 큰 물체가 똑같이 찍히는 것이 바로 카메라 한 대로 거리를 모르는 이유이므로, 이런 상황은 흔하게 생긴다.
+        실제 높이가 같거나 A 가 더 작다면 멀리 있는 A 가 더 작게 찍혔을 것이다.
+    - question: |
+        카메라 한 대의 사진에 빠진 거리 정보를 채우는 방법으로 알맞지 않은 것은?
+      choices:
+        - '같은 자리에서 더 높은 해상도로 사진을 다시 찍는다'
+        - 'pixel 마다 거리를 함께 재는 depth camera 를 쓴다'
+        - '나란히 놓은 두 카메라 사진에서 같은 점이 옆으로 밀린 정도(disparity)로 거리를 계산한다'
+        - '실제 크기를 아는 marker 를 붙여 사진 속 크기로 거리를 계산한다'
+      answer: 0
+      explanation: |
+        같은 자리에서 찍은 사진은 해상도와 상관없이 같은 직선 위의 점을 같은 자리에 찍으므로 거리 정보가 생기지 않는다. depth camera 는
+        거리를 직접 재고, stereo camera 는 가까운 점일수록 disparity 가 커지는 성질로 거리를 계산하며, 크기를 아는 marker 는 사진 속
+        크기로 거리를 정해 준다. 이 세 방법은 모두 사진 한 장에 없던 정보를 더한다.
+
+- topic: intrinsics-extrinsics
+  title: intrinsics 와 extrinsics
+  variants:
+    - question: |
+        calibration 을 마친 카메라를 책상에서 선반으로 옮겨 달았다. 다시 구해야 하는 것은?
+      choices:
+        - 'intrinsics 와 extrinsics 둘 다'
+        - 'intrinsics 만. focal length 가 카메라 위치에 따라 바뀐다'
+        - '아무것도 다시 구할 필요가 없다'
+        - 'extrinsics 만. intrinsics 는 카메라 자체의 숫자라 그대로다'
+      answer: 3
+      explanation: |
+        intrinsics(focal length, principal point)는 렌즈와 센서가 정하는 카메라 자체의 숫자라 카메라를 옮겨도 바뀌지 않는다.
+        extrinsics 는 카메라가 world 안의 어디에 어느 방향으로 놓였는지를 나타내므로 자리를 옮기면 다시 구해야 한다. 그래서 intrinsics
+        는 카메라마다 한 번, extrinsics 는 설치한 자리마다 구한다.
+    - question: |
+        intrinsics 에 들어가는 값으로만 짝지은 것은?
+      choices:
+        - 'rotation $R$ 와 translation $t$'
+        - 'focal length $f_x, f_y$ 와 principal point $c_x, c_y$'
+        - 'focal length 와 카메라가 달린 높이'
+        - 'principal point 와 rotation $R$'
+      answer: 1
+      explanation: |
+        intrinsics 행렬 $K$ 에는 focal length 와 principal point 처럼 카메라 안쪽에서 정해지는 숫자만 들어간다. rotation 과 translation,
+        카메라가 달린 높이는 카메라가 놓인 자리를 나타내는 extrinsics 쪽이다. 나머지 보기는 두 종류를 섞어 놓았다.
+    - question: |
+        world frame 의 점을 camera frame 으로 바꾸는 식 $p_c = R\,p_w + t$ 에서 $t$ 가 뜻하는 것은?
+      choices:
+        - 'world frame 에서 잰 카메라의 위치'
+        - '카메라가 optical axis 를 중심으로 돈 각도'
+        - 'camera frame 에서 잰 world 원점의 위치'
+        - 'principal point 를 옮기는 pixel 수'
+      answer: 2
+      explanation: |
+        $p_w$ 에 world 원점 $(0, 0, 0)$ 을 넣으면 $p_c = t$ 가 되므로, $t$ 는 카메라에서 본 world 원점의 자리다. "world 에서 본 카메라의
+        위치" 로 읽기 쉽지만 그것은 이 변환의 역변환에서 나온다. 돈 각도는 $R$ 이 맡고, principal point 는 extrinsics 가 아니라
+        intrinsics 의 값이다.
+
+- topic: distortion
+  title: lens distortion 의 성질
+  variants:
+    - question: |
+        radial distortion 에 대한 설명으로 옳은 것은?
+      choices:
+        - '사진 중심에서 멀수록 크게 휘고, 중심 근처는 거의 그대로다'
+        - '사진 전체를 같은 비율로 줄이거나 늘린다'
+        - '물체가 카메라에서 멀수록 크게 휜다'
+        - 'pinhole model 에서도 곧은 선이 휘어 찍히는 현상이다'
+      answer: 0
+      explanation: |
+        radial distortion 은 normalized coordinates 에 $1 + k_1 r^2 + k_2 r^4$ 를 곱하는데, $r$ 이 사진 중심에서의 거리라서 가장자리로
+        갈수록 배율이 크게 달라진다. 사진 전체를 같은 비율로 바꾸는 것은 focal length 를 바꾸는 것과 같아 곧은 선이 곧게 남는다.
+        휘는 정도는 카메라와의 거리가 아니라 사진 속 자리에 달려 있고, pinhole model 에서는 곧은 선이 늘 곧게 찍힌다.
+    - question: |
+        곧은 격자를 찍었더니 가장자리가 중심 쪽으로 오므라든 술통 모양으로 찍혔다. 이 렌즈의 $k_1$ 부호와 왜곡의 이름은?
+      choices:
+        - '$k_1 > 0$, pincushion distortion'
+        - '$k_1 > 0$, barrel distortion'
+        - '$k_1 = 0$, barrel distortion'
+        - '$k_1 < 0$, barrel distortion'
+      answer: 3
+      explanation: |
+        $k_1$ 이 음수면 배율 $1 + k_1 r^2$ 이 1 보다 작아져 가장자리의 점이 중심 쪽으로 당겨지고, 격자가 술통처럼 오므라든다. 이것이
+        barrel distortion 이다. $k_1$ 이 양수면 반대로 가장자리가 밀려 나가는 pincushion distortion 이 되고, $k_1 = 0$ 이면 (다른 항이
+        없을 때) 휘지 않는다.
+    - question: |
+        lens distortion 을 보정하지 않은 채 사진에서 물체 위치를 계산하면 어떤 일이 생기나?
+      choices:
+        - '모든 물체의 위치가 같은 양만큼 틀린다'
+        - '사진 가장자리에 찍힌 물체일수록 위치가 크게 틀린다'
+        - '사진 중심에 찍힌 물체의 위치가 가장 크게 틀린다'
+        - 'focal length 만 조금 바꾸면 똑같이 보정된다'
+      answer: 1
+      explanation: |
+        distortion 의 크기는 중심에서의 거리 $r$ 에 따라 커지므로, 중심 근처의 물체는 거의 맞고 가장자리의 물체일수록 크게 틀린다.
+        위치마다 틀리는 양이 다르니 모두 같은 양만큼 틀리지 않는다. focal length 를 바꾸면 사진 전체가 같은 비율로 바뀔 뿐이라
+        가장자리만 휘는 distortion 은 보정되지 않는다.
+
+- topic: reprojection-rms
+  title: reprojection error 와 calibration
+  variants:
+    - question: |
+        camera calibration 에서 checkerboard 를 찍는 이유로 옳은 것은?
+      choices:
+        - '흑백 대비가 커서 사진의 밝기를 맞추기 좋기 때문이다'
+        - '판이 평평해서 lens distortion 이 생기지 않기 때문이다'
+        - '칸의 크기를 알아서 corner 마다 판 위의 3D 좌표를 정확히 알기 때문이다'
+        - 'corner 가 많으면 사진마다 extrinsics 를 구할 필요가 없기 때문이다'
+      answer: 2
+      explanation: |
+        calibration 은 생김새를 아는 물체가 사진에 찍힌 자리와 투영 식으로 계산한 자리가 맞도록 카메라의 숫자를 고르는 일이다.
+        checkerboard 는 칸의 크기를 알아서 corner 마다 3D 좌표를 정확히 알고, 컴퓨터가 사진에서 corner 를 자동으로 찾아 준다. 판이
+        평평해도 렌즈는 똑같이 휘게 찍으므로 distortion 은 남고, 판을 찍을 때마다 자세가 달라서 extrinsics 는 사진마다 구해야 한다.
+    - question: |
+        calibration 에서 말하는 reprojection error 는 무엇인가?
+      choices:
+        - '지금 고른 카메라 숫자로 아는 3D corner 를 투영한 pixel 과, 사진에서 실제로 찾은 corner 의 pixel 사이의 거리'
+        - '두 사진에서 같은 corner 가 옮겨 간 pixel 거리'
+        - 'corner 의 3D 좌표와 카메라 사이의 실제 거리 오차'
+        - 'lens distortion 때문에 휘어진 정도를 pixel 로 잰 값'
+      answer: 0
+      explanation: |
+        reprojection 은 아는 3D 점을 지금의 숫자로 다시 투영해 본다는 뜻이라, 그 결과와 사진에서 찾은 자리의 pixel 거리가
+        reprojection error 다. 숫자를 잘 고를수록 이 거리가 작아진다. 두 사진 사이의 이동이나 3D 거리 오차는 다른 양이고, distortion
+        도 투영 계산 안에 들어가는 한 단계일 뿐 reprojection error 자체는 아니다.
+    - question: |
+        여러 corner 의 reprojection error 를 RMS(제곱 → 평균 → 제곱근)로 모은다. 그냥 평균한 거리와 비교한 성질로 옳은 것은?
+      choices:
+        - 'RMS 는 늘 평균 거리보다 작다'
+        - '두 값은 언제나 같다'
+        - 'RMS 는 크게 틀린 corner 를 덜 반영해 이상치에 강하다'
+        - '제곱을 거치므로 크게 틀린 corner 가 더 큰 무게를 받고, RMS 는 평균 거리보다 작지 않다'
+      answer: 3
+      explanation: |
+        제곱하면 큰 오차가 더 크게 부풀려지므로 크게 틀린 corner 가 RMS 를 끌어올린다. 그래서 RMS 는 평균 거리보다 크거나 같고, 모든
+        corner 의 오차가 같을 때만 두 값이 같다. 큰 오차를 덜 반영하는 것은 제곱의 효과와 정반대다. calibration 은 이 RMS 가 가장
+        작아지는 숫자를 찾는다.
+
+- topic: homography
+  title: 평면과 pixel 을 잇는 homography
+  variants:
+    - question: |
+        3×3 행렬 하나인 homography 로 점을 pixel 에 정확히 옮길 수 있는 경우는?
+      choices:
+        - '모양이 자유로운 3D 물체 위의 점을 옮길 때'
+        - '한 평면 위에 놓인 점들을 사진의 pixel 로 옮길 때'
+        - '두 카메라 사이의 거리를 구할 때'
+        - 'lens distortion 이 큰 사진의 가장자리 점을 옮길 때'
+      answer: 1
+      explanation: |
+        평면 위의 점은 $Z = 0$ 이라 전체 투영식에서 $Z$ 에 곱해지는 칸이 사라지고, 남은 부분이 3×3 행렬 하나가 된다. 평면에서 튀어나온
+        점은 그 칸이 다시 필요해 homography 로는 맞지 않는다. homography 는 곧은 선이 곧게 찍힌다고 가정하므로 distortion 이 큰
+        가장자리도 정확히 다루지 못하고, 카메라 사이의 거리를 구하는 도구도 아니다.
+    - question: |
+        homography $H$ 는 숫자가 9 개인데 사진에서 알아내야 하는 숫자는 8 개다. 그 이유는?
+      choices:
+        - '셋째 줄은 늘 $(0, 0, 1)$ 이라 정해져 있기 때문이다'
+        - 'principal point 를 미리 알기 때문이다'
+        - '평면이라 $Z = 0$ 이어서 숫자 하나가 늘 0 이기 때문이다'
+        - '$H$ 에 0 이 아닌 어떤 수를 곱해도 같은 pixel 이 나와서, 크기 하나는 마음대로 정할 수 있기 때문이다'
+      answer: 3
+      explanation: |
+        $H$ 로 곱한 결과는 마지막에 셋째 숫자로 나누므로 $H$ 전체에 같은 수를 곱해도 그 수가 지워진다. 그래서 크기를 하나로 맞춰 두면
+        남은 8 개만 알아내면 된다. 셋째 줄이 $(0, 0, 1)$ 인 것은 판이 카메라를 정면으로 볼 때뿐이고, 기울어진 판에서는 달라진다.
+        $Z = 0$ 은 이미 4 칸짜리를 3 칸짜리로 줄이는 데 쓰였고, principal point 는 homography 를 구할 때 따로 쓰지 않는다.
+    - question: |
+        homography 를 구하려면 대응하는 점이 최소 4 개 필요하다. 그 이유로 옳은 것은?
+      choices:
+        - '점 하나가 $u$ 와 $v$ 의 식 두 개를 주고, 알아내야 할 숫자가 8 개라서'
+        - '사각형의 꼭짓점이 4 개라서 사각형이 아닌 무늬는 쓸 수 없어서'
+        - '점 하나가 식 하나만 주고, 알아내야 할 숫자가 4 개라서'
+        - '$H$ 가 3×3 이라 점 3 개면 충분하고, 하나는 검산용이라서'
+      answer: 0
+      explanation: |
+        대응점 하나에서 pixel 의 가로 $u$ 와 세로 $v$ 에 대한 식이 하나씩 나온다. 알아내야 할 숫자가 8 개이니 식이 8 개 필요하고, 점 4 개가
+        그 수를 채운다. 점 3 개로는 식이 6 개라 모자라고, 무늬가 사각형이어야 할 이유는 없다. 점이 많으면 어긋남의 제곱합이 가장 작은
+        해를 고른다.
+
+- topic: zhang
+  title: Zhang 의 방법과 refinement
+  variants:
+    - question: |
+        Zhang 의 calibration 방법이 사진마다 구한 homography 에서 intrinsics $K$ 의 단서를 얻는 조건은?
+      choices:
+        - 'homography 의 모든 숫자가 양수여야 한다는 조건'
+        - '$K$ 로 되돌린 두 칸의 길이가 정확히 1 이어야 한다는 조건'
+        - '$K$ 로 되돌린 두 칸은 rotation 의 두 축이라 길이가 같고 서로 수직이어야 한다는 조건'
+        - 'reprojection error 가 0 이어야 한다는 조건'
+      answer: 2
+      explanation: |
+        homography 의 첫째·둘째 칸에서 $K$ 의 효과를 되돌리면 rotation 의 두 축이 나와야 하고, rotation 의 축은 길이가 같고 서로 수직이다.
+        $K$ 를 잘못 추측하면 이 성질이 깨지므로 조건이 $K$ 에 대한 식이 된다. homography 는 어떤 수를 곱해도 같은 투영이라 실제 크기를
+        모르므로 "길이가 1" 이 아니라 "길이가 같다" 를 쓴다. reprojection error 는 실제 사진에 noise 가 있어 0 이 될 수 없다.
+    - question: |
+        checkerboard 를 매번 카메라 정면으로 들고 여러 장 찍었더니 Zhang 의 방법으로 focal length 가 정해지지 않았다. 이유는?
+      choices:
+        - '사진 장수가 모자라서다. 같은 자세로 더 많이 찍으면 해결된다'
+        - '정면 사진에서는 어떤 focal length 를 추측해도 두 축의 길이가 같고 수직이라, 조건이 focal length 를 가려 주지 못하기 때문이다'
+        - '정면 사진에서는 corner 를 찾을 수 없기 때문이다'
+        - '정면 사진에서 lens distortion 이 가장 커지기 때문이다'
+      answer: 1
+      explanation: |
+        판이 정면이면 homography 의 두 칸이 같은 비율로 커지거나 작아질 뿐이라, focal length 를 얼마로 추측해 되돌려도 두 칸의 길이가
+        같고 수직이다. 조건을 어기는 추측이 없으니 focal length 가 하나로 정해지지 않는다. 같은 자세의 사진은 같은 식을 줄 뿐이라
+        더 찍어도 단서가 늘지 않고, 판을 여러 방향으로 기울여 찍어야 한다. corner 검출이나 distortion 은 이 문제와 관계없다.
+    - question: |
+        Zhang 의 closed-form 계산으로 $K$ 와 사진별 extrinsics 를 얻은 뒤에도 refinement 를 하는 이유는?
+      choices:
+        - 'closed-form 은 lens distortion 을 빼고 계산했고 pixel 거리가 아닌 식의 어긋남을 줄였으므로, reprojection error 를 직접 줄이려고'
+        - 'closed-form 결과는 실행할 때마다 무작위로 달라서'
+        - 'refinement 로 필요한 사진 장수를 줄이려고'
+        - 'closed-form 은 extrinsics 를 구하지 못해서, refinement 가 extrinsics 만 구하려고'
+      answer: 0
+      explanation: |
+        homography 는 곧은 선이 곧게 찍힌다고 가정하므로 closed-form 결과에는 distortion 이 빠져 있고, 그 과정에서 줄인 것도 pixel
+        거리가 아니라 분모를 곱해 바꾼 식의 어긋남이다. refinement 는 이 결과를 첫 추측으로 삼아 distortion 까지 넣은 투영으로
+        reprojection error 의 RMS 를 직접 줄인다. closed-form 은 같은 입력이면 같은 답을 내고, extrinsics 도 이미 구해 준다.
+
+- topic: marker-pose
+  title: marker 로 구하는 물체 위치
+  variants:
+    - question: |
+        크기를 아는 ArUco marker 를 붙이면 카메라 한 대의 사진으로도 물체의 pose 를 구할 수 있다. 그 이유는?
+      choices:
+        - 'marker 의 무늬에 거리가 적혀 있기 때문이다'
+        - '실제 크기를 알면 사진 속 크기로 depth 가 정해져, 카메라 한 대로는 빠지던 거리 정보가 채워지기 때문이다'
+        - 'marker 는 lens distortion 의 영향을 받지 않기 때문이다'
+        - 'marker 를 쓰면 intrinsics 없이도 pose 를 구할 수 있기 때문이다'
+      answer: 1
+      explanation: |
+        사진 속 크기는 focal length × 실제 크기 ÷ 거리이므로, 실제 크기를 알면 거리를 거꾸로 구할 수 있다. 무늬에는 거리가 아니라 marker
+        의 ID 가 적혀 있고, marker 도 다른 물체처럼 휘어 찍힌다. pose 를 구할 때 focal length 와 principal point 가 필요하므로 calibration
+        으로 얻은 intrinsics 가 있어야 한다.
+    - question: |
+        marker 꼭짓점의 pixel 을 1 pixel 정도 틀리게 찾았다. 이때 계산한 marker 위치의 오차에 대한 설명으로 옳은 것은?
+      choices:
+        - '좌우 방향과 거리 방향이 똑같이 틀린다'
+        - '좌우 방향 오차가 거리 방향 오차보다 훨씬 크다'
+        - '거리 방향 오차가 좌우 오차보다 크고, 사진 속 marker 가 작을수록 더 커진다'
+        - 'marker 가 멀리 있을수록 오차가 줄어든다'
+      answer: 2
+      explanation: |
+        좌우 위치는 1 pixel 이 거리 ÷ focal length 만큼의 작은 길이에 해당하지만, 거리는 사진 속 크기의 비율로 정해지므로 1 pixel 이
+        크기의 몇 % 인지만큼 거리도 같은 비율로 틀린다. 사진 속 marker 가 작으면 1 pixel 의 비율이 커져 거리 오차가 더 커진다. marker 가
+        멀수록 사진 속 크기가 작아지므로 오차는 줄지 않고 커진다.
+    - question: |
+        camera frame 에서 본 marker 의 pose 를 구했다. 이것을 로봇 base frame 기준 위치로 바꾸려면 무엇이 더 필요한가?
+      choices:
+        - 'marker 의 ID'
+        - '다른 각도에서 찍은 사진 한 장 더'
+        - 'lens distortion 계수'
+        - 'base 에서 본 카메라의 pose. $T_{\text{base,marker}} = T_{\text{base,cam}}\,T_{\text{cam,marker}}$ 로 곱한다'
+      answer: 3
+      explanation: |
+        camera frame 의 결과를 base frame 으로 옮기려면 두 frame 사이의 관계, 곧 base 에서 본 카메라의 pose 가 있어야 하고, 이것을 곱하면
+        된다. 그래서 카메라를 로봇에 단 뒤 그 pose 를 재는 일도 calibration 의 한 부분이다. ID 는 marker 를 구별할 뿐이고, distortion
+        계수는 camera frame 의 pose 를 구할 때 이미 쓰였으며, 사진을 더 찍어도 base 와 카메라의 관계는 나오지 않는다.

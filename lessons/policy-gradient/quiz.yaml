@@ -1,0 +1,321 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: softmax
+  title: argmax policy 의 한계와 softmax
+  variants:
+    - question: |
+        policy gradient 가 값이 가장 큰 action 하나를 고르는 $\arg\max$ policy 대신, action 마다 확률을 내는 policy 를 쓰는 이유로 맞는 것은?
+      choices:
+        - '$\arg\max$ policy 는 계산이 너무 느리기 때문이다'
+        - '$\arg\max$ policy 는 숫자를 조금 바꾸면 고르는 action 이 계단처럼 통째로 바뀌어, 어느 쪽으로 고쳐야 좋아지는지 gradient 가 알려 주지 못하기 때문이다'
+        - '확률을 내는 policy 는 언제나 더 큰 reward 를 받기 때문이다'
+        - '$\arg\max$ policy 는 action 이 두 개일 때만 쓸 수 있기 때문이다'
+      answer: 1
+      explanation: |
+        $\arg\max$ 는 값이 문턱을 넘는 순간 확률이 0 에서 1 로 뛰고, 그 밖의 자리에서는 조금 바꿔도 전혀 변하지 않아 gradient 가 거의
+        모든 곳에서 0 이다. 확률을 내는 policy 는 parameter 를 조금 바꾸면 확률도 조금 바뀌어 gradient 로 고칠 수 있고, 가위바위보처럼
+        섞어 내야 하는 행동도 표현한다. 계산 속도나 action 개수가 이유가 아니며, 확률 policy 가 늘 더 큰 reward 를 받는 것도 아니다.
+    - question: |
+        softmax policy 에서 모든 action 의 점수에 똑같이 5 를 더하면 확률은 어떻게 되는가?
+      choices:
+        - '확률은 그대로다. softmax 의 확률은 점수의 절댓값이 아니라 점수끼리의 차이로 정해진다'
+        - '모든 확률이 커진다'
+        - '점수가 가장 큰 action 의 확률이 1 이 된다'
+        - '모든 확률이 같아진다'
+      answer: 0
+      explanation: |
+        점수에 같은 수를 더하면 $e^{z}$ 가 모두 같은 배수로 커져 분자와 분모가 함께 커지므로 나눈 값은 그대로다. 그래서 확률을 정하는 것은
+        점수끼리의 차이다. 확률은 합이 늘 1 이라 모두 함께 커질 수 없고, 차이가 그대로이니 한쪽으로 몰리거나 같아지지도 않는다.
+    - question: |
+        action 두 개의 점수가 $[3, 1]$ 인 softmax policy 의 확률에 대해 맞는 것은?
+      choices:
+        - '점수 비율 그대로 $[0.75, 0.25]$ 다'
+        - '점수가 큰 첫째 action 에 확률 1 을 몰아준다'
+        - '두 action 의 확률이 0.5 로 같다'
+        - '첫째 action 의 확률이 더 크지만, 둘째 action 에도 0 보다 큰 확률이 남는다'
+      answer: 3
+      explanation: |
+        softmax 는 점수를 지수 함수로 양수로 바꾼 뒤 합으로 나누므로, 점수가 큰 action 에 큰 확률을 주면서도 다른 action 에 확률을 조금
+        남긴다. 확률의 비는 점수 비율이 아니라 점수 차이로 정해져서, 점수 차가 2 이면 확률이 약 $e^2 \approx 7.4$ 배 차이 난다. 확률 1 을
+        몰아주는 것은 $\arg\max$ 이고, 점수가 다르니 확률이 같을 수도 없다.
+
+- topic: log-prob-gradient
+  title: log-probability 의 gradient
+  variants:
+    - question: |
+        policy 의 parameter $\theta$ 에 대한 log-probability gradient $\nabla_\theta \ln \pi_\theta(a)$ 가 알려 주는 것은?
+      choices:
+        - 'action $a$ 를 했을 때 받을 reward'
+        - 'action $a$ 를 더 자주 고르게 하려면 $\theta$ 를 어느 쪽으로 얼마나 움직여야 하는지'
+        - 'action $a$ 의 진짜 기댓값'
+        - 'policy 가 얼마나 좋은지를 나타내는 점수'
+      answer: 1
+      explanation: |
+        $\ln \pi_\theta(a)$ 는 $\pi_\theta(a)$ 가 커질수록 커지므로, 그 gradient 의 방향으로 $\theta$ 를 움직이면 action $a$ 의 확률이 오른다.
+        policy 만으로 계산되는 값이라 reward 나 action 의 기댓값과는 상관없다. 그 action 이 좋은지 나쁜지는 여기에 곱하는 reward 같은
+        weight 가 정한다.
+    - question: |
+        두 action 의 확률이 0.9 와 0.1 인 policy 에서, 각 action 의 log-probability gradient 크기를 비교하면?
+      choices:
+        - '확률이 큰 0.9 쪽이 더 크다. 자주 고르는 action 일수록 크게 올려야 하기 때문이다'
+        - '둘의 크기가 같다'
+        - '확률이 작은 0.1 쪽이 더 크다. 이미 자주 고르는 action 은 더 올릴 여지가 적기 때문이다'
+        - '둘 다 0 이다'
+      answer: 2
+      explanation: |
+        두 action policy 에서 고른 action 의 gradient 크기는 $1 - \pi$ 꼴이라, 확률이 1 에 가까운 action 은 0 에 가깝고 확률이 작은 action 은
+        크다. 그래서 드물게 고르는 action 을 골랐을 때 policy 가 크게 움직인다. "확률이 큰 action 일수록 크게 올려야 한다" 는 생각이 흔한
+        오해다.
+    - question: |
+        action 이 셋인 softmax policy 에서 첫째 action 을 골랐다. 이 action 의 log-probability 를 각 action 의 점수로 미분한 gradient 는
+        점수들을 어느 쪽으로 움직이는가?
+      choices:
+        - '세 점수를 모두 똑같이 올린다'
+        - '고른 첫째 action 의 점수는 내리고 나머지는 올린다'
+        - '고른 action 의 점수만 올리고 나머지 점수는 그대로 둔다'
+        - '고른 첫째 action 의 점수는 올리고, 나머지 점수는 각자의 확률만큼 내린다'
+      answer: 3
+      explanation: |
+        고른 action 의 점수에 대한 값은 $1 - \pi$ 로 양수, 다른 action 의 점수에 대한 값은 $-\pi$ 로 음수다. 그래서 고른 action 은 점수를
+        올리고 나머지는 확률이 큰 것일수록 더 내려 고른 action 의 확률을 키운다. 세 점수를 똑같이 올리면 확률이 변하지 않으므로 그런
+        방향은 아무 일도 하지 않는다.
+
+- topic: log-derivative-trick
+  title: 기댓값 꼴의 gradient 와 sample 추정
+  variants:
+    - question: |
+        log-derivative trick 으로 $\nabla_\theta J = \mathbb E_{a \sim \pi_\theta}[q_*(a)\,\nabla_\theta \ln \pi_\theta(a)]$ 처럼 gradient 를
+        기댓값 꼴로 바꾸는 이유로 맞는 것은?
+      choices:
+        - 'agent 는 action 의 진짜 기댓값 $q_*$ 를 모르지만, 기댓값 꼴이면 직접 해 본 sample 의 평균으로 추정할 수 있기 때문이다'
+        - '기댓값 꼴이면 gradient 가 언제나 0 이 되어 계산이 끝나기 때문이다'
+        - '기댓값 꼴로 바꾸면 $q_*$ 를 정확히 계산할 수 있기 때문이다'
+        - 'environment 의 이동 확률을 알아야 계산할 수 있게 하려는 것이다'
+      answer: 0
+      explanation: |
+        원래 gradient 공식에는 agent 가 모르는 $q_*$ 가 들어 있다. sample 의 평균은 횟수가 늘수록 기댓값에 다가가므로, gradient 를 "무언가의
+        기댓값" 꼴로 바꾸면 그 무언가를 sample 마다 계산해 평균하면 된다. 이 바꿈이 $q_*$ 를 알려 주는 것은 아니며, 오히려 environment 를
+        몰라도 되게 해 준다.
+    - question: |
+        sample 하나로 계산한 추정 $\hat g = r\,\nabla_\theta \ln \pi_\theta(a)$ 가 unbiased 라는 것의 뜻은?
+      choices:
+        - '추정 한 번 한 번이 언제나 진짜 gradient 와 정확히 같다'
+        - '추정값이 언제나 양수다'
+        - '추정값을 아주 많이 모아 평균하면 진짜 gradient 와 같아지지만, 한 번의 추정은 크게 다를 수 있다'
+        - 'reward 가 0 일 때만 맞는 추정이다'
+      answer: 2
+      explanation: |
+        unbiased 는 추정값의 기댓값이 참값과 같다는 뜻이다. 한 번 한 번의 값은 운에 따라 크게 흩어지고 부호가 틀리기도 하지만, 평균하면
+        진짜 gradient 에 다가간다. 그래서 unbiased 와 "흔들림이 작다" 는 다른 말이고, 추정값의 부호도 경우에 따라 음수가 된다.
+    - question: |
+        REINFORCE 의 추정 $\hat g = r\,\nabla_\theta \ln \pi_\theta(a)$ 를 계산하는 데 필요한 것만 고른 것은?
+      choices:
+        - '모든 action 의 진짜 기댓값 $q_*$'
+        - 'environment 의 이동 확률과 reward 함수'
+        - '사람이 알려 주는 정답 action'
+        - '고른 action, 받은 reward, 그리고 agent 자신의 policy'
+      answer: 3
+      explanation: |
+        $r$ 은 실제로 받은 reward 이고, $\nabla_\theta \ln \pi_\theta(a)$ 는 agent 가 자기 policy 로 직접 계산한다. 그래서 $q_*$ 나 environment
+        의 확률을 몰라도 되고, 정답 action 도 필요 없다. 이 점이 정답 없이 reward 로 배우는 문제에 policy gradient 를 쓸 수 있는 이유다.
+
+- topic: reinforce
+  title: REINFORCE update
+  variants:
+    - question: |
+        reward 가 모두 0 이상인 문제에서 REINFORCE $\theta \leftarrow \theta + \eta\, r\, \nabla_\theta \ln \pi_\theta(a)$ 로 학습한다.
+        더 나쁜 action 을 골라 양수 reward 를 받으면 어떻게 되는가?
+      choices:
+        - '그 action 의 확률이 내려간다'
+        - '좋은 action 의 확률이 대신 올라간다'
+        - '아무것도 바뀌지 않는다'
+        - 'reward 가 양수이므로 그 나쁜 action 의 확률도 올라간다. 좋은 action 이 평균적으로 더 많이 오를 뿐이다'
+      answer: 3
+      explanation: |
+        REINFORCE 는 고른 action 의 log-probability gradient 에 받은 reward 를 곱해 더하므로, reward 가 양수이면 고른 action 은 언제나 확률이
+        오른다. 그래서 "REINFORCE 는 좋은 action 의 확률만 올린다" 는 생각은 틀렸다. 좋은 action 이 더 큰 reward 를 자주 받아 평균적으로 더
+        많이 오르기 때문에 결국 좋은 쪽으로 간다. 이 비효율은 뒤의 baseline 이 줄인다.
+    - question: |
+        REINFORCE 에서 어떤 action 을 골라 reward 0 을 받았다. 이 update 로 policy 는 어떻게 되는가?
+      choices:
+        - '아무것도 바뀌지 않는다. update 의 크기가 reward 에 비례하기 때문이다'
+        - '그 action 의 확률이 크게 내려간다'
+        - '그 action 의 확률이 조금 올라간다'
+        - '모든 action 의 확률이 같아진다'
+      answer: 0
+      explanation: |
+        update 는 $\eta \times r \times \nabla_\theta \ln \pi_\theta(a)$ 라서 $r = 0$ 이면 0 이 더해진다. 그래서 reward 0 은 확률을 내리지도
+        올리지도 않는다. "0 은 나쁜 결과이니 확률을 내린다" 는 baseline 을 뺐을 때의 이야기다.
+    - question: |
+        REINFORCE 로 policy 를 한 번 고친 뒤, 고치기 전 policy 로 모은 sample 을 다시 쓰지 않고 새로 모으는 이유로 맞는 것은?
+      choices:
+        - 'sample 을 저장할 메모리가 없기 때문이다'
+        - '옛 sample 은 reward 가 0 이 되기 때문이다'
+        - 'gradient 는 지금 policy 로 action 을 뽑을 때의 기댓값이라, 옛 policy 의 sample 은 action 비율이 달라 gradient 를 틀리게, 때로는 부호까지 거꾸로 추정하기 때문이다'
+        - '같은 sample 을 두 번 쓰면 계산이 불가능하기 때문이다'
+      answer: 2
+      explanation: |
+        $\nabla_\theta J$ 는 지금의 $\pi_\theta$ 로 뽑은 action 에 대한 기댓값이다. 옛 policy 가 지금보다 어떤 action 을 훨씬 자주 골랐다면 그
+        action 의 값이 지나치게 많이 섞여 평균이 진짜 gradient 와 어긋난다. 그래서 REINFORCE 는 지금 policy 로 모은 sample 만 쓰는 on-policy
+        방법이다. 메모리나 계산 가능성의 문제가 아니다.
+
+- topic: episode-gradient
+  title: trajectory 와 reward-to-go
+  variants:
+    - question: |
+        여러 step 짜리 episode 에서 policy gradient 를 계산할 때, 바닥이 얼마나 미끄러운지 같은 environment 의 이동 확률을 몰라도 되는
+        이유로 맞는 것은?
+      choices:
+        - 'environment 의 이동 확률은 언제나 1 이기 때문이다'
+        - 'trajectory 확률에 로그를 씌우면 곱이 합이 되고, environment 의 항은 policy 의 parameter 와 상관없어 미분하면 사라지기 때문이다'
+        - 'policy 가 environment 의 이동 확률을 대신 배우기 때문이다'
+        - 'episode 가 한 step 으로 끝나기 때문이다'
+      answer: 1
+      explanation: |
+        trajectory 의 확률은 policy 의 확률과 environment 의 이동 확률을 번갈아 곱한 값이다. 로그를 씌우면 각 항의 합이 되고, environment 의
+        항은 $\theta$ 를 바꿔도 변하지 않아 gradient 에서 0 이 된다. 그래서 남는 것은 step 마다 고른 action 의 log-probability gradient
+        뿐이다. 이동 확률이 1 이 아니어도, episode 가 길어도 성립한다.
+    - question: |
+        episode 의 step $t$ 에서 고른 action 의 log-probability gradient 에, episode 전체 return 대신 그 뒤에 받는 reward 만 더한
+        reward-to-go $G_t$ 를 곱하는 이유로 맞는 것은?
+      choices:
+        - 'step $t$ 의 action 은 그 전에 이미 받은 reward 를 바꿀 수 없어서, 상관없는 reward 를 빼도 기댓값은 그대로이고 흔들림만 줄기 때문이다'
+        - '앞쪽 reward 는 언제나 0 이기 때문이다'
+        - '뒤쪽 reward 가 앞쪽 reward 보다 언제나 크기 때문이다'
+        - 'gradient 의 기댓값을 일부러 바꾸기 위해서다'
+      answer: 0
+      explanation: |
+        step 5 에서 무엇을 고르든 step 1 에서 받은 reward 는 이미 정해져 있다. 그런 reward 를 weight 에 넣어 봐야 action 의 좋고 나쁨과
+        상관없는 운만 더할 뿐이라, 빼도 gradient 의 기댓값은 같고 variance 는 준다. 앞쪽 reward 의 크기와는 관계가 없다.
+    - question: |
+        CartPole 처럼 막대가 서 있는 동안 step 마다 reward 1 을 받는 episode 에서 reward-to-go $G_t$ 를 weight 로 쓴다. 한 episode 안에서
+        weight 가 가장 큰 step 은?
+      choices:
+        - '마지막 step'
+        - '모든 step 이 같다'
+        - 'episode 의 첫 step. 그 뒤로 받을 reward 가 가장 많기 때문이다'
+        - '가운데 step'
+      answer: 2
+      explanation: |
+        $G_t$ 는 step $t$ 이후에 받는 reward 를 discount 해 더한 값이라, 뒤에 남은 step 이 많은 앞쪽일수록 크다. 마지막 step 은 reward 하나만
+        남아 가장 작다. 그래서 막대를 오래 세운 episode 의 앞쪽 action 일수록 확률이 많이 오른다.
+
+- topic: variance
+  title: gradient 추정의 variance
+  variants:
+    - question: |
+        두 숫자 묶음 $\{1, 3\}$ 과 $\{-2, 6\}$ 은 평균이 모두 2 다. variance 에 대해 맞는 것은?
+      choices:
+        - '평균이 같으므로 variance 도 같다'
+        - '$\{1, 3\}$ 의 variance 가 더 크다'
+        - 'variance 는 평균과 같은 값이다'
+        - '$\{-2, 6\}$ 이 평균에서 더 멀리 퍼져 있어 variance 가 더 크다'
+      answer: 3
+      explanation: |
+        variance 는 평균에서 떨어진 거리를 제곱해 평균한 값으로, 숫자들이 얼마나 퍼져 있는지를 잰다. $\{1, 3\}$ 은 평균에서 1 씩,
+        $\{-2, 6\}$ 은 4 씩 떨어져 있으므로 뒤의 variance 가 훨씬 크다. 평균이 같아도 퍼진 정도는 다를 수 있다.
+    - question: |
+        REINFORCE 의 gradient 추정이 unbiased 인데도 학습이 자주 흔들리는 이유로 맞는 것은?
+      choices:
+        - '추정의 기댓값이 진짜 gradient 와 다르기 때문이다'
+        - '추정 한 번의 variance 가 커서, 한 번 한 번의 값이 진짜 gradient 에서 멀리 떨어지고 부호까지 틀리기도 하기 때문이다'
+        - 'learning rate 가 0 이기 때문이다'
+        - 'policy 가 확률을 내지 않기 때문이다'
+      answer: 1
+      explanation: |
+        unbiased 라서 평균은 맞지만, 한 번의 추정은 어느 action 을 골랐고 운이 어땠는지에 따라 크게 흩어진다. 그래서 sample 하나로 고치면
+        몇 step 동안 거꾸로 가기도 한다. 평균이 맞는 것과 한 번 한 번이 믿을 만한 것은 다른 문제이고, 후자를 재는 값이 variance 다.
+    - question: |
+        같은 parameter 에서 sample 을 모아 gradient 추정을 평균하는 batch 의 크기를 4 배로 늘리면 어떻게 되는가?
+      choices:
+        - '추정의 기댓값은 그대로이고 variance 는 약 4 분의 1 이 되지만, 그만큼 sample 을 더 모아야 한다'
+        - '추정의 기댓값이 4 배가 된다'
+        - 'variance 가 4 배가 된다'
+        - 'variance 가 0 이 된다'
+      answer: 0
+      explanation: |
+        서로 다른 sample 의 운이 평균하면서 일부 지워지므로, $N$ 개를 평균하면 variance 가 $\frac{1}{N}$ 배가 된다. 평균의 기댓값은 하나일
+        때와 같다. 다만 batch 를 키워도 variance 가 완전히 0 이 되지는 않고, 로봇에서 sample 하나는 실제로 움직여 본 episode 하나라서
+        모으는 데 시간이 든다.
+
+- topic: baseline
+  title: baseline
+  variants:
+    - question: |
+        reward 가 모두 양수인 문제에서 REINFORCE 의 reward 에 평균적인 reward $b$ 를 빼서 $(r - b)$ 를 weight 로 쓰면 무엇이 달라지는가?
+      choices:
+        - '모든 action 의 확률이 함께 올라간다'
+        - 'reward 가 평균보다 낮게 나온 action 은 확률이 내려가고, 높게 나온 action 은 올라간다'
+        - '학습의 평균적인 방향이 반대로 바뀐다'
+        - 'reward 가 평균보다 높아도 확률이 내려간다'
+      answer: 1
+      explanation: |
+        reward 가 모두 양수이면 고른 action 은 무엇이든 확률이 올라, 평균보다 못한 action 도 오른다. baseline 을 빼면 기준보다 나은
+        결과만 양수 weight 가 되어 확률을 올리고, 못한 결과는 음수 weight 가 되어 확률을 내린다. 평균적인 학습 방향은 바뀌지 않는다.
+    - question: |
+        action 과 상관없는 baseline $b$ 를 빼도 gradient 추정의 기댓값이 그대로인 이유로 맞는 것은?
+      choices:
+        - '$b$ 가 언제나 0 이기 때문이다'
+        - 'reward 의 평균이 언제나 0 이기 때문이다'
+        - 'log-probability gradient 의 기댓값 $\mathbb E[\nabla_\theta \ln \pi_\theta(a)]$ 가 0 이라서, 상수 $b$ 를 곱한 항의 기댓값도 0 이기 때문이다. 확률을 모두 더하면 늘 1 이라 그 gradient 가 0 이다'
+        - 'baseline 은 variance 와 기댓값을 함께 줄이기 때문이다'
+      answer: 2
+      explanation: |
+        $\mathbb E[\nabla_\theta \ln \pi_\theta(a)] = \sum_a \nabla_\theta \pi_\theta(a) = \nabla_\theta \sum_a \pi_\theta(a) = \nabla_\theta 1 = 0$
+        이다. 한 action 의 확률이 오르면 다른 action 의 확률이 그만큼 내려가기 때문이다. 그래서 $b \times 0 = 0$ 이 되어 baseline 은 기댓값을
+        바꾸지 않고 variance 만 줄인다. "baseline 을 빼면 학습 방향이 바뀐다" 는 흔한 오해다.
+    - question: |
+        action 마다 다른 baseline, 예를 들어 각 action 의 기댓값을 그대로 그 action 의 baseline 으로 빼면 어떻게 되는가?
+      choices:
+        - 'variance 만 줄고 기댓값은 그대로다'
+        - '언제나 더 빨리 수렴한다'
+        - '아무 효과가 없다'
+        - 'gradient 의 기댓값이 바뀌어, "어느 action 이 다른 action 보다 나은가" 라는 정보가 지워질 수 있다'
+      answer: 3
+      explanation: |
+        baseline 이 기댓값을 바꾸지 않는 계산은 $b$ 를 기댓값 밖으로 꺼낼 수 있을 때, 곧 $b$ 가 모든 action 에 같을 때만 성립한다. action
+        마다의 기댓값을 빼면 모든 action 의 weight 가 평균적으로 0 이 되어, 더 좋은 action 이 있어도 평균적으로 $\theta$ 가 움직이지 않는다.
+        그래서 baseline 은 action 과 상관없는 값이어야 한다.
+
+- topic: actor-critic
+  title: advantage 와 actor-critic
+  variants:
+    - question: |
+        여러 state 를 거치는 문제에서 baseline 으로 숫자 하나 대신 state 의 value $V(s_t)$ 를 쓰고, weight 를 $G_t - V(s_t)$ 로 두는 이유로
+        맞는 것은?
+      choices:
+        - 'state 마다 앞으로 받을 return 이 크게 달라서, "이 state 에서 평균보다 얼마나 더 받았나" 를 재려면 state 마다의 기준이 필요하기 때문이다'
+        - '$V(s_t)$ 는 고른 action 에 따라 달라져 action 의 우열을 더 잘 나타내기 때문이다'
+        - '$V(s_t)$ 를 빼면 gradient 의 기댓값이 커지기 때문이다'
+        - 'value 를 빼면 reward 를 몰라도 되기 때문이다'
+      answer: 0
+      explanation: |
+        막대가 똑바로 선 state 와 이미 많이 기운 state 는 앞으로 받을 return 이 크게 다르므로, 숫자 하나짜리 baseline 으로는 둘을 함께 맞출
+        수 없다. $V(s_t)$ 는 state 마다 다르지만 그 state 에서 고른 action 과는 상관없어 기댓값을 바꾸지 않는다. $G_t - V(s_t)$ 는 advantage
+        $Q(s, a) - V(s)$, 곧 action 이 그 state 의 평균보다 얼마나 나은지를 sample 로 추정한 값이 된다.
+    - question: |
+        actor-critic 은 advantage 를 $r_{t+1} + \gamma V_\phi(s_{t+1}) - V_\phi(s_t)$ 로 한 step 만에 추정한다. 이 값이 양수이면 actor 는
+        고른 action 의 확률을 어떻게 하는가?
+      choices:
+        - '내린다'
+        - '그대로 둔다'
+        - '올린다. action 을 한 뒤의 결과가 critic 이 원래 예상한 value 보다 나았다는 뜻이기 때문이다'
+        - '모든 action 의 확률을 같게 만든다'
+      answer: 2
+      explanation: |
+        $r_{t+1} + \gamma V_\phi(s_{t+1})$ 은 action 을 한 뒤 실제로 받은 reward 와 도착한 state 의 value 로 본 결과이고, $V_\phi(s_t)$ 는 action
+        을 하기 전의 예상이다. 결과가 예상보다 크면 advantage 가 양수라 그 action 의 확률을 올리고, 작으면 내린다. episode 가 끝나기를
+        기다리지 않고 step 마다 고칠 수 있다는 점이 REINFORCE 와 다르다.
+    - question: |
+        REINFORCE 의 $G_t$ 대신 actor-critic 의 한 step advantage 를 쓸 때의 bias 와 variance 를 바르게 비교한 것은?
+      choices:
+        - 'actor-critic 은 variance 도 크고 bias 도 크다'
+        - 'actor-critic 은 reward 하나와 critic 의 추정만 써서 variance 가 작지만, critic 이 틀린 만큼 bias 가 생긴다. 그래서 학습 초반의 엉터리 critic 은 policy 를 엉뚱한 쪽으로 끌 수 있다'
+        - 'critic 을 쓰면 언제나 bias 도 variance 도 줄어 더 좋다'
+        - '둘은 bias 와 variance 가 같다'
+      answer: 1
+      explanation: |
+        $G_t$ 는 실제로 받은 reward 의 합이라 bias 가 없지만 그 뒤의 모든 step 의 운이 섞여 variance 가 크다. 한 step advantage 는 그 운을
+        critic 의 추정으로 대신해 variance 가 작은 대신, critic 의 값이 틀리면 몇 번을 평균해도 사라지지 않는 치우침이 생긴다. 그래서 "critic
+        이 있으면 언제나 더 좋다" 는 오해이고, critic 이 정확해질수록 장점이 살아난다.

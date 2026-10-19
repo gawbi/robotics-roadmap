@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>가로축은 B 의 점수 θ, 세로축은 B 를 고를 확률. argmax 는 θ = 0 에서 0 에서 1 로 뛰는 계단이고, softmax 는 0.1192, 0.2689, 0.5, 0.7311, 0.8808 을 부드럽게 잇는 곡선이다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80.0" y1="260.0" x2="600.0" y2="260.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="264.0" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+  <line x1="80.0" y1="207.5" x2="600.0" y2="207.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="211.5" fill="#94a3b8" font-size="11" text-anchor="end">0.25</text>
+  <line x1="80.0" y1="155.0" x2="600.0" y2="155.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="159.0" fill="#94a3b8" font-size="11" text-anchor="end">0.5</text>
+  <line x1="80.0" y1="102.5" x2="600.0" y2="102.5" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="106.5" fill="#94a3b8" font-size="11" text-anchor="end">0.75</text>
+  <line x1="80.0" y1="50.0" x2="600.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="72.0" y="54.0" fill="#94a3b8" font-size="11" text-anchor="end">1</text>
+  <text x="80.0" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">-3</text>
+  <text x="166.7" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">-2</text>
+  <text x="253.3" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">-1</text>
+  <text x="340.0" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="426.7" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="513.3" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">2</text>
+  <text x="600.0" y="277.0" fill="#94a3b8" font-size="11" text-anchor="middle">3</text>
+  <line x1="80.0" y1="260.0" x2="600.0" y2="260.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80.0" y1="50.0" x2="80.0" y2="260.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="340.0" y="296.0" fill="#94a3b8" font-size="12" text-anchor="middle">B 의 점수 θ (A 의 점수는 0)</text>
+  <text x="80.0" y="40.0" fill="#94a3b8" font-size="12" text-anchor="start">B 를 고를 확률</text>
+  <path d="M80.0,260.0 L340.0,260.0 L340.0,50.0 L600.0,50.0" fill="none" stroke="#f87171" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <path d="M80.0,250.0 L84.3,249.6 L88.7,249.0 L93.0,248.5 L97.3,248.0 L101.7,247.4 L106.0,246.8 L110.3,246.1 L114.7,245.5 L119.0,244.8 L123.3,244.1 L127.7,243.3 L132.0,242.5 L136.3,241.7 L140.7,240.9 L145.0,240.0 L149.3,239.1 L153.7,238.1 L158.0,237.1 L162.3,236.0 L166.7,235.0 L171.0,233.8 L175.3,232.7 L179.7,231.5 L184.0,230.2 L188.3,228.9 L192.7,227.6 L197.0,226.2 L201.3,224.7 L205.7,223.2 L210.0,221.7 L214.3,220.1 L218.7,218.5 L223.0,216.8 L227.3,215.0 L231.7,213.2 L236.0,211.4 L240.3,209.5 L244.7,207.6 L249.0,205.6 L253.3,203.5 L257.7,201.4 L262.0,199.3 L266.3,197.1 L270.7,194.9 L275.0,192.6 L279.3,190.3 L283.7,188.0 L288.0,185.6 L292.3,183.2 L296.7,180.7 L301.0,178.2 L305.3,175.7 L309.7,173.2 L314.0,170.6 L318.3,168.1 L322.7,165.5 L327.0,162.9 L331.3,160.2 L335.7,157.6 L340.0,155.0 L344.3,152.4 L348.7,149.8 L353.0,147.1 L357.3,144.5 L361.7,141.9 L366.0,139.4 L370.3,136.8 L374.7,134.3 L379.0,131.8 L383.3,129.3 L387.7,126.8 L392.0,124.4 L396.3,122.0 L400.7,119.7 L405.0,117.4 L409.3,115.1 L413.7,112.9 L418.0,110.7 L422.3,108.6 L426.7,106.5 L431.0,104.4 L435.3,102.4 L439.7,100.5 L444.0,98.6 L448.3,96.8 L452.7,95.0 L457.0,93.2 L461.3,91.5 L465.7,89.9 L470.0,88.3 L474.3,86.8 L478.7,85.3 L483.0,83.8 L487.3,82.4 L491.7,81.1 L496.0,79.8 L500.3,78.5 L504.7,77.3 L509.0,76.2 L513.3,75.0 L517.7,74.0 L522.0,72.9 L526.3,71.9 L530.7,70.9 L535.0,70.0 L539.3,69.1 L543.7,68.3 L548.0,67.5 L552.3,66.7 L556.7,65.9 L561.0,65.2 L565.3,64.5 L569.7,63.9 L574.0,63.2 L578.3,62.6 L582.7,62.0 L587.0,61.5 L591.3,61.0 L595.7,60.4 L600.0,60.0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="166.7" cy="235.0" r="4.5" fill="#38bdf8"/>
+  <text x="158.7" y="227.0" fill="#38bdf8" font-size="11" text-anchor="end">0.1192</text>
+  <circle cx="253.3" cy="203.5" r="4.5" fill="#38bdf8"/>
+  <text x="245.3" y="195.5" fill="#38bdf8" font-size="11" text-anchor="end">0.2689</text>
+  <circle cx="340.0" cy="155.0" r="4.5" fill="#38bdf8"/>
+  <text x="332.0" y="147.0" fill="#38bdf8" font-size="11" text-anchor="end">0.5</text>
+  <circle cx="426.7" cy="106.5" r="4.5" fill="#38bdf8"/>
+  <text x="434.7" y="124.5" fill="#38bdf8" font-size="11" text-anchor="start">0.7311</text>
+  <circle cx="513.3" cy="75.0" r="4.5" fill="#38bdf8"/>
+  <text x="521.3" y="93.0" fill="#38bdf8" font-size="11" text-anchor="start">0.8808</text>
+  <line x1="470.0" y1="200.0" x2="500.0" y2="200.0" stroke="#f87171" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="508.0" y="204.0" fill="#f87171" font-size="12" text-anchor="start">argmax</text>
+  <line x1="470.0" y1="222.0" x2="500.0" y2="222.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="508.0" y="226.0" fill="#38bdf8" font-size="12" text-anchor="start">softmax</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>target network 를 복사할 때마다 w̄ 가 바뀌는 모습. transition A 만 학습하면 1, 1.8, 3.24, 5.83 으로 1.8 배씩 커지고, buffer 에서 A 와 B 를 섞어 학습하면 1, 0.76, 0.674, 0.643, 0.631 로 0.625 에 다가간다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="70.0" y1="250.0" x2="460.0" y2="250.0" stroke="#475569" stroke-width="1"/>
+  <text x="64.0" y="254.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="70.0" y1="215.0" x2="460.0" y2="215.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="219.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="70.0" y1="180.0" x2="460.0" y2="180.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="184.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <line x1="70.0" y1="145.0" x2="460.0" y2="145.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="149.0" fill="#64748b" font-size="12" text-anchor="end">3</text>
+  <line x1="70.0" y1="110.0" x2="460.0" y2="110.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="114.0" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <line x1="70.0" y1="75.0" x2="460.0" y2="75.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="79.0" fill="#64748b" font-size="12" text-anchor="end">5</text>
+  <line x1="70.0" y1="40.0" x2="460.0" y2="40.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="44.0" fill="#64748b" font-size="12" text-anchor="end">6</text>
+  <text x="70.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="148.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <text x="226.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <text x="304.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <text x="382.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="460.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">5</text>
+  <line x1="70.0" y1="250.0" x2="460.0" y2="250.0" stroke="#475569" stroke-width="1"/>
+  <text x="265.0" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">복사 횟수</text>
+  <text x="64.0" y="28.0" fill="#94a3b8" font-size="12" text-anchor="start"><tspan text-decoration="overline">w</tspan></text>
+  <line x1="70.0" y1="228.1" x2="460.0" y2="228.1" stroke="#34d399" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <polyline points="70.0,215.0 148.0,187.0 226.0,136.6 304.0,45.9" fill="none" stroke="#f87171" stroke-width="2.2"/>
+  <circle cx="70.0" cy="215.0" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
+  <circle cx="148.0" cy="187.0" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
+  <circle cx="226.0" cy="136.6" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
+  <circle cx="304.0" cy="45.9" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
+  <polyline points="70.0,215.0 148.0,223.4 226.0,226.4 304.0,227.5 382.0,227.9 460.0,228.0" fill="none" stroke="#34d399" stroke-width="2.2"/>
+  <circle cx="70.0" cy="215.0" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="148.0" cy="223.4" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="226.0" cy="226.4" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="304.0" cy="227.5" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="382.0" cy="227.9" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="460.0" cy="228.0" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <text x="80.0" y="207.0" fill="#f87171" font-size="11" text-anchor="start">1</text>
+  <text x="158.0" y="179.0" fill="#f87171" font-size="11" text-anchor="start">1.8</text>
+  <text x="236.0" y="128.6" fill="#f87171" font-size="11" text-anchor="start">3.24</text>
+  <text x="314.0" y="37.9" fill="#f87171" font-size="11" text-anchor="start">5.83</text>
+  <text x="148.0" y="243.4" fill="#34d399" font-size="11" text-anchor="middle">0.76</text>
+  <text x="226.0" y="246.4" fill="#34d399" font-size="11" text-anchor="middle">0.674</text>
+  <rect x="480.0" y="60.0" width="145.0" height="150.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="492.0" y1="82.0" x2="512.0" y2="82.0" stroke="#f87171" stroke-width="2.5"/>
+  <text x="520.0" y="86.0" fill="#e2e8f0" font-size="12" text-anchor="start">A 만 학습</text>
+  <text x="520.0" y="104.0" fill="#94a3b8" font-size="11" text-anchor="start"><tspan text-decoration="overline">w</tspan> × 1.8</text>
+  <line x1="492.0" y1="130.0" x2="512.0" y2="130.0" stroke="#34d399" stroke-width="2.5"/>
+  <text x="520.0" y="134.0" fill="#e2e8f0" font-size="12" text-anchor="start">A 와 B 를 섞어</text>
+  <text x="520.0" y="152.0" fill="#94a3b8" font-size="11" text-anchor="start">(1.8<tspan text-decoration="overline">w</tspan> + 2) ÷ 5</text>
+  <line x1="492.0" y1="178.0" x2="512.0" y2="178.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="520.0" y="182.0" fill="#e2e8f0" font-size="12" text-anchor="start">0.625</text>
+</svg>

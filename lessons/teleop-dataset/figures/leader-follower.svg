@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>leader 의 어깨 20° 에 offset 5° 를 더해 follower 의 목표 각도 25° 를 만든다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40.0" y="200.0" width="60.0" height="14.0" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M70,200 L154.6,169.2 L224.6,179.2" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70.0" cy="200.0" r="6" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="154.6" cy="169.2" r="5" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M110,200 A40,40 0 0,0 107.6,186.3" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="70.0" y1="200.0" x2="140.0" y2="200.0" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="118.0" y="192.0" fill="#f59e0b" font-size="14" text-anchor="start">20°</text>
+  <text x="110.0" y="240.0" fill="#e2e8f0" font-size="14" text-anchor="middle">leader (사람이 움직인다)</text>
+  <rect x="350.0" y="200.0" width="60.0" height="14.0" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M380,200 L461.6,162.0 L531.6,172.0" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="380.0" cy="200.0" r="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="461.6" cy="162.0" r="5" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M420,200 A40,40 0 0,0 416.3,183.1" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="380.0" y1="200.0" x2="450.0" y2="200.0" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="428.0" y="192.0" fill="#38bdf8" font-size="14" text-anchor="start">25°</text>
+  <text x="420.0" y="240.0" fill="#e2e8f0" font-size="14" text-anchor="middle">follower (로봇)</text>
+  <rect x="240.0" y="120.0" width="110.0" height="56.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="295.0" y="143.5" fill="#e2e8f0" font-size="14" text-anchor="middle">+ offset 5°</text>
+  <text x="295.0" y="162.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">20 + 5 = 25</text>
+  <line x1="222.0" y1="148.0" x2="238.0" y2="148.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="352.0" y1="148.0" x2="372.0" y2="148.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300.0" y="280.0" fill="#94a3b8" font-size="12" text-anchor="middle">두 팔의 센서가 0° 로 읽는 자세가 5° 다르다. 관절마다 offset 을 한 번 재어 두고 더한다</text>
+</svg>

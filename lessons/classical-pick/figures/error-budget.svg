@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>위는 7 cm 로 벌린 손가락과 5 cm cube, 양쪽 여유 1 cm. 아래는 오차를 쌓은 막대. 인식 2 mm, calibration 3 mm, 실행 3 mm 의 합 8 mm 는 여유 10 mm 안이지만, 카메라가 2° 기울면 17 mm 가 더해져 25 mm 로 여유를 넘는다</title>
+  <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="360" y="32" fill="#e2e8f0" font-size="14" text-anchor="middle">위에서 본 손가락과 cube (1 cm = 30 px)</text>
+  <rect x="243" y="60" width="12" height="70" rx="2" fill="#94a3b8"/>
+  <rect x="465" y="60" width="12" height="70" rx="2" fill="#94a3b8"/>
+  <rect x="285" y="70" width="150" height="50" fill="#c0392b" stroke="#f87171" stroke-width="1.5"/>
+  <text x="360" y="100" fill="#fee2e2" font-size="13" text-anchor="middle">cube 5 cm</text>
+  <line x1="255" y1="146" x2="465" y2="146" stroke="#94a3b8"/><line x1="255" y1="140" x2="255" y2="152" stroke="#94a3b8"/><line x1="465" y1="140" x2="465" y2="152" stroke="#94a3b8"/>
+  <text x="360" y="166" fill="#94a3b8" font-size="12" text-anchor="middle">손가락 사이 7 cm</text>
+  <text x="270" y="56" fill="#34d399" font-size="12" text-anchor="middle">1 cm</text>
+  <text x="450" y="56" fill="#34d399" font-size="12" text-anchor="middle">1 cm</text>
+  <!-- bars: 1 mm = 12 px, origin x=150 -->
+  <text x="140" y="214" fill="#e2e8f0" font-size="13" text-anchor="end">보통 때</text>
+  <rect x="150" y="198" width="24" height="24" fill="#38bdf8"/>
+  <rect x="174" y="198" width="36" height="24" fill="#a78bfa"/>
+  <rect x="210" y="198" width="36" height="24" fill="#f59e0b"/>
+  <text x="282" y="215" fill="#34d399" font-size="13">8 mm  쥘 수 있다</text>
+  <text x="140" y="264" fill="#e2e8f0" font-size="13" text-anchor="end">카메라 2° 기울기</text>
+  <rect x="150" y="248" width="24" height="24" fill="#38bdf8"/>
+  <rect x="174" y="248" width="36" height="24" fill="#a78bfa"/>
+  <rect x="210" y="248" width="36" height="24" fill="#f59e0b"/>
+  <rect x="246" y="248" width="204" height="24" fill="#f87171"/>
+  <text x="460" y="265" fill="#f87171" font-size="13">25 mm  손가락이 걸린다</text>
+  <line x1="270" y1="186" x2="270" y2="284" stroke="#34d399" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="270" y="300" fill="#34d399" font-size="12" text-anchor="middle">여유 10 mm</text>
+  <rect x="150" y="322" width="14" height="14" fill="#38bdf8"/><text x="170" y="334" fill="#94a3b8" font-size="12">인식 2 mm</text>
+  <rect x="260" y="322" width="14" height="14" fill="#a78bfa"/><text x="280" y="334" fill="#94a3b8" font-size="12">calibration 3 mm</text>
+  <rect x="410" y="322" width="14" height="14" fill="#f59e0b"/><text x="430" y="334" fill="#94a3b8" font-size="12">실행 3 mm</text>
+  <rect x="520" y="322" width="14" height="14" fill="#f87171"/><text x="540" y="334" fill="#94a3b8" font-size="12">기울기 17 mm</text>
+  <text x="360" y="362" fill="#64748b" font-size="12" text-anchor="middle">기울기 오차: 314 cm × 2 ÷ 360 ≈ 1.7 cm (반지름 0.5 m)</text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 328" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>banana bandana 의 byte 14개가 merge 세 번으로 token 6개가 되는 과정. 두 번째 회차에는 횟수가 같은 쌍이 둘이라 먼저 나온 쌍을 고른다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="326" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="110" y="36" fill="#94a3b8" font-size="13" text-anchor="start">시작 · byte 하나가 token 하나</text>
+  <text x="24" y="66" fill="#e2e8f0" font-size="13" text-anchor="start">token 14개</text>
+  <rect x="111.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="125.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">b</text>
+  <rect x="141.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="155.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="171.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="185.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">n</text>
+  <rect x="201.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="215.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="231.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="245.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">n</text>
+  <rect x="261.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="275.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="291.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="321.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="335.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">b</text>
+  <rect x="351.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="381.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="395.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">n</text>
+  <rect x="411.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="425.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">d</text>
+  <rect x="441.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="455.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="471.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="485.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">n</text>
+  <rect x="501.5" y="46" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <text x="110" y="112" fill="#94a3b8" font-size="13" text-anchor="start">merge 1 · (a, n) 이 4번으로 가장 많다 → 256 = an</text>
+  <text x="24" y="142" fill="#e2e8f0" font-size="13" text-anchor="start">token 10개</text>
+  <rect x="111.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="125.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">b</text>
+  <rect x="141.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="170.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">an</text>
+  <rect x="201.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="230.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">an</text>
+  <rect x="261.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="275.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="291.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="321.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="335.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">b</text>
+  <rect x="351.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="380.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">an</text>
+  <rect x="411.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="425.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">d</text>
+  <rect x="441.5" y="122" width="57" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="470.0" y="142" fill="#38bdf8" font-size="14" text-anchor="middle">an</text>
+  <rect x="501.5" y="122" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <text x="110" y="188" fill="#94a3b8" font-size="13" text-anchor="start">merge 2 · (b, an) 과 (an, a) 가 2번으로 같다 → 먼저 나온 (b, an) → 257 = ban</text>
+  <text x="24" y="218" fill="#e2e8f0" font-size="13" text-anchor="start">token 8개</text>
+  <rect x="111.5" y="198" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="155.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">ban</text>
+  <rect x="201.5" y="198" width="57" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="230.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">an</text>
+  <rect x="261.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="275.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <rect x="291.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="321.5" y="198" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="365.0" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">ban</text>
+  <rect x="411.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="425.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">d</text>
+  <rect x="441.5" y="198" width="57" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="470.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">an</text>
+  <rect x="501.5" y="198" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="515.0" y="218" fill="#e2e8f0" font-size="14" text-anchor="middle">a</text>
+  <text x="110" y="264" fill="#94a3b8" font-size="13" text-anchor="start">merge 3 · (an, a) 가 2번 → 258 = ana</text>
+  <text x="24" y="294" fill="#e2e8f0" font-size="13" text-anchor="start">token 6개</text>
+  <rect x="111.5" y="274" width="87" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="155.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">ban</text>
+  <rect x="201.5" y="274" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="245.0" y="294" fill="#38bdf8" font-size="14" text-anchor="middle">ana</text>
+  <rect x="291.5" y="274" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="305.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">␣</text>
+  <rect x="321.5" y="274" width="87" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">ban</text>
+  <rect x="411.5" y="274" width="27" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="425.0" y="294" fill="#e2e8f0" font-size="14" text-anchor="middle">d</text>
+  <rect x="441.5" y="274" width="87" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="485.0" y="294" fill="#38bdf8" font-size="14" text-anchor="middle">ana</text>
+</svg>

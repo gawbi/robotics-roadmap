@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>online network 의 w 가 1.8 에 머무는 동안 복사본 w̄ 가 따라가는 모습. hard update 는 5 step 마다 통째로 복사해 계단처럼 뛰고, τ = 0.1 인 soft update 는 1, 1.08, 1.152 처럼 매 step 남은 거리의 10% 씩 다가간다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="70.0" y1="250.0" x2="460.0" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="254.0" fill="#64748b" font-size="12" text-anchor="end">0.8</text>
+  <line x1="70.0" y1="215.0" x2="460.0" y2="215.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="219.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="70.0" y1="180.0" x2="460.0" y2="180.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="184.0" fill="#64748b" font-size="12" text-anchor="end">1.2</text>
+  <line x1="70.0" y1="145.0" x2="460.0" y2="145.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="149.0" fill="#64748b" font-size="12" text-anchor="end">1.4</text>
+  <line x1="70.0" y1="110.0" x2="460.0" y2="110.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="114.0" fill="#64748b" font-size="12" text-anchor="end">1.6</text>
+  <line x1="70.0" y1="75.0" x2="460.0" y2="75.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="79.0" fill="#64748b" font-size="12" text-anchor="end">1.8</text>
+  <line x1="70.0" y1="40.0" x2="460.0" y2="40.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="44.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="70.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="109.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <text x="148.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <text x="187.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <text x="226.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="265.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">5</text>
+  <text x="304.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">6</text>
+  <text x="343.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">7</text>
+  <text x="382.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">8</text>
+  <text x="421.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">9</text>
+  <text x="460.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">10</text>
+  <line x1="70.0" y1="250.0" x2="460.0" y2="250.0" stroke="#475569" stroke-width="1"/>
+  <text x="265.0" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">step</text>
+  <text x="64.0" y="28.0" fill="#94a3b8" font-size="12" text-anchor="start"><tspan text-decoration="overline">w</tspan></text>
+  <line x1="70.0" y1="75.0" x2="460.0" y2="75.0" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4"/>
+  <polyline points="70.0,215.0 265.0,215.0 265.0,75.0 460.0,75.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+  <polyline points="70.0,215.0 109.0,201.0 148.0,188.4 187.0,177.1 226.0,166.9 265.0,157.7 304.0,149.4 343.0,142.0 382.0,135.3 421.0,129.2 460.0,123.8" fill="none" stroke="#34d399" stroke-width="2.2"/>
+  <circle cx="70.0" cy="215.0" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="109.0" cy="201.0" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="148.0" cy="188.4" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="187.0" cy="177.1" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="226.0" cy="166.9" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="265.0" cy="157.7" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="304.0" cy="149.4" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="343.0" cy="142.0" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="382.0" cy="135.3" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="421.0" cy="129.2" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="460.0" cy="123.8" r="3.5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <text x="105.0" y="191.0" fill="#34d399" font-size="11" text-anchor="middle">1.08</text>
+  <text x="144.0" y="178.4" fill="#34d399" font-size="11" text-anchor="middle">1.152</text>
+  <text x="183.0" y="167.1" fill="#34d399" font-size="11" text-anchor="middle">1.217</text>
+  <rect x="480.0" y="60.0" width="145.0" height="130.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="492.0" y1="82.0" x2="512.0" y2="82.0" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="520.0" y="86.0" fill="#e2e8f0" font-size="12" text-anchor="start">w = 1.8</text>
+  <line x1="492.0" y1="108.0" x2="512.0" y2="108.0" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="520.0" y="112.0" fill="#e2e8f0" font-size="12" text-anchor="start">hard update</text>
+  <text x="520.0" y="128.0" fill="#94a3b8" font-size="11" text-anchor="start">(5 step 마다 복사)</text>
+  <line x1="492.0" y1="154.0" x2="512.0" y2="154.0" stroke="#34d399" stroke-width="2.5"/>
+  <text x="520.0" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="start">soft update</text>
+  <text x="520.0" y="174.0" fill="#94a3b8" font-size="11" text-anchor="start">(τ = 0.1)</text>
+  <text x="550.0" y="230.0" fill="#34d399" font-size="12" text-anchor="middle"><tspan text-decoration="overline">w</tspan> ← τ·w + (1 − τ)·<tspan text-decoration="overline">w</tspan></text>
+  <text x="550.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.1 × 1.8 + 0.9 × 1</text>
+  <text x="550.0" y="270.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 1.08</text>
+</svg>

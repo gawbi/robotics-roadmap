@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>training loop 의 한 step 여섯 단계와 autograd 가 맡는 부분</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="30.0" y="50.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="120.0" y="80.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1. mini-batch 꺼내기</text>
+  <text x="120.0" y="103.0" fill="#94a3b8" font-size="12" text-anchor="middle">사진 100 장 + label</text>
+  <rect x="270.0" y="50.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="360.0" y="80.0" fill="#e2e8f0" font-size="15" text-anchor="middle">2. forward</text>
+  <text x="360.0" y="103.0" fill="#f59e0b" font-size="12" text-anchor="middle">logits 계산 · graph 기록</text>
+  <rect x="510.0" y="50.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="600.0" y="80.0" fill="#e2e8f0" font-size="15" text-anchor="middle">3. loss 계산</text>
+  <text x="600.0" y="103.0" fill="#94a3b8" font-size="12" text-anchor="middle">cross-entropy 평균</text>
+  <rect x="510.0" y="190.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="600.0" y="220.0" fill="#e2e8f0" font-size="15" text-anchor="middle">4. gradient 를 0 으로</text>
+  <text x="600.0" y="243.0" fill="#94a3b8" font-size="12" text-anchor="middle">지난 step 의 값 지우기</text>
+  <rect x="270.0" y="190.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="360.0" y="220.0" fill="#e2e8f0" font-size="15" text-anchor="middle">5. backward</text>
+  <text x="360.0" y="243.0" fill="#f59e0b" font-size="12" text-anchor="middle">parameter 의 gradient</text>
+  <rect x="30.0" y="190.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="120.0" y="220.0" fill="#e2e8f0" font-size="15" text-anchor="middle">6. parameter 고치기</text>
+  <text x="120.0" y="243.0" fill="#38bdf8" font-size="12" text-anchor="middle">optimizer (SGD·Adam)</text>
+  <line x1="210.0" y1="85.0" x2="268.0" y2="85.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="450.0" y1="85.0" x2="508.0" y2="85.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="600.0" y1="120.0" x2="600.0" y2="188.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="508.0" y1="225.0" x2="452.0" y2="225.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="268.0" y1="225.0" x2="212.0" y2="225.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <line x1="120.0" y1="188.0" x2="120.0" y2="122.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <text x="90.0" y="155.0" fill="#94a3b8" font-size="11" text-anchor="end">다음 step</text>
+  <rect x="262.0" y="40.0" width="196.0" height="262.0" rx="12" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="360.0" y="292.0" fill="#f59e0b" font-size="13" text-anchor="middle">autograd</text>
+  <text x="360.0" y="330.0" fill="#94a3b8" font-size="13" text-anchor="middle">autograd: forward 중 graph 기록 + backward 로 gradient 계산</text>
+  <text x="360.0" y="352.0" fill="#94a3b8" font-size="13" text-anchor="middle">optimizer: 저장된 gradient 를 읽어 parameter 를 고침.  데이터를 한 바퀴 돌면 epoch 하나</text>
+</svg>

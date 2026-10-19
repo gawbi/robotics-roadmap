@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 295" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>성공률 80% 를 시도 10, 25, 100, 400 번으로 얻었을 때의 Wilson 95% 구간. 시도를 4 배 늘릴 때마다 구간 길이가 대략 절반이 된다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="293" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="130.0" y1="40" x2="130.0" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="130.0" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">40%</text>
+  <line x1="208.33333333333331" y1="40" x2="208.33333333333331" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="208.33333333333331" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">50%</text>
+  <line x1="286.66666666666663" y1="40" x2="286.66666666666663" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="286.66666666666663" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">60%</text>
+  <line x1="365.0" y1="40" x2="365.0" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="365.0" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">70%</text>
+  <line x1="443.3333333333333" y1="40" x2="443.3333333333333" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="443.3333333333333" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">80%</text>
+  <line x1="521.6666666666667" y1="40" x2="521.6666666666667" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="521.6666666666667" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">90%</text>
+  <line x1="600.0" y1="40" x2="600.0" y2="230" stroke="#1e293b" stroke-width="1"/>
+  <text x="600.0" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">100%</text>
+  <line x1="443.3333333333333" y1="36" x2="443.3333333333333" y2="230" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="443.3333333333333" y="30" fill="#f59e0b" font-size="12.5" text-anchor="middle">어림한 성공률 80%</text>
+  <text x="120" y="74" fill="#e2e8f0" font-size="13" text-anchor="end">10 번 (8 성공)</text>
+  <rect x="200.5" y="60" width="354.85" height="18" rx="4" fill="#38bdf8" fill-opacity="0.75"/>
+  <circle cx="443.3333333333333" cy="69" r="4" fill="#f59e0b"/>
+  <text x="194.5" y="74" fill="#38bdf8" font-size="12" text-anchor="end">49%</text>
+  <text x="561.35" y="74" fill="#38bdf8" font-size="12" text-anchor="start">94%</text>
+  <text x="120" y="118" fill="#e2e8f0" font-size="13" text-anchor="end">25 번 (20 성공)</text>
+  <rect x="293.7166666666667" y="104" width="236.5666666666666" height="18" rx="4" fill="#38bdf8" fill-opacity="0.75"/>
+  <circle cx="443.3333333333333" cy="113" r="4" fill="#f59e0b"/>
+  <text x="287.7166666666667" y="118" fill="#38bdf8" font-size="12" text-anchor="end">61%</text>
+  <text x="536.2833333333333" y="118" fill="#38bdf8" font-size="12" text-anchor="start">91%</text>
+  <text x="120" y="162" fill="#e2e8f0" font-size="13" text-anchor="end">100 번 (80 성공)</text>
+  <rect x="373.6166666666667" y="148" width="122.19999999999999" height="18" rx="4" fill="#38bdf8" fill-opacity="0.75"/>
+  <circle cx="443.3333333333333" cy="157" r="4" fill="#f59e0b"/>
+  <text x="367.6166666666667" y="162" fill="#38bdf8" font-size="12" text-anchor="end">71%</text>
+  <text x="501.81666666666666" y="162" fill="#38bdf8" font-size="12" text-anchor="start">87%</text>
+  <text x="120" y="206" fill="#e2e8f0" font-size="13" text-anchor="end">400 번 (320 성공)</text>
+  <rect x="410.43333333333334" y="192" width="61.09999999999991" height="18" rx="4" fill="#38bdf8" fill-opacity="0.75"/>
+  <circle cx="443.3333333333333" cy="201" r="4" fill="#f59e0b"/>
+  <text x="404.43333333333334" y="206" fill="#38bdf8" font-size="12" text-anchor="end">76%</text>
+  <text x="477.53333333333325" y="206" fill="#38bdf8" font-size="12" text-anchor="start">84%</text>
+  <text x="320" y="278" fill="#94a3b8" font-size="12.5" text-anchor="middle">시도를 4 배로 늘릴 때마다 구간의 길이가 대략 절반이 된다 (Wilson 95% 구간)</text>
+</svg>

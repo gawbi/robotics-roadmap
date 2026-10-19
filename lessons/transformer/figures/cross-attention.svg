@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>숫자열 뒤집기에서 cross-attention weight 의 모양. 출력 4 1 3 의 각 위치가 입력 3 1 4 의 반대쪽 위치를 진하게 본다</title>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="418" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="248.0" y="40.0" fill="#38bdf8" font-size="13" text-anchor="middle">encoder 의 입력 위치</text>
+  <text x="176.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">1번째: 3</text>
+  <text x="248.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">2번째: 1</text>
+  <text x="320.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">3번째: 4</text>
+  <text x="30.0" y="190.0" fill="#f59e0b" font-size="13" text-anchor="start">decoder 가</text>
+  <text x="30.0" y="208.0" fill="#f59e0b" font-size="13" text-anchor="start">고르는 token</text>
+  <text x="128.0" y="131.0" fill="#f59e0b" font-size="14" text-anchor="end">4</text>
+  <rect x="140.0" y="90.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <rect x="212.0" y="90.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <rect x="284.0" y="90.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.85" stroke="#34d399" stroke-width="1"/>
+  <text x="128.0" y="203.0" fill="#f59e0b" font-size="14" text-anchor="end">1</text>
+  <rect x="140.0" y="162.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <rect x="212.0" y="162.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.85" stroke="#34d399" stroke-width="1"/>
+  <rect x="284.0" y="162.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <text x="128.0" y="275.0" fill="#f59e0b" font-size="14" text-anchor="end">3</text>
+  <rect x="140.0" y="234.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.85" stroke="#34d399" stroke-width="1"/>
+  <rect x="212.0" y="234.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <rect x="284.0" y="234.0" width="68.0" height="68.0" rx="4" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+  <text x="248.0" y="330.0" fill="#94a3b8" font-size="12" text-anchor="middle">진한 칸: weight 가 큰 자리</text>
+</svg>

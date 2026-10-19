@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>λ 가 0, 0.5, 1 일 때 δ₀ 부터 δ₃ 에 주는 몫. λ = 0 이면 δ₀ 에만 1, λ = 0.5 이면 1, 0.5, 0.25, 0.125, λ = 1 이면 모두 1 이고, step 0 의 advantage 는 각각 1, 1.125, 1 이다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="340.0" y="32.0" fill="#e2e8f0" font-size="13" text-anchor="middle">δ = (δ₀, δ₁, δ₂, δ₃) = (1, 0, 1, −1),  γ = 1</text>
+  <rect x="30.0" y="50.0" width="200.0" height="262.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="130.0" y="74.0" fill="#38bdf8" font-size="14" text-anchor="middle">λ = 0</text>
+  <line x1="44.0" y1="220.0" x2="216.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="52.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <text x="67.0" y="84.0" fill="#38bdf8" font-size="11" text-anchor="middle">1</text>
+  <text x="67.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₀</text>
+  <rect x="94.0" y="218.5" width="30.0" height="1.5" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <text x="109.0" y="212.5" fill="#38bdf8" font-size="11" text-anchor="middle">0</text>
+  <text x="109.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₁</text>
+  <rect x="136.0" y="218.5" width="30.0" height="1.5" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <text x="151.0" y="212.5" fill="#38bdf8" font-size="11" text-anchor="middle">0</text>
+  <text x="151.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₂</text>
+  <rect x="178.0" y="218.5" width="30.0" height="1.5" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <text x="193.0" y="212.5" fill="#38bdf8" font-size="11" text-anchor="middle">0</text>
+  <text x="193.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₃</text>
+  <text x="130.0" y="262.0" fill="#94a3b8" font-size="11" text-anchor="middle">Â₀ = 1×1</text>
+  <text x="130.0" y="290.0" fill="#38bdf8" font-size="14" text-anchor="middle">Â₀ = 1</text>
+  <rect x="245.0" y="50.0" width="200.0" height="262.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="345.0" y="74.0" fill="#34d399" font-size="14" text-anchor="middle">λ = 0.5</text>
+  <line x1="259.0" y1="220.0" x2="431.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="267.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#34d399" fill-opacity="0.6" stroke="#34d399" stroke-width="1"/>
+  <text x="282.0" y="84.0" fill="#34d399" font-size="11" text-anchor="middle">1</text>
+  <text x="282.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₀</text>
+  <rect x="309.0" y="155.0" width="30.0" height="65.0" rx="2" fill="#34d399" fill-opacity="0.6" stroke="#34d399" stroke-width="1"/>
+  <text x="324.0" y="149.0" fill="#34d399" font-size="11" text-anchor="middle">0.5</text>
+  <text x="324.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₁</text>
+  <rect x="351.0" y="187.5" width="30.0" height="32.5" rx="2" fill="#34d399" fill-opacity="0.6" stroke="#34d399" stroke-width="1"/>
+  <text x="366.0" y="181.5" fill="#34d399" font-size="11" text-anchor="middle">0.25</text>
+  <text x="366.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₂</text>
+  <rect x="393.0" y="203.8" width="30.0" height="16.2" rx="2" fill="#34d399" fill-opacity="0.6" stroke="#34d399" stroke-width="1"/>
+  <text x="408.0" y="197.8" fill="#34d399" font-size="11" text-anchor="middle">0.125</text>
+  <text x="408.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₃</text>
+  <text x="345.0" y="262.0" fill="#94a3b8" font-size="11" text-anchor="middle">Â₀ = 1 + 0 + 0.25 − 0.125</text>
+  <text x="345.0" y="290.0" fill="#34d399" font-size="14" text-anchor="middle">Â₀ = 1.125</text>
+  <rect x="460.0" y="50.0" width="200.0" height="262.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="560.0" y="74.0" fill="#f59e0b" font-size="14" text-anchor="middle">λ = 1</text>
+  <line x1="474.0" y1="220.0" x2="646.0" y2="220.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="482.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <text x="497.0" y="84.0" fill="#f59e0b" font-size="11" text-anchor="middle">1</text>
+  <text x="497.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₀</text>
+  <rect x="524.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <text x="539.0" y="84.0" fill="#f59e0b" font-size="11" text-anchor="middle">1</text>
+  <text x="539.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₁</text>
+  <rect x="566.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <text x="581.0" y="84.0" fill="#f59e0b" font-size="11" text-anchor="middle">1</text>
+  <text x="581.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₂</text>
+  <rect x="608.0" y="90.0" width="30.0" height="130.0" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <text x="623.0" y="84.0" fill="#f59e0b" font-size="11" text-anchor="middle">1</text>
+  <text x="623.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">δ₃</text>
+  <text x="560.0" y="262.0" fill="#94a3b8" font-size="11" text-anchor="middle">Â₀ = 1×1 + 1×0 + 1×1 + 1×(−1)</text>
+  <text x="560.0" y="290.0" fill="#f59e0b" font-size="14" text-anchor="middle">Â₀ = 1</text>
+</svg>

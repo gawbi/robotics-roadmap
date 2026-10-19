@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>θ_old = 0 의 옛 policy(A 0.5, B 0.5)와 θ = 0.5 의 새 policy(A 0.3775, B 0.6225)를 나란히 놓은 막대. B 의 ratio 는 1.2449, A 의 ratio 는 0.7551 이다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="60.0" y1="230.0" x2="600.0" y2="230.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60.0" y1="110.0" x2="600.0" y2="110.0" stroke="#475569" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="56.0" y="114.0" fill="#94a3b8" font-size="11" text-anchor="end">0.5</text>
+  <text x="56.0" y="234.0" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+  <rect x="70" y="26" width="12" height="12" fill="#94a3b8" fill-opacity="0.35" stroke="#94a3b8"/>
+  <text x="88.0" y="37.0" fill="#94a3b8" font-size="12" text-anchor="start">옛 policy (θ_old = 0)</text>
+  <rect x="250" y="26" width="12" height="12" fill="#e2e8f0" fill-opacity="0.15" stroke="#e2e8f0"/>
+  <text x="268.0" y="37.0" fill="#e2e8f0" font-size="12" text-anchor="start">새 policy (θ = 0.5)</text>
+  <rect x="120" y="110.0" width="60" height="120.0" rx="2" fill="#94a3b8" fill-opacity="0.35" stroke="#94a3b8"/>
+  <text x="150.0" y="104.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
+  <rect x="195.0" y="139.4" width="60.0" height="90.6" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <text x="225.0" y="133.4" fill="#38bdf8" font-size="12" text-anchor="middle">0.3775</text>
+  <text x="187.0" y="248.0" fill="#e2e8f0" font-size="13" text-anchor="middle">action A</text>
+  <text x="187.0" y="272.0" fill="#38bdf8" font-size="13" text-anchor="middle">ratio = 0.3775 ÷ 0.5 = 0.7551</text>
+  <rect x="370" y="110.0" width="60" height="120.0" rx="2" fill="#94a3b8" fill-opacity="0.35" stroke="#94a3b8"/>
+  <text x="400.0" y="104.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
+  <rect x="445.0" y="80.6" width="60.0" height="149.4" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <text x="475.0" y="74.6" fill="#f59e0b" font-size="12" text-anchor="middle">0.6225</text>
+  <text x="437.0" y="248.0" fill="#e2e8f0" font-size="13" text-anchor="middle">action B</text>
+  <text x="437.0" y="272.0" fill="#f59e0b" font-size="13" text-anchor="middle">ratio = 0.6225 ÷ 0.5 = 1.2449</text>
+  <text x="320.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="middle">ratio 가 1 보다 크면 새 policy 가 그 action 을 더 자주, 작으면 덜 자주 고른다</text>
+</svg>

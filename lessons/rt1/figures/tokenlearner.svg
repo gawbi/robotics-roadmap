@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>TokenLearner 의 계산. 입력 token 4 개에 출력 token 마다 합이 1 인 weight 를 매겨 가중 평균하면 (2.8, 0.4) 와 (0.4, 2.8) 두 개가 된다. RT-1 은 같은 방식으로 81 개를 8 개로 줄인다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="758" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70.0" y="50.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="130.0" y="73.5" fill="#e2e8f0" font-size="13" text-anchor="middle">token (4, 0)</text>
+  <text x="130.0" y="91.5" fill="#94a3b8" font-size="12" text-anchor="middle">빨간 캔</text>
+  <rect x="240.0" y="50.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="300.0" y="73.5" fill="#e2e8f0" font-size="13" text-anchor="middle">token (0, 0)</text>
+  <text x="300.0" y="91.5" fill="#94a3b8" font-size="12" text-anchor="middle">책상</text>
+  <rect x="410.0" y="50.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="470.0" y="73.5" fill="#e2e8f0" font-size="13" text-anchor="middle">token (0, 0)</text>
+  <text x="470.0" y="91.5" fill="#94a3b8" font-size="12" text-anchor="middle">책상</text>
+  <rect x="580.0" y="50.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="640.0" y="73.5" fill="#e2e8f0" font-size="13" text-anchor="middle">token (0, 4)</text>
+  <text x="640.0" y="91.5" fill="#94a3b8" font-size="12" text-anchor="middle">초록 봉지</text>
+  <line x1="130.0" y1="106.0" x2="230.0" y2="214.0" stroke="#f87171" stroke-width="3"/>
+  <text x="183.0" y="154.6" fill="#f87171" font-size="12" text-anchor="start">0.7</text>
+  <line x1="300.0" y1="106.0" x2="230.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="470.0" y1="106.0" x2="230.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="640.0" y1="106.0" x2="230.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <rect x="140.0" y="218.0" width="180.0" height="56.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="230.0" y="241.6" fill="#e2e8f0" font-size="13" text-anchor="middle">출력 A (2.8, 0.4)</text>
+  <text x="230.0" y="259.6" fill="#94a3b8" font-size="12" text-anchor="middle">weight (0.7, 0.1, 0.1, 0.1)</text>
+  <line x1="130.0" y1="106.0" x2="530.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="300.0" y1="106.0" x2="530.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="470.0" y1="106.0" x2="530.0" y2="214.0" stroke="#475569" stroke-width="1.2"/>
+  <line x1="640.0" y1="106.0" x2="530.0" y2="214.0" stroke="#34d399" stroke-width="3"/>
+  <text x="582.5" y="154.6" fill="#34d399" font-size="12" text-anchor="end">0.7</text>
+  <rect x="440.0" y="218.0" width="180.0" height="56.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="530.0" y="241.6" fill="#e2e8f0" font-size="13" text-anchor="middle">출력 B (0.4, 2.8)</text>
+  <text x="530.0" y="259.6" fill="#94a3b8" font-size="12" text-anchor="middle">weight (0.1, 0.1, 0.1, 0.7)</text>
+  <text x="380.0" y="302.0" fill="#94a3b8" font-size="12" text-anchor="middle">출력 A = 0.7 × (4, 0) + 0.1 × (0, 0) + 0.1 × (0, 0) + 0.1 × (0, 4) = (2.8, 0.4)</text>
+  <text x="380.0" y="326.0" fill="#a78bfa" font-size="13" text-anchor="middle">RT-1: 사진 한 장의 token 81 개 → 8 개,  사진 6 장이면 486 개 → 48 개</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DQN 의 ε 계획. 전체 500k step 가운데 앞 250k step 동안 ε 을 1.0 에서 0.05 까지 곧게 줄이고 그 뒤로는 0.05 로 둔다. 125k step 에서 ε 은 0.525 다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="70.0" y1="240.0" x2="580.0" y2="240.0" stroke="#475569" stroke-width="1"/>
+  <text x="64.0" y="244.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="70.0" y1="190.0" x2="580.0" y2="190.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="194.0" fill="#64748b" font-size="12" text-anchor="end">0.25</text>
+  <line x1="70.0" y1="140.0" x2="580.0" y2="140.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="144.0" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
+  <line x1="70.0" y1="90.0" x2="580.0" y2="90.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="94.0" fill="#64748b" font-size="12" text-anchor="end">0.75</text>
+  <line x1="70.0" y1="40.0" x2="580.0" y2="40.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="64.0" y="44.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="70.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">0k</text>
+  <text x="197.5" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">125k</text>
+  <text x="325.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">250k</text>
+  <text x="452.5" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">375k</text>
+  <text x="580.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">500k</text>
+  <line x1="70.0" y1="240.0" x2="580.0" y2="240.0" stroke="#475569" stroke-width="1"/>
+  <text x="325.0" y="278.0" fill="#94a3b8" font-size="12" text-anchor="middle">step (k = 1000)</text>
+  <text x="64.0" y="28.0" fill="#94a3b8" font-size="12" text-anchor="start">ε</text>
+  <polyline points="70.0,40.0 325.0,230.0 580.0,230.0" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+  <line x1="197.5" y1="240.0" x2="197.5" y2="135.0" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="70.0" y1="135.0" x2="197.5" y2="135.0" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <circle cx="197.5" cy="135.0" r="5" fill="#38bdf8" stroke="none" stroke-width="2"/>
+  <text x="207.5" y="127.0" fill="#38bdf8" font-size="12" text-anchor="start">125k 에서 0.525</text>
+  <circle cx="325.0" cy="230.0" r="5" fill="#f59e0b" stroke="none" stroke-width="2"/>
+  <text x="331.0" y="218.0" fill="#f59e0b" font-size="12" text-anchor="start">250k 에서 0.05</text>
+  <text x="452.5" y="218.0" fill="#94a3b8" font-size="12" text-anchor="middle">그 뒤로 0.05</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>3D 점이 pixel 이 되는 세 단계. (0.1, −0.05, 1.0) 은 Z 로 나눠 (0.1, −0.05), 500 을 곱해 (50, −25), (320, 240) 을 더해 (370, 215) 가 된다. 아랫줄은 (−0.2, 0.1, 2.0) 이 (270, 265) 가 되는 같은 계산이다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+  </defs>
+  <rect x="1" y="1" width="678" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="85" y="40" fill="#94a3b8" font-size="13" text-anchor="middle">camera frame 의 점 (m)</text>
+  <text x="265" y="40" fill="#f59e0b" font-size="13" text-anchor="middle">① depth Z 로 나누기</text>
+  <text x="435" y="40" fill="#f59e0b" font-size="13" text-anchor="middle">② f = 500 곱하기</text>
+  <text x="605" y="40" fill="#f59e0b" font-size="13" text-anchor="middle">③ (320, 240) 더하기</text>
+  <rect x="16" y="60" width="138" height="50" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="85" y="91" fill="#e2e8f0" font-size="15" text-anchor="middle">(0.1, −0.05, 1.0)</text>
+  <line x1="156" y1="85" x2="206" y2="85" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="60" width="110" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="265" y="91" fill="#e2e8f0" font-size="15" text-anchor="middle">(0.1, −0.05)</text>
+  <line x1="322" y1="85" x2="376" y2="85" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="380" y="60" width="110" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="435" y="91" fill="#e2e8f0" font-size="15" text-anchor="middle">(50, −25)</text>
+  <line x1="492" y1="85" x2="546" y2="85" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550" y="60" width="110" height="50" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="605" y="91" fill="#e2e8f0" font-size="15" text-anchor="middle">(370, 215)</text>
+  <rect x="16" y="150" width="138" height="50" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="85" y="181" fill="#e2e8f0" font-size="15" text-anchor="middle">(−0.2, 0.1, 2.0)</text>
+  <line x1="156" y1="175" x2="206" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="150" width="110" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="265" y="181" fill="#e2e8f0" font-size="15" text-anchor="middle">(−0.1, 0.05)</text>
+  <line x1="322" y1="175" x2="376" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="380" y="150" width="110" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="435" y="181" fill="#e2e8f0" font-size="15" text-anchor="middle">(−50, 25)</text>
+  <line x1="492" y1="175" x2="546" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550" y="150" width="110" height="50" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="605" y="181" fill="#e2e8f0" font-size="15" text-anchor="middle">(270, 265)</text>
+  <text x="265" y="228" fill="#94a3b8" font-size="12" text-anchor="middle">normalized coordinates</text>
+  <text x="435" y="228" fill="#94a3b8" font-size="12" text-anchor="middle">가운데 기준 pixel 수</text>
+  <text x="605" y="228" fill="#34d399" font-size="12" text-anchor="middle">pixel 좌표 (u, v)</text>
+  <text x="340" y="254" fill="#64748b" font-size="12" text-anchor="middle">f_x = f_y = 500,  (c_x, c_y) = (320, 240)</text>
+</svg>

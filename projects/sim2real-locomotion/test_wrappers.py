@@ -1,1 +1,0 @@
-"""wrapper 의 test. set_params(1, 1, 1)·latency 0·noise 0 으로 둔 wrapper 환경이 같은 seed·같은 action 열에서 원래 Ant-v5 와 똑같은 observation 을 내는지, reset 을 거듭해도 배율이 누적되지 않는지, latency k 에서 k step 전 action 이 적용되는지를 여기에 쓴다."""

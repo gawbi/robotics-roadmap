@@ -1,0 +1,319 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: world-model-definition
+  title: world model 의 뜻과 model-based RL
+  variants:
+    - question: |
+        다음 중 world model 이라고 부를 수 있는 것은?
+      choices:
+        - '카메라 그림과 "컵" 이라는 단어를 받아 그림 속 컵의 위치에 상자를 치는 모델'
+        - '방 전체에 고정해 둔 기준 좌표계'
+        - '그림을 받아 그림 속 사람 수를 세는 모델'
+        - '로봇 팔 사진과 "1 cm 위로" 라는 행동을 받아 잠시 뒤의 사진을 예측하는 모델'
+      answer: 3
+      explanation: |
+        world model 은 지금 상태와 행동을 받아 다음 상태를 예측하므로, 입력에 행동이 있고 출력이 미래다. 물체 위치에 상자를 치거나
+        사람 수를 세는 모델은 지금 그림에 대해서만 답하고 행동도 받지 않는다. 기준 좌표계(world frame)는 이름에 world 가 들어갈 뿐
+        예측하는 모델이 아니다.
+    - question: |
+        model-free RL 과 model-based RL 의 차이로 옳은 것은?
+      choices:
+        - 'model-free RL 은 neural network 를 전혀 쓰지 않는다'
+        - 'model-free RL 은 환경이 어떻게 움직이는지 예측하는 model 없이 실제로 받은 reward 로 policy 를 고치고, model-based RL 은 그런 world model 을 배워서 쓴다'
+        - 'model-based RL 은 사람이 물리 식을 직접 적어 넣은 simulator 만 쓴다'
+        - '둘의 차이는 policy network 의 크기뿐이다'
+      answer: 1
+      explanation: |
+        여기서 model 은 환경의 model, 곧 world model 을 가리킨다. model-free 에도 policy network 는 있으므로 network 가 없다는 뜻이
+        아니다. world model 은 사람이 적은 물리 식이 아니라 데이터로 배우는 점에서 simulator 와 다르고, 차이는 network 크기가 아니라
+        환경을 예측하는 model 의 유무다.
+    - question: |
+        실제 로봇이 세 step 짜리 행동 후보 여러 개 중 가장 좋은 것을 고르려 한다. world model 이 있을 때의 이점으로 옳은 것은?
+      choices:
+        - '후보들을 world model 안의 계산으로 비교하고, 고른 행동만 실제로 하므로 실제 로봇을 움직이고 되돌려 놓는 일이 줄어든다'
+        - '후보를 실제로 모두 해 본 뒤 world model 로 결과를 기록해 둔다'
+        - 'world model 이 있으면 reward 없이도 가장 좋은 후보를 안다'
+        - 'world model 은 언제나 정확해서 실제로 해 본 결과와 똑같다'
+      answer: 0
+      explanation: |
+        world model 은 "이 행동을 하면 이렇게 된다" 를 예측하므로 후보 비교를 계산으로 끝내고, 실제 로봇은 고른 행동만 한다. 그래서
+        실제로 해 보고 되돌리는 시간과 위험이 줄어든다. 후보를 실제로 다 해 보면 world model 을 쓰는 의미가 없고, 좋고 나쁨을 가리려면
+        reward 예측이 필요하다. 배운 world model 은 조금씩 틀리므로 실제 결과와 늘 같지는 않다.
+
+- topic: latent
+  title: 그림을 latent 로 줄이는 encoder
+  variants:
+    - question: |
+        카메라 그림을 보고 행동하는 로봇의 world model 이 그림을 직접 예측하지 않고, encoder 로 그림을 작은 latent 로 줄인 뒤 latent 의
+        다음 값을 예측하는 이유는?
+      choices:
+        - '그림의 숫자 대부분은 배경처럼 행동과 상관없고 중요한 상태는 숫자 몇 개면 충분해서, 작은 latent 를 예측하는 편이 훨씬 쉽고 계산도 적기 때문이다'
+        - 'latent 로 줄이면 예측 오차가 rollout 을 따라 쌓이지 않기 때문이다'
+        - 'encoder 를 쓰면 reward model 이 필요 없어지기 때문이다'
+        - '그림은 행동을 받을 수 없는 형식이라서다'
+      answer: 0
+      explanation: |
+        만 개가 넘는 pixel 을 매번 예측하는 대신 수십 개 숫자만 예측하면 학습도 쉽고, 후보를 수만 번 rollout 하는 planning 에서 계산도
+        크게 준다. latent 에서도 예측 오차는 쌓이고, 행동의 좋고 나쁨을 알려면 reward model 이 여전히 필요하다. 그림 자체가 행동을 못
+        받는다는 것은 이유가 아니다.
+    - question: |
+        공이 레일 위 한 칸에 찍힌 그림 한 장만 encoder 에 넣으면 다음 장면을 제대로 예측하기 어렵다. 이유와 해결책으로 옳은 것은?
+      choices:
+        - '그림의 해상도가 낮아서다. 더 큰 그림을 쓰면 된다'
+        - 'encoder 가 학습되지 않아서다. encoder 를 더 오래 학습하면 된다'
+        - '그림 한 장에는 공이 어느 쪽으로 얼마나 빨리 움직이는지가 담기지 않으므로, 최근 그림 두 장을 함께 넣거나 지난 그림을 요약해 기억하는 network 로 latent 에 속도를 담는다'
+        - 'reward 가 없어서다. reward 를 그림에 함께 넣으면 된다'
+      answer: 2
+      explanation: |
+        같은 위치라도 오른쪽으로 가는 중인지, 왼쪽으로 가는 중인지, 멈춰 있는지에 따라 다음 위치가 다르다. 한 장의 그림에는 이 속도가
+        없으므로 해상도를 높이거나 encoder 를 오래 학습해도 해결되지 않는다. 연속한 그림이나 지난 그림의 요약이 있어야 속도를 알 수
+        있고, reward 는 속도 정보를 주지 않는다.
+    - question: |
+        latent world model 에서 encoder 와 decoder 의 역할을 바르게 설명한 것은?
+      choices:
+        - 'encoder 는 다음 latent 를 예측하고, decoder 는 reward 를 예측한다'
+        - 'encoder 는 행동을 고르고, decoder 는 행동을 실행한다'
+        - 'encoder 는 latent 를 그림으로 되살리고, decoder 는 그림을 latent 로 줄인다'
+        - 'encoder 는 카메라 그림을 latent 로 줄이고, decoder 는 latent 에서 그림을 되살려 사람이 예측을 볼 수 있게 한다'
+      answer: 3
+      explanation: |
+        encoder 는 그림을 숫자 몇 개의 latent 로 줄이고, decoder 는 그 반대로 latent 에서 그림을 되살린다. 다음 latent 를 예측하는 것은
+        dynamics model, reward 를 예측하는 것은 reward model 이다. 행동을 고르는 것은 planner 나 policy 의 일이고, 두 역할을 뒤집은
+        보기도 틀렸다.
+
+- topic: dynamics-rollout
+  title: dynamics model 과 상상 속 rollout
+  variants:
+    - question: |
+        latent world model 을 이루는 dynamics model 과 reward model 이 하는 일로 옳은 것은?
+      choices:
+        - 'dynamics model 은 그림을 latent 로 줄이고, reward model 은 행동을 고른다'
+        - 'dynamics model 은 행동을 고르고, reward model 은 행동을 실행한다'
+        - 'dynamics model 은 지금 latent 와 action 으로 다음 latent 를 예측하고, reward model 은 latent 로 그 step 의 reward 를 예측한다'
+        - '둘 다 사람이 물리 식으로 직접 적어 넣는 부분이다'
+      answer: 2
+      explanation: |
+        dynamics model 이 "이 행동을 하면 어디로 가는가" 를, reward model 이 "그 결과가 얼마나 좋은가" 를 맡아야 후보 행동을 비교할 수
+        있다. 그림을 줄이는 것은 encoder 이고, 행동을 고르는 것은 planner 다. 두 model 모두 실제로 모은 transition 을 맞히도록 데이터로
+        배운다.
+    - question: |
+        dynamics model 로 상상 속 rollout 을 할 때, 둘째 step 부터 dynamics model 에 넣는 latent 는 무엇일까?
+      choices:
+        - '바로 앞 step 에서 dynamics model 이 예측한 latent'
+        - '매 step 카메라로 새로 찍은 그림의 latent'
+        - '언제나 처음 step 의 latent'
+        - 'reward model 이 낸 reward'
+      answer: 0
+      explanation: |
+        상상 속 rollout 은 카메라를 처음 한 번만 쓰고, 그 뒤로는 자기가 낸 예측을 다시 입력으로 넣어 여러 step 앞을 내다본다. 매 step
+        새 그림을 쓰면 실제로 움직여야 하므로 상상이 아니고, 처음 latent 만 계속 넣으면 시간이 흐르지 않는다. reward 는 latent 대신
+        넣는 값이 아니다.
+    - question: |
+        중간에 실제 관측으로 고치지 않고 처음 정한 action 만 넣어 끝까지 계산하는 rollout 을 open-loop 라고 한다. 이와 대비되는
+        closed-loop 의 뜻으로 옳은 것은?
+      choices:
+        - 'rollout 을 처음 자리로 되돌아오게 하는 것'
+        - '매번 실제 결과(관측)를 다시 보고 다음 행동을 고치는 것'
+        - '행동 후보를 하나만 두는 것'
+        - 'world model 을 쓰지 않는 것'
+      answer: 1
+      explanation: |
+        loop 는 결과를 다시 보고 고치는 고리이고, closed-loop 는 그 고리가 닫혀 있어 실제 관측을 보며 행동을 고친다. PID 제어의 feedback
+        이나 매 step 다시 계획하는 MPC 가 그 예다. 출발점으로 돌아온다는 뜻이 아니고, 후보 수나 world model 사용 여부와도 상관이 없다.
+
+- topic: planning
+  title: 상상 속 planning 의 행동열 비교
+  variants:
+    - question: |
+        world model 로 하는 planning 의 과정을 바르게 설명한 것은?
+      choices:
+        - '행동열 후보 하나를 실제로 해 보고 reward 가 좋으면 계속 쓴다'
+        - '행동열 후보 여러 개를 world model 안에서 rollout 해 예측 reward 합이 가장 큰 후보를 고른다'
+        - 'world model 의 weight 를 gradient 로 고쳐 reward 를 키운다'
+        - '각 후보의 첫 step reward 만 비교한다'
+      answer: 1
+      explanation: |
+        planning 은 행동하기 전에 결과를 예측해 고르는 일이라, 후보들을 상상 속에서 끝까지 굴려 예측 reward 를 모두 더해 비교한다. 실제로
+        해 보는 것은 고른 뒤의 일이고, world model 의 weight 는 planning 중에 바뀌지 않는다. 첫 step 만 보면 나중에 크게 좋아지는 행동을
+        놓친다.
+    - question: |
+        planning 의 horizon $H$ 는 무엇을 뜻할까?
+      choices:
+        - '후보 행동열의 개수'
+        - 'world model 의 latent 크기'
+        - '실제 환경에서 한 episode 의 길이'
+        - '몇 step 앞까지 내다보며 예측 reward 를 더하는지'
+      answer: 3
+      explanation: |
+        horizon 은 행동열 하나의 길이, 곧 상상 속에서 몇 step 앞까지 굴려 보는지다. 후보의 개수나 latent 크기와는 다른 값이다. 실제
+        episode 는 훨씬 길 수 있고, planning 은 그중 앞의 $H$ step 만 내다본다.
+    - question: |
+        같은 후보 행동열 집합과 같은 world model 로 planning 하는데, 로봇의 출발 위치만 다르다. 고르는 행동열에 대한 설명으로 옳은 것은?
+      choices:
+        - '후보가 같으니 언제나 같은 행동열을 고른다'
+        - '출발 위치는 world model 의 입력이 아니라서 결과에 영향을 주지 않는다'
+        - '출발 latent 가 달라지면 같은 후보라도 예측 결과와 reward 합이 달라져, 다른 행동열이 가장 좋을 수 있다'
+        - '출발 위치가 다르면 planning 을 할 수 없다'
+      answer: 2
+      explanation: |
+        rollout 은 지금 latent 에서 출발하므로, 목표에서 먼 곳에서는 많이 움직이는 후보가, 가까운 곳에서는 조금만 움직이는 후보가 좋을
+        수 있다. 그래서 같은 후보 집합이라도 고르는 답이 바뀐다. 지금 상태는 world model 의 핵심 입력이고, 어디서 출발하든 planning 은
+        할 수 있다.
+
+- topic: cem
+  title: CEM 의 분포 다시 맞추기
+  variants:
+    - question: |
+        cross-entropy method(CEM)로 행동열을 찾는 과정으로 옳은 것은?
+      choices:
+        - '모든 가능한 행동열을 빠짐없이 나열해 비교한다'
+        - 'world model 의 weight 를 gradient descent 로 고친다'
+        - '한 번 무작위로 뽑은 후보 중 가장 좋은 것을 바로 쓴다'
+        - '분포에서 후보를 뽑아 world model 로 점수를 매기고, 점수 상위 elite 들의 평균과 표준편차로 분포를 다시 맞추기를 되풀이한다'
+      answer: 3
+      explanation: |
+        연속된 action 은 모두 나열할 수 없으므로 분포에서 뽑고, 좋았던 후보 근처에서 다시 뽑도록 분포를 옮기기를 반복한다. CEM 이 고치는
+        것은 행동열을 뽑는 분포의 평균과 표준편차뿐이고 world model 은 그대로다. 한 번만 뽑으면 운에 맡기는 것이라 반복으로 좁혀 가는
+        CEM 과 다르다.
+    - question: |
+        CEM 을 여러 번 반복하면 행동을 뽑는 정규분포의 평균 $\mu$ 와 표준편차 $\sigma$ 는 보통 어떻게 변할까?
+      choices:
+        - '$\mu$ 는 점수가 좋은 행동 쪽으로 옮겨 가고, $\sigma$ 는 점점 좁아진다'
+        - '$\mu$ 는 0 으로 돌아가고, $\sigma$ 는 커진다'
+        - '$\mu$ 와 $\sigma$ 모두 처음 값 그대로다'
+        - '$\mu$ 는 그대로이고 $\sigma$ 만 커진다'
+      answer: 0
+      explanation: |
+        elite 는 점수가 좋은 후보들이라 그 평균이 새 $\mu$ 가 되면서 좋은 쪽으로 옮겨 가고, elite 끼리는 서로 가까워 표준편차가 줄어든다.
+        그래서 뽑는 범위가 점점 좋은 답 근처로 좁혀진다. 분포가 변하지 않거나 넓어진다면 반복하는 의미가 없다.
+    - question: |
+        CEM 에 대한 설명 중 틀린 것은?
+      choices:
+        - 'CEM 은 점수 비교만으로 좋은 쪽을 찾는다'
+        - 'CEM 은 world model 의 weight 를 학습해서 예측을 정확하게 만든다'
+        - 'CEM 은 후보를 묶어 GPU 에서 한꺼번에 계산하는 일이 많다'
+        - 'horizon 이 여러 step 이면 step 마다 평균과 표준편차를 따로 둔다'
+      answer: 1
+      explanation: |
+        CEM 은 행동열을 고르는 planner 이지 world model 을 학습하는 방법이 아니다. world model 은 고정해 두고, 뽑는 분포만 고친다.
+        나머지 문장은 모두 맞다. CEM 은 gradient 없이 점수 비교로 찾고, 후보가 많아 batch 로 계산하며, 행동열의 step 마다 분포를 하나씩
+        둔다.
+
+- topic: error-accumulation
+  title: 예측 오차의 누적
+  variants:
+    - question: |
+        한 step 예측이 꽤 정확한 world model 이라도 10 step 남짓 상상 속 rollout 을 하면 크게 틀어질 수 있다. 그 이유는?
+      choices:
+        - 'rollout 이 길어지면 reward model 이 학습을 멈추기 때문이다'
+        - 'latent 의 크기가 step 마다 줄어들기 때문이다'
+        - '예측 위에 다시 예측을 쌓아서, 앞 step 의 오차를 고치지 못한 채 새 오차가 더해지고 때로는 오차가 입력으로 되먹임되어 더 커지기 때문이다'
+        - '처음 latent 를 잘못 뽑았기 때문이다'
+      answer: 2
+      explanation: |
+        rollout 의 둘째 step 부터는 실제 값이 아닌 예측을 입력으로 쓰므로, 틀린 입력에서 다시 틀린 예측이 나와 오차가 쌓인다. 오차가 다음
+        예측의 입력에 들어가 증폭되면 더 빨리 벌어진다. reward model 학습이나 latent 크기와는 상관없고, 처음 latent 가 정확해도 이
+        문제는 생긴다.
+    - question: |
+        world model 이 어떤 행동의 결과를 실제보다 좋게 잘못 예측하는 곳이 있다. planner 는 어떻게 행동하기 쉬울까?
+      choices:
+        - '잘못 예측된 곳을 피해 간다'
+        - '예측 점수가 높은 곳을 찾으므로, 바로 그 착각한 곳으로 끌려가 실제로는 나쁜 계획을 고른다'
+        - 'model 이 틀린 곳은 자동으로 무시한다'
+        - '착각과 상관없이 실제로 가장 좋은 계획을 고른다'
+      answer: 1
+      explanation: |
+        planner 는 model 의 예측만 보고 점수가 높은 곳을 찾아다니므로, model 이 점수를 부풀린 곳이 있으면 그쪽을 고르기 쉽다. planner
+        에게는 예측이 틀렸는지 알 방법이 없어서 피하거나 무시할 수 없고, 그래서 실제 결과는 기대보다 나쁘다.
+    - question: |
+        dynamics 를 학습할 때 실제 latent 에서 한 step 만 예측하는 loss 대신, 실제 latent 하나에서 출발해 action 만 주고 여러 step 을
+        펼친 예측 전체를 실제와 비교하는 multi-step loss 를 쓰는 이유는?
+      choices:
+        - '계산이 한 step loss 보다 적기 때문이다'
+        - '한 step loss 로는 학습이 아예 되지 않기 때문이다'
+        - '여러 step 을 펼치면 reward model 이 필요 없기 때문이다'
+        - 'planning 할 때처럼 자기 예측 위에 다시 예측하는 상황을 학습 때부터 보게 해, rollout 에서 쌓이는 오차를 직접 벌하기 때문이다'
+      answer: 3
+      explanation: |
+        한 step loss 는 늘 실제 입력에서 출발하므로, 쓸 때처럼 틀린 예측 위에서 예측하는 상황을 보지 못한다. 여러 step 을 펼쳐 비교하면
+        쌓이는 오차가 loss 에 그대로 드러나 그쪽을 줄이도록 배운다. 계산은 오히려 늘고, 한 step loss 로도 학습은 되며, reward model 은
+        여전히 필요하다.
+
+- topic: mpc
+  title: MPC 와 oracle 비교
+  variants:
+    - question: |
+        model predictive control(MPC)의 동작으로 옳은 것은?
+      choices:
+        - '매 step 실제 관측에서 다시 계획하고, 고른 행동열의 첫 action 하나만 실행한다'
+        - '처음에 한 번 계획한 행동열을 끝까지 그대로 실행한다'
+        - 'planning 없이 policy network 하나로 행동한다'
+        - '고른 행동열을 실제로 실행하며 world model 의 weight 를 매 step 고친다'
+      answer: 0
+      explanation: |
+        MPC 는 계획 → 첫 action 실행 → 새 관측 → 다시 계획을 되풀이하는 closed-loop 방식이다. 처음 계획을 끝까지 따르는 것은 open-loop
+        실행이고, planning 없이 policy 로 행동하는 것은 Dreamer 같은 방식이다. MPC 자체는 world model 을 고치지 않는다.
+    - question: |
+        world model 이 조금 틀려도 MPC 가 open-loop 실행보다 대개 더 좋은 결과를 내는 이유와 그 대가로 옳은 것은?
+      choices:
+        - 'MPC 는 world model 의 오차를 모두 없애 주고, 대가는 없다'
+        - 'MPC 는 후보를 하나만 보므로 빠르고, 대가는 정확도다'
+        - 'MPC 는 reward 를 쓰지 않아 안전하고, 대가는 학습 시간이다'
+        - '첫 action 만 쓰고 곧바로 실제 결과를 다시 보므로 틀린 예측이 여러 step 쌓일 틈이 없지만, 실제 step 마다 planning 을 다시 해서 계산이 많다'
+      answer: 3
+      explanation: |
+        매 step 실제 관측으로 출발점을 바로잡으니 예측 오차가 길게 누적되지 않는다. 대신 실제 step 마다 많은 후보를 다시 rollout 하므로
+        계산량이 크다. MPC 도 첫 action 은 틀린 model 로 고르므로 model 이 크게 틀리면 실패할 수 있어 오차를 모두 없애지는 못한다.
+        후보 수나 reward 사용 여부는 MPC 의 특징이 아니다.
+    - question: |
+        MPC agent 의 성능이 낮을 때, 같은 planner 에 배운 world model 대신 진짜 환경의 식을 넣은 oracle 을 돌려 보는 이유는?
+      choices:
+        - 'oracle 로 world model 을 대신 학습시키기 위해서다'
+        - 'oracle 이 실제 로봇보다 빠르기 때문이다'
+        - 'model 이 완벽할 때 이 planner 가 낼 수 있는 성능을 알아, 원인이 world model 의 오차인지 planner 의 한계인지 가르기 위해서다'
+        - 'oracle 을 쓰면 reward 를 정의하지 않아도 되기 때문이다'
+      answer: 2
+      explanation: |
+        oracle 이 잘하면 같은 planner 에서 model 만 바꾼 것이니 배운 world model 이 문제이고, oracle 도 못하면 후보 수·반복 횟수·horizon
+        같은 planner 쪽부터 고쳐야 한다. oracle 은 진단용 비교 기준이지 학습 도구가 아니고, 속도나 reward 정의와도 관계가 없다.
+
+- topic: data-and-efficiency
+  title: 데이터 수집 반복과 sample efficiency
+  variants:
+    - question: |
+        무작위 action 으로 모은 데이터로만 배운 world model 은 어떤 상황에서 믿기 어려울까?
+      choices:
+        - '데이터에 많이 나온 상황'
+        - '무작위 action 으로 거의 가 보지 못한, 데이터 밖의 상황'
+        - '처음 출발한 상황'
+        - '어느 상황이든 똑같이 믿을 만하다'
+      answer: 1
+      explanation: |
+        world model 은 dataset 에 있던 상황에서만 실제를 보고 배웠으므로, 본 적 없는 곳에서는 배운 규칙을 그대로 이어 붙인 엉뚱한 예측을
+        할 수 있다. 데이터에 많이 나온 상황과 출발 상황은 오히려 잘 맞는다. 무작위 action 으로는 목표 근처처럼 중요한 자리에 잘 가지
+        못해서 이 문제가 특히 크다.
+    - question: |
+        world model 을 한 번 학습하고 끝내지 않고 "학습 → 그 model 과 planner 로 실제 데이터 수집 → 다시 학습" 을 되풀이하는 이유는?
+      choices:
+        - '같은 데이터를 여러 번 보면 world model 이 외워서 정확해지기 때문이다'
+        - '데이터가 늘수록 planner 가 필요 없어지기 때문이다'
+        - 'planner 가 좋다고 믿은 곳의 데이터가 쌓여, model 이 맞았다면 좋은 행동의 데이터가 늘고 틀렸다면 그 착각을 고칠 데이터가 생기기 때문이다'
+        - '무작위 데이터는 학습에 쓸 수 없기 때문이다'
+      answer: 2
+      explanation: |
+        planner 는 model 이 좋다고 예측한 곳으로 곧장 가므로, 그곳의 실제 결과가 dataset 에 들어와 착각을 바로잡거나 중요한 자리의
+        데이터를 늘린다. 같은 데이터를 반복해 보는 것과는 다르고, planner 는 계속 쓰인다. 무작위 데이터도 처음 학습에 쓰이며, 다만 중요한
+        자리를 잘 덮지 못할 뿐이다.
+    - question: |
+        model-free RL 과 비교해 world model 을 쓰면 sample efficiency(같은 성능에 드는 실제 환경 step 수의 적음)가 높아지는 이유로 옳은 것은?
+      choices:
+        - '후보 비교를 실제 step 대신 계산으로 하고, 모은 transition 은 어떤 policy 로 모았든 환경의 규칙을 배우는 데 계속 다시 쓸 수 있기 때문이다'
+        - 'world model 은 계산이 적어서 실제 step 을 빨리 할 수 있기 때문이다'
+        - 'world model 은 reward 가 필요 없기 때문이다'
+        - 'model-free RL 은 실제 환경을 전혀 쓰지 않기 때문이다'
+      answer: 0
+      explanation: |
+        world model 은 실제로 해 봐야 할 일을 상상 속 계산으로 바꾸고, transition 이 "이 상태에서 이 행동을 하면 이렇게 된다" 는 환경의
+        규칙이라 policy 가 바뀌어도 버리지 않고 다시 쓴다. 대신 계산은 오히려 많아서 Dreamer 처럼 상상 속에서 policy 를 미리 학습하기도
+        한다. reward 예측은 여전히 필요하고, model-free RL 은 실제 환경 경험만으로 배운다.

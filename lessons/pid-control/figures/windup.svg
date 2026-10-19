@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>힘의 한계가 3 N 일 때 목표 2 로 가는 PID 제어. 한계에 걸린 동안에도 integral 을 쌓으면 3.25 까지 넘치고 오래 흔들리며, 한계에 걸린 동안 쌓기를 멈추면 넘치지 않는다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="60.0" y="40.0" width="450.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="240.0" x2="510.0" y2="240.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60.0" y1="40.0" x2="60.0" y2="240.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="60.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="150.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="240.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">6</text>
+  <text x="330.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">9</text>
+  <text x="420.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">12</text>
+  <text x="510.0" y="257.0" fill="#64748b" font-size="12" text-anchor="middle">15</text>
+  <text x="53.0" y="244.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="53.0" y="186.9" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <text x="53.0" y="129.7" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <text x="53.0" y="72.6" fill="#64748b" font-size="12" text-anchor="end">3</text>
+  <text x="510.0" y="274.0" fill="#94a3b8" font-size="13" text-anchor="end">t (초)</text>
+  <text x="60.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">위치 x (m)</text>
+  <line x1="60.0" y1="125.7" x2="510.0" y2="125.7" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="518.0" y="129.7" fill="#94a3b8" font-size="12" text-anchor="start">목표 2</text>
+  <polyline points="60.0,240.0 75.0,225.7 90.0,197.1 105.0,154.3 120.0,97.1 135.0,54.3 150.0,79.3 165.0,124.8 180.0,156.1 195.0,173.0 210.0,175.7 225.0,164.1 240.0,138.2 255.0,98.0 270.0,54.7 285.0,70.9 300.0,114.4 315.0,143.5 330.0,158.4 345.0,159.0 360.0,145.3 375.0,117.3 390.0,75.0 405.0,76.9 420.0,111.2 435.0,131.2 450.0,136.9 465.0,128.4 480.0,105.5 495.0,102.7 510.0,118.4" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linejoin="round"/>
+  <polyline points="60.0,240.0 75.0,225.7 90.0,197.1 105.0,154.3 120.0,125.7 135.0,132.9 150.0,148.9 165.0,153.4 180.0,147.6 195.0,137.0 210.0,131.8 225.0,132.9 240.0,134.3 255.0,132.3 270.0,128.9 285.0,127.5 300.0,128.0 315.0,128.4 330.0,127.7 345.0,126.6 360.0,126.2 375.0,126.4 390.0,126.6 405.0,126.3 420.0,126.0 435.0,125.9 450.0,125.9 465.0,126.0 480.0,125.9 495.0,125.8 510.0,125.8" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="126.0" y="50.3" fill="#f87171" font-size="12" text-anchor="start">3.25</text>
+  <line x1="110.0" y1="282.0" x2="132.0" y2="282.0" stroke="#f87171" stroke-width="3"/>
+  <text x="138.0" y="286.0" fill="#e2e8f0" font-size="12" text-anchor="start">integral 을 계속 쌓음</text>
+  <line x1="280.0" y1="282.0" x2="302.0" y2="282.0" stroke="#34d399" stroke-width="3"/>
+  <text x="308.0" y="286.0" fill="#e2e8f0" font-size="12" text-anchor="start">한계에 걸린 동안 멈춤 (anti-windup)</text>
+</svg>

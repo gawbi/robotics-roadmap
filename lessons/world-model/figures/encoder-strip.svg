@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>카메라 그림 세 장이 encoder 를 지나 latent 1, 4, 6 이 되고, decoder 가 latent 에서 같은 그림을 되살린다. 숫자 8 개가 1 개로 줄었다</title>
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="92.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">그림 (숫자 8 개)</text>
+  <text x="320.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">latent z (숫자 1 개)</text>
+  <text x="548.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">되살린 그림</text>
+  <rect x="28.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="44.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="60.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="76.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="92.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="108.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="124.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="140.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <line x1="160.0" y1="64.0" x2="184.0" y2="64.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M188,48 L252,58 L252,70 L188,80 Z" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="220.0" y="68.0" fill="#e2e8f0" font-size="11" text-anchor="middle">encoder</text>
+  <line x1="252.0" y1="64.0" x2="292.0" y2="64.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="296.0" y="48.0" width="48.0" height="32.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="320.0" y="70.0" fill="#e2e8f0" font-size="16" text-anchor="middle">1</text>
+  <line x1="344.0" y1="64.0" x2="384.0" y2="64.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M388,58 L452,48 L452,80 L388,70 Z" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="420.0" y="68.0" fill="#e2e8f0" font-size="11" text-anchor="middle">decoder</text>
+  <line x1="452.0" y1="64.0" x2="478.0" y2="64.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="484.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="500.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="516.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="532.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="548.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="564.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="580.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="596.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="28.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="44.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="60.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="76.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="92.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="108.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="124.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="140.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <line x1="160.0" y1="130.0" x2="184.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M188,114 L252,124 L252,136 L188,146 Z" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="220.0" y="134.0" fill="#e2e8f0" font-size="11" text-anchor="middle">encoder</text>
+  <line x1="252.0" y1="130.0" x2="292.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="296.0" y="114.0" width="48.0" height="32.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="320.0" y="136.0" fill="#e2e8f0" font-size="16" text-anchor="middle">4</text>
+  <line x1="344.0" y1="130.0" x2="384.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M388,124 L452,114 L452,146 L388,136 Z" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="420.0" y="134.0" fill="#e2e8f0" font-size="11" text-anchor="middle">decoder</text>
+  <line x1="452.0" y1="130.0" x2="478.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="484.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="500.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="516.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="532.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="548.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="564.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="580.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="596.0" y="122.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="28.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="44.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="60.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="76.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="92.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="108.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="124.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="140.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <line x1="160.0" y1="196.0" x2="184.0" y2="196.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M188,180 L252,190 L252,202 L188,212 Z" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="220.0" y="200.0" fill="#e2e8f0" font-size="11" text-anchor="middle">encoder</text>
+  <line x1="252.0" y1="196.0" x2="292.0" y2="196.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="296.0" y="180.0" width="48.0" height="32.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="320.0" y="202.0" fill="#e2e8f0" font-size="16" text-anchor="middle">6</text>
+  <line x1="344.0" y1="196.0" x2="384.0" y2="196.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <path d="M388,190 L452,180 L452,212 L388,202 Z" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="420.0" y="200.0" fill="#e2e8f0" font-size="11" text-anchor="middle">decoder</text>
+  <line x1="452.0" y1="196.0" x2="478.0" y2="196.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <rect x="484.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="500.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="516.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="532.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="548.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="564.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <rect x="580.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+  <rect x="596.0" y="188.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
+  <text x="320.0" y="254.0" fill="#94a3b8" font-size="13" text-anchor="middle">encoder 가 낸 latent 가 로봇의 칸 번호와 같아진 경우</text>
+</svg>

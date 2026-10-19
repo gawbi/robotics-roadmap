@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>K = 5 sampling 세 번. 상자 장면에서 0.60 에서 출발하면 +1(+20°), −0.40 에서 출발하면 −1(−20°)에 닿고, 곧은 길 장면에서는 같은 0.60 에서 출발해도 0(0°)에 닿는다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="80.0" y1="66.5" x2="500.0" y2="66.5" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <text x="508.0" y="70.5" fill="#94a3b8" font-size="12" text-anchor="start">+1 (+20°)</text>
+  <line x1="80.0" y1="155.0" x2="500.0" y2="155.0" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <text x="508.0" y="159.0" fill="#94a3b8" font-size="12" text-anchor="start">0 (0°)</text>
+  <line x1="80.0" y1="243.5" x2="500.0" y2="243.5" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <text x="508.0" y="247.5" fill="#94a3b8" font-size="12" text-anchor="start">−1 (−20°)</text>
+  <line x1="80.0" y1="270.0" x2="80.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="80.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 5</text>
+  <line x1="164.0" y1="270.0" x2="164.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="164.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 4</text>
+  <line x1="248.0" y1="270.0" x2="248.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="248.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 3</text>
+  <line x1="332.0" y1="270.0" x2="332.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="332.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 2</text>
+  <line x1="416.0" y1="270.0" x2="416.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="416.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 1</text>
+  <line x1="500.0" y1="270.0" x2="500.0" y2="275.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">k = 0</text>
+  <line x1="80.0" y1="270.0" x2="500.0" y2="270.0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="70.0" y="44.0" fill="#94a3b8" font-size="12" text-anchor="end">Aᵏ</text>
+  <polyline points="80.0,101.9 164.0,97.5 248.0,118.7 332.0,103.7 416.0,73.6 500.0,66.5" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="101.9" r="4" fill="#38bdf8"/>
+  <circle cx="164.0" cy="97.5" r="4" fill="#38bdf8"/>
+  <circle cx="248.0" cy="118.7" r="4" fill="#38bdf8"/>
+  <circle cx="332.0" cy="103.7" r="4" fill="#38bdf8"/>
+  <circle cx="416.0" cy="73.6" r="4" fill="#38bdf8"/>
+  <circle cx="500.0" cy="66.5" r="4" fill="#38bdf8"/>
+  <polyline points="80.0,190.4 164.0,206.3 248.0,181.5 332.0,176.2 416.0,202.8 500.0,243.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="190.4" r="4" fill="#f59e0b"/>
+  <circle cx="164.0" cy="206.3" r="4" fill="#f59e0b"/>
+  <circle cx="248.0" cy="181.5" r="4" fill="#f59e0b"/>
+  <circle cx="332.0" cy="176.2" r="4" fill="#f59e0b"/>
+  <circle cx="416.0" cy="202.8" r="4" fill="#f59e0b"/>
+  <circle cx="500.0" cy="243.5" r="4" fill="#f59e0b"/>
+  <polyline points="80.0,101.9 164.0,105.5 248.0,139.1 332.0,138.2 416.0,141.7 500.0,155.0" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="101.9" r="4" fill="#34d399"/>
+  <circle cx="164.0" cy="105.5" r="4" fill="#34d399"/>
+  <circle cx="248.0" cy="139.1" r="4" fill="#34d399"/>
+  <circle cx="332.0" cy="138.2" r="4" fill="#34d399"/>
+  <circle cx="416.0" cy="141.7" r="4" fill="#34d399"/>
+  <circle cx="500.0" cy="155.0" r="4" fill="#34d399"/>
+  <text x="72.0" y="93.9" fill="#e2e8f0" font-size="12" text-anchor="end">0.60</text>
+  <text x="72.0" y="194.4" fill="#e2e8f0" font-size="12" text-anchor="end">−0.40</text>
+  <text x="494.0" y="56.5" fill="#38bdf8" font-size="12" text-anchor="middle">1.00</text>
+  <text x="494.0" y="261.5" fill="#f59e0b" font-size="12" text-anchor="middle">−1.00</text>
+  <text x="494.0" y="145.0" fill="#34d399" font-size="12" text-anchor="middle">0.00</text>
+  <line x1="60.0" y1="326.0" x2="82.0" y2="326.0" stroke="#38bdf8" stroke-width="3"/>
+  <text x="88.0" y="330.0" fill="#38bdf8" font-size="12" text-anchor="start">상자 장면, 실행 A</text>
+  <line x1="240.0" y1="326.0" x2="262.0" y2="326.0" stroke="#f59e0b" stroke-width="3"/>
+  <text x="268.0" y="330.0" fill="#f59e0b" font-size="12" text-anchor="start">상자 장면, 실행 B</text>
+  <line x1="420.0" y1="326.0" x2="442.0" y2="326.0" stroke="#34d399" stroke-width="3"/>
+  <text x="448.0" y="330.0" fill="#34d399" font-size="12" text-anchor="start">곧은 길 장면</text>
+</svg>

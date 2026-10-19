@@ -1,61 +1,13 @@
 import { useSyncExternalStore } from 'react'
-import { CONFIG } from '../config'
+import { initialAttempts } from './load'
+import { clearedAt, type Attempt } from './quiz'
 import type { Curriculum, NodeState, Status } from './types'
 
-export interface ProgressFile {
-  version: 1
-  status: Record<string, Exclude<Status, 'todo'>>
-  updatedAt: string
-}
+/** Quiz attempts per lesson id, as recorded in lessons/<id>/quiz-result.json. */
+export type ProgressFile = Readonly<Record<string, readonly Attempt[]>>
 
-const empty = (): ProgressFile => ({ version: 1, status: {}, updatedAt: new Date(0).toISOString() })
-
-function read(): ProgressFile {
-  try {
-    const raw = localStorage.getItem(CONFIG.storage.progressKey)
-    if (!raw) return empty()
-    return sanitize(JSON.parse(raw))
-  } catch {
-    return empty()
-  }
-}
-
-/** Accept only well-formed entries so a hand-edited or foreign file cannot break the page. */
-export function sanitize(data: unknown): ProgressFile {
-  const out = empty()
-  if (!data || typeof data !== 'object') return out
-  const status = (data as { status?: unknown }).status
-  if (status && typeof status === 'object') {
-    for (const [id, s] of Object.entries(status)) {
-      if (s === 'done' || s === 'in_progress') out.status[id] = s
-    }
-  }
-  const updatedAt = (data as { updatedAt?: unknown }).updatedAt
-  if (typeof updatedAt === 'string') out.updatedAt = updatedAt
-  return out
-}
-
-let current = read()
+let current: ProgressFile = initialAttempts
 const listeners = new Set<() => void>()
-
-function commit(next: ProgressFile) {
-  current = next
-  try {
-    localStorage.setItem(CONFIG.storage.progressKey, JSON.stringify(next))
-  } catch {
-    // storage unavailable (private mode): progress lives for this tab only
-  }
-  listeners.forEach((l) => l())
-}
-
-if (typeof window !== 'undefined') {
-  window.addEventListener('storage', (e) => {
-    if (e.key === CONFIG.storage.progressKey) {
-      current = read()
-      listeners.forEach((l) => l())
-    }
-  })
-}
 
 export const progress = {
   get: () => current,
@@ -63,17 +15,10 @@ export const progress = {
     listeners.add(listener)
     return () => listeners.delete(listener)
   },
-  set(id: string, status: Status) {
-    const next = { ...current.status }
-    if (status === 'todo') delete next[id]
-    else next[id] = status
-    commit({ version: 1, status: next, updatedAt: new Date().toISOString() })
-  },
-  replace(file: ProgressFile) {
-    commit({ ...file, updatedAt: new Date().toISOString() })
-  },
-  reset() {
-    commit({ ...empty(), updatedAt: new Date().toISOString() })
+  /** the dev server has written `attempt` to the lesson's result file; show it without waiting for a reload */
+  add(id: string, attempt: Attempt) {
+    current = { ...current, [id]: [...(current[id] ?? []), attempt] }
+    listeners.forEach((l) => l())
   },
 }
 
@@ -81,8 +26,21 @@ export function useProgress(): ProgressFile {
   return useSyncExternalStore(progress.subscribe, progress.get, progress.get)
 }
 
+export function attemptsOf(p: ProgressFile, id: string): readonly Attempt[] {
+  return p[id] ?? []
+}
+
+/** done once no wrong answer is left (retries ask only the wrong topics); in progress before that */
 export function statusOf(p: ProgressFile, id: string): Status {
-  return p.status[id] ?? 'todo'
+  const attempts = attemptsOf(p, id)
+  if (clearedAt(attempts) >= 0) return 'done'
+  return attempts.length > 0 ? 'in_progress' : 'todo'
+}
+
+/** date of the attempt that left no wrong answer */
+export function passedOn(p: ProgressFile, id: string): string | undefined {
+  const attempts = attemptsOf(p, id)
+  return attempts[clearedAt(attempts)]?.date
 }
 
 export function nodeState(c: Curriculum, p: ProgressFile, id: string): NodeState {

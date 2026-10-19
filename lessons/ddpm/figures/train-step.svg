@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>학습 한 step. 데이터 x₀ = 2, 무작위로 고른 t = 3, N(0, 1) 에서 뽑은 ε = 0.5 로 x₃ = 1.77 을 만들고, network 가 낸 0.3 과 정답 0.5 의 차이를 제곱한 0.04 가 loss 다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="698" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="24.0" y="30.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="99.0" y="52.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₀ = 2</text>
+  <text x="99.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">데이터에서 하나</text>
+  <rect x="24.0" y="100.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="99.0" y="122.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 3</text>
+  <text x="99.0" y="140.0" fill="#94a3b8" font-size="12" text-anchor="middle">1 ~ T 에서 무작위</text>
+  <rect x="24.0" y="170.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="99.0" y="192.0" fill="#e2e8f0" font-size="14" text-anchor="middle">ε = 0.5</text>
+  <text x="99.0" y="210.0" fill="#94a3b8" font-size="12" text-anchor="middle">N(0, 1) 에서 뽑음</text>
+  <rect x="236.0" y="88.0" width="190.0" height="76.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="331.0" y="113.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x₃ = 0.71 × 2 + 0.70 × 0.5</text>
+  <text x="331.0" y="131.0" fill="#e2e8f0" font-size="14" text-anchor="middle">= 1.77</text>
+  <text x="331.0" y="149.0" fill="#94a3b8" font-size="11" text-anchor="middle">한 번에 건너뛰는 식</text>
+  <line x1="176.0" y1="56.0" x2="232.0" y2="108.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="176.0" y1="126.0" x2="232.0" y2="126.0" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <line x1="176.0" y1="196.0" x2="232.0" y2="146.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="480.0" y="88.0" width="180.0" height="76.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="570.0" y="113.0" fill="#34d399" font-size="14" text-anchor="middle">network ε_θ</text>
+  <text x="570.0" y="131.0" fill="#94a3b8" font-size="12" text-anchor="middle">입력: x₃ = 1.77, t = 3</text>
+  <text x="570.0" y="149.0" fill="#e2e8f0" font-size="13" text-anchor="middle">출력: 0.3</text>
+  <line x1="428.0" y1="126.0" x2="476.0" y2="126.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="166.0" y1="222.0" x2="166.0" y2="268.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="166.0" y1="222.0" x2="166.0" y2="222.0" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="330.0" y="238.0" width="240.0" height="60.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="450.0" y="264.0" fill="#e2e8f0" font-size="14" text-anchor="middle">loss = (0.5 − 0.3)² = 0.04</text>
+  <text x="450.0" y="282.0" fill="#94a3b8" font-size="11" text-anchor="middle">정답 noise 와 예측 noise 의 차이</text>
+  <line x1="166.0" y1="268.0" x2="326.0" y2="268.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="246.0" y="260.0" fill="#f59e0b" font-size="12" text-anchor="middle">정답 0.5</text>
+  <line x1="570.0" y1="166.0" x2="540.0" y2="234.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="600.0" y="206.0" fill="#34d399" font-size="12" text-anchor="middle">예측 0.3</text>
+  <text x="350.0" y="320.0" fill="#94a3b8" font-size="12" text-anchor="middle">gradient descent 로 loss 가 줄어드는 쪽으로 network 의 weight θ 를 고친다</text>
+</svg>

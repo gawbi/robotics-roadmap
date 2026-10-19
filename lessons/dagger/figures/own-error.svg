@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>policy 별 한 step 평균 오차. 시연 상태에서 재면 늘 0.1 m 지만, policy 가 자기가 간 상태에서 재면 0.26, 0.18, 0.10 m 로 줄어든다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70.0" y="50.0" width="490.0" height="210.0" rx="0" fill="#0e1628"/>
+  <line x1="70.0" y1="260.0" x2="560.0" y2="260.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="264.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="70.0" y1="190.0" x2="560.0" y2="190.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="194.0" fill="#64748b" font-size="12" text-anchor="end">0.1</text>
+  <line x1="70.0" y1="120.0" x2="560.0" y2="120.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="124.0" fill="#64748b" font-size="12" text-anchor="end">0.2</text>
+  <line x1="70.0" y1="50.0" x2="560.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="54.0" fill="#64748b" font-size="12" text-anchor="end">0.3</text>
+  <line x1="70.0" y1="260.0" x2="560.0" y2="260.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="101.7" y="190.0" width="44.0" height="70.0" rx="0" fill="#f59e0b" fill-opacity="0.85"/>
+  <text x="123.7" y="184.0" fill="#f59e0b" font-size="12" text-anchor="middle">0.10</text>
+  <rect x="157.7" y="80.0" width="44.0" height="180.0" rx="0" fill="#38bdf8" fill-opacity="0.9"/>
+  <text x="179.7" y="58.0" fill="#38bdf8" font-size="12" text-anchor="middle">0.26</text>
+  <text x="179.7" y="74.0" fill="#94a3b8" font-size="11" text-anchor="middle">1.8 ÷ 7</text>
+  <text x="124.6" y="286.0" fill="#e2e8f0" font-size="14">π<tspan font-size="10.1" dy="4.2">2</tspan><tspan font-size="14" dy="-4.2"> (BC)</tspan></text>
+  <text x="128.8" y="279.7" fill="#e2e8f0" font-size="11.2" text-anchor="middle">^</text>
+  <rect x="265.0" y="190.0" width="44.0" height="70.0" rx="0" fill="#f59e0b" fill-opacity="0.85"/>
+  <text x="287.0" y="184.0" fill="#f59e0b" font-size="12" text-anchor="middle">0.10</text>
+  <rect x="321.0" y="135.0" width="44.0" height="125.0" rx="0" fill="#38bdf8" fill-opacity="0.9"/>
+  <text x="343.0" y="113.0" fill="#38bdf8" font-size="12" text-anchor="middle">0.18</text>
+  <text x="343.0" y="129.0" fill="#94a3b8" font-size="11" text-anchor="middle">2.5 ÷ 14</text>
+  <text x="307.2" y="286.0" fill="#e2e8f0" font-size="14">π<tspan font-size="10.1" dy="4.2">3</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
+  <text x="311.4" y="279.7" fill="#e2e8f0" font-size="11.2" text-anchor="middle">^</text>
+  <rect x="428.3" y="190.0" width="44.0" height="70.0" rx="0" fill="#f59e0b" fill-opacity="0.85"/>
+  <text x="450.3" y="184.0" fill="#f59e0b" font-size="12" text-anchor="middle">0.10</text>
+  <rect x="484.3" y="190.0" width="44.0" height="70.0" rx="0" fill="#38bdf8" fill-opacity="0.9"/>
+  <text x="506.3" y="168.0" fill="#38bdf8" font-size="12" text-anchor="middle">0.10</text>
+  <text x="506.3" y="184.0" fill="#94a3b8" font-size="11" text-anchor="middle">1.5 ÷ 15</text>
+  <text x="470.5" y="286.0" fill="#e2e8f0" font-size="14">π<tspan font-size="10.1" dy="4.2">4</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
+  <text x="474.7" y="279.7" fill="#e2e8f0" font-size="11.2" text-anchor="middle">^</text>
+  <text x="62.0" y="36.0" fill="#94a3b8" font-size="13" text-anchor="start">한 step 평균 오차 (m)</text>
+  <rect x="70.0" y="290.0" width="14.0" height="12.0" rx="0" fill="#f59e0b" fill-opacity="0.85"/>
+  <text x="90.0" y="301.0" fill="#f59e0b" font-size="12" text-anchor="start">시연 상태에서 잰 오차 (validation)</text>
+  <rect x="330.0" y="290.0" width="14.0" height="12.0" rx="0" fill="#38bdf8"/>
+  <text x="350.0" y="301.0" fill="#38bdf8" font-size="12" text-anchor="start">자기가 간 상태에서 잰 오차</text>
+</svg>

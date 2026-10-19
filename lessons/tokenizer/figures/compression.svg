@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>token 하나에 담기는 byte 수. Tiny Shakespeare 에서 vocabulary 512 는 1.88, 1024 는 2.26, GPT-2 는 3.09. 오른쪽은 같은 뜻의 영어·한국어 문장이 GPT-2 에서 쓰는 token 수</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="34" fill="#94a3b8" font-size="13" text-anchor="start">bytes per token (Tiny Shakespeare 뒤 10%)</text>
+  <line x1="50" y1="240" x2="300" y2="240" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="245" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="50" y1="185" x2="300" y2="185" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="190" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <line x1="50" y1="130" x2="300" y2="130" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="135" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
+  <line x1="50" y1="75" x2="300" y2="75" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="80" fill="#94a3b8" font-size="12" text-anchor="end">3</text>
+  <rect x="62" y="185.0" width="40" height="55.0" rx="4" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <text x="82" y="177.0" fill="#64748b" font-size="13" text-anchor="middle">1.00</text>
+  <text x="82" y="260" fill="#e2e8f0" font-size="12" text-anchor="middle">256</text>
+  <text x="82" y="276" fill="#94a3b8" font-size="11" text-anchor="middle">(byte만)</text>
+  <rect x="122" y="136.60000000000002" width="40" height="103.39999999999999" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="142" y="128.60000000000002" fill="#38bdf8" font-size="13" text-anchor="middle">1.88</text>
+  <text x="142" y="260" fill="#e2e8f0" font-size="12" text-anchor="middle">512</text>
+  <rect x="182" y="115.70000000000002" width="40" height="124.29999999999998" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="202" y="107.70000000000002" fill="#38bdf8" font-size="13" text-anchor="middle">2.26</text>
+  <text x="202" y="260" fill="#e2e8f0" font-size="12" text-anchor="middle">1024</text>
+  <rect x="242" y="70.05000000000001" width="40" height="169.95" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="262" y="62.05000000000001" fill="#34d399" font-size="13" text-anchor="middle">3.09</text>
+  <text x="262" y="260" fill="#e2e8f0" font-size="12" text-anchor="middle">GPT-2</text>
+  <text x="262" y="276" fill="#94a3b8" font-size="11" text-anchor="middle">50257</text>
+  <text x="175" y="290" fill="#94a3b8" font-size="12" text-anchor="middle">vocabulary 크기</text>
+  <line x1="330" y1="24" x2="330" y2="280" stroke="#1e293b" stroke-width="1"/>
+  <text x="350" y="34" fill="#94a3b8" font-size="13" text-anchor="start">GPT-2 token 수 (같은 뜻)</text>
+  <text x="350" y="70" fill="#e2e8f0" font-size="13" text-anchor="start">The cat wore a hat.</text>
+  <rect x="350" y="80" width="48" height="22" rx="4" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="406" y="96" fill="#38bdf8" font-size="13" text-anchor="start">6개 · 19 byte</text>
+  <text x="350" y="140" fill="#e2e8f0" font-size="13" text-anchor="start">고양이가 모자를 썼다.</text>
+  <rect x="350" y="150" width="208" height="22" rx="4" fill="#2a1f0b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="350" y="192" fill="#f59e0b" font-size="13" text-anchor="start">26개 · 30 byte</text>
+  <text x="350" y="232" fill="#94a3b8" font-size="12" text-anchor="start">한글 한 글자는 3 byte 이고</text>
+  <text x="350" y="252" fill="#94a3b8" font-size="12" text-anchor="start">GPT-2 의 merge 에는 한국어가 적다</text>
+</svg>

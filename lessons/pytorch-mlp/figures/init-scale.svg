@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>입력 784 개를 더한 z 의 크기. weight ±1 이면 약 ±28, weight ±0.05 이면 약 ±1.4</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="60.0" fill="#f87171" font-size="14" text-anchor="start">weight ±1</text>
+  <line x1="45.0" y1="90.0" x2="675.0" y2="90.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="60.0" y1="85.0" x2="60.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="60.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">−40</text>
+  <line x1="150.0" y1="85.0" x2="150.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="210.0" y1="85.0" x2="210.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">−20</text>
+  <line x1="360.0" y1="85.0" x2="360.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="360.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <line x1="510.0" y1="85.0" x2="510.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="510.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">20</text>
+  <line x1="570.0" y1="85.0" x2="570.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="660.0" y1="85.0" x2="660.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="660.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">40</text>
+  <rect x="150.0" y="76.0" width="420.0" height="28.0" rx="4" fill="#f87171" fill-opacity="0.08" stroke="#f87171" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="150.0" y="70.0" fill="#f87171" font-size="11" text-anchor="middle">−28</text>
+  <text x="570.0" y="70.0" fill="#f87171" font-size="11" text-anchor="middle">+28</text>
+  <circle cx="645.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="645.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">38</text>
+  <circle cx="345.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="345.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">−2</text>
+  <circle cx="120.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="120.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">−32</text>
+  <circle cx="615.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="615.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">34</text>
+  <circle cx="465.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="465.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">14</text>
+  <circle cx="90.0" cy="90.0" r="5" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+  <text x="90.0" y="130.0" fill="#f87171" font-size="11" text-anchor="middle">−36</text>
+  <text x="30.0" y="160.0" fill="#34d399" font-size="14" text-anchor="start">weight ±0.05</text>
+  <line x1="45.0" y1="190.0" x2="675.0" y2="190.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="60.0" y1="185.0" x2="60.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="60.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">−40</text>
+  <line x1="150.0" y1="185.0" x2="150.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="210.0" y1="185.0" x2="210.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">−20</text>
+  <line x1="360.0" y1="185.0" x2="360.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="360.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <line x1="510.0" y1="185.0" x2="510.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="510.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">20</text>
+  <line x1="570.0" y1="185.0" x2="570.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="660.0" y1="185.0" x2="660.0" y2="195.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="660.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">40</text>
+  <circle cx="374.2" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <circle cx="359.2" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <circle cx="348.0" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <circle cx="372.8" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <circle cx="365.2" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <circle cx="346.5" cy="190.0" r="4" fill="#34d399" stroke="#34d399" stroke-width="2"/>
+  <text x="360.0" y="176.0" fill="#34d399" font-size="12" text-anchor="middle">1.9, −0.1, −1.6, 1.7, 0.7, −1.8</text>
+  <text x="360.0" y="230.0" fill="#34d399" font-size="12" text-anchor="middle">모두 −2 와 2 사이</text>
+  <text x="360.0" y="266.0" fill="#94a3b8" font-size="13" text-anchor="middle">He 초기화: weight 크기 ≈ √(2 / 784) ≈ 0.05</text>
+</svg>

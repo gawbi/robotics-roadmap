@@ -1,0 +1,326 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: ik-problem
+  title: inverse kinematics 와 답의 개수
+  variants:
+    - question: |
+        로봇 팔에 inverse kinematics(IK)가 필요한 이유로 맞는 것은?
+      choices:
+        - 'FK 는 계산이 느려서 IK 로 대신 손끝 위치를 구해야 하기 때문이다'
+        - '센서가 알려 준 joint angle 이 맞는지 확인하려면 IK 가 있어야 하기 때문이다'
+        - '일은 "컵 위에 손끝을 둬라" 처럼 손끝 목표로 주어지는데, 모터에는 joint angle 을 보내야 하기 때문이다'
+        - 'IK 는 손끝을 목표로 옮기는 데 필요한 모터의 힘을 구하는 계산이기 때문이다'
+      answer: 2
+      explanation: |
+        모터가 받는 명령은 joint angle 이므로, 손끝 목표가 주어지면 그 목표를 만드는 joint angle 을 거꾸로 구해야 하고 이것이 IK 다.
+        손끝 위치를 구하는 것은 FK 이며 FK 는 빠르고 오히려 IK 가 FK 를 여러 번 되풀이해 쓴다. joint angle 은 센서가 직접 알려 주므로
+        IK 로 확인할 대상이 아니고, IK 는 힘이 아니라 각도를 다룬다.
+    - question: |
+        link 두 개로 된 평면 팔에 원점에서 두 link 길이의 합보다 먼 자리를 목표로 주었다. IK 의 답은?
+      choices:
+        - '팔을 쭉 편 자세 하나가 답이다'
+        - '어떤 joint angle 로도 닿지 않으므로 답이 없다'
+        - 'elbow-up 과 elbow-down 두 답이 있다'
+        - '반복 계산을 충분히 오래 하면 정확한 답을 찾는다'
+      answer: 1
+      explanation: |
+        두 link 를 일직선으로 펴도 손끝은 원점에서 두 길이의 합만큼만 떨어지므로, 그보다 먼 곳에는 어떤 자세로도 닿지 않는다. 팔을
+        쭉 편 자세는 목표에 가장 가까운 자세일 뿐 목표에 닿는 답이 아니다. 답이 둘인 경우는 목표가 팔이 닿는 범위 안쪽에 있을 때이고,
+        반복 계산을 오래 해도 없는 답이 생기지는 않는다.
+    - question: |
+        joint 가 3 개인 평면 팔로 손끝의 위치 $(x, y)$ 만 맞추려고 한다. 팔이 닿는 범위 안의 목표라면 IK 의 답은 대체로 어떻게 되는가?
+      choices:
+        - '맞출 숫자보다 joint 가 많아 답이 끝없이 많고, 남는 joint 로 장애물을 피하는 자세를 고를 수 있다'
+        - '언제나 정확히 하나다'
+        - 'elbow-up 과 elbow-down 처럼 정확히 둘이다'
+        - 'joint 가 너무 많으면 식이 모순되어 답이 없다'
+      answer: 0
+      explanation: |
+        맞출 숫자는 2 개인데 joint 는 3 개라, 첫 joint 를 범위 안의 여러 값으로 정해도 나머지 두 joint 로 손끝을 맞출 수 있다. 그래서
+        답이 끝없이 많고, 이런 팔을 redundant 팔이라고 한다. 답이 정확히 둘인 것은 joint 수와 맞출 숫자가 같은 2 관절 팔의 경우다.
+        joint 가 많다고 모순이 생기지는 않으며, 반대로 joint 가 맞출 숫자보다 적을 때 아무 목표에나 닿지 못한다.
+
+- topic: analytic-solution
+  title: 해석적 풀이와 workspace
+  variants:
+    - question: |
+        2 관절 평면 팔을 코사인 법칙으로 풀었더니 $\cos\theta_2 = 1.5$ 가 나왔다. 이 결과의 뜻으로 맞는 것은?
+      choices:
+        - '$\theta_2 = \arccos 1.5$ 를 계산하면 답이 나온다'
+        - '계산 실수이므로 1 로 잘라 $\theta_2 = 0°$ 를 답으로 쓰면 목표에 닿는다'
+        - '목표가 팔이 닿는 범위 안에 있어 답이 둘이다'
+        - 'cos 값은 $-1$ 과 $1$ 사이만 가능하므로, 그런 각도가 없고 목표가 팔이 닿는 범위 밖이다'
+      answer: 3
+      explanation: |
+        $\cos\theta_2$ 는 길이 1 인 막대 끝의 가로 위치라서 $-1$ 과 $1$ 사이를 벗어날 수 없다. 공식이 1.5 를 냈다면 그런 $\theta_2$ 가
+        없다는 뜻이고, 곧 목표가 workspace 밖이다. arccos 은 1 보다 큰 값에서 정의되지 않으며, 1 로 잘라 쓰면 팔을 쭉 편 자세가 되어
+        목표에 가장 가까이 갈 뿐 닿지는 않는다. 답이 둘인 것은 값이 $-1$ 과 $1$ 사이일 때다.
+    - question: |
+        첫 link 가 둘째 link 보다 긴 2 관절 평면 팔이 있다. 원점 바로 옆의 아주 가까운 목표에 대해 맞는 것은?
+      choices:
+        - '가까울수록 닿기 쉬우므로 반드시 닿는다'
+        - 'link 2 를 완전히 접어도 손끝이 원점에서 두 길이의 차만큼 떨어져 있어서 닿지 않는다'
+        - '팔을 쭉 펴면 닿는다'
+        - 'joint 1 만 돌리면 닿는다'
+      answer: 1
+      explanation: |
+        첫 link 가 더 길면 둘째 link 를 완전히 접어도 손끝은 원점에서 $L_1 - L_2$ 만큼 남는다. 그래서 workspace 는 원 전체가 아니라
+        반지름 $L_1 - L_2$ 와 $L_1 + L_2$ 사이의 고리 모양이고, 그 안쪽 구멍의 목표에는 닿지 않는다. 쭉 편 자세는 가장 먼 곳에 닿는
+        자세이고, joint 1 만 돌리면 손끝이 원을 따라 돌 뿐 원점 쪽으로 가까워지지 않는다.
+    - question: |
+        2 관절 평면 팔은 공식으로 바로 풀리는데도, 실제 6~7 joint 로봇 팔에서는 반복 계산 IK 가 널리 쓰인다. 그 이유로 맞는 것은?
+      choices:
+        - '해석적 풀이는 답을 하나만 주기 때문이다'
+        - '반복 계산은 FK 를 쓰지 않아 더 단순하기 때문이다'
+        - '해석적 풀이는 로봇마다 식을 새로 유도해야 하고 모든 팔에 쓸 수 있는 일반 공식이 없어서, FK 와 Jacobian 만 있으면 되는 반복 계산이 편하기 때문이다'
+        - '반복 계산은 언제나 해석적 풀이보다 정확하기 때문이다'
+      answer: 2
+      explanation: |
+        joint 가 많은 3 차원 팔은 위치와 방향을 함께 맞춰야 해서 식이 빠르게 복잡해지고, 특별한 설계가 아니면 일반 공식이 없다. 반복
+        계산은 FK 와 "joint 를 조금 돌렸을 때 손끝이 움직이는 비율" 만 있으면 어떤 팔에도 같은 방법으로 쓸 수 있다. 해석적 풀이는 오히려
+        모든 답을 한꺼번에 정확히 주는 장점이 있고, 반복 계산은 근사를 되풀이하는 방법이라 더 정확하다고 할 수 없다.
+
+- topic: elbow
+  title: elbow-up·elbow-down 과 답의 선택
+  variants:
+    - question: |
+        2 관절 팔이 같은 목표에 elbow-up 자세와 elbow-down 자세 두 가지로 닿을 수 있다. 이 두 답에 대해 맞는 것은?
+      choices:
+        - '둘 다 손끝을 정확히 목표에 두는 맞는 답이고, joint 범위·주변 물체·지금 자세를 보고 하나를 고른다'
+        - '둘 중 하나는 계산 과정에서 생긴 틀린 답이라 버려야 한다'
+        - 'elbow-up 이 언제나 더 좋은 답이다'
+        - '두 답의 평균 각도를 쓰면 더 안정적이다'
+      answer: 0
+      explanation: |
+        두 답 모두 FK 에 넣으면 손끝이 정확히 목표에 온다. 어느 쪽을 쓸지는 계산이 아니라 상황이 정한다. 모터가 한쪽으로 꺾이지 못하면
+        다른 쪽만 쓸 수 있고, 팔꿈치가 책상에 부딪힐 쪽은 피하며, 지금 자세에서 가까운 쪽을 고른다. 두 답의 각도를 평균하면 일반적으로
+        손끝이 목표에서 벗어난다.
+    - question: |
+        로봇이 지금 elbow-down 답에 가까운 자세로 서 있다. 다른 조건이 같다면 새 목표의 두 답 중 어느 쪽을 고르는 것이 자연스러운가?
+      choices:
+        - 'joint angle 의 절댓값 합이 큰 쪽'
+        - '지금 자세와 반대쪽 답. 팔꿈치를 바꿔 다양한 자세를 써야 한다'
+        - '아무 쪽이나 무작위로 고른다'
+        - '지금 자세에서 joint 를 덜 돌려도 되는 elbow-down 쪽'
+      answer: 3
+      explanation: |
+        지금 자세와 가까운 답을 고르면 joint 를 적게 돌려 빠르고 안전하게 움직인다. 반대쪽 답으로 가려면 팔꿈치가 크게 뒤집히며 여러
+        joint 가 많이 돌아야 하고, 그 사이에 주변 물체와 부딪힐 위험도 커진다. 각도의 크기 자체나 무작위 선택은 답을 고르는 근거가
+        되지 않는다.
+    - question: |
+        같은 목표에 닿는 elbow-up 자세와 elbow-down 자세는 서로 어떤 관계인가?
+      choices:
+        - '팔꿈치 각도 $\theta_2$ 가 같고 $\theta_1$ 만 부호가 반대다'
+        - '원점과 목표를 잇는 선을 거울로 삼아 뒤집은 모양이고, $\theta_2$ 의 부호가 반대다'
+        - '한 자세는 팔을 쭉 편 자세이고 다른 자세는 완전히 접은 자세다'
+        - '두 자세의 $\theta_1$ 과 $\theta_2$ 가 서로 자리를 바꾼 것이다'
+      answer: 1
+      explanation: |
+        코사인 법칙은 $\cos\theta_2$ 만 정해 주므로 cos 이 같은 두 각도 $+\theta_2$ 와 $-\theta_2$ 가 모두 답이다. 그래서 팔꿈치가 원점과
+        목표를 잇는 선의 한쪽과 반대쪽에 놓이는 거울상 두 자세가 나온다. $\theta_1$ 은 그에 맞춰 달라지지만 단순히 부호만 바뀌는 것은
+        아니다. 쭉 편 자세나 접은 자세는 두 답이 하나로 겹치는 특별한 경우다.
+
+- topic: jacobian-column
+  title: Jacobian 의 열과 선형 근사
+  variants:
+    - question: |
+        로봇 팔 Jacobian $J$ 의 한 열은 무엇을 나타내는가?
+      choices:
+        - '그 joint 의 현재 각도'
+        - '그 joint 에서 손끝까지의 거리 하나'
+        - '그 joint 하나만 조금 돌렸을 때 손끝이 움직이는 방향과 비율'
+        - '손끝의 현재 위치'
+      answer: 2
+      explanation: |
+        Jacobian 은 joint 하나를 조금 돌렸을 때 손끝 좌표가 변하는 비율, 곧 partial derivative 를 joint 마다 열로 쌓은 행렬이다. 그래서
+        한 열에는 손끝 $x$ 와 $y$ 가 변하는 비율이 함께 들어 있어 방향과 크기를 모두 담는다. joint angle 이나 손끝 위치는 Jacobian 을
+        구하는 데 쓰는 값이지 Jacobian 자체가 아니고, 거리는 크기만 있는 숫자 하나다.
+    - question: |
+        평면 팔에서 어떤 joint 에서 손끝까지의 방향이 오른쪽($+x$)이다. 그 joint 하나만 시계 반대 방향으로 아주 조금 돌리면 손끝은
+        처음에 어느 쪽으로 움직이는가?
+      choices:
+        - '위쪽($+y$)'
+        - '오른쪽($+x$)'
+        - '왼쪽($-x$)'
+        - '아래쪽($-y$)'
+      answer: 0
+      explanation: |
+        joint 하나만 돌리면 손끝은 그 joint 를 중심으로 원을 그리고, 원 위의 점이 막 움직이는 방향은 중심에서 그 점으로 그은 선에
+        직각이다. 오른쪽을 가리키는 선을 시계 반대 방향으로 90° 돌리면 위쪽이다. 오른쪽이나 왼쪽은 반지름 방향이라 손끝이 joint 에서
+        멀어지거나 가까워지는 것인데, joint 를 돌리는 것만으로는 그 거리가 변하지 않는다. 아래쪽은 시계 방향으로 돌렸을 때다.
+    - question: |
+        $\Delta\mathbf p \approx J\,\Delta\mathbf q$ 에 대한 설명으로 맞는 것은?
+      choices:
+        - 'joint 를 아무리 크게 돌려도 정확히 맞는 식이다'
+        - 'joint 를 조금 돌릴 때만 맞는 직선 근사이고, 자세가 바뀌면 $J$ 도 다시 구해야 한다'
+        - '$J$ 는 로봇마다 하나로 정해져 어느 자세에서나 같다'
+        - '$\Delta\mathbf q$ 를 키울수록 근사가 더 정확해진다'
+      answer: 1
+      explanation: |
+        손끝은 실제로 원을 따라 휘어 가는데 Jacobian 은 그 원의 접선 방향으로 곧게 간다고 본다. 그래서 joint 를 조금 돌릴 때만 맞고,
+        크게 돌릴수록 예측과 실제의 차이가 빠르게 커진다. joint 에서 손끝까지의 칸이 자세마다 다르므로 Jacobian 도 자세마다 달라서,
+        한 번 구한 $J$ 를 다른 자세에 그대로 쓸 수 없다.
+
+- topic: linear-step
+  title: 반복 계산으로 푸는 IK
+  variants:
+    - question: |
+        반복 IK 에서 $J\,\Delta\mathbf q = \mathbf e$ 를 풀어 joint 를 한 번 돌렸는데, 손끝이 목표에 정확히 닿지 않았다. 그 이유로 맞는
+        것은?
+      choices:
+        - '연립방정식을 푸는 과정에서 계산 실수가 있었기 때문이다'
+        - '목표가 언제나 팔이 닿는 범위 밖에 있기 때문이다'
+        - 'Jacobian 은 joint 를 돌릴 때마다 반대 방향을 가리키기 때문이다'
+        - 'Jacobian 은 휘어진 손끝 움직임을 직선으로 본 근사라서, 크게 움직이면 예측과 실제가 어긋나기 때문이다'
+      answer: 3
+      explanation: |
+        $J\,\Delta\mathbf q = \mathbf e$ 는 선형 근사 위에서 오차를 0 으로 만드는 움직임이다. 실제 손끝은 원을 따라 휘므로 도착점이
+        예측과 조금 다르고, 그래서 FK 로 다시 오차를 재고 같은 계산을 되풀이한다. 계산이 맞아도 생기는 현상이고, 목표가 범위 안이어도
+        한 step 에는 닿지 않는다. Jacobian 이 반대 방향을 가리키는 일은 없다.
+    - question: |
+        joint 가 맞출 숫자보다 많아 $J\,\Delta\mathbf q = \mathbf e$ 를 만족하는 $\Delta\mathbf q$ 가 여럿일 때, pseudo-inverse 가 고르는
+        해는?
+      choices:
+        - '오차를 가장 줄이는 것들 중 joint 를 가장 적게 돌리는 것'
+        - 'joint 를 가장 많이 돌리는 것'
+        - '첫 번째 joint 만 움직이는 것'
+        - '무작위로 고른 하나'
+      answer: 0
+      explanation: |
+        pseudo-inverse 는 먼저 $\lVert J\Delta\mathbf q - \mathbf e\rVert^2$ 을 가장 작게 하고, 그런 해가 여럿이면 길이
+        $\lVert\Delta\mathbf q\rVert$ 가 가장 짧은 것을 고른다. joint 를 덜 돌리는 쪽이 안전하고 자세 변화도 작기 때문이다. 특정 joint
+        만 쓰거나 무작위로 고르는 규칙은 없다. Jacobian 이 정사각이고 역행렬이 있으면 pseudo-inverse 는 역행렬과 같아진다.
+    - question: |
+        답이 둘인 목표를 반복 IK 로 풀 때 어느 답에 도착할지를 정하는 것은?
+      choices:
+        - 'step 의 개수'
+        - '시작 자세. 반복 계산은 시작 자세 근처에서 오차를 줄이는 쪽으로만 움직이기 때문이다'
+        - '언제나 elbow-up 답에 도착한다'
+        - '목표의 좌표가 양수인지 음수인지'
+      answer: 1
+      explanation: |
+        반복 계산은 지금 자세에서 오차가 줄어드는 쪽으로 조금씩 움직이므로 시작 자세에서 가까운 답으로 다가간다. 그래서 로봇이 움직이는
+        중에 IK 를 풀 때는 지금 자세를 시작 자세로 써서 팔꿈치가 갑자기 뒤집히는 일을 피한다. step 수는 얼마나 가까이 가는지를 정할 뿐
+        어느 답인지를 정하지 않고, 특정 답이나 좌표의 부호로 정해지지도 않는다.
+
+- topic: transpose
+  title: Jacobian transpose 와 step 크기
+  variants:
+    - question: |
+        Jacobian transpose 법 $\Delta\mathbf q = \alpha\,J^\top\mathbf e$ 는 어떤 방법과 같은가?
+      choices:
+        - 'Jacobian 의 역행렬로 오차를 한 번에 없애는 방법'
+        - '오차를 무시하고 joint 를 무작위로 돌려 보는 방법'
+        - '남은 거리 제곱의 절반 $\frac{1}{2}\lVert\mathbf e\rVert^2$ 을 loss 로 둔 gradient descent'
+        - 'pseudo-inverse 와 언제나 같은 방향으로 가는 방법'
+      answer: 2
+      explanation: |
+        $\frac{1}{2}\lVert\mathbf e\rVert^2$ 을 joint angle 로 미분하면 gradient 가 $-J^\top\mathbf e$ 라서, 그 반대 방향으로 $\alpha$
+        만큼 가는 update 가 바로 $\alpha J^\top\mathbf e$ 다. 역행렬을 구하지 않는 것이 이 방법의 특징이고, 그래서 선형 근사의 해로
+        곧장 가는 pseudo-inverse 와는 방향이 일반적으로 다르다. 무작위로 돌리는 방법도 아니다.
+    - question: |
+        Jacobian transpose 법에서 step 크기 $\alpha$ 를 크게 잡으면 어떻게 되는가?
+      choices:
+        - '한 번에 너무 크게 움직여 목표를 지나치고 되돌아오기를 되풀이하거나, 오차가 오히려 커질 수 있다'
+        - '언제나 더 빨리 수렴한다'
+        - '수렴 속도는 그대로이고 계산만 빨라진다'
+        - '답이 elbow-up 에서 elbow-down 으로 바뀔 뿐 수렴에는 영향이 없다'
+      answer: 0
+      explanation: |
+        $\alpha$ 는 gradient descent 의 learning rate 와 같은 역할이다. 너무 크면 선형 근사가 맞지 않는 거리까지 한 번에 가서 목표를
+        지나치고, 더 크면 남은 거리가 계속 커지며 발산한다. 크게 잡을수록 빨라진다는 생각이 흔한 오해다. 한 step 의 계산량은 $\alpha$
+        와 상관없다.
+    - question: |
+        Jacobian transpose 법은 처음에는 오차가 잘 줄다가 목표 근처에서 점점 느려진다. 그 이유로 맞는 것은?
+      choices:
+        - 'Jacobian 이 목표 근처에서 0 이 되기 때문이다'
+        - '목표 근처에서는 항상 singularity 가 되기 때문이다'
+        - '$\alpha$ 가 반복할수록 자동으로 작아지기 때문이다'
+        - '움직임 $\alpha J^\top\mathbf e$ 가 오차 $\mathbf e$ 에 비례해서, 오차가 작아지면 한 step 의 움직임도 함께 작아지기 때문이다'
+      answer: 3
+      explanation: |
+        한 step 의 움직임에 $\mathbf e$ 가 곱해져 있으므로 남은 오차가 줄면 움직임도 함께 줄어든다. 가장 낮은 점에 가까울수록 gradient
+        가 작아져 천천히 수렴하는 gradient descent 와 같다. $\alpha$ 는 정해 둔 상수라 저절로 변하지 않고, Jacobian 이 0 이 되거나
+        singularity 가 되는 것은 목표 근처라서 생기는 일이 아니다.
+
+- topic: singularity
+  title: singularity 와 pseudo-inverse
+  variants:
+    - question: |
+        2 관절 평면 팔이 singularity 가 되는 자세는?
+      choices:
+        - '팔꿈치가 90° 로 꺾인 자세'
+        - '$\theta_1 = 0°$ 인 모든 자세'
+        - '손끝이 원점 바로 위에 있는 자세'
+        - '팔을 쭉 펴거나 완전히 접어, Jacobian 의 두 열이 같은 방향이 되는 자세'
+      answer: 3
+      explanation: |
+        팔을 쭉 펴거나 완전히 접으면 두 joint 가 손끝을 움직이는 방향이 같아져 Jacobian 의 두 열이 나란해지고 $\det J = 0$ 이 된다.
+        이때 손끝을 처음 조금 움직일 수 없는 방향이 생기는데, 이 자세가 singularity 다. 팔꿈치 90° 는 두 방향이 서로 많이 달라 오히려
+        singularity 에서 가장 먼 자세다. $\theta_1$ 의 값이나 손끝의 자리 자체는 singularity 를 정하지 않는다.
+    - question: |
+        거의 쭉 펴진 팔에서 손끝을 조금만 옮기라고 pseudo-inverse 로 계산하면 어떤 일이 생기는가?
+      choices:
+        - '팔이 거의 펴져 있으므로 joint 를 거의 돌리지 않는다'
+        - '역행렬이 없으므로 프로그램이 항상 바로 오류를 낸다'
+        - '손끝을 움직이는 배율이 0 에 가까운 방향에서 오차를 그 배율로 나누므로, joint 를 터무니없이 크게 돌리라는 값이 나온다'
+        - '손끝이 정확히 목표로 가므로 아무 문제가 없다'
+      answer: 2
+      explanation: |
+        pseudo-inverse 는 각 방향의 오차를 그 방향의 배율, 곧 singular value 로 나눈다. singularity 근처에서는 이 배율이 0 에 가까워
+        아주 작은 오차도 아주 큰 joint 움직임이 된다. 정확히 singularity 인 자세는 드물어서 역행렬이 계산되기는 하지만 값이 폭발하며,
+        이 명령을 그대로 보내면 joint 가 위험하게 빨리 돌고 손끝은 엉뚱한 곳으로 간다.
+    - question: |
+        singularity 에 대한 설명으로 맞는 것은?
+      choices:
+        - 'singularity 에서는 로봇이 기계적으로 고장 나 어느 방향으로도 움직일 수 없다'
+        - 'singularity 는 joint 가 3 개 이상인 팔에서만 생긴다'
+        - '손끝을 처음 조금 움직이는 비율이 0 인 방향이 생기는 자세라서, Jacobian 으로 하는 계산에 문제가 생긴다'
+        - 'singularity 를 지나면 IK 의 답이 사라진다'
+      answer: 2
+      explanation: |
+        쭉 편 팔도 팔꿈치를 굽히면 손끝이 원점 쪽으로 당겨지므로 로봇이 실제로 못 움직이는 것은 아니다. 다만 막 움직이는 순간의 비율이
+        0 이라 Jacobian 의 선형 근사에는 그 방향의 움직임이 보이지 않고, 이 근사를 뒤집어 쓰는 계산이 문제를 일으킨다. 2 관절 팔에서도
+        생기며, singularity 자세는 그 자체로 목표에 닿는 답이 될 수도 있다.
+
+- topic: dls
+  title: damped least squares 와 λ
+  variants:
+    - question: |
+        damped least squares(DLS)가 pseudo-inverse 와 다른 점으로 맞는 것은?
+      choices:
+        - '남은 오차의 제곱에 joint 움직임 크기의 벌점 $\lambda^2\lVert\Delta\mathbf q\rVert^2$ 을 더해 함께 줄여서, singularity 근처에서도 움직임이 지나치게 커지지 않는다'
+        - '오차를 정확히 0 으로 만드는 움직임만 고른다'
+        - 'Jacobian 을 쓰지 않고 FK 만으로 푼다'
+        - 'joint 를 늘 같은 크기만큼만 돌린다'
+      answer: 0
+      explanation: |
+        pseudo-inverse 는 오차를 줄이는 것만 보고 joint 를 얼마나 돌리는지는 보지 않아 singularity 근처에서 움직임이 폭발한다. DLS 는
+        joint 움직임에도 벌점을 매겨, 한 방향의 움직임이 $\sigma e / (\sigma^2 + \lambda^2)$ 이 되므로 배율 $\sigma$ 가 0 에 가까워도
+        분모가 $\lambda^2$ 아래로 내려가지 않는다. 그 대가로 오차를 조금 남길 수 있다. Jacobian 은 그대로 쓰고, 움직임 크기는 상황에
+        따라 달라진다.
+    - question: |
+        DLS 의 $\lambda$ 를 0 에서부터 점점 키우면 어떻게 되는가?
+      choices:
+        - '$\lambda$ 와 상관없이 결과가 같다'
+        - '$\lambda$ 가 클수록 더 빨리 수렴하고 더 크게 튄다'
+        - '$\lambda = 0$ 이면 Jacobian transpose 와 같고, 클수록 pseudo-inverse 에 가까워진다'
+        - '$\lambda = 0$ 이면 pseudo-inverse 와 같고, 클수록 튀지 않는 대신 수렴이 느려진다'
+      answer: 3
+      explanation: |
+        $\lambda = 0$ 이면 벌점이 없어 pseudo-inverse 와 같다. $\lambda$ 를 키우면 joint 움직임을 더 세게 눌러 singularity 근처에서도
+        튀지 않지만, 한 step 이 작아져 수렴이 느려진다. 아주 크면 작은 step 의 Jacobian transpose 를 닮아 간다. $\lambda$ 가 클수록 빠르다는 설명과
+        $\lambda = 0$ 이 Jacobian transpose 라는 설명은 방향이 거꾸로다.
+    - question: |
+        팔이 닿지 않는 먼 목표를 주고 반복 계산을 돌렸다. pseudo-inverse 와 DLS 의 반응을 바르게 비교한 것은?
+      choices:
+        - '둘 다 목표에 정확히 닿는다'
+        - 'pseudo-inverse 는 팔을 펴다 singularity 근처에서 크게 튀고, DLS 는 목표 쪽으로 팔을 쭉 편 가장 가까운 자세에서 멈춘다'
+        - 'DLS 는 크게 튀고 pseudo-inverse 는 가장 가까운 자세에서 멈춘다'
+        - '둘 다 목표가 닿지 않는다는 것을 스스로 알아채고 바로 멈춘다'
+      answer: 1
+      explanation: |
+        닿지 않는 목표는 팔을 그쪽으로 쭉 펴게 만들고, 쭉 편 팔은 singularity 라서 pseudo-inverse 의 움직임이 폭발한다. DLS 는 움직임을
+        눌러 팔을 쭉 편 자세에 다가가 남은 거리가 더 줄지 않는 자리에서 멈춘다. 반복 계산은 답이 없다는 것을 스스로 알지 못하므로,
+        실제 프로그램은 반복 전에 목표까지의 거리를 따로 확인한다.

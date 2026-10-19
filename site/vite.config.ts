@@ -21,11 +21,12 @@ function frontmatterOnly(): Plugin {
   }
 }
 
-// projects/ lives one level above the site root.
+// lessons/ lives one level above the site root.
 export default defineConfig({
   base: './',
   plugins: [frontmatterOnly(), react(), quizServer(fileURLToPath(new URL('..', import.meta.url)))],
-  server: { fs: { allow: ['..'] } },
+  // listen on every interface so other tailnet machines can open the map (http://mac:5173 or the Tailscale IP)
+  server: { host: true, allowedHosts: ['mac', '.ts.net'], fs: { allow: ['..'] } },
   // the lazily loaded panel chunk carries markdown + KaTeX (~240 kB gzip)
   build: { chunkSizeWarningLimit: 900 },
 })

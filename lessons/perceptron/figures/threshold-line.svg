@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>합 x₁ + x₂ 를 문턱 1.5 와 비교하는 것과, 합에 b = −1.5 를 더한 z 를 0 과 비교하는 것은 같은 판정이다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="70" y="40" fill="#e2e8f0" font-size="14" text-anchor="start">합 x₁ + x₂ 를 문턱 1.5 와 비교</text>
+  <line x1="70" y1="80" x2="534" y2="80" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="80" y1="75" x2="80" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <text x="80" y="102" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="226.667" y1="75" x2="226.667" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <text x="226.667" y="102" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <line x1="300" y1="75" x2="300" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <line x1="373.333" y1="75" x2="373.333" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <text x="373.333" y="102" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <line x1="520" y1="75" x2="520" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <text x="520" y="102" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <line x1="300" y1="50" x2="300" y2="110" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="300" y="126" fill="#f87171" font-size="12" text-anchor="middle">문턱 θ = 1.5</text>
+  <circle cx="80" cy="80" r="7" fill="#e2e8f0"/>
+  <text x="80" y="66" fill="#94a3b8" font-size="12" text-anchor="middle">[0,0]</text>
+  <circle cx="226.667" cy="80" r="7" fill="#e2e8f0"/>
+  <text x="226.667" y="66" fill="#94a3b8" font-size="12" text-anchor="middle">[0,1] [1,0]</text>
+  <circle cx="373.333" cy="80" r="7" fill="#f59e0b"/>
+  <text x="373.333" y="66" fill="#94a3b8" font-size="12" text-anchor="middle">[1,1]</text>
+  <text x="70" y="180" fill="#e2e8f0" font-size="14" text-anchor="start">z = 합 + b (b = −1.5) 를 0 과 비교</text>
+  <line x1="70" y1="220" x2="534" y2="220" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="80" y1="215" x2="80" y2="225" stroke="#475569" stroke-width="1.5"/>
+  <text x="80" y="242" fill="#64748b" font-size="12" text-anchor="middle">−1.5</text>
+  <line x1="226.667" y1="215" x2="226.667" y2="225" stroke="#475569" stroke-width="1.5"/>
+  <text x="226.667" y="242" fill="#64748b" font-size="12" text-anchor="middle">−0.5</text>
+  <line x1="300" y1="215" x2="300" y2="225" stroke="#475569" stroke-width="1.5"/>
+  <line x1="373.333" y1="215" x2="373.333" y2="225" stroke="#475569" stroke-width="1.5"/>
+  <text x="373.333" y="242" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
+  <line x1="520" y1="215" x2="520" y2="225" stroke="#475569" stroke-width="1.5"/>
+  <text x="520" y="242" fill="#64748b" font-size="12" text-anchor="middle">1.5</text>
+  <line x1="300" y1="190" x2="300" y2="250" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="300" y="266" fill="#f87171" font-size="12" text-anchor="middle">기준 0</text>
+  <circle cx="80" cy="220" r="7" fill="#e2e8f0"/>
+  <text x="80" y="206" fill="#94a3b8" font-size="12" text-anchor="middle">[0,0]</text>
+  <circle cx="226.667" cy="220" r="7" fill="#e2e8f0"/>
+  <text x="226.667" y="206" fill="#94a3b8" font-size="12" text-anchor="middle">[0,1] [1,0]</text>
+  <circle cx="373.333" cy="220" r="7" fill="#f59e0b"/>
+  <text x="373.333" y="206" fill="#94a3b8" font-size="12" text-anchor="middle">[1,1]</text>
+  <text x="300" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">모든 점이 1.5 만큼 왼쪽으로 옮겨 가고, 기준선은 1.5 에서 0 으로 옮겨 간다</text>
+
+</svg>

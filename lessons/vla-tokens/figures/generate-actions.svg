@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 412" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>action token 7 개의 생성: 단계마다 vocabulary 점수에서 action token 256 개 밖을 −∞ 로 막고 가장 큰 token 을 골라 다음 입력 끝에 붙인다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="758" height="410" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24" y="30" fill="#e2e8f0" font-size="13" text-anchor="start">단계마다: 점수 32,000 개 → action token 밖은 −∞ → 가장 큰 token 을 골라 입력 끝에 붙인다</text>
+  <text x="30" y="74" fill="#94a3b8" font-size="13" text-anchor="middle">1</text>
+  <rect x="48" y="56" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="74" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="56" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="74" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <line x1="158" y1="69" x2="176" y2="69" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="180" y="54" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="209" y="74" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="238" y1="69" x2="256" y2="69" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="260" y="54" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="288" y="74" fill="#34d399" font-size="11.5" text-anchor="middle">31,882</text>
+  <text x="30" y="122" fill="#94a3b8" font-size="13" text-anchor="middle">2</text>
+  <rect x="48" y="104" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="122" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="104" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="122" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="104" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="122" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <line x1="212" y1="117" x2="230" y2="117" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="234" y="102" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="263" y="122" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="292" y1="117" x2="310" y2="117" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="314" y="102" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="342" y="122" fill="#34d399" font-size="11.5" text-anchor="middle">31,917</text>
+  <text x="30" y="170" fill="#94a3b8" font-size="13" text-anchor="middle">3</text>
+  <rect x="48" y="152" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="170" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="152" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="170" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="152" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="170" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <rect x="208" y="152" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="233" y="170" fill="#34d399" font-size="10.5" text-anchor="middle">31,917</text>
+  <line x1="266" y1="165" x2="284" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="288" y="150" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="317" y="170" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="346" y1="165" x2="364" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="368" y="150" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="396" y="170" fill="#34d399" font-size="11.5" text-anchor="middle">31,841</text>
+  <text x="30" y="218" fill="#94a3b8" font-size="13" text-anchor="middle">4</text>
+  <rect x="48" y="200" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="218" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="200" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="218" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="200" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="218" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <rect x="208" y="200" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="233" y="218" fill="#34d399" font-size="10.5" text-anchor="middle">31,917</text>
+  <rect x="262" y="200" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="287" y="218" fill="#34d399" font-size="10.5" text-anchor="middle">31,841</text>
+  <line x1="320" y1="213" x2="338" y2="213" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="342" y="198" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="371" y="218" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="400" y1="213" x2="418" y2="213" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="422" y="198" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="450" y="218" fill="#34d399" font-size="11.5" text-anchor="middle">31,932</text>
+  <text x="30" y="266" fill="#94a3b8" font-size="13" text-anchor="middle">5</text>
+  <rect x="48" y="248" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="266" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="248" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="266" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="248" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="266" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <rect x="208" y="248" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="233" y="266" fill="#34d399" font-size="10.5" text-anchor="middle">31,917</text>
+  <rect x="262" y="248" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="287" y="266" fill="#34d399" font-size="10.5" text-anchor="middle">31,841</text>
+  <rect x="316" y="248" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="341" y="266" fill="#34d399" font-size="10.5" text-anchor="middle">31,932</text>
+  <line x1="374" y1="261" x2="392" y2="261" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="396" y="246" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="425" y="266" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="454" y1="261" x2="472" y2="261" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="476" y="246" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="504" y="266" fill="#34d399" font-size="11.5" text-anchor="middle">31,872</text>
+  <text x="30" y="314" fill="#94a3b8" font-size="13" text-anchor="middle">6</text>
+  <rect x="48" y="296" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="314" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="296" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="314" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="296" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="314" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <rect x="208" y="296" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="233" y="314" fill="#34d399" font-size="10.5" text-anchor="middle">31,917</text>
+  <rect x="262" y="296" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="287" y="314" fill="#34d399" font-size="10.5" text-anchor="middle">31,841</text>
+  <rect x="316" y="296" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="341" y="314" fill="#34d399" font-size="10.5" text-anchor="middle">31,932</text>
+  <rect x="370" y="296" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="395" y="314" fill="#34d399" font-size="10.5" text-anchor="middle">31,872</text>
+  <line x1="428" y1="309" x2="446" y2="309" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="450" y="294" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="479" y="314" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="508" y1="309" x2="526" y2="309" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="530" y="294" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="558" y="314" fill="#34d399" font-size="11.5" text-anchor="middle">31,859</text>
+  <text x="30" y="362" fill="#94a3b8" font-size="13" text-anchor="middle">7</text>
+  <rect x="48" y="344" width="54" height="26" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="75" y="362" fill="#38bdf8" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="106" y="344" width="44" height="26" rx="4" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="128" y="362" fill="#f59e0b" font-size="10.5" text-anchor="middle">지시문</text>
+  <rect x="154" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="179" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,882</text>
+  <rect x="208" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="233" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,917</text>
+  <rect x="262" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="287" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,841</text>
+  <rect x="316" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="341" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,932</text>
+  <rect x="370" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="395" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,872</text>
+  <rect x="424" y="344" width="50" height="26" rx="4" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
+  <text x="449" y="362" fill="#34d399" font-size="10.5" text-anchor="middle">31,859</text>
+  <line x1="482" y1="357" x2="500" y2="357" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect x="504" y="342" width="58" height="30" rx="6" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="533" y="362" fill="#a78bfa" font-size="11" text-anchor="middle">Llama 2</text>
+  <line x1="562" y1="357" x2="580" y2="357" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="584" y="342" width="56" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="612" y="362" fill="#34d399" font-size="11.5" text-anchor="middle">31,865</text>
+  <text x="380" y="400" fill="#94a3b8" font-size="12.5" text-anchor="middle">고른 token 이 다음 단계 입력의 끝에 붙는다 (모두 7 번)</text>
+</svg>

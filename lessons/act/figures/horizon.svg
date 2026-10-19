@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>k = 1, 10, 100 의 결정 횟수 400, 40, 4 와 가장 나쁜 경우의 틀린 결정 수 H²ε 1600, 16, 0.16</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="90.0" y="50.0" width="460.0" height="240.0" rx="0" fill="#0e1628"/>
+  <line x1="90.0" y1="290.0" x2="550.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="82.0" y="294.0" fill="#64748b" font-size="12" text-anchor="end">0.1</text>
+  <line x1="90.0" y1="236.4" x2="550.0" y2="236.4" stroke="#1e293b" stroke-width="1"/>
+  <text x="82.0" y="240.4" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="90.0" y1="182.8" x2="550.0" y2="182.8" stroke="#1e293b" stroke-width="1"/>
+  <text x="82.0" y="186.8" fill="#64748b" font-size="12" text-anchor="end">10</text>
+  <line x1="90.0" y1="129.2" x2="550.0" y2="129.2" stroke="#1e293b" stroke-width="1"/>
+  <text x="82.0" y="133.2" fill="#64748b" font-size="12" text-anchor="end">100</text>
+  <line x1="90.0" y1="75.6" x2="550.0" y2="75.6" stroke="#1e293b" stroke-width="1"/>
+  <text x="82.0" y="79.6" fill="#64748b" font-size="12" text-anchor="end">1000</text>
+  <line x1="90.0" y1="290.0" x2="550.0" y2="290.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="90.0" y1="290.0" x2="90.0" y2="50.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="550.0" y="326.0" fill="#94a3b8" font-size="13" text-anchor="end"></text>
+  <text x="82.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">세로축: 10 배씩 늘어나는 눈금</text>
+  <rect x="120.7" y="96.9" width="42.0" height="193.1" rx="3" fill="#94a3b8" fill-opacity="0.75"/>
+  <text x="141.7" y="90.9" fill="#e2e8f0" font-size="12" text-anchor="middle">400</text>
+  <rect x="168.7" y="64.6" width="42.0" height="225.4" rx="3" fill="#f87171" fill-opacity="0.75"/>
+  <text x="189.7" y="58.6" fill="#e2e8f0" font-size="12" text-anchor="middle">1600</text>
+  <text x="166.7" y="314.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 1</text>
+  <rect x="274.0" y="150.5" width="42.0" height="139.5" rx="3" fill="#94a3b8" fill-opacity="0.75"/>
+  <text x="295.0" y="144.5" fill="#e2e8f0" font-size="12" text-anchor="middle">40</text>
+  <rect x="322.0" y="171.8" width="42.0" height="118.2" rx="3" fill="#f87171" fill-opacity="0.75"/>
+  <text x="343.0" y="165.8" fill="#e2e8f0" font-size="12" text-anchor="middle">16</text>
+  <text x="320.0" y="314.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 10</text>
+  <rect x="427.3" y="204.1" width="42.0" height="85.9" rx="3" fill="#94a3b8" fill-opacity="0.75"/>
+  <text x="448.3" y="198.1" fill="#e2e8f0" font-size="12" text-anchor="middle">4</text>
+  <rect x="475.3" y="279.1" width="42.0" height="10.9" rx="3" fill="#f87171" fill-opacity="0.75"/>
+  <text x="496.3" y="273.1" fill="#e2e8f0" font-size="12" text-anchor="middle">0.16</text>
+  <text x="473.3" y="314.0" fill="#e2e8f0" font-size="13" text-anchor="middle">k = 100</text>
+  <rect x="330.0" y="336.0" width="12.0" height="12.0" rx="2" fill="#94a3b8"/>
+  <text x="348.0" y="346.0" fill="#94a3b8" font-size="12" text-anchor="start">결정 횟수 H</text>
+  <rect x="440.0" y="336.0" width="12.0" height="12.0" rx="2" fill="#f87171"/>
+  <text x="458.0" y="346.0" fill="#f87171" font-size="12" text-anchor="start">H²ε (ε = 0.01)</text>
+</svg>

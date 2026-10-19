@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>token 의 세 가지 쓰임. text token 은 vocabulary 번호, image patch token 은 이미지 조각의 숫자 묶음, action token 은 로봇 움직임 값을 칸 번호로 바꾼 것</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+  </defs>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="12" y="14" width="182" height="302" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="103.0" y="40" fill="#38bdf8" font-size="15" text-anchor="middle">text token</text>
+  <rect x="205" y="14" width="182" height="302" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="296.0" y="40" fill="#f59e0b" font-size="15" text-anchor="middle">image patch token</text>
+  <rect x="398" y="14" width="182" height="302" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="489.0" y="40" fill="#34d399" font-size="15" text-anchor="middle">action token</text>
+  <rect x="58" y="58" width="90" height="30" rx="5" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="103.0" y="78.0" fill="#e2e8f0" font-size="15" text-anchor="middle">␣cat</text>
+  <line x1="103" y1="92" x2="103" y2="118" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="58" y="122" width="90" height="30" rx="5" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="103.0" y="142.0" fill="#38bdf8" font-size="15" text-anchor="middle">3797</text>
+  <text x="103.0" y="184" fill="#e2e8f0" font-size="12" text-anchor="middle">GPT-2 vocabulary 의</text>
+  <text x="103.0" y="202" fill="#e2e8f0" font-size="12" text-anchor="middle">3797번 token</text>
+  <text x="103.0" y="240" fill="#94a3b8" font-size="12" text-anchor="middle">정수 번호 하나</text>
+  <text x="103.0" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">번호로 표에서 숫자 묶음을</text>
+  <text x="103.0" y="276" fill="#94a3b8" font-size="12" text-anchor="middle">꺼낸 뒤 계산한다</text>
+  <rect x="256" y="56" width="20" height="20" fill="#1e3a5f"/>
+  <rect x="276" y="56" width="20" height="20" fill="#2a4a6f"/>
+  <rect x="296" y="56" width="20" height="20" fill="#3b5b7f"/>
+  <rect x="316" y="56" width="20" height="20" fill="#4c6c8f"/>
+  <rect x="256" y="76" width="20" height="20" fill="#2a4a6f"/>
+  <rect x="276" y="76" width="20" height="20" fill="#3b5b7f"/>
+  <rect x="296" y="76" width="20" height="20" fill="#4c6c8f"/>
+  <rect x="316" y="76" width="20" height="20" fill="#1e3a5f"/>
+  <rect x="256" y="96" width="20" height="20" fill="#3b5b7f"/>
+  <rect x="276" y="96" width="20" height="20" fill="#4c6c8f"/>
+  <rect x="296" y="96" width="20" height="20" fill="#1e3a5f"/>
+  <rect x="316" y="96" width="20" height="20" fill="#2a4a6f"/>
+  <rect x="256" y="116" width="20" height="20" fill="#4c6c8f"/>
+  <rect x="276" y="116" width="20" height="20" fill="#1e3a5f"/>
+  <rect x="296" y="116" width="20" height="20" fill="#2a4a6f"/>
+  <rect x="316" y="116" width="20" height="20" fill="#3b5b7f"/>
+  <line x1="296" y1="56" x2="296" y2="136" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="256" y1="96" x2="336" y2="96" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="256" y="56" width="80" height="80" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="296.0" y="160" fill="#e2e8f0" font-size="12" text-anchor="middle">이미지를 조각(patch)으로 자름</text>
+  <text x="296.0" y="184" fill="#e2e8f0" font-size="12" text-anchor="middle">224×224 사진을 16×16 으로</text>
+  <text x="296.0" y="202" fill="#e2e8f0" font-size="12" text-anchor="middle">자르면 14×14 = 196 조각</text>
+  <text x="296.0" y="240" fill="#94a3b8" font-size="12" text-anchor="middle">번호 없음</text>
+  <text x="296.0" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">조각의 픽셀 숫자 묶음이</text>
+  <text x="296.0" y="276" fill="#94a3b8" font-size="12" text-anchor="middle">곧바로 model 에 들어간다</text>
+  <line x1="414" y1="92" x2="564" y2="92" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="414.0" y1="86" x2="414.0" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="432.75" y1="86" x2="432.75" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="451.5" y1="86" x2="451.5" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="470.25" y1="86" x2="470.25" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="489.0" y1="86" x2="489.0" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="507.75" y1="86" x2="507.75" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="526.5" y1="86" x2="526.5" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="545.25" y1="86" x2="545.25" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="564.0" y1="86" x2="564.0" y2="98" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="414" y="114" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
+  <text x="564" y="114" fill="#94a3b8" font-size="11" text-anchor="middle">8 cm</text>
+  <rect x="470.25" y="82" width="18.75" height="20" fill="#34d399" fill-opacity="0.35" stroke="#34d399"/>
+  <circle cx="477.75" cy="92" r="4" fill="#f59e0b"/>
+  <text x="477.75" y="76" fill="#f59e0b" font-size="11" text-anchor="middle">3.4 cm</text>
+  <rect x="444" y="122" width="90" height="30" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="489.0" y="142.0" fill="#34d399" font-size="15" text-anchor="middle">칸 3</text>
+  <text x="489.0" y="184" fill="#e2e8f0" font-size="12" text-anchor="middle">집게 벌림 0~8 cm 를</text>
+  <text x="489.0" y="202" fill="#e2e8f0" font-size="12" text-anchor="middle">8 칸으로 나눈 칸 번호</text>
+  <text x="489.0" y="240" fill="#94a3b8" font-size="12" text-anchor="middle">칸 번호를 vocabulary 의</text>
+  <text x="489.0" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">token 번호에 대응시켜</text>
+  <text x="489.0" y="276" fill="#94a3b8" font-size="12" text-anchor="middle">text 처럼 하나씩 낸다</text>
+</svg>

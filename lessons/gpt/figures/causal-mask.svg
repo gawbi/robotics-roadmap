@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>bos 빨간 컵 집어 의 causal mask 와 위치 3 의 weight</title>
+  <defs>
+<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
+<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+<marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+<marker id="ae2e8f0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="210.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">causal mask (행: query, 열: key)</text>
+  <text x="135.0" y="60.0" fill="#94a3b8" font-size="12" text-anchor="middle">&lt;bos&gt;</text>
+  <text x="100.0" y="99.0" fill="#94a3b8" font-size="12" text-anchor="end">1: &lt;bos&gt;</text>
+  <rect x="112.0" y="72.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="135.0" y="99.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="162.0" y="72.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1"/>
+  <text x="185.0" y="99.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <rect x="212.0" y="72.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1"/>
+  <text x="235.0" y="99.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <rect x="262.0" y="72.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1"/>
+  <text x="285.0" y="99.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <text x="185.0" y="60.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>
+  <text x="100.0" y="149.0" fill="#94a3b8" font-size="12" text-anchor="end">2: 빨간</text>
+  <rect x="112.0" y="122.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="135.0" y="149.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="162.0" y="122.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="185.0" y="149.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="212.0" y="122.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1"/>
+  <text x="235.0" y="149.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <rect x="262.0" y="122.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#334155" stroke-width="1"/>
+  <text x="285.0" y="149.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <text x="235.0" y="60.0" fill="#94a3b8" font-size="12" text-anchor="middle">컵</text>
+  <text x="100.0" y="199.0" fill="#94a3b8" font-size="12" text-anchor="end">3: 컵</text>
+  <rect x="112.0" y="172.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="135.0" y="199.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="162.0" y="172.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="185.0" y="199.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="212.0" y="172.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="235.0" y="199.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="262.0" y="172.0" width="46.0" height="46.0" rx="4" fill="#111a2e" fill-opacity="1" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="285.0" y="199.0" fill="#94a3b8" font-size="12" text-anchor="middle">−∞</text>
+  <text x="285.0" y="60.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <text x="100.0" y="249.0" fill="#94a3b8" font-size="12" text-anchor="end">4: 집어</text>
+  <rect x="112.0" y="222.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="135.0" y="249.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="162.0" y="222.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="185.0" y="249.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="212.0" y="222.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="235.0" y="249.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <rect x="262.0" y="222.0" width="46.0" height="46.0" rx="4" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <text x="285.0" y="249.0" fill="#e2e8f0" font-size="12" text-anchor="middle">봄</text>
+  <text x="510.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">위치 3 의 weight</text>
+  <rect x="384.0" y="261.7" width="20.0" height="8.3" rx="2" fill="#f87171" fill-opacity="0.4" stroke="#f87171" stroke-width="1"/>
+  <text x="394.0" y="256.7" fill="#e2e8f0" font-size="10" text-anchor="middle">0.032</text>
+  <rect x="410.0" y="246.6" width="20.0" height="23.4" rx="2" fill="#34d399" fill-opacity="0.4" stroke="#34d399" stroke-width="1"/>
+  <text x="420.0" y="241.6" fill="#e2e8f0" font-size="10" text-anchor="middle">0.090</text>
+  <text x="407.0" y="287.0" fill="#94a3b8" font-size="12" text-anchor="middle">&lt;bos&gt;</text>
+  <rect x="444.0" y="247.4" width="20.0" height="22.6" rx="2" fill="#f87171" fill-opacity="0.4" stroke="#f87171" stroke-width="1"/>
+  <text x="454.0" y="242.4" fill="#e2e8f0" font-size="10" text-anchor="middle">0.087</text>
+  <rect x="470.0" y="206.3" width="20.0" height="63.7" rx="2" fill="#34d399" fill-opacity="0.4" stroke="#34d399" stroke-width="1"/>
+  <text x="480.0" y="201.3" fill="#e2e8f0" font-size="10" text-anchor="middle">0.245</text>
+  <text x="467.0" y="287.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>
+  <rect x="504.0" y="208.4" width="20.0" height="61.6" rx="2" fill="#f87171" fill-opacity="0.4" stroke="#f87171" stroke-width="1"/>
+  <text x="514.0" y="203.4" fill="#e2e8f0" font-size="10" text-anchor="middle">0.237</text>
+  <rect x="530.0" y="97.1" width="20.0" height="172.9" rx="2" fill="#34d399" fill-opacity="0.4" stroke="#34d399" stroke-width="1"/>
+  <text x="540.0" y="92.1" fill="#e2e8f0" font-size="10" text-anchor="middle">0.665</text>
+  <text x="527.0" y="287.0" fill="#94a3b8" font-size="12" text-anchor="middle">컵</text>
+  <rect x="564.0" y="102.6" width="20.0" height="167.4" rx="2" fill="#f87171" fill-opacity="0.4" stroke="#f87171" stroke-width="1"/>
+  <text x="574.0" y="97.6" fill="#e2e8f0" font-size="10" text-anchor="middle">0.644</text>
+  <rect x="590.0" y="270.0" width="20.0" height="0.5" rx="2" fill="#34d399" fill-opacity="0.4" stroke="#34d399" stroke-width="1"/>
+  <text x="600.0" y="265.0" fill="#e2e8f0" font-size="10" text-anchor="middle">0</text>
+  <text x="587.0" y="287.0" fill="#94a3b8" font-size="12" text-anchor="middle">집어</text>
+  <line x1="380.0" y1="270.0" x2="622.0" y2="270.0" stroke="#334155" stroke-width="1.2"/>
+  <rect x="400.0" y="293.0" width="12.0" height="12.0" rx="2" fill="#f87171" fill-opacity="0.4" stroke="#f87171" stroke-width="1"/>
+  <text x="417.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="start">mask 없음</text>
+  <rect x="500.0" y="293.0" width="12.0" height="12.0" rx="2" fill="#34d399" fill-opacity="0.4" stroke="#34d399" stroke-width="1"/>
+  <text x="517.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="start">mask 후</text>
+</svg>

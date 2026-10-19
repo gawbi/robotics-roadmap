@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 356" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>직선과 곡선을 train 점과 validation 점에서 비교</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="354" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="60.0" y1="234.6" x2="310.0" y2="234.6" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="173.1" x2="310.0" y2="173.1" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="111.5" x2="310.0" y2="111.5" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="50.0" x2="310.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="91.2" y1="50.0" x2="91.2" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="153.8" y1="50.0" x2="153.8" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="216.2" y1="50.0" x2="216.2" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="278.8" y1="50.0" x2="278.8" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="60.0" y1="250.0" x2="310.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="60.0" y1="50.0" x2="60.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="91.2" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <text x="153.8" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <text x="216.2" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <text x="278.8" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="52.0" y="238.6" fill="#94a3b8" font-size="12" text-anchor="end">4</text>
+  <text x="52.0" y="177.1" fill="#94a3b8" font-size="12" text-anchor="end">8</text>
+  <text x="52.0" y="115.5" fill="#94a3b8" font-size="12" text-anchor="end">12</text>
+  <text x="52.0" y="54.0" fill="#94a3b8" font-size="12" text-anchor="end">16</text>
+  <text x="185.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="middle">x</text>
+  <text x="60.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
+  <text x="185.0" y="32.0" fill="#e2e8f0" font-size="15" text-anchor="middle">train 점 4 개</text>
+  <polyline points="60.0,242.3 63.1,240.0 66.2,237.7 69.4,235.4 72.5,233.1 75.6,230.8 78.8,228.5 81.9,226.2 85.0,223.8 88.1,221.5 91.2,219.2 94.4,216.9 97.5,214.6 100.6,212.3 103.8,210.0 106.9,207.7 110.0,205.4 113.1,203.1 116.2,200.8 119.4,198.5 122.5,196.2 125.6,193.8 128.8,191.5 131.9,189.2 135.0,186.9 138.1,184.6 141.2,182.3 144.4,180.0 147.5,177.7 150.6,175.4 153.8,173.1 156.9,170.8 160.0,168.5 163.1,166.2 166.2,163.8 169.4,161.5 172.5,159.2 175.6,156.9 178.8,154.6 181.9,152.3 185.0,150.0 188.1,147.7 191.2,145.4 194.4,143.1 197.5,140.8 200.6,138.5 203.8,136.2 206.9,133.8 210.0,131.5 213.1,129.2 216.2,126.9 219.4,124.6 222.5,122.3 225.6,120.0 228.8,117.7 231.9,115.4 235.0,113.1 238.1,110.8 241.3,108.5 244.4,106.2 247.5,103.8 250.6,101.5 253.8,99.2 256.9,96.9 260.0,94.6 263.1,92.3 266.2,90.0 269.4,87.7 272.5,85.4 275.6,83.1 278.8,80.8 281.9,78.5 285.0,76.2 288.1,73.8 291.2,71.5 294.4,69.2 297.5,66.9 300.6,64.6 303.8,62.3 306.9,60.0 310.0,57.7" fill="none" stroke="#38bdf8" stroke-width="2.4" stroke-linejoin="round"/>
+  <polyline points="60.0,221.2 63.1,220.4 66.2,219.5 69.4,218.7 72.5,217.8 75.6,216.8 78.8,215.8 81.9,214.8 85.0,213.8 88.1,212.7 91.2,211.5 94.4,210.4 97.5,209.2 100.6,207.9 103.8,206.6 106.9,205.3 110.0,203.9 113.1,202.5 116.2,201.1 119.4,199.6 122.5,198.1 125.6,196.5 128.8,194.9 131.9,193.3 135.0,191.6 138.1,189.9 141.2,188.2 144.4,186.4 147.5,184.5 150.6,182.7 153.8,180.8 156.9,178.8 160.0,176.8 163.1,174.8 166.2,172.8 169.4,170.7 172.5,168.5 175.6,166.4 178.8,164.2 181.9,161.9 185.0,159.6 188.1,157.3 191.2,154.9 194.4,152.5 197.5,150.1 200.6,147.6 203.8,145.1 206.9,142.5 210.0,139.9 213.1,137.3 216.2,134.6 219.4,131.9 222.5,129.2 225.6,126.4 228.8,123.5 231.9,120.7 235.0,117.8 238.1,114.8 241.3,111.8 244.4,108.8 247.5,105.8 250.6,102.7 253.8,99.5 256.9,96.4 260.0,93.2 263.1,89.9 266.2,86.6 269.4,83.3 272.5,79.9 275.6,76.5 278.8,73.1 281.9,69.6 285.0,66.1 288.1,62.5 291.2,58.9 294.4,55.3 297.5,51.6 300.6,47.9 303.8,44.2 306.9,40.4 310.0,36.5" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="91.2" cy="211.5" r="5.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="153.8" cy="180.8" r="5.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="216.2" cy="134.6" r="5.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="278.8" cy="73.1" r="5.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="65.0" y="312.0" fill="#38bdf8" font-size="13" text-anchor="start">직선 loss 0.25</text>
+  <text x="190.0" y="312.0" fill="#a78bfa" font-size="13" text-anchor="start">곡선 loss 0</text>
+  <line x1="420.0" y1="234.6" x2="670.0" y2="234.6" stroke="#1e293b" stroke-width="1"/>
+  <line x1="420.0" y1="173.1" x2="670.0" y2="173.1" stroke="#1e293b" stroke-width="1"/>
+  <line x1="420.0" y1="111.5" x2="670.0" y2="111.5" stroke="#1e293b" stroke-width="1"/>
+  <line x1="420.0" y1="50.0" x2="670.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="451.2" y1="50.0" x2="451.2" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="513.8" y1="50.0" x2="513.8" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="576.2" y1="50.0" x2="576.2" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="638.8" y1="50.0" x2="638.8" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="420.0" y1="250.0" x2="670.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="420.0" y1="50.0" x2="420.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="451.2" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <text x="513.8" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <text x="576.2" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <text x="638.8" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="412.0" y="238.6" fill="#94a3b8" font-size="12" text-anchor="end">4</text>
+  <text x="412.0" y="177.1" fill="#94a3b8" font-size="12" text-anchor="end">8</text>
+  <text x="412.0" y="115.5" fill="#94a3b8" font-size="12" text-anchor="end">12</text>
+  <text x="412.0" y="54.0" fill="#94a3b8" font-size="12" text-anchor="end">16</text>
+  <text x="545.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="middle">x</text>
+  <text x="420.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
+  <text x="545.0" y="32.0" fill="#e2e8f0" font-size="15" text-anchor="middle">validation 점 3 개</text>
+  <polyline points="420.0,242.3 423.1,240.0 426.2,237.7 429.4,235.4 432.5,233.1 435.6,230.8 438.8,228.5 441.9,226.2 445.0,223.8 448.1,221.5 451.2,219.2 454.4,216.9 457.5,214.6 460.6,212.3 463.8,210.0 466.9,207.7 470.0,205.4 473.1,203.1 476.2,200.8 479.4,198.5 482.5,196.2 485.6,193.8 488.8,191.5 491.9,189.2 495.0,186.9 498.1,184.6 501.2,182.3 504.4,180.0 507.5,177.7 510.6,175.4 513.8,173.1 516.9,170.8 520.0,168.5 523.1,166.2 526.2,163.8 529.4,161.5 532.5,159.2 535.6,156.9 538.8,154.6 541.9,152.3 545.0,150.0 548.1,147.7 551.2,145.4 554.4,143.1 557.5,140.8 560.6,138.5 563.8,136.2 566.9,133.8 570.0,131.5 573.1,129.2 576.2,126.9 579.4,124.6 582.5,122.3 585.6,120.0 588.8,117.7 591.9,115.4 595.0,113.1 598.1,110.8 601.2,108.5 604.4,106.2 607.5,103.8 610.6,101.5 613.8,99.2 616.9,96.9 620.0,94.6 623.1,92.3 626.2,90.0 629.4,87.7 632.5,85.4 635.6,83.1 638.8,80.8 641.9,78.5 645.0,76.2 648.1,73.8 651.2,71.5 654.4,69.2 657.5,66.9 660.6,64.6 663.8,62.3 666.9,60.0 670.0,57.7" fill="none" stroke="#38bdf8" stroke-width="2.4" stroke-linejoin="round"/>
+  <polyline points="420.0,221.2 423.1,220.4 426.2,219.5 429.4,218.7 432.5,217.8 435.6,216.8 438.8,215.8 441.9,214.8 445.0,213.8 448.1,212.7 451.2,211.5 454.4,210.4 457.5,209.2 460.6,207.9 463.8,206.6 466.9,205.3 470.0,203.9 473.1,202.5 476.2,201.1 479.4,199.6 482.5,198.1 485.6,196.5 488.8,194.9 491.9,193.3 495.0,191.6 498.1,189.9 501.2,188.2 504.4,186.4 507.5,184.5 510.6,182.7 513.8,180.8 516.9,178.8 520.0,176.8 523.1,174.8 526.2,172.8 529.4,170.7 532.5,168.5 535.6,166.4 538.8,164.2 541.9,161.9 545.0,159.6 548.1,157.3 551.2,154.9 554.4,152.5 557.5,150.1 560.6,147.6 563.8,145.1 566.9,142.5 570.0,139.9 573.1,137.3 576.2,134.6 579.4,131.9 582.5,129.2 585.6,126.4 588.8,123.5 591.9,120.7 595.0,117.8 598.1,114.8 601.2,111.8 604.4,108.8 607.5,105.8 610.6,102.7 613.8,99.5 616.9,96.4 620.0,93.2 623.1,89.9 626.2,86.6 629.4,83.3 632.5,79.9 635.6,76.5 638.8,73.1 641.9,69.6 645.0,66.1 648.1,62.5 651.2,58.9 654.4,55.3 657.5,51.6 660.6,47.9 663.8,44.2 666.9,40.4 670.0,36.5" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="482.5" cy="203.8" r="5.5" fill="#0b1220" stroke="#f59e0b" stroke-width="2.2"/>
+  <circle cx="545.0" cy="142.3" r="5.5" fill="#0b1220" stroke="#f59e0b" stroke-width="2.2"/>
+  <circle cx="607.5" cy="111.5" r="5.5" fill="#0b1220" stroke="#f59e0b" stroke-width="2.2"/>
+  <text x="425.0" y="312.0" fill="#38bdf8" font-size="13" text-anchor="start">직선 loss 0.25</text>
+  <text x="550.0" y="312.0" fill="#a78bfa" font-size="13" text-anchor="start">곡선 loss 0.516</text>
+  <text x="360.0" y="340.0" fill="#94a3b8" font-size="12" text-anchor="middle">직선 ŷ = 3x + 2 (파랑),  네 train 점을 모두 지나는 곡선 ŷ = 0.5x² + 0.5x + 4.5 (보라)</text>
+</svg>

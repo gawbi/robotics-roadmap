@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>시연 100 개 가운데 70 개는 컵 가운데를, 30 개는 가장자리를 잡았다. 시연 비율을 그대로 따라 하는 policy 의 성공률은 81.5% 이고, 가운데만 잡는 policy 는 95% 다</title>
+  <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <!-- panel 1: demos -->
+  <text x="115" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">시연 100 개</text>
+  <rect x="55" y="60" width="120" height="140" fill="#38bdf8" fill-opacity="0.85"/>
+  <rect x="55" y="200" width="120" height="60" fill="#f59e0b" fill-opacity="0.85"/>
+  <text x="115" y="126" fill="#0b1220" font-size="15" text-anchor="middle" font-weight="bold">가운데 잡기 70</text>
+  <text x="115" y="148" fill="#0b1220" font-size="13" text-anchor="middle">성공률 95%</text>
+  <text x="115" y="226" fill="#0b1220" font-size="15" text-anchor="middle" font-weight="bold">가장자리 30</text>
+  <text x="115" y="246" fill="#0b1220" font-size="13" text-anchor="middle">성공률 50%</text>
+  <text x="115" y="290" fill="#94a3b8" font-size="13" text-anchor="middle">사람마다 잡는 법이 달랐다</text>
+
+  <!-- axis for success bars -->
+  <line x1="260" y1="260" x2="650" y2="260" stroke="#475569" stroke-width="1.5"/>
+  <line x1="260" y1="60" x2="650" y2="60" stroke="#1e293b" stroke-dasharray="4 4"/>
+  <text x="252" y="64" fill="#94a3b8" font-size="12" text-anchor="end">100%</text>
+  <text x="252" y="264" fill="#94a3b8" font-size="12" text-anchor="end">0%</text>
+  <text x="455" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">성공률</text>
+
+  <!-- bar BC: 81.5% -> height 163 -->
+  <rect x="300" y="97" width="110" height="163" rx="4" fill="#94a3b8" fill-opacity="0.8"/>
+  <text x="355" y="88" fill="#e2e8f0" font-size="16" text-anchor="middle" font-weight="bold">81.5%</text>
+  <text x="355" y="282" fill="#e2e8f0" font-size="13" text-anchor="middle">시연을 따라 한 policy</text>
+  <text x="355" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">0.7×0.95 + 0.3×0.5</text>
+
+  <!-- bar best: 95% -> height 190 -->
+  <rect x="500" y="70" width="110" height="190" rx="4" fill="#34d399" fill-opacity="0.85"/>
+  <text x="555" y="62" fill="#e2e8f0" font-size="16" text-anchor="middle" font-weight="bold">95%</text>
+  <text x="555" y="282" fill="#e2e8f0" font-size="13" text-anchor="middle">가운데만 잡는 policy</text>
+  <text x="555" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">시연보다 나은 행동</text>
+
+  <line x1="410" y1="150" x2="496" y2="150" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="453" y="140" fill="#f59e0b" font-size="13" text-anchor="middle">+13.5%p</text>
+</svg>

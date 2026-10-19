@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 312" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>transformer 구조 하나를 서로 다른 데이터로 학습시킨 세 모델</title>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="310" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="270.0" y="30.0" width="180.0" height="70.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="360.0" y="60.0" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="600">transformer</text>
+  <text x="360.0" y="84.0" fill="#94a3b8" font-size="12" text-anchor="middle">network 구조의 이름</text>
+  <line x1="360.0" y1="100.0" x2="130.0" y2="146.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <rect x="40.0" y="150.0" width="180.0" height="92.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="130.0" y="172.0" fill="#94a3b8" font-size="12" text-anchor="middle">텍스트로 학습</text>
+  <text x="130.0" y="200.0" fill="#34d399" font-size="16" text-anchor="middle" font-weight="600">GPT</text>
+  <text x="130.0" y="224.0" fill="#94a3b8" font-size="12" text-anchor="middle">다음 token 맞히기</text>
+  <text x="130.0" y="266.0" fill="#34d399" font-size="14" text-anchor="middle">LLM 이다</text>
+  <line x1="360.0" y1="100.0" x2="360.0" y2="146.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <rect x="270.0" y="150.0" width="180.0" height="92.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="360.0" y="172.0" fill="#94a3b8" font-size="12" text-anchor="middle">이미지 조각으로 학습</text>
+  <text x="360.0" y="200.0" fill="#38bdf8" font-size="16" text-anchor="middle" font-weight="600">ViT</text>
+  <text x="360.0" y="224.0" fill="#94a3b8" font-size="12" text-anchor="middle">사진 분류</text>
+  <text x="360.0" y="266.0" fill="#f87171" font-size="14" text-anchor="middle">LLM 이 아니다</text>
+  <line x1="360.0" y1="100.0" x2="590.0" y2="146.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
+  <rect x="500.0" y="150.0" width="180.0" height="92.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="590.0" y="172.0" fill="#94a3b8" font-size="12" text-anchor="middle">로봇 시연으로 학습</text>
+  <text x="590.0" y="200.0" fill="#f59e0b" font-size="16" text-anchor="middle" font-weight="600">RT-1</text>
+  <text x="590.0" y="224.0" fill="#94a3b8" font-size="12" text-anchor="middle">로봇 행동 출력</text>
+  <text x="590.0" y="266.0" fill="#f87171" font-size="14" text-anchor="middle">LLM 이 아니다</text>
+  <text x="360.0" y="296.0" fill="#94a3b8" font-size="12" text-anchor="middle">셋 다 transformer 구조.  LLM 은 텍스트로 학습시킨 거대 언어 모델의 이름</text>
+</svg>

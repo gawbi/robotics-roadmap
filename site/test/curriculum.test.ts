@@ -1,171 +1,100 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { boxesOverlap, computeLayout, computeRanks } from '../src/curriculum/layout'
-import { buildCurriculum, parseBranches, parseProject } from '../src/curriculum/parse'
+import { boxesOverlap, computeLayout } from '../src/curriculum/layout'
+import { buildCurriculum, parseBranches, parseLesson } from '../src/curriculum/parse'
 
-const ROOT = join(__dirname, '..', '..', 'projects')
-const REQUIRED_SECTIONS = [
-  '## 배경',
-  '## 목표',
-  '## 준비물',
-  '## 진행 순서',
-  '## 시작점',
-  '## 평가 기준',
-  '## 생각해 볼 질문',
-  '## 힌트',
-  '## 참고 자료',
-  '## 남은 한계',
-]
-const SHIPPED_LEAD = '아래 파일은 모두 리포에 들어 있다.'
-
-/** Paths listed in a `tree`-style block, relative to the project folder (the first line is the folder itself). */
-function treeEntries(tree: string): string[] {
-  const parents: string[] = []
-  const entries: string[] = []
-  for (const line of tree.split('\n').slice(1)) {
-    const m = /^((?:[│ ] {3})*)[├└]── (\S+)/.exec(line)
-    if (!m) continue
-    parents.length = m[1].length / 4
-    parents.push(m[2].replace(/\/$/, ''))
-    entries.push(parents.join('/'))
-  }
-  return entries
-}
-
-/** Module names a learner is likely to create in any project, so a module another project imports must not use them. */
-const COMMON_MODULES = new Set([
-  'agent', 'buffer', 'collect', 'common', 'config', 'control', 'data', 'dataset', 'env', 'evaluate', 'expert',
-  'helpers', 'layers', 'load_weights', 'metrics', 'model', 'nets', 'policy', 'train', 'utils',
-])
-
-function pythonFiles(dir: string): string[] {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
-    if (d.name.startsWith('.') || d.name === '__pycache__') return []
-    const path = join(dir, d.name)
-    return d.isDirectory() ? pythonFiles(path) : d.name.endsWith('.py') ? [path] : []
-  })
-}
-
-/**
- * Modules one project imports from another through `sys.path.append(... / "<project>")`, followed into the
- * imported module's own imports of its siblings.
- */
-function crossProjectImports(): { importer: string; project: string; module: string }[] {
-  const found = new Map<string, { importer: string; project: string; module: string }>()
-  const visit = (importer: string, file: string, own: string | null) => {
-    const text = readFileSync(file, 'utf8')
-    const appended = [...text.matchAll(/sys\.path\.append\(str\(Path\(__file__\)\.resolve\(\)\.parents\[\d\] \/ "([\w-]+)"\)\)/g)]
-      .map((m) => m[1])
-    for (const m of text.matchAll(/^from (\w+) import /gm)) {
-      const project = [...(own ? [own] : []), ...appended].find((p) => existsSync(join(ROOT, p, `${m[1]}.py`)))
-      if (!project) continue
-      const key = `${importer}:${project}/${m[1]}`
-      if (found.has(key)) continue
-      found.set(key, { importer, project, module: m[1] })
-      visit(importer, join(ROOT, project, `${m[1]}.py`), project)
-    }
-  }
-  for (const d of readdirSync(ROOT, { withFileTypes: true }).filter((d) => d.isDirectory())) {
-    for (const file of pythonFiles(join(ROOT, d.name))) visit(d.name, file, null)
-  }
-  return [...found.values()]
-}
+const ROOT = join(__dirname, '..', '..', 'lessons')
+// a lecture opens with its goals and closes with a summary and references; the sections between are free
+const REQUIRED_SECTIONS = ['## 학습 목표', '## 정리', '## 참고 자료']
+// a lesson is a lecture, its figures and its quiz; anything else (code, environments) does not belong
+const LESSON_FILES = new Set(['README.md', 'quiz.yaml', 'quiz-result.json', 'figures'])
 
 function load() {
   const branches = parseBranches(readFileSync(join(ROOT, 'branches.yaml'), 'utf8'))
   const dirs = readdirSync(ROOT, { withFileTypes: true }).filter((d) => d.isDirectory())
-  const projects = dirs.map((d) => parseProject(d.name, readFileSync(join(ROOT, d.name, 'README.md'), 'utf8')))
-  return buildCurriculum(branches, projects)
+  const lessons = dirs.map((d) => parseLesson(d.name, readFileSync(join(ROOT, d.name, 'README.md'), 'utf8')))
+  return buildCurriculum(branches, lessons)
 }
 
 describe('curriculum', () => {
   const c = load()
 
-  it('every project folder has a README.md', () => {
-    for (const p of c.projects) expect(existsSync(join(ROOT, p.id, 'README.md'))).toBe(true)
+  it('every lesson folder has a README.md', () => {
+    for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'README.md'))).toBe(true)
   })
 
-  it('every subject has the standard sections in order', () => {
-    for (const p of c.projects) {
+  it('every lecture has the standard sections in order', () => {
+    for (const p of c.lessons) {
       const positions = REQUIRED_SECTIONS.map((h) => p.body.indexOf(`\n${h}\n`))
       expect(positions.filter((i) => i < 0).length, `${p.path} missing sections`).toBe(0)
       expect([...positions].sort((a, b) => a - b), `${p.path} section order`).toEqual(positions)
     }
   })
 
-  it('every project ships its own uv environment', () => {
-    for (const p of c.projects) {
-      for (const file of ['pyproject.toml', 'uv.lock']) {
-        expect(existsSync(join(ROOT, p.id, file)), `${p.id}/${file}`).toBe(true)
-      }
+  it('every lesson holds only its lecture, figures and quiz', () => {
+    for (const p of c.lessons) {
+      for (const f of readdirSync(join(ROOT, p.id))) expect(LESSON_FILES.has(f), `${p.id}/${f}`).toBe(true)
     }
   })
 
-  it('every file in the starting point tree ships with the repo', () => {
-    for (const p of c.projects) {
-      const start = p.body.slice(p.body.indexOf('\n## 시작점\n'), p.body.indexOf('\n## 평가 기준\n'))
-      const lead = start.split('\n').find((line) => line.trim() && !line.startsWith('#'))
-      expect(lead, `${p.path} starting point lead`).toBe(SHIPPED_LEAD)
-      const tree = /```text\n([\s\S]*?)```/.exec(start)
-      expect(tree, `${p.path} starting point tree`).not.toBeNull()
-      for (const entry of treeEntries(tree![1])) {
-        expect(existsSync(join(ROOT, p.id, entry)), `${p.id}/${entry} listed in 시작점`).toBe(true)
-      }
-    }
+  it('every lesson ends with a quiz', () => {
+    for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'quiz.yaml')), `${p.id}/quiz.yaml`).toBe(true)
   })
 
-  it('modules other projects import have names no other project uses', () => {
-    const imports = crossProjectImports()
-    expect(imports.length).toBeGreaterThan(0)
-    const owners = new Map<string, string[]>()
-    for (const d of readdirSync(ROOT, { withFileTypes: true }).filter((d) => d.isDirectory())) {
-      for (const f of readdirSync(join(ROOT, d.name)).filter((f) => f.endsWith('.py'))) {
-        owners.set(f.slice(0, -3), [...(owners.get(f.slice(0, -3)) ?? []), d.name])
-      }
-    }
-    for (const { importer, project, module } of imports) {
-      const where = `${project}/${module}.py imported by ${importer}`
-      expect(COMMON_MODULES.has(module), `${where} has a common name`).toBe(false)
-      expect(owners.get(module), `${where} shares its name`).toEqual([project])
-    }
-  })
-
-  it('projects import code only from projects they require', () => {
-    const ancestors = (id: string, seen = new Set<string>()): Set<string> => {
-      for (const r of c.byId.get(id)!.requires) if (!seen.has(r)) ancestors(r, seen.add(r))
-      return seen
-    }
-    for (const { importer, project } of crossProjectImports()) {
-      if (importer === project) continue
-      expect(ancestors(importer).has(project), `${importer} imports ${project} without requiring it`).toBe(true)
-    }
-  })
-
-  it('links to other projects point at existing projects', () => {
-    for (const p of c.projects) {
+  it('links to other lessons point at existing lessons', () => {
+    for (const p of c.lessons) {
       for (const m of p.body.matchAll(/\]\(\.\.\/([a-z0-9-]+)\/README\.md\)/g)) {
-        expect(c.byId.has(m[1]), `${p.path} links to missing project ${m[1]}`).toBe(true)
+        expect(c.byId.has(m[1]), `${p.path} links to missing lesson ${m[1]}`).toBe(true)
       }
     }
   })
 
   it('has exactly one starting point', () => {
-    expect(c.projects.filter((p) => p.requires.length === 0).map((p) => p.id)).toEqual(['warmup'])
+    expect(c.lessons.filter((p) => p.requires.length === 0).map((p) => p.id)).toEqual(['linear-regression'])
   })
 
-  it('lays out every project without overlapping labels', () => {
-    const layout = computeLayout(c)
-    const ranks = computeRanks(c)
-    expect(layout.nodes.size).toBe(c.projects.length)
+  it('lays out every lesson without overlapping labels', async () => {
+    const layout = await computeLayout(c)
+    expect(layout.nodes.size).toBe(c.lessons.length)
     const nodes = [...layout.nodes.values()]
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         expect(boxesOverlap(nodes[i], nodes[j]), `${nodes[i].id} overlaps ${nodes[j].id}`).toBe(false)
       }
     }
-    for (const p of c.projects) {
-      for (const r of p.requires) expect(ranks.get(r)!).toBeLessThanOrEqual(ranks.get(p.id)!)
+  })
+
+  it('puts every prerequisite above the lessons it opens', async () => {
+    const layout = await computeLayout(c)
+    for (const p of c.lessons) {
+      for (const r of p.requires) expect(layout.nodes.get(r)!.y, `${r} → ${p.id}`).toBeLessThan(layout.nodes.get(p.id)!.y)
+    }
+  })
+
+  it('keeps the core chain in one straight column', async () => {
+    const layout = await computeLayout(c)
+    const xs = [...layout.nodes.values()].filter((n) => n.core).map((n) => n.x)
+    expect(Math.max(...xs) - Math.min(...xs)).toBeLessThan(1)
+  })
+
+  it('routes every edge around the lessons it does not connect', async () => {
+    const layout = await computeLayout(c)
+    for (const e of layout.edges) {
+      for (const n of layout.nodes.values()) {
+        if (n.id === e.from || n.id === e.to) continue
+        // sample each segment so a corner cut between two points counts too
+        for (let i = 1; i < e.points.length; i++) {
+          const a = e.points[i - 1]
+          const b = e.points[i]
+          for (let t = 0; t <= 1; t += 0.25) {
+            const x = a.x + (b.x - a.x) * t - n.x
+            const y = a.y + (b.y - a.y) * t - n.y
+            const inside = x > n.box.left && x < n.box.right && y > n.box.top && y < n.box.bottom
+            expect(inside, `${e.from} → ${e.to} crosses ${n.id}`).toBe(false)
+          }
+        }
+      }
     }
   })
 })

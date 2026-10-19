@@ -1,0 +1,337 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: head-compare
+  title: 정답이 둘인 장면에서 세 action head 의 답
+  variants:
+    - question: |
+        같은 장면에서 시연이 장애물의 왼쪽과 오른쪽으로 반반 갈렸다. 숫자 하나를 내는 MSE head, 칸마다 확률을 내고
+        argmax 로 실행하는 head, noise 를 걷어 내는 diffusion head 가 각각 내는 행동을 옳게 짝지은 것은?
+      choices:
+        - 'MSE head 는 한쪽 정답, 칸 head 는 두 정답 사이의 칸, diffusion head 는 두 정답의 평균'
+        - 'MSE head 는 두 정답의 평균, 칸 head 는 한쪽 정답에 가까운 칸, diffusion head 는 실행할 때마다 한쪽 봉우리 근처의 값'
+        - '세 head 모두 두 정답의 평균을 낸다'
+        - '세 head 모두 같은 관측이면 언제나 같은 값을 낸다'
+      answer: 1
+      explanation: |
+        MSE 를 가장 작게 하는 숫자 하나는 정답들의 평균이라 MSE head 는 장애물로 곧장 가는 값을 낸다. 칸 head 는 두 정답
+        칸에 확률을 나눠 주고 argmax 로 그중 한 칸을 고르며, diffusion head 는 새로 뽑은 noise 에서 출발해 한쪽 봉우리 근처에
+        닿는다. diffusion head 는 출발 noise 가 바뀌면 다른 봉우리로 갈 수 있어서 늘 같은 값을 내지 않는다.
+    - question: |
+        diffusion head 의 network 도 MSE 로 학습하므로 결국 두 봉우리의 평균을 낼 것이라는 생각이 틀린 이유는?
+      choices:
+        - 'diffusion head 는 MSE 가 아니라 cross-entropy 로 학습하기 때문이다'
+        - 'diffusion head 는 학습 때 시연 하나만 골라 외우기 때문이다'
+        - 'network 를 여러 번 쓰면 평균이 저절로 지워지기 때문이다'
+        - 'MSE 로 맞히는 것은 섞인 noise 이고, 평균이 끼어드는 곳은 한 단계의 작은 이동뿐이며 어느 봉우리로 갈지는 여러 단계의 새 noise 와 추정이 정하기 때문이다'
+      answer: 3
+      explanation: |
+        diffusion head 의 network 는 실제로 섞인 noise 를 MSE 로 맞히도록 학습하지만, 그 답은 한 단계에서 조금 움직일
+        방향을 정할 뿐이다. 여러 단계를 밟는 동안 새 noise 와 network 의 추정이 조금씩 한쪽 봉우리로 몰아가서 최종 행동은
+        평균이 되지 않는다. cross-entropy 를 쓰는 것은 칸 head 이고, 시연 하나만 외우는 것도 아니며, 평균이 "저절로" 지워지는
+        것이 아니라 단계마다의 계산이 봉우리를 고른다.
+    - question: |
+        칸마다 확률을 내는 head 와 비교한 diffusion head 의 특징으로 옳은 것은?
+      choices:
+        - '연속된 값을 내서 칸 폭 때문의 오차가 없고 여러 차원을 함께 만들어 짝을 지키지만, network 를 여러 번 써서 느리다'
+        - 'network 를 한 번만 써서 칸 head 보다 빠르다'
+        - '차원마다 따로 값을 골라 차원 사이의 짝이 깨질 수 있다'
+        - '같은 관측이면 언제나 같은 행동을 낸다'
+      answer: 0
+      explanation: |
+        diffusion head 는 칸 번호가 아니라 연속된 숫자를 내므로 칸 폭의 절반만큼 생기는 오차가 없고, 모든 차원을 한
+        덩어리로 놓고 noise 를 함께 걷어 내서 같은 시연에서 온 짝으로 끝난다. 그 대신 noise 를 걷어 내는 횟수만큼 network
+        를 써야 해서 느리다. 차원마다 따로 골라 짝이 깨지는 것은 칸 head 의 문제이고, 출발 noise 가 달라지면 다른 봉우리로
+        갈 수 있다.
+
+- topic: normalize
+  title: 행동 값의 min-max 정규화
+  variants:
+    - question: |
+        diffusion head 에 행동 값을 넣기 전에 $-1$ ~ $+1$ 근처로 정규화하는 이유는?
+      choices:
+        - '정규화하면 network 의 parameter 수가 줄어든다'
+        - '행동 값이 음수이면 noise 를 섞을 수 없다'
+        - 'DDPM 은 원래 값이 noise 와 비슷한 크기라고 가정해서, 큰 값을 그대로 넣으면 noise 를 다 섞어도 출발점인 $\mathcal N(0, 1)$ 과 동떨어진 곳에 머문다'
+        - '정규화하면 multimodal 시연이 봉우리 하나로 합쳐져 학습이 쉬워진다'
+      answer: 2
+      explanation: |
+        noise 를 다 섞은 마지막 단계에도 원래 값의 일부가 남는데, 원래 값이 수백처럼 크면 그 남은 몫만으로도
+        $\mathcal N(0, 1)$ 에서 멀리 떨어진다. 행동을 만들 때는 $\mathcal N(0, 1)$ 에서 출발하므로 학습 때 본 적 없는 자리에서
+        걷어 내기 시작하게 된다. 정규화는 parameter 수와 관계가 없고, 음수에도 noise 는 섞이며, 값의 크기를 바꿀 뿐 봉우리를
+        합치지 않는다.
+    - question: |
+        min-max 정규화 공간에서 만든 행동을 원래 단위로 되돌리기 전에, $-1$ 보다 작거나 $+1$ 보다 큰 값을 끝값으로 잘라
+        (clip) 내는 이유는?
+      choices:
+        - '잘라 내지 않으면 시연의 최솟값·최댓값을 벗어난, 시연에 없던 행동이 나갈 수 있다'
+        - '잘라 내야 noise 가 더 섞이지 않는다'
+        - '범위 밖의 값은 되돌리는 식에 넣으면 계산이 되지 않는다'
+        - '잘라 내면 두 봉우리 가운데 하나가 정해진다'
+      answer: 0
+      explanation: |
+        정규화에서 $-1$ 과 $+1$ 은 시연의 최솟값과 최댓값이라, 만든 값이 그 밖으로 살짝 넘치면 되돌린 행동도 시연에 없던
+        범위로 나간다. 범위 밖의 값도 되돌리는 식에 넣으면 계산은 되지만 그 결과가 문제다. clip 은 sampling 이 끝난 뒤의
+        처리라 noise 와 관계가 없고, 어느 봉우리로 갈지는 그 전에 이미 정해졌다.
+    - question: |
+        행동이 손끝 위치 x, y 두 숫자이고, 시연에서 x 는 넓은 범위, y 는 좁은 범위에서 움직였다. min-max 정규화는 어떻게
+        할까?
+      choices:
+        - 'x 와 y 를 합친 전체의 최솟값·최댓값 하나로 둘 다 정규화한다'
+        - '범위가 넓은 x 만 정규화하고 y 는 그대로 둔다'
+        - 'y 의 범위를 x 의 범위에 맞춰 늘린 뒤 같은 값으로 정규화한다'
+        - 'x 와 y 각각 시연의 최솟값·최댓값을 따로 구해 각자 $-1$ ~ $+1$ 로 맞춘다'
+      answer: 3
+      explanation: |
+        숫자마다 시연의 최솟값과 최댓값을 따로 구해 정규화해야 x 와 y 가 모두 noise 와 비슷한 크기가 된다. 전체 범위 하나를
+        쓰면 좁게 움직인 y 는 0 근처의 아주 작은 폭에 몰려 noise 에 묻히고, y 를 그대로 두면 크기가 맞지 않는다. 한 숫자의
+        범위를 다른 숫자에 맞출 이유는 없다.
+
+- topic: conditioned-denoise
+  title: 관측을 조건으로 받는 denoising
+  variants:
+    - question: |
+        이미지 생성용 DDPM 의 network 는 noise 가 섞인 값과 단계 번호만 받는데, Diffusion Policy 의 network 는 관측도 함께
+        받는다. 그 이유는?
+      choices:
+        - '관측을 넣어야 행동에 noise 를 섞을 수 있기 때문이다'
+        - '관측을 넣으면 sampling 단계 수를 줄일 수 있기 때문이다'
+        - '관측은 학습 때만 넣고 실행 때는 넣지 않기 위해서다'
+        - '장면을 모르면, 장애물이 있는 장면과 곧은 길처럼 서로 다른 행동을 내야 하는 경우를 구별할 수 없기 때문이다'
+      answer: 3
+      explanation: |
+        policy 는 장면마다 다른 행동을 내야 하는데, 관측 없이 noise 섞인 행동만 보는 network 는 지금이 어떤 장면인지 모른다.
+        그래서 관측을 조건으로 넣어 같은 입력이라도 장면에 맞는 noise 를 추정하게 한다. noise 를 섞는 계산에는 관측이
+        필요 없고, 단계 수를 줄이는 것은 DDIM 의 일이며, 실행 때도 관측은 반드시 넣는다.
+    - question: |
+        Diffusion Policy 의 학습 한 번에 대한 설명으로 옳은 것은?
+      choices:
+        - 'noise 에서 출발해 모든 단계를 걷어 낸 결과와 시연 행동의 차이를 loss 로 쓴다'
+        - '시연 행동에 무작위로 고른 단계만큼 noise 를 섞고, 관측과 함께 넣어 섞인 noise 를 맞히게 한 뒤 그 차이를 loss 로 쓴다'
+        - 'image encoder 는 고정해 두고 noise 를 맞히는 network 만 고친다'
+        - '관측 사진에 noise 를 섞고 깨끗한 사진을 복원하도록 학습한다'
+      answer: 1
+      explanation: |
+        학습은 DDPM 과 같은 순서로, 시연 행동에 무작위 단계의 noise 를 섞고 network 가 그 noise 를 맞히게 한다. 관측을
+        조건으로 함께 넣는다는 점만 다르고, image encoder 의 weight 도 같은 loss 로 함께 고친다. 학습 때마다 모든 단계를
+        걷어 내지는 않으며, noise 를 섞는 대상은 사진이 아니라 행동이다.
+    - question: |
+        noise 가 똑같이 섞인 같은 값 $A^k$ 를 network 에 두 번 넣었다. 한 번은 관측이 "장애물이 있는 장면", 한 번은
+        "장애물 없는 곧은 길" 이다. 옳은 설명은?
+      choices:
+        - '입력 $A^k$ 가 같으므로 network 의 noise 추정도 같다'
+        - '관측은 마지막 단계에서만 결과에 영향을 준다'
+        - '관측에 따라 noise 추정이 달라져서, 같은 출발점에서도 장애물 장면은 한쪽으로 피하는 행동으로, 곧은 길은 직진으로 끝난다'
+        - '곧은 길 장면에서는 noise 를 걷어 낼 필요가 없다'
+      answer: 2
+      explanation: |
+        network 는 관측을 조건으로 받으므로 같은 $A^k$ 라도 장면이 다르면 다른 noise 를 추정한다. 그 차이가 단계마다 쌓여
+        장애물 장면은 피하는 봉우리로, 곧은 길은 직진으로 끝난다. 관측은 모든 단계의 추정에 들어가고, 곧은 길에서도 출발점은
+        noise 라서 걷어 내는 과정이 필요하다.
+
+- topic: action-chunk
+  title: 여러 step 을 한 번에 만드는 action chunk
+  variants:
+    - question: |
+        정답이 두 봉우리로 갈린 장면에서, 행동을 제어 step 마다 따로 sampling 하면 생길 수 있는 문제는?
+      choices:
+        - 'step 마다 왼쪽과 오른쪽이 번갈아 나와 두 봉우리 사이를 오가며 떨리다가 가운데로 갈 수 있다'
+        - 'step 마다 같은 noise 를 써서 늘 같은 행동만 나온다'
+        - '모든 step 의 행동이 두 봉우리의 평균으로 나온다'
+        - 'sampling 이 끝나지 않는다'
+      answer: 0
+      explanation: |
+        step 마다 새 noise 로 따로 sampling 하면 앞 step 에서 무엇을 골랐는지가 다음 sampling 에 들어가지 않아, 왼쪽과
+        오른쪽이 번갈아 나올 수 있다. 그러면 가로 위치가 오락가락하다가 결국 가운데에서 장애물을 만난다. 매번 새 noise 를
+        뽑으므로 늘 같은 행동이 나오지는 않고, sampling 하나하나는 봉우리 근처의 값을 낸다.
+    - question: |
+        앞으로 여러 step 의 행동을 한 덩어리(action chunk)로 denoising 하면, 한 chunk 안의 행동이 같은 봉우리에서 나오는
+        이유는?
+      choices:
+        - 'chunk 의 모든 step 에 같은 noise 숫자 하나를 쓰기 때문이다'
+        - 'chunk 를 만든 뒤 step 들의 행동을 평균하기 때문이다'
+        - 'network 가 chunk 전체를 한꺼번에 보고 noise 를 추정하므로, step 사이의 짝을 배울 수 있기 때문이다'
+        - 'chunk 의 첫 step 만 sampling 하고 나머지 step 은 그 값을 복사하기 때문이다'
+      answer: 2
+      explanation: |
+        noise 는 chunk 의 숫자마다 따로 뽑지만, network 는 chunk 전체를 함께 보고 noise 추정을 한 번에 낸다. 그래서 "앞
+        step 이 오른쪽 길이면 뒤 step 도 오른쪽 길" 이라는 짝을 배울 수 있고, 단계를 밟을수록 모든 step 이 한 궤적 쪽으로
+        함께 모인다. step 끼리 평균하거나 값을 복사하는 계산은 없다.
+    - question: |
+        관측으로 지금 사진 한 장만이 아니라 최근 두 step 의 사진을 함께 넣는 이유는?
+      choices:
+        - '사진이 두 장이면 만들 수 있는 chunk 길이가 두 배가 된다'
+        - '두 장을 비교하면 물체가 움직이는 방향과 빠르기를 알 수 있다'
+        - '사진이 한 장이면 spatial softmax 를 계산할 수 없다'
+        - '사진 두 장을 평균하면 행동에 섞인 noise 가 줄어든다'
+      answer: 1
+      explanation: |
+        사진 한 장에는 지금 위치만 있어서 물체가 어느 쪽으로 얼마나 빨리 움직이는지 알 수 없지만, 두 장을 비교하면 그 차이로
+        움직임을 알 수 있다. chunk 길이는 관측 수와 따로 정하는 값이고, spatial softmax 는 사진 한 장에도 계산된다. 관측
+        사진은 행동에 섞인 noise 와 관계가 없다.
+
+- topic: chunk-receding
+  title: receding horizon 과 겹친 예측의 처리
+  variants:
+    - question: |
+        action chunk 를 receding horizon 방식으로 실행한다는 말의 뜻으로 옳은 것은?
+      choices:
+        - 'chunk 를 끝까지 모두 실행한 뒤에야 다음 chunk 를 만든다'
+        - '앞으로 여러 step 의 chunk 를 만들고 앞부분만 실행한 뒤, 새 관측으로 chunk 를 다시 만든다'
+        - '매 step 새 chunk 를 만들고 같은 step 에 대한 예측을 모두 평균해 실행한다'
+        - 'chunk 의 마지막 step 부터 거꾸로 실행한다'
+      answer: 1
+      explanation: |
+        receding horizon 은 멀리 내다보는 계획을 세우되 앞부분만 실행하고, 내다보는 구간을 앞으로 밀며 새 관측으로 계획을
+        다시 세우는 방식이다. 남은 뒷부분은 더 새로운 관측으로 만든 다음 chunk 가 있으므로 버린다. chunk 를 다 실행하면 그동안
+        바뀐 상황을 늦게 반영하고, 겹친 예측을 평균하는 것은 temporal ensembling 이라는 다른 방식이다.
+    - question: |
+        chunk 가운데 실제로 실행하는 step 수 $T_a$ 를 정할 때의 trade-off 로 옳은 것은?
+      choices:
+        - '$T_a$ 는 클수록 언제나 좋다'
+        - '$T_a$ 는 작을수록 언제나 좋다'
+        - '$T_a$ 는 추론 횟수에만 영향을 주고 로봇의 동작에는 영향이 없다'
+        - '작으면 새 noise 로 자주 다시 만들어 봉우리 사이를 오가며 떨릴 수 있고, 크면 바뀐 상황을 늦게 반영한다'
+      answer: 3
+      explanation: |
+        $T_a$ 가 작을수록 chunk 를 자주 새로 만드는데, 새 chunk 는 새 noise 에서 출발하므로 step 마다 따로 sampling 할 때처럼
+        봉우리 사이를 오갈 수 있다. $T_a$ 가 크면 그만큼 오래 새 관측을 보지 않아 블록이 미끄러지는 것 같은 변화에 늦게
+        반응한다. 양쪽 모두 손해가 있으므로 어느 한쪽 끝이 언제나 좋지는 않고, 동작에도 직접 영향을 준다.
+    - question: |
+        매 step 새 chunk 를 만들고 같은 step 에 대한 여러 chunk 의 예측을 가중 평균하는 temporal ensembling 을 diffusion
+        head 에 그대로 쓰면 생기는 문제는?
+      choices:
+        - 'sampling 마다 다른 봉우리의 chunk 가 나올 수 있어, 평균하면 두 봉우리 사이의 값이 되어 평균의 함정이 돌아온다'
+        - '겹친 예측이 너무 많아 평균을 계산할 수 없다'
+        - '가중 평균은 연속된 행동 값에 쓸 수 없다'
+        - '아무 문제가 없다. 평균은 흔들림을 줄여 줄 뿐이다'
+      answer: 0
+      explanation: |
+        diffusion head 는 같은 관측에서도 sampling 할 때마다 왼쪽 봉우리나 오른쪽 봉우리의 chunk 를 낼 수 있다. 서로 다른
+        봉우리의 예측을 평균하면 처음에 피하려던 두 정답 사이의 값이 다시 나온다. 평균 계산 자체는 쉽고 연속된 값에도 쓸 수
+        있지만, 봉우리가 섞이는 것이 문제라서 Diffusion Policy 는 chunk 하나씩 실행하고 겹친 예측을 섞지 않는다.
+
+- topic: image-encoder
+  title: spatial softmax 와 GroupNorm
+  variants:
+    - question: |
+        image encoder 끝의 global average pooling 을 spatial softmax 로 바꾸는 이유는?
+      choices:
+        - 'spatial softmax 가 계산이 더 가볍기 때문이다'
+        - 'global average pooling 은 사진의 색 정보를 지우기 때문이다'
+        - 'global average pooling 은 "어디에 있는가" 를 지우지만, spatial softmax 는 feature map 마다 값이 큰 위치 $(x, y)$ 를 남기기 때문이다'
+        - 'spatial softmax 는 행동을 칸마다의 확률로 바꿔 주기 때문이다'
+      answer: 2
+      explanation: |
+        global average pooling 은 feature map 한 장의 모든 칸을 평균 하나로 줄여서 무엇이 있는지는 남기지만 위치는 지운다.
+        블록을 미는 로봇에게는 블록이 어디에 있는지가 중요해서, 값이 큰 칸 쪽으로 끌린 좌표(keypoint)를 뽑는 spatial
+        softmax 를 쓴다. 계산의 가벼움이나 색 정보가 이유는 아니고, spatial softmax 의 확률은 사진의 칸에 대한 것이지 행동의
+        칸이 아니다.
+    - question: |
+        Diffusion Policy 가 image encoder 의 BatchNorm 을 GroupNorm 으로 바꾸는 이유는?
+      choices:
+        - '평가에 쓰는 EMA 사본의 weight 와 BatchNorm 이 학습 중에 쌓아 둔 batch 통계가 짝이 맞지 않기 때문이다'
+        - 'GroupNorm 은 정규화를 하지 않아 학습이 빠르기 때문이다'
+        - 'BatchNorm 은 사진에는 쓸 수 없기 때문이다'
+        - 'GroupNorm 은 batch 구성에 따라 결과가 달라져 다양한 행동을 만들기 때문이다'
+      answer: 0
+      explanation: |
+        EMA 는 학습 중인 weight 를 천천히 따라가는 사본을 두고 평가와 실행에 그 사본을 쓰는 방법인데, BatchNorm 의 평균과
+        분산은 학습 중의 weight 로 쌓은 값이라 사본의 weight 와 맞지 않는다. GroupNorm 은 사진 한 장 안의 channel 묶음으로
+        정규화해서 batch 통계를 쓰지 않는다. GroupNorm 도 정규화를 하고, batch 에 무엇이 들어 있든 결과가 같으며, BatchNorm
+        도 사진에 흔히 쓴다.
+    - question: |
+        로봇 시연으로 policy 를 학습할 때 사진 분류용 dataset 으로 미리 학습한(pretrained) encoder 를 고정해 쓰는 것에 대한
+        설명으로 옳은 것은?
+      choices:
+        - 'pretrained encoder 는 언제나 처음부터 학습한 encoder 보다 낫다'
+        - 'encoder 는 diffusion head 와 반드시 따로 학습해야 한다'
+        - '사진 요약은 어떤 과제에나 똑같아서 encoder 선택은 성능과 관계가 없다'
+        - '로봇 조작에 필요한 사진 요약이 흔한 사전학습으로 얻는 요약과 달라, 시연으로 처음부터 함께 학습한 encoder 가 더 나을 수 있다'
+      answer: 3
+      explanation: |
+        사진 분류 사전학습은 "무엇이 있는가" 를 잘 요약하도록 배우지만, 블록을 미는 policy 에 필요한 요약은 그와 다를 수
+        있다. 실제로 pretrained encoder 를 고정했을 때 성능이 크게 떨어지고, 처음부터 diffusion head 의 loss 로 함께 학습한
+        encoder 가 더 좋았던 결과가 있다. 그러니 pretrained 가 언제나 낫지 않고, encoder 는 head 와 함께 학습하며, 선택이
+        성능에 큰 영향을 준다.
+
+- topic: denoiser-network
+  title: FiLM 과 시간축 1D U-Net
+  variants:
+    - question: |
+        noise 를 맞히는 network 에 관측과 단계 번호로 만든 조건을 FiLM 으로 넣는다. FiLM 이 하는 일은?
+      choices:
+        - '조건을 noise 섞인 행동 뒤에 이어 붙여 chunk 길이를 늘린다'
+        - '조건을 써서 행동에 섞을 noise 를 새로 뽑는다'
+        - 'network 의 weight 를 관측이 바뀔 때마다 새로 학습한다'
+        - '조건에서 channel 마다 곱할 수 $\gamma$ 와 더할 수 $\beta$ 를 만들어 network 의 중간 값을 조절한다'
+      answer: 3
+      explanation: |
+        FiLM 은 조건 vector 에서 channel 마다 $\gamma$ 와 $\beta$ 를 만들고 중간 값에 $\gamma h + \beta$ 를 한다. 관측이나 단계
+        번호가 바뀌면 $\gamma$, $\beta$ 가 바뀌어 같은 입력에도 network 의 답이 달라진다. chunk 길이는 그대로이고, noise 를
+        뽑는 일과 무관하며, weight 는 학습 때 정해진 것을 그대로 쓴다.
+    - question: |
+        action chunk 의 시간축으로 1D convolution 을 쌓은 network 의 성질로 옳은 것은?
+      choices:
+        - '이웃한 시간의 값을 섞지 않아 step 마다 서로 독립인 행동을 만든다'
+        - '이웃한 시간의 값을 섞어 부드럽게 변하는 행동을 잘 만들고, 급하게 바뀌는 행동에는 약하다'
+        - '사진처럼 가로세로 두 방향으로 kernel 을 민다'
+        - '급하게 바뀌는 속도 명령 같은 행동에 특히 강하다'
+      answer: 1
+      explanation: |
+        1D convolution 은 kernel 을 시간축 한 방향으로 밀며 이웃한 시간의 값을 곱해 더하므로, 이런 층을 쌓은 network 는
+        천천히 변하는 행동을 쉽게 만든다. 그 대신 행동이 급하게 바뀌는 과제에서는 약해서, 그런 과제에는 transformer
+        denoiser 가 더 나았다. chunk 는 시간 순서로 늘어선 줄이라 kernel 은 한 방향으로만 민다.
+    - question: |
+        1D temporal U-Net 이 chunk 의 시간 길이를 절반씩 줄였다가 다시 키우고, 그 사이를 skip connection 으로 잇는 이유는?
+      choices:
+        - '길이를 줄여야 행동에 noise 를 섞을 수 있기 때문이다'
+        - 'skip connection 으로 관측을 network 에 넣기 때문이다'
+        - '길이를 줄이면 chunk 전체의 큰 모양을 정할 수 있고, skip connection 이 step 하나하나의 세밀한 값을 되살리기 때문이다'
+        - '길이를 줄인 중간 출력을 그대로 행동으로 쓰기 때문이다'
+      answer: 2
+      explanation: |
+        길이를 줄인 층에서는 kernel 하나가 chunk 의 넓은 범위를 보므로 "chunk 전체가 왼쪽 길인가 오른쪽 길인가" 같은 큰
+        모양을 정할 수 있다. 줄이는 동안 사라진 step 별 세밀한 값은 skip connection 이 키우는 쪽에 그대로 이어 붙여
+        되살린다. 관측은 FiLM 으로 들어가고, 출력은 다시 원래 길이로 키운 것이다.
+
+- topic: ddim
+  title: DDIM 으로 줄이는 sampling 단계
+  variants:
+    - question: |
+        Diffusion Policy 를 실제 로봇에서 실행할 때 sampling 단계 수를 줄여야 하는 이유는?
+      choices:
+        - '단계마다 network 를 한 번 써야 해서, 단계가 많으면 다음 chunk 가 필요한 시각까지 추론이 끝나지 않는다'
+        - '단계가 많을수록 행동이 두 봉우리의 평균으로 끌린다'
+        - '단계가 많으면 행동이 정규화 범위를 벗어난다'
+        - '단계를 줄일수록 multimodal 시연을 더 잘 다룬다'
+      answer: 0
+      explanation: |
+        sampling 한 단계는 network 계산 한 번이라, 단계가 많으면 chunk 하나를 만드는 시간이 길어져 로봇이 다음 chunk 를
+        기다리게 된다. 단계를 줄이는 것은 속도를 위한 것이고, 오히려 너무 줄이면 정확도가 조금 떨어진다. 단계가 많다고
+        평균으로 끌리거나 범위를 벗어나지는 않는다.
+    - question: |
+        DDIM 으로 sampling 단계를 줄여 실행하려 한다. 학습은 어떻게 할까?
+      choices:
+        - '줄인 단계 수에 맞춰 network 를 처음부터 다시 학습한다'
+        - '건너뛸 단계마다 별도의 network 를 학습한다'
+        - 'DDPM 과 같은 loss 로 학습한 network 를 그대로 쓰고, 실행할 때 밟는 단계와 계산식만 바꾼다'
+        - 'DDIM 은 학습 없이 noise 를 바로 행동으로 쓴다'
+      answer: 2
+      explanation: |
+        DDIM 은 network 가 맞힌 noise 로 원래 값을 추정한 뒤, 같은 noise 를 건너뛸 목표 단계의 비율로 다시 섞는 계산식을
+        쓴다. 이 계산에 필요한 것은 DDPM 과 같은 방식으로 noise 를 맞히도록 학습한 network 뿐이라 다시 학습할 필요가 없다.
+        network 는 하나이고, noise 를 걷어 내는 network 없이 행동을 만들 수는 없다.
+    - question: |
+        DDIM 으로 단계를 너무 많이 건너뛰면 생기는 일로 옳은 것은?
+      choices:
+        - '결과 값이 끝없이 커진다'
+        - 'network 가 어느 봉우리인지 확신하기 전에 추정한 원래 값을 결과로 써서, 봉우리에서 평균 쪽으로 조금 끌린 값이 남을 수 있다'
+        - '같은 출발점에서도 실행할 때마다 다른 결과가 나온다'
+        - '정확도는 그대로이고 속도만 빨라진다'
+      answer: 1
+      explanation: |
+        noise 가 많이 남은 단계에서 network 는 아직 어느 봉우리에서 왔는지 완전히 확신하지 못해, 그 추정은 두 봉우리의
+        평균 쪽으로 조금 끌려 있다. 단계를 크게 건너뛰면 이 추정을 고칠 기회가 줄어 결과가 봉우리에 조금 못 미친다. DDIM 은
+        새 noise 를 더하지 않아 같은 출발점이면 결과가 같고, 단계 수와 정확도 사이에서 고르는 것이라 정확도가 그대로이지는
+        않다.

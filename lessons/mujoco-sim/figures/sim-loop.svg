@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>simulation loop. 지금 상태(위치·속도)에서 gravity·motor·접촉의 힘을 모으고, 가속도를 구해 속도를 먼저 고친 뒤 위치를 옮긴다. 새 위치에서 부품의 자리를 다시 계산하고 닿은 곳을 찾아 다음 step 으로 넘긴다</title>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="658" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40.0" y="120.0" width="170.0" height="62.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="125.0" y="146.5" fill="#e2e8f0" font-size="14" text-anchor="middle">① 상태</text>
+  <text x="125.0" y="165.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">위치 · 속도 읽음</text>
+  <rect x="245.0" y="120.0" width="170.0" height="62.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="330.0" y="146.5" fill="#e2e8f0" font-size="14" text-anchor="middle">② 힘</text>
+  <text x="330.0" y="165.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">gravity · motor · 접촉</text>
+  <rect x="450.0" y="120.0" width="170.0" height="62.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="535.0" y="146.5" fill="#e2e8f0" font-size="14" text-anchor="middle">③ 가속도</text>
+  <text x="535.0" y="165.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">상자 하나면 a = F ÷ m</text>
+  <rect x="450.0" y="236.0" width="170.0" height="62.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="535.0" y="262.5" fill="#e2e8f0" font-size="14" text-anchor="middle">④ 새 속도 · 새 위치</text>
+  <text x="535.0" y="281.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">속도 먼저, 위치 다음</text>
+  <rect x="245.0" y="236.0" width="170.0" height="62.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="330.0" y="262.5" fill="#e2e8f0" font-size="14" text-anchor="middle">⑤ 부품 자리 · 접촉</text>
+  <text x="330.0" y="281.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">FK 와 닿은 곳 검사</text>
+  <line x1="212.0" y1="151.0" x2="243.0" y2="151.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="417.0" y1="151.0" x2="448.0" y2="151.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="535.0" y1="184.0" x2="535.0" y2="234.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="448.0" y1="267.0" x2="417.0" y2="267.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <path d="M243,267 L125,267 L125,184" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <text x="130.0" y="300.0" fill="#94a3b8" font-size="12.5" text-anchor="start">다음 step (Δt 뒤)</text>
+  <rect x="245.0" y="24.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="330.0" y="44.5" fill="#e2e8f0" font-size="14" text-anchor="middle">controller</text>
+  <text x="330.0" y="63.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">상태를 보고 motor 명령</text>
+  <path d="M125,118 L125,49 L243,49" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-violet)"/>
+  <line x1="330.0" y1="76.0" x2="330.0" y2="118.0" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+  <text x="133.0" y="100.0" fill="#a78bfa" font-size="12" text-anchor="start">상태</text>
+  <rect x="450.0" y="24.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="535.0" y="44.5" fill="#e2e8f0" font-size="14" text-anchor="middle">camera</text>
+  <text x="535.0" y="63.5" fill="#94a3b8" font-size="12.5" text-anchor="middle">가끔 장면을 그린다</text>
+  <path d="M330,300 L330,318 L640,318 L640,49 L622,49" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+  <text x="470.0" y="312.0" fill="#f59e0b" font-size="12" text-anchor="start">부품 자리</text>
+</svg>

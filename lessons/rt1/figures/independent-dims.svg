@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>x 와 y 를 따로 고르면 네 조합이 0.25 씩 나오고, 그중 두 조합 (−20, −20) 과 (+20, +20) 은 어느 시연에도 없다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#34d399" font-size="13" text-anchor="start">시연 A: (x, y) = (−20, +20) 5 개</text>
+  <text x="300.0" y="32.0" fill="#34d399" font-size="13" text-anchor="start">시연 B: (x, y) = (+20, −20) 5 개</text>
+  <text x="335.0" y="78.0" fill="#e2e8f0" font-size="1" text-anchor="middle"></text>
+  <text x="335.0" y="76.0" fill="#e2e8f0" font-size="12" text-anchor="middle">x = −20 (확률 0.5)</text>
+  <text x="505.0" y="76.0" fill="#e2e8f0" font-size="12" text-anchor="middle">x = +20 (확률 0.5)</text>
+  <text x="238.0" y="133.0" fill="#e2e8f0" font-size="12" text-anchor="end">y = +20 (확률 0.5)</text>
+  <rect x="254.0" y="92.0" width="162.0" height="82.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="335.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(−20, +20)</text>
+  <text x="335.0" y="142.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5 × 0.5 = 0.25</text>
+  <text x="335.0" y="160.0" fill="#34d399" font-size="12" text-anchor="middle">시연 A</text>
+  <rect x="424.0" y="92.0" width="162.0" height="82.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="505.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(+20, +20)</text>
+  <text x="505.0" y="142.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5 × 0.5 = 0.25</text>
+  <text x="505.0" y="160.0" fill="#f87171" font-size="12" text-anchor="middle">시연에 없음</text>
+  <text x="238.0" y="223.0" fill="#e2e8f0" font-size="12" text-anchor="end">y = −20 (확률 0.5)</text>
+  <rect x="254.0" y="182.0" width="162.0" height="82.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="335.0" y="212.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(−20, −20)</text>
+  <text x="335.0" y="232.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5 × 0.5 = 0.25</text>
+  <text x="335.0" y="250.0" fill="#f87171" font-size="12" text-anchor="middle">시연에 없음</text>
+  <rect x="424.0" y="182.0" width="162.0" height="82.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="505.0" y="212.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(+20, −20)</text>
+  <text x="505.0" y="232.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5 × 0.5 = 0.25</text>
+  <text x="505.0" y="250.0" fill="#34d399" font-size="12" text-anchor="middle">시연 B</text>
+  <text x="24.0" y="300.0" fill="#f87171" font-size="13" text-anchor="start">두 차원을 따로 고르면 시연에 없던 조합이 0.25 + 0.25 = 0.5 의 확률로 나온다</text>
+</svg>
