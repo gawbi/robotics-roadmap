@@ -115,10 +115,12 @@ branch 의 이름·색·순서는 [`lessons/branches.yaml`](lessons/branches.yam
 돌아서 `npm run build` 결과물로는 지도와 강의를 읽을 수만 있고 퀴즈는 풀 수 없다.
 
 지도는 [ELK](https://eclipse.dev/elk/) 의 layered 배치로 그린다([`site/src/curriculum/layout.ts`](site/src/curriculum/layout.ts)).
-Foundations 강의는 한 세로줄에 놓여 줄기가 되고, 다른 branch 로 가는 선은 그 강의 원 아래 가운데에서 갈라진다.
+강의가 놓일 층과 층 안의 좌우 순서는 [`site/src/curriculum/order.ts`](site/src/curriculum/order.ts) 가 선 교차가 가장 적은 배치를
+찾아 정하고, ELK 는 그 순서를 지키며 위치만 잡는다. Foundations 강의는 한 세로줄에 놓여 줄기가 된다. 선은 모든 강의에서 원 위로
+들어오고 이름 아래 가운데에서 나가며, 여러 층을 건너뛰는 선은 층마다 세로로 곧게 지나간다.
 
 ```bash
 cd site
-npm test        # frontmatter·선수 관계·섹션 순서·강의 폴더 구성·레이아웃·퀴즈 형식 검사
+npm test        # frontmatter·선수 관계·섹션 순서·강의 폴더 구성·레이아웃(선 교차 포함)·퀴즈 형식 검사
 npm run build   # site/dist
 ```

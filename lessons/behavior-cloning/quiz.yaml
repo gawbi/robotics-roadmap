@@ -318,7 +318,7 @@
       explanation: |
         같은 비율로 늘리면 정답들의 평균은 변하지 않으므로 MSE 로 학습한 policy 의 출력도 그대로다. MSE 는 데이터 양과 관계없이 평균을
         향하고, 숫자 하나를 내는 policy 는 두 값을 동시에 낼 수 없다. 해결하려면 action 의 분포를 내거나 봉우리 하나를 골라 내는
-        방식(구간 분류, style 변수, diffusion 등)으로 바꿔야 한다.
+        방식(구간 분류, diffusion 등)으로 바꾸거나, ACT 의 style 변수처럼 시연이 갈리는 이유를 policy 의 입력에 더해 줘야 한다.
     - question: |
         "이 모델은 카메라 영상과 음성 명령을 함께 받는 multimodal 모델이다" 와 "이 시연 데이터는 multimodal 이라 MSE 로 학습하면 안
         된다" 에서 multimodal 의 뜻을 바르게 짝지은 것은?

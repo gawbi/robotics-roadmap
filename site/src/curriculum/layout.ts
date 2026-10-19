@@ -1,10 +1,11 @@
-import ELK, { type ElkExtendedEdge, type ElkNode, type ElkPoint } from 'elkjs/lib/elk.bundled.js'
+import ELK, { type ElkExtendedEdge, type ElkNode } from 'elkjs/lib/elk.bundled.js'
 import { CONFIG } from '../config'
+import { orderLayers } from './order'
 import type { Curriculum, Lesson } from './types'
 
-// Layered (Sugiyama) layout from ELK: prerequisites above, the lessons they open below.
-// ELK assigns layers, inserts dummy nodes for edges that skip layers, minimises crossings
-// and routes every edge as a spline between the layers, so no edge runs through a lesson.
+// Layered (Sugiyama) layout: prerequisites above, the lessons they open below. orderLayers picks the layers and the
+// left-to-right order with few crossings, ELK places the nodes on that order, and every edge is drawn as vertical
+// S-curves between the layers, so no edge runs through a lesson.
 const L = CONFIG.layout
 
 export interface Box {
@@ -93,18 +94,15 @@ export function boxesOverlap(a: NodePos, b: NodePos): boolean {
   )
 }
 
-/** ELK spline sections are cubic Béziers: the start point, then (control, control, end) triples. */
-function curve(pts: ElkPoint[]): { path: string; points: Point[] } {
-  const f = (p: ElkPoint) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`
-  const rest = pts.slice(1)
-  if (rest.length % 3 !== 0) {
-    return { path: `M${pts.map(f).join('L')}`, points: pts.map((p) => ({ x: p.x, y: p.y })) }
-  }
-  let path = `M${f(pts[0])}`
-  const points: Point[] = [{ x: pts[0].x, y: pts[0].y }]
-  for (let i = 0; i < rest.length; i += 3) {
-    const p0 = i === 0 ? pts[0] : rest[i - 1]
-    const [c1, c2, p1] = [rest[i], rest[i + 1], rest[i + 2]]
+/** Through the points top to bottom, each step a cubic that leaves and arrives vertically. */
+function curve(stops: Point[]): { path: string; points: Point[] } {
+  const f = (p: Point) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`
+  let path = `M${f(stops[0])}`
+  const points: Point[] = [stops[0]]
+  for (let i = 1; i < stops.length; i++) {
+    const [p0, p1] = [stops[i - 1], stops[i]]
+    const mid = (p0.y + p1.y) / 2
+    const [c1, c2] = [{ x: p0.x, y: mid }, { x: p1.x, y: mid }]
     path += `C${f(c1)} ${f(c2)} ${f(p1)}`
     for (let k = 1; k <= L.curveSamples; k++) {
       const t = k / L.curveSamples
@@ -130,6 +128,30 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
     }),
   )
 
+  // ELK keeps the layers and in-layer order of orderLayers through each node's starting position. An edge that skips
+  // layers is split at invisible waypoints, one per layer it passes, placed where orderLayers put them; each waypoint
+  // is as tall as its layer, so the edge runs straight down through the layer and leaves the lessons there alone.
+  const order = orderLayers(c, { restarts: L.orderRestarts, sweeps: L.orderSweeps, seed: L.orderSeed })
+  const layerHeight = order.rows.map((row) =>
+    Math.max(...row.filter((v) => shapes.has(v)).map((v) => shapes.get(v)!.box.bottom - shapes.get(v)!.box.top)),
+  )
+  const chains = c.lessons.flatMap((p) =>
+    p.requires.map((r) => {
+      const via = order.rows.flatMap((row) => row.filter((v) => v.startsWith(`${r}>${p.id}@`)))
+      return { from: r, to: p.id, via }
+    }),
+  )
+  // every lesson takes its edges at the top of its circle and sends them from under its label, both on the circle's
+  // axis, and a waypoint passes its edge straight from its top to its bottom
+  const port = (node: string, id: string, x: number, y: number, side: string) => ({
+    id: `${node}:${id}`,
+    x,
+    y,
+    width: 0,
+    height: 0,
+    layoutOptions: { 'elk.port.side': side },
+  })
+
   const input: ElkNode = {
     id: 'root',
     layoutOptions: {
@@ -141,49 +163,57 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
       'elk.spacing.edgeEdge': String(L.edgeGap),
       'elk.layered.spacing.nodeNodeBetweenLayers': String(L.layerGap),
       'elk.layered.spacing.edgeNodeBetweenLayers': String(L.edgeNodeGap),
-      'elk.layered.crossingMinimization.strategy': 'LAYER_SWEEP',
       'elk.layered.nodePlacement.strategy': 'NETWORK_SIMPLEX',
+      'elk.layered.layering.strategy': 'INTERACTIVE',
+      'elk.layered.crossingMinimization.strategy': 'INTERACTIVE',
     },
-    // core lessons get a port under the label and one on top of the circle, both on the circle's axis, and every edge
-    // of a core lesson uses them: the trunk runs straight through the circles and side branches leave from its centre
-    children: c.lessons.map((p) => {
-      const { size, box } = shapes.get(p.id)!
-      const width = box.right - box.left
-      const height = box.bottom - box.top
-      const port = (id: string, y: number, side: string) => ({
-        id: `${p.id}:${id}`,
-        x: -box.left,
-        y,
-        width: 0,
-        height: 0,
-        layoutOptions: { 'elk.port.side': side },
-      })
-      return {
-        id: p.id,
-        width,
-        height,
-        ...(core.has(p.branch) && {
+    children: order.rows.flatMap((row, l) =>
+      row.map((v, i): ElkNode => {
+        const at = { x: i * 100, y: l * 1000 }
+        if (!shapes.has(v)) {
+          return {
+            id: v,
+            width: 0,
+            height: layerHeight[l],
+            ...at,
+            layoutOptions: { 'elk.portConstraints': 'FIXED_POS', 'elk.spacing.individual': `elk.spacing.nodeNode:${L.edgeGap}` },
+            ports: [port(v, 'in', 0, 0, 'NORTH'), port(v, 'out', 0, layerHeight[l], 'SOUTH')],
+          }
+        }
+        const { size, box } = shapes.get(v)!
+        const height = box.bottom - box.top
+        return {
+          id: v,
+          width: box.right - box.left,
+          height,
+          ...at,
           layoutOptions: { 'elk.portConstraints': 'FIXED_POS' },
-          ports: [port('in', -box.top - size, 'NORTH'), port('out', height, 'SOUTH')],
-        }),
-      }
-    }),
-    edges: c.lessons.flatMap((p) =>
-      p.requires.map(
-        (r): ElkExtendedEdge => ({
-          id: `${r}>${p.id}`,
-          sources: [isCore(r) ? `${r}:out` : r],
-          targets: [isCore(p.id) ? `${p.id}:in` : p.id],
-          // keep the core chain one straight line down the graph
-          layoutOptions: isTrunk(r, p.id) ? { 'elk.layered.priority.straightness': String(L.trunkStraightness) } : {},
-        }),
-      ),
+          ports: [port(v, 'in', -box.left, -box.top - size, 'NORTH'), port(v, 'out', -box.left, height, 'SOUTH')],
+        }
+      }),
     ),
+    edges: chains.flatMap(({ from, to, via }) => {
+      const stops = [from, ...via, to]
+      return stops.slice(1).map(
+        (v, k): ElkExtendedEdge => ({
+          id: `${from}>${to}#${k}`,
+          sources: [`${stops[k]}:out`],
+          targets: [`${v}:in`],
+          // keep the core chain one straight line down the graph
+          layoutOptions: isTrunk(from, to) ? { 'elk.layered.priority.straightness': String(L.trunkStraightness) } : {},
+        }),
+      )
+    }),
   }
   const graph = await new ELK().layout(input)
 
   const nodes = new Map<string, NodePos>()
+  const waypoints = new Map<string, { x: number; top: number; bottom: number }>()
   for (const n of graph.children ?? []) {
+    if (!shapes.has(n.id)) {
+      waypoints.set(n.id, { x: n.x!, top: n.y!, bottom: n.y! + n.height! })
+      continue
+    }
     const { size, label, box } = shapes.get(n.id)!
     nodes.set(n.id, {
       id: n.id,
@@ -196,10 +226,20 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
     })
   }
 
-  const edges: Edge[] = (graph.edges ?? []).map((e) => {
-    const s = e.sections![0]
-    const [from, to] = [e.sources[0].replace(/:out$/, ''), e.targets[0].replace(/:in$/, '')]
-    return { from, to, trunk: isTrunk(from, to), ...curve([s.startPoint, ...(s.bendPoints ?? []), s.endPoint]) }
+  const edges: Edge[] = chains.map(({ from, to, via }) => {
+    const [a, b] = [nodes.get(from)!, nodes.get(to)!]
+    const stops = [
+      { x: a.x, y: a.y + a.box.bottom },
+      ...via.flatMap((v) => {
+        const w = waypoints.get(v)!
+        return [
+          { x: w.x, y: w.top },
+          { x: w.x, y: w.bottom },
+        ]
+      }),
+      { x: b.x, y: b.y - b.size },
+    ]
+    return { from, to, trunk: isTrunk(from, to), ...curve(stops) }
   })
 
   return { nodes, edges, bounds: { left: 0, top: 0, right: graph.width ?? 0, bottom: graph.height ?? 0 } }

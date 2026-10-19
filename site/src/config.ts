@@ -37,12 +37,15 @@ export const CONFIG = {
     labelOffset: 7, // gap between node circle and its label
     boxPad: 10, // breathing room on each side of a node+label box
     startTagHeight: 18, // space reserved above the starting lesson for its START tag
-    nodeGap: 24, // px between neighbouring lessons in a layer
-    layerGap: 50, // px between layers
+    nodeGap: 32, // px between neighbouring lessons in a layer
+    layerGap: 64, // px between layers
     edgeNodeGap: 14, // px between an edge and a lesson it passes
-    edgeGap: 10, // px between parallel edges
+    edgeGap: 20, // px between parallel edges and between the waypoints of long edges
     trunkStraightness: 10, // ELK priority for keeping core-chain edges straight
     curveSamples: 12, // points per Bézier segment when an edge is sampled
+    orderRestarts: 100, // random starts of the crossing minimisation; 100 settles on the same crossing count for any seed
+    orderSweeps: 8, // barycentre sweeps per start
+    orderSeed: 1,
   },
 
   zoom: {

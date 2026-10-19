@@ -1,7 +1,9 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { boxesOverlap, computeLayout } from '../src/curriculum/layout'
+import { CONFIG } from '../src/config'
+import { boxesOverlap, computeLayout, type Point } from '../src/curriculum/layout'
+import { orderLayers } from '../src/curriculum/order'
 import { buildCurriculum, parseBranches, parseLesson } from '../src/curriculum/parse'
 
 const ROOT = join(__dirname, '..', '..', 'lessons')
@@ -96,5 +98,27 @@ describe('curriculum', () => {
         }
       }
     }
+  })
+
+  it('draws no more crossings than the layer order it was given', async () => {
+    const L = CONFIG.layout
+    const order = orderLayers(c, { restarts: L.orderRestarts, sweeps: L.orderSweeps, seed: L.orderSeed })
+    const layout = await computeLayout(c)
+    const side = (a: Point, b: Point, p: Point) => (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x)
+    const cross = (a: Point, b: Point, p: Point, q: Point) => side(a, b, p) * side(a, b, q) < 0 && side(p, q, a) * side(p, q, b) < 0
+    let drawn = 0
+    layout.edges.forEach((e, i) => {
+      for (const f of layout.edges.slice(i + 1)) {
+        // edges that share a lesson meet at its port; that is not a crossing
+        if ([e.from, e.to].some((id) => id === f.from || id === f.to)) continue
+        // count every place two edges meet, as orderLayers counts one crossing per layer gap
+        e.points.slice(1).forEach((b, k) => {
+          f.points.slice(1).forEach((q, m) => {
+            if (cross(e.points[k], b, f.points[m], q)) drawn++
+          })
+        })
+      }
+    })
+    expect(drawn).toBeLessThanOrEqual(order.crossings)
   })
 })
