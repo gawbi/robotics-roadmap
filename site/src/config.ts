@@ -17,11 +17,11 @@ export const CONFIG = {
     keyStep: 32, // arrow keys on the resize handle
   },
 
-  // multiple-choice quiz that closes each lesson. The dev server grades a submission and appends it to the result
-  // file; a lesson is done once one attempt gets every answer right.
+  // multiple-choice quiz that closes each lesson. The dev server grades a submission and appends it to the lesson's
+  // progress file; a lesson is done once one attempt gets every answer right.
   quiz: {
     bankFile: 'quiz.yaml', // lessons/<id>/quiz.yaml; the globs in curriculum/load.ts must use the same names (globs take literals only)
-    resultFile: 'quiz-result.json', // lessons/<id>/quiz-result.json
+    progressDir: 'progress', // <repo>/progress/<id>.json, kept apart from lessons/ so a fork commits only its own records
     endpoint: '/__quiz', // POST /__quiz/<id>, served by the dev server only
     choiceCount: 4,
   },

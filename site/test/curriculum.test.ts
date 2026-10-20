@@ -10,7 +10,7 @@ const ROOT = join(__dirname, '..', '..', 'lessons')
 // a lecture opens with its goals and closes with a summary and references; the sections between are free
 const REQUIRED_SECTIONS = ['## 학습 목표', '## 정리', '## 참고 자료']
 // a lesson is a lecture, its figures and its quiz; anything else (code, environments) does not belong
-const LESSON_FILES = new Set(['README.md', 'quiz.yaml', 'quiz-result.json', 'figures'])
+const LESSON_FILES = new Set(['README.md', 'quiz.yaml', 'figures'])
 
 function load() {
   const branches = parseBranches(readFileSync(join(ROOT, 'branches.yaml'), 'utf8'))
@@ -42,6 +42,12 @@ describe('curriculum', () => {
 
   it('every lesson ends with a quiz', () => {
     for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'quiz.yaml')), `${p.id}/quiz.yaml`).toBe(true)
+  })
+
+  it('every progress file belongs to a lesson', () => {
+    const dir = join(ROOT, '..', CONFIG.quiz.progressDir)
+    if (!existsSync(dir)) return
+    for (const f of readdirSync(dir)) expect(c.byId.has(f.replace(/\.json$/, '')), `${CONFIG.quiz.progressDir}/${f}`).toBe(true)
   })
 
   it('links to other lessons point at existing lessons', () => {

@@ -47,7 +47,7 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
           <strong>강의 끝의 퀴즈 풀기</strong>
           <span>
             틀린 문항은 해설을 보여 주고, 틀린 문항만 같은 원리의 다른 문항으로 다시 풉니다. 틀린 문항이 남지 않으면 통과이고 이어지는 강의가 밝아집니다.
-            답안은 <code>lessons/&lt;강의&gt;/quiz-result.json</code> 에 저장됩니다.
+            답안은 <code>progress/&lt;강의&gt;.json</code> 에 저장되고, fork 에 커밋해 두면 다른 기기에서도 이어서 볼 수 있습니다.
           </span>
         </li>
       </ol>

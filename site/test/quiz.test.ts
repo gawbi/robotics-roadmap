@@ -82,7 +82,7 @@ describe('quiz', () => {
     expect(() => grade(bank, picks, [2, 9])).toThrow()
   })
 
-  it('keeps only well-formed attempts from quiz-result.json', () => {
+  it('keeps only well-formed attempts from a progress file', () => {
     expect(parseResult(null).attempts).toEqual([])
     expect(parseResult('not json').attempts).toEqual([])
     const good = attempt([0, 0])

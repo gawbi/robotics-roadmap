@@ -3,7 +3,7 @@ import { initialAttempts } from './load'
 import { clearedAt, type Attempt } from './quiz'
 import type { Curriculum, NodeState, Status } from './types'
 
-/** Quiz attempts per lesson id, as recorded in lessons/<id>/quiz-result.json. */
+/** Quiz attempts per lesson id, as recorded in progress/<id>.json. */
 export type ProgressFile = Readonly<Record<string, readonly Attempt[]>>
 
 let current: ProgressFile = initialAttempts

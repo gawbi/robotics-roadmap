@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import path from 'node:path'
 import type { Plugin } from 'vite'
@@ -36,11 +36,12 @@ function send(res: ServerResponse, code: number, body: unknown) {
   res.end(JSON.stringify(body))
 }
 
-/** Dev-only endpoint that grades a quiz submission and appends it to lessons/<id>/quiz-result.json. */
+/** Dev-only endpoint that grades a quiz submission and appends it to progress/<id>.json. */
 export function quizServer(repoRoot: string): Plugin {
+  const progressDir = path.join(repoRoot, CONFIG.quiz.progressDir)
+
   async function submit(id: string, body: unknown): Promise<Attempt> {
-    const dir = path.join(repoRoot, 'lessons', id)
-    const bankSource = await readText(path.join(dir, CONFIG.quiz.bankFile))
+    const bankSource = await readText(path.join(repoRoot, 'lessons', id, CONFIG.quiz.bankFile))
     if (bankSource === null) throw new Error('이 강의에는 퀴즈가 없습니다')
     const answers = (body as { answers?: Submission[] } | null)?.answers
     if (!Array.isArray(answers)) throw new Error('답안이 없습니다')
@@ -50,7 +51,7 @@ export function quizServer(repoRoot: string): Plugin {
       answers.map((a) => a.choice),
     )
     const attempt: Attempt = { date: today(), answers: graded }
-    const file = path.join(dir, CONFIG.quiz.resultFile)
+    const file = path.join(progressDir, `${id}.json`)
     const attempts = [...parseResult(await readText(file)).attempts, attempt]
     await writeFile(file, `${JSON.stringify({ attempts }, null, 2)}\n`)
     return attempt
@@ -59,10 +60,12 @@ export function quizServer(repoRoot: string): Plugin {
   return {
     name: 'quiz-server',
     apply: 'serve',
-    configureServer(server) {
-      // lessons/ sits outside the site root, so Vite does not watch it by default; without this a result file the first
-      // submission creates never enters the `quiz-result.json` glob in load.ts and the attempt vanishes on the next reload
-      server.watcher.add(path.join(repoRoot, 'lessons'))
+    async configureServer(server) {
+      // lessons/ and progress/ sit outside the site root, so Vite does not watch them by default; without this an edited
+      // lesson stays stale and a progress file the first submission creates never enters the glob in load.ts, so the
+      // attempt vanishes on the next reload. progress/ is made up front so there is a folder to watch.
+      await mkdir(progressDir, { recursive: true })
+      server.watcher.add([path.join(repoRoot, 'lessons'), progressDir])
       server.middlewares.use(CONFIG.quiz.endpoint, async (req, res) => {
         const id = (req.url ?? '').replace(/^\//, '').split('?')[0]
         if (!LESSON_ID.test(id)) return send(res, 404, { error: '없는 강의입니다' })

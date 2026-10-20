@@ -52,13 +52,14 @@ export async function loadBank(id: string): Promise<string> {
 }
 
 // Results are small and decide every node's state, so they ship with the graph. In dev, a file the quiz server writes
-// re-runs this module through HMR, so the map stays in step with the repo.
-const results = import.meta.glob('../../../lessons/*/quiz-result.json', {
+// re-runs this module through HMR, so the map stays in step with the repo. The folder is CONFIG.quiz.progressDir (globs
+// take literals only).
+const results = import.meta.glob('../../../progress/*.json', {
   query: '?raw',
   import: 'default',
   eager: true,
 }) as Record<string, string>
 
 export const initialAttempts: Record<string, Attempt[]> = Object.fromEntries(
-  Object.entries(results).map(([file, source]) => [file.split('/').at(-2)!, parseResult(source).attempts]),
+  Object.entries(results).map(([file, source]) => [file.split('/').at(-1)!.replace(/\.json$/, ''), parseResult(source).attempts]),
 )

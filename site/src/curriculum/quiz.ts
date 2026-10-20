@@ -127,7 +127,7 @@ export function grade(bank: Topic[], picks: Pick[], choices: number[]): Answer[]
   })
 }
 
-/** Read lessons/<id>/quiz-result.json, keeping only well-formed attempts. */
+/** Read progress/<id>.json, keeping only well-formed attempts. */
 export function parseResult(source: string | null): QuizResult {
   if (!source) return { attempts: [] }
   let doc: unknown
