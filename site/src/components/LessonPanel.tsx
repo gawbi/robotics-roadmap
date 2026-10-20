@@ -25,7 +25,7 @@ const STATE_TEXT: Record<NodeState, string> = {
   locked: '선수 강의 남음',
 }
 
-export function formatHours(h: number): string {
+function formatHours(h: number): string {
   return `강의와 퀴즈 약 ${h}시간`
 }
 
@@ -90,6 +90,8 @@ export function LessonPanel({ curriculum: c, progressFile, lessonId, onClose, on
   const headingRef = useRef<HTMLHeadingElement>(null)
   const quizRef = useRef<HTMLDivElement>(null)
 
+  // editing a lesson in dev re-runs curriculum/load.ts through HMR, which hands down a new curriculum; the body is
+  // fetched again then, so the open panel shows the edit without a reload
   useEffect(() => {
     let live = true
     loadBody(lessonId).then(
@@ -99,7 +101,7 @@ export function LessonPanel({ curriculum: c, progressFile, lessonId, onClose, on
     return () => {
       live = false
     }
-  }, [lessonId])
+  }, [lessonId, c])
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 })

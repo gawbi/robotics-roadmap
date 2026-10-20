@@ -295,7 +295,8 @@ $403 \div 1000 \approx 0.40$ 이다. 칸을 더 잘게 나누고 더 많이 재�
 
 <details><summary>답 보기</summary>
 
-$\mu = 8$, $\sigma = 2$ 이므로 $\mu - 2\sigma = 8 - 4 = 4$ 부터 $\mu + 2\sigma = 8 + 4 = 12$ 까지다.
+$\mathcal N(8, 2^2)$ 의 첫째 자리는 평균이라 $\mu = 8$ 이고, 둘째 자리 $2^2$ 은 분산이라 표준편차는 $\sigma = 2$ 다. 위 표에서
+약 95% 가 들어가는 구간은 $\mu - 2\sigma$ ~ $\mu + 2\sigma$ 이므로 $8 - 2 \times 2 = 4$ 부터 $8 + 2 \times 2 = 12$ 까지다.
 
 </details>
 
@@ -317,7 +318,8 @@ $\mu = 8$, $\sigma = 2$ 이므로 $\mu - 2\sigma = 8 - 4 = 4$ 부터 $\mu + 2\si
 
 <details><summary>답 보기</summary>
 
-약 68% 가 들어가므로 $1000 \times 0.68 = 680$ 개쯤이다.
+$\mathcal N(0, 1)$ 은 $\mu = 0$, $\sigma = 1$ 이라 $-1$ ~ 1 은 $\mu - \sigma$ ~ $\mu + \sigma$ 이고, 이 구간에는 약 68% 가
+들어가므로 $1000 \times 0.68 = 680$ 개쯤이다.
 
 </details>
 
@@ -491,8 +493,9 @@ VAE 다.
 - autoencoder 는 encoder 로 그림을 숫자 몇 개(latent $z$)로 줄이고 decoder 로 되살리며, 되살린 그림과 원래 그림의 차이의 제곱합인
   reconstruction loss 를 줄이도록 학습한다
 - latent 의 개수(z_dim)가 적을수록 담을 수 있는 정보가 적어서 복원이 거칠어진다
-- autoencoder 는 $z$ 가 놓일 자리를 정하지 않으므로 latent 공간에 빈 곳이 생기고, 그래서 $z$ 를 아무 데서나 뽑아 새 그림을 만들 수
-  없다
+- autoencoder 의 loss 는 그림들의 $z$ 가 latent 공간의 어디에 모일지 정하지 않는다. 그래서 0 그림은 $-3$ 근처, 1 그림은 4 근처처럼
+  모인 곳 사이와 바깥에 decoder 가 학습 중 한 번도 받아 보지 못한 빈 곳이 남고, 무작위로 뽑은 $z$ 가 그곳에 떨어지면 숫자가 아닌
+  얼룩이 나올 수 있다
 
 ## VAE 의 encoder
 
@@ -1245,8 +1248,9 @@ KL 은 $\frac12(0.25 + 1 - 0 - 1) = \frac12 \times 0.25 = 0.125$ 이고, $\beta 
   내서 실패하므로, 데이터의 분포를 배워 거기서 뽑아야 한다
 - 분포는 평균 $\mu$ 와 분산 $\sigma^2$ 으로 요약한다. 정규분포 $\mathcal N(\mu, \sigma^2)$ 은 값의 68%·95%·99.7% 가 $\mu$ 에서 $\sigma$
   의 1·2·3 배 안에 들어가는 종 모양이고, $\mathcal N(0, I)$ 는 차원마다 $\mathcal N(0, 1)$ 에서 따로 뽑은 vector 의 분포다
-- autoencoder 는 그림을 latent $z$ 로 줄였다 되살리지만 $z$ 가 놓일 자리를 정하지 않아 빈 곳이 생긴다. VAE 의 encoder 는 그림마다
-  $\mu$ 와 logvar $= \log\sigma^2$ 을 내서 그림 하나를 범위 하나로 만들고, 범위들이 겹치며 빈 곳을 채운다
+- autoencoder 는 그림을 latent $z$ 로 줄였다 되살리지만, 그림들의 $z$ 가 어디에 모일지 정하지 않아서 그 사이에 decoder 가 받아
+  보지 못한 빈 곳이 남는다. VAE 의 encoder 는 그림마다 $\mu$ 와 logvar $= \log\sigma^2$ 을 내서 그림 하나를 범위 하나로 만들고,
+  범위들이 겹치며 빈 곳을 채운다
 - reparameterization trick $z = \mu + \sigma \odot \epsilon$, $\epsilon \sim \mathcal N(0, I)$ 은 무작위성을 $\epsilon$ 으로 옮겨
   $\partial z / \partial \mu = 1$, $\partial z / \partial \sigma = \epsilon$ 을 정하고, 그 덕분에 encoder 까지 gradient 가 전해진다.
   $\mu = 0.5$, $\sigma = 2$, $\epsilon = 0.3$ 이면 $z = 1.1$ 이다
