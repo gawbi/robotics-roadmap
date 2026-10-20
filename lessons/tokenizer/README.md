@@ -260,12 +260,15 @@ language model 이고, 이 강의에서 실제 tokenizer 의 예로 계속 쓴�
 읽을 수 있는 token 수에 한도가 있는 모델은 같은 한도 안에 담는 내용이 줄어든다. 모델이 한 번에 읽을 수 있는 token 수의 한도를
 context 길이라고 한다.
 
-단어 단위는 sequence 가 짧지만 vocabulary 가 아주 커지고, vocabulary 에 없는 단어를 다루지 못한다. 새로 생긴 말이나 오타
-"unbelievabel" 처럼 vocabulary 에 없는 단어는 번호가 없어서 "모르는 단어" 를 뜻하는 특별한 token 하나로 바뀐다. 이 token 을 흔히 `<unk>`(unknown)라고
-적는데, 서로 다른 모르는 단어가 모두 같은 `<unk>` 로 뭉개지므로 decode 해도 원래 단어를 되살릴 수 없다.
+단어 단위는 sequence 가 짧지만 vocabulary 가 아주 커지고, vocabulary 에 없는 단어를 다루지 못한다. vocabulary 는 학습 corpus 로
+한 번 만든 뒤 고정한다. 모델은 token id 마다 따로 숫자를 학습해 두므로, 쓰는 도중에 새 token 을 만들어 넣으면 모델은 그 token 을
+다루는 법을 배운 적이 없기 때문이다. 단어 단위 vocabulary 는 보통 corpus 에서 자주 나온 단어 수만 개만 담아서, 한두 번 나온 오타는
+학습 corpus 에 있었더라도 목록에서 빠진다. 새로 생긴 말이나 오타 "unbelievabel" 처럼 목록에서 찾아도 나오지 않는 단어는 번호가
+없어서 "모르는 단어" 를 뜻하는 특별한 token 하나로 바뀐다. 이 token 을 흔히 `<unk>`(unknown)라고 적는데, 서로 다른 모르는 단어가 모두 같은 `<unk>` 로 뭉개지므로 decode 해도 원래 단어를 되살릴 수 없다.
 
 subword 단위에서는 자주 나오는 단어는 통째로 token 하나가 되고, 드문 단어는 자주 나오는 조각 몇 개로 나뉜다. 위 표의 un, bel,
-iev, able 은 GPT-2 의 tokenizer 가 실제로 자른 결과다.
+iev, able 은 GPT-2 의 tokenizer 가 실제로 자른 결과다. 오타 unbelievabel 도 GPT-2 에서는 un, bel, iev, abel 의 token 4 개로
+잘려서 `<unk>` 가 생기지 않는다.
 
 ![unbelievable 을 글자·단어·subword 단위로 자른 결과. 단위가 작을수록 token 이 많아지고, 클수록 vocabulary 가 커진다](figures/unit-compare.svg)
 
@@ -311,11 +314,14 @@ GPT-2 에서는 token 4 개이고, 반대로 앞에 공백이 붙은 "␣unbelie
   은 3797 번 token 이다
 - **image patch token** — 사진은 작은 점(pixel)이 가로세로로 늘어선 것이고, 점마다 빨강·초록·파랑의 밝기가 숫자로 적혀 있다.
   이미지를 읽는 모델 [ViT](../vit/README.md) 는 가로세로 224 pixel 인 사진을 16×16 pixel 크기의 조각(patch)으로 잘라
-  $14 \times 14 = 196$ 개의 token 을 만든다. 이 token 에는 vocabulary 번호가 없고, 조각 안 pixel 의 숫자 $16 \times 16 \times 3 = 768$ 개를 한 줄로 묶은 것이 곧바로
-  모델에 들어간다. 숫자 여러 개를 순서대로 묶은 이런 것을 vector 라고 한다
+  $14 \times 14 = 196$ 개의 token 을 만든다. text 는 글자라서 번호를 붙여야 숫자가 되지만, 사진은 처음부터 pixel 마다 밝기 숫자가
+  적혀 있어서 번호로 바꿀 필요가 없다. 그래서 이 token 에는 vocabulary 번호가 없고, 조각 안 pixel 의 숫자 $16 \times 16 \times 3 = 768$
+  개를 한 줄로 묶은 것이 곧바로 모델에 들어간다. 숫자 여러 개를 순서대로 묶은 이런 것을 vector 라고 한다
 - **action token** — 로봇 팔의 움직임은 "집게를 3.4 cm 벌린다" 처럼 연속된 숫자다. 사진과 지시문을 받아 로봇 팔의 움직임을
-  내는 모델 RT-2·OpenVLA([RT-2 → OpenVLA](../vla-tokens/README.md))는 이 숫자의 범위를 칸으로 나누고, 칸 번호마다 vocabulary 의
-  token 번호 하나를 짝지어 둔다. 그러면 모델이 text 를 쓰듯 움직임을 token 으로 낼 수 있다. 그림처럼 0 ~ 8 cm 를 1 cm 씩 8 칸(칸 0 ~ 칸 7)으로 나누면 3.4 cm 는 3 이상 4 미만이라서 칸 3 이다. 실제
+  내는 모델 RT-2·OpenVLA([RT-2 → OpenVLA](../vla-tokens/README.md))는 text 를 쓰던 language model 을 고쳐 만들어서, 답을 낼 때
+  vocabulary 의 token 가운데 하나를 고를 수만 있고 3.4 같은 실수를 직접 적어 내지 못한다. 그래서 움직임 숫자의 범위를 칸으로
+  나누고, 칸 번호마다 vocabulary 의 token 번호 하나를 짝지어 둔다. 그러면 모델이 text 를 쓰듯 token 을 고르는 것만으로 움직임을
+  낼 수 있다. 그림처럼 0 ~ 8 cm 를 1 cm 씩 8 칸(칸 0 ~ 칸 7)으로 나누면 3.4 cm 는 3 이상 4 미만이라서 칸 3 이다. 실제
   RT-2·OpenVLA 는 한 값을 256 칸으로 나누고, 이 칸을 bin 이라고 부른다
 
 세 가지를 견주면 text token 과 action token 은 vocabulary 의 정수 번호이고, image patch token 은 번호 없이 숫자 묶음 그대로다. 앞으로

@@ -562,47 +562,16 @@ $z$ 가 여러 차원이면 encoder 는 차원마다 $\mu_j$ 와 $\sigma_j$ 를 
 
 </details>
 
-### log
-
-encoder 는 $\sigma$ 를 바로 내지 않고 $\log \sigma^2$ 이라는 값을 낸다. 그 이유를 보려면 먼저 log 가 무엇인지 알아야 한다.
-
-[Backpropagation](../autograd/README.md) 의 sigmoid 에서 $e$ 는 약 2.718 인 정해진 수였고, $e^{2} = e \times e \approx 7.389$ 처럼
-오른쪽 위의 지수만큼 $e$ 를 곱했다. $e^{-1} = 1 \div e \approx 0.368$ 처럼 지수가 음수이면 그만큼 곱한 수로 1 을 나누고, $e^{0} = 1$
-이다. $e^{a}$ 를 $\exp(a)$ 로 적기도 한다.
-
-log 는 이 계산을 거꾸로 한다. $\log b$ 는 "$e$ 의 지수에 무엇을 넣어야 $b$ 가 되는가" 의 답이다. $e^{2} \approx 7.389$ 이므로
-$\log 7.389 \approx 2$ 이고, $e^{0} = 1$ 이므로 $\log 1 = 0$ 이다. 이렇게 $e$ 를 기준으로 하는 log 를 natural log(자연로그)라고 하고
-$\ln$ 으로도 적는데, 이 강의에서 log 는 모두 natural log 다.
-
-| $b$ | 0.25 | 0.5 | 1 | 2 | 4 |
-| --- | --- | --- | --- | --- | --- |
-| $\log b$ | $-1.386$ | $-0.693$ | 0 | 0.693 | 1.386 |
-
-표에서 세 가지 성질이 보인다.
-
-- $\log 1 = 0$ 이고, 1 보다 큰 수의 log 는 양수, 1 보다 작은 수의 log 는 음수다
-- $b$ 가 2 배가 될 때마다 log 는 0.693 씩 커진다. 곱하기가 log 에서는 더하기가 되기 때문이고, 그래서 $\log(a \times b) = \log a + \log b$,
-  $\log(a \div b) = \log a - \log b$ 다
-- log 는 0 보다 큰 수에만 쓸 수 있다. $e$ 를 아무리 여러 번 곱하거나 나눠도 0 이나 음수가 되지 않기 때문이다
-
-![log 의 그래프. b 가 0.25, 0.5, 1, 2, 4 일 때 높이가 −1.386, −0.693, 0, 0.693, 1.386 이고, b 가 0 에 다가가면 한없이 내려간다](figures/log-curve.svg)
-
-**확인 문제.** $\log 2 = 0.693$ 을 써서 $\log 8$ 과 $\log 0.125$ 를 구해 보자.
-
-<details><summary>답 보기</summary>
-
-$8 = 2 \times 2 \times 2$ 이므로 $\log 8 = 0.693 \times 3 = 2.079$ 다. $0.125 = 1 \div 8$ 이므로 $\log 0.125 = \log 1 - \log 8 = -2.079$
-다.
-
-</details>
-
 ### σ 대신 log σ² 을 내는 이유
 
 encoder 의 마지막 층은 weight 를 곱하고 더하는 Linear layer 라서 $-3$ 이든 $2.5$ 든 어떤 숫자든 낼 수 있다. $\mu$ 는 음수여도
 괜찮지만 $\sigma$ 는 퍼진 정도라서 반드시 0 보다 커야 하는데, encoder 가 $\sigma = -0.5$ 를 내면 뜻이 없는 값이 된다.
 
-그래서 encoder 는 $\sigma$ 대신 $\log \sigma^2$ 을 낸다. 이 값을 logvar(log variance, 분산의 log)라고 부른다. logvar 가 어떤 숫자이든
-$\sigma^2 = e^{\text{logvar}}$ 은 언제나 0 보다 크므로, $\sigma$ 도 언제나 양수로 되돌릴 수 있다.
+그래서 encoder 는 $\sigma$ 대신 [PyTorch Training Loop](../pytorch-mlp/README.md) 의 log 를 씌운 $\log \sigma^2$ 을 낸다. $\log b$ 는
+"$e$ 를 몇 제곱해야 $b$ 가 되는가" 의 답이라서 $b$ 가 1 보다 크면 양수($\log 2 = 0.693$, $\log 4 = 1.386$), 1 보다 작으면
+음수다. 거꾸로 $e^{a}$ 는 $e$ 를 몇 번 곱하거나 나눠도 0 이나 음수가 되지 않으므로 $a$ 가 어떤 수이든 0 보다 크다. 이 값
+$\log \sigma^2$ 을 logvar(log variance, 분산의 log)라고 부른다. logvar 가 어떤 숫자이든 $\sigma^2 = e^{\text{logvar}}$ 은 언제나 0 보다 크므로, $\sigma$
+도 언제나 양수로 되돌릴 수 있다.
 
 $$
 \sigma^2 = e^{\text{logvar}}, \qquad \sigma = e^{\text{logvar} / 2}
@@ -871,7 +840,7 @@ $$
 $D_{\mathrm{KL}}(q \Vert p)$ 는 "$q$ 에서 $p$ 까지의 KL divergence" 로 읽고, 두 줄 막대 $\Vert$ 는 두 분포를 구분하는 표시다. 식은
 "결과 $z$ 마다 $q(z)$ 와 $\log \frac{q(z)}{p(z)}$ 를 곱하고, 모두 더한다" 는 뜻이다. 동전이라면 결과 $z$ 는 앞면과 뒷면, $q(z)$ 는
 0.8 과 0.2, $p(z)$ 는 0.5 와 0.5 다. 결과마다 값 × 확률을 더하는 꼴이라서, [Bandits & MDPs](../bandit-mdp/README.md) 의 기댓값으로
-보면 "$q$ 에서 뽑았을 때 $\log q(z) - \log p(z)$ 의 기댓값" 이다.
+보면 "$q$ 에서 뽑았을 때 $\log \frac{q(z)}{p(z)}$ 의 기댓값" 이다.
 
 $q$ 의 앞면 확률을 바꿔 가며 계산하면 아래와 같다.
 
@@ -1258,7 +1227,7 @@ KL 은 $\frac12(0.25 + 1 - 0 - 1) = \frac12 \times 0.25 = 0.125$ 이고, $\beta 
   이다. $\mu = 1$, $\sigma = 1$ 이면 0.5, $\mu = 0$, $\sigma = 0.5$ 면 0.318 이다. $\beta = 1$ 인 loss 를 줄이는 것은 ELBO 를 키우는
   것과 같다
 - 생성은 prior 에서 뽑은 $z$ 를 decoder 에 넣어 하고, 두 그림의 $\mu$ 를 $(1 - t) z_a + t z_b$ 로 이으면 보간 그림이 나온다.
-  CVAE 는 조건 $c$ 를 양쪽에 넣고, ACT 는 이 구조로 시연의 움직이는 방식을 $z$ 에 담아 로봇을 움직일 때 $z = 0$ 을 쓴다
+  CVAE 는 조건 $c$ 를 양쪽에 넣고, ACT 는 이 구조로 시연의 움직이는 방식을 latent $z$ 에 담아 로봇을 움직일 때 $z = 0$ 을 쓴다
 
 VAE 는 decoder 한 번으로 sample 을 내서 빠르지만, latent 하나에 그림 전체를 담고 겹친 범위에서 평균을 내기 때문에 sample 이 흐릿하다.
 생성을 수백 번의 작은 잡음 제거 단계로 나눠 더 선명한 sample 을 만드는 방법은 [DDPM](../ddpm/README.md) 에서 다룬다. CVAE 로 시연의
