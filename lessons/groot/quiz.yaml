@@ -1,0 +1,330 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: data-pyramid
+  title: humanoid 데이터와 data pyramid
+  variants:
+    - question: |
+        humanoid 로봇용 VLA 를 학습하려는데 그 로봇을 직접 조종한 데이터가 수십 시간뿐이다. GR00T N1 이 이 문제를 다룬
+        방법으로 옳은 것은?
+      choices:
+        - 조종 데이터 수십 시간만으로 학습하고, 데이터가 늘 때까지 다른 데이터는 쓰지 않는다
+        - 인터넷·사람 영상, simulation·생성한 영상, 실물 로봇 데이터를 양과 몸의 일치도에 따라 층으로 나눠 모두 함께 학습한다
+        - 사람 영상만으로 학습한 뒤 실물 데이터는 평가에만 쓴다
+        - 여러 로봇의 데이터를 가장 큰 로봇의 관절 수에 맞춰 0 으로 채운 뒤 하나의 표로 합쳐 학습한다
+      answer: 1
+      explanation: |
+        GR00T N1 은 양이 많지만 몸이 다른 인터넷·사람 영상을 바닥에, 컴퓨터로 늘릴 수 있는 simulation·생성 영상을 가운데에,
+        적지만 몸이 맞는 실물 로봇 데이터를 꼭대기에 두는 data pyramid 를 모델 하나로 함께 학습한다. 실물 데이터만 쓰면 양이
+        모자라고, 사람 영상만 쓰면 실제 로봇의 몸에 맞는 움직임을 배우지 못한다. 0 으로 채워 길이를 맞추는 것은 π0 의
+        방법이고, GR00T N1 은 로봇마다 encoder·decoder 를 따로 둔다.
+    - question: |
+        여러 연구실의 로봇 데이터를 모아도 바로 하나의 큰 데이터처럼 쓰기 어려운 까닭으로 가장 알맞은 것은?
+      choices:
+        - 로봇 데이터는 모두 비공개라서 모을 수 없다
+        - 로봇 데이터에는 사진이 없고 관절 각도만 있다
+        - 로봇마다 관절 수·카메라 위치·명령 방식이 달라 데이터끼리 형식이 맞지 않는다
+        - 로봇 데이터는 인터넷 사진보다 양이 많아 저장할 수 없다
+      answer: 2
+      explanation: |
+        GR00T N1 논문은 로봇마다 몸의 구조, 센서, 관절 수, 제어 방식이 달라 데이터가 서로 이어지지 않는 상태를 "데이터 섬" 이라고
+        불렀다. Open X-Embodiment 처럼 공개된 로봇 데이터도 있고, 로봇 데이터에는 보통 카메라 사진도 함께 있다. 양이나 공개 여부보다
+        형식이 제각각인 것이 걸림돌이고, 양은 오히려 인터넷 데이터보다 훨씬 적다.
+    - question: |
+        data pyramid 의 바닥 층(인터넷 데이터와 사람이 일하는 1 인칭 영상)이 로봇 학습에 주는 것과 모자란 점을 바르게 짝지은 것은?
+      choices:
+        - 주는 것은 물체를 다루는 넓은 경험이고, 모자란 점은 로봇의 action 이 적혀 있지 않다는 것이다
+        - 주는 것은 그 로봇의 정확한 관절 각도이고, 모자란 점은 사진이 흐리다는 것이다
+        - 주는 것은 simulation 의 물리 법칙이고, 모자란 점은 양이 적다는 것이다
+        - 주는 것은 없고, 모자란 점은 사람과 로봇의 몸이 다르다는 것뿐이다
+      answer: 0
+      explanation: |
+        사람 영상은 양이 가장 많고 물체를 잡고 옮기는 다양한 장면을 담지만, 관절 각도 같은 로봇의 action 은 적혀 있지 않다. 그래서
+        GR00T N1 은 latent action 같은 방법으로 action 비슷한 숫자를 붙여 학습한다. 로봇의 정확한 관절 각도는 꼭대기의 실물 데이터가
+        주고, simulation 기록은 가운데 층이다. 몸이 다르다는 한계가 있어도 넓은 경험을 준다는 이점이 있어 바닥에 둔다.
+
+- topic: dual-system
+  title: System 2 와 System 1 의 연결
+  variants:
+    - question: |
+        GR00T N1 에서 action 을 만드는 diffusion transformer 는 VLM 이 정리한 사진·지시문 정보를 어떻게 읽나?
+      choices:
+        - VLM 이 지시문을 글로 다시 써 주면 diffusion transformer 가 그 글을 읽는다
+        - VLM 의 한 층 출력을 cross-attention 으로 읽는다. query 는 action·상태 token 에서, key·value 는 VLM 출력에서 만든다
+        - VLM 과 diffusion transformer 의 token 을 한 줄로 이어 같은 self-attention 층마다 함께 계산한다
+        - VLM 의 출력은 쓰지 않고 로봇 상태만 보고 action 을 만든다
+      answer: 1
+      explanation: |
+        GR00T N1 의 diffusion transformer 는 cross-attention block 과 self-attention block 을 번갈아 쌓고, cross-attention 에서 VLM 출력
+        φ 를 key·value 로 읽는다. VLM 이 글을 다시 쓰는 것이 아니라 숫자 묶음을 넘긴다. token 을 한 줄로 이어 층마다 같은
+        self-attention 에 넣는 것은 π0 의 방식이다. VLM 출력을 쓰지 않으면 사진과 지시문을 반영할 수 없다.
+    - question: |
+        π0 는 VLM 과 action expert 가 같은 self-attention 층에서 층마다 만나고, GR00T N1 은 VLM 출력 하나를 diffusion transformer 가
+        cross-attention 으로 읽는다. GR00T N1 방식의 이점으로 논문이 든 것은?
+      choices:
+        - action 을 단어 token 으로 낼 수 있다
+        - VLM 을 전혀 학습할 필요가 없다
+        - flow matching 없이도 action 덩어리를 만들 수 있다
+        - VLM 과 action 모델의 층 구조를 서로 맞출 필요가 없어 둘을 바꿔 끼우기 쉽다
+      answer: 3
+      explanation: |
+        층마다 짝지어 만나는 π0 는 두 부분의 층 수가 같아야 한다. GR00T N1 은 VLM 의 한 층 출력을 cross-attention 으로 읽기만 하므로
+        VLM 과 action 모델의 구조를 따로 정할 수 있고, 논문은 이 유연성을 이점으로 들었다. 연결 방식과 action 을 token 으로 내는지는
+        상관없고, GR00T N1 도 flow matching 으로 action 을 만든다. VLM 을 얼리는지는 연결 방식과 별개의 선택이다.
+    - question: |
+        GR00T N1 은 VLM 의 언어 모델에서 맨 마지막 층이 아니라 가운데쯤(12 번째 층)의 출력을 쓴다. 논문이 밝힌 결과로 옳은 것은?
+      choices:
+        - 추론이 빨라지고 로봇 작업 성공률도 높아졌다
+        - 추론은 느려졌지만 성공률이 높아졌다
+        - 성공률은 낮아졌지만 메모리를 아끼려고 택했다
+        - 마지막 층과 결과가 같아서 아무 층이나 써도 된다
+      answer: 0
+      explanation: |
+        논문은 가운데 층의 출력을 쓰자 추론 속도와 성공률이 모두 좋아졌다고 적었다. 12 번째 층에서 멈추면 그 위 층을 계산하지
+        않아도 되므로 빨라진다. 느려지거나 성공률이 낮아진 것이 아니고, 층마다 출력이 달라 어느 층을 쓰는지가 결과를 바꾼다.
+
+- topic: embodiment
+  title: 로봇마다 따로 둔 encoder 와 decoder
+  variants:
+    - question: |
+        관절 수가 다른 여러 로봇의 데이터를 GR00T N1 하나로 학습할 때, 로봇마다 다른 숫자 개수를 처리하는 방법은?
+      choices:
+        - 모든 로봇을 가장 큰 로봇의 칸 수에 맞추고 남는 칸을 0 으로 채운다
+        - 로봇마다 GR00T N1 전체를 따로 학습한다
+        - 로봇마다 작은 MLP encoder·decoder 를 따로 두어 공통 길이의 token 으로 바꾸고, VLM 과 diffusion transformer 는 함께 쓴다
+        - 관절 수가 가장 적은 로봇에 맞춰 나머지 관절을 버린다
+      answer: 2
+      explanation: |
+        GR00T N1 은 로봇(embodiment)마다 state encoder·action encoder·action decoder 라는 작은 MLP 를 두어, 그 로봇의 숫자를 공통 길이의
+        token 으로 바꾸고 다시 되돌린다. 0 으로 채우는 것은 π0 의 방법이다. 모델 전체를 따로 학습하면 여러 로봇 데이터를 함께 쓰는
+        이점이 사라지고, 관절을 버리면 그 로봇을 제대로 움직일 수 없다.
+    - question: |
+        GR00T N1 에 처음 보는 새 로봇을 붙여 fine-tuning 하려 한다. 그 로봇만을 위해 새로 만들어야 하는 부분은?
+      choices:
+        - 그 로봇의 state encoder, action encoder, action decoder
+        - 새 VLM
+        - 새 diffusion transformer 전체
+        - 새 codebook
+      answer: 0
+      explanation: |
+        로봇마다 다른 부분은 입구와 출구의 작은 MLP 뿐이라서, 새 로봇은 자기 숫자 개수에 맞는 encoder·decoder 를 새로 만들어 학습하면
+        된다. VLM 과 diffusion transformer 는 모든 로봇이 함께 쓰므로 사전학습한 것을 그대로 가져온다. codebook 은 latent action 을
+        만드는 VQ-VAE 의 부품이라 새 로봇을 붙이는 일과 관계없다.
+    - question: |
+        숫자 7 개짜리 팔과 숫자 30 개짜리 humanoid 를 함께 학습한다. π0 처럼 18 칸에 맞추는 방법과 GR00T N1 처럼 로봇별 encoder 를
+        두는 방법을 비교한 설명으로 옳은 것은?
+      choices:
+        - 두 방법 모두 숫자 30 개짜리 humanoid 를 그대로 넣을 수 있다
+        - 18 칸 방법은 humanoid 의 숫자 30 개가 들어가지 않고, 로봇별 encoder 는 30 개를 받는 encoder 를 따로 두면 된다
+        - 로봇별 encoder 방법은 팔의 숫자 7 개 뒤에 0 을 23 개 채워야 한다
+        - 18 칸 방법이 칸을 낭비하지 않아 언제나 더 낫다
+      answer: 1
+      explanation: |
+        18 칸에 맞추는 방법은 가장 큰 로봇보다 숫자가 많은 로봇을 넣을 수 없어 칸 수를 늘려 다시 학습해야 한다. 로봇별 encoder 는
+        입력 개수를 로봇마다 정할 수 있어 30 개짜리 encoder 를 따로 두면 된다. 로봇별 encoder 는 0 을 채우지 않고 자기 입력 개수를
+        그대로 받는다. 18 칸 방법은 숫자 7 개짜리 팔에서 11 칸이 늘 0 이라 오히려 칸을 낭비한다.
+
+- topic: flow-steps
+  title: flow matching 의 4 step 과 τ 입력
+  variants:
+    - question: |
+        GR00T N1 은 action 덩어리를 만들 때 noise 에서 출발해 Euler step 을 4 번 밟는다(K = 4). π0 의 10 번과 비교한 설명으로 옳은 것은?
+      choices:
+        - step 이 적어 덩어리 하나를 만드는 시간이 짧고, 논문은 4 step 이 모든 로봇에서 잘 동작했다고 보았다
+        - 4 step 이면 정답이 하나뿐인 경우에도 시연 값에 닿지 못한다
+        - step 수는 덩어리 길이와 같아야 해서 덩어리도 4 개다
+        - step 을 줄이면 VLM 을 더 자주 돌려야 한다
+      answer: 0
+      explanation: |
+        Euler step 마다 diffusion transformer 를 한 번 돌리므로 step 이 적을수록 빠르다. 정답이 하나라 속도가 일정하면 4 step 으로도
+        noise 에서 시연 값에 정확히 닿는다. 덩어리 길이(16)와 step 수(4)는 별개의 숫자이고, VLM 은 step 수와 상관없이 덩어리마다 한 번만
+        계산한다.
+    - question: |
+        GR00T N1 의 diffusion transformer 는 층마다 adaptive layer norm 을 쓴다. 이것이 하는 일은?
+      choices:
+        - 사진의 밝기를 평균 0 으로 맞춰 VLM 에 넣는다
+        - LayerNorm 뒤에 곱하고 더하는 두 숫자를 고정값 대신 고치는 단계 τ 로 만들어, 모든 층이 지금 몇 번째 고치는 중인지 알게 한다
+        - 로봇마다 다른 숫자 개수를 공통 길이로 바꾼다
+        - noise 를 뽑을 때 τ 가 작은 쪽을 더 자주 뽑는다
+      answer: 1
+      explanation: |
+        adaptive layer norm 은 LayerNorm 으로 맞춘 숫자에 곱하는 γ 와 더하는 β 를 τ 를 넣은 작은 network 가 만들게 한다. 그래서 같은
+        입력이라도 τ 에 따라 다른 값이 다음 계산으로 간다. VLM 에 사진을 넣기 전의 처리와는 관계없고, 숫자 개수를 맞추는 일은 로봇별
+        encoder 가 한다. τ 를 뽑는 분포는 학습에서 τ 를 고르는 방법이라 adaptive layer norm 과 다르다.
+    - question: |
+        섞은 점이 Aᵗ = τ·A + (1 − τ)·ε (τ = 0 이 noise, τ = 1 이 시연 덩어리 A)이고, Euler step 이 "지금 값 + (1/K) × 속도" 로 τ 를
+        0 에서 1 로 키워 간다. network 가 맞혀야 할 정답 속도는?
+      choices:
+        - ε − A
+        - A + ε
+        - A − ε
+        - τ × A
+      answer: 2
+      explanation: |
+        섞은 점은 τ 가 0 에서 1 로 갈 때 ε 에서 A 로 곧게 움직이므로, τ 가 1 만큼 늘 때 바뀌는 양은 A − ε 이다. Euler step 은 이 속도를
+        더해 가므로 정답 속도도 A − ε 여야 noise 에서 시연 쪽으로 간다. ε − A 는 방향이 반대라 시연에서 멀어지고, A + ε 와 τ × A 는 직선
+        위를 움직이는 속도가 아니다. GR00T N1 논문의 식 (1) 이 ε − A 로 적혀 있어 헷갈리기 쉬운 자리다.
+
+- topic: latent-action
+  title: action 이 없는 영상의 latent action
+  variants:
+    - question: |
+        관절 각도가 적혀 있지 않은 사람 영상으로 GR00T N1 을 학습하기 위해 latent action 을 만든다. 그 방법으로 옳은 것은?
+      choices:
+        - 사람이 영상을 보며 손의 관절 각도를 직접 적어 넣는다
+        - 영상의 한 장면만 보고 그 장면의 밝기 평균을 action 으로 쓴다
+        - 지시문을 token 으로 바꾼 번호를 action 으로 쓴다
+        - 지금 장면과 조금 뒤 장면을 encoder 에 넣고, decoder 가 지금 장면과 그 출력만으로 뒤 장면을 되살리게 학습한 뒤 encoder 출력을 쓴다
+      answer: 3
+      explanation: |
+        latent action 은 VQ-VAE 로 학습한다. encoder 는 두 장면을 보고 숫자 묶음을 내고, decoder 는 지금 장면과 그 숫자만으로 뒤 장면을
+        되살린다. decoder 가 지금 장면을 이미 받으므로 그 숫자에는 두 장면 사이의 움직임이 담기도록 학습된다. 사람이 직접 적지 않고,
+        한 장면의 밝기나 지시문의 번호는 움직임을 담지 못한다.
+    - question: |
+        latent action 을 만드는 VQ-VAE 에서 encoder 출력을 codebook 의 가장 가까운 vector 로 바꿔 decoder 에 넘기는 까닭으로 가장 알맞은 것은?
+      choices:
+        - 계산을 빠르게 하려고 숫자를 정수로 바꾸는 것뿐이다
+        - 가질 수 있는 값을 몇 개로 제한해, encoder 가 뒤 장면 전체를 그대로 넘기지 못하고 움직임 같은 핵심만 담게 한다
+        - codebook 에 로봇의 실제 관절 각도가 들어 있어서 그것을 꺼내 쓰려는 것이다
+        - decoder 가 지금 장면을 보지 못하게 막으려는 것이다
+      answer: 1
+      explanation: |
+        encoder 출력에 제한이 없으면 뒤 장면의 모든 정보를 그대로 담아 넘길 수 있어, 움직임만 골라 담을 이유가 없다. codebook 으로 값을
+        제한하면 되살리는 데 가장 쓸모 있는 것, 곧 움직임이 담기도록 학습된다. codebook 의 vector 는 학습된 값일 뿐 어느 로봇의 관절
+        각도도 아니고, decoder 는 지금 장면을 함께 받는다. 계산 속도 때문에 쓰는 것이 아니다.
+    - question: |
+        GR00T N1 이 사람 영상에서 뽑은 latent action 을 학습에 쓰는 방법으로 옳은 것은?
+      choices:
+        - latent action 을 GR-1 로봇의 관절 각도로 그대로 바꿔 GR-1 의 decoder 로 학습한다
+        - latent action 은 평가에만 쓰고 학습에는 쓰지 않는다
+        - latent action 을 "LAPA" 라는 또 하나의 몸으로 취급해 자기 encoder·decoder 를 두고, flow matching 의 정답 자리에 넣는다
+        - latent action 을 지시문 뒤에 글로 붙여 VLM 에 넣는다
+      answer: 2
+      explanation: |
+        latent action 은 영상의 움직임을 요약한 숫자라 어느 로봇의 관절 각도도 아니다. 그래서 GR00T N1 은 이것을 "LAPA" 라는 별도의 몸으로
+        다뤄 자기 encoder·decoder 를 두고, 같은 flow matching loss 의 정답으로 쓴다. 실제 로봇의 action 은 그 로봇의 decoder 가 낸다. 학습에
+        쓰지 않거나 글로 바꿔 넣는 것이 아니다.
+
+- topic: synthetic-data
+  title: IDM 과 만든 데이터
+  variants:
+    - question: |
+        inverse dynamics model(IDM)에 대한 설명으로 옳은 것은?
+      choices:
+        - 지금 장면과 action 을 받아 다음 장면을 그린다
+        - 지시문을 받아 영상을 만든다
+        - 사진에서 물체의 위치를 찾는다
+        - 지금 장면과 나중 장면을 받아 그사이의 action 을 맞힌다. 장면과 action 이 함께 있는 로봇 데이터로 학습한다
+      answer: 3
+      explanation: |
+        dynamics model 이 지금 장면과 action 으로 다음 장면을 맞힌다면, inverse dynamics model 은 거꾸로 두 장면으로 그사이의 action 을
+        맞힌다. 정답 action 이 있어야 학습하므로 실물 로봇 데이터로 학습하고, 학습한 뒤에는 action 이 없는 생성 영상에 대어
+        pseudo-action 을 붙인다. 영상을 만드는 것은 영상 생성 모델이고, 물체 위치 찾기는 별도의 검출 작업이다.
+    - question: |
+        GR00T N1 은 GR-1 조종 데이터 88 시간으로 영상 생성 모델을 fine-tuning 해 로봇 영상 827 시간을 더 만들었다(neural trajectory).
+        이 영상을 학습에 쓰기 위해 반드시 더해야 하는 단계는?
+      choices:
+        - 영상에 latent action 이나 IDM 의 pseudo-action 을 붙인다
+        - 영상을 흑백으로 바꾼다
+        - 영상을 simulation 에서 다시 실행해 본다
+        - 영상의 지시문을 지운다
+      answer: 0
+      explanation: |
+        생성한 영상에는 그림만 있고 로봇의 action 이 없어서, flow matching 의 정답을 만들려면 latent action 이나 IDM 의 pseudo-action 을
+        붙여야 한다. 논문은 그 전에 multimodal LLM 으로 지시문대로 된 영상만 걸렀다. 흑백 변환이나 지시문 삭제는 필요 없고, 영상은
+        물리 simulation 안의 상태가 아니라서 그대로 다시 실행할 수 없다.
+    - question: |
+        DexMimicGen 이 사람의 simulation 시연 수십 개를 수십만 개로 늘리는 방법으로 옳은 것은?
+      choices:
+        - 영상 생성 모델로 시연 영상을 새로 그린다
+        - 시연의 관절 각도에 무작위 noise 만 더해 개수를 늘린다
+        - 시연을 물체별 구간으로 나누고, 새 장면의 물체 위치에 맞춰 구간을 옮겨 이은 뒤 simulation 에서 성공한 기록만 남긴다
+        - 사람 영상에서 latent action 을 뽑아 시연으로 쓴다
+      answer: 2
+      explanation: |
+        DexMimicGen 은 시연을 "집기", "놓기" 처럼 물체 하나씩 다루는 구간으로 나누고, 새 장면에서 물체가 놓인 자리에 맞춰 손끝과 물체의
+        상대 위치를 유지한 채 구간을 옮긴다. 구간 사이는 이어 주는 움직임으로 메우고 simulation 에서 실행해 성공한 것만 남긴다. 영상
+        생성은 neural trajectory 의 방법이고, noise 만 더하면 물체 위치가 달라진 새 상황에 맞지 않는다.
+
+- topic: post-training
+  title: 사전학습의 효과와 post-training
+  variants:
+    - question: |
+        GR-1 실물 작업에서, 사전학습한 GR00T N1 을 작업 데이터의 10% 로 post-training 한 성공률이, 사전학습 없이 작업 데이터 전체로
+        학습한 Diffusion Policy 와 몇 %p 차이밖에 나지 않았다. 이 결과가 보여 주는 것은?
+      choices:
+        - 작업 데이터는 많을수록 오히려 나쁘다
+        - 사전학습은 작업 데이터가 적을 때 특히 큰 도움이 된다
+        - Diffusion Policy 는 데이터가 늘어도 나아지지 않는다
+        - post-training 은 필요 없다
+      answer: 1
+      explanation: |
+        사전학습한 모델은 적은 작업 데이터로도 처음부터 학습한 모델이 많은 데이터로 얻는 성능에 가깝게 닿는다. 그래서 데이터가 적을 때
+        사전학습의 효과가 가장 크게 보인다. 두 모델 모두 데이터가 늘면 성공률이 올랐으므로 데이터가 나쁘다거나 Diffusion Policy 가 늘지
+        않는다는 해석은 틀렸다. 비교한 GR00T N1 도 post-training 을 한 모델이다.
+    - question: |
+        사전학습만 한 모델은 왼손 쪽 사과를 왼손으로 집어 오른손에 건넨 뒤 바구니에 넣었다. 오른손만 쓰는 시연으로 post-training 한
+        모델은 같은 상황에서 실패했다. 이 현상을 바르게 설명한 것은?
+      choices:
+        - post-training 이 그 데이터에 없는 행동(손 바꿔 건네기)을 지울 수 있음을 보여 준다
+        - post-training 모델의 계산이 느려 시간 안에 끝내지 못했다
+        - 사전학습 모델은 왼손을 쓸 수 없는 구조다
+        - 사과가 처음 보는 물체라 두 모델 모두 실패했다
+      answer: 0
+      explanation: |
+        좁은 데이터로 더 학습하면 그 데이터의 행동은 매끄러워지지만 데이터에 없는 행동은 잊을 수 있다. post-training 데이터가 모두
+        오른손만 쓰는 시연이라 손을 바꿔 건네는 행동이 사라졌다. 사전학습 모델은 실제로 왼손을 써서 성공했고, 실패의 원인은 속도나
+        처음 보는 물체가 아니다.
+    - question: |
+        GR00T N1 의 사전학습과 post-training 에서 VLM 의 언어 모델 부분을 다루는 방법은?
+      choices:
+        - 두 단계 모두 언어 모델을 처음부터 다시 학습한다
+        - 사전학습에서만 얼리고 post-training 에서는 모두 학습한다
+        - 언어 모델을 빼고 image encoder 만 쓴다
+        - 두 단계 모두 언어 모델은 얼려 두고(weight 를 고치지 않고) 나머지를 학습한다
+      answer: 3
+      explanation: |
+        논문은 사전학습처럼 post-training 에서도 VLM 의 언어 부분을 얼리고 나머지를 학습한다고 적었다. 처음부터 다시 학습하면 인터넷에서
+        배운 언어 이해를 버리게 된다. 지시문을 읽으려면 언어 모델이 필요하므로 빼지 않는다.
+
+- topic: versions
+  title: N1.5 이후의 변화
+  variants:
+    - question: |
+        지금 관절 각도가 30° 일 때 32° 로, 50° 일 때 52° 로 가는 두 움직임이 있다. state-relative action(지금 상태에서의 차이)으로 적었을
+        때의 이점으로 옳은 것은?
+      choices:
+        - 두 움직임이 32 와 52 라는 다른 숫자가 되어 구별하기 쉽다
+        - 지금 각도를 몰라도 로봇을 움직일 수 있다
+        - 같은 "2° 더 굽히기" 가 둘 다 +2 로 같은 숫자가 되어, 자세가 달라도 배운 움직임을 옮겨 쓰기 쉽다
+        - 덩어리 길이를 줄일 수 있다
+      answer: 2
+      explanation: |
+        state-relative action 은 지금 상태에서 얼마나 바꿀지를 적으므로 같은 움직임이 시작 자세와 상관없이 같은 숫자가 된다. 32 와 52 로
+        달라지는 것은 절댓값 action 이다. 실제 목표 각도는 지금 각도에 차이를 더해야 나오므로 지금 각도를 알아야 하고, 덩어리 길이와는
+        관계없다.
+    - question: |
+        GR00T N1.5 가 VLM 을 사전학습과 fine-tuning 내내 얼려 둔 까닭으로 알맞은 것은?
+      choices:
+        - 로봇 데이터의 적은 지시문에 맞춰 VLM 이 흐트러지지 않게 해, 인터넷에서 배운 언어 이해를 지키려고
+        - VLM 이 없어도 action 을 만들 수 있어서
+        - VLM 을 얼리면 action 덩어리가 길어져서
+        - 로봇마다 다른 VLM 을 쓰려고
+      answer: 0
+      explanation: |
+        N1.5 는 VLM 을 얼려 언어 이해를 지키고 일반화를 높이려 했고, 실물 GR-1 에서 지시문대로 움직이는 비율이 46.6% 에서 93.3% 로 올랐다.
+        VLM 은 여전히 사진과 지시문을 읽어 diffusion transformer 에 넘기므로 필요하다. 얼리는 것은 덩어리 길이와 관계없고, VLM 은 모든
+        로봇이 함께 쓴다.
+    - question: |
+        GR00T N1.7 은 사람과 로봇의 손끝 움직임을 같은 형식(relative EEF action, 지금 손끝 자세에서의 차이)으로 적고 사람 영상 2 만 시간을
+        사전학습에 넣었다. 같은 형식으로 적는 까닭은?
+      choices:
+        - 사람 영상에는 사진이 없어서
+        - 사람 손과 로봇 손끝의 움직임이 같은 숫자 형식이면, 사람 영상에서 배운 손의 움직임을 로봇 제어로 바로 옮기기 쉬워서
+        - 로봇의 관절 각도를 더 정확히 재려고
+        - 사람 영상을 latent action 으로 바꾸는 계산을 늘리려고
+      answer: 1
+      explanation: |
+        N1 은 사람 영상에 latent action 을 붙여 로봇과 다른 몸으로 다뤘다. N1.7 은 사람 손과 로봇 손끝을 같은 차이 형식으로 적어, 사람
+        영상에서 배운 움직임이 로봇 action 과 같은 숫자로 이어지게 했다. 사람 영상에도 사진은 있고, 관절 각도의 측정 정확도와는 관계없다.
+        같은 형식을 쓰면 latent action 처럼 따로 몸을 나눌 필요가 줄어든다.

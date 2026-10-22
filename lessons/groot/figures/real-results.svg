@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>GR-1 실물 작업의 평균 성공률. 데이터 10% 에서 Diffusion Policy 10.2%, GR00T N1 42.6%, 데이터 전체에서 Diffusion Policy 46.4%, GR00T N1 76.8% 를 막대로 비교한다. 10% 의 GR00T N1 막대와 전체의 Diffusion Policy 막대 사이에 3.8%p 차이가 표시되어 있다</title>
+  <rect x="1" y="1" width="758" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <!-- y: 0% -> 320, 100% -> 60 ; px per % = 2.6 -->
+  <line x1="80" y1="320" x2="700" y2="320" stroke="#475569" stroke-width="1.5"/>
+  <g stroke="#1e293b" stroke-width="1"><line x1="80" y1="190" x2="700" y2="190"/><line x1="80" y1="60" x2="700" y2="60"/><line x1="80" y1="255" x2="700" y2="255"/><line x1="80" y1="125" x2="700" y2="125"/></g>
+  <g fill="#94a3b8" font-size="12" text-anchor="end">
+    <text x="72" y="324">0%</text><text x="72" y="259">25%</text><text x="72" y="194">50%</text><text x="72" y="129">75%</text><text x="72" y="64">100%</text>
+  </g>
+
+  <rect x="130" y="293.5" width="80" height="26.5" fill="#94a3b8"/>
+  <text x="170" y="285" fill="#e2e8f0" font-size="13" text-anchor="middle">10.2%</text>
+  <rect x="230" y="209.2" width="80" height="110.8" fill="#34d399"/>
+  <text x="270" y="201" fill="#e2e8f0" font-size="13" text-anchor="middle">42.6%</text>
+  <text x="220" y="346" fill="#e2e8f0" font-size="13" text-anchor="middle">데이터 10%</text>
+
+  <rect x="430" y="199.4" width="80" height="120.6" fill="#94a3b8"/>
+  <text x="470" y="191" fill="#e2e8f0" font-size="13" text-anchor="middle">46.4%</text>
+  <rect x="530" y="120.3" width="80" height="199.7" fill="#34d399"/>
+  <text x="570" y="112" fill="#e2e8f0" font-size="13" text-anchor="middle">76.8%</text>
+  <text x="520" y="346" fill="#e2e8f0" font-size="13" text-anchor="middle">데이터 전체</text>
+
+  <line x1="310" y1="209.2" x2="420" y2="209.2" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="420" y1="199.4" x2="430" y2="199.4" stroke="#f59e0b" stroke-width="1.5"/>
+  <line x1="420" y1="199.4" x2="420" y2="209.2" stroke="#f59e0b" stroke-width="2"/>
+  <text x="370" y="232" fill="#f59e0b" font-size="13" text-anchor="middle">3.8%p 차이</text>
+
+  <rect x="560" y="30" width="16" height="16" fill="#94a3b8"/><text x="584" y="43" fill="#e2e8f0" font-size="12">Diffusion Policy</text>
+  <rect x="560" y="54" width="16" height="16" fill="#34d399"/><text x="584" y="67" fill="#e2e8f0" font-size="12">GR00T-N1-2B</text>
+  <text x="380" y="370" fill="#94a3b8" font-size="12" text-anchor="middle">네 종류 작업의 평균 (논문 표 3)</text>
+</svg>

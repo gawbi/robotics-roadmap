@@ -5,11 +5,11 @@
 </p>
 
 <p align="center">
-  <b>강의 37개</b> · <b>branch 9개</b> · <b>약 108시간</b> · <b>코드 없이 숫자와 그림으로</b>
+  <b>강의 38개</b> · <b>branch 9개</b> · <b>약 111시간</b> · <b>코드 없이 숫자와 그림으로</b>
 </p>
 
 perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physical AI 를 이루는 아이디어를 강의로 읽고 퀴즈로 확인하며
-따라가는 독학 커리큘럼이다. 강의 37개가 선수 관계로 이어져 있고, 이 관계를 선수 강의가 위에, 그 강의가 여는 강의가
+따라가는 독학 커리큘럼이다. 강의 38개가 선수 관계로 이어져 있고, 이 관계를 선수 강의가 위에, 그 강의가 여는 강의가
 아래에 오는 지도로 보여 준다. 코드를 짤 일은 없고, 강의는 처음 배우는 사람 기준으로 숫자 예시부터 한 단계씩 설명한다.
 
 ## 화면 구성
@@ -100,7 +100,7 @@ fork 에서는 `progress/` 만 커밋한다. `lessons/` 나 `site/` 를 직접 �
 | Imitation Learning | behavior cloning, DAgger, RT-1, Diffusion Policy, ACT, 실물 로봇 |
 | Reinforcement Learning | bandit·MDP, DQN·SAC, policy gradient, PPO, sim-to-real 보행 |
 | Robotics | 좌표 변환, kinematics, PID, MuJoCo, 카메라, pick-and-place, teleoperation 데이터 |
-| VLA | RT-2 → OpenVLA, π0 |
+| VLA | RT-2 → OpenVLA, π0, GR00T N1 |
 | Frontier | world model, VLA 의 RL fine-tuning |
 
 강의를 고치거나 새로 쓸 때의 규칙과 지도 사이트의 구조는 [CONTRIBUTING.md](CONTRIBUTING.md) 에 있다.

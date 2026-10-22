@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DexMimicGen 이 시연을 늘리는 과정. 사람의 시연 하나가 물체마다의 구간으로 나뉘고, 새 장면에서는 사과가 10 cm 오른쪽에 있어 집는 구간 전체가 10 cm 오른쪽으로 옮겨진다. 구간 사이는 이어 주는 움직임으로 메우고, simulation 에서 실행해 성공한 기록만 남긴다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="858" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="200" y="34" fill="#e2e8f0" font-size="14" text-anchor="middle">① 사람 시연을 물체별 구간으로</text>
+  <rect x="30" y="50" width="340" height="120" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="120" cy="130" r="14" fill="#f87171"/><text x="120" y="160" fill="#94a3b8" font-size="11" text-anchor="middle">사과</text>
+  <rect x="270" y="120" width="70" height="20" rx="4" fill="#475569"/><text x="305" y="160" fill="#94a3b8" font-size="11" text-anchor="middle">접시</text>
+  <path d="M60,70 Q90,80 120,112" fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <path d="M120,112 Q210,60 305,112" fill="none" stroke="#34d399" stroke-width="3"/>
+  <text x="74" y="66" fill="#38bdf8" font-size="12">집기 구간</text>
+  <text x="212" y="66" fill="#34d399" font-size="12">놓기 구간</text>
+
+  <line x1="380" y1="110" x2="440" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="640" y="34" fill="#e2e8f0" font-size="14" text-anchor="middle">② 새 장면에 맞춰 구간 옮기기</text>
+  <rect x="450" y="50" width="380" height="120" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="120" cy="130" r="14" fill="none" stroke="#475569" stroke-dasharray="4 3" transform="translate(420,0)"/>
+  <circle cx="640" cy="130" r="14" fill="#f87171"/><text x="640" y="160" fill="#94a3b8" font-size="11" text-anchor="middle">사과</text>
+  <line x1="556" y1="148" x2="622" y2="148" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="590" y="164" fill="#f59e0b" font-size="11" text-anchor="middle">10 cm</text>
+  <rect x="740" y="120" width="70" height="20" rx="4" fill="#475569"/><text x="775" y="160" fill="#94a3b8" font-size="11" text-anchor="middle">접시</text>
+  <path d="M480,70 Q520,64 580,70" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="6 4"/>
+  <path d="M580,70 Q610,80 640,112" fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <path d="M640,112 Q710,60 775,112" fill="none" stroke="#34d399" stroke-width="3"/>
+  <text x="530" y="92" fill="#a78bfa" font-size="11" text-anchor="middle">③ 이어 주기</text>
+
+  <line x1="640" y1="176" x2="640" y2="206" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="520" y="208" width="240" height="56" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+  <text x="640" y="232" fill="#34d399" font-size="13" text-anchor="middle">④ simulation 에서 실행</text>
+  <text x="640" y="252" fill="#94a3b8" font-size="12" text-anchor="middle">성공한 기록만 남김</text>
+
+  <rect x="30" y="208" width="440" height="110" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="236" fill="#e2e8f0" font-size="13">GR00T N1 의 규모</text>
+  <text x="50" y="262" fill="#94a3b8" font-size="12">사람 시연 수십 개 → 기록 78 만 개 (11 시간)</text>
+  <text x="50" y="284" fill="#94a3b8" font-size="12">사람이 조종했다면 6,500 시간 = 쉬지 않고 9 개월</text>
+  <text x="50" y="306" fill="#94a3b8" font-size="12">사전학습용: 그릇 조합 54 × 10,000 = 54 만 개</text>
+  <text x="640" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">손끝과 사과의 상대 위치는 그대로</text>
+</svg>

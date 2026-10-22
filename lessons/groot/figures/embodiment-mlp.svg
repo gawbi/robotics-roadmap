@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>로봇마다 따로 둔 encoder 와 decoder. 위쪽 팔 하나 로봇의 숫자 7 개는 자기 encoder 를, 아래쪽 팔 둘 로봇의 숫자 14 개는 자기 encoder 를 지나 둘 다 길이 4 의 token 이 되고, 가운데의 공통 diffusion transformer 를 지난 뒤 각자의 decoder 가 다시 숫자 7 개와 14 개로 되돌린다. 아래 상자는 π0 처럼 18 칸에 맞추면 팔 하나 로봇은 11 칸이 0 이 됨을 보여 준다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="858" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <rect x="20" y="40" width="140" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="90" y="64" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 하나 로봇</text>
+  <text x="90" y="84" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 7 개</text>
+  <rect x="20" y="170" width="140" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="90" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 둘 로봇</text>
+  <text x="90" y="214" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 14 개</text>
+
+  <rect x="190" y="40" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="250" y="64" fill="#f59e0b" font-size="13" text-anchor="middle">encoder A</text>
+  <text x="250" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">7 → 4, 32 개</text>
+  <rect x="190" y="170" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="250" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">encoder B</text>
+  <text x="250" y="214" fill="#94a3b8" font-size="11" text-anchor="middle">14 → 4, 60 개</text>
+  <line x1="162" y1="68" x2="188" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="162" y1="198" x2="188" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="312" y1="68" x2="350" y2="108" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="312" y1="198" x2="350" y2="158" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="330" y="132" fill="#94a3b8" font-size="11" text-anchor="middle">길이 4</text>
+
+  <rect x="352" y="80" width="156" height="106" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+  <text x="430" y="122" fill="#34d399" font-size="14" text-anchor="middle">diffusion</text>
+  <text x="430" y="142" fill="#34d399" font-size="14" text-anchor="middle">transformer</text>
+  <text x="430" y="166" fill="#94a3b8" font-size="11" text-anchor="middle">모든 로봇 공통</text>
+
+  <line x1="510" y1="108" x2="548" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="510" y1="158" x2="548" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550" y="40" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="64" fill="#f59e0b" font-size="13" text-anchor="middle">decoder A</text>
+  <text x="610" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 7</text>
+  <rect x="550" y="170" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">decoder B</text>
+  <text x="610" y="214" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 14</text>
+  <line x1="672" y1="68" x2="698" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="672" y1="198" x2="698" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="770" y="73" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 7 개</text>
+  <text x="770" y="203" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 14 개</text>
+
+  <rect x="20" y="262" width="820" height="138" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="40" y="290" fill="#e2e8f0" font-size="14">π0 의 방법 — 18 칸에 맞추고 남는 칸을 0 으로</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="40" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="60" y="332" fill="#e2e8f0">x₁</text>
+    <rect x="80" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="100" y="332" fill="#e2e8f0">x₂</text>
+    <rect x="120" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="140" y="332" fill="#e2e8f0">x₃</text>
+    <rect x="160" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="180" y="332" fill="#e2e8f0">x₄</text>
+    <rect x="200" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="220" y="332" fill="#e2e8f0">x₅</text>
+    <rect x="240" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="260" y="332" fill="#e2e8f0">x₆</text>
+    <rect x="280" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="300" y="332" fill="#e2e8f0">x₇</text>
+    <rect x="320" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="340" y="332" fill="#94a3b8">0</text>
+    <rect x="360" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="380" y="332" fill="#94a3b8">0</text>
+    <rect x="400" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="420" y="332" fill="#94a3b8">0</text>
+    <rect x="440" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="460" y="332" fill="#94a3b8">0</text>
+    <rect x="480" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="500" y="332" fill="#94a3b8">0</text>
+    <rect x="520" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="540" y="332" fill="#94a3b8">0</text>
+    <rect x="560" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="580" y="332" fill="#94a3b8">0</text>
+    <rect x="600" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="620" y="332" fill="#94a3b8">0</text>
+    <rect x="640" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="660" y="332" fill="#94a3b8">0</text>
+    <rect x="680" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="700" y="332" fill="#94a3b8">0</text>
+    <rect x="720" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="740" y="332" fill="#94a3b8">0</text>
+  </g>
+  <text x="180" y="372" fill="#38bdf8" font-size="12" text-anchor="middle">팔 하나 로봇의 숫자 7 개</text>
+  <text x="540" y="372" fill="#94a3b8" font-size="12" text-anchor="middle">18 − 7 = 11 칸이 늘 0</text>
+  <text x="430" y="392" fill="#94a3b8" font-size="12" text-anchor="middle">18 칸보다 숫자가 많은 로봇은 넣을 수 없다</text>
+</svg>

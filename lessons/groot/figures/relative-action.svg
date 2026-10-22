@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>절댓값 action 과 state-relative action 의 비교. 위쪽은 지금 30° 에서 32° 로, 아래쪽은 지금 50° 에서 52° 로 가는 관절이다. 절댓값 action 은 32 와 52 로 다르고, state-relative action 은 둘 다 +2 로 같다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker></defs>
+  <rect x="1" y="1" width="758" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="140" y="36" fill="#94a3b8" font-size="13" text-anchor="middle">관절 (0° ~ 90°)</text>
+  <text x="430" y="36" fill="#e2e8f0" font-size="13" text-anchor="middle">절댓값 action</text>
+  <text x="620" y="36" fill="#e2e8f0" font-size="13" text-anchor="middle">state-relative action</text>
+
+  <!-- case 1: scale 0..90 deg mapped to x 40..240 -->
+  <line x1="40" y1="100" x2="240" y2="100" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="106.7" cy="100" r="8" fill="#38bdf8"/>
+  <text x="106.7" y="130" fill="#38bdf8" font-size="12" text-anchor="middle">지금 30°</text>
+  <text x="106.7" y="80" fill="#f59e0b" font-size="12" text-anchor="middle">목표 32°</text>
+  <rect x="370" y="78" width="120" height="44" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="430" y="106" fill="#e2e8f0" font-size="16" text-anchor="middle">32</text>
+  <rect x="560" y="78" width="120" height="44" rx="8" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+  <text x="620" y="106" fill="#34d399" font-size="16" text-anchor="middle">+2</text>
+
+  <line x1="40" y1="200" x2="240" y2="200" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="151.1" cy="200" r="8" fill="#38bdf8"/>
+  <text x="151.1" y="230" fill="#38bdf8" font-size="12" text-anchor="middle">지금 50°</text>
+  <text x="151.1" y="180" fill="#f59e0b" font-size="12" text-anchor="middle">목표 52°</text>
+  <rect x="370" y="178" width="120" height="44" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <text x="430" y="206" fill="#e2e8f0" font-size="16" text-anchor="middle">52</text>
+  <rect x="560" y="178" width="120" height="44" rx="8" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+  <text x="620" y="206" fill="#34d399" font-size="16" text-anchor="middle">+2</text>
+
+  <text x="430" y="262" fill="#94a3b8" font-size="12" text-anchor="middle">같은 움직임이 다른 숫자</text>
+  <text x="620" y="262" fill="#34d399" font-size="12" text-anchor="middle">같은 움직임이 같은 숫자</text>
+  <text x="380" y="298" fill="#94a3b8" font-size="12" text-anchor="middle">"2° 더 굽힌다" 는 지금 자세와 상관없이 +2 로 적힌다</text>
+</svg>

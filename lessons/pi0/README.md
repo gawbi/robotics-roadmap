@@ -580,7 +580,8 @@ NVIDIA 의 GR00T N1 과 Figure 의 Helix 는 두 부분을 System 2 와 System 1
 | Helix (Figure, 2025) | S2: VLM 70 억, 7 ~ 9 Hz | S1: 8 천만 parameter transformer, 200 Hz, 상체 35 DoF | 회사 발표 자료 |
 | Gemini Robotics (Google DeepMind, 2025) | cloud 의 큰 몸통, 응답 160 ms 미만 | 로봇 안의 local decoder, 사진에서 action 덩어리까지 약 250 ms, 덩어리로 실효 50 Hz | 기술 보고서 |
 
-GR00T N1 은 전체 22 억 parameter 가운데 13.4 억이 VLM 이고, 덩어리 16 개를 만드는 데 L40 GPU 에서 63.9 ms 가 걸렸다고 적었다.
+GR00T N1 은 전체 22 억 parameter 가운데 13.4 억이 VLM 이고, 덩어리 16 개를 만드는 데 L40 GPU 에서 63.9 ms 가 걸렸다고 적었다. 구조와
+학습 데이터는 [GR00T N1](../groot/README.md) 에서 자세히 다룬다.
 
 Helix 의 S1 은 손목·손가락·몸통·머리를 합쳐 상체의 35 DoF 를 움직인다. DoF(degree of freedom, 자유도)는 따로 움직일 수 있는
 방향의 수이고, 관절 하나가 한 방향으로 돌면 1 DoF 다. S2 는 장면과 지시를 숫자 묶음 하나(latent vector)로 정리해 S1 에 넘기고, 두
