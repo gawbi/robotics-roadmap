@@ -1103,7 +1103,7 @@ simulator 위에서 팔을 원하는 곳으로 보낼 수 있게 되었지만, �
 - Todorov, Erez, Tassa, [MuJoCo: A physics engine for model-based control](https://doi.org/10.1109/IROS.2012.6386109) (2012) —
   MuJoCo 를 처음 발표한 논문. 관절이 여러 개인 물체와 접촉을 함께 계산하는 방법의 출발점이다
 - MuJoCo 문서 [Overview](https://mujoco.readthedocs.io/en/stable/overview.html) — body·joint·geom·actuator 같은 모델 구성 요소와
-  모델·상태의 구분. "모델 파일" 절과 함께 읽으면 좋다
+  모델·상태의 구분. [모델 파일](#모델-파일) 절과 함께 읽으면 좋다
 - MuJoCo 문서 [Computation](https://mujoco.readthedocs.io/en/stable/computation/index.html) — mass matrix 와 bias force 로 쓴
   equation of motion, soft contact, 마찰, 계산 방법(integrator)의 정의. "여러 joint 의 equation of motion" 과 "접촉과 마찰" 을 수식으로
   더 깊이 볼 때 읽는다

@@ -25,9 +25,10 @@
         - 'token id 를 이진수로 바꾼 값을 그대로 쓴다'
       answer: 0
       explanation: |
-        embedding 표의 숫자는 weight 처럼 학습으로 정해지는 parameter 라서, 칸마다의 뜻도 사람이 읽을 수 있게 정해지지 않는다.
-        사람이 직접 넣지 않고, tokenizer 는 text 와 id 를 오갈 뿐 vector 를 만들지 않는다. id 를 이진수로 바꾸면 id 의 의미
-        없는 크기 정보가 그대로 남는다.
+        embedding 표의 숫자는 처음에 무작위 값으로 채운 뒤 weight 처럼 loss 가 줄어드는 쪽으로 고쳐 나가는 parameter 라서,
+        칸마다의 뜻도 사람이 읽을 수 있게 정해지지 않는다. 강의의 2차원 표는 계산을 따라가기 쉽도록 사람이 정한 예시일 뿐이고,
+        실제 모델에서는 사람이 값을 넣지 않는다. tokenizer 는 text 와 id 를 오갈 뿐 vector 를 만들지 않는다. id 를 이진수로
+        바꾸면 id 의 의미 없는 크기 정보가 그대로 남는다.
     - question: |
         "배를 먹었다" 와 "배를 탔다" 에서 token "배" 가 embedding 표에서 꺼내는 vector 는 어떤가?
       choices:

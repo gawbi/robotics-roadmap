@@ -221,7 +221,7 @@ vocabulary 에서 token 에 붙은 번호를 token id 라고 한다.
 숫자 열뿐이다.
 
 이 강의에서 token 은 text 를 자른 조각인 text token 을 뜻한다. 같은 낱말이 이미지나 로봇 움직임을 다루는 강의에서는 조금 다른
-뜻으로 쓰이는데, 그 차이는 뒤의 "문맥에 따른 token 의 뜻" 절에서 따로 정리한다.
+뜻으로 쓰이는데, 그 차이는 뒤의 [문맥에 따른 token 의 뜻](#문맥에-따른-token-의-뜻) 절에서 따로 정리한다.
 
 ### encode 와 decode
 
@@ -282,7 +282,7 @@ subword 를 사람이 일일이 정할 수는 없으니 데이터에서 찾아�
 token 이 될 뿐 `<unk>` 는 생기지 않는다.
 
 대신 잃는 것도 있다. 한글 한 글자는 byte 3 개라서 그대로 두면 token 3 개가 되어 sequence 가 길어지고, token 하나가 글자의
-일부 byte 만 담는 일도 생긴다. 이 두 문제는 뒤의 "decode" 절과 "한국어 text 의 token 수" 절에서 숫자로 다시 본다.
+일부 byte 만 담는 일도 생긴다. 이 두 문제는 뒤의 [decode](#decode) 절과 [한국어 text 의 token 수](#한국어-text-의-token-수) 절에서 숫자로 다시 본다.
 
 **흔한 오해.** token 을 "단어" 와 같은 말로 여기기 쉽지만, token 은 tokenizer 가 정한 조각일 뿐이다. unbelievable 은 단어 하나지만
 GPT-2 에서는 token 4 개이고, 반대로 앞에 공백이 붙은 "␣unbelievable" 은 GPT-2 에서 token 1 개다.

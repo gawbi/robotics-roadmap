@@ -272,7 +272,7 @@ $z$ 라고 불렀고, latent 는 "숨어 있는" 이라는 뜻이었다. VAE 의
 
 세 줄 모두 지금 그림은 똑같이 "칸 2" 지만 다음 칸은 3, 1, 2 로 다르다. 그래서 진자나 굴러가는 공처럼 속도가 중요한 환경에서는
 지금 그림 한 장이 아니라 최근 두 장을 함께 encoder 에 넣거나, 지난 그림들을 차례로 요약해 기억해 두는 network 를 써서 latent 에
-속도까지 담는다. 요약을 기억해 두는 쪽은 뒤의 "PlaNet 과 Dreamer" 절에서 다시 나온다.
+속도까지 담는다. 요약을 기억해 두는 쪽은 뒤의 [PlaNet 과 Dreamer](#planet-과-dreamer) 절에서 다시 나온다.
 
 ![같은 지금 그림(칸 2)이라도 앞 그림이 칸 1 이면 다음은 칸 3, 앞 그림이 칸 3 이면 다음은 칸 1 이다. 그림 한 장으로는 둘을 가를 수 없다](figures/velocity-frames.svg)
 
@@ -1134,14 +1134,14 @@ latent 를 확률적으로 둘지, 몇 step 을 펼쳐 학습할지에 따라 �
   — VAE·MDN-RNN·controller 로 나눈 구성과 상상 속 controller 학습. interactive 판은 그림을 직접 조작해 볼 수 있어서 이 강의 다음에 처음
   읽기에 알맞다
 - Danijar Hafner 외, [Learning Latent Dynamics for Planning from Pixels](https://arxiv.org/abs/1811.04551) (2019)·[PlaNet 프로젝트 페이지](https://danijar.com/project/planet/)
-  — RSSM, latent overshooting, CEM 과 MPC 로 그림만 보고 계획하는 방법. "CEM" 과 "MPC" 절의 구성과 가장 가깝다
+  — RSSM, latent overshooting, CEM 과 MPC 로 그림만 보고 계획하는 방법. [CEM](#cem) 과 [MPC](#mpc) 절의 구성과 가장 가깝다
 - Danijar Hafner 외, [Dream to Control](https://arxiv.org/abs/1912.01603) (2020)·[Mastering Diverse Domains through World Models](https://arxiv.org/abs/2301.04104)
   (2023)·[DreamerV3 프로젝트 페이지](https://danijar.com/project/dreamerv3/) — planner 대신 latent 안에서 actor-critic 을 학습하는 방향.
-  "상상 속 policy 학습" 절을 읽은 뒤 본다
+  [상상 속 policy 학습](#상상-속-policy-학습) 절을 읽은 뒤 본다
 - Nicklas Hansen 외, [TD-MPC2](https://arxiv.org/abs/2310.16828) (2024)·[프로젝트 페이지](https://tdmpc2.com/) — decoder 없는 latent model
   위에서 계획하는 연속 제어 방법
 - BAIR, [Model-Based Reinforcement Learning: Theory and Practice](https://bair.berkeley.edu/blog/2019/12/12/mbpo/) — model 오차가
-  rollout 길이에 따라 커지는 문제와 짧은 rollout 으로 다루는 방법. "예측 오차의 누적" 절과 함께 읽는다
+  rollout 길이에 따라 커지는 문제와 짧은 rollout 으로 다루는 방법. [예측 오차의 누적](#예측-오차의-누적) 절과 함께 읽는다
 - [Wikipedia — Cross-entropy method](https://en.wikipedia.org/wiki/Cross-entropy_method)·[Model predictive control](https://en.wikipedia.org/wiki/Model_predictive_control)
   — CEM 과 MPC 의 일반적인 정의
 - Gymnasium [Pendulum](https://gymnasium.farama.org/environments/classic_control/pendulum/) 문서 — Pendulum 의 state·action·reward 정의

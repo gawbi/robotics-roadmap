@@ -6,6 +6,7 @@ import ReactMarkdown, { type Components } from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { CONFIG } from '../config'
@@ -13,6 +14,9 @@ import { assetUrl } from '../curriculum/load'
 
 const LANGUAGES = { bash, json, python, yaml }
 const LESSON_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
+// headings get GitHub's slug as their id, prefixed so they cannot clash with the app's own ids; a `#slug` link in a
+// lesson therefore works both here and on GitHub
+const SECTION_ID_PREFIX = 'sec-'
 
 interface Props {
   lessonId: string
@@ -30,7 +34,22 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
     a({ href = '', children, ...rest }) {
       const internal = LESSON_LINK.exec(href)
       if (internal) return <a href={`#/p/${internal[1]}`}>{children}</a>
-      if (/^[a-z]+:/i.test(href) || href.startsWith('#')) {
+      // the page hash holds the route, so a section link scrolls the panel instead of changing it
+      if (href.startsWith('#')) {
+        const id = SECTION_ID_PREFIX + decodeURIComponent(href.slice(1))
+        return (
+          <a
+            href={href}
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+          >
+            {children}
+          </a>
+        )
+      }
+      if (/^[a-z]+:/i.test(href)) {
         return (
           <a href={href} target="_blank" rel="noreferrer" {...rest}>
             {children}
@@ -62,7 +81,7 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
     <Wrapper className={inline ? 'markdown-inline' : 'markdown'}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeRaw, rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
+        rehypePlugins={[rehypeRaw, [rehypeSlug, { prefix: SECTION_ID_PREFIX }], rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
         components={components}
       >
         {body}

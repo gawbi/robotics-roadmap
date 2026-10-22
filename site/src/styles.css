@@ -931,6 +931,11 @@ code {
   color: var(--text);
 }
 
+/* a section link stops short of the heading instead of on the panel's top edge */
+.markdown :is(h2, h3, h4) {
+  scroll-margin-top: 24px;
+}
+
 .markdown p {
   margin: 0 0 14px;
 }

@@ -872,7 +872,7 @@ domain randomization 으로 학습한 policy 는 지금의 물리값을 모른 �
 - Josh Tobin 외, [Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World](https://arxiv.org/abs/1703.06907)
   (2017) — 렌더링을 무작위로 바꿔 simulator 그림으로만 학습한 물체 검출기를 실제 영상에 쓴 첫 사례
 - Jie Tan 외, [Sim-to-Real: Learning Agile Locomotion For Quadruped Robots](https://arxiv.org/abs/1804.10332) (2018) — 지연과 모터 모델을
-  simulator 에 넣은 4족 보행. "action 지연" 절의 실제 사례다
+  simulator 에 넣은 4족 보행. [action 지연](#action-지연) 절의 실제 사례다
 - Jemin Hwangbo 외, [Learning agile and dynamic motor skills for legged robots](https://arxiv.org/abs/1901.08652) (2019) — 실제 모터 데이터로
   actuator network 를 학습해 simulator 에 넣은 논문
 - Ashish Kumar 외, [RMA: Rapid Motor Adaptation for Legged Robots](https://arxiv.org/abs/2107.04034) (2021)·[프로젝트 페이지](https://ashish-kmr.github.io/rma-legged-robots/)

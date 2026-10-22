@@ -1,4 +1,5 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import GithubSlugger from 'github-slugger'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { CONFIG } from '../src/config'
@@ -42,6 +43,16 @@ describe('curriculum', () => {
 
   it('every lesson ends with a quiz', () => {
     for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'quiz.yaml')), `${p.id}/quiz.yaml`).toBe(true)
+  })
+
+  it('section links point at a heading of the same lecture', () => {
+    for (const p of c.lessons) {
+      const slugger = new GithubSlugger()
+      const slugs = new Set([...p.body.matchAll(/^#{1,6} (.+)$/gm)].map((m) => slugger.slug(m[1])))
+      for (const m of p.body.matchAll(/\]\(#([^)]+)\)/g)) {
+        expect(slugs.has(decodeURIComponent(m[1])), `${p.path} links to missing section #${m[1]}`).toBe(true)
+      }
+    }
   })
 
   it('every progress file belongs to a lesson', () => {

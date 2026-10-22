@@ -1072,7 +1072,7 @@ IK(관절 각도 계산)와 trajectory(팔이 지나갈 경로)로 이어 물체
 - OpenCV tutorial [Detection of ArUco Markers](https://github.com/opencv/opencv/blob/4.x/doc/tutorials/objdetect/aruco_detection/aruco_detection.markdown)
   — marker 의 생김새, ID 와 꼭짓점을 찾는 과정, marker pose 를 구하는 방법
 - Zhengyou Zhang, [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/publication/a-flexible-new-technique-for-camera-calibration/)
-  (2000) — "Zhang 의 방법" 절의 원 논문. homography 에서 $K$ 에 대한 식 두 개를 얻는 과정과 closed-form 풀이, 필요한 사진 수를 다룬다
+  (2000) — [Zhang 의 방법](#zhang-의-방법) 절의 원 논문. homography 에서 $K$ 에 대한 식 두 개를 얻는 과정과 closed-form 풀이, 필요한 사진 수를 다룬다
 - Wilhelm Burger, "Zhang's Camera Calibration Algorithm: In-Depth Tutorial and Implementation" — 원 논문이 생략한 유도를 한 단계씩 채운
   technical report. [imagingbook extras](https://imagingbook.com/extras/) 페이지에 링크가 있다
 - Hartley & Zisserman, [Multiple View Geometry in Computer Vision](https://www.robots.ox.ac.uk/~vgg/hzbook/) — 6장에서 camera model 을,

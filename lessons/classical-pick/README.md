@@ -252,7 +252,7 @@ gripper 손가락이 cube 의 마주 보는 두 옆면을 쥐려면, cube 가 �
 ![위에서 본 cube. yaw 10°, 100°, 190° 인 정사각형은 모양이 똑같다. 손가락 방향의 후보 10°, 100°, −80°, −170° 가운데 지금 wrist_roll 0° 에 가장 가까운 10° 를 고른다](figures/yaw.svg)
 
 이 성질은 두 곳에서 쓰인다. 첫째는 오차를 잴 때다. 인식이 88° 를 냈고 실제 yaw 가 2° 라면 차이는 86° 처럼 보이지만, 88° 에서 90° 를
-빼면 −2° 이므로 실제 오차는 $2 - (-2) = 4°$ 다. 둘째는 손가락 방향을 고를 때로, 뒤의 "gripper 방향과 yaw 후보" 절에서 계산한다.
+빼면 −2° 이므로 실제 오차는 $2 - (-2) = 4°$ 다. 둘째는 손가락 방향을 고를 때로, 뒤의 [gripper 방향과 yaw 후보](#gripper-방향과-yaw-후보) 절에서 계산한다.
 
 **흔한 오해.** yaw 오차를 그냥 빼서 재면 정확한 인식기가 크게 틀린 것처럼 보인다. 위 예처럼 88° 와 2° 는 4° 차이다.
 
@@ -1015,7 +1015,7 @@ network 하나로 학습한 end-to-end visuomotor policy 를 내놓으며 모듈
 - Russ Tedrake, [Robotic Manipulation — Ch. 3 Basic Pick and Place](https://manipulation.csail.mit.edu/pick.html) — 같은 문제를 frame
   변환, grasp·pre-grasp pose, IK, trajectory 순으로 푸는 MIT 강의 교재. 이 강의 전체를 읽은 뒤 보면 좋다
 - OpenCV, [Changing Colorspaces](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_colorspaces/py_colorspaces.markdown)
-  — 사진을 HSV 로 바꾸고 색 하나만 골라 mask 를 만드는 예. "밝기에 흔들리지 않는 색 비율" 절과 함께 읽는다
+  — 사진을 HSV 로 바꾸고 색 하나만 골라 mask 를 만드는 예. [밝기에 흔들리지 않는 색 비율](#밝기에-흔들리지-않는-색-비율) 절과 함께 읽는다
 - OpenCV, [Contour Features](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_contours/py_contour_features/py_contour_features.markdown)
   — mask 덩어리의 중심과 그것을 감싸는 가장 작은 회전 직사각형(yaw)을 구하는 방법
 - T. Cheng 외, [YOLO-World: Real-Time Open-Vocabulary Object Detection](https://arxiv.org/abs/2401.17270) (2024) — 이름을 주면

@@ -1115,7 +1115,7 @@ joint angle 이 얼마여야 하나" 이고, 앞에서 본 것처럼 이 질문�
 ## 참고 자료
 
 - ROS wiki 의 URDF XML 명세 [`<joint>`](http://wiki.ros.org/urdf/XML/joint) · [`<link>`](http://wiki.ros.org/urdf/XML/link) —
-  `origin`·`axis`·`rpy`·`limit` 의 정확한 정의. "URDF" 절을 읽은 뒤 표의 항목을 하나씩 대조해 보면 좋다
+  `origin`·`axis`·`rpy`·`limit` 의 정확한 정의. [URDF](#urdf) 절을 읽은 뒤 표의 항목을 하나씩 대조해 보면 좋다
 - ROS 2 tutorial, [Building a visual robot model from scratch](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.html)
   — link 와 joint 를 하나씩 붙여 가며 URDF 를 쓰는 예제
 - Lynch & Park, [Modern Robotics](https://hades.mech.northwestern.edu/index.php/Modern_Robotics) 4장 forward kinematics —

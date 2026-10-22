@@ -116,7 +116,7 @@ FK 는 joint angle 을 공식에 넣으면 손끝 위치 하나가 나오므로 
 - **답이 하나** — 팔을 일직선으로 쭉 펴야만 닿는 자리, 예를 들어 $(2, 0)$ 은 $(0°, 0°)$ 하나뿐이다
 - **답이 없음** — 원점에서 $L_1 + L_2 = 2$ 보다 먼 자리에는 어떤 joint angle 로도 닿지 않는다
 
-joint 가 셋 이상이면 답이 끝없이 많을 수도 있다. 이 경우는 뒤의 "실제 로봇의 IK" 절에서 숫자로 확인한다. IK 는 식을 정리해 답을 바로 구하는
+joint 가 셋 이상이면 답이 끝없이 많을 수도 있다. 이 경우는 뒤의 [실제 로봇의 IK](#실제-로봇의-ik) 절에서 숫자로 확인한다. IK 는 식을 정리해 답을 바로 구하는
 해석적 풀이로 풀 수도 있고, FK 를 여러 번 되풀이하며 조금씩 다가가는 반복 계산으로 풀 수도 있다. 2 관절 평면 팔은 해석적 풀이가 가능하므로 그것부터 손으로 풀어 본다.
 
 **확인 문제.** link 길이가 $L_1 = 2$, $L_2 = 1$ 인 팔은 원점에서 최대 얼마나 먼 곳까지 닿을까?
@@ -1407,7 +1407,7 @@ IK 는 목표 자세의 joint angle 을 알려 줄 뿐이다. 실제 팔을 그 
   — Jacobian transpose·pseudo-inverse·DLS 를 한 문서에서 비교한다. singular value 로 DLS 를 설명하는 절이 이 강의의 $\sigma$ 표와
   같은 관점이다
 - Lynch & Park, [Modern Robotics](https://hades.mech.northwestern.edu/index.php/Modern_Robotics) 5 장(velocity kinematics)·6 장
-  (inverse kinematics) — 3 차원 팔의 Jacobian 과 Newton 법 IK 를 수식으로 정리한다. 이 강의의 "3 차원 팔의 Jacobian" 절을 읽은 뒤
+  (inverse kinematics) — 3 차원 팔의 Jacobian 과 Newton 법 IK 를 수식으로 정리한다. 이 강의의 [3 차원 팔의 Jacobian](#3-차원-팔의-jacobian) 절을 읽은 뒤
   보면 좋다
 - Russ Tedrake, [Robotic Manipulation — Ch. 3](https://manipulation.csail.mit.edu/pick.html) 의 "Differential inverse
   kinematics"·"Are kinematic singularities real?" 절 — pseudo-inverse 가 singularity 근처에서 어떻게 되는지 그림으로 보여 준다

@@ -1451,12 +1451,12 @@ joint 가 받는 inertia 와 gravity 가 바뀌고, gripper 가 물체에 닿으
 ## 참고 자료
 
 - MATLAB, [Understanding PID Control, Part 1: What Is PID Control?](https://www.youtube.com/watch?v=wkfEZmsQqiA) — P·I·D 세 항이
-  각각 하는 일을 그림으로 보여 주는 영상 연재의 첫 편. "PID 의 세 항" 절과 함께 보면 좋다
+  각각 하는 일을 그림으로 보여 주는 영상 연재의 첫 편. [PID 의 세 항](#pid-의-세-항) 절과 함께 보면 좋다
 - Brett Beauregard, [Improving the Beginner's PID](http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/) —
   derivative kick, windup, 실행 중 gain 변경 같은 실전 문제를 하나씩 고쳐 가는 연재. "목표가 갑자기 바뀔 때의 D 항" 과 "힘의
   한계와 integral windup" 절의 내용을 더 자세히 다룬다
 - Glenn Fiedler, [Integration Basics](https://gafferongames.com/post/integration_basics/) — explicit Euler, semi-implicit Euler, RK4 를
-  용수철 예제로 비교하는 짧은 글. "계산 순서와 energy" 절을 읽은 뒤 보면 좋다
+  용수철 예제로 비교하는 짧은 글. [계산 순서와 energy](#계산-순서와-energy) 절을 읽은 뒤 보면 좋다
 - Russ Tedrake, [Underactuated Robotics — Ch. 2 The Simple Pendulum](https://underactuated.mit.edu/pend.html) — 같은 pendulum 을
   energy 와 그래프로 분석하는 강의 노트
 - Åström & Murray, [Feedback Systems (PDF)](http://www.cds.caltech.edu/~murray/books/AM08/pdf/am08-complete_22Feb09.pdf) — 10장이

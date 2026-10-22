@@ -1070,7 +1070,7 @@ loss 가 step 마다 커지며 발산하고 있으므로 learning rate 를 줄�
 ### 입력의 크기와 learning rate
 
 같은 정답 직선 $y = 3x + 2$ 라도 입력 $x$ 의 크기가 달라지면 알맞은 learning rate 가 달라진다. $b = 2$ 로 고정한 loss 를 다시 보면
-오차가 "loss 를 parameter 의 함수로 보기" 절에서 본 대로 $(w - 3) \times x_i$ 였으므로
+오차가 [loss 를 parameter 의 함수로 보기](#loss-를-parameter-의-함수로-보기) 절에서 본 대로 $(w - 3) \times x_i$ 였으므로
 
 $$
 L(w) = \frac{1}{N}\sum_{i=1}^{N} \big((w - 3) \times x_i\big)^2 = \frac{x_1^2 + x_2^2 + \cdots + x_N^2}{N} \times (w - 3)^2
@@ -1148,7 +1148,7 @@ sum 의 gradient 는 mean 의 3 배($N = 3$)이고, 한 step 에 움직인 거�
 낸다.
 
 숫자만 바꿔 $\eta = 0.1$ 로 해 본다. mean 이면 첫 step 에 $w = 0 - 0.1 \times (-36) = 3.6$ 이 되고 잘 수렴한다. sum 이면 mean 의 $\eta = 0.3$ 과 같아서
-"입력의 크기와 learning rate" 절에서 본 발산 경계 0.18 을 넘는다.
+[입력의 크기와 learning rate](#입력의-크기와-learning-rate) 절에서 본 발산 경계 0.18 을 넘는다.
 
 | step | mean, $\eta = 0.1$ 의 $w$ | sum, $\eta = 0.1$ 의 $w$ |
 | --- | --- | --- |
@@ -1533,7 +1533,7 @@ linear regression 은 연속된 숫자 하나를 직선으로 예측할 뿐이�
 ## 참고 자료
 
 - 3Blue1Brown, [The paradox of the derivative](https://www.youtube.com/watch?v=9vKqVkMQHKk) — derivative 를 "아주 조금 바꿨을
-  때의 비율" 로 보는 관점을 그림으로 설명하는 영상. "derivative" 절을 읽은 뒤 보면 좋다
+  때의 비율" 로 보는 관점을 그림으로 설명하는 영상. [derivative](#derivative) 절을 읽은 뒤 보면 좋다
 - 3Blue1Brown, [Essence of calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) — 미분을 처음부터
   그림으로 설명하는 재생목록. 위 영상은 이 목록의 2편이고, 3편까지 보면 미분 공식과 chain rule 이 정리된다
 - 3Blue1Brown, [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) — gradient 가 loss
