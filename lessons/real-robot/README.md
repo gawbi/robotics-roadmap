@@ -819,7 +819,7 @@ chunk 가 1 초 분량이라 1 초마다 돌리면 10 번이라 1000 ms 가 더�
 
 ### VLA 의 보통 뜻
 
-[PID Control](../pid-control/README.md) 에서 짧게 본 VLA(Vision-Language-Action model)는 카메라 사진(vision)과 글 지시(language)를 함께
+VLA(Vision-Language-Action model)는 카메라 사진(vision)과 글 지시(language)를 함께
 받아 로봇의 행동(action)을 내는 모델이다. 지금 이 이름으로 부르는 모델은 대개 아래 모양이다.
 
 1. 사진과 글을 함께 이해하도록 인터넷 규모의 사진·글 데이터로 미리 학습한 모델을 가져온다. 이런 모델을 VLM(vision-language
@@ -878,8 +878,8 @@ VLA 라는 이름의 경계는 정해져 있지 않다. SmolVLA 논문은 VLA �
 - 인터넷 규모로 미리 학습한 부분이 행동을 내는 부분과 한 모델로 이어져 있는가
 
 같은 단어가 문맥마다 뜻이 다른 예는 [Behavior Cloning](../behavior-cloning/README.md) 의 multimodal 에서도 봤다. VLA 의 설명에 나오는
-multimodal 은 "사진·글·관절 각도처럼 입력의 종류가 여럿" 이라는 뜻이고, ACT 의 설명에 나오는 multimodal 은 "같은 장면에 정답 행동이
-여럿" 이라는 뜻이다.
+multimodal 은 사진·글·관절 각도처럼 받는 입력의 종류가 여럿이라는 뜻이고, ACT 의 설명에 나오는 multimodal 은 같은 장면에 옳은
+행동이 여럿이라는 뜻이다.
 
 **요약**
 
@@ -898,8 +898,8 @@ multimodal 은 "사진·글·관절 각도처럼 입력의 종류가 여럿" 이
 끝내는 방법도 있는데, LeRobot 의 SO-101 설정은 프로그램이 팔과의 연결을 끊을 때 servo 의 힘을 끄도록 기본값이 정해져 있다. 다만
 프로그램이 멈춰 버리면 이 동작도 하지 못할 수 있으므로 전원 스위치가 마지막 수단이다.
 
-전원을 끊으면 servo 가 힘을 잃어 팔이 중력에 처진다. [PID Control](../pid-control/README.md) 에서 본 gravity torque(중력이 관절을 돌리는
-힘) 때문이다. 그래서 팔이 처져도 부딪힐 것이 없도록 팔 아래를 비워 두고, 처음 시험할 때는 팔이 낮은 자세에서 시작하게 한다.
+전원을 끊으면 servo 가 힘을 잃어 팔이 중력에 처진다. 중력이 관절을 돌리는 힘인 gravity torque 를
+servo 가 더는 버텨 주지 않기 때문이다. 그래서 팔이 처져도 부딪힐 것이 없도록 팔 아래를 비워 두고, 처음 시험할 때는 팔이 낮은 자세에서 시작하게 한다.
 
 **확인 문제.** policy 실행 중 팔이 상자 쪽이 아니라 노트북 쪽으로 빠르게 움직인다. 먼저 할 일은?
 

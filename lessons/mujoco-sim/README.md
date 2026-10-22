@@ -254,8 +254,8 @@ $$
 돌리는 inertia $1 \times 0.5^2$ 이다. 두 식에 같이 들어간 0.5 는 한 joint 의 가속이 다른 joint 에 미치는 영향의 크기다. 이 0.5 가
 0 이었다면 두 식이 서로 얽히지 않아 어깨 torque 가 팔꿈치를 움직이지 않았을 것이다.
 
-이렇게 숫자를 가로·세로로 늘어놓은 묶음을 행렬이라고 한다([Linear Regression](../linear-regression/README.md) 에서 본 것과
-같다). 위 숫자 네 개를 행렬로 모은 것을 mass matrix 라고 하고 $M$ 으로 적는다.
+이렇게 숫자를 가로·세로로 늘어놓은 묶음을 행렬이라고 한다.
+위 숫자 네 개를 행렬로 모은 것을 mass matrix 라고 하고 $M$ 으로 적는다.
 
 $$
 M = \begin{bmatrix} 1.25 & 0.5 \\ 0.5 & 0.25 \end{bmatrix}
@@ -276,7 +276,7 @@ $$
 
 굽힌 자세는 둘째 식 $0.25\,\alpha_1 + 0.25\,\alpha_2 = 0$ 에서 $\alpha_2 = -\alpha_1$ 이고, 첫 식에 넣으면
 $0.75\,\alpha_1 - 0.25\,\alpha_1 = 0.5\,\alpha_1 = 1$ 이라 $\alpha_1 = 2$, $\alpha_2 = -2$ 다. 이 팔의 mass matrix 는 일반적으로
-아래 꼴이고, $\cos$(코사인)은 Forward Kinematics 에서 본 대로 $\cos 0° = 1$, $\cos 90° = 0$ 이다.
+아래 꼴이고, $\cos$(코사인)은 $\cos 0° = 1$, $\cos 90° = 0$ 이다.
 
 $$
 M(\theta_2) = \begin{bmatrix} 0.75 + 0.5\cos\theta_2 & 0.25 + 0.25\cos\theta_2 \\ 0.25 + 0.25\cos\theta_2 & 0.25 \end{bmatrix}
@@ -327,7 +327,7 @@ joint 가 둘이면 각 joint 마다 "그 joint 보다 바깥에 있는 추들" 
 
 팔꿈치를 직각으로 굽힌 채 어깨가 각속도 2 rad/s 로 돌고 있다고 하자. 손끝 추는 바깥으로 쏠리면서 팔꿈치를 펴려고 하고, 이
 자세를 유지하려면 팔꿈치 motor 가 1 N·m 를 내야 한다. 이 팔에서 그 크기는 $0.25 \times \sin\theta_2 \times \omega_1^2$ 이다.
-$\sin$(사인)은 PID Control 의 pendulum 에서 본 것으로 $\sin 90° = 1$, $\sin 0° = 0$ 이고, $\omega_1^2$ 은 어깨 각속도의 제곱이다.
+$\sin$(사인)은 $\sin 90° = 1$, $\sin 0° = 0$ 이고, $\omega_1^2$ 은 어깨 각속도의 제곱이다.
 $\theta_2 = 90°$, $\omega_1 = 2$ 이면 $0.25 \times 1 \times 4 = 1$ N·m 다. 팔을 편 자세($\sin 0° = 0$)에서는 바깥쪽으로 쏠리는 힘이
 아래팔을 따라 곧게 당기기만 해서 팔꿈치를 돌리지 않는다.
 
@@ -691,7 +691,7 @@ MuJoCo 는 한 step 안에서 모든 접촉점의 힘을 함께, 위의 마찰 �
 ### timestep
 
 physics engine 이 쓰는 $\Delta t$ 를 timestep 이라고 부른다. MuJoCo 의 기본 timestep 은 2 ms(0.002 초)라 1 초를 계산하는 데
-500 step 이 들고, Menagerie 의 SO-101 모델은 5 ms 라 200 step 이 든다. PID Control 에서 본 것처럼 $\Delta t$ 가 작을수록 정확하지만
+500 step 이 들고, Menagerie 의 SO-101 모델은 5 ms 라 200 step 이 든다. $\Delta t$ 가 작을수록 정확하지만
 step 이 많아지고, $\Delta t$ 가 너무 크면 값이 끝없이 커지는 발산이 생긴다. 접촉이 있는 simulation 에서는 이 문제가 더 심해진다.
 
 ### 용수철로 본 timestep 의 한계
@@ -787,7 +787,7 @@ timestep 을 작게 잡으면 안정적이고 정확하지만 계산이 늘어�
 timestep 을 절반으로 줄이면 step 수가 두 배가 되어 계산 시간도 두 배가 된다. 이처럼 하나를 얻으면 다른 하나를 잃는 관계를
 trade-off 라고 한다. 처음에 본 "100 만 번의 시도를 17 분에" 같은 속도는 timestep 을 안정성이 허락하는 만큼 크게 잡아야 나온다.
 
-timestep 외에 계산 방법을 바꾸는 길도 있다. MuJoCo 의 기본 계산 방법은 PID Control 에서 본 semi-implicit Euler 이고, 한 step 에
+timestep 외에 계산 방법을 바꾸는 길도 있다. MuJoCo 의 기본 계산 방법은 semi-implicit Euler 이고, 한 step 에
 계산을 네 번 하는 RK4 나, 단단한 damping 이 있어도 큰 timestep 에서 발산하지 않도록 다음 순간의 힘을 미리 반영하는 implicit
 방식도 고를 수 있다. 어느 쪽이든 step 하나의 계산이 늘어나는 대신 더 큰 timestep 을 쓸 수 있게 해 주는 trade-off 다.
 
@@ -828,8 +828,8 @@ $$
 
 를 계산해 명령값으로 넣는다. controller 의 세기를 정하는 곱셈 계수를 gain 이라고 했는데, $K_p$ 는 오차 1 rad 당 몇 N·m 를 낼지
 정하는 P gain, $K_d$ 는 각속도에 맞서는 D gain 이다. 이 식은 "목표와의 차이에 비례해 목표 쪽으로 돌리고, 돌고 있는 빠르기에
-비례해 반대로 브레이크를 건다" 고 읽고, P 항과 D 항으로 이루어져 PD 제어라고 부른다. 아래 그림에서는 PID
-Control 에서처럼 각속도 $\dot q$ 를 $\omega$ 로 적었다. 그림 위쪽 식의 마지막 항 $c$ 는 gravity 를 버틸 torque 를 engine 이
+비례해 반대로 브레이크를 건다" 고 읽고, P 항과 D 항으로 이루어져 PD 제어라고 부른다. 아래 그림에서는
+각속도 $\dot q$ 를 $\omega$ 로 적었다. 그림 위쪽 식의 마지막 항 $c$ 는 gravity 를 버틸 torque 를 engine 이
 계산한 값으로 미리 더하는 gravity compensation 이고, 이 절의 "gravity compensation" 에서 숫자로 다룬다.
 
 ![두 가지 제어 구조. 위는 torque 제어로, 바깥의 controller 가 PD 와 gravity compensation 으로 torque 를 계산해 넣는다. 아래는 position 제어로, 목표 각도를 넣으면 engine 안의 PD 가 torque 를 계산한다. 둘 다 torque 는 ±2.94 N·m 로 잘린다](figures/control-structure.svg)
@@ -943,7 +943,7 @@ Hz(헤르츠)로 적고, 30 Hz 는 1 초에 30 번이다. SO-101 의 physics 는
 | 2 | 66.7 | 70 |
 | 3 | 100 | 100 |
 
-PID Control 에서 본 것처럼 학습한 policy(지금 보이는 것을 받아 다음 행동을 정하는 규칙)는 보통 10~50 Hz 로 다음 목표 각도를 내고,
+학습한 policy(지금 보이는 것을 받아 다음 행동을 정하는 규칙)는 보통 10~50 Hz 로 다음 목표 각도를 내고,
 그 아래의 저수준 controller 가 더 빠르게 돈다. simulation 에서는 이 세 주기(policy·controller, physics, 카메라)를 하나의 시계에
 맞춰 돌린다.
 
@@ -971,7 +971,7 @@ controller 는 $1000 \div 100 = 10$ ms 마다 돌고, 그동안 physics step 은
 
 1. **목표 joint angle** — [Inverse Kinematics](../inverse-kinematics/README.md) 는 원하는 손끝 위치에서 거꾸로 joint angle 을
    찾는 계산이다. 이것으로 집게 끝이 목표에 닿는 joint angle 6 개를 구한다
-2. **목표 경로** — 지금 각도에서 목표 각도로 한 번에 바꾸면 torque 가 한계에 걸리므로, PID Control 의 minimum-jerk trajectory
+2. **목표 경로** — 지금 각도에서 목표 각도로 한 번에 바꾸면 torque 가 한계에 걸리므로, minimum-jerk trajectory
    (출발과 도착에서 속도와 가속도가 0 인 부드러운 경로)로 시간마다의 목표 각도를 만든다
 3. **torque 계산** — controller 가 매 주기 그 시각의 목표 각도로 PD + gravity compensation torque 를 계산한다. position actuator 를
    쓰면 목표 각도만 넣는다

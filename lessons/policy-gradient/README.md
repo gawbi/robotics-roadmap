@@ -75,7 +75,7 @@ $\arg\max$ 로 고르는 policy 는 언제나 action 하나를 확률 1 로 고�
 | B 를 고를 확률 | 0 | 0 | 1 | 1 |
 
 $Q(B)$ 가 0.99 에서 1.01 로 0.02 바뀌는 사이에 B 를 고를 확률은 0 에서 1 로 뛰고, 그 밖의 자리에서는 조금 바꿔도 전혀 변하지 않는다.
-[Backpropagation](../autograd/README.md) 에서 본 step function(문턱을 넘으면 1, 아니면 0 을 내는 계단 모양 함수)과 같은 모양이다.
+step function(문턱을 넘으면 1, 아니면 0 을 내는 계단 모양 함수)과 같은 모양이다.
 gradient 는 숫자를 조금 바꿨을 때 결과가 변하는 비율인데, 계단 모양에서는 이 비율이 거의 모든 자리에서 0 이라 "숫자를 어느 쪽으로
 고쳐야 좋아지는가" 를 알려 주지 못한다.
 
@@ -94,7 +94,7 @@ $Q(B) = 1.9$ 이면 A 가 더 커서 B 를 고를 확률은 0 이다. $Q(B) = 2.
 ### policy 를 직접 고치는 방법
 
 policy gradient 는 value 를 거치지 않고 policy 자체에 학습으로 고칠 숫자를 둔다. 이 숫자를 parameter 라고 부르는데,
-[Linear Regression](../linear-regression/README.md) 에서 직선의 기울기 $w$ 와 y 절편 $b$ 가 parameter 였던 것과 같다. policy 는 이
+직선 $y = wx + b$ 의 기울기 $w$ 와 y 절편 $b$ 처럼 데이터를 보고 정하는 숫자다. policy 는 이
 parameter 로 action 마다 고를 확률을 정하고, 학습은 reward 의 기댓값이 커지는 쪽으로 parameter 를 조금씩 고친다.
 
 처음 policy 가 기계 A 와 B 를 0.5 씩 고른다고 하자. B 를 당겨 동전 4 개를 받았다면 B 를 고를 확률을 0.55 처럼
@@ -144,7 +144,7 @@ $[2, 2]$ 는 합이 4 라서 $[0.5, 0.5]$ 다. $[3, -3]$ 은 합이 0 이라 나
 
 ### 지수 함수
 
-$e$ 는 약 2.718 인 정해진 수다. [Backpropagation](../autograd/README.md) 의 sigmoid 에서 쓴 것과 같은 수다. 수의 오른쪽 위에 작게
+$e$ 는 약 2.718 인 정해진 수다. 수의 오른쪽 위에 작게
 쓴 숫자를 지수라고 하는데, 그 수를 몇 번 곱하는지를 나타낸다. $e^2 = e \times e \approx 7.389$ 이고, 지수에 마이너스가 붙으면 1 을
 그만큼 곱한 수로 나눠서 $e^{-1} = 1 \div 2.718 \approx 0.368$ 이다. $e^0$ 은 1 로 정한다. 지수 자리에 점수 $z$ 를 넣어 $e^z$ 를
 내는 함수를 지수 함수(exponential function)라고 한다.
@@ -191,7 +191,7 @@ $$
 $$
 
 $\pi$ 는 그리스 문자 pi(파이)이고 policy 의 첫 글자 p 에 해당한다. $\pi(a)$ 는 "action $a$ 를 고를 확률" 이다. $z_a$ 는 action $a$ 의
-점수, 분모의 $\sum_b$ 는 [Linear Regression](../linear-regression/README.md) 에서 본 $\Sigma$(sigma, 시그마, 모두 더하라는 기호)로 "모든
+점수, 분모의 $\sum_b$ 는 $\Sigma$(sigma, 시그마, 모두 더하라는 기호)로 "모든
 action $b$ 에 대해 $e^{z_b}$ 를 더한다" 는 뜻이다. 식 전체는 "action $a$ 의 $e^{\text{점수}}$ 를 모든 action 의 $e^{\text{점수}}$ 합으로
 나눈다" 로 읽는다. 세 action 의 예에서 $a$ 가 첫째 action 이면 분자는 2.7183, 분모는 4.7183 이다.
 
@@ -201,7 +201,7 @@ action $b$ 에 대해 $e^{z_b}$ 를 더한다" 는 뜻이다. 식 전체는 "act
 
 이름의 soft 는 "부드러운" 이라는 뜻이다. $\arg\max$ 는 점수가 가장 큰 action 에 확률 1 을 몰아주지만, softmax 는 점수가 가장 큰
 action 에 가장 큰 확률을 주면서도 다른 action 에도 확률을 조금씩 남긴다. 점수 $[3, 1]$ 이면 $[0.8808, 0.1192]$ 다.
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서 손글씨 숫자를 분류할 때 class(0 부터 9 까지 나눌 종류) 마다의 확률을 내는 데
+손글씨 숫자 분류처럼 class(0 부터 9 까지 나눌 종류) 마다의 확률을 내는 분류 모델이
 쓰는 softmax 와 같은 계산이고, 여기서는 class 대신 action 마다의 확률을 낸다.
 
 **흔한 오해.** "점수가 두 배면 확률도 두 배" 라고 생각하기 쉽다. 점수 $[1, 2]$ 의 확률은 $1 : 2$ 가 아니라 $0.2689 : 0.7311$ 이다.
@@ -232,7 +232,7 @@ $\pi$ 아래에 붙은 $\theta$ 는 "이 policy 는 $\theta$ 로 정해진다" �
 | $\pi_\theta(B)$ | 0.1192 | 0.2689 | 0.5 | 0.7311 | 0.8808 |
 | $\pi_\theta(A)$ | 0.8808 | 0.7311 | 0.5 | 0.2689 | 0.1192 |
 
-이 표의 $\pi_\theta(B)$ 는 [Backpropagation](../autograd/README.md) 의 sigmoid $\sigma(z) = \frac{1}{1 + e^{-z}}$ 와 같은 값이다.
+이 표의 $\pi_\theta(B)$ 는 아무 수나 0 과 1 사이로 눌러 주는 S 자 함수인 sigmoid $\sigma(z) = \frac{1}{1 + e^{-z}}$ 와 같은 값이다.
 분자와 분모를 모두 $e^\theta$ 로 나누면 한 단계씩 아래처럼 바뀐다.
 
 1. 분자는 $e^\theta \div e^\theta = 1$ 이다
@@ -316,8 +316,8 @@ $\pi_\theta(A) = 1 - \pi_\theta(B)$ 이므로 $J(\theta) = (1 - \pi_\theta(B)) \
 위 그림은 $J(\theta)$ 의 그래프다. $\theta$ 가 커질수록 B 를 더 자주 골라 $J$ 가 B 의 기댓값 2 에 다가가고, $\theta$ 가 작아질수록
 A 의 기댓값 1 에 다가간다. 학습의 목표는 이 곡선을 따라 $J$ 가 커지는 쪽으로 $\theta$ 를 옮기는 것이다.
 
-[Linear Regression](../linear-regression/README.md) 의 loss(모델이 얼마나 틀렸는지 나타낸 숫자)는 작을수록 좋아서 줄이는 쪽으로
-parameter 를 고쳤다. $J$ 는 반대로
+loss(모델이 얼마나 틀렸는지 나타낸 숫자)는 작을수록 좋아서 줄이는 쪽으로
+parameter 를 고친다. $J$ 는 반대로
 클수록 좋은 값이라서 키우는 쪽으로 고친다. 기댓값을 $\mathbb E[\cdot]$ 로 쓰면 $J(\theta) = \mathbb E_{a \sim \pi_\theta}[r]$ 로도
 적는데, 아래첨자 $a \sim \pi_\theta$ 는 "action $a$ 를 $\pi_\theta$ 의 확률로 뽑을 때" 라는 뜻이다. 식 전체는 "policy $\pi_\theta$ 로
 기계를 골랐을 때 받는 reward $r$ 의 기댓값" 으로 읽는다.
@@ -344,8 +344,8 @@ $$
 $$
 
 $\leftarrow$ 는 "왼쪽 값을 오른쪽에서 계산한 값으로 바꿔 적는다" 는 뜻이고, $\eta$ 는 그리스 문자 eta(에타)로 한 번에 고치는 크기인
-learning rate 다. 식은 "gradient 에 learning rate 를 곱해 $\theta$ 에 더한다" 로 읽는다. Linear Regression 의 gradient descent 는
-loss 를 줄이려고 gradient 를 뺐고, 여기서는 $J$ 를 키우려고 더한다. 그래서 이름도 descent(내려감) 대신 gradient ascent(올라감)다.
+learning rate 다. 식은 "gradient 에 learning rate 를 곱해 $\theta$ 에 더한다" 로 읽는다. gradient descent 는
+loss 를 줄이려고 gradient 를 빼고, 여기서는 $J$ 를 키우려고 더한다. 그래서 이름도 descent(내려감) 대신 gradient ascent(올라감)다.
 
 $\eta = 1$ 로 네 번 고치면 아래와 같다.
 
@@ -369,7 +369,7 @@ $1 + 2 \times 0.1966 = 1.3932$ 다. gradient 가 양수이므로 $\theta$ 가 �
 ### J 의 gradient 공식
 
 gradient 를 공식으로 구해 본다. $J = 1 + \pi_\theta(B)$ 이고 $\pi_\theta(B) = \sigma(\theta)$ 이므로, $J$ 의 gradient 는 sigmoid 의
-기울기와 같다. [Backpropagation](../autograd/README.md) 에서 sigmoid 의 기울기는 $\sigma(\theta)(1 - \sigma(\theta))$ 였다.
+기울기와 같다. sigmoid 의 기울기는 $\sigma(\theta)(1 - \sigma(\theta))$ 다.
 
 $$
 \nabla_\theta \pi_\theta(B) = \pi_\theta(B)\,\big(1 - \pi_\theta(B)\big) = \pi_\theta(B)\, \pi_\theta(A)
@@ -403,7 +403,7 @@ $0.25 \times (2 - 3) = -0.25$ 다. 음수이므로 $\theta$ 를 줄여 A 를 더
 처럼 직접 해 본 결과 하나하나뿐이고, 이렇게 실제로 해 보고 얻은 결과를 sample 이라고 한다.
 
 $q_*$ 를 먼저 추정해서 공식에 넣으면 value-based 방법으로 돌아간다. 원하는 것은 sample 하나에서 바로 계산할 수 있고, 여러 sample 에서
-평균을 내면 $\nabla_\theta J$ 가 되는 값이다. [Bandits & MDPs](../bandit-mdp/README.md) 에서 본 것처럼 sample 의 평균은 횟수가 늘수록
+평균을 내면 $\nabla_\theta J$ 가 되는 값이다. sample 의 평균은 횟수가 늘수록
 기댓값에 다가가므로, $\nabla_\theta J$ 를 "무언가의 기댓값" 꼴로 바꿔 쓸 수 있으면 sample 평균으로 추정할 수 있다.
 
 여러 칸을 옮겨 다니는 문제에서는 한 episode(시작부터 끝까지의 행동 기록)가 나올 확률에 바닥이 얼마나 미끄러운지 같은
@@ -428,7 +428,7 @@ environment(agent 가 행동하는 대상 세계)의 이동 확률도 들어가�
 
 ### 로그
 
-[Bandits & MDPs](../bandit-mdp/README.md) 의 UCB(덜 당겨 본 기계에 가산점을 주는 방법)에서 $\ln$ 을 잠깐 썼다. $\ln x$ 는 "$e$ 를 몇 번 곱해야 $x$ 가 되는가" 를 나타내고,
+$\ln x$ 는 "$e$ 를 몇 번 곱해야 $x$ 가 되는가" 를 나타내고,
 natural log(자연로그)라고 읽는다. $e^2 \approx 7.389$ 이므로 $\ln 7.389 \approx 2$ 이고, $e^0 = 1$ 이므로 $\ln 1 = 0$ 이다. 지수 함수를
 거꾸로 푸는 함수라서 $\ln(e^z) = z$ 다.
 
@@ -506,8 +506,8 @@ $1 \div 0.1 = 10$ 이다. 확률 0.1 에서는 확률을 0.001 만 올려도 log
 ### log-probability 의 gradient
 
 이제 parameter $\theta$ 를 바꿀 때 log-probability $\ln \pi_\theta(B)$ 가 변하는 비율을 구한다. $\theta$ 가 바뀌면 먼저 $\pi_\theta(B)$
-가 바뀌고, 그 확률이 바뀌어 $\ln$ 이 바뀐다. 이렇게 두 칸을 거치는 변화는 [Linear Regression](../linear-regression/README.md) 의
-chain rule 처럼 칸마다의 비율을 곱해 구한다.
+가 바뀌고, 그 확률이 바뀌어 $\ln$ 이 바뀐다. 이렇게 두 칸을 거치는 변화는
+chain rule 에 따라 칸마다의 비율을 곱해 구한다.
 
 - **$\theta$ → $\pi_\theta(B)$** — 비율은 앞에서 구한 $\pi_\theta(B)\,(1 - \pi_\theta(B))$ 다
 - **$\pi_\theta(B)$ → $\ln \pi_\theta(B)$** — 비율은 $\ln$ 의 기울기 $\frac{1}{\pi_\theta(B)}$ 다
@@ -631,7 +631,7 @@ $$
 \hat g = r\, \nabla_\theta \ln \pi_\theta(a)
 $$
 
-$\hat g$ 는 "지 햇" 이라고 읽고 gradient 의 추정값이다. 모자(hat)는 Linear Regression 의 $\hat y$ 처럼 "추정한 값" 이라는 표시다. 식에서
+$\hat g$ 는 "지 햇" 이라고 읽고 gradient 의 추정값이다. 모자(hat)는 예측값 $\hat y$ 처럼 "추정한 값" 이라는 표시다. 식에서
 $q_*(a)$ 자리에 실제로 받은 $r$ 을 넣었는데, 같은 action 을 여러 번 하면 $r$ 의 평균이 $q_*(a)$ 가 되므로 $\hat g$ 의 평균도
 $\nabla_\theta J$ 가 된다.
 
@@ -949,8 +949,8 @@ $G_2 = 1$, $G_1 = 0 + 0.9 \times 1 = 0.9$, $G_0 = 0 + 0.9 \times 0 + 0.81 \times
 | $\{1, 3\}$ | 2 | $-1, +1$ | $1, 1$ | 1 |
 | $\{-2, 6\}$ | 2 | $-4, +4$ | $16, 16$ | 16 |
 
-variance 는 "평균에서 떨어진 거리를 제곱해 평균한 값" 이다. 거리를 제곱하는 이유는 [Linear Regression](../linear-regression/README.md)
-의 MSE(오차를 제곱해 평균한 loss)와 같아서, 위아래로 떨어진 거리가 서로 지워지지 않게 하려는 것이다. 값이 확률로 나오면 평균 대신 기댓값을 쓴다.
+variance 는 "평균에서 떨어진 거리를 제곱해 평균한 값" 이다. 거리를 제곱하는 이유는
+MSE(오차를 제곱해 평균한 loss)와 같아서, 위아래로 떨어진 거리가 서로 지워지지 않게 하려는 것이다. 값이 확률로 나오면 평균 대신 기댓값을 쓴다.
 
 $$
 \mathrm{Var}[x] = \mathbb E\big[(x - \mathbb E[x])^2\big]
@@ -1126,7 +1126,7 @@ $0.5 \times 0 + 0.25 \times 1 + 0.25 \times 1 = 0.5$ 로, baseline 이 없을 �
 
 위 그림처럼 어떤 $b$ 를 써도 기댓값은 0.25 로 같고, variance 만 $b$ 에 따라 달라진다. 이 문제에서는 policy 가 받는 reward 의 평균
 $J = 1.5$ 에서 variance 가 가장 작다. 그래서 baseline 으로는 보통 "평균적으로 받는 reward" 를 쓴다. agent 는 $J$ 를 모르므로 실제로는
-지금까지 받은 reward 의 평균을 앞 강의의 incremental 평균 $b \leftarrow b + \frac{1}{n}(r - b)$ 로 고쳐 가며 쓴다.
+지금까지 받은 reward 의 평균을 새 reward 가 들어올 때마다 고치는 incremental 평균 $b \leftarrow b + \frac{1}{n}(r - b)$ 로 구해 쓴다.
 
 batch 와 함께 쓰면 효과가 겹친다. $N = 4$ 일 때 baseline 이 없으면 variance 0.2656, 부호가 틀릴 확률 0.3125 였는데, $b = 1.5$ 를 빼면
 variance 0.125, 부호가 틀릴 확률 0.1445 로 줄어든다.
@@ -1247,7 +1247,7 @@ $V(s)$ 의 진짜 값은 모르므로 이것도 배운다. state 를 받아 valu
 network 의 parameter 를 $\phi$ 로 쓰고, network 가 내는 값을 $V_\phi(s)$ 로 쓴다. $\phi$ 는 그리스 문자 phi(파이 또는 피)로,
 policy 의 $\pi$ 와는 다른 글자다.
 
-value network 의 학습은 [Linear Regression](../linear-regression/README.md) 과 같다. 예측은 $V_\phi(s_t)$, 정답은 실제로 받은
+value network 는 예측을 정답에 맞추는 regression 으로 학습한다. 예측은 $V_\phi(s_t)$, 정답은 실제로 받은
 $G_t$ 이고, loss 는 둘의 차이를 제곱한 $(V_\phi(s_t) - G_t)^2$ 이다. $V_\phi(s_t) = 40$ 이고 $G_t = 30$ 이면 오차는 10, 오차의 제곱을
 $V$ 로 미분한 값은 $2 \times 10 = 20$ 이다. network 의 출력을 learning rate 0.01 로 바로 고칠 수 있다고 보면 $40 - 0.01 \times 20 = 39.8$
 로 정답 30 쪽으로 조금 내려간다. 다음 episode 에서 $G_t = 50$ 이면 오차는 $39.8 - 50 = -10.2$, gradient 는 $-20.4$ 라서

@@ -213,8 +213,8 @@ $0.1 \times 10 + 0.6 \times 4 + 0.3 \times 2 = 1 + 2.4 + 0.6 = 4.0$ 이다. 지�
 
 ### attention mask 의 세 block
 
-모든 token 이 모든 token 을 볼 수 있는 것은 아니다. [GPT-2](../gpt/README.md) 의 causal mask 는 뒤쪽 token 의 점수를 막아 앞쪽만
-보게 했다. 이렇게 어떤 token 이 어떤 token 을 볼 수 있는지 정한 표를 attention mask 라고 한다. π0 는 token 을 세 묶음(block)으로
+모든 token 이 모든 token 을 볼 수 있는 것은 아니다. 글을 한 token 씩 만드는 언어 모델의 causal mask 는 뒤쪽 token 의 점수를 막아 앞쪽만
+보게 한다. 이렇게 어떤 token 이 어떤 token 을 볼 수 있는지 정한 표를 attention mask 라고 한다. π0 는 token 을 세 묶음(block)으로
 나누고 뒤쪽 block 만 앞쪽 block 을 보게 한다.
 
 | 보는 쪽 \ 보이는 쪽 | 사진·지시문 | 로봇 상태 | noise 가 섞인 action |
@@ -261,7 +261,7 @@ multimodal 은 행동 쪽에서도 쓰인다. 같은 장면에서 시연자가 �
 정답 action 이 $+2$ 와 $-2$ 두 무리로 갈린다. 값이 몰린 자리를 봉우리라고 부르므로, 봉우리가 둘인 이 분포도 multimodal 이다. 여기서
 modal 은 통계에서 가장 자주 나온 값을 뜻하는 mode 에서 왔다.
 
-[ACT](../act/README.md) 와 [Flow Matching](../flow-matching/README.md) 에서 본 것처럼, 차이의 제곱을 줄이도록 action 을 바로 맞히면
+정답들과의 차이의 제곱은 출력이 정답들의 평균일 때 가장 작아지므로, 이 값을 줄이도록 action 을 바로 맞히면
 모델은 두 정답의 평균 $(+2 - 2) \div 2 = 0$ 을 낸다. 0 은 상자 정면으로 곧장 가는 길이라 두 시연 어디에도 없는 실패다. flow matching
 은 noise 에서 출발해 봉우리 하나에 도착하므로, 평균 대신 $+2$ 나 $-2$ 가운데 하나를 고른다.
 
@@ -754,7 +754,7 @@ VLM 15 ms 에 action expert 도 한 번에 15 ms 씩 10 번이라 $15 + 10 \time
 | LoRA fine-tuning | 22.5 GB 초과 | RTX 4090 |
 | 전체 fine-tuning | 70 GB 초과 | A100 (80 GB), H100 |
 
-LoRA 는 원래 weight 를 고정하고 옆에 붙인 작은 행렬만 학습해 고칠 숫자를 크게 줄이는 방법이다([RT-2 → OpenVLA](../vla-tokens/README.md)).
+LoRA 는 원래 weight 를 고정하고 옆에 붙인 작은 행렬만 학습해 고칠 숫자를 크게 줄이는 방법이다.
 저장소는 Linux 운영체제의 한 판본인 Ubuntu 22.04 에서만 시험했다고 밝혀서, Apple 칩 노트북에서 그대로 돌리기는 어렵다. 대신 openpi 는 모델을 GPU 가 있는 다른
 컴퓨터에서 돌리고 로봇 쪽으로 action 을 보내 주는 원격 추론을 지원한다. Gemini Robotics 가 큰 몸통을 cloud 에 둔 것과 같은 나눔이다.
 

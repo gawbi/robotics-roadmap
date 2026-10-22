@@ -108,8 +108,8 @@ reverse process 다. forward process 는 정해진 규칙대로 noise 를 더하
 
 ### N(0, 1) 에서 뽑은 noise
 
-이 강의의 모든 noise 는 표준 정규분포 $\mathcal N(0, 1)$ 에서 뽑은 숫자에서 시작하므로, [VAE](../vae/README.md) 에서 배운 이 분포의 성질을
-먼저 다시 짚는다. $\mathcal N(0, 1)$ 은 평균 0, 표준편차 1 인 종 모양 분포이고, 여기서 숫자를 여덟 번 뽑으면 예를 들어 아래처럼 나온다.
+이 강의의 모든 noise 는 표준 정규분포 $\mathcal N(0, 1)$ 에서 뽑은 숫자에서 시작하므로, 이 분포의 성질을
+먼저 짚는다. $\mathcal N(0, 1)$ 은 평균 0, 표준편차 1 인 종 모양 분포이고, 여기서 숫자를 여덟 번 뽑으면 예를 들어 아래처럼 나온다.
 
 | 뽑은 순서 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -118,7 +118,7 @@ reverse process 다. forward process 는 정해진 규칙대로 noise 를 더하
 뽑힌 값은 양수도 음수도 있고, 0 근처가 가장 자주 나온다. 많이 뽑으면 값의 약 68% 가 $-1$ ~ 1, 약 95% 가 $-2$ ~ 2, 약 99.7% 가 $-3$ ~ 3
 안에 들어간다. 그래서 2.3 처럼 $-2$ ~ 2 밖의 값은 20 번에 한 번 꼴로, 3 보다 크거나 $-3$ 보다 작은 값은 1000 번에 세 번 꼴로만 나온다.
 
-이렇게 뽑은 숫자는 VAE 에서처럼 그리스 문자 $\epsilon$("엡실론")으로 적고, 뽑는 일을 $\epsilon \sim \mathcal N(0, 1)$ 로 적는다. 물결표
+이렇게 뽑은 숫자는 그리스 문자 $\epsilon$("엡실론")으로 적고, 뽑는 일을 $\epsilon \sim \mathcal N(0, 1)$ 로 적는다. 물결표
 $\sim$ 는 "~에서 뽑았다" 로 읽는다. 뽑은 숫자에 어떤 수를 곱하면 퍼진 폭이 그만큼 바뀐다. $\epsilon$ 에 0.6 을 곱한 값은 평균 0, 표준편차 0.6 인 정규분포를 따르고, 95% 가
 $-1.2$ ~ 1.2 안에 들어간다. 이 강의에서 "noise 의 크기" 는 이렇게 $\epsilon$ 에 곱한 수, 곧 noise 의 표준편차를 뜻한다.
 
@@ -439,7 +439,7 @@ $-1$(검정)부터 $+1$(흰색) 사이로 바꿔 쓴다. 0.5 인 회색은 0 이
 크기가 된다.
 
 pixel 마다 $\epsilon$ 을 따로 뽑으므로 noise 도 그림과 같은 크기의 vector 다. $32 \times 32$ 그림이면 $\mathcal N(0, 1)$ 에서 숫자
-1024 개를 따로 뽑는데, VAE 에서처럼 이 vector 의 분포를 $\mathcal N(0, I)$ 로 적는다.
+1024 개를 따로 뽑는데, 이 vector 의 분포를 $\mathcal N(0, I)$ 로 적는다.
 
 ![8×8 그림 하나에 같은 noise ε 를 T = 1000 linear schedule 의 t = 0, 100, 250, 500, 1000 계수로 섞은 모습. √ᾱ 는 1.000, 0.947, 0.724, 0.280, 0.006 으로 작아지고 t = 1000 에서는 noise 만 남는다](figures/image-noise.svg)
 
@@ -502,7 +502,7 @@ noise 몫은 $0.70 \times 1 = 0.70$ 이므로 $x_0 = (1.41 - 0.70) \div 0.71 = 0
 
 ### noise 를 맞히는 network
 
-noise 를 맞히는 network 는 $\epsilon_\theta(x_t, t)$ 로 적는다. $\theta$ 는 "세타(theta)" 라고 읽고, VAE 에서처럼 network 의 weight 전체를
+noise 를 맞히는 network 는 $\epsilon_\theta(x_t, t)$ 로 적는다. $\theta$ 는 "세타(theta)" 라고 읽고, network 의 weight 전체를
 가리킨다. 괄호 안은 network 가 받는 입력으로, noise 가 섞인 값 $x_t$ 와 step 번호 $t$ 다. 전체는 "weight 가 $\theta$ 인 network 가
 $x_t$ 와 $t$ 를 보고 추정한 noise" 로 읽는다.
 
@@ -521,7 +521,7 @@ network 의 출력은 언제나 입력 $x_t$ 와 모양이 같다. 숫자 하나
 
 ![noise 를 맞히는 network 의 입력과 출력. 숫자 하나와 2 차원 점은 MLP 가, 32×32 이미지는 U-Net 이 받아 입력과 같은 모양의 예측 noise 를 낸다. 어느 경우든 step 번호 t 를 함께 받는다](figures/network-io.svg)
 
-숫자 하나나 2 차원 점처럼 작은 데이터에는 [PyTorch Training Loop](../pytorch-mlp/README.md) 의 MLP, 곧 weight 를 곱하고 더하는 층을 여러 겹
+숫자 하나나 2 차원 점처럼 작은 데이터에는 MLP, 곧 weight 를 곱하고 더하는 층을 여러 겹
 쌓은 network 를 쓴다. 그림에는 U-Net 이라는 network 를 쓴다. U-Net 은 [CNN](../cnn/README.md) 의 convolution 층으로 그림의 가로세로를
 절반씩 줄여 가며 넓은 범위의 모양을 본 뒤, 다시 원래 크기로 키워 pixel 마다 출력을 낸다. 줄이기 전에 계산한 결과를 같은 크기의 키우는
 쪽에 그대로 이어 붙여(skip connection) 세밀한 위치 정보를 잃지 않게 한다. 줄였다가 키우는 구조를 그림으로 그리면 U 자 모양이라서 이런
@@ -555,8 +555,8 @@ loss 는 $(0.5 - 0.3)^2 = 0.04$ 다. 2 차원 점처럼 noise 가 숫자 여러 
 4. network 에 $x_t$ 와 $t$ 를 넣어 noise 를 맞히게 하고, 정답 $\epsilon$ 과의 차이를 제곱해 loss 를 구한다
 5. gradient descent 로 loss 가 줄어드는 쪽으로 weight $\theta$ 를 조금 고친다
 
-gradient descent 는 [Linear Regression](../linear-regression/README.md) 에서 본 학습 방법으로, weight 를 조금 바꿨을 때 loss 가 변하는
-비율(gradient)을 구해 loss 가 줄어드는 방향으로 weight 를 조금씩 옮기기를 되풀이한다.
+gradient descent 는 weight 를 조금 바꿨을 때 loss 가 변하는 비율(gradient)을 구해 loss 가 줄어드는 방향으로 weight 를
+조금씩 옮기기를 되풀이하는 학습 방법이다.
 
 ![학습 한 step. 데이터 x₀ = 2, 무작위로 고른 t = 3, N(0, 1) 에서 뽑은 ε = 0.5 로 x₃ = 0.71 × 2 + 0.70 × 0.5 = 1.77 을 만들고, network 가 낸 0.3 과 정답 0.5 로 loss (0.5 − 0.3)² = 0.04 를 구한다](figures/train-step.svg)
 
@@ -621,7 +621,7 @@ network 에게 $x_0$ 나 $x_{t-1}$ 을 바로 맞히게 할 수도 있었는데 
   사이에 있다. 한 network 가 모든 step 을 맡아도 출력의 크기를 $t$ 마다 다르게 맞출 필요가 없다
 - **실험 결과가 더 좋았다** — Ho 등은 같은 조건에서 noise 를 맞히게 했을 때 다른 값을 맞히게 했을 때보다 더 좋은 그림이 나왔다고 보고했다
 
-이 loss 는 [VAE](../vae/README.md) 의 ELBO, 곧 데이터가 나올 확률의 log 의 아래쪽 경계에서 출발해 유도할 수도 있다. 유도하면 step 마다
+이 loss 는 ELBO, 곧 데이터가 나올 확률의 log 의 아래쪽 경계에서 출발해 유도할 수도 있다. 유도하면 step 마다
 다른 무게가 곱해진 식이 나오는데, Ho 등은 그 무게를 떼어 내고 모든 step 을 같은 무게로 더한 단순한 loss 를 썼다. 위의 $L$ 이 그 단순한
 형태다.
 
@@ -833,7 +833,7 @@ $-2$ 에서 왔다면 평균 $-0.78$, 표준편차 0.92 인 정규분포를 따�
 
 ![왼쪽 t = 5 에서는 +2 에서 온 x₅ 의 분포와 −2 에서 온 분포가 크게 겹쳐, x₅ = 0.2 자리의 높이가 0.36 과 0.25 로 비슷하다. 오른쪽 t = 2 에서는 두 분포가 떨어져 있어 x₂ = 1.0 자리의 높이가 0.32 와 0.00 이다](figures/posterior-bells.svg)
 
-[VAE](../vae/README.md) 에서 본 것처럼 MSE 로 학습한 network 는 가능한 정답들의 평균을 낸다. 여기서는 가능성을 무게로 둔 평균이라서,
+같은 입력에 정답이 여럿이면 MSE 로 학습한 network 는 차이의 제곱 합이 가장 작은 값, 곧 가능한 정답들의 평균을 낸다. 여기서는 가능성을 무게로 둔 평균이라서,
 network 는 원래 값을 $0.59 \times 2 + 0.41 \times (-2) = 1.18 - 0.82 = 0.36$ 으로 추정하고 그에 맞는 noise 를 낸다. 같은 계산을 다른
 $x_t$ 와 $t$ 에서 하면 아래와 같다.
 

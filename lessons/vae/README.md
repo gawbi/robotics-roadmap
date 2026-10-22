@@ -91,7 +91,7 @@ pixel 이 $5 \times 5 = 25$ 개이고 pixel 마다 숫자 하나씩이므로 25 
 비켜 가는 시연을 10 번 모았더니, 5 번은 왼쪽으로 1 m, 5 번은 오른쪽으로 1 m 비켜 갔다. 왼쪽을 $+1$, 오른쪽을 $-1$ 로 적으면
 시연의 정답은 $+1$ 다섯 개와 $-1$ 다섯 개다.
 
-[Linear Regression](../linear-regression/README.md) 에서처럼 예측 하나를 내고 MSE(오차를 제곱해 평균한 값)를 loss 로 줄이는
+예측 하나를 내고 MSE(오차를 제곱해 평균한 값)를 loss 로 줄이는
 모델을 이 데이터로 학습시키면 어떻게 될까. 예측을 $a$ 라고 하면, 정답 $+1$ 과 $-1$ 이 반반이므로 loss 는 두 오차 제곱의 평균이다.
 
 | 예측 $a$ | 정답 $+1$ 과의 오차 제곱 | 정답 $-1$ 과의 오차 제곱 | MSE |
@@ -139,9 +139,8 @@ MSE 를 가장 작게 하는 예측은 평균이므로 $(2 + 2 - 2 - 2) \div 4 =
 
 ### 확률분포와 sampling
 
-정답들의 퍼진 모양은 확률로 적는다. 확률은 어떤 결과가 얼마나 자주 나오는지를 0 과 1 사이 숫자로 나타낸 값이다
-([Bandits & MDPs](../bandit-mdp/README.md) 에서 주사위로 다뤘다). 주사위에서 3 이 나올 확률은 $\frac{1}{6}$ 이고, 일어날 수 있는
-모든 결과의 확률을 더하면 1 이다.
+정답들의 퍼진 모양은 확률로 적는다. 확률은 어떤 결과가 얼마나 자주 나오는지를 0 과 1 사이 숫자로 나타낸 값이다.
+주사위에서 3 이 나올 확률은 $\frac{1}{6}$ 이고, 일어날 수 있는 모든 결과의 확률을 더하면 1 이다.
 
 결과마다 그 확률을 모두 적어 둔 것을 확률분포(probability distribution), 줄여서 분포라고 한다. 앞의 상자 비켜 가기 시연이라면
 분포는 아래 표 한 장이다.
@@ -183,7 +182,7 @@ MSE 를 가장 작게 하는 예측은 평균이므로 $(2 + 2 - 2 - 2) \div 4 =
 $(6 + 10 + 6 + 10) \div 4 = 32 \div 4 = 8$ 이다. 두 바닥 모두 평균은 8 cm 로 같다.
 
 분포의 평균은 보통 그리스 문자 $\mu$ 로 적는다. $\mu$ 는 "뮤(mu)" 라고 읽고, mean(평균)의 첫 글자 m 에 해당한다. 아주 많이
-뽑았을 때 sample 들의 평균이 다가가는 값이라서, [Bandits & MDPs](../bandit-mdp/README.md) 의 기댓값과 같은 것이다.
+뽑았을 때 sample 들의 평균이 다가가는 값이라서, 결과마다 값 × 확률을 더한 기댓값과 같다.
 
 **확인 문제.** 측정값이 5, 8, 11 일 때 평균 $\mu$ 는?
 
@@ -199,7 +198,7 @@ $(5 + 8 + 11) \div 3 = 24 \div 3 = 8$ 이다.
 퍼진 정도를 숫자 하나로 나타낸 것이 분산이다.
 
 분산은 각 값이 평균에서 벗어난 양을 제곱해 평균한 값이다. 벗어난 양을 그냥 평균하면 위로 벗어난 것과 아래로 벗어난 것이 서로
-지워져 0 이 되므로, [Linear Regression](../linear-regression/README.md) 의 MSE 에서처럼 제곱한 뒤 평균한다.
+지워져 0 이 되므로 제곱한 뒤 평균한다.
 
 | 바닥 | 값 | 평균에서 벗어난 양 | 벗어난 양의 제곱 | 분산 (제곱의 평균) |
 | --- | --- | --- | --- | --- |
@@ -218,8 +217,8 @@ $\sum$ 의 결과는 16, $N$ 은 4, $\sigma^2$ 은 4 다.
 
 분산은 제곱한 값이라서 단위도 cm 가 아니라 cm 의 제곱이 된다. 원래 단위로 돌려놓으려면 제곱근을 씌우는데, 제곱근 $\sqrt{\phantom{x}}$
 은 제곱해서 그 수가 되는 양수다($\sqrt 4 = 2$). 분산의 제곱근을 표준편차(standard deviation)라고 하고 $\sigma$ 로 적는다. $\sigma$ 는
-그리스 문자 소문자 "시그마(sigma)" 로, "모두 더하라" 는 대문자 $\Sigma$ 와 다른 기호다. [Backpropagation](../autograd/README.md)
-에서는 같은 $\sigma$ 를 sigmoid 함수의 이름으로 썼는데, 이 강의에서 $\sigma$ 는 언제나 표준편차다. 분산을 $\sigma^2$ 으로 적는 것도
+그리스 문자 소문자 "시그마(sigma)" 로, "모두 더하라" 는 대문자 $\Sigma$ 와 다른 기호다. 같은 $\sigma$ 를 sigmoid
+함수의 이름으로 쓰기도 하는데, 이 강의에서 $\sigma$ 는 언제나 표준편차다. 분산을 $\sigma^2$ 으로 적는 것도
 "표준편차의 제곱" 이기 때문이다.
 
 매끈한 바닥은 $\sigma = \sqrt 1 = 1$ cm, 카펫은 $\sigma = \sqrt 4 = 2$ cm 다. 표준편차는 "값들이 평균에서 대략 이만큼 벗어나
@@ -431,9 +430,9 @@ $z = 1.2 \div 3 = 0.4$ 이고 $\hat x = (0.4, 0.4, 0.4)$ 다. 차이는 $0.1, 0.
 ### neural network 로 만든 autoencoder 와 latent
 
 회색 그림은 "평균 내기" 와 "똑같이 적기" 가 정답임을 사람이 알았지만, 손글씨 그림은 어떤 숫자로 줄여야 할지 사람이 정해 줄 수
-없다. 그래서 encoder 와 decoder 를 모두 MLP 로 만들고, reconstruction loss 가 작아지도록 [PyTorch Training Loop](../pytorch-mlp/README.md)
-에서처럼 gradient descent 로 weight 를 학습시킨다. gradient descent 는 loss 를 줄이는 방향으로 weight 를 조금씩 고치기를 되풀이하는
-학습 방법이다([Linear Regression](../linear-regression/README.md)).
+없다. 그래서 encoder 와 decoder 를 모두 MLP 로 만들고, reconstruction loss 가 작아지도록
+gradient descent 로 weight 를 학습시킨다. gradient descent 는 loss 를 줄이는 방향으로 weight 를 조금씩 고치기를 되풀이하는
+학습 방법이다.
 
 MNIST 라면 encoder 는 784 개의 숫자를 받아 400 개로, 다시 2 개로 줄이고, decoder 는 2 개를 받아 400 개로, 다시 784 개로 늘린다.
 가운데의 숫자 두 개가 그림 한 장을 대신한다.
@@ -567,7 +566,7 @@ $z$ 가 여러 차원이면 encoder 는 차원마다 $\mu_j$ 와 $\sigma_j$ 를 
 encoder 의 마지막 층은 weight 를 곱하고 더하는 Linear layer 라서 $-3$ 이든 $2.5$ 든 어떤 숫자든 낼 수 있다. $\mu$ 는 음수여도
 괜찮지만 $\sigma$ 는 퍼진 정도라서 반드시 0 보다 커야 하는데, encoder 가 $\sigma = -0.5$ 를 내면 뜻이 없는 값이 된다.
 
-그래서 encoder 는 $\sigma$ 대신 [PyTorch Training Loop](../pytorch-mlp/README.md) 의 log 를 씌운 $\log \sigma^2$ 을 낸다. $\log b$ 는
+그래서 encoder 는 $\sigma$ 대신 log 를 씌운 $\log \sigma^2$ 을 낸다. $\log b$ 는
 "$e$ 를 몇 제곱해야 $b$ 가 되는가" 의 답이라서 $b$ 가 1 보다 크면 양수($\log 2 = 0.693$, $\log 4 = 1.386$), 1 보다 작으면
 음수다. 거꾸로 $e^{a}$ 는 $e$ 를 몇 번 곱하거나 나눠도 0 이나 음수가 되지 않으므로 $a$ 가 어떤 수이든 0 보다 크다. 이 값
 $\log \sigma^2$ 을 logvar(log variance, 분산의 log)라고 부른다. logvar 가 어떤 숫자이든 $\sigma^2 = e^{\text{logvar}}$ 은 언제나 0 보다 크므로, $\sigma$
@@ -688,7 +687,7 @@ $z = \mu + \sigma \epsilon$ 으로 바꾸면 무작위성은 모두 $\epsilon$ �
 - **$\mu$ → $z$** — $\mu$ 가 1 늘면 $z$ 도 1 는다. 비율 $\frac{\partial z}{\partial \mu} = 1$ 이다
 - **$\sigma$ → $z$** — $\sigma$ 가 1 늘면 $z$ 는 $\epsilon$ 만큼 는다. 비율 $\frac{\partial z}{\partial \sigma} = \epsilon$ 이다
 
-$\frac{\partial z}{\partial \mu}$ 는 [Linear Regression](../linear-regression/README.md) 의 partial derivative 로, "다른 값은 고정하고
+$\frac{\partial z}{\partial \mu}$ 는 partial derivative 로, "다른 값은 고정하고
 $\mu$ 만 조금 바꿨을 때 $z$ 가 변하는 비율" 이다.
 
 숫자로 따라가 본다. decoder 와 loss 를 아주 단순하게 줄여서, loss 가 $L = (z - 2)^2$ 이라고 하자. $z$ 가 2 이면 loss 가 0 이고
@@ -702,7 +701,7 @@ $\mu$ 만 조금 바꿨을 때 $z$ 가 변하는 비율" 이다.
 | $\partial L / \partial \mu$ | $-1.8 \times 1$ | $-1.8$ |
 | $\partial L / \partial \sigma$ | $-1.8 \times 0.3$ | $-0.54$ |
 
-$\partial L / \partial z$ 는 [Linear Regression](../linear-regression/README.md) 에서 본 "$w^2$ 의 derivative 는 $2w$" 라는 공식을 $z - 2$ 에 쓴 것이고, 아래 두 줄은 chain rule 로 칸마다의 비율을
+$\partial L / \partial z$ 는 "$w^2$ 의 derivative 는 $2w$" 라는 공식을 $z - 2$ 에 쓴 것이고, 아래 두 줄은 chain rule 로 칸마다의 비율을
 곱한 것이다. 숫자로 검산하면 $\epsilon = 0.3$ 은 그대로 두고 $\mu$ 만 0.51 로 바꿨을 때 $z = 1.11$, $L = (-0.89)^2 = 0.7921$ 이라서
 loss 변화를 0.01 로 나눈 비율은 $(0.7921 - 0.81) \div 0.01 = -1.79$ 다. 공식의 $-1.8$ 과 거의 같다.
 
@@ -778,7 +777,7 @@ $3 \times 0.09 = 0.27$ 이다.
 ### 0 과 1 사이 pixel 의 BCE
 
 MNIST 의 pixel 은 대부분 0(검정 바탕) 아니면 1 에 가까운 흰 획이다. 그래서 MNIST 용 VAE 의 decoder 는 pixel 의 밝기를 바로 내지 않고,
-pixel 마다 "이 pixel 이 1(흰색)일 확률" $p_i$ 를 낸다. decoder 의 마지막 출력에 [Backpropagation](../autograd/README.md) 의 sigmoid 를
+pixel 마다 "이 pixel 이 1(흰색)일 확률" $p_i$ 를 낸다. decoder 의 마지막 출력에 sigmoid 를
 씌우면 언제나 0 과 1 사이의 값이 되어 확률로 쓸 수 있다.
 
 decoder 가 낸 확률이 실제 pixel 과 얼마나 맞는지는 "실제로 나온 값의 확률" 에 log 를 씌우고 부호를 바꿔서 잰다.
@@ -839,7 +838,7 @@ $$
 
 $D_{\mathrm{KL}}(q \Vert p)$ 는 "$q$ 에서 $p$ 까지의 KL divergence" 로 읽고, 두 줄 막대 $\Vert$ 는 두 분포를 구분하는 표시다. 식은
 "결과 $z$ 마다 $q(z)$ 와 $\log \frac{q(z)}{p(z)}$ 를 곱하고, 모두 더한다" 는 뜻이다. 동전이라면 결과 $z$ 는 앞면과 뒷면, $q(z)$ 는
-0.8 과 0.2, $p(z)$ 는 0.5 와 0.5 다. 결과마다 값 × 확률을 더하는 꼴이라서, [Bandits & MDPs](../bandit-mdp/README.md) 의 기댓값으로
+0.8 과 0.2, $p(z)$ 는 0.5 와 0.5 다. 결과마다 값 × 확률을 더하는 꼴이라서 기댓값으로
 보면 "$q$ 에서 뽑았을 때 $\log \frac{q(z)}{p(z)}$ 의 기댓값" 이다.
 
 $q$ 의 앞면 확률을 바꿔 가며 계산하면 아래와 같다.
@@ -1181,7 +1180,7 @@ MNIST 의 CVAE 와 ACT 를 나란히 놓으면 아래와 같다.
 | reconstruction loss | BCE 의 합 | 예측한 action 과 시연 action 의 차이를 부호를 떼고(절댓값) 더한 L1 |
 | KL 의 무게 $\beta$ | 1 | 10 |
 
-여기서 decoder 는 로봇이 무엇을 할지 정하는 policy 다. policy 는 [Bandits & MDPs](../bandit-mdp/README.md) 에서 본 것처럼 "지금
+여기서 decoder 는 로봇이 무엇을 할지 정하는 policy 다. policy 는 "지금
 상황에서 어떤 행동을 할지 정하는 규칙" 이고, ACT 에서는 카메라 이미지·관절 위치·$z$ 를 받아 action chunk 를 내는 network 다. ACT 의
 latent 는 32 차원이다.
 

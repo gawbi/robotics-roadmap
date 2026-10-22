@@ -48,7 +48,7 @@ papers:
 
 1989년 Pomerleau 의 ALVINN 이 둘째 방법으로 실제 차를 몰았다. 30×32 칸짜리 카메라 영상과 8×32 칸짜리 거리 센서 값을 hidden unit
 29 개짜리 neural network(숫자를 곱하고 더하는 층을 여러 겹 쌓은 모델)에 넣고, 사람이 운전하는 동안 기록한 (센서 값, 그때의 핸들 방향) 쌍으로 학습했다. hidden unit 은
-[Backpropagation](../autograd/README.md) 에서 본 hidden layer 의 neuron 하나이고, ALVINN 에서는 차선을 찾는 규칙도 핸들을 꺾는
+hidden layer(입력과 출력 사이에 있는 층)의 neuron 하나이고, ALVINN 에서는 차선을 찾는 규칙도 핸들을 꺾는
 공식도 사람이 짜지 않았다.
 
 로봇 팔도 같은 방식으로 가르친다. 사람이 똑같이 생긴 조종용 팔(leader)을 손으로 움직이면 로봇 팔(follower)이 그 관절 각도를 그대로
@@ -199,7 +199,7 @@ policy $\hat a = w x + b$ 를 $w = 0$, $b = 0$ 에서 시작한다.
 빗나간 오차가 서로 지워지지 않게 하기 위해서였고, 평균은 모두 더해 개수로 나눈 값이다. 여기서는 제곱의 합 $16 + 64 = 80$ 을 쌍의
 개수 2 로 나눠 $80 \div 2 = 40$ 이다. 이렇게 모델이 얼마나 틀렸는지를 숫자 하나로 나타낸 값을 loss 라고 했다.
 
-일반 식은 Linear Regression 의 MSE 와 똑같다.
+MSE 를 일반 식으로 쓰면 아래와 같다.
 
 $$
 L(\theta) = \frac{1}{N}\sum_{i=1}^{N} \big(\pi_\theta(o_i) - a_i\big)^2
@@ -221,7 +221,7 @@ $L(\theta)$ 라고 괄호 안에 $\theta$ 를 적은 것은 시연 쌍은 고정
 ### gradient 와 update
 
 loss 를 줄이려면 parameter 를 어느 쪽으로 움직여야 하는지 알아야 한다. parameter 하나를 아주 조금 늘렸을 때 loss 가 변하는 비율이
-partial derivative 이고, parameter 마다 구한 값을 모은 것이 gradient 였다. MSE 의 gradient 공식도 Linear Regression 과 같다.
+partial derivative 이고, parameter 마다 구한 값을 모은 것이 gradient 였다. MSE 의 gradient 공식은 아래와 같다.
 
 $$
 \frac{\partial L}{\partial w} = \frac{2}{N}\sum_{i=1}^{N} (\hat a_i - a_i) \times x_i, \qquad
@@ -290,7 +290,7 @@ $\eta = 0.05$ 로 한 step 고치면 $b$ 는 얼마가 될까?
 
 실제 차는 센서 두 개보다 많은 값을 본다. 차에서 부채꼴로 빛을 쏘아 차선 경계에 닿기까지의 거리를 15 방향에서 재면 관측은 숫자 15
 개가 되고, 커브에서는 핸들 각도와 센서 값의 관계가 직선 하나로 맞지 않는다. 그래서 policy 로 여러 층의 neuron 을 쌓은 MLP(multi-layer
-perceptron)를 쓴다. MLP 는 [Backpropagation](../autograd/README.md) 에서 본 것처럼 입력에 weight 를 곱해 더하고 bias 를 더한 뒤 곧은
+perceptron)를 쓴다. MLP 는 입력에 weight 를 곱해 더하고 bias 를 더한 뒤 곧은
 선을 휘게 만드는 함수를 거치는 층을 여러 번 쌓은 모델이다.
 
 policy 가 MLP 로 바뀌어도 할 일은 같다. 시연 쌍마다 예측과 정답의 오차를 제곱해 평균한 MSE 를 loss 로 두고, 출력 쪽에서 입력 쪽으로
@@ -552,7 +552,7 @@ action head 는 MLP 하나다. 519 칸 입력을 neuron 256 개짜리 hidden lay
 시연으로 학습한다. 맨 오른쪽에서 출력 7 개를 시연의 목표 각도 7 개와 비교해 loss 를 잰다.
 
 hidden layer 의 neuron 은 입력에 weight 를 곱해 모두 더하고 bias 를 더한 값, 곧 weighted sum 을 계산한 뒤 ReLU 를 거친다. ReLU 는 음수는 0 으로 바꾸고 양수는 그대로 내보내는 함수로,
-$\text{ReLU}(-1) = 0$, $\text{ReLU}(0.5) = 0.5$ 다. [Backpropagation](../autograd/README.md) 의 sigmoid 처럼 곧은 계산을 꺾어 주는
+$\text{ReLU}(-1) = 0$, $\text{ReLU}(0.5) = 0.5$ 다. sigmoid(값을 0 과 1 사이로 눌러 주는 함수)처럼 곧은 계산을 꺾어 주는
 역할을 하고, 계산이 간단해서 요즘 가장 흔히 쓴다. 출력 layer 에는 ReLU 를 쓰지 않는다. 관절 각도는 음수일 수도 있어서, 음수를 0
 으로 잘라 버리면 안 되기 때문이다.
 
@@ -570,7 +570,7 @@ $\text{ReLU}(-1) = 0$, $\text{ReLU}(0.5) = 0.5$ 다. [Backpropagation](../autogr
 출력은 2 이고, 시연의 정답이 2.5 라면 오차는 $2 - 2.5 = -0.5$, 오차의 제곱은 0.25 다. 실제 head 는 입력 519 칸, hidden 256 개, 출력
 7 개로 커질 뿐 칸마다 하는 계산은 이 표와 같다.
 
-head 의 parameter 수는 [Backpropagation](../autograd/README.md) 에서 본 대로 "neuron 수 × (입력 수 + 1)" 을 layer 마다 더한다. 1 을
+head 의 parameter 수는 layer 마다 "neuron 수 × (입력 수 + 1)" 을 구해 더한다. 1 을
 더하는 것은 neuron 마다 bias 가 하나 있기 때문이다.
 
 | layer | 계산 | parameter 수 |
@@ -629,7 +629,7 @@ $\frac{2}{7} \times 2 \approx 0.57$ 이라 집게 쪽 gradient 가 다섯 배쯤
 **흔한 오해.** 7 칸의 단위가 달라도 그냥 평균하면 된다고 생각하기 쉽다. 관절은 라디안(한 바퀴가 약 6.28 인 각도 단위)으로 $-3$
 에서 $3$ 사이이고 집게는 밀리미터로 0 에서 80 사이라면, 집게 칸의 오차가 수십 배 커서 loss 가 거의 집게 하나로 정해진다. 그러면
 관절이 조금 틀려도 loss 가 잘 줄지 않아 관절을 제대로 배우지 못한다. 그래서 칸마다 시연에서 잰 평균을 빼고 흩어진 정도로 나눠 크기를
-맞춘 뒤 loss 를 잰다. [Linear Regression](../linear-regression/README.md) 의 standardization 과 같은 처리다.
+맞춘 뒤 loss 를 잰다. 이런 처리를 standardization 이라고 한다.
 
 **확인 문제.** 7 칸의 오차가 $(3, -1, 1, 0, 0, 1, -3)$ 이면 MSE 는?
 
@@ -927,7 +927,7 @@ MSE 가 가장 작은 것은 0° 이고, 0° 는 상자로 곧장 돌진하는 a
 ![차선 가운데의 상자 앞에서 시연 5 개는 왼쪽(−20°)으로, 5 개는 오른쪽(+20°)으로 피한다. MSE 로 학습한 policy 는 두 정답의 평균 0° 를 내서 상자로 곧장 간다](figures/multimodal-paths.svg)
 
 평균이 MSE 를 가장 작게 만드는 이유는 gradient 로 확인할 수 있다. 같은 관측에서 policy 가 내는 값을 $\hat a$ 하나로 두면 loss 는
-$L = \frac{1}{N}\sum_i (\hat a - a_i)^2$ 이고, Linear Regression 의 $b$ 에 대한 gradient 와 같은 모양으로
+$L = \frac{1}{N}\sum_i (\hat a - a_i)^2$ 이고, 앞의 $\partial L / \partial b$ 와 같은 모양으로
 
 $$
 \frac{\partial L}{\partial \hat a} = \frac{2}{N}\sum_{i=1}^{N} (\hat a - a_i)
@@ -1037,7 +1037,7 @@ policy 처럼 두 값의 평균을 새로 만들어 내지 않는다.
 
 - 같은 관측에 정답 action 이 여럿이면 MSE 를 가장 작게 만드는 출력은 정답들의 평균이고, $\pm 20$° 의 평균 0° 는 상자로 돌진하는
   action 이다
-- 봉우리가 여럿인 action 분포가 multimodal 분포이고, 이 뜻은 VLA·CLIP 에서 "입력의 종류가 여럿" 이라는 뜻의 multimodal 과 다르다
+- 봉우리가 여럿인 action 분포가 multimodal 분포다. VLA·CLIP 을 multimodal 모델이라고 부를 때는 받는 입력의 종류가 여럿이라는 다른 뜻이다
 - 평균을 피하는 방법은 RT-1 의 구간 분류, ACT 의 style 숫자, Diffusion Policy 의 무작위 출발점으로 이어진다. ACT 는 실행할 때
   style 숫자를 0 으로 고정하므로, 정반대로 반반 갈린 시연에서 둘 중 하나를 고른다는 보장은 없다
 

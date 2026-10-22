@@ -234,8 +234,8 @@ reward 는 이런 항목을 하나씩 점수로 만들어 weight 를 곱해 더�
 | action 변화 | $\sum (a_t - a_{t-1})^2$ | $-0.01$ | 관절마다 이번 action 과 직전 action 의 차이를 제곱해 더한 값 |
 
 weight 가 음수인 항목은 클수록 reward 를 깎는 벌점, 곧 penalty 다. 표의 $\sum$ 는 sigma(시그마)라고 읽고 "모두 더하라" 는 기호로,
-$\sum \tau^2$ 는 관절 12 개의 $\tau^2$ 를 모두 더한 값이다. 제곱을 쓰는 이유는 [Linear Regression](../linear-regression/README.md) 의 오차
-제곱과 같아서, 음수와 양수가 서로 지워지지 않고 큰 값을 더 크게 벌하기 때문이다.
+$\sum \tau^2$ 는 관절 12 개의 $\tau^2$ 를 모두 더한 값이다. 제곱을 쓰는 이유는
+음수와 양수가 서로 지워지지 않고 큰 값을 더 크게 벌하기 때문이다.
 
 속도 추종 항의 $e$ 는 약 2.718 인 정해진 수이고, $e^{-x}$ 는 $e$ 를 $x$ 번 곱한 수의 역수, 곧 $1 \div e^x$ 다. $x$ 가 0 이면 1 이고, $x$ 가
 커질수록 0 에 가까워진다. 빠르기가 명령과 같으면 차이가 0 이라 점수가 가장 큰 1 이고, 명령에서 멀어질수록 점수가 작아진다.
@@ -339,7 +339,7 @@ episode 를 끝내는 쪽이 오히려 이득이라 policy 가 일부러 넘어�
 simulator 는 실제 로봇보다 빠르지만 하나만 돌려서는 여전히 오래 걸린다. 같은 계산을 여러 개 동시에 하는 것을 병렬(parallel) 계산이라고 한다.
 보행 학습에서는 simulator 속에 똑같은 로봇을 수천 대 띄우고 모두 동시에 움직인다.
 
-[Linear Regression](../linear-regression/README.md) 에서 숫자를 하나씩 계산하지 않고 행렬로 묶어 한꺼번에 계산하면 훨씬 빠르다는 것을 봤다.
+숫자를 하나씩 계산하지 않고 행렬로 묶어 한꺼번에 계산하면 훨씬 빠르다.
 GPU(Graphics Processing Unit)는 원래 화면을 그리려고 만든 장치인데, 똑같은 곱셈과 덧셈을 수천 개의 숫자에 동시에 하는 데 뛰어나다. 로봇 4096
 대의 physics step 은 모두 같은 계산을 숫자만 바꿔 하는 일이라, GPU 에 맡기면 한 대를 계산하는 시간과 크게 다르지 않은 시간에 4096 대를
 계산한다.
@@ -402,8 +402,8 @@ $2048 \times 48 = 98{,}304$ 개로 같다. env 수를 반으로 줄이고 env �
 
 ### 실제 로봇에서 넘어지는 policy
 
-simulator 에서 1000 step 을 한 번도 넘어지지 않고 걷던 policy 를 실제 로봇에 옮기면 몇 걸음 만에 넘어지는 일이 흔하다. [MuJoCo
-Simulation](../mujoco-sim/README.md) 에서 simulation 과 현실의 이런 차이를 sim-to-real gap 이라고 불렀다. gap 은 "틈, 차이" 라는 뜻이다.
+simulator 에서 1000 step 을 한 번도 넘어지지 않고 걷던 policy 를 실제 로봇에 옮기면 몇 걸음 만에 넘어지는 일이 흔하다.
+simulation 과 현실의 이런 차이를 sim-to-real gap 이라고 부른다. gap 은 "틈, 차이" 라는 뜻이다.
 4족 보행에서 특히 문제가 되는 차이는 바닥의 마찰, 무게, 명령이 늦게 닿는 시간, 센서 값의 흔들림이다. 아래 그림의 $\mu$(mu, 뮤)는 바닥이
 미끄러지기 어려운 정도를 나타내는 숫자로, 작을수록 미끄럽다.
 
@@ -411,7 +411,7 @@ Simulation](../mujoco-sim/README.md) 에서 simulation 과 현실의 이런 차�
 
 ### 마찰
 
-발이 바닥을 뒤로 밀어야 로봇이 앞으로 간다. [MuJoCo Simulation](../mujoco-sim/README.md) 의 "마찰 힘의 한계" 에서 본 것처럼 마찰 힘은
+발이 바닥을 뒤로 밀어야 로봇이 앞으로 간다. 마찰 힘은
 $\mu \times (\text{normal force})$ 까지만 생긴다. $\mu$ 는 mu(뮤)라고 읽는 friction coefficient(마찰 계수)로 두 면이 얼마나 미끄러지기
 어려운지를 나타내고, normal force 는 바닥이 발을 수직으로 떠받치는 힘이다. [PPO](../ppo/README.md) 에서는 같은 글자 $\mu$ 를 Gaussian 의
 평균으로 썼지만, 이 강의의 $\mu$ 는 마찰 계수다.
@@ -711,7 +711,7 @@ DR policy 의 observation 에는 바닥의 $\mu$ 가 없다. 그래서 policy �
 
 센서 noise 에 대비하려면 학습할 때부터 observation 에 noise 를 더해 policy 에 준다. simulator 가 아는 정확한 값에 정해 둔 범위 안의 무작위 값을
 더하는 것이다. 예를 들어 몸통 기울기에는 $-0.05$ 와 $+0.05$ rad 사이의 값을 균등분포로 뽑아 더한다. 실제 기울기가 0.10 rad 이고 이번에 뽑힌
-noise 가 $-0.03$ 이면 policy 는 0.07 을 받는다. noise 를 [PPO](../ppo/README.md) 의 Gaussian, 곧 평균 0 인 종 모양 곡선에서 뽑기도 한다.
+noise 가 $-0.03$ 이면 policy 는 0.07 을 받는다. noise 를 Gaussian, 곧 평균 0 인 종 모양 곡선에서 뽑기도 한다.
 
 숫자 묶음마다 noise 크기를 실제 센서에 맞춰 다르게 잡는다. 아래는 흔히 쓰는 크기의 예다.
 

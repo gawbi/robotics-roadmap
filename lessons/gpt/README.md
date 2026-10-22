@@ -52,8 +52,8 @@ vocabulary(쓸 수 있는 token 을 모두 모아 번호를 붙인 목록)의 �
 | 던져 | 1 | $1 \div 10 = 0.1$ |
 
 누군가 "빨간 컵" 까지만 말하고 멈췄을 때 다음 말을 짐작해야 한다면 이 표대로 "집어" 일 가능성이 가장 크다고 답할 수 있다.
-비율은 모두 0 과 1 사이이고 더하면 1 이다. 이런 값을 확률이라고 하고([PyTorch Training Loop](../pytorch-mlp/README.md) 의
-softmax 절), 0.6 은 "10 번 중 6 번쯤" 이라는 정도를 나타낸다.
+비율은 모두 0 과 1 사이이고 더하면 1 이다. 이런 값을 확률이라고 하고,
+0.6 은 "10 번 중 6 번쯤" 이라는 정도를 나타낸다.
 
 이 확률을 기호로는 아래처럼 쓴다.
 
@@ -66,7 +66,7 @@ $p$ 는 probability(확률)의 첫 글자이고, 세로 막대 $\mid$ 는 "~가 
 "빨간 공" 다음이라면 "굴려" 가 높게 나올 것이다.
 
 앞에 나온 token 들을 받아 vocabulary 의 token 하나하나에 "다음에 올 확률" 을 매기는 모델을 language model 이라고 한다. language
-model 이 내는 것은 위와 같은 확률표 한 장이고, [PyTorch Training Loop](../pytorch-mlp/README.md) 에서 본 LLM(large language model,
+model 이 내는 것은 위와 같은 확률표 한 장이고, LLM(large language model,
 엄청난 양의 text 로 학습시킨 거대한 language model)도 하는 일은 이 표를 내는 것뿐이다. 이 강의의 GPT-2 가 그런 language model 이다.
 
 ![빨간 컵 다음에 올 token 의 확률표. 지시문 10 개에서 센 집어 0.6, 놓아 0.2, 밀어 0.1, 던져 0.1 을 막대로 그렸고, 옆에 같은 앞부분에서 language model 이 계산한 확률 0.609, 0.224, 0.136, 0.030 을 나란히 놓았다](figures/next-token-probs.svg)
@@ -106,7 +106,7 @@ $50{,}257 \times 50{,}257 = 2{,}525{,}766{,}049$ 가지, 약 25 억 가지다. �
 | 합 | | 12.124 | 1 (반올림 때문에 0.999) |
 
 $e$ 는 약 2.718 인 정해진 수이고, $e^{z}$ 는 $e$ 를 $z$ 번 곱한 값이다. $z$ 가 음수거나 정수가 아니어도 계산기로 값을 구할 수
-있고, 이 계산은 [Transformer](../transformer/README.md) 의 softmax 절에서 따라가 본 것과 같다. 결과 $[0.609, 0.224, 0.136, 0.030]$ 은 앞 절에서 센
+있다. 결과 $[0.609, 0.224, 0.136, 0.030]$ 은 앞 절에서 센
 $[0.6, 0.2, 0.1, 0.1]$ 과 비슷하다.
 
 network 는 처음 보는 앞부분에도 확률표를 낸다. 비슷한 앞부분은 network 안에서 비슷한 숫자 묶음이 되어 비슷한 확률표로 이어지므로,
@@ -129,7 +129,7 @@ token 이 하나 늘 때마다 10 배가 되므로 세어서 모든 경우를 �
 맞히기에는 이런 준비가 필요 없는데, 정답이 text 안에 이미 들어 있기 때문이다.
 
 지시문 "빨간 컵 집어" 한 문장으로 학습 문제를 만들어 보자. 문장 앞에는 "글이 시작된다" 는 표시 `<bos>` 를, 뒤에는 "글이 끝났다"
-는 표시 `<eos>` 를 붙인다. 둘은 [Transformer](../transformer/README.md) 에서 본 special token(text 에서 배우지 않고 미리 정해
+는 표시 `<eos>` 를 붙인다. 둘은 special token(text 에서 배우지 않고 미리 정해
 vocabulary 에 넣어 두는 token)이다. GPT-2 는 두 자리 모두에 [BPE Tokenizer](../tokenizer/README.md) 에서 본 `<|endoftext|>` 하나를
 쓰지만, 이 강의에서는 구분하기 쉽게 둘을 따로 적는다.
 
@@ -153,7 +153,7 @@ vocabulary 에 넣어 두는 token)이다. GPT-2 는 두 자리 모두에 [BPE T
 사람이 정답을 달지 않고 데이터 자신에서 정답을 만들어 학습하는 방식을 self-supervised learning 이라고 한다. supervised 는 "정답을
 보며 배우는", self 는 "스스로" 라는 뜻이다. 그래서 인터넷에 있는 어떤 글이든 학습 데이터가 된다. GPT-2 는 웹에서 모은 문서 약
 800 만 개, 약 40 GB 의 text(WebText)로 학습했다. GB(gigabyte)는 byte 10 억 개이고, byte 는 0 ~ 255 사이의 숫자 하나를 담는
-단위였다([BPE Tokenizer](../tokenizer/README.md)).
+단위다.
 
 **확인 문제.** "`<bos>` 공 을 집어 `<eos>`" 는 token 5 개다. 이 조각에서 입력과 정답을 만들면 문제가 몇 개 나올까? 마지막 문제의
 입력과 정답은?
@@ -217,7 +217,7 @@ text 말고 다른 입력이 없어서 encoder 가 없기 때문이다.
 
 ### token embedding 과 position embedding
 
-모델에 들어가는 첫 계산은 [Transformer](../transformer/README.md) 의 embedding 이다. token 마다 숫자 몇 개짜리 목록(vector)을 적어
+모델에 들어가는 첫 계산은 embedding 이다. token 마다 숫자 몇 개짜리 목록(vector)을 적어
 둔 표에서 token id 로 행(가로줄) 하나를 꺼낸다. 이 표가 token embedding 표이고, GPT-2 의 가장 작은 모델은 행이 50,257 개, 열이
 768 개다. vector 안 숫자의 개수를 그 vector 의 차원이라고 하므로 token 하나가 768 차원 vector 가 된다.
 
@@ -276,8 +276,8 @@ attention 과 FFN 에 넣는 값에만 적용되고, 더하는 쪽의 $\mathbf{x
 
 LayerNorm 을 sub-layer 앞에 두는 이 배치를 Pre-LN 이라고 한다. 원래 Transformer 처럼 더한 뒤에 LayerNorm 을 하면(Post-LN) 첫 block
 의 입력에서 마지막 block 의 출력까지 가는 길마다 LayerNorm 이 끼어 있지만, Pre-LN 에서는 더하기만으로 이어진 길이 처음부터 끝까지
-남는다. [Transformer](../transformer/README.md) 의 residual connection 절에서 본 것처럼 이 길로 gradient 가 줄지 않고 앞 층까지
-전해지므로, 층을 많이 쌓아도 학습이 안정적이다. 대신 마지막 block 을 지난 vector 는 한 번도 정규화되지 않았으므로, GPT-2 는
+남는다. 더하기는 gradient 를 줄이지 않고 그대로 넘기므로 이 길로 gradient 가 앞 층까지
+전해지고, 층을 많이 쌓아도 학습이 안정적이다. 대신 마지막 block 을 지난 vector 는 한 번도 정규화되지 않았으므로, GPT-2 는
 모든 block 뒤에 LayerNorm 을 하나 더 둔다.
 
 **확인 문제.** $\mathbf{x} = [2, 0]$ 이고 attention 출력이 $[1, 1]$, 그다음 FFN 출력이 $[0, -2]$ 다. block 하나를 지난 $\mathbf{x}$ 는?
@@ -351,7 +351,7 @@ dot product(같은 칸끼리 곱해 모두 더한 값)를 구해 그것을 logit
 위 그림은 $\mathbf{h}$ 가 embedding 표의 행마다 dot product 를 거쳐 logit 이 되는 모습이다.
 
 같은 표를 다시 써도 되는 이유는 두 일이 같은 기준을 쓰기 때문이다. dot product 는 두 vector 가 같은 칸에서 함께 클수록 커지는
-관련도 점수였다([Transformer](../transformer/README.md)). 그래서 출력에서는 embedding 이 $\mathbf{h}$ 와 닮은 token 일수록 높은
+관련도 점수다. 그래서 출력에서는 embedding 이 $\mathbf{h}$ 와 닮은 token 일수록 높은
 logit 을 받고, 입력에서는 뜻이 비슷한 token 일수록 닮은 embedding 을 갖도록 학습된다. 마지막 vector 가 "집어 와 닮은 vector" 가 되면
 집어 의 확률이 올라가는 것이 자연스럽고, 입력과 출력이 token 의 뜻을 같은 숫자 공간에서 다루게 된다.
 
@@ -426,7 +426,7 @@ block 을 몇 번 쌓아도 이 성질이 이어진다.
 그래서 "`<bos>` 빨간 컵 집어" 를 한 번 넣어 계산하는 것은 "`<bos>`", "`<bos>` 빨간", "`<bos>` 빨간 컵", "`<bos>` 빨간 컵 집어" 를
 따로 네 번 넣어 각각 마지막 위치의 확률표를 얻는 것과 결과가 같다. 입력을 받아 출력까지 한 번 계산하는 것을 forward 라고 하는데,
 forward 한 번으로 문제 4 개를 푼다. 정답을 입력으로 한꺼번에 넣어 위치마다 다음 token 을 맞히게 하는 이 학습 방식을
-[Transformer](../transformer/README.md) 에서 teacher forcing 이라고 불렀다.
+teacher forcing 이라고 한다.
 
 GPT-2 처럼 길이 1,024 인 조각을 넣으면 forward 한 번에 문제 1,024 개를 푼다. 학습 때 실제로 글을 쓸 때와 똑같이 앞의 token 만 보고
 맞히면서도, 위치마다 forward 를 따로 하지 않아도 되므로 학습이 훨씬 빠르다.
@@ -451,9 +451,9 @@ GPT-2 처럼 길이 1,024 인 조각을 넣으면 forward 한 번에 문제 1,02
 
 ### 위치마다의 loss
 
-학습은 정답 token 의 확률을 높이는 쪽으로 parameter 를 고치는 일이다. [PyTorch Training Loop](../pytorch-mlp/README.md) 에서
-분류 문제의 loss 로 쓴 cross-entropy 를 위치마다 그대로 쓴다. cross-entropy 는 정답의 확률 $p$ 에 log 를 씌우고 부호를 바꾼
-$-\log p$ 였다. $\log p$ 는 "$e$ 를 몇 제곱해야 $p$ 가 되는가" 의 답이라서 $\log 1 = 0$, $\log 0.5 = -0.693$ 이고, $p$ 가 1 보다
+학습은 정답 token 의 확률을 높이는 쪽으로 parameter 를 고치는 일이다. 분류 문제의
+loss 로 흔히 쓰는 cross-entropy 를 위치마다 그대로 쓴다. cross-entropy 는 정답의 확률 $p$ 에 log 를 씌우고 부호를 바꾼
+$-\log p$ 다. $\log p$ 는 "$e$ 를 몇 제곱해야 $p$ 가 되는가" 의 답이라서 $\log 1 = 0$, $\log 0.5 = -0.693$ 이고, $p$ 가 1 보다
 작으면 음수다. 마이너스를 붙이면 loss 는 0 이상이 되고, 정답 확률이 1 에 가까울수록 0 에 가깝다.
 
 "`<bos>` 빨간 컵 집어" 를 넣었을 때 모델이 위치마다 정답 token 에 준 확률이 아래와 같다고 하자. 위치 3 의 0.609 는 앞에서
@@ -483,8 +483,8 @@ $y_t$ 는 위치 $t$ 의 정답이다. $\sum_{t=1}^{T}$ 는 $t$ 를 1 부터 $T$
 학습이 진행되어 모델이 네 위치 모두에서 정답에 0.9 를 주게 되면 loss 는 위치마다 $-\log 0.9 = 0.105$ 이고 평균도 0.105 다. 정답
 확률이 올라가자 loss 가 0.379 에서 0.105 로 내려갔다.
 
-logits 를 어느 쪽으로 고쳐야 하는지도 [PyTorch Training Loop](../pytorch-mlp/README.md) 의 결과를 그대로 쓴다. logit 의 gradient(조금
-바꿨을 때 loss 가 변하는 비율)는 그 token 의 확률에서, 정답이면 1 을, 아니면 0 을 뺀 값이었다. 위치 3 이라면 집어, 놓아, 밀어,
+logits 를 어느 쪽으로 고쳐야 하는지는 logit 의 gradient 가 알려 준다. softmax 뒤에 cross-entropy 를 쓰면 logit 의 gradient(조금
+바꿨을 때 loss 가 변하는 비율)는 그 token 의 확률에서, 정답이면 1 을, 아니면 0 을 뺀 값이다. 위치 3 이라면 집어, 놓아, 밀어,
 던져 의 gradient 가 $0.609 - 1 = -0.391$, $0.224$, $0.136$, $0.030$ 이다. gradient 의 반대 방향으로 고치므로 정답 "집어" 의 logit
 은 올라가고 나머지는 내려간다.
 
@@ -535,7 +535,7 @@ Shakespeare 희곡을 모은 약 111 만 글자의 text(Tiny Shakespeare)에는 
 
 ### train loss 와 validation loss
 
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서처럼 text 를 나눠 앞 90% 는 학습(train set)에 쓰고, 뒤 10% 는 학습에 쓰지
+text 를 나눠 앞 90% 는 학습(train set)에 쓰고, 뒤 10% 는 학습에 쓰지
 않고 loss 를 재는 데만 쓴다(validation set). validation loss 는 모델이 처음 보는 text 에서 얼마나 잘 맞히는지를 나타낸다.
 
 Tiny Shakespeare 로 글자 단위 GPT(6 block, vector 384 차원, context length 256)를 학습시키면 loss 가 4.17 근처에서 시작해 내려가고,
@@ -590,9 +590,9 @@ Shakespeare 에서 token 하나에 약 3.09 byte 를 담는다.
 ### AdamW 와 weight decay
 
 learning rate 는 gradient 를 보고 parameter 를 한 번에 얼마나 고칠지 정하는 수이고, 그리스 문자 $\eta$ (eta, 에타)로 쓴다.
-parameter 를 한 번 고치는 단위를 step 이라고 한다. [PyTorch Training Loop](../pytorch-mlp/README.md) 의 Adam 은 gradient 를 그 크기로
+parameter 를 한 번 고치는 단위를 step 이라고 한다. Adam 은 gradient 를 그 크기로
 나눠 쓰기 때문에, gradient 가 크든 작든 한 step 에 대략 $\eta$ 씩 parameter 를 움직이는 optimizer(gradient 로 parameter 를 고치는
-규칙)였다.
+규칙)다.
 
 GPT 를 학습시킬 때는 Adam 에 weight decay 를 더한 AdamW 를 흔히 쓴다. weight decay 는 step 마다 parameter 를 자기 크기에 비례해
 조금씩 0 쪽으로 줄이는 것이다.
@@ -678,7 +678,7 @@ warmup 이 끝나면 learning rate 를 다시 줄여 간다. 학습 후반에는
 10 분의 1 이 된다. 그래서 learning rate 를 끝으로 갈수록 줄여 바닥에 가까이 내려앉게 한다.
 
 GPT 는 learning rate 를 cos 곡선의 모양을 따라 줄이는데, 이것을 cosine decay 라고 한다. decay 는 "줄어듦" 이라는 뜻이다.
-cos(코사인)은 [Transformer](../transformer/README.md) 의 positional encoding 에서 본, 넣는 수에 따라 $-1$ 과 1 사이를 오르내리는
+cos(코사인)은 넣는 수에 따라 $-1$ 과 1 사이를 오르내리는
 함수다. 넣는 수가 0 에서 $\pi$ 까지 커지는 동안 cos 는 1 에서 $-1$ 까지 한 번 내려간다. $\pi$ 는 그리스 문자 pi(파이)이고, 원의
 둘레가 지름의 몇 배인지를 나타내는 원주율 약 3.14 다.
 
@@ -837,7 +837,7 @@ sampling 의 다양함을 조절하려고 softmax 전에 logits 를 temperature 
 | $\tau = 2$ | $1.0, 0.5, 0.25, -0.5$ | 2.718, 1.649, 1.284, 0.607 | 6.258 | 0.434, 0.263, 0.205, 0.097 |
 
 $\tau = 0.5$ 로 나누면 logits 가 두 배가 되어 logits 사이의 차이도 두 배가 된다. softmax 의 weight 를 정하는 것은 점수의 크기가
-아니라 점수끼리의 차이였으므로([Transformer](../transformer/README.md) 의 softmax 절), 차이가 커지면 가장 큰 token 에 확률이 더
+아니라 점수끼리의 차이라서(모든 점수에 같은 수를 더하면 $e^{z}$ 가 모두 같은 배수로 커져 비율은 그대로다), 차이가 커지면 가장 큰 token 에 확률이 더
 몰린다. 집어 의 확률이 0.609 에서 0.842 로 올랐다. 반대로 $\tau = 2$ 로 나누면 차이가 절반이 되어 확률이 고르게 퍼지고, 던져 의 확률이
 0.030 에서 0.097 로 세 배 넘게 올랐다.
 
@@ -967,8 +967,8 @@ $12 \times 8^2 = 12 \times 64 = 768$ 개이고, 6 개면 $768 \times 6 = 4{,}608
 
 ### 크기가 뜻하는 것
 
-parameter 하나는 보통 float32 로 저장한다. float32 는 숫자 하나를 bit(0 또는 1 하나를 담는 자리) 32 개, 곧 4 byte 에 담는 방식이었다
-([PyTorch Training Loop](../pytorch-mlp/README.md)). 그래서 가장 작은 모델의 weight 는 $124{,}439{,}808 \times 4 = 497{,}759{,}232$
+parameter 하나는 보통 float32 로 저장한다. float32 는 숫자 하나를 bit(0 또는 1 하나를 담는 자리) 32 개, 곧 4 byte 에 담는 방식이다.
+그래서 가장 작은 모델의 weight 는 $124{,}439{,}808 \times 4 = 497{,}759{,}232$
 byte, 약 500 MB 이고, 가장 큰 모델은 약 $1{,}557{,}611{,}200 \times 4 \approx 62$ 억 byte, 약 6.2 GB 다. MB(megabyte)는 byte 100 만
 개다. 모델을 쓰려면 이만큼을 메모리에 올려야 하고, token 하나를 만들 때마다 이 숫자들이 거의 모두 곱셈에 한 번씩 쓰인다.
 

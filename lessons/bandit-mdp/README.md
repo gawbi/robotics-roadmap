@@ -90,7 +90,7 @@ environment 라고 한다. 로봇 청소기 예에서는 청소기 안에서 방
 | 1 | 1 번 칸 | 오른쪽 | 2 번 칸 | 0 |
 | 2 | 2 번 칸 | 오른쪽 | 3 번 칸(충전기) | +1, episode 끝 |
 
-**흔한 오해.** step 이라는 말은 [Linear Regression](../linear-regression/README.md) 에서 "parameter 를 한 번 고치는 것" 을 뜻했다.
+**흔한 오해.** step 이라는 말은 gradient descent 에서는 "parameter 를 한 번 고치는 것" 을 뜻한다.
 RL 에서 step 은 "agent 가 action 을 한 번 하고 결과를 받는 것" 이다. 둘은 다른 뜻이라서, 이 강의에서 step 은 모두 action 한 번을
 가리킨다.
 
@@ -138,7 +138,7 @@ $P(\cdot)$ 를 쓰는데, P 는 probability(확률)의 첫 글자다. 기계 B �
 
 ### 기댓값
 
-평균은 숫자들을 모두 더한 뒤 개수로 나눈 값이다([Linear Regression](../linear-regression/README.md) 에서 쓴 것과 같다). 3, 5, 4
+평균은 숫자들을 모두 더한 뒤 개수로 나눈 값이다. 3, 5, 4
 의 평균은 $(3 + 5 + 4) \div 3 = 4$ 다.
 
 주사위를 600 번 던져 1 부터 6 까지가 정확히 100 번씩 나왔다고 하자. 나온 눈을 모두 더하면
@@ -166,8 +166,8 @@ $$
 A 보다 B 가 낫다.
 
 기댓값은 기호로 $\mathbb E[\cdot]$ 라고 쓰며, E 는 expectation(기댓값)의 첫 글자다. 기계 B 가 주는 동전 수를 $r$ 이라고 하면
-$\mathbb E[r] = 2$ 로 적고 "r 의 기댓값은 2" 라고 읽는다. 결과마다 값 × 확률을 더한다는 정의를 [Linear Regression](../linear-regression/README.md)
-의 $\Sigma$(sigma, 시그마, "모두 더하라" 는 기호)로 쓰면 아래와 같다.
+$\mathbb E[r] = 2$ 로 적고 "r 의 기댓값은 2" 라고 읽는다. 결과마다 값 × 확률을 더한다는 정의를
+$\Sigma$(sigma, 시그마, "모두 더하라" 는 기호)로 쓰면 아래와 같다.
 
 $$
 \mathbb E[r] = \sum_{\text{결과 } x} x \times P(x)
@@ -295,9 +295,9 @@ $n$ 은 4 이고, 4 를 $\frac{1}{4} \times (0 - 4) = -1$ 만큼 옮겨 3 이 �
 $0.8 + \frac{1}{3}(0.8 - 0.8) = 0.8$, $0.8 + \frac{1}{4}(1.6 - 0.8) = 1.0$ 이 되고, 마지막 값은 네 값의 평균
 $(1.2 + 0.4 + 0.8 + 1.6) \div 4 = 1.0$ 과 같다.
 
-"새 값 = 옛 값 + 크기 × (목표 − 옛 값)" 이라는 모양은 이 강의 내내 다시 나온다. [Linear Regression](../linear-regression/README.md)
-의 gradient descent(loss 가 줄어드는 쪽으로 parameter 를 조금씩 고치는 방법)도 parameter 를 learning rate(한 번에 고치는 크기)
-만큼씩 옮겼는데, 여기서는 $\frac{1}{n}$ 이 그 크기 역할을 하고
+"새 값 = 옛 값 + 크기 × (목표 − 옛 값)" 이라는 모양은 이 강의 내내 다시 나온다.
+gradient descent(loss 가 줄어드는 쪽으로 parameter 를 조금씩 고치는 방법)도 parameter 를 learning rate(한 번에 고치는 크기)
+만큼씩 옮기는데, 여기서는 $\frac{1}{n}$ 이 그 크기 역할을 하고
 당길수록 작아진다.
 
 **확인 문제.** 두 번 당겨 $Q = 3$ 이 된 기계를 세 번째로 당겨 reward 6 을 받았다. 새 $Q$ 는?
@@ -1029,8 +1029,8 @@ $$
   $Q$ 를 $\gamma$ 로 깎은 값" 을 더한 것이다. $a'$ 은 "에이 프라임" 이라고 읽고 도착한 칸에서 고를 action 을 가리킨다
 - target 에서 지금 값 $Q(s, a)$ 를 뺀 차이를 TD error 라고 한다. TD 는 temporal difference(시간 차이)의 줄임말로, 지금의 추정과
   한 step 뒤에 다시 본 추정 사이의 차이라는 뜻이다
-- $\alpha$ 는 그리스 문자 alpha(알파)이고, TD error 의 몇 분의 일만큼 옮길지 정하는 learning rate 다. [Linear Regression](../linear-regression/README.md)
-  에서 $\eta$(eta, 에타)로 쓴 것과 같은 역할이다
+- $\alpha$ 는 그리스 문자 alpha(알파)이고, TD error 의 몇 분의 일만큼 옮길지 정하는 learning rate 로,
+  gradient descent 에서 $\eta$(eta, 에타)로 쓰는 것과 같은 역할이다
 - $s'$ 이 terminal state 이면 그 뒤에 받을 reward 가 없으므로 target 은 $r$ 하나뿐이다
 
 $Q(s, a) = 0.5$ 인 칸에서 reward $r = 0$ 을 받고, 도착한 칸의 $Q$ 가운데 가장 큰 값이 1.0 이며, $\gamma = 0.9$, $\alpha = 0.1$ 이라고

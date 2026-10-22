@@ -423,10 +423,10 @@ Jacobian 이다.
 
 ### joint 하나를 조금 돌렸을 때의 손끝 이동
 
-[Linear Regression](../linear-regression/README.md) 에서 gradient 를 처음 구할 때는 $w$ 를 0.01 만큼 늘려 보고 "변한 loss ÷ 변한
-$w$" 를 계산했다. 같은 일을 팔에 해 본다. 이번에 바꾸는 것은 joint angle 이고, 결과로 보는 것은 손끝의 $x$ 와 $y$ 다.
+값을 조금 바꿨을 때 결과가 변하는 비율은 그 값을 0.01 처럼 조금 늘려 보고 "변한 결과 ÷ 변한 값" 을 계산해 구할 수
+있다. 같은 일을 팔에 해 본다. 이번에 바꾸는 것은 joint angle 이고, 결과로 보는 것은 손끝의 $x$ 와 $y$ 다.
 
-각도를 조금 바꿀 때는 도(°) 대신 rad(radian, 라디안)을 쓴다. FK 강의에서 본 것처럼 radian 은 반지름 1 인 원에서 그 각도만큼 돈
+각도를 조금 바꿀 때는 도(°) 대신 rad(radian, 라디안)을 쓴다. radian 은 반지름 1 인 원에서 그 각도만큼 돈
 둘레의 길이로 각도를 재는 단위이고, $180° = \pi \approx 3.1416$ rad 이다. 0.01 rad 은 약 $0.573°$ 다. radian 을 쓰면 반지름
 $r$ 인 원 위의 점이 $\Delta\theta$ rad 돌 때 움직인 거리가 $r \times \Delta\theta$ 로 바로 나와서 계산이 간단해진다. $\Delta$ 는
 그리스 문자 delta(델타)로, "변한 양" 을 나타낼 때 쓴다.
@@ -440,7 +440,7 @@ FK 로 손끝을 다시 구한다.
 | 손끝 $y$ | 1 | 1.00995 | $+0.00995$ | $+0.995$ |
 
 $\theta_1$ 을 1 rad 만큼 늘리면 손끝의 $x$ 는 약 1 만큼 줄고 $y$ 는 약 1 만큼 는다는 뜻이다. 늘리는 양을 0.01 보다 더 줄이거나,
-LR 강의의 central difference(양쪽으로 0.01 씩 옮긴 두 값의 차이를 0.02 로 나누는 방법)를 쓰면 비율은 $-1$ 과 $+1$ 에 다가간다.
+central difference(양쪽으로 0.01 씩 옮긴 두 값의 차이를 0.02 로 나누는 방법)를 쓰면 비율은 $-1$ 과 $+1$ 에 다가간다.
 
 $\theta_1$ 을 되돌리고 이번에는 $\theta_2$ 만 0.01 rad 늘린다.
 
@@ -451,7 +451,7 @@ $\theta_1$ 을 되돌리고 이번에는 $\theta_2$ 만 0.01 rad 늘린다.
 
 $\theta_2$ 를 늘리면 손끝은 거의 $x$ 쪽으로만 줄어든다. 늘리는 양을 줄이면 비율은 $-1$ 과 $0$ 에 다가간다.
 
-LR 강의처럼 다른 값을 고정하고 하나만 바꿔 구한 비율을 partial derivative(편미분값)라 하고, $\frac{\partial x}{\partial \theta_1}$
+다른 값을 고정하고 하나만 바꿔 구한 비율을 partial derivative(편미분값)라 하고, $\frac{\partial x}{\partial \theta_1}$
 처럼 쓴다. "파셜 x 파셜 세타 원" 이라고 읽으며, "$\theta_2$ 는 고정하고 $\theta_1$ 만 조금 바꿨을 때 $x$ 가 변하는 비율" 이라는
 뜻이다. 위 두 표를 이 기호로 적으면 $\frac{\partial x}{\partial \theta_1} = -1$, $\frac{\partial y}{\partial \theta_1} = 1$,
 $\frac{\partial x}{\partial \theta_2} = -1$, $\frac{\partial y}{\partial \theta_2} = 0$ 이다.
@@ -475,7 +475,7 @@ joint 1 을 중심으로 원을 그리고, joint 2 만 돌리면 link 2 만 팔�
 돌린 것" 이 그 joint 의 비율이 된다. 방향은 직각이고, 길이는 반지름 $r$ 그대로이기 때문이다. vector 는 $(1, 1)$ 처럼 숫자를 순서대로
 묶은 것으로, 여기서는 "가로로 1, 세로로 1 만큼 가는 칸" 을 뜻한다.
 
-FK 강의에서 점을 $\theta$ 만큼 돌리는 숫자 표로 쓴 rotation matrix $R(\theta)$ 로 $(a, b)$ 를 $90°$ 돌리면 $(a\cos 90° - b\sin 90°,\ a\sin 90° + b\cos 90°) = (-b, a)$ 다.
+점을 $\theta$ 만큼 돌리는 숫자 표인 rotation matrix $R(\theta)$ 로 $(a, b)$ 를 $90°$ 돌리면 $(a\cos 90° - b\sin 90°,\ a\sin 90° + b\cos 90°) = (-b, a)$ 다.
 "두 칸을 맞바꾸고 앞 칸에 마이너스를 붙인다" 로 기억하면 된다.
 
 | joint | 회전 중심 | 중심에서 손끝까지의 칸 | $90°$ 돌린 칸 = 비율 |
@@ -558,8 +558,8 @@ $(-0.01, 0.02)$ 다.
 ### 선형 근사가 맞는 범위
 
 $\Delta\mathbf p \approx J\Delta\mathbf q$ 의 $\approx$ 는 "joint 를 조금만 돌렸을 때" 에만 맞는다. 손끝은 실제로 원을 따라 휘어
-가는데, Jacobian 은 그 원에 닿는 직선(접선) 방향으로 곧게 간다고 보기 때문이다. LR 강의에서 derivative(값을 아주 조금 바꿨을 때의
-변화 비율)를 곡선 위 한 점의 접선 기울기로 본 것과 같다. 이렇게 휘어진 관계를 한 점 근처에서 직선 관계로 바꿔 보는 것을 선형 근사(linear approximation)라고 한다.
+가는데, Jacobian 은 그 원에 닿는 직선(접선) 방향으로 곧게 간다고 보기 때문이다. derivative(값을 아주 조금 바꿨을 때의
+변화 비율)가 곡선 위 한 점의 접선 기울기인 것과 같다. 이렇게 휘어진 관계를 한 점 근처에서 직선 관계로 바꿔 보는 것을 선형 근사(linear approximation)라고 한다.
 
 자세 $(0°, 90°)$ 에서 $\Delta\mathbf q$ 를 키워 가며 예측과 실제를 비교한다.
 
@@ -613,7 +613,7 @@ $(-\sin 90°, \cos 90°) = (-1, 0)$ 이다. 팔이 똑바로 위로 서 있어�
 ### 3 차원 팔의 Jacobian
 
 3 차원 팔에서도 "joint 하나만 돌 때 손끝이 움직이는 속도" 를 열로 쌓는 생각은 같다. 다만 joint 마다 도는 축 방향이 달라서
-"$90°$ 돌리기" 대신 [Rigid Transforms](../transforms/README.md) 에서 본 cross product(외적)를 쓴다. cross product $\mathbf a \times \mathbf b$
+"$90°$ 돌리기" 대신 cross product(외적)를 쓴다. cross product $\mathbf a \times \mathbf b$
 는 두 3D vector 에 모두 직각인 vector 를 만드는 계산이다. 축 방향을 길이 1 인 vector $\hat\omega_i$ 로, joint 축 위의 한 점을
 $\mathbf p_i$, 손끝을 $\mathbf p_e$ 로 쓰면 joint $i$ 의 열은 아래와 같다. $\hat\omega$ 는 omega(오메가) 위에 길이 1 표시인
 모자를 씌운 것이다.
@@ -670,7 +670,7 @@ $$
 자세 $(0°, 90°)$ 에서 손끝은 $(1, 1)$ 이고, 목표를 $\mathbf p_d = (0.5, 1.5)$ 로 두면 $\mathbf e = (0.5 - 1, 1.5 - 1) = (-0.5, 0.5)$
 다. 손끝을 왼쪽으로 0.5, 위로 0.5 옮겨야 한다는 뜻이다. 남은 거리는 피타고라스 정리로 $\sqrt{0.5^2 + 0.5^2} = \sqrt{0.5} \approx 0.707$
 이고, 이 거리를 $\lVert\mathbf e\rVert$ 로 적는다. $\sqrt{\ }$ 는 제곱해서 안의 수가 되는 양수를 뜻하고, 세로 두 줄 $\lVert\ \rVert$ 은
-vector 의 길이를 뜻한다. LR 강의의 오차가 "예측 − 정답" 이었던 것과 달리, 여기서는 "목표 − 지금" 으로 정의해서 $\mathbf e$ 가 손끝이
+vector 의 길이를 뜻한다. 오차를 흔히 "예측 − 정답" 으로 적는 것과 달리, 여기서는 "목표 − 지금" 으로 정의해서 $\mathbf e$ 가 손끝이
 가야 할 방향을 바로 가리키게 했다.
 
 **확인 문제.** 손끝이 $(1.2, 0.4)$ 에 있고 목표가 $(1, 1)$ 이면 오차 vector 와 남은 거리는?
@@ -695,7 +695,7 @@ $$
 1 \times \Delta\theta_1 + 0 \times \Delta\theta_2 = 0.5
 $$
 
-식 여러 개를 동시에 만족하는 값을 찾는 것이 연립방정식이고, LR 강의의 normal equation 에서 한 번 풀어 봤다. 한 단계씩 푼다.
+식 여러 개를 동시에 만족하는 값을 찾는 것이 연립방정식이다. 한 단계씩 푼다.
 
 1. 둘째 식에서 바로 $\Delta\theta_1 = 0.5$ 다
 2. 첫째 식에 넣으면 $-0.5 - \Delta\theta_2 = -0.5$ 다
@@ -745,7 +745,7 @@ step 이라 하고, 시작 자세를 step 0 이라고 부른다.
 
 위 그림은 한 step 을 상자로 나눈 것으로, 각 칸에 step 0 의 숫자를 적었다. 지금 joint angle(①)로 FK 를 계산해 손끝(②)과
 오차(③)를 구하고, 같은 자리의 Jacobian 을 구하고(④), $J\Delta\mathbf q = \mathbf e$ 를 풀어(⑤) joint angle 을 고친다(⑥). 오차가 충분히
-작아질 때까지 이 고리를 돈다. LR 강의의 학습 loop(예측 → loss → gradient → update)와 같은 구조다.
+작아질 때까지 이 고리를 돈다. 모델을 학습하는 loop(예측 → loss → gradient → update)와 같은 구조다.
 
 이렇게 식을 직선으로 근사해 한 번에 풀고, 그 자리에서 다시 근사하기를 되풀이하는 방법을 Newton 법(Newton's method)이라고 부른다.
 
@@ -855,15 +855,15 @@ $$
 $\alpha$ 는 alpha(알파)로, 한 번에 얼마나 움직일지 정하는 작은 양수다. 이 식은 "오차 vector 에 Jacobian 의 transpose 를 곱하고,
 $\alpha$ 를 곱한 만큼 joint 를 돌린다" 로 읽는다. 이 방법을 Jacobian transpose 법이라고 한다.
 
-이 식은 LR 강의의 gradient descent 와 같은 식이다. LR 강의에서 loss 는 모델이 얼마나 틀렸는지를 숫자 하나로 나타낸 값이었고,
-gradient descent 는 loss 가 변하는 비율을 모은 gradient 의 반대 방향으로 parameter 를 조금씩 고치기를 되풀이하는 방법이었다.
+이 식은 gradient descent 와 같은 식이다. loss 는 모델이 얼마나 틀렸는지를 숫자 하나로 나타낸 값이고,
+gradient descent 는 loss 가 변하는 비율을 모은 gradient 의 반대 방향으로 parameter 를 조금씩 고치기를 되풀이하는 방법이다.
 IK 에서는 고칠 값이 joint angle 이고, loss 를 "남은 거리의 제곱의 절반" 으로 정한다.
 
 $$
 L = \tfrac{1}{2}\lVert\mathbf e\rVert^2 = \tfrac{1}{2}(e_x^2 + e_y^2)
 $$
 
-$e_x$, $e_y$ 는 오차 vector 의 두 칸이다. $\frac{1}{2}$ 은 미분할 때 나오는 2 를 지우려고 붙였다. LR 강의의 chain rule(한 값이 중간
+$e_x$, $e_y$ 는 오차 vector 의 두 칸이다. $\frac{1}{2}$ 은 미분할 때 나오는 2 를 지우려고 붙였다. chain rule(한 값이 중간
 값을 거쳐 다른 값에 영향을 줄 때 칸마다의 비율을 곱하는 규칙)로 $\frac{\partial L}{\partial \theta_1}$ 을 따라가면 아래와 같다.
 
 1. $\theta_1$ 을 1 늘리면 손끝 $x$ 는 $\frac{\partial x}{\partial \theta_1}$ 만큼 늘고, $e_x = x_d - x$ 는 그만큼 준다. 그래서 $e_x$ 의
@@ -873,7 +873,7 @@ $e_x$, $e_y$ 는 오차 vector 의 두 칸이다. $\frac{1}{2}$ 은 미분할 �
 
 괄호 안은 $J$ 의 첫째 열과 $\mathbf e$ 를 같은 자리끼리 곱해 더한 값, 곧 $J^\top\mathbf e$ 의 첫째 칸이다. 그래서 gradient 는
 $-J^\top\mathbf e$ 이고, gradient descent 의 update $\mathbf q \leftarrow \mathbf q - \alpha \times (-J^\top\mathbf e)$ 가 바로
-$\mathbf q \leftarrow \mathbf q + \alpha J^\top\mathbf e$ 다. $\alpha$ 는 LR 강의의 learning rate $\eta$ 와 같은 역할이다.
+$\mathbf q \leftarrow \mathbf q + \alpha J^\top\mathbf e$ 다. $\alpha$ 는 gradient descent 의 learning rate $\eta$ 와 같은 역할이다.
 
 숫자로 확인한다. $(0°, 90°)$, $\mathbf e = (-0.5, 0.5)$ 에서 $L = \frac{1}{2}(0.25 + 0.25) = 0.25$ 다.
 
@@ -913,7 +913,7 @@ $\Delta\mathbf q = 0.5 \times (0.2, -0.2) = (0.1, -0.1)$ 이다.
 | 40 | | | | 0.0004 |
 
 남은 거리가 꾸준히 줄지만 pseudo-inverse 가 step 3 에 0.00009 에 닿은 것과 달리 step 40 에도 0.0004 다. 오차가 작아지면 $J^\top\mathbf e$
-도 함께 작아져 움직임이 줄기 때문이다. LR 강의에서 가장 낮은 점에 가까울수록 gradient 가 작아져 천천히 수렴한 것과 같다.
+도 함께 작아져 움직임이 줄기 때문이다. gradient descent 가 loss 의 가장 낮은 점에 가까울수록 gradient 가 작아져 천천히 수렴하는 것과 같다.
 
 $\alpha$ 를 키우면 빨라질 것 같지만 그렇지 않다.
 
@@ -923,7 +923,7 @@ $\alpha$ 를 키우면 빨라질 것 같지만 그렇지 않다.
 목표를 지나쳐 $(-0.457, 0.912)$ 로 가고, 남은 거리가 1.123 으로 오히려 커진다. 그 뒤로도 0.4 와 1.7 사이를 오가며 줄지 않는다.
 $\alpha = 2$ 이면 남은 거리가 1.9, 2.1, 1.5, 2.6, 3.4 처럼 커지며 팔이 엉뚱한 자세로 돈다.
 
-**흔한 오해.** $\alpha$ 를 크게 잡으면 빨리 수렴한다고 생각하기 쉽다. LR 강의의 learning rate 처럼, 한 번에 너무 크게 움직이면
+**흔한 오해.** $\alpha$ 를 크게 잡으면 빨리 수렴한다고 생각하기 쉽다. gradient descent 의 learning rate 처럼, 한 번에 너무 크게 움직이면
 선형 근사가 맞지 않는 거리까지 가서 목표를 지나치고 되돌아오기를 되풀이한다. 위 표에서 $\alpha = 0.5$ 는 수렴하지만 $\alpha = 1$
 은 수렴하지 않는다.
 
@@ -1088,7 +1088,7 @@ $$
 "줄인, 누그러뜨린" 이라는 뜻으로, least squares 의 해가 지나치게 커지지 않게 누른다는 의미다. 1986년 Nakamura·Hanafusa 와
 Wampler 가 각각 제안했다.
 
-가장 작은 점에서는 기울기(derivative)가 0 이다. LR 강의의 규칙으로 $f$ 를 $\Delta$ 로 미분해 0 으로 놓고 한 줄씩 푼다.
+가장 작은 점에서는 기울기(derivative)가 0 이다. $f$ 를 $\Delta$ 로 미분해 0 으로 놓고 한 줄씩 푼다.
 
 1. $(\sigma\Delta - e)^2$ 의 derivative 는 chain rule 로 $2(\sigma\Delta - e) \times \sigma$ 다
 2. $\lambda^2\Delta^2$ 의 derivative 는 $2\lambda^2\Delta$ 다
@@ -1309,7 +1309,7 @@ $$
 $$
 
 윗칸은 위치 오차다. 아랫칸은 방향 오차로, 지금 방향을 나타내는 rotation matrix $R$ 에서 목표 방향 $R_d$ 까지 더 돌아야 하는
-회전 $R_d R^\top$ 을 [Rigid Transforms](../transforms/README.md) 의 log(rotation matrix 에서 rotation vector 를 꺼내는 계산)로 바꾼 것이다. rotation vector 는 회전축
+회전 $R_d R^\top$ 을 [Rigid Transforms](../transforms/README.md) 에서 본 log(rotation matrix 에서 rotation vector 를 꺼내는 계산)로 바꾼 것이다. rotation vector 는 회전축
 방향을 가리키고 길이가 회전 각도인 숫자 3 개다. 이 6 칸짜리 오차에 $6 \times n$ Jacobian 을 써서 앞과 같은 반복 계산을 한다.
 
 위치 오차는 m 단위이고 방향 오차는 rad 단위라서, 한 vector 에 넣으면 단위가 섞인다. 위치가 0.01 m(1 cm) 틀린 것과 방향이 0.01 rad

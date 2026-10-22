@@ -116,7 +116,7 @@ translation(평행 이동)이라고 한다.
 
 ### vector 덧셈
 
-[Linear Regression](../linear-regression/README.md) 에서 순서를 정해 늘어놓은 숫자 묶음을 vector 라고 했다. 좌표 $(3, 1)$ 도
+순서를 정해 늘어놓은 숫자 묶음을 vector 라고 한다. 좌표 $(3, 1)$ 도
 vector 이고, "오른쪽으로 3, 위로 1 가는 화살표" 로 그릴 수 있다. 화살표로 그린 vector 는 어디에서 출발하든 같은 vector 다.
 출발점과 상관없이 "오른쪽 3, 위 1" 만큼 가는 움직임 하나를 나타내기 때문이다.
 
@@ -222,7 +222,7 @@ $450° = 360° + 90°$ 라서 한 바퀴 돈 뒤 90° 를 더 돈 것이다. 위
 
 원점을 중심으로 반지름이 1 인 원을 그린다. 반지름은 원의 중심에서 원 위의 점까지의 거리이고, 반지름이 1 인 이 원을 단위원(unit
 circle)이라고 한다. 단위원 위의 $(1, 0)$ 에서 출발해 원을 따라 시계 반대 방향으로 각도 $\theta$ 만큼 가면 원 위의 한 점에 닿는다.
-$\theta$ 는 그리스 문자 theta(세타)로, 각도를 나타낼 때 흔히 쓴다. [Linear Regression](../linear-regression/README.md) 에서는
+$\theta$ 는 그리스 문자 theta(세타)로, 각도를 나타낼 때 흔히 쓴다. machine learning 에서는
 parameter 묶음을 $\boldsymbol\theta$ 로 적었지만 이 강의의 $\theta$ 는 늘 각도다.
 
 그 점의 가로 좌표를 $\cos\theta$, 세로 좌표를 $\sin\theta$ 라고 부른다. 각각 "코사인 세타", "사인 세타" 라고 읽는다. 각도를 넣으면
@@ -479,8 +479,8 @@ $x' = 1 \times 0.866 - 2 \times 0.5 = -0.134$, $y' = 1 \times 0.5 + 2 \times 0.8
 
 ### rotation matrix
 
-[Linear Regression](../linear-regression/README.md) 에서 행렬은 숫자를 가로줄(행)과 세로줄(열)로 늘어놓은 묶음이고, 행렬과
-vector 의 곱은 행렬의 각 행과 vector 의 내적(같은 자리끼리 곱해 더한 값)을 차례로 세로로 쌓은 것이었다. rotation 공식의 두 줄은
+행렬은 숫자를 가로줄(행)과 세로줄(열)로 늘어놓은 묶음이고, 행렬과
+vector 의 곱은 행렬의 각 행과 vector 의 내적(같은 자리끼리 곱해 더한 값)을 차례로 세로로 쌓은 것이다. rotation 공식의 두 줄은
 이 곱 하나로 적을 수 있다.
 
 $$
@@ -559,8 +559,8 @@ R(-30°) = \begin{bmatrix} 0.866 & 0.5 \\ -0.5 & 0.866 \end{bmatrix}
 $$
 
 $R(30°)$ 와 비교하면 첫째 행이 첫째 열로, 둘째 행이 둘째 열로 자리를 바꾼 모양이다.
-[Linear Regression](../linear-regression/README.md) 에서 이렇게 행과 열을 맞바꾼 행렬을 transpose(전치)라 하고 $R^\top$ 으로
-적었다. 그래서
+이렇게 행과 열을 맞바꾼 행렬을 transpose(전치)라 하고 $R^\top$ 으로
+적는다. 그래서
 
 $$
 R(-\theta) = R(\theta)^\top
@@ -1311,8 +1311,8 @@ $$
 $$
 
 이다. 길이를 확인하면 $0.577^2 \times 3 = 0.333 \times 3 \approx 1$ 이다. $\omega$ 는 그리스 문자 omega(오메가)이고, 위의 모자
-$\hat{\ }$ 는 길이가 1 인 vector 라는 표시다. [Linear Regression](../linear-regression/README.md) 에서 $\hat y$ 의 모자는
-"예측값" 이라는 표시였으니, 같은 모자라도 문맥마다 뜻이 다르다.
+$\hat{\ }$ 는 길이가 1 인 vector 라는 표시다. 예측값을 $\hat y$ 로 적을 때도
+같은 모자를 쓰니, 모자의 뜻은 문맥마다 다르다.
 
 **확인 문제.** $(0, 3, 4)$ 를 unit vector 로 만들어라.
 
@@ -1415,7 +1415,7 @@ rotation 이고, rotation 하나에 quaternion 이 두 개씩 있다. 이 점은
 ### cross product
 
 두 quaternion 을 곱하는 공식에는 두 3D vector 의 cross product(외적)가 들어간다. cross product $\mathbf a \times \mathbf b$ 는 두 vector
-모두와 직각인 vector 를 만드는 계산이다. [Linear Regression](../linear-regression/README.md) 에서처럼 굵은 글자 $\mathbf a$ 는
+모두와 직각인 vector 를 만드는 계산이다. 굵은 글자 $\mathbf a$ 는
 vector 다.
 
 $$

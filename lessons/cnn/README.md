@@ -108,8 +108,7 @@ channel 3 장 × 세로 32 × 가로 32 이므로 $3 \times 32 \times 32 = 3 \ti
 
 ### MLP 와 펼친 입력
 
-neural network 는 neuron(뉴런)이라는 작은 계산 단위를 여러 층으로 이어 만든 모델로, 선수 강의 [Backpropagation](../autograd/README.md)
-과 [PyTorch Training Loop](../pytorch-mlp/README.md) 에서 다뤘다. neuron 하나는 입력마다 weight 를 곱해 모두 더하고 bias 를 더한 값 $z$ 를 계산한다. weight 는
+neural network 는 neuron(뉴런)이라는 작은 계산 단위를 여러 층으로 이어 만든 모델이다. neuron 하나는 입력마다 weight 를 곱해 모두 더하고 bias 를 더한 값 $z$ 를 계산한다. weight 는
 입력마다 곱하는 숫자이고, bias 는 마지막에 더하는 숫자다. 입력이 $x_1 = 2$, $x_2 = 3$ 이고 weight 가 $w_1 = 1$, $w_2 = -1$,
 bias 가 $b = 4$ 이면 $z = 1 \times 2 + (-1) \times 3 + 4 = 3$ 이다. 같은 입력을 받는 neuron 을 여러 개 나란히 둔 것이 layer(층)이고,
 layer 를 여러 겹 쌓은 network 가 MLP(multi-layer perceptron)다. weight 와 bias 처럼 학습으로 정하는 숫자를 parameter 라고 한다.
@@ -240,7 +239,7 @@ window 와 filter 에서 같은 자리에 있는 숫자끼리 곱한다. 9 자�
 ![5×5 입력의 왼쪽 위 3×3 window 와 3×3 filter 를 칸끼리 곱하면 9 개의 곱이 나오고, 모두 더한 −1 이 출력의 왼쪽 위 칸이 된다](figures/conv-first.svg)
 
 위 그림은 같은 계산을 한 장에 담은 것이다. 파란 테두리가 window, 주황 숫자가 filter, 가운데 판이 칸끼리 곱한 값이고, 그 9 개를
-더한 값이 초록 칸에 들어간다. 계산은 [Perceptron](../perceptron/README.md) 의 "입력마다 weight 를 곱해 더하기" 와 똑같고, filter 의
+더한 값이 초록 칸에 들어간다. 계산은 neuron 의 "입력마다 weight 를 곱해 더하기" 와 똑같고, filter 의
 숫자 9 개가 weight 역할을 한다.
 
 **확인 문제.** window 가 $\begin{bmatrix} 0 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 1 & 0 \end{bmatrix}$ 처럼 가운데 세로줄만 흰색이면 위
@@ -344,7 +343,7 @@ $$
 
 세로선 filter 와 가로선 filter 는 사람이 숫자를 골라 만든 것이다. CNN 에서는 filter 의 숫자를 사람이 정하지 않고, MLP 의 weight
 처럼 parameter 로 두고 학습한다. 처음에는 아무 숫자로 시작하고, 모델이 정답에서 얼마나 틀렸는지를 숫자 하나로 나타낸 loss 를 줄이는 쪽으로 filter 숫자를
-조금씩 고친다. [Linear Regression](../linear-regression/README.md) 에서 직선의 $w$, $b$ 를 고친 gradient descent 와 같은 방법이다.
+조금씩 고친다. 이 방법을 gradient descent 라고 한다.
 
 학습에는 정답이 필요한데, 정답은 filter 마다 있지 않다. "첫 층에는 세로선 filter 가 와야 한다" 같은 정답은 어디에도 없고, 정답은
 사진 한 장마다 붙은 숫자 하나뿐이다. [PyTorch Training Loop](../pytorch-mlp/README.md) 에서 쓴 MNIST 는 손글씨 사진마다 사람이
@@ -484,7 +483,7 @@ y[i, j] = \sum_{u=0}^{2} \sum_{v=0}^{2} K[u, v] \times x[i + u,\; j + v] + b
 $$
 
 $\Sigma$ 는 sigma(시그마)라고 읽고 "아래 번호부터 위 번호까지 바꿔 가며 모두 더하라" 는 기호다.
-[Linear Regression](../linear-regression/README.md) 에서 본 그 기호이고, 여기서는 두 번 겹쳐 있어서 $u$ 를 0·1·2, $v$ 를 0·1·2 로
+여기서는 두 번 겹쳐 있어서 $u$ 를 0·1·2, $v$ 를 0·1·2 로
 바꿔 가며 9 가지 조합을 모두 더한다. 기호를 하나씩 읽으면 아래와 같다.
 
 | 기호 | 뜻 | $y[0, 1] = 5$ 를 계산할 때 |
@@ -837,7 +836,7 @@ $\max(0, z)$ 는 "0 과 $z$ 중 큰 값" 이다. $\text{ReLU}(5) = 5$, $\text{Re
 
 층 사이에 ReLU 가 필요한 이유는 곱해 더하기만 여러 번 쌓으면 결국 곱해 더하기 한 번과 같아지기 때문이다. 입력에 2 를 곱하는 층
 뒤에 3 을 곱하는 층을 이으면 입력에 6 을 곱하는 층 하나와 같은 식이 되지만, 사이에 ReLU 가 있으면 음수 입력에서는 0 이 나와서
-하나로 합쳐지지 않는다. [Backpropagation](../autograd/README.md) 에서 neuron 마다 붙인 sigmoid 도 층 사이에서 이렇게 꺾이는 역할을
+하나로 합쳐지지 않는다. neuron 마다 붙이는 sigmoid(입력을 0 과 1 사이 값으로 바꾸는 S 자 곡선)도 층 사이에서 이렇게 꺾이는 역할을
 한다.
 
 **확인 문제.** $[2, -4, 0, 7, -1]$ 에 ReLU 를 적용하면?
@@ -935,7 +934,7 @@ conv 층을 지날 때마다 장 수는 1 → 6 → 16 으로 늘고, pooling �
 줄이고, "무엇이 있는가" 를 담는 feature 의 종류는 늘리는 구조다. C3 의 filter 는 $6 \times 5 \times 5$ 크기라 S2 의 feature map
 6 장을 한꺼번에 본다.
 
-1998년 원 논문의 LeNet-5 는 ReLU 대신 [Backpropagation](../autograd/README.md) 에서 본 tanh 와 비슷한 계산을, max pooling 대신 학습하는 계수가 붙은 subsampling 을 쓰고, C3 에서는
+1998년 원 논문의 LeNet-5 는 ReLU 대신 tanh(입력을 −1 과 1 사이 값으로 바꾸는 S 자 곡선)와 비슷한 계산을, max pooling 대신 학습하는 계수가 붙은 subsampling 을 쓰고, C3 에서는
 일부 channel 끼리만 잇는 연결표를 썼다. ReLU·max pooling·전체 연결로 바꿔도 크기 계산과 전체 흐름은 같고, 아래 parameter 수는 이
 전체 연결 구성으로 센 값이다.
 

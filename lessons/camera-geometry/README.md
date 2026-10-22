@@ -266,7 +266,7 @@ normalized coordinates 가 $(0, 0)$ 이라 $f$ 를 곱해도 $(0, 0)$ 이고, pr
 ### 행렬과 vector 의 곱
 
 $f_x, f_y, c_x, c_y$ 네 숫자는 카메라 안쪽(렌즈와 사진 센서)에서 정해지는 값이라 intrinsics(내부 parameter)라고 부른다. parameter 는
-[Linear Regression](../linear-regression/README.md) 에서처럼 "모델 안에서 값을 정해 채워야 하는 숫자" 다. intrinsics 는 보통 숫자를
+"모델 안에서 값을 정해 채워야 하는 숫자" 다. intrinsics 는 보통 숫자를
 가로세로로 늘어놓은 표 하나에 모아 적는다. 이런 숫자 표를 행렬(matrix)이라 하고, 숫자를 한 줄로 늘어놓은 묶음을 vector 라고 한다.
 
 $$
@@ -286,7 +286,7 @@ vector 의 숫자와 칸끼리 곱해 모두 더한다" 이다. 줄이 세 개�
 
 결과 $(370, 215, 1)$ 의 앞 두 숫자가 pixel 좌표다. 끝에 붙인 1 이 셋째 칸의 $c_x$, $c_y$ 와 곱해지면서 "principal point 더하기" 가
 곱셈 안에 들어간다. 이렇게 좌표 끝에 1 을 붙여 더하기를 곱하기로 바꾸는 방법은
-[Rigid Transforms](../transforms/README.md) 의 homogeneous coordinates 와 같은 아이디어다.
+[Rigid Transforms](../transforms/README.md) 에서 본 homogeneous coordinates 와 같은 아이디어다.
 
 ### 3D 점에 바로 곱하는 K
 
@@ -681,7 +681,7 @@ corner 는 한 장에 $7 \times 5 = 35$ 개이고 숫자는 $35 \times 2 = 70$ �
 
 ![reprojection error. 사진에서 찾은 corner (373, 219) 와, 지금의 숫자로 투영한 자리 (370, 215) 사이의 거리가 5 pixel 이다](figures/reprojection.svg)
 
-corner 가 많으면 거리들을 하나의 숫자로 모아야 한다. 이때 [Linear Regression](../linear-regression/README.md) 의 MSE(오차를
+corner 가 많으면 거리들을 하나의 숫자로 모아야 한다. 이때 MSE(오차를
 제곱해 평균한 값)와 같은 방법을 쓰고, 마지막에 제곱근을 씌워 단위를 pixel 로 되돌린다. 이 값을 RMS(root mean square)라고 한다.
 제곱(square)하고, 평균(mean)을 내고, 제곱근(root)을 씌운다는 순서를 거꾸로 적은 이름이다.
 
@@ -690,7 +690,7 @@ $$
 $$
 
 "corner 마다의 거리 $e_i$ 를 제곱해 모두 더하고, corner 수 $N$ 으로 나눈 뒤, 제곱근을 씌운다" 라고 읽는다. $\Sigma$(sigma, 시그마)
-는 linear regression 강의에서 본 "모두 더하라" 는 기호다. 거리가 1 pixel 과 7 pixel 인 corner 두 개라면 아래와 같다.
+는 "모두 더하라" 는 기호다. 거리가 1 pixel 과 7 pixel 인 corner 두 개라면 아래와 같다.
 
 | 단계 | 계산 | 결과 |
 | --- | --- | --- |
@@ -911,8 +911,8 @@ Zhang 의 closed-form 은 빠르지만 그대로 쓰기에는 두 가지가 아�
 위치에는 noise(측정마다 무작위로 끼어드는 작은 오차)가 있으므로, 우리가 정말 줄이고 싶은 것은 pixel 단위의 reprojection error 다.
 
 그래서 closed-form 으로 얻은 $K$ 와 사진별 extrinsics 를 첫 추측으로 삼고, distortion 계수는 처음에 0 으로 둔 채, reprojection error 의
-RMS 가 작아지는 쪽으로 모든 숫자를 함께 조금씩 고쳐 간다. 이 과정을 refinement 라고 한다. [Linear Regression](../linear-regression/README.md)
-의 gradient descent 처럼 "숫자를 조금 바꿨을 때 오차가 줄어드는 쪽" 으로 움직이기를 되풀이하는 방식이다. 다만 투영에는 depth 로 나누는
+RMS 가 작아지는 쪽으로 모든 숫자를 함께 조금씩 고쳐 간다. 이 과정을 refinement 라고 한다. gradient descent
+처럼 "숫자를 조금 바꿨을 때 오차가 줄어드는 쪽" 으로 움직이기를 되풀이하는 방식이다. 다만 투영에는 depth 로 나누는
 계산과 $r^2$ 을 곱하는 계산이 들어 있어서 오차가 숫자들의 직선 관계로 적히지 않는다. 이런 문제를 nonlinear least squares(비선형 최소
 제곱)라고 하고, 이 꼴의 문제에 맞춘 풀이 도구를 쓴다.
 

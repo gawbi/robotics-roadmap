@@ -52,7 +52,7 @@ computational graph 는 식을 덧셈·곱셈 같은 연산 하나씩으로 쪼�
 방식으로는 학습 시간 대부분을 node 를 만드는 데 쓰게 된다.
 
 그래서 숫자 하나가 아니라 숫자 묶음 하나를 node 로 두어, 곱셈 20 만 번을 "행렬 곱 한 번" 이라는 node 하나로 기록한다.
-행렬 곱은 Linear Regression 에서 본 것처럼 행렬의 행마다 내적(같은 자리끼리 곱해 모두 더한 값)을 구해 쌓는 계산이고, 실제 곱셈은
+행렬 곱은 행렬의 행마다 내적(같은 자리끼리 곱해 모두 더한 값)을 구해 쌓는 계산이고, 실제 곱셈은
 미리 빠르게 만들어 둔 계산 프로그램이 한꺼번에 처리한다. backward 도 묶음 단위로 해서, 행렬 곱 node 하나를 거꾸로 지날 때
 gradient 20 만 개가 한 번에 나온다. 계산 방식은 Backpropagation 강의의 reverse-mode automatic differentiation(출력에서 거꾸로 훑어
 모든 gradient 를 한꺼번에 구하는 방법)과 똑같다. 덧셈·곱셈 하나하나 대신 묶음 연산 하나하나에 local derivative(연산 하나의 출력이
@@ -112,8 +112,8 @@ $5 \times 5 = 25$ 개다. 1 행의 5 개가 1~5 번째 자리를 차지하므로
 
 ### tensor 와 shape
 
-[Linear Regression](../linear-regression/README.md) 에서는 숫자를 순서대로 한 줄로 묶은 것을 vector, 가로줄(행)과 세로줄(열)로
-늘어놓은 직사각형 묶음을 행렬이라고 했다. 숫자 묶음은 줄 방향이 더 많을 수도 있다. 4 × 4 이미지 두 장을 한데 묶으면 "몇 번째
+숫자를 순서대로 한 줄로 묶은 것을 vector, 가로줄(행)과 세로줄(열)로
+늘어놓은 직사각형 묶음을 행렬이라고 한다. 숫자 묶음은 줄 방향이 더 많을 수도 있다. 4 × 4 이미지 두 장을 한데 묶으면 "몇 번째
 이미지인가, 몇 행인가, 몇 열인가" 의 세 방향으로 늘어놓은 묶음이 된다.
 
 이렇게 숫자를 몇 방향으로든 늘어놓은 묶음을 tensor 라고 하고, 늘어놓은 방향 하나하나를 축(axis)이라고 한다. 숫자 하나는 축이
@@ -159,8 +159,8 @@ tensor 라는 말은 물리학에서는 좌표를 바꿀 때 정해진 규칙으
 
 ### Linear layer
 
-[Backpropagation](../autograd/README.md) 의 neuron 은 입력마다 weight 를 곱해 더하고 bias 를 더한 값 $z$ 를 계산했다. 같은 입력을
-받는 neuron 여러 개를 나란히 둔 것이 layer 였다. neuron 마다 따로 계산하지 않고, layer 하나를 행렬 곱 한 번으로 계산하는 방법을
+neuron 은 입력마다 weight 를 곱해 더하고 bias 를 더한 값 $z$ 를 계산한다. 같은 입력을
+받는 neuron 여러 개를 나란히 둔 것이 layer 다. neuron 마다 따로 계산하지 않고, layer 하나를 행렬 곱 한 번으로 계산하는 방법을
 숫자로 따라가 보자.
 
 입력 3 개 $x = (1, 0, 2)$ 를 neuron 2 개가 받는다. neuron 마다 weight 3 개와 bias 1 개가 있다.
@@ -177,7 +177,7 @@ $$
 W = \begin{bmatrix} 1 & 2 & -1 \\ 0 & 1 & 1 \end{bmatrix}, \qquad b = (0, 1), \qquad h = W x + b
 $$
 
-$Wx$ 는 Linear Regression 에서 배운 행렬과 vector 의 곱으로, $W$ 의 각 행과 $x$ 의 같은 자리 칸끼리 곱해 더한 값(내적)을 차례로
+$Wx$ 는 행렬과 vector 의 곱으로, $W$ 의 각 행과 $x$ 의 같은 자리 칸끼리 곱해 더한 값(내적)을 차례로
 세로로 쌓은 것이다. 식 $h = Wx + b$ 는 "입력에 weight 행렬을 곱하고 bias 를 더한다" 로 읽는다. $W$ 의 행 하나가 neuron 하나의 weight
 이고, 행렬 곱 한 번이 neuron 두 개의 계산을 한꺼번에 한다. 이렇게 행렬 곱과 bias 덧셈만 하는 layer 를 Linear layer 라고 한다.
 linear 는 "직선의" 라는 뜻으로, 곱하고 더하기만 해서 Linear Regression 의 $wx + b$ 와 같은 꼴이라는 의미다.
@@ -207,7 +207,7 @@ X = \begin{bmatrix} 1 & 0 & 2 \\ 2 & 1 & 0 \end{bmatrix}, \qquad
 H = X W^\top + b = \begin{bmatrix} -1 & 3 \\ 4 & 2 \end{bmatrix}
 $$
 
-$W^\top$ 는 "W transpose" 라고 읽고, Linear Regression 에서 본 것처럼 $W$ 의 행과 열을 맞바꾼 3 행 2 열 행렬이다. $XW^\top$ 의 1 행
+$W^\top$ 는 "W transpose" 라고 읽고, $W$ 의 행과 열을 맞바꾼 3 행 2 열 행렬이다. $XW^\top$ 의 1 행
 1 열 칸은 $X$ 의 1 행과 $W$ 의 1 행의 내적이고, 1 행 2 열 칸은 $X$ 의 1 행과 $W$ 의 2 행의 내적이다. 그래서 결과 $H$ 의 행 하나가
 입력 하나의 출력이 되고, 1 행 $(-1, 3)$ 과 2 행 $(4, 2)$ 는 앞에서 하나씩 계산한 값과 같다. bias $b$ 는 모든 행에 똑같이 더한다.
 
@@ -233,8 +233,8 @@ batch 축은 그대로이고 784 칸이 256 칸이 되므로 $(64, 256)$ 이다.
 
 ### ReLU
 
-Backpropagation 강의에서는 neuron 의 $z$ 를 sigmoid 에 넣어 출력으로 바꿨다. 이렇게 $z$ 를 출력으로 바꾸는 함수를 activation
-function 이라고 했다. 요즘 neural network 에서 가장 많이 쓰는 activation function 은 ReLU 다. Rectified Linear Unit 을 줄인
+neuron 의 $z$ 는 sigmoid(입력을 0 과 1 사이 값으로 바꾸는 S 자 곡선) 같은 함수에 넣어 출력으로 바꾼다. 이렇게 $z$ 를 출력으로 바꾸는 함수를 activation
+function 이라고 한다. 요즘 neural network 에서 가장 많이 쓰는 activation function 은 ReLU 다. Rectified Linear Unit 을 줄인
 이름이고, rectified 는 "음수 쪽을 잘라 바로잡은" 이라는 뜻이다.
 
 $$
@@ -305,7 +305,7 @@ $y = 3(2x - 1) + 2 = 6x - 3 + 2 = 6x - 1$ 로, 직선 하나가 된다.
 
 ### 784 → 256 → 10 MLP
 
-여러 layer 를 이어 쌓은 network 를 Backpropagation 강의에서 MLP(multi-layer perceptron)라고 불렀다. MNIST 를 위한 가장 기본적인
+여러 layer 를 이어 쌓은 network 를 MLP(multi-layer perceptron)라고 한다. MNIST 를 위한 가장 기본적인
 MLP 는 아래 순서로 계산한다.
 
 1. 사진을 펴서 숫자 784 개를 만든다
@@ -342,8 +342,8 @@ parameter 는 모두 $200{,}960 + 2{,}570 = 203{,}530$ 개다. ReLU 는 칸마�
 
 ### weight 의 처음 값 크기
 
-Backpropagation 강의에서 hidden neuron 들을 같은 값으로 출발시키면 끝까지 같은 neuron 으로 남는다는 것을 보았고, 그래서 weight 는
-작은 random(무작위) 값으로 출발시킨다고 했다. 784 개나 되는 입력을 받는 layer 에서는 그 "작은" 이 얼마나 작아야 하는지가 중요하다.
+hidden neuron 들을 같은 값으로 출발시키면 모두 같은 gradient 를 받아 끝까지 같은 neuron 으로 남기 때문에, weight 는
+작은 random(무작위) 값으로 출발시킨다. 784 개나 되는 입력을 받는 layer 에서는 그 "작은" 이 얼마나 작아야 하는지가 중요하다.
 
 입력 784 개가 모두 1 이고, weight 784 개의 부호를 동전 던지기로 정해 $+1$ 이나 $-1$ 로 둔다고 하자. $z$ 는 784 개를 모두 더한
 값이다. 실제로 여섯 번 뽑아 보면 $z$ 는 38, $-2$, $-32$, 34, 14, $-36$ 이었다. $+1$ 과 $-1$ 이 서로 일부 지워져서 784 까지
@@ -396,7 +396,7 @@ MLP 의 마지막 layer 는 class 마다 점수 하나, 곧 logits 를 낸다. �
 class 가 3 개인 작은 예로 계산한다. 앞에서 계산한 Linear layer 와 ReLU 의 출력 $(0, 3)$ 을 class 3 개의 점수를 내는 Linear layer 에
 넣었더니 logits 가 $z = (2.0, 1.0, 0.1)$ 이 나왔다고 하자. 점수를 확률로 바꾸는 계산은 세 단계다.
 
-1. 점수마다 $e^{z}$ 를 계산한다. $e$ 는 약 2.718 인 정해진 수이고, Backpropagation 강의에서 본 것처럼 $e^{2} = e \times e$ 이다
+1. 점수마다 $e^{z}$ 를 계산한다. $e$ 는 약 2.718 인 정해진 수이고, $e^{2} = e \times e$ 이다
 2. 세 값을 모두 더한다
 3. 각 값을 그 합으로 나눈다
 
@@ -413,7 +413,7 @@ $$
 p_j = \frac{e^{z_j}}{\sum_{k} e^{z_k}}
 $$
 
-$p_j$ 는 $j$ 번째 class 의 확률이고, $z_j$ 는 $j$ 번째 점수다. 분모의 $\sum_k$ 는 Linear Regression 에서 본 합의 기호로, $k$ 를
+$p_j$ 는 $j$ 번째 class 의 확률이고, $z_j$ 는 $j$ 번째 점수다. 분모의 $\sum_k$ 는 합의 기호로, $k$ 를
 모든 class 로 바꿔 가며 $e^{z_k}$ 를 더하라는 뜻이다. 그래서 식은 "$j$ 번째 점수의 $e^{z}$ 를 모든 점수의 $e^{z}$ 합으로 나눈다" 로
 읽는다. 위 표에 맞추면 $p_0 = 0.659$, 분모는 11.212 다.
 
@@ -527,7 +527,7 @@ $$
 \frac{\partial L}{\partial z_j} = p_j - \mathrm{onehot}(y)_j
 $$
 
-$\frac{\partial L}{\partial z_j}$ 는 Backpropagation 강의에서처럼 "$z_j$ 를 조금 바꿨을 때 $L$ 이 변하는 비율", 곧 $z_j$ 의 gradient 다.
+$\frac{\partial L}{\partial z_j}$ 는 "$z_j$ 를 조금 바꿨을 때 $L$ 이 변하는 비율", 곧 $z_j$ 의 gradient 다.
 $\mathrm{onehot}(y)$ 는 정답 class 자리만 1 이고 나머지는 0 인 vector 다. 정답이 class 0 이면 $(1, 0, 0)$ 이다. 이름은 "한 칸만
 켜져 있다(one hot)" 는 뜻이다. 식은 "점수 $z_j$ 의 gradient 는 그 class 의 확률에서, 정답이면 1 을, 아니면 0 을 뺀 값" 으로 읽는다.
 
@@ -600,13 +600,13 @@ $(0, -1, -1.9)$ 로 계산해 보자.
 
 ### mini-batch
 
-Linear Regression 의 gradient descent(gradient 의 반대 방향으로 parameter 를 조금씩 고치는 방법)는 step 마다
-데이터 전체로 gradient 를 구했다. step 은 parameter 를 한 번 고치는 단위였다.
+gradient descent(gradient 의 반대 방향으로 parameter 를 조금씩 고치는 방법)를 그대로 하면 step 마다
+데이터 전체로 gradient 를 구한다. step 은 parameter 를 한 번 고치는 단위다.
 MNIST 처럼 사진이 60,000 장이면 parameter 를 한 번 고치기 위해 60,000 장을 모두 계산해야 해서 학습이 너무 느리다.
 
 그래서 데이터를 작은 묶음으로 나눠 묶음 하나의 평균 gradient 로 parameter 를 고친다. 이 묶음을 mini-batch 라고 한다. 앞에서 말한
 batch 와 같은 것인데, 데이터 전체(batch)가 아니라 그 일부라는 뜻에서 mini 를 붙였다. 데이터 전체를 한 번씩 다 쓴 것을 epoch 하나라고
-부른다. Linear Regression 에서 이미 짧게 본 개념이다.
+부른다.
 
 사진 12 장을 mini-batch 4 장씩 나누면 epoch 하나에 step 이 $12 \div 4 = 3$ 번 있다. epoch 를 시작할 때마다 사진의 순서를 무작위로
 섞는데, 이것을 shuffle 이라고 한다. 섞지 않으면 매 epoch 같은 사진끼리 같은 mini-batch 에 묶여서, 예를 들어 0 만 모인 mini-batch
@@ -820,7 +820,7 @@ $m = -0.4$, $v = 0.016$ 이고 $\hat m = -4$, $\hat v = 16$, $\sqrt{\hat v} = 4$
 
 ### 세 optimizer 의 비교
 
-같은 문제를 세 optimizer 로 풀어 보자. loss 가 $L = w^2$ 이고 $w = 5$ 에서 출발한다. Linear Regression 에서 본 것처럼 $w^2$ 의
+같은 문제를 세 optimizer 로 풀어 보자. loss 가 $L = w^2$ 이고 $w = 5$ 에서 출발한다. $w^2$ 의
 derivative 는 $2w$ 라서 gradient 는 $2w$ 이고, $w = 0$ 이 답이다. 세 optimizer 모두 $\eta = 0.1$ 로 두고, momentum 은 $\mu = 0.9$,
 Adam 은 앞의 기본값을 쓴다.
 
@@ -879,8 +879,8 @@ gradient 는 $2 \times 2 = 4$ 다. SGD 는 $2 - 0.1 \times 4 = 1.6$ 이고, Adam
 
 ### 한 step 의 여섯 단계
 
-지금까지 본 계산을 학습 순서대로 이으면 PyTorch 로 학습을 짤 때의 한 step 이 된다. Linear Regression 의 학습 loop 는 예측 → loss →
-gradient → update 의 네 단계였는데, 여기서는 mini-batch 를 꺼내는 일과 gradient 를 0 으로 되돌리는 일이 더해져 여섯 단계다.
+지금까지 본 계산을 학습 순서대로 이으면 PyTorch 로 학습을 짤 때의 한 step 이 된다. 기본 학습 loop 는 예측 → loss →
+gradient → update 의 네 단계인데, 여기서는 mini-batch 를 꺼내는 일과 gradient 를 0 으로 되돌리는 일이 더해져 여섯 단계다.
 
 1. **mini-batch 꺼내기** — shuffle 한 데이터에서 다음 사진 100 장과 label 100 개를 꺼낸다
 2. **forward** — 사진을 MLP 에 넣어 logits 를 계산한다. 이때 autograd 는 어떤 tensor 가 어떤 연산으로 만들어졌는지 graph 로 기록한다
@@ -1055,7 +1055,7 @@ loss 를 0 에 가깝게 만들 수 있다. train loss 가 0 인 곡선의 valid
 
 neural network 에서는 overfitting 이 epoch 를 거듭하며 나타난다. 물결처럼 오르내리는 곡선 위의 12 점에 noise 를 섞어 train set
 으로 쓰고, 같은 곡선에서 따로 뽑은 60 점을 validation set 으로 썼다. network 는 입력 1 개 → 32 → 32 → 출력 1 개인 ReLU MLP 이고,
-Adam($\eta = 0.005$)으로 MSE loss 를 줄였다. MSE 는 Linear Regression 의 오차 제곱의 평균이다. train set 이 12 점뿐이라 mini-batch
+Adam($\eta = 0.005$)으로 MSE loss 를 줄였다. MSE 는 오차 제곱의 평균이다. train set 이 12 점뿐이라 mini-batch
 하나에 다 넣어서 epoch 하나가 step 하나다.
 
 | epoch | train loss | validation loss |

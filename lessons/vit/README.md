@@ -29,7 +29,7 @@ papers:
 
 ### CNN 이 사진을 읽는 방식
 
-[CNN](../cnn/README.md) 에서 본 것처럼 사진은 pixel 이라는 작은 칸을 가로세로로 늘어놓은 숫자 격자다. 흑백 사진은 pixel 마다 밝기
+사진은 pixel 이라는 작은 칸을 가로세로로 늘어놓은 숫자 격자다. 흑백 사진은 pixel 마다 밝기
 숫자가 하나이고, 컬러 사진은 빨강·초록·파랑(RGB) 세기 세 개라서 channel(같은 색의 숫자만 모은 판)이 3 장이다. 사진 모델에 흔히
 넣는 224×224 컬러 사진 한 장은 숫자가 $3 \times 224 \times 224 = 150{,}528$ 개다.
 
@@ -231,7 +231,7 @@ $3 \times 14 \times 14 = 3 \times 196 = 588$ 개다.
 
 펼친 patch 를 그대로 token 으로 써도 계산은 된다. 하지만 숫자 768 개는 색의 세기를 칸마다 적은 것일 뿐이라, 모델이 쓰기 좋은
 형태로 바꿔 주는 단계가 하나 더 있다. 펼친 patch 에 행렬 하나를 곱해 정해진 길이 $D$ 의 vector 로 바꾸고, 이 계산을 patch
-embedding 이라고 한다. embedding 은 [Transformer](../transformer/README.md) 에서 본 대로 "끼워 넣다" 라는 뜻으로, 대상을 숫자 공간의
+embedding 이라고 한다. embedding 은 "끼워 넣다" 라는 뜻으로, 대상을 숫자 공간의
 한 점으로 옮긴다는 데서 나온 이름이다.
 
 행렬은 숫자를 가로줄(행)과 세로줄(열)로 늘어놓은 묶음이고, 행렬과 vector 의 곱은 행렬의 각 행과 vector 의 dot product 를 차례로
@@ -383,7 +383,7 @@ patch token 4 개를 Transformer 에 넣으면 attention 층을 지난 뒤에도
 map 을 평균해 숫자 512 개 하나로 만든 것과 같은 생각이다. ViT 는 다른 방법을 썼는데, patch token 들의 맨 앞에 어느 patch 에도 해당하지
 않는 token 하나를 더 붙여 함께 넣고, 마지막 층에서 이 자리의 출력을 사진 전체의 요약으로 쓴다. 이 token 을 [CLS] token 이라고 한다.
 
-[CLS] 는 classification(분류)의 앞 글자다. 대괄호는 [Transformer](../transformer/README.md) 의 `<bos>` 처럼 글이나 사진의 내용이
+[CLS] 는 classification(분류)의 앞 글자다. 대괄호는 글의 시작을 알리는 `<bos>`(begin of sequence) 처럼 글이나 사진의 내용이
 아니라 모델이 쓰려고 넣은 특수한 token 이라는 표시다. 이 방법은 2018년 Google 이 발표한 문장 이해 모델 BERT 가 문장 전체를 요약하는
 자리로 먼저 썼고, ViT 가 사진에 가져왔다.
 
@@ -722,8 +722,8 @@ ResNet 강의에서 BatchNorm 으로 정규화했던 1, 2, 3, 6 을 이번에는
 ![같은 숫자 표에서 BatchNorm 은 channel 하나의 값을 batch 전체에서 세로로 모아 정규화하고, LayerNorm 은 token 하나의 값을 가로로 모아 정규화한다. 둘 다 1, 2, 3, 6 을 −1.069, −0.535, 0, 1.604 로 바꾼다](figures/ln-vs-bn.svg)
 
 위 그림의 왼쪽은 파란 세로 줄을, 오른쪽은 주황 가로 줄을 모아 정규화한다. LayerNorm 은 다른 사진의 값을 쓰지 않으므로, batch 에
-사진이 1 장이든 100 장이든 같은 token 은 같은 결과를 얻는다. ResNet 강의에서 본 "작은 batch 에서 통계가 흔들리는 문제" 와 "학습 때와
-평가 때 쓰는 숫자가 다른 문제" 가 LayerNorm 에는 없다.
+사진이 1 장이든 100 장이든 같은 token 은 같은 결과를 얻는다. BatchNorm 은 batch 안 사진들로 평균과 표준편차를 구해서 batch 가
+작으면 통계가 흔들리고, 평가 때는 학습 중 모아 둔 숫자를 따로 써서 학습 때와 숫자가 달라지는데, LayerNorm 에는 이 두 문제가 없다.
 
 **확인 문제.** token $[2, 2, 6, 6]$ 에 LayerNorm 을 하면? ($\gamma = 1$, $\beta = 0$)
 
@@ -883,7 +883,7 @@ $64 \times 64 = 4{,}096$ 과 $256 \times 256 = 65{,}536$ 이라 16 분의 1 이�
 
 inductive 는 "귀납적인" 이라는 뜻이다. 귀납은 몇 개의 예에서 일반 규칙을 끌어내는 추론이고, 학습이 바로 데이터라는 예에서 규칙을
 찾는 일이다. bias 는 "한쪽으로 기운 것" 이라는 뜻이라, inductive bias 는 규칙을 찾을 때 어떤 규칙 쪽으로 미리 기울어 있는 정도를
-가리킨다. [Linear Regression](../linear-regression/README.md) 의 $\hat y = wx + b$ 에 더하는 $b$ 도 bias 라고 불렀지만, 그것은 직선의
+가리킨다. 직선 식 $\hat y = wx + b$ 에 더하는 $b$ 도 bias 라고 부르지만, 그것은 직선의
 높이를 정하는 숫자라서 여기의 bias 와는 다른 말이다.
 
 **확인 문제.** 3×3 convolution 의 출력 한 칸이 사진 맨 아래 줄의 pixel 값과 상관이 없다면, 이것은 두 가정 중 어느 쪽에서 온

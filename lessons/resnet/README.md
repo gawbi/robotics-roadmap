@@ -85,7 +85,7 @@ $1 + 20 \times 2 = 41$ 칸이다.
 떨어지는 이 현상을 He 등은 degradation(성능 저하)이라고 이름 붙였다.
 
 **흔한 오해.** "층이 많으면 parameter(weight 처럼 학습으로 정하는 숫자)가 많아져서 학습 데이터를 외우는 overfitting 이 생긴 것" 이라고 생각하기 쉽다.
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서 본 overfitting 은 학습 데이터는 잘 맞히는데 처음 보는 데이터를 못 맞히는
+overfitting 은 학습 데이터는 잘 맞히는데 처음 보는 데이터를 못 맞히는
 현상이라, overfitting 이라면 training error 는 낮아야 한다. degradation 에서는 training error 자체가 높아서, 깊은 망은 학습 사진조차
 잘 맞히지 못한다. 외운 것이 아니라 덜 배운 것이다.
 
@@ -113,7 +113,7 @@ degradation 이 이상한 현상인 이유는 깊은 망이 얕은 망을 그대
 위 그림처럼 56 층 망이 가질 수 있는 상태 중에는 "20 층 망과 똑같은 상태" 가 이미 들어 있다. 그러니 56 층 망을 제대로 학습하면
 training error 가 20 층 망보다 높을 수 없다. 그런데도 실제로 높게 나왔다는 것은, 그런 좋은 상태가 분명히 있는데 gradient descent
 가 그 상태를 찾아가지 못한다는 뜻이다. gradient descent 는 loss(모델이 틀린 정도를 나타낸 숫자 하나)를 줄이는 방향으로 parameter
-를 조금씩 고치는 방법으로, [Linear Regression](../linear-regression/README.md) 에서 처음 다뤘다.
+를 조금씩 고치는 방법이다.
 
 **확인 문제.** 10 층 망 뒤에 identity 층 15 개를 붙이면 몇 층 망이 되고, 이 망의 training error 는 10 층 망과 비교해 어떨까?
 
@@ -137,8 +137,8 @@ training error 가 20 층 망보다 높을 수 없다. 그런데도 실제로 �
 
 ### chain rule 로 이어지는 곱
 
-gradient 는 parameter 나 중간 값을 아주 조금 바꿨을 때 loss 가 변하는 비율이다. Backpropagation 강의의 chain rule(연쇄 법칙)은
-값이 중간 값 여러 개를 거쳐 영향을 줄 때, 전체 비율이 칸마다의 비율을 모두 곱한 값이라는 규칙이었다.
+gradient 는 parameter 나 중간 값을 아주 조금 바꿨을 때 loss 가 변하는 비율이다. chain rule(연쇄 법칙)은
+값이 중간 값 여러 개를 거쳐 영향을 줄 때, 전체 비율이 칸마다의 비율을 모두 곱한 값이라는 규칙이다.
 
 가장 단순한 깊은 망을 만들어 본다. 층마다 숫자 하나를 받아 0.5 를 곱해 내보내는 층을 3 개 이었다.
 
@@ -199,7 +199,7 @@ $h_3$ 이 변하는 비율" 로 읽는다.
 0.5 를 20 번 곱하면 약 0.00000095, 곧 약 100만 분의 1 이 된다. 출력 쪽에서 gradient 가 1 이었다면 20 층 아래의 입력 쪽에는 100만
 분의 1 만 도착한다. 이렇게 gradient 가 층을 거꾸로 지나며 거의 0 이 되는 현상을 vanishing gradient(사라지는 gradient)라고 한다.
 
-숫자만 바꿔 sigmoid 를 지나는 경우를 보자. Backpropagation 강의에서 sigmoid 의 기울기는 아무리 커도 0.25 였다. 20 층 모두에서
+숫자만 바꿔 sigmoid 를 지나는 경우를 보자. sigmoid 의 기울기는 (sigmoid 값) × (1 − sigmoid 값) 이라서 sigmoid 값이 0.5 일 때 가장 커도 $0.5 \times 0.5 = 0.25$ 다. 20 층 모두에서
 가장 큰 기울기 0.25 를 얻는다고 해도 $0.25^{20} \approx 0.0000000000009$ 로, 1 조 분의 1 보다 작다. 기호 $\approx$ 는 "약" 이라고 읽는다.
 
 **확인 문제.** 층마다 0.5 를 곱하는 망이 4 층이면 입력에 도착하는 gradient 는 출력의 몇 분의 1 일까?
@@ -236,7 +236,7 @@ $0.5^{19}$ 의 역수, 곧 $2^{19} = 524{,}288$ 번 되풀이해야 한다. 역�
 
 **흔한 오해.** "gradient 가 작으면 learning rate 를 키우면 된다" 고 생각하기 쉽다. learning rate 는 모든 층에 똑같이 곱해지므로,
 맨 아래 층에 맞춰 52만 배로 키우면 맨 위 층은 한 번에 $0.2 \times 524{,}288 \approx 10$ 만 만큼 튀어 버린다.
-[Linear Regression](../linear-regression/README.md) 에서 본 것처럼 learning rate 가 너무 크면 값이 발산한다.
+learning rate 가 너무 크면 한 번 고칠 때마다 loss 가 가장 작은 점을 지나쳐 더 멀리 튀므로 값이 발산한다.
 
 **확인 문제.** 맨 위 층 gradient 가 4 이고 층마다 0.5 가 곱해지면, 그 아래로 3 층 내려간 층의 gradient 는 얼마이고 $\eta = 0.1$
 일 때 한 번 고치는 양은?
@@ -252,9 +252,9 @@ $4 \times 0.5^3 = 4 \times 0.125 = 0.5$ 이고, 한 번 고치는 양은 $0.1 \t
 곱하는 수가 1 보다 크면 반대 일이 생긴다. 층마다 2 를 곱하면 20 층 뒤에는 $2^{20} = 1{,}048{,}576$ 배가 된다. gradient 가 100만
 배로 불어나면 update 한 번에 weight 가 엉뚱한 곳으로 튀는데, 이 현상을 exploding gradient(폭증하는 gradient)라고 한다.
 
-그렇다면 곱하는 수를 1 근처로 맞추면 될 것 같다. [PyTorch Training Loop](../pytorch-mlp/README.md) 의 He 초기화가 바로 이 일을
+그렇다면 곱하는 수를 1 근처로 맞추면 될 것 같다. He 초기화가 바로 이 일을
 한다. He 초기화는 weight 의 처음 값 크기를 $\sqrt{2 / n_{\text{in}}}$ 정도로 잡아 층을 지나도 값의 크기가 대략 유지되게 하는
-방법이었다. 그런데 1 근처에서 조금만 벗어나도 20 번 곱하면 차이가 커진다.
+방법이다. 그런데 1 근처에서 조금만 벗어나도 20 번 곱하면 차이가 커진다.
 
 | 층마다 곱하는 수 | 5 층 | 10 층 | 20 층 |
 | --- | --- | --- | --- |
@@ -544,7 +544,7 @@ batch normalization 은 층마다 값을 받아 평균이 0, 퍼진 정도가 1 
 | 6 | 4 | 2 | 4 |
 
 평균은 $(2 + 2 + 6 + 6) \div 4 = 16 \div 4 = 4$ 이고, 분산은 제곱 네 개의 평균 $(4 + 4 + 4 + 4) \div 4 = 4$ 다. 평균에서 뺀 값을
-그냥 평균하면 $-2, -2, 2, 2$ 가 서로 지워져 0 이 되므로, [Linear Regression](../linear-regression/README.md) 의 MSE 처럼 제곱해서
+그냥 평균하면 $-2, -2, 2, 2$ 가 서로 지워져 0 이 되므로, 제곱해서
 부호를 없앤 뒤 평균한다.
 
 표준편차는 분산의 제곱근이다. 제곱근 $\sqrt{\ }$ 은 "제곱해서 그 수가 되는 양수" 라서 $\sqrt{4} = 2$ 다. 분산은 제곱한 값의
@@ -555,7 +555,7 @@ batch normalization 은 층마다 값을 받아 평균이 0, 퍼진 정도가 1 
 $14 \div 4 = 3.5$, 표준편차는 $\sqrt{3.5} \approx 1.871$ 이다.
 
 기호로는 평균을 $\mu$, 분산을 $\sigma^2$, 표준편차를 $\sigma$ 로 쓴다. $\mu$ 는 그리스 문자 mu(뮤), $\sigma$ 는 sigma(시그마)의
-소문자다. [Backpropagation](../autograd/README.md) 에서 sigmoid 를 $\sigma$ 로 썼던 것과는 다른 뜻이다.
+소문자다. sigmoid 함수도 $\sigma$ 로 쓰지만 여기서는 다른 뜻이다.
 
 **확인 문제.** 1, 3, 5, 7 의 평균과 분산은?
 
@@ -661,7 +661,7 @@ $32 \times 56 \times 56 = 32 \times 3{,}136 = 100{,}352$ 개 값으로 평균을
 $(5 - 5) \div \sqrt{0 + \epsilon} = 0$ 처럼 언제나 0 이 된다. 어떤 사진을 넣어도 같은 값이 나와서 모델이 아무것도 구별하지 못한다.
 
 그래서 학습하는 동안 batch 의 평균과 분산을 moving average 로 따로 쌓아 두고, 평가 때는 그 값을 쓴다. moving average 는
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서 본, 지난 평균과 새 값을 일정 비율로 섞어 새 평균으로 삼는 계산이다.
+지난 평균과 새 값을 일정 비율로 섞어 새 평균으로 삼는 계산이다.
 BatchNorm 은 새 값을 10% 섞는다.
 
 $$
@@ -751,7 +751,7 @@ BasicBlock 의 $\mathcal F$ 는 아래 순서로 계산하고, 마지막에 입�
 6. 입력 $x$ 를 더한다
 7. ReLU
 
-stride 는 filter 를 옮기는 칸 수, padding 은 테두리에 덧대는 0 의 줄 수였다. ReLU 는 [CNN](../cnn/README.md) 에서 본 $\max(0, z)$ 로, 음수를 0 으로 바꾸고 0 이상은 그대로 두는 계산이다. 덧셈 뒤에 ReLU 를 한
+stride 는 filter 를 옮기는 칸 수, padding 은 테두리에 덧대는 0 의 줄 수였다. ReLU 는 $\max(0, z)$ 로, 음수를 0 으로 바꾸고 0 이상은 그대로 두는 계산이다. 덧셈 뒤에 ReLU 를 한
 번 더 거치는 것이 He 등의 원래 설계다. 식으로 쓰면 $y = \mathrm{ReLU}(\mathcal F(x) + x)$ 다.
 
 padding 1 인 3×3 conv 는 [CNN](../cnn/README.md) 의 출력 크기 공식 $\lfloor (H + 2p - k)/s \rfloor + 1$ 로
@@ -984,8 +984,8 @@ pretrained weight 에서 출발시키는 경우가 많다. 다른 곳에서 학�
 
 ### backbone 과 새 head
 
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서 network 를 입력을 feature 로 바꾸는 앞부분 backbone 과, feature 를 원하는
-출력으로 바꾸는 뒷부분 head 로 나눠 보았다. ResNet-18 에서는 fc 앞까지, 곧 global average pooling 이 512 개 숫자를 내는 곳까지가
+network 는 입력을 feature 로 바꾸는 앞부분 backbone 과, feature 를 원하는
+출력으로 바꾸는 뒷부분 head 로 나눠 볼 수 있다. ResNet-18 에서는 fc 앞까지, 곧 global average pooling 이 512 개 숫자를 내는 곳까지가
 backbone 이고 fc 가 head 다.
 
 로봇이 물체 10 종류를 가려내야 한다면 ImageNet 용 fc(512 → 1000)를 떼고 512 → 10 짜리 새 fc 를 붙인다. 새 head 의 parameter 는
@@ -1011,8 +1011,8 @@ $512 \times 7 + 7 = 3{,}584 + 7 = 3{,}591$ 개다.
 
 ### ACT 의 image encoder
 
-[CNN](../cnn/README.md) 의 마지막 섹션에서 policy 를 지금 보이는 것(observation)을 받아 다음 행동(action)을 내는 모델이라고 했고,
-카메라 사진은 CNN 이 줄인 feature 의 형태로 policy 에 들어간다고 했다. 이렇게 사진을 feature 로 바꾸는 부분을 image encoder 라고
+policy 는 지금 보이는 것(observation)을 받아 다음 행동(action)을 내는 모델이고,
+카메라 사진은 CNN 이 줄인 feature 의 형태로 policy 에 들어간다. 이렇게 사진을 feature 로 바꾸는 부분을 image encoder 라고
 한다. 가장 단순한 연결은 global average pooling 이 낸 512 개를 관절 각도와 이어 붙여 policy 에 넣는 것이다.
 
 [ACT](../act/README.md)(Action Chunking with Transformers)는 사람이 조종해 보여 준 시연으로 로봇 팔의 다음 동작 여러 개를 한꺼번에

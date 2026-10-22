@@ -188,7 +188,7 @@ $\theta = -7.5$ 에서 $0.9994 \times 0.000553 \times 1 \approx 0.00055$ 라서,
 올라간다. $\theta$ 가 0 으로 돌아오려면 이런 update 가 186 번 필요하다. $\eta = 1$ 로 $\theta = -0.75$ 까지만 갔던 경우는 같은 방법으로
 4 번이면 돌아온다.
 
-[Linear Regression](../linear-regression/README.md) 처럼 정답이 붙은 데이터로 배우는 supervised learning 에서는 모델이 아무리 틀려도
+정답이 붙은 데이터로 배우는 supervised learning 에서는 모델이 아무리 틀려도
 학습 데이터는 그대로였다. reward 로 배우는 reinforcement learning(강화학습)에서는 policy 가 자기 데이터를 직접 모으므로, 나빠진 policy
 는 나쁜 데이터를 모으고 그 데이터로는 좋아질 단서를 찾기 어렵다. 그래서 policy 를 한 번에 너무 크게 바꾸지 않는 것이 supervised
 learning 보다 훨씬 중요하다.
@@ -947,8 +947,8 @@ $$
 L^{\text{VF}} = \frac{1}{n}\sum_{t=1}^{n} \big(V_\phi(s_t) - \hat R_t\big)^2
 $$
 
-VF 는 state 를 받아 value 를 내는 함수인 value function 의 머리글자다. 식은 "예측에서 정답을 빼 제곱하고 평균한다" 로 읽고, [Linear Regression](../linear-regression/README.md)
-의 MSE(오차를 제곱해 평균한 값)와 같은 모양이다. GAE 예시의 step 0 은 예측 3, 정답 4.125 라서 $(3 - 4.125)^2 = 1.2656$ 이다.
+VF 는 state 를 받아 value 를 내는 함수인 value function 의 머리글자다. 식은 "예측에서 정답을 빼 제곱하고 평균한다" 로 읽고,
+MSE(오차를 제곱해 평균한 값)와 같은 모양이다. GAE 예시의 step 0 은 예측 3, 정답 4.125 라서 $(3 - 4.125)^2 = 1.2656$ 이다.
 
 **확인 문제.** GAE 예시의 step 3 은 예측 2, 정답 1 이다. 이 sample 의 value loss 는?
 

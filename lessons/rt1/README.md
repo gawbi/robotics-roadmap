@@ -102,8 +102,8 @@ RT-1 이 한 step 에 하는 계산을 한 장으로 그리면 아래와 같다.
 
 그림에 나온 이름을 간단히 짚으면 아래와 같다. 모두 뒤에서 숫자 예시로 다시 설명한다.
 
-- **token** — Transformer 에 넣는 입력 조각 하나다. [Transformer](../transformer/README.md) 에서 글을 자른 조각을 token 이라고
-  불렀는데, RT-1 에서는 사진의 한 구역을 요약한 숫자 묶음도 token 이라고 부른다
+- **token** — Transformer 에 넣는 입력 조각 하나다. 글을 자른 조각을 token 이라고
+  부르는데, RT-1 에서는 사진의 한 구역을 요약한 숫자 묶음도 token 이라고 부른다
 - **EfficientNet-B3** — 사진을 요약하는 CNN(사진의 작은 조각마다 같은 weight 묶음을 대 보며 무늬를 찾는 neural network)이다
 - **FiLM** — 지시 문장의 숫자로 사진 처리 도중의 값을 조절하는 방법이다
 - **TokenLearner** — token 여러 개를 섞어 적은 수로 줄이는 부분이다
@@ -138,7 +138,7 @@ MSE 는 $(0 + 5 \times 1600) \div 10 = 800$ 이다.
 
 MSE 가 가장 작은 것은 두 정답의 평균인 0° 이고, 0° 는 상자로 곧장 가는 action 이다. 같은 관측에 정답 action 이 여럿인 이런 시연을
 multimodal 시연이라고 했다. 숫자 하나를 내고 MSE 로 학습하는 방식을 regression 이라고 하는데, regression 은
-[Linear Regression](../linear-regression/README.md) 에서처럼 "연속된 숫자를 바로 맞히는 문제" 를 뜻한다. multimodal 시연에서
+"연속된 숫자를 바로 맞히는 문제" 를 뜻한다. multimodal 시연에서
 regression 은 아무도 하지 않은 평균을 낸다.
 
 **확인 문제.** 같은 장면에서 시연 6 개는 $-20$°, 시연 4 개는 $+30$° 였다. MSE 로 학습한 policy 는 몇 도를 낼까?
@@ -455,9 +455,9 @@ RT-1 은 그 사이의 256 을 골랐다.
 
 ### token 이라는 이름의 세 가지 쓰임
 
-[Transformer](../transformer/README.md) 에서 tokenizer 는 글을 token 이라는 조각으로 자르고, token 마다 vocabulary(쓸 수 있는
-token 을 모두 모아 번호를 붙인 목록)의 번호를 붙였다. Transformer 는 다음 token 을 고를 때 vocabulary 의 token 마다 점수를 내고,
-softmax(점수를 합이 1 인 확률로 바꾸는 계산)로 확률을 만들어 하나를 골랐다.
+tokenizer 는 글을 token 이라는 조각으로 자르고, token 마다 vocabulary(쓸 수 있는
+token 을 모두 모아 번호를 붙인 목록)의 번호를 붙인다. 글을 쓰는 Transformer 는 다음 token 을 고를 때 vocabulary 의 token 마다 점수를 내고,
+softmax(점수를 합이 1 인 확률로 바꾸는 계산)로 확률을 만들어 하나를 고른다.
 
 RT-1 의 칸 번호도 똑같이 다룰 수 있다. 차원 하나의 칸 256 개를 "단어 256 개짜리 vocabulary" 로 보면, 칸 번호 138 은 그 vocabulary
 의 138 번 token 이 되고, 모델은 칸마다 점수를 내 하나를 고른다. 그래서 RT-1 은 칸 번호를 action token 이라고 부르고, action 을 칸
@@ -488,8 +488,7 @@ action token 이다.
 ### 칸마다의 점수와 softmax
 
 모델은 칸마다 점수 하나를 낸다. 점수는 $-3$ 이나 8.1 처럼 아무 크기나 될 수 있어서, 이런 점수를 logits 라고 부른다. logits 를
-확률로 바꾸는 계산이 softmax 이고, [PyTorch Training Loop](../pytorch-mlp/README.md) 와 [Transformer](../transformer/README.md)
-에서 본 대로 세 단계다.
+확률로 바꾸는 계산이 softmax 이고, 세 단계로 이루어진다.
 
 1. 점수 $z$ 마다 $e^{z}$ 를 계산한다. $e$ 는 약 2.718 인 정해진 수이고, $e^{2} = e \times e \approx 7.389$, $e^{0} = 1$ 이다.
    $e^{z}$ 는 $z$ 가 음수여도 양수이고, $z$ 가 클수록 크다
@@ -616,8 +615,8 @@ $$
 그대로 남는다.
 
 loss 를 줄이는 방향은 gradient 로 확인할 수 있다. gradient 는 점수를 조금 바꿨을 때 loss 가 변하는 비율이고,
-[PyTorch Training Loop](../pytorch-mlp/README.md) 에서 cross-entropy 의 점수 gradient 가 "그 칸의 확률 − (정답 칸이면 1, 아니면 0)"
-이라는 것을 숫자로 확인했다. 모델 A 에서 정답이 1 번 칸인 시연 하나의 gradient 는
+cross-entropy 의 점수 gradient 는 칸마다 "그 칸의 확률 − (정답 칸이면 1, 아니면 0)"
+이다. 모델 A 에서 정답이 1 번 칸인 시연 하나의 gradient 는
 $(0.056, 0.416 - 1, 0.056, 0.416, 0.056) = (0.056, -0.584, 0.056, 0.416, 0.056)$ 이다. gradient 의 반대 방향으로 고치므로 1 번 칸
 점수는 올라가고 나머지는 내려간다. 정답이 3 번 칸인 시연은 반대로 3 번 칸을 올린다. 시연 10 개를 평균하면 1 번과 3 번 칸은 올라가고
 0, 2, 4 번 칸만 내려가서, 확률이 $(0, 0.5, 0, 0.5, 0)$ 쪽으로 움직인다.
@@ -694,8 +693,8 @@ action 을 내야 하고 다른 지연까지 생각하면 계산 한 번에 0.1 
 
 ### feature map 의 칸과 image token
 
-이제 전체 구조 그림의 왼쪽에서 사진이 token 이 되는 과정을 다룬다. [ResNet](../resnet/README.md) 에서 CNN 은 사진의 가로세로를 줄여 가며 feature
-map 을 만들었다. feature map 은 사진을 요약한 숫자를 가로세로 칸에 늘어놓은 것이고, 칸마다 channel 수만큼 숫자가 있다. channel 은 칸
+이제 전체 구조 그림의 왼쪽에서 사진이 token 이 되는 과정을 다룬다. CNN 은 사진의 가로세로를 줄여 가며 feature
+map 을 만든다. feature map 은 사진을 요약한 숫자를 가로세로 칸에 늘어놓은 것이고, 칸마다 channel 수만큼 숫자가 있다. channel 은 칸
 하나에 쌓인 숫자 장의 수로, 장마다 서로 다른 특징(가장자리, 둥근 모양, 손잡이 같은 것)이 얼마나 있는지를 담는다. ResNet 강의에서 ACT
 라는 policy 는 480×640 사진을 ResNet-18 에 넣어 나온 $512 \times 15 \times 20$ feature map 의 칸 300 개를 token 300 개로 썼다.
 
@@ -753,8 +752,8 @@ vision-language token 이다.
 얻는다. Universal Sentence Encoder 는 2018년 Google 이 공개한 모델로, 문장 하나를 숫자 512 개짜리 vector 로 바꾼다. vector 는 숫자를
 순서대로 묶은 목록이다. 뜻이 비슷한 문장은 비슷한 숫자를 받도록 미리 학습되어 있다.
 
-문장을 이렇게 숫자 묶음으로 바꾼 것을 문장의 embedding 이라고 부른다. [Transformer](../transformer/README.md) 의 embedding 은 token
-번호로 표에서 행 하나를 꺼낸 vector 였는데, 여기서는 문장 전체를 모델에 넣어 계산한 vector 다. 둘 다 "숫자 묶음으로 나타낸 것" 이라는
+문장을 이렇게 숫자 묶음으로 바꾼 것을 문장의 embedding 이라고 부른다. text token 의 embedding 은 token
+번호로 표에서 행 하나를 꺼낸 vector 인데, 여기서는 문장 전체를 모델에 넣어 계산한 vector 다. 둘 다 "숫자 묶음으로 나타낸 것" 이라는
 점에서 같은 이름을 쓴다.
 
 계산을 손으로 따라가려고 512 개 대신 2 개로 줄이자. 이 강의의 예에서는 "빨간 캔 집어" 의 embedding 을 $e = (1, 0)$, "초록 봉지
@@ -770,9 +769,9 @@ Universal Sentence Encoder 가 문장 전체를 숫자 512 개짜리 vector 하�
 
 ### FiLM 계산
 
-[ResNet](../resnet/README.md) 의 batch normalization 은 정규화한 값 $\hat x$ 에 channel 마다 학습하는 숫자 두 개를 입혀
-$y = \gamma \hat x + \beta$ 를 냈다. $\gamma$(gamma, 감마)를 곱하고 $\beta$(beta, 베타)를 더하는 계산이었고, 두 숫자는 학습이 끝나면
-어떤 사진에나 똑같이 쓰였다.
+batch normalization 은 평균을 빼고 표준편차로 나눠 정규화한 값 $\hat x$ 에 channel 마다 학습하는 숫자 두 개를 입혀
+$y = \gamma \hat x + \beta$ 를 낸다. $\gamma$(gamma, 감마)를 곱하고 $\beta$(beta, 베타)를 더하는 계산이고, 두 숫자는 학습이 끝나면
+어떤 사진에나 똑같이 쓰인다.
 
 FiLM 은 같은 꼴의 계산을 하되, $\gamma$ 와 $\beta$ 를 지시 문장의 embedding 에서 그때그때 만든다. 이름은 Feature-wise Linear
 Modulation 의 줄임말로, feature 의 channel 마다(feature-wise) 곱하고 더하는 계산(linear)으로 값을 조절한다(modulation)는 뜻이다.

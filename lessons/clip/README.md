@@ -159,7 +159,7 @@ VLA(Vision-Language-Action model)도 multimodal 모델이다. 이 강의에서 m
 encoder 라고 하는데, [Transformer](../transformer/README.md) 에서 입력 문장을 읽는 쪽을 encoder 라고 부른 것과 같은 뜻이다.
 
 CLIP 에는 encoder 가 둘 있다. 사진을 받는 image encoder 와 글을 받는 text encoder 다. 두 encoder 가 낸 vector 를 각각 사진의
-embedding, 글의 embedding 이라고 부른다. [Transformer](../transformer/README.md) 에서 embedding 은 token id 로 표에서 꺼낸 vector 였지만,
+embedding, 글의 embedding 이라고 부른다. token id 로 표에서 꺼낸 vector 도 embedding 이라고 부르지만,
 여기서는 "사진이나 문장 하나 전체를 나타내는 숫자 vector" 라는 넓은 뜻으로 쓴다. 실제 CLIP 에서 두 embedding 은 모두 숫자 512 개다.
 
 ![사진 3장은 image encoder 를, 설명 3개는 text encoder 를 지나 각각 숫자 목록(embedding)이 된다. 두 쪽의 embedding 을 모두 짝지어 비교하면 3×3 점수표가 나온다](figures/two-encoders.svg)
@@ -193,7 +193,7 @@ text encoder 는 [GPT](../gpt/README.md) 와 같은 구조의 Transformer 다. �
 잘라 token id 열로 바뀌고, 맨 앞에 문장의 시작을 알리는 특수 token(SOT, start of text)이, 맨 뒤에 문장의 끝을 알리는 특수
 token(EOT, end of text)이 붙는다. GPT 강의의 `<bos>` 와 `<eos>` 에 해당하는 token 이다.
 
-GPT 처럼 text encoder 도 causal mask 를 쓴다. causal mask 는 각 위치가 자기와 자기보다 앞의 token 만 보게 막는 장치였다. 그래서
+text encoder 는 causal mask 를 쓴다. causal mask 는 각 위치가 자기와 자기보다 앞의 token 만 보게 막는 장치다. 그래서
 "소파 위의 고양이" 의 "소파" 자리는 "소파" 까지만 보고, 문장 전체를 본 자리는 맨 끝의 EOT 자리 하나뿐이다. text encoder 는 이 EOT
 자리의 출력을 문장의 embedding 으로 쓴다. image encoder 가 사진 전체를 본 [CLS] 자리를 쓰는 것과 같은 생각이다.
 
@@ -213,7 +213,7 @@ GPT 처럼 text encoder 도 causal mask 를 쓴다. causal mask 는 각 위치�
 512 개다. 뒤에서 두 vector 를 칸끼리 곱해 비교하려면 길이가 같아야 하므로, 각 출력에 행렬을 하나씩 곱해 숫자 512 개로 맞춘다.
 
 행렬은 숫자를 가로세로로 늘어놓은 표다. 행렬에 vector 를 곱하면 행렬의 가로줄(행)마다 그 행과 vector 의 dot product 를 하나씩
-계산한다. dot product 는 [Transformer](../transformer/README.md) 에서 본 것처럼 같은 자리 칸끼리 곱해 모두 더한 값이다. 그래서 행이
+계산한다. dot product 는 같은 자리 칸끼리 곱해 모두 더한 값이다. 그래서 행이
 2 개인 행렬을 곱하면 숫자 2 개가 나온다.
 
 ![행렬 곱으로 길이를 맞추는 projection. 사진 쪽 숫자 3 개 [1, 2, 0] 에 2×3 행렬을 곱하면 행마다 dot product 를 해 숫자 2 개 [3, 2] 가 되고, 글 쪽 숫자 2 개 [1, 3] 에 2×2 행렬을 곱하면 [1, 4] 가 되어 둘 다 길이 2 가 된다](figures/projection.svg)
@@ -388,7 +388,7 @@ $i$ 와 설명 $j$ 의 cosine similarity 다. $s$ 는 similarity 의 첫 글자�
 ### 행마다 softmax
 
 사진 $I_2$ 의 행만 떼어 보자. 이 행은 "강아지 사진의 설명은 $T_1, T_2, T_3$ 가운데 어느 것인가" 라는 세 갈래 문제다. 점수를 세 설명에
-대한 확률로 바꾸는 데는 [Transformer](../transformer/README.md) 와 [GPT](../gpt/README.md) 에서 쓴 softmax 를 쓴다. softmax 는 점수
+대한 확률로 바꾸는 데는 softmax 를 쓴다. softmax 는 점수
 $s$ 마다 $e^{s}$ 를 계산하고, 그 합으로 나눠 합이 1 인 비율을 만든다. $e$ 는 약 2.718 인 정해진 수이고, $e^{s}$ 는 $s$ 가 음수여도
 양수이며 $s$ 가 클수록 크다. softmax 에 넣는 점수를 logit 이라고 부른다.
 
@@ -396,7 +396,7 @@ CLIP 은 cosine similarity 를 그대로 softmax 에 넣지 않고, temperature 
 문자 tau(타우)이고, 작은 수로 나눌수록 점수끼리의 차이가 커진다. 여기서는 $\tau = 0.1$ 로 둔다. 0.1 로 나누는 것은 10 을 곱하는 것과
 같아서 $I_2$ 행의 logit 은 6, 7, 2 가 된다.
 
-$e^{7}$ 은 1096.6 처럼 큰 수라 손으로 다루기 불편하므로 Transformer 강의의 성질 하나를 쓴다. softmax 는 모든 점수에서 같은 수를
+$e^{7}$ 은 1096.6 처럼 큰 수라 손으로 다루기 불편하므로 softmax 의 성질 하나를 쓴다. softmax 는 모든 점수에서 같은 수를
 빼도 결과가 같다. 가장 큰 7 을 빼면 logit 은 −1, 0, −5 가 되고 지수가 작아진다. 계산에 쓰는 $e$ 의 값은 아래와 같다.
 
 | $s$ | $-9$ | $-8$ | $-7$ | $-6$ | $-5$ | $-3$ | $-2$ | $-1$ | $0$ |
@@ -425,7 +425,7 @@ $e^{7}$ 은 1096.6 처럼 큰 수라 손으로 다루기 불편하므로 Transfo
 
 ### cross-entropy loss
 
-확률을 loss 로 바꾸는 방법은 [GPT](../gpt/README.md) 의 cross-entropy 와 같다. 정답의 확률 $p$ 에 log 를 씌우고 부호를 바꾼
+확률을 loss 로 바꿀 때는 cross-entropy 를 쓴다. 정답의 확률 $p$ 에 log 를 씌우고 부호를 바꾼
 $-\log p$ 다. $\log p$ 는 "$e$ 를 몇 제곱해야 $p$ 가 되는가" 의 답이라서 $\log 1 = 0$ 이고, $p$ 가 1 보다 작으면 음수다. 마이너스를
 붙이면 loss 는 0 이상이 되고, 정답 확률이 1 에 가까울수록 0 에 가깝다.
 
@@ -519,8 +519,8 @@ loss 는 0.003 이다. 같은 계산을 모든 행과 열에 하면 전체 loss 
 ### loss 가 미는 방향
 
 학습은 loss 가 줄어드는 쪽으로 parameter 를 조금씩 고치는 일이다. parameter 를 조금 바꿨을 때 loss 가 변하는 비율을 gradient 라고
-하고, gradient 의 반대 방향으로 고친다. [GPT](../gpt/README.md) 강의에서 softmax 와 cross-entropy 를 함께 쓰면 각 logit 의
-gradient 가 "그 칸의 확률에서, 정답 칸이면 1 을, 아니면 0 을 뺀 값" 이 된다고 했다. $I_2$ 행에 적용하면 아래와 같다.
+하고, gradient 의 반대 방향으로 고친다. softmax 와 cross-entropy 를 함께 쓰면 각 logit 의
+gradient 가 "그 칸의 확률에서, 정답 칸이면 1 을, 아니면 0 을 뺀 값" 이 된다. $I_2$ 행에 적용하면 아래와 같다.
 
 | 설명 | 확률 | 빼는 값 | logit 의 gradient | 고치는 방향 |
 | --- | --- | --- | --- | --- |
@@ -590,8 +590,8 @@ $$
 ### τ 로 나누기
 
 logit 을 $s / \tau$ 로 만들면 점수끼리의 차이가 $1/\tau$ 배가 된다. softmax 의 결과를 정하는 것은 점수의 크기가 아니라 점수끼리의
-차이였으므로, 차이가 커지면 가장 큰 점수에 확률이 몰린다. [GPT](../gpt/README.md) 에서 생성할 때 logit 을 temperature 로 나눠 확률이
-몰린 정도를 조절한 것과 같은 계산이다.
+차이였으므로, 차이가 커지면 가장 큰 점수에 확률이 몰린다. 언어 모델이 글을 생성할 때 logit 을 temperature 로 나눠 확률이
+몰린 정도를 조절하는 것과 같은 계산이다.
 
 ![사진 I₁(고양이) 행의 확률. τ = 1 로 cosine 0.8, 0.5, 0.1 을 그대로 softmax 하면 0.447, 0.331, 0.222 로 평평하고, τ = 0.1 로 나눠 8, 5, 1 을 쓰면 0.952, 0.047, 0.001 로 정답에 몰린다](figures/temperature.svg)
 
@@ -890,8 +890,7 @@ $$
 
 이 식은 "$e$ 의 $-x$ 제곱에 1 을 더하고, 1 을 그 값으로 나눈다" 로 읽는다. $x = 0$ 이면 $e^{0} = 1$ 이라 $1 \div 2 = 0.5$ 이고,
 $x = 3$ 이면 $e^{-3} = 0.0498$ 이라 $1 \div 1.0498 \approx 0.953$, $x = -3$ 이면 $e^{3} = 20.086$ 이라 $1 \div 21.086 \approx 0.047$
-이다. $x$ 가 클수록 1 에, 작을수록 0 에 다가가서 "짝일 확률" 처럼 읽을 수 있다. [Perceptron](../perceptron/README.md) 과
-[Backpropagation](../autograd/README.md) 에서 본 그 함수다.
+이다. $x$ 가 클수록 1 에, 작을수록 0 에 다가가서 "짝일 확률" 처럼 읽을 수 있다.
 
 ![sigmoid 함수 σ(x) = 1 / (1 + e^(−x)). x = −3 에서 0.047, 0 에서 0.5, 3 에서 0.953 이고, 어떤 x 를 넣어도 0 과 1 사이 값이 나온다](figures/sigmoid.svg)
 
@@ -988,7 +987,7 @@ encoder 가 그 embedding 을 만들고, 사진에서 물체가 있을 만한 �
 
 ### VLA 의 image encoder
 
-[ViT](../vit/README.md) 강의에서 본 것처럼, 사진과 지시문을 함께 받아 로봇 action 을 내는 VLA 는 대개 사진과 글을 함께 받아 글을 내는
+사진과 지시문을 함께 받아 로봇 action 을 내는 VLA 는 대개 사진과 글을 함께 받아 글을 내는
 VLM(Vision-Language Model) 위에 만든다. 2024년 Google 이 공개한 VLM 인 PaliGemma 의 image encoder 가 SigLIP 이다. SigLIP 의
 image encoder 는 ViT 구조이고, 이 강의의 sigmoid loss 로 사진과 설명의 짝을 맞히며 학습했다. 그래서 그 출력은 "빨간 컵" 같은 말과
 같은 공간에 놓이도록 이미 맞춰져 있다.

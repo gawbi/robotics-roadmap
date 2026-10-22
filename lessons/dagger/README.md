@@ -298,7 +298,7 @@ $$
   $\pi(o)$ 에서 정답 $a$ 를 빼서 제곱해 모두 더한 것이다
 
 그래서 둘째 식은 "합친 데이터 전체에서 오차 제곱의 합을 가장 작게 만드는 policy 를 다음 policy $\hat\pi_{i+1}$ 로 삼는다" 로
-읽는다. 오차 제곱의 합을 쌍의 개수로 나누면 BC 에서 쓴 MSE(mean squared error, 오차 제곱의 평균)가 되는데, 평균은 모두 더해
+읽는다. 오차 제곱의 합을 쌍의 개수로 나누면 MSE(mean squared error, 오차 제곱의 평균)가 되는데, 평균은 모두 더해
 개수로 나눈 값이다. 합이 가장 작은 policy 는 개수로 나눈 평균도 가장 작으므로, 어느 쪽으로 재도 고르는 policy 는 같다.
 실제 학습은 BC 와 같이, 오차를 줄이는 방향(gradient)을 구해 policy 안의 숫자(parameter)를 조금씩 고치는 방식으로 한다.
 
@@ -916,8 +916,7 @@ policy 가 고른다.
 ### LeRobot 의 human-in-the-loop 수집
 
 오픈소스 로봇 학습 도구 LeRobot 은 HG-DAgger 와 같은 방식을 실물 로봇 팔에 붙여 쓰는 human-in-the-loop 데이터 수집을 제공한다.
-human-in-the-loop 는 "사람이 반복 고리 안에 들어가 있다" 는 뜻이다. [Behavior Cloning](../behavior-cloning/README.md) 에서 본
-것처럼 사람이 똑같이 생긴 조종용 팔(leader)을 움직이면 로봇 팔(follower)이 따라 움직이는 teleoperation 장비를 쓰고, 한 episode 는
+human-in-the-loop 는 "사람이 반복 고리 안에 들어가 있다" 는 뜻이다. 사람이 똑같이 생긴 조종용 팔(leader)을 움직이면 로봇 팔(follower)이 따라 움직이는 teleoperation 장비를 쓰고, 한 episode 는
 아래 순서로 진행된다.
 
 1. 학습한 policy 가 혼자 팔을 움직이고 사람은 지켜본다

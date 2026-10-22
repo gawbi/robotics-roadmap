@@ -192,7 +192,7 @@ $$
 $w = 0.2$ 이면 $Q(1) = 0.2$, $Q(2) = 0.4$, $Q(3) = 0.6$ 이고, 한 번도 본 적 없는 $x = 2.5$ 에서도 $Q(2.5) = 0.5$ 를 바로 계산한다.
 숫자 하나 $w$ 가 셀 수 없이 많은 칸의 표를 대신한다.
 
-실제로는 직선 하나로는 모자라서 neural network 를 쓴다. neural network 는 [Perceptron](../perceptron/README.md) 에서 본
+실제로는 직선 하나로는 모자라서 neural network 를 쓴다. neural network 는
 "입력에 weight 를 곱해 더하는" 계산을 여러 겹으로 쌓고, 겹 사이에 값을 꺾는 계산을 끼워 넣은 모델이다. 한 겹을 layer 라고 하고,
 여러 layer 를 거치면 직선으로는 나타낼 수 없는 휘어진 관계도 계산할 수 있다. weight 는 수천에서 수백만 개에 이르는데, 이 weight
 전체를 한 기호 $\theta$(theta, 세타)로 묶어 부르고 그 network 가 계산한 $Q$ 를 $Q_\theta(s, a)$ 로 쓴다. 학습하는 방법은
@@ -223,8 +223,8 @@ $0.3 \times 4 = 1.2$ 다. $x = 4$ 를 배운 적이 없어도 식에 넣기만 �
 ### target 을 정답으로 쓰는 regression
 
 표에서는 $Q(s, a)$ 칸을 target 쪽으로 직접 옮겼다. 식으로 계산하는 $Q$ 는 칸이 없으니 $Q$ 를 직접 옮길 수 없고, $w$ 를 고쳐서
-$Q$ 가 target 에 가까워지게 해야 한다. 이 일은 [Linear Regression](../linear-regression/README.md) 과 똑같다. target $y$ 를 정답으로,
-$Q_w(x)$ 를 예측으로 두고 오차의 제곱을 loss(모델이 얼마나 틀렸는지 나타내는 숫자)로 삼아 줄인다. 이렇게 연속된 숫자인 정답에 예측을
+$Q$ 가 target 에 가까워지게 해야 한다. target $y$ 를 정답으로,
+$Q_w(x)$ 를 예측으로 두고 오차의 제곱을 loss(모델이 얼마나 틀렸는지 나타내는 숫자)로 삼아 줄이면 된다. 이렇게 연속된 숫자인 정답에 예측을
 맞추는 문제를 regression 이라고 한다.
 
 $$
@@ -232,7 +232,7 @@ L(w) = \big(Q_w(x) - y\big)^2 = (w x - y)^2
 $$
 
 loss 를 줄이는 방법은 gradient descent 다. $w$ 를 아주 조금 늘렸을 때 loss 가 변하는 비율을 gradient 라고 하고, 그 반대쪽으로
-learning rate $\eta$(eta, 에타)만큼 옮긴다. Linear Regression 의 "점 하나의 오차 제곱 미분" 에서 $b = 0$ 으로 두면 이 loss 의
+learning rate $\eta$(eta, 에타)만큼 옮긴다. 이 loss 의
 gradient 는 아래와 같다.
 
 $$
@@ -348,7 +348,7 @@ $w \leftarrow w - 0.25 \times 2 \times (Q - y) = w + 0.5 \times (y - Q)$ 가 된
 update 0 에서 $Q(1) = 1$ 을 target 1.8 쪽으로 옮겨 1.4 로 만들었다. 그런데 $w$ 가 커지면서 $Q(2)$ 도 2 에서 2.8 로 커졌고, 그 바람에
 target 이 1.8 에서 2.52 로 달아났다. 차이는 0.8 에서 1.12 로 오히려 커졌고, 그 뒤로도 update 할 때마다 $w$ 가 1.4 배씩 커진다.
 진짜 $Q(1)$ 은 0.9 이고 이 복도에서는 reward 를 1 넘게 받을 수 없는데도, $Q$ 는 끝없이 커진다. 값이 이렇게 한없이 커져 멈추지
-않는 것을 [Linear Regression](../linear-regression/README.md) 에서처럼 발산이라고 부른다.
+않는 것을 발산이라고 부른다.
 
 ![transition A(x = 1 에서 x = 2 로, reward 0)만 되풀이해 학습할 때. 왼쪽은 target 을 지금 w 로 계산해 update 할수록 차이가 0.8, 1.12, 1.57, 2.20 으로 커지고, 오른쪽은 target 을 복사본 w̄ = 1 로 고정해 차이가 0.8, 0.4, 0.2, 0.1 로 줄어든다](figures/moving-target.svg)
 
@@ -615,7 +615,7 @@ $$
 | $Q_{\bar\theta}$ | target network 의 $Q$ | $\bar w x$ |
 | $(1 - d)$ | episode 가 끝났으면 0, 아니면 1 | A 는 1, B 는 0 |
 
-$\mathbb E$ 는 [Bandits & MDPs](../bandit-mdp/README.md) 에서 기댓값을 나타내던 기호이고, 여기서는 buffer 에서 뽑은 batch 의
+$\mathbb E$ 는 기댓값을 나타내는 기호이고, 여기서는 buffer 에서 뽑은 batch 의
 평균으로 그 기댓값을 대신한다. 식 전체는 "buffer 에서 transition 을 무작위로 뽑아, target network 로 계산한 target 과 online
 network 의 $Q$ 의 차이를 제곱해 평균한다" 로 읽는다.
 
@@ -810,7 +810,7 @@ actor, state 와 action 을 함께 받아 그 action 의 $Q$ 값 하나를 내�
 DQN 의 network 가 action 마다 출력 칸을 하나씩 두었던 것과 달리, critic 은 action 을 입력으로 받는다.
 
 actor 는 critic 이 매기는 점수가 커지는 쪽으로 action 을 옮긴다. 이때 쓰는 것이 action 을 조금 늘렸을 때 $Q$ 가 변하는 비율이다.
-[Linear Regression](../linear-regression/README.md) 에서 $w^2$ 의 derivative(변하는 비율)가 $2w$ 였던 것처럼,
+$w^2$ 의 derivative(변하는 비율)가 $2w$ 인 것과 같은 계산으로,
 $Q = 1 - (a - 0.5)^2$ 의 비율은 $-2(a - 0.5)$ 다. $a = 0$ 에서는 $-2 \times (-0.5) = 1$ 이라, $a$ 를 0.01 늘리면 $Q$ 가 약 0.01 늘어난다.
 실제로 $Q(0.01) = 1 - 0.49^2 = 0.7599$ 로 0.75 보다 0.0099 크다.
 
@@ -829,7 +829,7 @@ $\frac{\partial Q}{\partial a}$ 는 "$a$ 를 조금 늘렸을 때 $Q$ 가 변하
 | 2 | 0.375 | 0.9844 | 0.25 | $0.375 + 0.25 \times 0.25 = 0.4375$ |
 
 앞 그림의 빨간 점이 이 표다. 꼭대기에 가까워질수록 비율이 작아져 걸음도 작아지고, $a$ 는 0.5 에 다가간다. 실제 actor 에서는 $a$ 가
-actor 의 weight 로 계산되므로, 이 비율을 [Backpropagation](../autograd/README.md) 의 chain rule(변화가 여러 단계를 거쳐 전해질 때 단계마다의 비율을 곱하는 규칙)로 actor 의 weight 까지 전해
+actor 의 weight 로 계산되므로, 이 비율을 chain rule(변화가 여러 단계를 거쳐 전해질 때 단계마다의 비율을 곱하는 규칙)로 actor 의 weight 까지 전해
 weight 를 고친다. 이 강의에서는 actor 의 weight 를 $\phi$(phi, 피)로 쓰고 actor 를 $\pi_\phi$ 로 쓴다. $\pi$(pi, 파이)는 policy 를
 나타내는 기호다.
 
@@ -893,8 +893,8 @@ $(1.3 + 0.7 + 0.7 + 0.7) \div 4 = 0.85$ 로 진짜보다 조금 작다. 작게 �
 ### 로그
 
 SAC 는 "행동을 얼마나 골고루 섞는가" 를 숫자로 재서 reward 에 더한다. 그 숫자를 계산하려면 로그가 필요하다.
-[Bandits & MDPs](../bandit-mdp/README.md) 에서 $\ln t$(natural log, 자연로그)를 "$e \approx 2.718$ 을 몇 번 곱해야 $t$ 가 되는지"
-로 정의했다. $\ln 1 = 0$ 은 한 번도 곱하지 않은 상태가 1 이라는 뜻이다.
+$\ln t$(natural log, 자연로그)는 "$e \approx 2.718$ 을 몇 번 곱해야 $t$ 가 되는지"
+를 나타낸다. $\ln 1 = 0$ 은 한 번도 곱하지 않은 상태가 1 이라는 뜻이다.
 
 확률처럼 0 과 1 사이의 수에서는 로그가 음수가 된다. $e$ 를 "음수 번 곱한다" 는 것은 그만큼 $e$ 로 나눈다는 뜻이라, $e$ 로 한 번 나눈
 $1 \div 2.718 \approx 0.368$ 의 로그는 −1 이다. 확률이 작을수록 더 여러 번 나눠야 하니 로그는 더 큰 음수가 된다.

@@ -377,7 +377,7 @@ $p_b$ 는 base frame 에서 잰 점이다. 두 예를 계산한다.
 첫째 cube 의 윗면 가운데는 로봇 앞 20 cm, 높이 5 cm 이고, 둘째 cube 는 앞 20 cm, 왼쪽 20 cm 에 있다. 높이가 0.05 m 로 나온 것은
 cube 윗면의 높이와 맞으므로 계산이 맞았다는 확인도 된다. cube 의 가운데는 윗면에서 반 변(0.025 m)을 내린 $(0.20, 0, 0.025)$ 다.
 
-카메라가 비스듬히 달린 일반적인 경우에는 [Rigid Transforms](../transforms/README.md) 의 homogeneous transform 을 쓴다. 축을 돌리는
+카메라가 비스듬히 달린 일반적인 경우에는 [Rigid Transforms](../transforms/README.md) 에서 본 homogeneous transform 을 쓴다. 축을 돌리는
 rotation 과 원점을 옮기는 translation 을 4×4 숫자 표(행렬) 하나에 담은 것으로, $T_{bo} = T_{bc}\,T_{co}$ 처럼 곱한다. $T_{bc}$ 는
 base 에서 본 카메라의 pose(위치와 방향), $T_{co}$ 는 카메라에서 본 cube 의 pose 다.
 이 강의의 카메라는 수직 아래를 보므로 위의 축 대응과 더하기만으로 같은 결과가 나온다. 카메라가 base 의 어디에 어느 방향으로
@@ -697,7 +697,7 @@ $\theta_1 = 0° - (-45°) = 45°$, 아래팔 방향은 $45° - 90° = -45°$, $\
 joint angle 을 pre-grasp 에서 grasp 로 한순간에 바꾸면 모터가 갑자기 큰 힘을 내고 팔이 튄다. 그래서 다섯 번째 module 은 두 waypoint
 사이를 시간에 따라 조금씩 옮겨 가는 목표 각도의 목록을 만든다. 시간마다 목표를 정해 둔 이 목록을 trajectory 라고 한다.
 
-[PID Control](../pid-control/README.md) 에서 본 minimum-jerk trajectory 는 출발과 도착에서 속도와 가속도가 모두 0 인 부드러운
+minimum-jerk trajectory 는 출발과 도착에서 속도와 가속도가 모두 0 인 부드러운
 trajectory 다. jerk 는 가속도가 1 초에 변하는 양이고, 이 trajectory 는 그 jerk 를 가장 작게 만든다.
 
 $$
@@ -774,7 +774,7 @@ $0.225 + (-0.2) \times 0.104 = 0.225 - 0.0208 \approx 0.204$ m 다.
 목표 각도를 받은 controller 가 모터의 힘을 계산하고, 팔이 움직인다. grasp 에 도착하면 손가락을 닫고, 손가락이 cube 를 누르는 힘이
 충분해질 때까지 기다린 뒤 lift 로 들어 올린다.
 
-cube 가 손가락 사이에서 미끄러지지 않으려면 MuJoCo 강의의 마찰 조건을 만족해야 한다. 마찰 계수 $\mu$(mu, 뮤)는 누르는 힘에 비해
+cube 가 손가락 사이에서 미끄러지지 않으려면 손가락의 마찰 힘이 cube 의 무게를 버텨야 한다. 마찰 계수 $\mu$(mu, 뮤)는 누르는 힘에 비해
 마찰 힘이 얼마나 클 수 있는지를 나타내는 값이다. 0.1 kg 짜리 cube 의 무게는 $0.1 \times 9.81 = 0.981$ N(뉴턴, 힘의 단위)이고, 두
 손가락이 각각 $F$ 로 누를 때
 

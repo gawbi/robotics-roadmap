@@ -166,7 +166,7 @@ transition 과 reward 를 데이터로 배워 둔 것이다.
 "행동 하나를 하고 결과를 보는 한 번" 이다.
 
 로봇은 자기 위치를 숫자로 알지 못하고, 레일 위에 달린 카메라가 찍은 그림만 본다. 카메라 그림은 가로 8 칸짜리 한 줄이다. 그림을
-작은 칸(pixel)으로 나누고 칸마다 밝기를 숫자로 적는다는 것은 [VAE](../vae/README.md) 에서 본 그대로이고, 여기서는 로봇이 있는
+작은 칸(pixel)으로 나누고 칸마다 밝기를 숫자로 적는데, 여기서는 로봇이 있는
 칸만 밝기 1, 나머지는 0 이다. 로봇이 칸 1 에 있으면 그림은
 
 $$
@@ -332,7 +332,7 @@ $$
 \hat z_{t+1} = f(z_t, a_t) = z_t + w \times a_t
 $$
 
-로 정해 둔다. $\hat z_{t+1}$ 은 "제트 햇 티 플러스 원" 이라고 읽고, 다음 step 의 latent 를 예측한 값이다. 모자(hat)는 VAE 에서처럼
+로 정해 둔다. $\hat z_{t+1}$ 은 "제트 햇 티 플러스 원" 이라고 읽고, 다음 step 의 latent 를 예측한 값이다. 모자(hat)는
 예측이나 되살린 값에 씌운다. $z_t$ 는 지금 latent, $a_t$ 는 지금 고른 action 이고, $w$ 는 "action 1 에 latent 가 얼마나 움직이는가" 를
 나타내는 weight 다. 이 식은 "지금 latent 에 action 의 $w$ 배를 더하면 다음 latent 의 예측이 된다" 로 읽는다.
 
@@ -360,7 +360,7 @@ $w$ 는 로봇이 실제로 움직여 본 기록에서 배운다. 처음에는 w
 | 3 | $-1$ | 2 | $-1$ |
 | 2 | $0$ | 2 | $0$ |
 
-예측한 변화는 $w \times a_t$ 이고 실제 변화는 마지막 열이다. [Linear Regression](../linear-regression/README.md) 에서처럼 예측과
+예측한 변화는 $w \times a_t$ 이고 실제 변화는 마지막 열이다. 예측과
 실제의 차이를 제곱해 평균한 MSE(mean squared error)를 loss 로 두고, gradient descent 로 loss 를 줄이는 $w$ 를 찾는다. gradient
 descent 는 loss 를 줄이는 쪽으로 weight 를 조금씩 고치기를 되풀이하는 방법이다. 몇 가지 $w$ 를 넣어 보면 아래와 같다.
 
@@ -550,8 +550,8 @@ Pendulum 의 토크는 $-2$ 부터 2 사이의 아무 실수나 될 수 있어�
 무작위로 뽑는다. 무작위로 뽑는다는 것은 어떤 값이 얼마나 자주 나올지를 정한 분포에서 값을 꺼낸다는 뜻이고, 이렇게 값을 꺼내는 일을
 sampling 이라고 한다.
 
-[VAE](../vae/README.md) 에서 본 정규분포(Gaussian) $\mathcal N(\mu, \sigma^2)$ 은 평균 $\mu$ 근처에서 가장 자주, 멀어질수록 드물게
-값이 나오는 종 모양 분포였다. 값의 약 68% 가 $\mu - \sigma$ 와 $\mu + \sigma$ 사이에 나오므로, $\mu$ 는 "어디쯤에서 뽑을지",
+정규분포(Gaussian) $\mathcal N(\mu, \sigma^2)$ 은 평균 $\mu$ 근처에서 가장 자주, 멀어질수록 드물게
+값이 나오는 종 모양 분포다. 값의 약 68% 가 $\mu - \sigma$ 와 $\mu + \sigma$ 사이에 나오므로, $\mu$ 는 "어디쯤에서 뽑을지",
 $\sigma$ 는 "얼마나 넓게 뽑을지" 를 정한다.
 
 후보를 무작위로 한 번 뽑아 가장 좋은 것을 고르면 운이 좋아야 좋은 후보가 나온다. cross-entropy method(CEM)는 뽑기를 여러 번
@@ -969,8 +969,8 @@ step 짜리 episode 를 2000 개 돌려 세어 보면, 진자가 똑바로 선 �
 
 ### 실제 step 수의 비교
 
-[DQN → SAC](../off-policy/README.md) 에서 같은 성능에 이르는 데 실제 environment 의 step 이 얼마나 적게 드는지를 sample
-efficiency 라고 했다. sample 은 직접 겪어 얻은 경험 하나다. world model 을 쓰면 sample efficiency 가 크게 오른다.
+같은 성능에 이르는 데 실제 environment 의 step 이 얼마나 적게 드는지를 sample
+efficiency 라고 한다. sample 은 직접 겪어 얻은 경험 하나다. world model 을 쓰면 sample efficiency 가 크게 오른다.
 
 레일 예로 세어 보면, 세 step 후보 넷을 실제로 다 해 보는 model-free 방식은 비교 한 번에 실제 step 12 번과 처음 자리로 되돌리기
 3 번이 든다. world model 은 같은 비교를 latent 예측 12 번으로 하고, 실제로는 고른 action 하나만 한다.

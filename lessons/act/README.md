@@ -39,7 +39,7 @@ Teleoperation(양팔 원격 조종을 위한 저렴한 공개 하드웨어)" 에
 소프트웨어를 모두 공개했다.
 
 사람은 작은 조종용 팔(leader) 두 개를 손으로 움직이고, 큰 로봇 팔(follower) 두 개가 leader 의 관절 각도를 그대로 따라 움직인다.
-[Behavior Cloning](../behavior-cloning/README.md) 에서 본 것처럼 사람이 로봇을 이렇게 원격으로 조종하는 것을 teleoperation 이라고
+사람이 로봇을 이렇게 원격으로 조종하는 것을 teleoperation 이라고
 하고, 조종하는 동안 카메라 영상과 관절 각도를 기록해 시연(demonstration) 데이터를 모은다. 같은 논문에서 이 시연으로 학습한
 policy 가 ACT(Action Chunking with Transformers)다. policy 는 "상황을 받아 행동을 내는 규칙" 이라는 뜻이고, ACT 에서는 그 규칙이
 neural network(숫자를 곱하고 더하는 층을 여러 겹 쌓은 모델) 하나다. 이름의 Transformer 는 ACT 가 쓰는 neural network 구조의
@@ -497,10 +497,11 @@ temporal ensembling 은 흔히 쓰는 smoothing 과 다르다. smoothing 은 바
 표의 숫자는 step 마다 집게의 목표 높이(cm)이고, 한 줄이 길이 4 인 action chunk 하나다. 세 시연 모두 큐브를 잘 잡았으니 셋 다 옳은
 chunk 다. 관측은 세 번 모두 거의 같아서, 사진과 관절 각도만 봐서는 사람이 이번에 멈출지 말지 알 수 없다.
 
-이렇게 같은 관측에서 시연마다 달라지는 움직임의 방식을 ACT 논문은 style 이라고 부른다. Behavior Cloning 에서 같은 관측에 정답 action
-이 여럿인 시연을 multimodal 시연이라고 했는데, 시연의 style 이 갈리는 것도 그 경우다. 여기서 multimodal 은 "정답의 분포에 봉우리가
-여럿" 이라는 뜻이고, VLA(사진과 글 지시를 받아 로봇 action 을 내는 모델)를 "사진과 글을 함께 받는 multimodal 모델" 이라고 할 때의 "입력의 종류가 여럿" 이라는 뜻과는
-다르다.
+이렇게 같은 관측에서 시연마다 달라지는 움직임의 방식을 ACT 논문은 style 이라고 부른다. Behavior Cloning 에서는 같은 관측에 옳은
+action 이 여럿인 시연을 multimodal 시연이라고 했는데, 위 표가 바로 그 경우다. 관측은 하나인데 옳은 chunk 는 세 개다.
+
+multimodal 이라는 단어는 다른 뜻으로도 쓰인다. 사진과 글 지시를 함께 받는 VLA 같은 모델을 multimodal 모델이라고 부를 때는 받는
+입력의 종류가 사진과 글 두 가지라는 뜻이고, 옳은 답이 여럿이라는 뜻이 아니다.
 
 ![큐브 위 12 cm 에서 내려가는 세 시연의 높이. 바로 내려감은 6, 0, 0, 0, 1 step 멈춤은 12, 6, 0, 0, 2 step 멈춤은 12, 12, 6, 0 이다. 셋의 평균 10, 6, 2, 0(빨간 점선)은 어느 시연과도 다른 느린 하강이다](figures/style-chunks.svg)
 
@@ -818,8 +819,8 @@ token 이 $4 \times 300 + 2 = 1{,}202$ 개라서 $1202 \times 1202 = 1{,}444{,}8
 
 ### action head 인 Transformer decoder
 
-ResNet 강의에서 network 를 입력을 요약한 숫자(feature)로 바꾸는 앞부분 backbone(몸통)과, 그 요약을 원하는 출력으로 바꾸는 뒷부분
-head 로 나눠 보았다. 로봇 policy 에서 몸통이 만든 요약 숫자를 관절값으로 바꾸는 부분을 action head 라고 한다. Behavior Cloning
+network 는 입력을 요약한 숫자(feature)로 바꾸는 앞부분 backbone(몸통)과, 그 요약을 원하는 출력으로 바꾸는 뒷부분
+head 로 나눠 볼 수 있다. 로봇 policy 에서 몸통이 만든 요약 숫자를 관절값으로 바꾸는 부분을 action head 라고 한다. Behavior Cloning
 의 action head 는 사진 feature 512 개와 관절 각도 7 개를 받아 목표 각도 7 개를 내는 작은 MLP(층 두어 개짜리 neural network)였다. ACT 에서는 Transformer encoder
 까지가 몸통이고, Transformer decoder 와 마지막 linear layer 가 action head 다. encoder 가 만든 vector 302 개를 받아 관절 목표값
 $100 \times 14$ 개를 내기 때문이다.
@@ -855,8 +856,14 @@ parameter 는 $14 \times (512 + 1) = 7{,}182$ 개다. 100 개 query 의 출력�
 위 그림의 윗부분이 decoder 전체의 흐름이고, 아랫부분이 표의 계산이다. Transformer 강의의 번역 decoder 는 `<bos>` 다음에 4, 그다음에
 1 처럼 앞에서 만든 출력을 다시 입력으로 넣어 한 token 씩 만들었다. ACT 의 decoder 는 query 100 개를 한꺼번에 넣어 100 개 action 을
 동시에 낸다. 앞 출력을 기다리지 않으니 추론 한 번에 decoder 를 한 번만 계산하면 된다. 고정 query 로 출력 묶음을 한 번에 내는
-방식도 DETR 에서 왔는데, DETR 은 query 마다 물체 하나의 상자를 낸다. 논문의 원 구현은 decoder 층을 7 개로 적었지만 구현 실수로 첫
-층의 출력만 쓰였고, Hugging Face 의 로봇 학습 라이브러리 LeRobot 은 그 동작에 맞춰 decoder 층 1 개를 기본값으로 둔다.
+방식도 DETR 에서 왔는데, DETR 은 query 마다 물체 하나의 상자를 낸다.
+
+논문은 decoder 층을 7 개로 적었지만, 저자가 공개한 코드에서 action 이 되는 것은 첫째 층의 출력이다. 코드는 7 개 층을 차례로
+계산하면서 층마다의 출력을 목록에 모아 두는데, 이 목록은 DETR 이 층마다 따로 loss 를 매기려고 만든 것을 그대로 물려받았다.
+DETR 의 Transformer 는 이 목록과 encoder 출력을 한 쌍으로 돌려줘서 `[0]` 으로 목록을 꺼내고, 최종 출력에는 목록의 마지막 층을
+쓴다. ACT 는 Transformer 가 목록만 돌려주도록 바꾸고도 `[0]` 을 그대로 남겨서, `[0]` 이 목록 안의 첫째 층을 꺼내게 됐다. 그래서
+2~7 층은 계산만 되고 그 결과가 action 에 쓰이지 않는다. 결과가 loss 에 닿지 않으니 학습으로 고쳐지지도 않아서, 논문의 성공률은 사실상 decoder 층 1 개로 얻은 값이다.
+Hugging Face 의 로봇 학습 라이브러리 LeRobot 은 이를 bug 로 보고, 같은 동작을 헛계산 없이 내도록 decoder 층 1 개를 기본값으로 둔다.
 
 **확인 문제.** action chunk 를 $k = 50$ 으로 줄이고 관절이 14 개라면, 고정 query 는 몇 개이고 마지막 linear layer 의 parameter 는 몇
 개일까?
@@ -899,7 +906,7 @@ $\mu$, 뒤 32 개를 $\log\sigma^2$ 로 쓴다. $\sigma$ 를 바로 내지 않�
 
 episode 끝 근처에서는 시연 action 이 100 개가 안 된다. 400 step episode 에서 $t = 350$ 을 고르면 남은 시연은 step 350 ~ 399 의 50 개뿐이고,
 나머지 50 자리는 길이를 맞추려고 아무 값으로나 채운다. 이렇게 길이를 맞추려고 채우는 것을 padding 이라고 한다. padding 자리는
-정답이 아니므로 L1 을 계산할 때 빼고, CVAE encoder 의 attention 에서도 Transformer 강의의 padding mask, 곧 그 자리의 점수를 $-\infty$ 로 바꿔 weight 를 0 으로
+정답이 아니므로 L1 을 계산할 때 빼고, CVAE encoder 의 attention 에서도 padding mask, 곧 그 자리의 점수를 $-\infty$ 로 바꿔 weight 를 0 으로
 만드는 방법으로 가린다.
 
 추론할 때는 CVAE encoder 를 쓰지 않고 $z = 0$ 을 넣는다. step 마다 추론해 temporal ensembling 을 하거나, $k$ step 마다 한 번 추론해

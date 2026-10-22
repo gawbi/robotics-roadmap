@@ -53,8 +53,8 @@ VLA(vision-language-action) 모델에서 "multimodal 모델" 이라고 할 때�
 
 ### action head
 
-[Behavior Cloning](../behavior-cloning/README.md) 에서 관측을 받아 행동을 정하는 규칙인 policy 를 두 부분으로 나눠 보았다. 앞부분은 카메라 사진과 지금의 관절 각도 같은
-관측을 받아 짧은 숫자 묶음으로 요약하고, 이 요약 숫자를 feature 라고 했다. 이 강의에서는 이 앞부분을 몸통(backbone)이라고 부른다.
+관측을 받아 행동을 정하는 규칙인 policy 는 두 부분으로 나눠 볼 수 있다. 앞부분은 카메라 사진과 지금의 관절 각도 같은
+관측을 받아 짧은 숫자 묶음으로 요약하는데, 이 요약 숫자를 feature 라 하고 이 앞부분을 몸통(backbone)이라고 부른다.
 뒷부분은 몸통이 만든 요약 숫자를 받아 로봇에 보낼 행동을 내는데, 이 부분이 action head 다. head 는 큰 모델의 끝에 붙어 최종 출력을
 내는 작은 부분을 뜻한다.
 
@@ -643,7 +643,7 @@ ResNet-18 의 마지막에는 global average pooling 이 있다. feature map(사
 
 spatial softmax 는 feature map 한 장마다 값이 큰 칸의 위치 $(x, y)$ 를 뽑는다. 순서는 아래와 같다.
 
-1. feature map 의 모든 칸에 softmax 를 취해 칸마다의 확률을 만든다. softmax 는 [RT-1](../rt1/README.md) 에서 본, 점수 $s$ 마다 $e^{s}$ 를
+1. feature map 의 모든 칸에 softmax 를 취해 칸마다의 확률을 만든다. softmax 는 점수 $s$ 마다 $e^{s}$ 를
    구해 그 합으로 나누는 계산이라 큰 값일수록 큰 확률을 받고 확률의 합은 1 이다
 2. 칸마다 좌표를 정한다. 왼쪽 위 칸을 $(-1, -1)$, 오른쪽 아래 칸을 $(1, 1)$ 로 두고 그 사이를 고르게 나눈다
 3. 확률을 weight 로 좌표의 가중 평균을 구한다. 이 값을 기댓값이라고 한다
@@ -673,7 +673,7 @@ keypoint 32 개를 뽑아 사진 한 장이 숫자 $32 \times 2 = 64$ 개가 된
 
 ### GroupNorm 과 EMA
 
-[ResNet](../resnet/README.md) 의 BatchNorm 은 batch(한 번에 함께 학습하는 시연 묶음)의 평균과 분산으로 값을 정규화하고, 평가할 때는 학습하는
+BatchNorm 은 batch(한 번에 함께 학습하는 시연 묶음)의 평균과 분산으로 값을 정규화하고, 평가할 때는 학습하는
 동안 쌓아 둔 평균을 쓴다. Diffusion Policy 는 BatchNorm 을 GroupNorm 으로 바꾼다. GroupNorm 은 사진 한 장 안에서 channel(같은 자리에 겹쳐 쌓인 숫자 층
 하나)을 몇 개씩 묶어 그 묶음의 평균과 분산으로 정규화해서, batch 에 무엇이 함께 들어 있든 결과가 같다.
 

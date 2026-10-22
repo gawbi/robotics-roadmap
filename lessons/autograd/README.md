@@ -83,8 +83,8 @@ backpropagation(역전파)이고, 이름은 "거꾸로(back) 전한다(propagati
 
 ## derivative 와 step function 의 한계
 
-[Linear Regression](../linear-regression/README.md) 에서 숫자를 고친 방법을 다시 떠올려 보자. 어떤 숫자를 아주 조금 바꿨을 때
-결과가 변하는 비율을 derivative(미분값)라고 했다. $f(w) = w^2$ 에서 $w = 3$ 이면 $f = 9$ 이고, $w$ 를 0.01 늘려 3.01 로 하면
+어떤 숫자를 아주 조금 바꿨을 때
+결과가 변하는 비율을 derivative(미분값)라고 한다. $f(w) = w^2$ 에서 $w = 3$ 이면 $f = 9$ 이고, $w$ 를 0.01 늘려 3.01 로 하면
 $f = 9.0601$ 이다. 결과는 0.0601 변했고 비율은 $0.0601 \div 0.01 = 6.01$ 인데, 늘리는 양을 더 줄이면 이 비율은 6 에 다가간다.
 그래서 $w = 3$ 에서 $f$ 의 derivative 는 6 이다.
 
@@ -343,7 +343,7 @@ $-0.02 \div 0.01 = -2$ 인데, 이 값은 다른 입력 $f$ 와 같다. 반대�
 | 제곱 | $x^2$ | $2x$ | 없음 |
 | sigmoid | $\sigma(x)$ | $\sigma(x)(1 - \sigma(x))$ | 없음 |
 
-제곱의 비율 $2x$ 는 Linear Regression 에서 구한 "$w^2$ 의 derivative 는 $2w$" 이고, sigmoid 의 비율은 앞 절의 공식이다. 식으로는
+제곱의 비율 $2x$ 는 "$w^2$ 의 derivative 는 $2w$" 라는 규칙에서 나오고, sigmoid 의 비율은 앞 절의 공식이다. 식으로는
 $\frac{\partial (x + y)}{\partial x} = 1$, $\frac{\partial (x \times y)}{\partial x} = y$ 처럼 적는다. 첫 식은 "$x + y$ 를 $x$ 로 잰
 비율은 1", 둘째 식은 "$x \times y$ 를 $x$ 로 잰 비율은 $y$" 라고 읽는다.
 
@@ -505,7 +505,7 @@ $x$ 가 $y_1, \dots, y_k$ 라는 $k$ 개의 연산 출력에 쓰였다는 뜻이
 
 숫자를 바꿔 $L = a \times a$ 에서도 해 보자. 같은 $a$ 가 곱셈의 두 입력에 다 들어간 경우다. $a = 3$ 이면 첫째 입력으로서의 비율은
 다른 입력 3, 둘째 입력으로서의 비율도 다른 입력 3 이라 합은 6 이다. $a$ 를 3.01 로 하면 $L = 9.0601$ 이라 비율은 $6.01$ 로, 늘리는
-양을 줄이면 6 에 다가간다. Linear Regression 에서 구한 "$w^2$ 의 derivative 는 $2w$" 와 정확히 같은 결과다.
+양을 줄이면 6 에 다가간다. "$w^2$ 의 derivative 는 $2w$" 라는 규칙에 $w = 3$ 을 넣은 값과 정확히 같다.
 
 **흔한 오해.** backward 에서 두 번째 길의 gradient 로 첫 번째 길의 값을 덮어쓰면 틀린다. $L = q + a$ 에서 덮어쓰면 $a$ 의
 gradient 가 2 나 1 하나만 남고, $L = a \times a$ 에서는 6 대신 3 이 나온다. gradient 는 늘 들어오는 대로 더해 쌓는다.
@@ -581,7 +581,7 @@ $p, c$ 뒤에 있다. forward 가 이 순서로 계산하고, backward 는 이 �
 
 | 방법 | 하는 일 | 숫자 9 개일 때 graph 를 훑는 횟수 |
 | --- | --- | --- |
-| 숫자마다 조금 바꿔 재기 | Linear Regression 의 central difference. 숫자 하나를 $+h$, $-h$ 로 바꿔 forward 를 두 번 | $9 \times 2 = 18$ 번 |
+| 숫자마다 조금 바꿔 재기 | central difference. 숫자 하나를 $+h$, $-h$ 로 바꿔 forward 를 두 번 | $9 \times 2 = 18$ 번 |
 | forward-mode | 숫자 하나를 정해, forward 와 함께 "그 숫자에 대한 비율" 을 앞에서부터 실어 나름 | 숫자마다 한 번, 9 번 |
 | reverse-mode | forward 한 번 뒤, $L$ 에서 backward 한 번 | forward 1 + backward 1 = 2 번 |
 
@@ -621,7 +621,7 @@ z = w_1 x_1 + w_2 x_2 + b, \qquad \hat y = \sigma(z), \qquad L = (\hat y - y)^2
 $$
 
 첫 식은 perceptron 의 weighted sum 이고, 둘째 식은 그 값을 sigmoid 에 넣은 출력 $\hat y$("와이 햇", 예측)다. 셋째 식의 $L$ 은
-예측과 정답 $y$ 의 차이를 제곱한 loss 다. Linear Regression 의 오차 제곱과 같다.
+예측과 정답 $y$ 의 차이를 제곱한 loss 다.
 
 입력 $x = [1, 1]$, 정답 $y = 1$ 이고 $w = [0.5, 0.5]$, $b = -1$ 에서 시작한다. forward 는 $z = 0.5 + 0.5 - 1 = 0$,
 $\hat y = \sigma(0) = 0.5$, $L = (0.5 - 1)^2 = 0.25$ 다. backward 는 아래와 같다.
@@ -744,7 +744,7 @@ weight" 이고 "더블유 일이" 라고 읽는다. $v_1, v_2$ 는 출력 neuron
 | $h_2$ | $w_{21} = 1$, $w_{22} = 1$ | $b_2 = -1$ |
 | 출력 | $v_1 = 1$, $v_2 = -1$ | $b_3 = 0$ |
 
-loss 는 네 sample(입력과 정답 한 쌍)의 오차 제곱을 평균한 값이다. Linear Regression 의 mean squared error 와 같다.
+loss 는 네 sample(입력과 정답 한 쌍)의 오차 제곱을 평균한 값이고, mean squared error(MSE)라고 부른다.
 
 $$
 L = \frac{1}{4} \sum_{k=1}^{4} (\hat y_k - y_k)^2
@@ -830,7 +830,7 @@ $h_2$ 를 키우면 오차가 커진다. $v_2 = -1$ 이라 $h_2$ 가 클수록 $
 $x_2 = 0$ 이라 $w_{12}$ 와 $w_{22}$ 의 gradient 는 0 이다. perceptron 에서처럼 0 인 입력은 $z$ 에 아무 영향을 주지 않았으니 그
 weight 를 고칠 이유도 없다.
 
-gradient 가 맞는지 Linear Regression 의 central difference 로 확인해 보자. $w_{11}$ 만 $1 \pm 0.01$ 로 바꾸고 나머지는 그대로 둔 채
+gradient 가 맞는지 central difference(숫자를 $+h$, $-h$ 로 바꿔 잰 두 결과의 차이를 $2h$ 로 나누는 방법)로 확인해 보자. $w_{11}$ 만 $1 \pm 0.01$ 로 바꾸고 나머지는 그대로 둔 채
 이 sample 의 오차 제곱을 다시 계산하면 $w_{11} = 1.01$ 에서 0.195370, $w_{11} = 0.99$ 에서 0.196229 다.
 
 $$

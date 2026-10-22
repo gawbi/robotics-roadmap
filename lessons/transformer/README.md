@@ -71,7 +71,7 @@ token 을 봐야 정해진다.
 ### 한 token 씩 읽던 방식
 
 Transformer 가 나오기 전에는 문장을 다루는 모델의 대부분이 RNN(recurrent neural network)이었다. neural network 는 곱하고 더하는
-단순한 계산을 여러 층 쌓은 모델이고([Backpropagation](../autograd/README.md) 에서 다룬다), recurrent 는 "되풀이되는" 이라는
+단순한 계산을 여러 층 쌓은 모델이고, recurrent 는 "되풀이되는" 이라는
 뜻이다. RNN 은 token 을 앞에서부터 하나씩 읽으면서, 읽을 때마다 정해진 개수의 숫자로 된 기억을 고쳐 쓴다. "빨간 컵 집어" 라면
 "빨간" 을 읽어 기억을 만들고, 그 기억에 "컵" 을 합쳐 새 기억을 만든 뒤, 다시 "집어" 를 합친다.
 
@@ -138,9 +138,8 @@ $2 \times 3 = 6$ 과 $3 \times 3 = 9$ 다. 차이 3 은 vocabulary 에 넣은 �
 
 ### embedding 표
 
-그래서 token 마다 숫자 몇 개짜리 목록을 따로 정해 둔다. 숫자를 순서대로 묶은 목록을 vector 라고 하고
-([Linear Regression](../linear-regression/README.md) 의 "vector 와 행렬 곱" 절), vector 안 숫자의 개수를 그 vector 의 차원이라고
-한다. $[1, 1]$ 은 2차원 vector 다.
+그래서 token 마다 숫자 몇 개짜리 목록을 따로 정해 둔다. 숫자를 순서대로 묶은 목록을 vector 라고 하고,
+vector 안 숫자의 개수를 그 vector 의 차원이라고 한다. $[1, 1]$ 은 2차원 vector 다.
 
 token 마다 vector 하나를 적어 둔 표를 embedding 표라고 하고, token id 로 이 표에서 행(가로줄) 하나를 꺼내는 일을 embedding
 이라고 한다. 꺼낸 vector 도 그 token 의 embedding 이라고 부른다. embed 는 "끼워 넣다" 라는 뜻으로, token 을 숫자 공간 안의 한
@@ -180,7 +179,7 @@ id 열은 0, 1, 3 이고, embedding 은 $[1, 1]$, $[0, 0]$, $[0, 2]$ 다.
 ### embedding 값의 출처
 
 실제 모델에서는 embedding 표의 숫자를 사람이 정하지 않는다. 처음에는 아무 숫자(무작위 값)로 채워 두고, 학습하면서
-[Linear Regression](../linear-regression/README.md) 의 $w$, $b$ 처럼 loss(모델이 틀린 정도를 나타낸 숫자)가 줄어드는 쪽으로
+loss(모델이 틀린 정도를 나타낸 숫자)가 줄어드는 쪽으로
 조금씩 고친다. 그래서 embedding 표의 숫자는 모두 parameter(데이터를 보고 채우는 숫자)이고, 칸마다의 뜻도 위 예처럼 사람이 읽을
 수 있게 정해지지 않는다.
 
@@ -223,7 +222,7 @@ embedding 이라는 말은 강의마다 조금씩 다르게 쓰인다.
 ### dot product
 
 두 vector 의 같은 자리 칸끼리 곱한 뒤 모두 더한 값을 dot product(내적)라고 하고, 두 vector 사이에 가운뎃점을 찍어
-$\mathbf{a} \cdot \mathbf{b}$ 로 쓴다([Linear Regression](../linear-regression/README.md) 에서 처음 다뤘다).
+$\mathbf{a} \cdot \mathbf{b}$ 로 쓴다.
 
 $$
 [1, 1] \cdot [2, 0] = 1 \times 2 + 1 \times 0 = 2
@@ -277,7 +276,7 @@ $[3, -1, -1]$ 이면 합이 1 이라 나눠도 $[3, -1, -1]$ 그대로이고, �
 수의 오른쪽 위에 작게 쓴 숫자를 지수라고 하고, 그 수를 몇 번 곱하는지를 나타낸다. $2^3 = 2 \times 2 \times 2 = 8$ 이다. 지수가
 0 이면 값은 1 로 정하고, 지수에 마이너스가 붙으면 1 을 그만큼 곱한 수로 나눈다. $2^{-1} = 1 \div 2 = 0.5$ 다.
 
-softmax 에서는 2 대신 약 2.718 인 정해진 수 $e$ 를 쓴다([Backpropagation](../autograd/README.md) 의 sigmoid 에서도 나왔다).
+softmax 에서는 2 대신 약 2.718 인 정해진 수 $e$(자연상수)를 쓴다.
 지수가 정수가 아니어도 계산기로 값을 구할 수 있다.
 
 | $s$ | $-2$ | $-1$ | $0$ | $1$ | $2$ | $3$ | $4$ |
@@ -439,8 +438,7 @@ embedding 하나가 세 가지 일을 한꺼번에 맡고 있다. 다른 token �
 ### 행렬과 vector 의 곱
 
 세 가지 일을 나누려고 embedding 에 서로 다른 행렬을 곱한다. 행렬은 숫자를 가로줄(행)과 세로줄(열)로 늘어놓은 직사각형 모양의
-묶음이고, 행렬과 vector 의 곱은 행렬의 각 행과 vector 의 dot product 를 차례로 계산해 세로로 쌓은 것이다
-([Linear Regression](../linear-regression/README.md) 의 "행렬과 행렬 곱" 절).
+묶음이고, 행렬과 vector 의 곱은 행렬의 각 행과 vector 의 dot product 를 차례로 계산해 세로로 쌓은 것이다.
 
 $$
 \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
@@ -452,9 +450,8 @@ $$
 $$
 
 첫째 행 $[0, 1]$ 과 $[1, -1]$ 의 dot product 가 $-1$, 둘째 행 $[1, 0]$ 과의 dot product 가 1 이다. 이 행렬은 두 칸을 맞바꾸는
-일을 한다. 이처럼 vector 에 행렬을 곱하는 층을 Linear layer 라고 부르고, 행렬의 숫자는 모두 학습으로 정해지는 parameter 다
-([PyTorch Training Loop](../pytorch-mlp/README.md) 에서 Linear layer 를 쌓아 모델을 만든다). 이 강의에서는 행렬과 vector 의 곱을
-$W\mathbf{x}$ 처럼 붙여 쓴다.
+일을 한다. 이처럼 vector 에 행렬을 곱하는 층을 Linear layer 라고 부르고, 행렬의 숫자는 모두 학습으로 정해지는 parameter 다.
+이 강의에서는 행렬과 vector 의 곱을 $W\mathbf{x}$ 처럼 붙여 쓴다.
 
 **확인 문제.** $\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$ 에 vector $[1, -1]$ 을 곱하면?
 
@@ -592,7 +589,7 @@ dot product 는 칸 $d$ 개의 곱을 더한 값이라서, 차원 $d$ 가 커지
 아무렇게나 정해진다고 하자. 그러면 칸마다의 곱도 $+1$ 아니면 $-1$ 이다.
 
 $d = 2$ 이면 두 곱의 조합은 네 가지이고, 합은 $1 + 1 = 2$, $1 - 1 = 0$, $-1 + 1 = 0$, $-1 - 1 = -2$ 다. 합이 양수와 음수로 갈려서
-그냥 평균하면 0 이 되므로, [Linear Regression](../linear-regression/README.md) 에서 오차를 다룰 때처럼 제곱해서 평균한다. 제곱은
+그냥 평균하면 0 이 되므로 제곱해서 평균한다. 제곱은
 4, 0, 0, 4 이고 평균은 $8 \div 4 = 2$ 다.
 
 $d = 4$ 이면 곱 네 개의 조합이 $2 \times 2 \times 2 \times 2 = 16$ 가지다.
@@ -624,7 +621,7 @@ $\sqrt{d}$ 다. $d = 4$ 이면 2, $d = 64$ 이면 8, Transformer 논문의 $d = 
 $[0.99966, 0.00034, 0.0000001]$ 이다. 거의 모든 비중이 한 token 에 몰린다.
 
 쏠림이 문제가 되는 이유는 학습에 있다. 학습은 점수를 조금 바꿨을 때 결과가 얼마나 변하는지, 곧 gradient 를 보고 parameter 를
-고친다([Linear Regression](../linear-regression/README.md) 의 gradient 절). 가운데 점수를 0.5 올려 보자.
+고친다. 가운데 점수를 0.5 올려 보자.
 
 | 점수 | 가운데 weight | 0.5 올린 점수 | 가운데 weight | 변화 |
 | --- | --- | --- | --- | --- |
@@ -896,7 +893,7 @@ $$
 위 그림은 token 하나의 vector 가 FFN 을 지나는 모습이다. 다른 token 의 vector 는 이 계산에 들어오지 않는다.
 
 ReLU 가 없으면 행렬을 두 번 곱한 결과가 행렬 하나를 곱한 것과 같아져서 층을 둘로 나눈 의미가 없다. ReLU 처럼 곱하고 더하기로는
-만들 수 없는 꺾임을 넣어야 더 복잡한 관계를 표현할 수 있다([Backpropagation](../autograd/README.md) 에서 다룬다). 가운데
+만들 수 없는 꺾임을 넣어야 더 복잡한 관계를 표현할 수 있다. 가운데
 vector 는 보통 원래의 4 배 길이로 잡는다. Transformer 논문은 512 를 2048 로 늘렸다가 512 로 되돌렸다.
 
 **확인 문제.** $[3, -2, 0, -1]$ 에 ReLU 를 적용하면?

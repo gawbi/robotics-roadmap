@@ -311,8 +311,8 @@ noise 가 많고 1 에 가까우면 거의 다 고쳐진 상태라서, 맞는 �
 섞인 action 과 함께 받는다.
 
 diffusion transformer 는 여기에 한 가지를 더한다. 이미지 생성용으로 나온 DiT(Diffusion Transformer)를 바탕으로, 층마다 adaptive layer
-norm 으로 $\tau$ 를 다시 넣는다. [GPT-2](../gpt/README.md) 에서 본 LayerNorm 은 token 하나의 숫자들을 평균 0, 표준편차 1 로 맞춘 뒤 학습되는
-두 숫자 $\gamma$("감마", 곱하는 수)와 $\beta$("베타", 더하는 수)로 다시 조절했다. adaptive layer norm 은 $\gamma$ 와 $\beta$ 를 고정된 숫자로
+norm 으로 $\tau$ 를 다시 넣는다. LayerNorm 은 token 하나의 숫자들을 평균 0, 표준편차 1 로 맞춘 뒤 학습되는
+두 숫자 $\gamma$("감마", 곱하는 수)와 $\beta$("베타", 더하는 수)로 다시 조절하는 층이다. adaptive layer norm 은 $\gamma$ 와 $\beta$ 를 고정된 숫자로
 두지 않고, $\tau$ 를 넣은 작은 network 가 그때그때 만들어 낸다.
 
 LayerNorm 으로 맞춘 숫자가 $(1,\ -1)$ 이라고 하자. $\tau$ 에 따라 작은 network 가 아래처럼 $\gamma$ 와 $\beta$ 를 냈다면 결과가 달라진다.
