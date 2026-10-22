@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>같은 filter 칸 w = 0.5 에 사진 3 장이 구한 gradient 는 label 7 이 −0.6, label 3 이 +0.3, label 1 이 −0.9 이고 평균은 −0.4 다. SGD 로 고치면 w 는 0.5 − 0.1 × (−0.4) = 0.54 가 되어 0.04 늘어난다</title>
+  <rect x="1" y="1" width="858" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+
+  <text x="280" y="40" fill="#e2e8f0" font-size="15" text-anchor="middle">같은 filter 칸 w = 0.5 에 사진 3 장이 구한 gradient</text>
+  <text x="280" y="66" fill="#f59e0b" font-size="14" text-anchor="middle">평균 g = (−0.6 + 0.3 − 0.9) ÷ 3 = −1.2 ÷ 3 = −0.4</text>
+
+  <line x1="360" y1="100" x2="360" y2="210" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="200" y="110" fill="#34d399" font-size="13" text-anchor="middle">음수: w 를 늘리면 loss 감소</text>
+  <text x="450" y="110" fill="#f87171" font-size="13" text-anchor="middle">양수: w 를 늘리면 loss 증가</text>
+
+  <line x1="40" y1="200" x2="520" y2="200" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="40" y1="194" x2="40" y2="206" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="194" x2="200" y2="206" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="360" y1="194" x2="360" y2="206" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="520" y1="194" x2="520" y2="206" stroke="#94a3b8" stroke-width="2"/>
+  <text x="40" y="226" fill="#94a3b8" font-size="12" text-anchor="middle">−1.0</text>
+  <text x="200" y="226" fill="#94a3b8" font-size="12" text-anchor="middle">−0.5</text>
+  <text x="360" y="226" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="520" y="226" fill="#94a3b8" font-size="12" text-anchor="middle">+0.5</text>
+
+  <circle cx="72" cy="200" r="7" fill="#38bdf8"/>
+  <text x="72" y="155" fill="#e2e8f0" font-size="13" text-anchor="middle">label 1</text>
+  <text x="72" y="175" fill="#38bdf8" font-size="13" text-anchor="middle">−0.9</text>
+  <circle cx="168" cy="200" r="7" fill="#38bdf8"/>
+  <text x="168" y="155" fill="#e2e8f0" font-size="13" text-anchor="middle">label 7</text>
+  <text x="168" y="175" fill="#38bdf8" font-size="13" text-anchor="middle">−0.6</text>
+  <circle cx="456" cy="200" r="7" fill="#38bdf8"/>
+  <text x="456" y="155" fill="#e2e8f0" font-size="13" text-anchor="middle">label 3</text>
+  <text x="456" y="175" fill="#38bdf8" font-size="13" text-anchor="middle">+0.3</text>
+
+  <path d="M232,214 L224,230 L240,230 z" fill="#f59e0b"/>
+  <circle cx="232" cy="200" r="7" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="232" y="252" fill="#f59e0b" font-size="14" text-anchor="middle">평균 −0.4</text>
+
+  <rect x="560" y="90" width="280" height="170" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="700" y="118" fill="#f59e0b" font-size="14" text-anchor="middle">SGD update (η = 0.1)</text>
+  <text x="576" y="156" fill="#94a3b8" font-size="13">변화 전</text>
+  <text x="650" y="156" fill="#e2e8f0" font-size="13">w = 0.5</text>
+  <text x="576" y="190" fill="#94a3b8" font-size="13">변화 후</text>
+  <text x="650" y="190" fill="#e2e8f0" font-size="13">0.5 − 0.1 × (−0.4) = 0.54</text>
+  <text x="576" y="224" fill="#94a3b8" font-size="13">변화량</text>
+  <text x="650" y="224" fill="#34d399" font-size="13">0.54 − 0.5 = +0.04</text>
+
+  <text x="430" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">늘리라는 두 사진의 크기 합 0.6 + 0.9 = 1.5 가 줄이라는 한 사진의 0.3 보다 커서 w 가 늘었다</text>
+  <text x="430" y="324" fill="#94a3b8" font-size="13" text-anchor="middle">filter 는 숫자마다 따로 있지 않아서, 모든 사진의 gradient 평균으로 고쳐진다</text>
+</svg>

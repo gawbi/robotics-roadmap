@@ -24,6 +24,7 @@ papers:
   숫자로 보일 수 있다
 - 작은 숫자 판을 사진 위에서 한 칸씩 옮기며 겹친 칸끼리 곱해 더하는 계산(convolution)을 5×5 사진과 3×3 숫자 판으로 손으로 할
   수 있다
+- 숫자 판의 숫자를 사람이 정하지 않고, 사진마다 붙은 정답 숫자 하나에서 거꾸로 전해진 신호로 학습하는 과정을 설명할 수 있다
 - 숫자 판을 옮기는 칸 수, 테두리에 덧대는 0, 묶음마다 가장 큰 값만 남기는 계산이 결과의 크기를 어떻게 바꾸는지 계산할 수 있다
 - 1998년의 손글씨 숫자 인식 모델 LeNet 을 층마다 따라가며 결과 크기와 학습할 숫자의 개수를 셀 수 있다
 - 층을 깊이 쌓을수록 한 칸이 사진의 더 넓은 영역을 보는 이유와, 사진을 적은 수의 요약 숫자로 줄이는 일이 로봇이 행동을 고르는
@@ -345,8 +346,133 @@ $$
 처럼 parameter 로 두고 학습한다. 처음에는 아무 숫자로 시작하고, 모델이 정답에서 얼마나 틀렸는지를 숫자 하나로 나타낸 loss 를 줄이는 쪽으로 filter 숫자를
 조금씩 고친다. [Linear Regression](../linear-regression/README.md) 에서 직선의 $w$, $b$ 를 고친 gradient descent 와 같은 방법이다.
 
+학습에는 정답이 필요한데, 정답은 filter 마다 있지 않다. "첫 층에는 세로선 filter 가 와야 한다" 같은 정답은 어디에도 없고, 정답은
+사진 한 장마다 붙은 숫자 하나뿐이다. [PyTorch Training Loop](../pytorch-mlp/README.md) 에서 쓴 MNIST 는 손글씨 사진마다 사람이
+"이 사진은 7" 처럼 적어 둔 숫자를 함께 담고 있고, 이 숫자를 label 이라고 한다. Linear Regression 에서도 "$w$ 의 정답은 2" 같은
+값은 주지 않았다. 정답은 점마다의 $y$ 값에만 있었고, $w$ 는 예측과 $y$ 의 차이로 만든 loss 를 줄이는 쪽으로 고쳐졌다. filter 도
+같은 식으로, 사진의 label 에서 만든 loss 를 줄이는 쪽으로 고쳐진다.
+
+### label 에서 filter 까지의 경로
+
+CNN 은 filter 뒤에 층을 몇 개 더 거쳐, PyTorch Training Loop 의 MLP 마지막 layer 처럼 숫자 0~9 각각에 대한 점수 10 개를 낸다. 0 번째
+점수는 "이 사진이 숫자 0 이다" 에 대한 점수이고, 클수록 그 숫자 같다는 뜻이다. label 이 쓰이는 자리는 이 점수로 loss 를 계산하는
+마지막 한 곳뿐이고, 계산은 PyTorch Training Loop 에서 본 softmax 와 cross-entropy 그대로다.
+
+1. softmax 로 점수 10 개를 합이 1 인 확률 10 개로 바꾼다
+2. label 이 7 이면 7 자리 확률 $p_7$ 하나만 꺼낸다. 나머지 9 개 확률은 loss 식에 들어가지 않는다
+3. loss $L = -\log p_7$ 을 계산한다
+
+학습을 막 시작한 CNN 은 filter 가 아무 숫자라서 점수 10 개가 서로 비슷하다. 점수 10 개가 모두 같으면 확률도 모두
+$1 \div 10 = 0.1$ 이다. 학습이 잘 되면 7 사진에서 7 자리 점수가 가장 커져 $p_7$ 이 1 에 가까워진다.
+
+| 상태 | 7 자리 확률 $p_7$ | loss $-\log p_7$ |
+| --- | --- | --- |
+| 학습 시작(점수 10 개가 모두 같음) | 0.1 | 2.303 |
+| 학습 후(7 자리 점수가 가장 큼) | 0.9 | 0.105 |
+
+loss 가 숫자 하나로 나오면 그다음은 [Backpropagation](../autograd/README.md) 이 맡는다. backpropagation 은 loss 에서 출발해 입력 쪽으로
+거꾸로 훑으며 parameter 마다 gradient 를 구하는 계산이다. filter 의 숫자 9 개와 bias 도 parameter 라서 각자 gradient 를 하나씩
+받는다. gradient 는 부호로 읽는다.
+
+| filter 숫자 하나의 gradient | 뜻 |
+| --- | --- |
+| 음수(예: $-0.6$) | 그 숫자를 조금 늘리면 loss 가 준다 |
+| 양수(예: $+0.3$) | 그 숫자를 조금 늘리면 loss 가 는다 |
+| 0 | 그 숫자를 조금 바꿔도 loss 가 그대로다 |
+
+![사진이 filter, 뒤쪽 층을 거쳐 점수 10 개가 되고 softmax 로 7 자리 확률 0.1 이 나온다. label 7 은 마지막 loss 계산에만 들어가 −log 0.1 = 2.303 을 만들고, backpropagation 이 이 loss 를 거꾸로 전해 filter 숫자마다 gradient 를 준다](figures/filter-label-flow.svg)
+
+위 그림처럼 label 7 은 filter 에 직접 닿지 않는다. filter 가 받는 것은 "이 숫자를 이쪽으로 바꾸면 마지막 loss 가 준다" 는 gradient
+뿐이고, 정답 7 이 하는 일은 열 자리 중 어느 자리의 확률을 키울지 정하는 것이다.
+
+**확인 문제.** label 이 3 인 사진에서 softmax 가 낸 3 자리 확률이 0.5 라면 loss 는 얼마이고, loss 를 줄이려면 어느 자리 확률이
+커져야 할까? $\log 0.5 \approx -0.693$ 이다.
+
+<details><summary>답 보기</summary>
+
+label 이 3 이라 3 자리 확률 $p_3 = 0.5$ 만 꺼낸다.
+
+$$
+L = -\log p_3 = -\log 0.5 = -(-0.693) = 0.693
+$$
+
+답: loss 는 0.693 이고, 3 자리 확률이 1 에 가까워질수록 loss 가 0 에 가까워진다. 다른 9 자리 확률은 loss 식에 직접 들어가지 않지만,
+확률의 합이 1 이라 3 자리 확률이 커지면 나머지는 함께 작아진다.
+
+</details>
+
+### 여러 사진이 함께 고치는 filter
+
+filter 하나는 7 사진에도, 3 사진에도, 1 사진에도 똑같이 쓰인다. 숫자마다 filter 가 따로 있지 않아서, 사진마다 그 filter 숫자에
+바라는 방향이 다를 수 있다. 사진 3 장짜리 mini-batch 에서 같은 filter 의 한 칸 숫자 $w = 0.5$ 가 사진마다 아래 gradient 를 받았다고
+하자.
+
+| 사진 | label | 이 사진에서 구한 $w$ 의 gradient | 이 사진이 바라는 방향 |
+| --- | --- | --- | --- |
+| 1 | 7 | $-0.6$ | $w$ 를 늘려라 |
+| 2 | 3 | $+0.3$ | $w$ 를 줄여라 |
+| 3 | 1 | $-0.9$ | $w$ 를 늘려라 |
+
+$w$ 는 하나뿐이라 세 사진의 바람을 모두 들어줄 수 없다. PyTorch Training Loop 의 mini-batch 처럼 sample 마다 구한 gradient 의
+평균을 쓴다.
+
+$$
+g = (-0.6 + 0.3 - 0.9) \div 3 = -1.2 \div 3 = -0.4
+$$
+
+이 평균으로 SGD update $\theta \leftarrow \theta - \eta\, g$ 를 한다. $\theta$ 는 고칠 parameter, 여기서는 $w$ 이고, $\eta$ 는 eta(에타)로
+읽는 learning rate 로 0.1 이라고 하자.
+
+$$
+w = 0.5 - 0.1 \times (-0.4) = 0.5 + 0.04 = 0.54
+$$
+
+| 고치기 전 | 더하는 양 $-\eta g = -0.1 \times (-0.4)$ | 고친 뒤 |
+| --- | --- | --- |
+| 0.5 | $+0.04$ | 0.54 |
+
+![같은 filter 칸 w = 0.5 에 사진 3 장이 구한 gradient 는 label 7 이 −0.6, label 3 이 +0.3, label 1 이 −0.9 이고 평균은 −0.4 다. SGD 로 고치면 w 는 0.5 − 0.1 × (−0.4) = 0.54 가 되어 0.04 늘어난다](figures/batch-filter-update.svg)
+
+7 사진과 1 사진은 $w$ 를 늘리기를, 3 사진은 줄이기를 바랐다. 늘리라는 두 사진의 gradient 크기 합 $0.6 + 0.9 = 1.5$ 가 줄이라는
+3 사진의 0.3 보다 커서, 이번 step 에서 $w$ 는 0.04 늘었다. 학습은 이런 step 을 수만 번 되풀이하고 step 마다 다른 숫자의 사진이
+섞여 들어온다. 그래서 filter 는 숫자 하나에만 맞는 모양이 아니라 여러 숫자의 loss 를 함께 줄이는 모양, 곧 숫자들을 서로 가르는 데
+두루 쓰이는 무늬에 반응하는 모양으로 자리 잡는다.
+
 손글씨 숫자로 학습을 마친 CNN 의 첫 층 filter 를 그려 보면 상당수가 특정 방향의 선이나 밝고 어두운 경계에 반응하는 모양이 된다.
-숫자를 가려내는 데 세로선·가로선·사선 같은 정보가 쓸모 있기 때문에, 학습이 그런 filter 를 스스로 찾아낸다.
+숫자를 가려내는 데 세로선·가로선·사선 같은 정보가 쓸모 있기 때문에, 학습이 그런 filter 를 스스로 찾아낸다. 어떤 무늬의 조합이
+숫자 7 인지 정하는 일은 마지막 layer 가 맡는다. 마지막 layer 에서 7 자리 점수를 계산하는 weight 는 7 자리 점수에만 쓰이므로,
+숫자마다 따로 있는 parameter 는 filter 가 아니라 이 weight 다.
+
+**흔한 오해.** "학습하면 숫자 0~9 마다 전용 filter 가 하나씩 생긴다" 고 생각하기 쉽다. 위 표에서 본 것처럼 첫 층 filter 는 7·3·1
+사진의 gradient 평균으로 고쳐지므로 한 숫자의 요구만 따르지 않는다. 숫자마다 따로 있는 것은 마지막 layer 의 숫자별 weight 다.
+
+**확인 문제.** 위 mini-batch 에서 사진 2(label 3)의 gradient 가 $+0.3$ 이 아니라 $+1.5$ 라면, 평균 gradient 와 고친 뒤 $w$ 는
+얼마일까? 나머지 조건($w = 0.5$, $\eta = 0.1$, 사진 1 은 $-0.6$, 사진 3 은 $-0.9$)은 그대로다.
+
+<details><summary>답 보기</summary>
+
+사진 1 은 $-0.6$, 사진 2 는 $+1.5$, 사진 3 은 $-0.9$ 다.
+
+① 평균 gradient
+
+$$
+g = (-0.6 + 1.5 - 0.9) \div 3 = 0 \div 3 = 0
+$$
+
+② SGD update
+
+$$
+w = 0.5 - 0.1 \times 0 = 0.5
+$$
+
+| 고치기 전 | 더하는 양 $-\eta g = -0.1 \times 0$ | 고친 뒤 |
+| --- | --- | --- |
+| 0.5 | 0 | 0.5 |
+
+답: 평균 gradient 는 0 이고 $w$ 는 0.5 그대로다. 늘리라는 쪽의 크기 합 $0.6 + 0.9 = 1.5$ 와 줄이라는 쪽의 크기 1.5 가 같아서 서로
+지워졌다. 이번 step 에서 이 칸은 움직이지 않고, 다음 mini-batch 의 사진들이 방향을 다시 정한다.
+
+</details>
 
 ### convolution 의 수식
 
@@ -439,6 +565,8 @@ equivariance 라고 한다. translation 은 "평행 이동", equivariance 는 "�
 
 - convolution 은 작은 filter 를 사진 위에서 한 칸씩 옮기며, 겹친 window 와 칸끼리 곱해 모두 더한 값(+ bias)을 출력 칸에 적는다
 - 세로선 filter 를 "1" 사진에 대면 세로획 자리에서 5·5·4 가 나온다. filter 하나가 만든 출력 판이 feature map 이다
+- filter 숫자는 학습한다. 정답은 사진마다 붙은 label 하나뿐이고, label 로 만든 loss 를 backpropagation 이 거꾸로 전해 filter 숫자마다
+  gradient 를 준다. filter 는 모든 사진에 같이 쓰여서 mini-batch 의 gradient 평균으로 고쳐진다
 - 모든 자리에 같은 filter 를 쓰므로(weight sharing) parameter 가 9 + 1 개뿐이고, 입력을 옮기면 출력도 같은 만큼 옮겨 간다
 
 ## 출력 크기의 조절
@@ -1003,7 +1131,8 @@ $512 + 512 + 7 = 1{,}031$ 개다.
 - convolution 은 작은 filter 를 한 칸씩 옮기며 window 와 칸끼리 곱해 더한다. 세로선 filter 를 5×5 "1" 사진에 대면
   $\begin{bmatrix} -1 & 5 & -3 \\ -1 & 5 & -3 \\ -1 & 4 & -1 \end{bmatrix}$ 이 나오고, filter 하나가 만든 이 판이 feature map 이다
 - 같은 filter 를 모든 자리에 써서(weight sharing) parameter 가 적고, 입력을 옮기면 출력도 같은 만큼 옮겨 간다(translation
-  equivariance). filter 숫자는 gradient descent 로 학습한다
+  equivariance). filter 숫자는 사진마다 붙은 label 로 만든 loss 를 backpropagation 으로 거꾸로 받아 gradient descent 로 학습하고,
+  숫자마다 따로 있지 않아 모든 사진의 gradient 평균으로 고쳐진다
 - 출력 길이는 $\lfloor (H + 2p - k)/s \rfloor + 1$ 이다. stride 는 옮기는 칸 수, padding 은 테두리에 덧대는 0 의 줄 수다
 - 입력 channel 이 여러 장이면 filter 도 같은 장 수이고, 출력 channel 수는 filter 수다. parameter 는
   $C_{\text{out}} \times (C_{\text{in}} k^2 + 1)$ 개다
