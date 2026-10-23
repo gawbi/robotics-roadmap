@@ -140,7 +140,7 @@ Unicode 번호는 128578 처럼 255 보다 클 수 있으므로 byte 하나에 �
 | 안 | 50504 | 236 149 136 | 3 |
 | 🙂 | 128578 | 240 159 153 130 | 4 |
 
-![UTF-8 은 글자 하나를 byte 1~4개로 적는다. 첫 byte 의 크기를 보면 그 글자가 byte 몇 개짜리인지 알 수 있다](figures/utf8-bytes.svg)
+![UTF-8 은 글자 하나를 byte 1 ~ 4개로 적는다. 첫 byte 의 크기를 보면 그 글자가 byte 몇 개짜리인지 알 수 있다](figures/utf8-bytes.svg)
 
 위 그림은 세 글자의 byte 를 나란히 놓은 것이다. 주황 칸은 글자의 첫 byte, 파란 칸은 그 글자에 이어지는 byte 다. 영어 글자는
 ASCII 번호가 그대로 byte 하나가 되고, 한글은 3 byte, emoji 는 4 byte 다.

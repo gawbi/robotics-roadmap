@@ -1,47 +1,82 @@
-# Branches of the curriculum map, listed in legend order.
-# core: true marks the foundations every other branch builds on (exactly one); the map draws its chain as the trunk.
-- id: core
-  title: Foundations
-  summary: 신경망이 무엇을 계산하고 어떻게 학습하는지를 숫자 계산부터 따라가는 출발점
-  color: "#cbd5e1"
-  core: true
+# The curriculum map: the basics at the centre, one tree per job track (robot learning, manipulation, mobile robots and
+# autonomous driving) growing out of them, and the branches inside the trees.
 
-- id: language
-  title: Language
-  summary: tokenizer 와 Transformer, GPT 까지 이어지는 sequence 모델링. VLA 의 backbone 이 여기서 나온다
-  color: "#a78bfa"
+# hub: branches whose lessons sit together at the centre as the basics every tree starts from.
+hub: [math, ros2]
 
-- id: vision
-  title: Vision
-  summary: CNN 에서 ViT·CLIP 까지, 로봇 policy 가 카메라 영상을 읽는 image encoder
-  color: "#60a5fa"
+# angle: the direction a tree grows from the centre, degrees clockwise from up (0 up, 90 right, 180 down).
+# branches: the tree's branches, laid side by side in this order, clockwise around the centre.
+trees:
+  - id: learning
+    angle: 180
+    branches: [language, vision, generative, core, vla, frontier, imitation, rl]
+  - id: manipulation
+    angle: 300
+    branches: [robotics]
+  - id: mobile
+    angle: 60
+    branches: [estimation]
 
-- id: imitation
-  title: Imitation Learning
-  summary: 사람의 시연을 따라 하는 policy. behavior cloning 에서 Diffusion Policy·ACT, 실물 배포까지
-  color: "#fb923c"
+# Listed in legend order. core: true marks the foundations every other branch builds on (exactly one); the map draws
+# its chain as the trunk.
+branches:
+  - id: math
+    title: Math
+    summary: vector·matrix, 미분, 확률. 로봇의 좌표·속도·센서 noise 를 숫자로 다루는 기초
+    color: "#d6d3d1"
 
-- id: generative
-  title: Generative Models
-  summary: VAE·diffusion·flow matching. 한 입력에 정답이 여럿인 action 분포를 생성하는 수학
-  color: "#e879f9"
+  - id: ros2
+    title: ROS 2
+    summary: node·topic·tf2. 센서와 제어기, 학습한 policy 를 한 로봇 위에서 잇는 소프트웨어
+    color: "#38bdf8"
 
-- id: rl
-  title: Reinforcement Learning
-  summary: 시연 없이 보상만으로 배우는 길. tabular RL 에서 PPO·SAC, sim-to-real 보행까지
-  color: "#a3e635"
+  - id: core
+    title: Foundations
+    summary: 신경망이 무엇을 계산하고 어떻게 학습하는지를 숫자 계산부터 따라가는 출발점
+    color: "#cbd5e1"
+    core: true
 
-- id: robotics
-  title: Robotics
-  summary: 좌표 변환·kinematics·제어·simulation·카메라. 학습한 policy 가 실제로 몸을 움직이는 바탕
-  color: "#2dd4bf"
+  - id: language
+    title: Language
+    summary: tokenizer 와 Transformer, GPT 까지 이어지는 sequence 모델링. VLA 의 backbone 이 여기서 나온다
+    color: "#a78bfa"
 
-- id: vla
-  title: VLA
-  summary: 이미지와 언어 지시를 받아 action 을 내는 Vision-Language-Action 모델
-  color: "#facc15"
+  - id: vision
+    title: Vision
+    summary: CNN 에서 ViT·CLIP 까지, 로봇 policy 가 카메라 영상을 읽는 image encoder
+    color: "#60a5fa"
 
-- id: frontier
-  title: Frontier
-  summary: 정답이 아직 굳지 않은 최전선 연구. 세상을 예측하는 world model 과 VLA 의 RL fine-tuning
-  color: "#f87171"
+  - id: imitation
+    title: Imitation Learning
+    summary: 사람의 시연을 따라 하는 policy. behavior cloning 에서 Diffusion Policy·ACT, 실물 배포까지
+    color: "#fb923c"
+
+  - id: generative
+    title: Generative Models
+    summary: VAE·diffusion·flow matching. 한 입력에 정답이 여럿인 action 분포를 생성하는 수학
+    color: "#e879f9"
+
+  - id: rl
+    title: Reinforcement Learning
+    summary: 시연 없이 보상만으로 배우는 길. tabular RL 에서 PPO·SAC, sim-to-real 보행까지
+    color: "#a3e635"
+
+  - id: robotics
+    title: Manipulation
+    summary: 좌표 변환·kinematics·제어·simulation·카메라. 로봇팔이 목표 자세까지 정확히 움직이는 바탕
+    color: "#2dd4bf"
+
+  - id: estimation
+    title: State Estimation
+    summary: 믿을 수 없는 움직임과 센서를 섞어 로봇이 자기 위치를 아는 방법. Kalman filter 에서 SLAM 까지
+    color: "#f472b6"
+
+  - id: vla
+    title: VLA
+    summary: 이미지와 언어 지시를 받아 action 을 내는 Vision-Language-Action 모델
+    color: "#facc15"
+
+  - id: frontier
+    title: Frontier
+    summary: 정답이 아직 굳지 않은 최전선 연구. 세상을 예측하는 world model 과 VLA 의 RL fine-tuning
+    color: "#f87171"

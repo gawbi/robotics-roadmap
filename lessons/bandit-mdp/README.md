@@ -2,7 +2,7 @@
 id: bandit-mdp
 title: "Bandits & MDPs"
 branch: rl
-requires: [linear-regression]
+requires: [probability]
 hours: 3
 summary: 슬롯머신과 3×3 격자에서 손으로 계산하는 bandit·MDP·value iteration·Q-learning
 papers:
@@ -566,7 +566,7 @@ state 에서 action 을 해 다음 state 로 옮겨 가는 것을 transition 이
 ![미끄러운 바닥에서 칸 2 에서 오른쪽을 고르면 0.8 의 확률로 칸 3, 0.1 의 확률로 위쪽 벽에 막혀 칸 2, 0.1 의 확률로 칸 5 에 도착한다](figures/slip.svg)
 
 이 확률을 기호로 $P(s' \mid s, a)$ 라고 쓰고 "state $s$ 에서 action $a$ 를 했을 때 다음 state 가 $s'$ 일 확률" 이라고 읽는다.
-$s'$ 은 "에스 프라임" 이라고 읽으며 다음 state 를 가리킨다. 세로 막대 $\mid$ 는 "~했을 때" 라는 조건이다. 위 표는
+$s'$ 은 "에스 프라임" 이라고 읽으며 다음 state 를 가리킨다. 세로 막대 $\mid$ 는 " ~ 했을 때" 라는 조건이다. 위 표는
 $P(3 \mid 2, \text{오른쪽}) = 0.8$, $P(2 \mid 2, \text{오른쪽}) = 0.1$, $P(5 \mid 2, \text{오른쪽}) = 0.1$ 이고, 셋을 더하면 1 이다.
 미끄럽지 않은 바닥은 $P(3 \mid 2, \text{오른쪽}) = 1$ 이고 나머지가 모두 0 인 특별한 경우다.
 

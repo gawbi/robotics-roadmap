@@ -16,7 +16,7 @@ const lesson = (id: string, requires: string[]): Lesson => ({
   body: '',
   path: `lessons/${id}/README.md`,
 })
-const c = buildCurriculum([branch], [lesson('a', []), lesson('b', ['a']), lesson('c', ['a', 'b'])])
+const c = buildCurriculum({ hub: [], trees: [{ id: 't', angle: 180, branches: ['core'] }], branches: [branch] }, [lesson('a', []), lesson('b', ['a']), lesson('c', ['a', 'b'])])
 
 const pass: Attempt = { date: '2026-10-19', answers: [{ topic: 't', variant: 0, choice: 1, correct: true }] }
 const fail: Attempt = { date: '2026-10-18', answers: [{ topic: 't', variant: 0, choice: 0, correct: false }] }

@@ -46,6 +46,12 @@ export const CONFIG = {
     orderRestarts: 100, // random starts of the crossing minimisation; 100 settles on the same crossing count for any seed
     orderSweeps: 8, // barycentre sweeps per start
     orderSeed: 1,
+    hubRing: 110, // px from the start to the first ring of hub lessons around it, and between further rings
+    hubTurnStep: 2, // degrees two touching hub lessons on one ring turn apart per round
+    treeGap: 24, // least px between the labels of lessons in different trees
+    pushStep: 8, // px a tree moves away from the centre per round while its labels touch another tree's
+    pushRounds: 200, // rounds of pushing before the layout gives up
+    edgeBend: 0.2, // how far an edge between two trees reaches along each tree's direction, as a share of its length
   },
 
   zoom: {

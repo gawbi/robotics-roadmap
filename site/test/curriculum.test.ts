@@ -3,7 +3,7 @@ import GithubSlugger from 'github-slugger'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { CONFIG } from '../src/config'
-import { boxesOverlap, computeLayout, type Point } from '../src/curriculum/layout'
+import { boxesOverlap, computeLayout, treeCurriculum, type NodePos, type Point } from '../src/curriculum/layout'
 import { orderLayers } from '../src/curriculum/order'
 import { buildCurriculum, parseBranches, parseLesson } from '../src/curriculum/parse'
 
@@ -45,6 +45,18 @@ describe('curriculum', () => {
     for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'quiz.yaml')), `${p.id}/quiz.yaml`).toBe(true)
   })
 
+  it('writes ranges with spaced tildes, since GitHub strikes through text between two tight ones', () => {
+    // code, math and URLs keep their own tildes
+    const protectedSpans = /```[\s\S]*?```|`[^`\n]*`|\$\$[\s\S]*?\$\$|\$[^$\n]*\$|\]\([^)\s]*\)|https?:\/\/\S+/g
+    for (const p of c.lessons) {
+      for (const file of ['README.md', 'quiz.yaml']) {
+        const prose = readFileSync(join(ROOT, p.id, file), 'utf8').replace(protectedSpans, '')
+        const tight = prose.match(/[^\s~]~[^\s~]/)
+        expect(tight, `${p.id}/${file} has a tight tilde "${tight?.[0]}"; write "A ~ B"`).toBeNull()
+      }
+    }
+  })
+
   it('section links point at a heading of the same lecture', () => {
     for (const p of c.lessons) {
       const slugger = new GithubSlugger()
@@ -70,7 +82,7 @@ describe('curriculum', () => {
   })
 
   it('has exactly one starting point', () => {
-    expect(c.lessons.filter((p) => p.requires.length === 0).map((p) => p.id)).toEqual(['linear-regression'])
+    expect(c.lessons.filter((p) => p.requires.length === 0).map((p) => p.id)).toEqual(['vectors-matrices'])
   })
 
   it('lays out every lesson without overlapping labels', async () => {
@@ -84,22 +96,45 @@ describe('curriculum', () => {
     }
   })
 
-  it('puts every prerequisite above the lessons it opens', async () => {
+  it('puts the starting lesson at the centre', async () => {
+    const layout = await computeLayout(c)
+    const start = c.lessons.find((p) => p.requires.length === 0)!
+    expect(layout.nodes.get(start.id)).toMatchObject({ x: 0, y: 0 })
+  })
+
+  // distance from the centre along the lesson's tree direction
+  const reach = (n: NodePos) => {
+    const t = c.trees.find((t) => t.id === n.tree)
+    if (!t) return 0
+    const a = (t.angle * Math.PI) / 180
+    return n.x * Math.sin(a) - n.y * Math.cos(a)
+  }
+
+  it('grows every tree out of the centre in its own direction, prerequisites first', async () => {
     const layout = await computeLayout(c)
     for (const p of c.lessons) {
-      for (const r of p.requires) expect(layout.nodes.get(r)!.y, `${r} → ${p.id}`).toBeLessThan(layout.nodes.get(p.id)!.y)
+      if (p.requires.length === 0 || c.hub.includes(p.branch)) continue
+      const n = layout.nodes.get(p.id)!
+      expect(n.tree, p.id).toBe(c.trees.find((t) => t.branches.includes(p.branch))!.id)
+      expect(reach(n), p.id).toBeGreaterThan(0)
+      for (const r of p.requires) {
+        const q = layout.nodes.get(r)!
+        if (q.tree === n.tree) expect(reach(q), `${r} → ${p.id}`).toBeLessThan(reach(n))
+      }
     }
   })
 
-  it('keeps the core chain in one straight column', async () => {
+  it('keeps the core chain in one straight line', async () => {
     const layout = await computeLayout(c)
     const xs = [...layout.nodes.values()].filter((n) => n.core).map((n) => n.x)
     expect(Math.max(...xs) - Math.min(...xs)).toBeLessThan(1)
   })
 
-  it('routes every edge around the lessons it does not connect', async () => {
+  it('routes every edge inside a tree around the lessons it does not connect', async () => {
     const layout = await computeLayout(c)
     for (const e of layout.edges) {
+      // an edge from the hub or another tree is not routed through the tree's layers
+      if (layout.nodes.get(e.from)!.tree !== layout.nodes.get(e.to)!.tree) continue
       for (const n of layout.nodes.values()) {
         if (n.id === e.from || n.id === e.to) continue
         // sample each segment so a corner cut between two points counts too
@@ -117,25 +152,29 @@ describe('curriculum', () => {
     }
   })
 
-  it('draws no more crossings than the layer order it was given', async () => {
+  it('draws no more crossings inside a tree than the layer order it was given', async () => {
     const L = CONFIG.layout
-    const order = orderLayers(c, { restarts: L.orderRestarts, sweeps: L.orderSweeps, seed: L.orderSeed })
     const layout = await computeLayout(c)
     const side = (a: Point, b: Point, p: Point) => (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x)
     const cross = (a: Point, b: Point, p: Point, q: Point) => side(a, b, p) * side(a, b, q) < 0 && side(p, q, a) * side(p, q, b) < 0
-    let drawn = 0
-    layout.edges.forEach((e, i) => {
-      for (const f of layout.edges.slice(i + 1)) {
-        // edges that share a lesson meet at its port; that is not a crossing
-        if ([e.from, e.to].some((id) => id === f.from || id === f.to)) continue
-        // count every place two edges meet, as orderLayers counts one crossing per layer gap
-        e.points.slice(1).forEach((b, k) => {
-          f.points.slice(1).forEach((q, m) => {
-            if (cross(e.points[k], b, f.points[m], q)) drawn++
+    for (const t of c.trees) {
+      const { curriculum } = treeCurriculum(c, t)
+      const order = orderLayers(curriculum, { restarts: L.orderRestarts, sweeps: L.orderSweeps, seed: L.orderSeed })
+      const own = layout.edges.filter((e) => curriculum.byId.get(e.to)?.requires.includes(e.from))
+      let drawn = 0
+      own.forEach((e, i) => {
+        for (const g of own.slice(i + 1)) {
+          // edges that share a lesson meet at its port; that is not a crossing
+          if ([e.from, e.to].some((id) => id === g.from || id === g.to)) continue
+          // count every place two edges meet, as orderLayers counts one crossing per layer gap
+          e.points.slice(1).forEach((b, k) => {
+            g.points.slice(1).forEach((q, m) => {
+              if (cross(e.points[k], b, g.points[m], q)) drawn++
+            })
           })
-        })
-      }
-    })
-    expect(drawn).toBeLessThanOrEqual(order.crossings)
+        }
+      })
+      expect(drawn, t.id).toBeLessThanOrEqual(order.crossings)
+    }
   })
 })

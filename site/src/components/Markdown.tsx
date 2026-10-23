@@ -80,7 +80,8 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
   return (
     <Wrapper className={inline ? 'markdown-inline' : 'markdown'}>
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath]}
+        // a single ~ is a range ("10~50 Hz"), so only ~~text~~ strikes through
+        remarkPlugins={[[remarkGfm, { singleTilde: false }], remarkMath]}
         rehypePlugins={[rehypeRaw, [rehypeSlug, { prefix: SECTION_ID_PREFIX }], rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
         components={components}
       >

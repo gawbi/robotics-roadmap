@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>gripper 위치 (0.3, 0.2) 에서 목표 (0.6, 0.6) 까지의 변위는 (0.3, 0.4) 이고, 가로 0.3, 세로 0.4 인 직각삼각형의 빗변이라 거리가 0.5 m 다</title>
+  <defs><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="70.0" y1="330.0" x2="70.0" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="70.0" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="112.9" y1="330.0" x2="112.9" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="112.9" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.1</text>
+  <line x1="155.7" y1="330.0" x2="155.7" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="155.7" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.2</text>
+  <line x1="198.6" y1="330.0" x2="198.6" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="198.6" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.3</text>
+  <line x1="241.4" y1="330.0" x2="241.4" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="241.4" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.4</text>
+  <line x1="284.3" y1="330.0" x2="284.3" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="284.3" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.5</text>
+  <line x1="327.1" y1="330.0" x2="327.1" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="327.1" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.6</text>
+  <line x1="370.0" y1="330.0" x2="370.0" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="370.0" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0.7</text>
+  <line x1="70.0" y1="330.0" x2="370.0" y2="330.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="334.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+  <line x1="70.0" y1="287.1" x2="370.0" y2="287.1" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="291.1" fill="#64748b" font-size="11" text-anchor="end">0.1</text>
+  <line x1="70.0" y1="244.3" x2="370.0" y2="244.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="248.3" fill="#64748b" font-size="11" text-anchor="end">0.2</text>
+  <line x1="70.0" y1="201.4" x2="370.0" y2="201.4" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="205.4" fill="#64748b" font-size="11" text-anchor="end">0.3</text>
+  <line x1="70.0" y1="158.6" x2="370.0" y2="158.6" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="162.6" fill="#64748b" font-size="11" text-anchor="end">0.4</text>
+  <line x1="70.0" y1="115.7" x2="370.0" y2="115.7" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="119.7" fill="#64748b" font-size="11" text-anchor="end">0.5</text>
+  <line x1="70.0" y1="72.9" x2="370.0" y2="72.9" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="76.9" fill="#64748b" font-size="11" text-anchor="end">0.6</text>
+  <line x1="70.0" y1="30.0" x2="370.0" y2="30.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="34.0" fill="#64748b" font-size="11" text-anchor="end">0.7</text>
+  <line x1="70.0" y1="330.0" x2="70.0" y2="30.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="70.0" y1="330.0" x2="370.0" y2="330.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="70.0" y1="330.0" x2="198.6" y2="244.3" stroke="#f59e0b" stroke-width="2" marker-end="url(#a-amber)"/>
+  <line x1="70.0" y1="330.0" x2="327.1" y2="72.9" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a-sky)"/>
+  <line x1="198.6" y1="244.3" x2="327.1" y2="244.3" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <line x1="327.1" y1="244.3" x2="327.1" y2="72.9" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <line x1="198.6" y1="244.3" x2="327.1" y2="72.9" stroke="#34d399" stroke-width="3" marker-end="url(#a-green)"/>
+  <circle cx="198.6" cy="244.3" r="6" fill="#f59e0b"/>
+  <circle cx="327.1" cy="72.9" r="6" fill="#38bdf8"/>
+  <text x="262.9" y="260.3" fill="#94a3b8" font-size="12" text-anchor="middle">0.3</text>
+  <text x="335.1" y="162.6" fill="#94a3b8" font-size="12" text-anchor="start">0.4</text>
+  <text x="204.6" y="278.3" fill="#f59e0b" font-size="12" text-anchor="start">gripper (0.3, 0.2)</text>
+  <text x="327.1" y="60.9" fill="#38bdf8" font-size="12" text-anchor="middle">목표 (0.6, 0.6)</text>
+  <text x="236.0" y="146.0" fill="#34d399" font-size="13" text-anchor="end" font-weight="600">0.5 m</text>
+  <text x="370.0" y="362.0" fill="#64748b" font-size="11" text-anchor="end">x (m)</text>
+  <text x="420.0" y="80.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">변위 = 목표 − gripper</text>
+  <text x="420.0" y="104.0" fill="#94a3b8" font-size="12" text-anchor="start">(0.6 − 0.3, 0.6 − 0.2)</text>
+  <text x="420.0" y="124.0" fill="#34d399" font-size="12" text-anchor="start">= (0.3, 0.4)</text>
+  <text x="420.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">거리 = norm</text>
+  <text x="420.0" y="196.0" fill="#94a3b8" font-size="12" text-anchor="start">√(0.3² + 0.4²)</text>
+  <text x="420.0" y="216.0" fill="#94a3b8" font-size="12" text-anchor="start">= √(0.09 + 0.16)</text>
+  <text x="420.0" y="236.0" fill="#34d399" font-size="12" text-anchor="start">= √0.25 = 0.5 m</text>
+  <text x="420.0" y="284.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">unit vector</text>
+  <text x="420.0" y="308.0" fill="#94a3b8" font-size="12" text-anchor="start">(0.3, 0.4) ÷ 0.5 = (0.6, 0.8)</text>
+</svg>

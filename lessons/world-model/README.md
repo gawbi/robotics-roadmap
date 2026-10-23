@@ -903,7 +903,7 @@ world model 은 dataset 에 있는 상황에서만 믿을 만하다. 처음 data
 planner 는 예측 합 3 인 A 를 골라 충전기를 지나쳐 달려간다. 실제로 가장 좋은 C(합 0)는 예측 합이 0 이라 뒤로 밀렸다. "충전기를
 지나칠수록 좋다" 는 착각은 데이터가 없는 칸에서 생겼고, planner 는 예측 점수가 높은 곳을 찾으므로 바로 그 칸으로 간다.
 
-![칸 0~3 의 데이터(점)에 맞춘 reward model 직선 r = z − 4 를 칸 7 까지 이으면 계속 올라가지만, 실제 reward(초록)는 칸 4 에서 가장 크고 다시 내려간다. 칸 6 에서 예측은 +2, 실제는 −2 다](figures/reward-extrapolation.svg)
+![칸 0 ~ 3 의 데이터(점)에 맞춘 reward model 직선 r = z − 4 를 칸 7 까지 이으면 계속 올라가지만, 실제 reward(초록)는 칸 4 에서 가장 크고 다시 내려간다. 칸 6 에서 예측은 +2, 실제는 −2 다](figures/reward-extrapolation.svg)
 
 **확인 문제.** 이 직선 reward model 은 칸 7 의 reward 를 얼마로 예측하고, 실제 reward 는 얼마일까?
 

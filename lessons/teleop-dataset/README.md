@@ -1,7 +1,7 @@
 ---
 id: teleop-dataset
 title: Teleop Dataset
-branch: robotics
+branch: imitation
 requires: [mujoco-sim]
 hours: 2
 summary: 사람이 로봇을 조종해 시연을 모으는 방법과 episode 에 기록하는 값, 기록의 시간 맞추기·품질·위치 다양성, LeRobot dataset 형식
@@ -754,12 +754,12 @@ byte)다. 30 fps 로 8 초면 240 장, 약 221 MB 이고, svla_so101_pickplace �
 
 그래서 사진은 MP4 라는 영상 파일 형식으로 압축해 저장한다. 압축은 같은 정보를 더 적은 byte 로 적는 것이다. 이웃한 frame 의 사진은 거의 같아서,
 영상은 몇 장마다 한 번만 사진 전체를 적고 그 사이에는 바뀐 부분만 적는다. svla_so101_pickplace 의 실제 영상 파일은 카메라 하나에
-40~46 MB 로, 압축하지 않은 11 GB 의 약 250 분의 1 이다. 학습할 때는 표의 timestamp 로 영상에서 그 시각의 사진을 찾아 꺼낸다.
+40 ~ 46 MB 로, 압축하지 않은 11 GB 의 약 250 분의 1 이다. 학습할 때는 표의 timestamp 로 영상에서 그 시각의 사진을 찾아 꺼낸다.
 
 v3.0 에서는 episode 마다 파일을 따로 만들지 않고 여러 episode 를 한 파일에 이어 붙인다. 파일 수가 적어야 수천 개 episode 도 빨리
 열 수 있기 때문이다. 그러면 "episode 1 은 파일의 어디부터 어디까지인가" 를 따로 적어 두어야 하고, 이것이 다음 절의 episode 정보다.
 
-![여러 episode 를 이어 붙인 파일. 표 파일에서 episode 0 은 행 0~239, episode 1 은 행 240~489 이고, 영상 파일에서 episode 1 은 8.0 초부터 시작해 episode 1 의 1.9 초 사진은 파일의 9.9 초에 있다](figures/episode-index.svg)
+![여러 episode 를 이어 붙인 파일. 표 파일에서 episode 0 은 행 0 ~ 239, episode 1 은 행 240 ~ 489 이고, 영상 파일에서 episode 1 은 8.0 초부터 시작해 episode 1 의 1.9 초 사진은 파일의 9.9 초에 있다](figures/episode-index.svg)
 
 **확인 문제.** 영상 파일에 episode 0(240 frame)과 episode 1 이 30 fps 로 이어 붙어 있다. episode 1 의 timestamp 1.9 초 사진은 파일의
 몇 초에 있을까?

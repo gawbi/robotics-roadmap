@@ -7,6 +7,23 @@ export interface Branch {
   core: boolean
 }
 
+/** One tree of the map: a group of branches that grows from the starting lesson in one direction. */
+export interface Tree {
+  id: string
+  /** direction the tree grows from the centre of the map, degrees clockwise from up */
+  angle: number
+  /** its branches, laid side by side in this order, clockwise around the centre */
+  branches: string[]
+}
+
+/** lessons/branches.yaml */
+export interface MapSpec {
+  /** branches whose lessons sit together at the centre */
+  hub: string[]
+  trees: Tree[]
+  branches: Branch[]
+}
+
 export interface Paper {
   title: string
   authors: string
@@ -29,6 +46,8 @@ export interface Lesson {
 }
 
 export interface Curriculum {
+  hub: string[]
+  trees: Tree[]
   branches: Branch[]
   lessons: Lesson[]
   byId: Map<string, Lesson>

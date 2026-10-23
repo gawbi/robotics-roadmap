@@ -2,7 +2,7 @@
 id: linear-regression
 title: Linear Regression
 branch: core
-requires: []
+requires: [derivatives]
 hours: 3
 summary: 직선 하나를 데이터에 맞추며 배우는 loss·gradient·gradient descent
 papers:

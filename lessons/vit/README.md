@@ -527,7 +527,7 @@ ViT 에게 사진은 patch 를 자루에 쏟아 넣은 것과 같아서, 어느 
 ### 자리마다 학습하는 vector
 
 순서를 알려 주려고 ViT 는 자리마다 vector 하나씩을 정해 두고, 그 자리의 token 에 더한다. 이 vector 를 position embedding 이라고
-한다. 우리 예는 [CLS] 자리(자리 0)와 patch 자리 4 개(자리 1~4)를 합쳐 다섯 자리라서, position embedding 도 다섯 개다.
+한다. 우리 예는 [CLS] 자리(자리 0)와 patch 자리 4 개(자리 1 ~ 4)를 합쳐 다섯 자리라서, position embedding 도 다섯 개다.
 
 | 자리 | 0 ([CLS]) | 1 | 2 | 3 | 4 |
 | --- | --- | --- | --- | --- | --- |
@@ -999,7 +999,7 @@ ViT-B/16 은 $84.15 - 77.91 = 6.24$%p, ViT-L/16 은 $87.12 - 76.53 = 10.59$%p �
 
 - inductive bias 는 학습 전에 모델 구조로 정해 둔 가정이다. CNN 은 locality 와 translation equivariance 를 구조에 담고 있다
 - ViT 는 patch 를 자르는 첫 단계 말고는 사진에 대한 가정이 거의 없어서, patch 사이의 공간 관계까지 데이터에서 배워야 한다
-- 그래서 데이터가 적으면 CNN 이 앞서고, 수천만~수억 장으로 미리 학습하면 ViT 가 앞선다. ViT-L/16 은 130만 장에서 76.53%, 3억 장에서
+- 그래서 데이터가 적으면 CNN 이 앞서고, 수천만 ~ 수억 장으로 미리 학습하면 ViT 가 앞선다. ViT-L/16 은 130만 장에서 76.53%, 3억 장에서
   87.12% 였다
 
 ## 로봇 policy 의 이미지 encoder
@@ -1015,7 +1015,7 @@ policy 는 지금 보이는 것(observation)을 받아 다음 행동(action)을 
 ### VLA 와 SigLIP
 
 VLA(Vision-Language-Action model)는 사진과 "빨간 컵 집어" 같은 지시문을 함께 받아 로봇 행동을 내는 모델이다. VLA 는 대개 VLM
-(Vision-Language Model) 위에 만든다. VLM 은 사진과 글을 함께 받아 글을 내는 모델로, 인터넷에서 모은 사진·글 쌍 수억~수십억 개로
+(Vision-Language Model) 위에 만든다. VLM 은 사진과 글을 함께 받아 글을 내는 모델로, 인터넷에서 모은 사진·글 쌍 수억 ~ 수십억 개로
 미리 학습한다. 데이터가 이만큼 많으면 앞 섹션의 실험처럼 ViT 가 CNN 보다 유리해서, VLM 의 image encoder 는 대부분 ViT 구조다.
 
 로봇 강의에서 자주 만나는 image encoder 가 SigLIP 이다. SigLIP 은 2023년 Google 의 Zhai 등이 발표했고, ViT 구조의 image encoder 를
@@ -1090,7 +1090,7 @@ $4 \times 4 = 16$ 배다.
   86,567,656 개다
 - patch 한 변을 절반으로 줄이면 token 은 4 배, attention 의 점수 표는 16 배가 된다
 - CNN 은 locality 와 translation equivariance 라는 inductive bias 를 구조에 담고 있어 데이터가 적을 때 유리하다. ViT 는 이 가정이
-  거의 없어서 데이터가 많아야 하고, 수천만~수억 장으로 미리 학습하면 CNN 을 앞선다
+  거의 없어서 데이터가 많아야 하고, 수천만 ~ 수억 장으로 미리 학습하면 CNN 을 앞선다
 - VLA 의 image encoder(PaliGemma·π0 의 SigLIP, OpenVLA 의 SigLIP·DINOv2)는 ViT 계열이고, [CLS] 하나 대신 patch token 전부를 언어
   모델에 넘긴다
 

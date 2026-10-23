@@ -31,17 +31,17 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
       <p className="intro-kicker">lecture &amp; quiz self-study</p>
       <h2 id="intro-title">Robotics Roadmap</h2>
       <p className="intro-lead">
-        perceptron 부터 VLA·실물 로봇 배포까지, Physical AI 를 이루는 아이디어 {lessonCount}개를 강의로 읽고 퀴즈로 확인하는
-        지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다.
+        제어·상태 추정·딥러닝부터 VLA 까지, 로보틱스 일을 하는 데 필요한 아이디어 {lessonCount}개를 강의로 읽고 면접에서 나올
+        법한 퀴즈로 확인하는 지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다.
       </p>
       <ol className="intro-steps">
         <li>
-          <strong>맨 위 원에서 출발</strong>
-          <span>Linear Regression 부터 시작해 아래로 내려갑니다.</span>
+          <strong>가운데 원에서 출발</strong>
+          <span>아래는 robot learning, 왼쪽 위는 manipulation, 오른쪽 위는 mobile robot·자율주행 트리입니다. 지원하는 직무의 트리를 따라 바깥으로 읽어 나갑니다.</span>
         </li>
         <li>
           <strong>원을 눌러 강의 읽기</strong>
-          <span>처음 보는 사람 기준으로 숫자 예시부터 한 단계씩 설명합니다. 코드를 짤 일은 없습니다.</span>
+          <span>처음 보는 사람 기준으로 그림과 숫자 예시로 설명하고, 수식과 계산은 접힌 심화 블록에 둡니다. 코드를 짤 일은 없습니다.</span>
         </li>
         <li>
           <strong>강의 끝의 퀴즈 풀기</strong>

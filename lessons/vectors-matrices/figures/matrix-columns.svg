@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>회전 행렬 R(30°) 의 첫째 열 (0.866, 0.5) 은 (1, 0) 이, 둘째 열 (−0.5, 0.866) 은 (0, 1) 이 도착하는 곳이다. 점 (2, 1) 은 돌아간 첫째 화살표 2 번과 둘째 화살표 1 번을 이은 (1.232, 1.866) 으로 간다</title>
+  <defs><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <rect x="1" y="1" width="678" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="50.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="start">LiDAR frame 의 (2, 1)</text>
+  <text x="385.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="start">R(30°) 를 곱한 뒤</text>
+  <line x1="50.0" y1="260.0" x2="50.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="50.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">−1</text>
+  <line x1="120.0" y1="260.0" x2="120.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="120.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="190.0" y1="260.0" x2="190.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="190.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="260.0" y1="260.0" x2="260.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="260.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="50.0" y1="225.0" x2="295.0" y2="225.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="42.0" y="229.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+  <line x1="50.0" y1="155.0" x2="295.0" y2="155.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="42.0" y="159.0" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <line x1="50.0" y1="85.0" x2="295.0" y2="85.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="42.0" y="89.0" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <line x1="120.0" y1="260.0" x2="120.0" y2="50.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="50.0" y1="225.0" x2="295.0" y2="225.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="385.0" y1="260.0" x2="385.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="385.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">−1</text>
+  <line x1="455.0" y1="260.0" x2="455.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="455.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="525.0" y1="260.0" x2="525.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="525.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">1</text>
+  <line x1="595.0" y1="260.0" x2="595.0" y2="50.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="595.0" y="276.0" fill="#64748b" font-size="11" text-anchor="middle">2</text>
+  <line x1="385.0" y1="225.0" x2="630.0" y2="225.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="377.0" y="229.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+  <line x1="385.0" y1="155.0" x2="630.0" y2="155.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="377.0" y="159.0" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <line x1="385.0" y1="85.0" x2="630.0" y2="85.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="377.0" y="89.0" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <line x1="455.0" y1="260.0" x2="455.0" y2="50.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="385.0" y1="225.0" x2="630.0" y2="225.0" stroke="#475569" stroke-width="1.4"/>
+  <line x1="120.0" y1="225.0" x2="190.0" y2="225.0" stroke="#f87171" stroke-width="3" marker-end="url(#a-red)"/>
+  <line x1="190.0" y1="225.0" x2="260.0" y2="225.0" stroke="#f87171" stroke-width="3" marker-end="url(#a-red)"/>
+  <line x1="260.0" y1="225.0" x2="260.0" y2="155.0" stroke="#34d399" stroke-width="3" marker-end="url(#a-green)"/>
+  <circle cx="260.0" cy="155.0" r="6" fill="#f59e0b"/>
+  <text x="268.0" y="147.0" fill="#f59e0b" font-size="12" text-anchor="start">(2, 1)</text>
+  <text x="155.0" y="217.0" fill="#f87171" font-size="11" text-anchor="middle">(1, 0)</text>
+  <text x="266.0" y="194.0" fill="#34d399" font-size="11" text-anchor="start">(0, 1)</text>
+  <line x1="455.0" y1="225.0" x2="515.6" y2="190.0" stroke="#f87171" stroke-width="3" marker-end="url(#a-red)"/>
+  <line x1="515.6" y1="190.0" x2="576.2" y2="155.0" stroke="#f87171" stroke-width="3" marker-end="url(#a-red)"/>
+  <line x1="576.2" y1="155.0" x2="541.2" y2="94.4" stroke="#34d399" stroke-width="3" marker-end="url(#a-green)"/>
+  <line x1="455.0" y1="225.0" x2="420.0" y2="164.4" stroke="#34d399" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#a-green)"/>
+  <circle cx="541.2" cy="94.4" r="6" fill="#f59e0b"/>
+  <text x="549.2" y="88.4" fill="#f59e0b" font-size="12" text-anchor="start">(1.232, 1.866)</text>
+  <text x="519.6" y="208.0" fill="#f87171" font-size="11" text-anchor="start">(0.866, 0.5)</text>
+  <text x="424.0" y="152.4" fill="#34d399" font-size="11" text-anchor="middle">(−0.5, 0.866)</text>
+  <line x1="310.0" y1="215.0" x2="365.0" y2="215.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-gray)"/>
+  <text x="150.0" y="342.0" fill="#e2e8f0" font-size="14" text-anchor="end">R(30°) =</text>
+  <path d="M166,320 l-6,0 l0,40 l6,0" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M298,320 l6,0 l0,40 l-6,0" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="200.0" y="335.0" fill="#f87171" font-size="14" text-anchor="middle">0.866</text>
+  <text x="200.0" y="354.0" fill="#f87171" font-size="14" text-anchor="middle">0.5</text>
+  <text x="264.0" y="335.0" fill="#34d399" font-size="14" text-anchor="middle">−0.5</text>
+  <text x="264.0" y="354.0" fill="#34d399" font-size="14" text-anchor="middle">0.866</text>
+  <text x="330.0" y="335.0" fill="#f87171" font-size="12" text-anchor="start">첫째 열 = (1, 0) 의 도착점</text>
+  <text x="330.0" y="354.0" fill="#34d399" font-size="12" text-anchor="start">둘째 열 = (0, 1) 의 도착점</text>
+  <text x="340.0" y="384.0" fill="#94a3b8" font-size="12" text-anchor="middle">2 × (0.866, 0.5) + 1 × (−0.5, 0.866) = (1.232, 1.866)</text>
+</svg>

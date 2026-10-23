@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>θ = 500t² 곡선에서 t = 0.12 초의 점과 h 초 뒤의 점을 이은 직선의 기울기. h 를 0.03, 0.02, 0.01 초로 줄이면 기울기가 135, 130, 125 °/s 로 줄어 접선의 기울기 120 °/s 에 다가간다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="40" width="530" height="230" fill="#0e1628" stroke="#1e293b"/>
+  <line x1="70.0" y1="40" x2="70.0" y2="270" stroke="#1e293b"/>
+  <text x="70.0" y="287.0" fill="#64748b" font-size="11" text-anchor="middle">0.08</text>
+  <line x1="202.5" y1="40" x2="202.5" y2="270" stroke="#1e293b"/>
+  <text x="202.5" y="287.0" fill="#64748b" font-size="11" text-anchor="middle">0.10</text>
+  <line x1="335.0" y1="40" x2="335.0" y2="270" stroke="#1e293b"/>
+  <text x="335.0" y="287.0" fill="#64748b" font-size="11" text-anchor="middle">0.12</text>
+  <line x1="467.5" y1="40" x2="467.5" y2="270" stroke="#1e293b"/>
+  <text x="467.5" y="287.0" fill="#64748b" font-size="11" text-anchor="middle">0.14</text>
+  <line x1="600.0" y1="40" x2="600.0" y2="270" stroke="#1e293b"/>
+  <text x="600.0" y="287.0" fill="#64748b" font-size="11" text-anchor="middle">0.16</text>
+  <line x1="70" y1="270.0" x2="600" y2="270.0" stroke="#1e293b"/>
+  <text x="63.0" y="274.0" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <line x1="70" y1="228.2" x2="600" y2="228.2" stroke="#1e293b"/>
+  <text x="63.0" y="232.2" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <line x1="70" y1="186.4" x2="600" y2="186.4" stroke="#1e293b"/>
+  <text x="63.0" y="190.4" fill="#64748b" font-size="11" text-anchor="end">6</text>
+  <line x1="70" y1="144.5" x2="600" y2="144.5" stroke="#1e293b"/>
+  <text x="63.0" y="148.5" fill="#64748b" font-size="11" text-anchor="end">8</text>
+  <line x1="70" y1="102.7" x2="600" y2="102.7" stroke="#1e293b"/>
+  <text x="63.0" y="106.7" fill="#64748b" font-size="11" text-anchor="end">10</text>
+  <line x1="70" y1="60.9" x2="600" y2="60.9" stroke="#1e293b"/>
+  <text x="63.0" y="64.9" fill="#64748b" font-size="11" text-anchor="end">12</text>
+  <text x="335.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="middle">시간 t (초)</text>
+  <text x="70.0" y="30.0" fill="#94a3b8" font-size="12" text-anchor="start">각도 θ (°)</text>
+  <polyline points="70.0,244.9 74.5,243.8 78.9,242.6 83.4,241.5 87.8,240.3 92.3,239.2 96.7,238.0 101.2,236.8 105.6,235.6 110.1,234.4 114.5,233.2 119.0,232.0 123.4,230.7 127.9,229.5 132.4,228.2 136.8,227.0 141.3,225.7 145.7,224.4 150.2,223.1 154.6,221.8 159.1,220.5 163.5,219.2 168.0,217.9 172.4,216.5 176.9,215.2 181.3,213.8 185.8,212.5 190.3,211.1 194.7,209.7 199.2,208.3 203.6,206.9 208.1,205.5 212.5,204.1 217.0,202.7 221.4,201.2 225.9,199.8 230.3,198.3 234.8,196.8 239.2,195.4 243.7,193.9 248.2,192.4 252.6,190.9 257.1,189.3 261.5,187.8 266.0,186.3 270.4,184.7 274.9,183.2 279.3,181.6 283.8,180.0 288.2,178.5 292.7,176.9 297.1,175.3 301.6,173.7 306.1,172.0 310.5,170.4 315.0,168.8 319.4,167.1 323.9,165.5 328.3,163.8 332.8,162.1 337.2,160.4 341.7,158.7 346.1,157.0 350.6,155.3 355.0,153.6 359.5,151.9 363.9,150.1 368.4,148.4 372.9,146.6 377.3,144.8 381.8,143.0 386.2,141.2 390.7,139.4 395.1,137.6 399.6,135.8 404.0,134.0 408.5,132.2 412.9,130.3 417.4,128.5 421.8,126.6 426.3,124.7 430.8,122.8 435.2,120.9 439.7,119.0 444.1,117.1 448.6,115.2 453.0,113.3 457.5,111.3 461.9,109.4 466.4,107.4 470.8,105.4 475.3,103.5 479.7,101.5 484.2,99.5 488.7,97.5 493.1,95.4 497.6,93.4 502.0,91.4 506.5,89.3 510.9,87.3 515.4,85.2 519.8,83.1 524.3,81.1 528.7,79.0 533.2,76.9 537.6,74.7 542.1,72.6 546.6,70.5 551.0,68.3 555.5,66.2 559.9,64.0 564.4,61.9 568.8,59.7 573.3,57.5 577.7,55.3 582.2,53.1 586.6,50.9 591.1,48.7 595.5,46.4 600.0,44.2" fill="none" stroke="#e2e8f0" stroke-width="2.5"/>
+  <polyline points="169.4,224.0 600.0,60.9" fill="none" stroke="#34d399" stroke-width="2.2" stroke-dasharray="5 4"/>
+  <polyline points="268.8,189.5 586.8,54.0" fill="none" stroke="#f87171" stroke-width="1.6"/>
+  <circle cx="533.8" cy="76.6" r="4" fill="#f87171"/>
+  <polyline points="268.8,188.5 520.5,85.2" fill="none" stroke="#a78bfa" stroke-width="1.6"/>
+  <circle cx="467.5" cy="106.9" r="4" fill="#a78bfa"/>
+  <polyline points="268.8,187.4 454.3,114.2" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
+  <circle cx="401.2" cy="135.1" r="4" fill="#38bdf8"/>
+  <circle cx="335.0" cy="161.3" r="5" fill="#34d399"/>
+  <text x="347.0" y="179.3" fill="#34d399" font-size="12" text-anchor="start">t = 0.12 초, 7.2°</text>
+  <text x="84.0" y="62.0" fill="#f87171" font-size="12" text-anchor="start">h = 0.03 초: 기울기 135 °/s</text>
+  <text x="84.0" y="81.0" fill="#a78bfa" font-size="12" text-anchor="start">h = 0.02 초: 기울기 130 °/s</text>
+  <text x="84.0" y="100.0" fill="#38bdf8" font-size="12" text-anchor="start">h = 0.01 초: 기울기 125 °/s</text>
+  <text x="84.0" y="119.0" fill="#34d399" font-size="12" text-anchor="start">접선: 기울기 120 °/s</text>
+</svg>

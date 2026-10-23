@@ -85,7 +85,7 @@ export function Holygraph({
     return { w: el.clientWidth, h: el.clientHeight }
   }
 
-  // whole map when it fits at minScale or larger; otherwise as wide as possible, from the top where the start is
+  // whole map when it fits at minScale or larger; otherwise centred on the start, which sits at the origin
   const fitTransform = (minScale: number = CONFIG.zoom.min) => {
     const { w, h } = sizeOf()
     const i = insetsRef.current
@@ -96,8 +96,9 @@ export function Holygraph({
     const bw = b.right - b.left
     const bh = b.bottom - b.top
     const k = Math.min(CONFIG.zoom.max, Math.max(minScale, Math.min(aw / bw, ah / bh)))
-    const tx = i.left + pad + aw / 2 - ((b.left + b.right) / 2) * k
-    const ty = bh * k <= ah ? i.top + pad + ah / 2 - ((b.top + b.bottom) / 2) * k : i.top + pad - b.top * k
+    const fits = bw * k <= aw && bh * k <= ah
+    const tx = i.left + pad + aw / 2 - (fits ? (b.left + b.right) / 2 : 0) * k
+    const ty = i.top + pad + ah / 2 - (fits ? (b.top + b.bottom) / 2 : 0) * k
     return zoomIdentity.translate(tx, ty).scale(k)
   }
 
@@ -185,7 +186,7 @@ export function Holygraph({
               <path
                 key={`${e.from}>${e.to}`}
                 d={e.path}
-                className={`hg-edge is-${kind} ${e.trunk ? 'is-trunk' : ''} ${lit ? 'is-lit' : ''} ${
+                className={`hg-edge is-${kind} ${e.trunk ? 'is-trunk' : ''} ${e.bridge ? 'is-bridge' : ''} ${lit ? 'is-lit' : ''} ${
                   emphasis && !lit ? 'is-dim' : ''
                 }`}
                 stroke={e.trunk || kind !== 'locked' || lit ? color : undefined}
@@ -202,7 +203,10 @@ export function Holygraph({
             const state = states.get(n.id)!
             const dim = emphasis ? !emphasis.has(n.id) : false
             const selected = selectedId === n.id
-            const labelY = n.size + L.labelOffset + L.labelFontSize * 0.8
+            // a label above the circle ends just over it; one below starts just under it
+            const labelY = n.labelAbove
+              ? -n.size - L.labelOffset - L.labelFontSize * 0.25 - (n.label.length - 1) * L.labelLineHeight
+              : n.size + L.labelOffset + L.labelFontSize * 0.8
             return (
               <g
                 key={n.id}

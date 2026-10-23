@@ -28,7 +28,7 @@ export function TopBar({
           <circle cx="16" cy="16" r="2.5" fill="currentColor" />
         </svg>
         <span>
-          Physical AI <em>Study</em>
+          Robotics <em>Roadmap</em>
         </span>
       </a>
 

@@ -475,6 +475,11 @@ code {
   stroke-dasharray: none;
 }
 
+.hg-edge.is-bridge:not(.is-lit) {
+  stroke-opacity: 0.3;
+  stroke-width: 1.2;
+}
+
 .hg-edge.is-dim {
   opacity: 0.12;
 }
