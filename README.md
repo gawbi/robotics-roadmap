@@ -1,4 +1,4 @@
-# Physical AI Study
+# Robotics Roadmap
 
 <p align="center">
   <img src="docs/tour.gif" alt="커리큘럼 지도에서 Transformer 강의를 눌러 선수·후속 강의가 강조되고, 오른쪽 창에 강의 본문이 열려 내려가는 모습" width="960">
@@ -45,8 +45,8 @@ perceptron 부터 Diffusion Policy·ACT·VLA, 실물 로봇 배포까지 Physica
 2. 내 fork 를 clone 하고 지도를 띄운다
 
    ```bash
-   git clone git@github.com:<내 계정>/physical-ai-study.git
-   cd physical-ai-study/site
+   git clone git@github.com:<내 계정>/robotics-roadmap.git
+   cd robotics-roadmap/site
    npm install
    npm run dev     # http://localhost:5173
    ```
@@ -80,7 +80,7 @@ dev server 는 모든 network interface 에서 받으므로 같은 네트워크�
 **Sync fork** 를 누르거나, 터미널에서 원본을 `upstream` 으로 더해 받아 온다.
 
 ```bash
-git remote add upstream https://github.com/woolimi/physical-ai-study.git   # 처음 한 번만
+git remote add upstream https://github.com/woolimi/robotics-roadmap.git   # 처음 한 번만
 git fetch upstream
 git merge upstream/main
 git push

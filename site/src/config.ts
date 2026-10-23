@@ -1,7 +1,7 @@
 // Single source of truth for site settings. Curriculum content lives in ../lessons/.
 
 export const CONFIG = {
-  repoUrl: 'https://github.com/woolimi/physical-ai-study',
+  repoUrl: 'https://github.com/woolimi/robotics-roadmap',
   repoBranch: 'main',
 
   storage: {

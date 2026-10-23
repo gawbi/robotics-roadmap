@@ -29,7 +29,7 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
         <X size={20} aria-hidden="true" />
       </button>
       <p className="intro-kicker">lecture &amp; quiz self-study</p>
-      <h2 id="intro-title">Physical AI Study</h2>
+      <h2 id="intro-title">Robotics Roadmap</h2>
       <p className="intro-lead">
         perceptron 부터 VLA·실물 로봇 배포까지, Physical AI 를 이루는 아이디어 {lessonCount}개를 강의로 읽고 퀴즈로 확인하는
         지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다.
