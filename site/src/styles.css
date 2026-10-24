@@ -476,7 +476,7 @@ code {
 }
 
 .hg-edge.is-bridge:not(.is-lit) {
-  stroke-opacity: 0.3;
+  stroke-opacity: 0.12;
   stroke-width: 1.2;
 }
 

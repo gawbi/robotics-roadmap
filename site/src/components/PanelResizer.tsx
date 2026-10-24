@@ -24,6 +24,7 @@ export interface PanelWidth {
   width: number
   min: number
   max: number
+  clamp(width: number): number
   /** clamps to [min, max]; `save` also remembers it for the next visit */
   setWidth(width: number, save?: boolean): void
 }
@@ -46,7 +47,7 @@ export function usePanelWidth(): PanelWidth {
     setPreferred(clamp(w))
     if (save) storeWidth(clamp(w))
   }
-  return { width: clamp(preferred), min: P.minWidth, max, setWidth }
+  return { width: clamp(preferred), min: P.minWidth, max, clamp, setWidth }
 }
 
 interface Props {
@@ -56,16 +57,17 @@ interface Props {
 
 /** Vertical splitter on the panel's left edge: drag, arrow keys, Home/End, double-click to reset. */
 export function PanelResizer({ panel, onDragging }: Props) {
-  const { width, min, max, setWidth } = panel
-  // `last` is the width from the latest pointermove, which may not have rendered yet when the pointer is released
-  const drag = useRef<{ x: number; width: number; last: number } | null>(null)
+  const { width, min, max, clamp, setWidth } = panel
+  // `last` is the width from the latest pointermove; React only hears about it when the pointer is released
+  const drag = useRef<{ x: number; width: number; last: number; app: HTMLElement; frame: number } | null>(null)
 
   // the panel can close mid-drag (Esc, or the window turning narrow) and no pointerup reaches us then
   useEffect(() => () => onDragging(false), [onDragging])
 
   const endDrag = () => {
     if (!drag.current) return
-    const { last } = drag.current
+    const { last, frame } = drag.current
+    cancelAnimationFrame(frame)
     drag.current = null
     onDragging(false)
     setWidth(last, true)
@@ -85,14 +87,18 @@ export function PanelResizer({ panel, onDragging }: Props) {
       onPointerDown={(e) => {
         if (e.button !== 0) return
         e.currentTarget.setPointerCapture(e.pointerId)
-        drag.current = { x: e.clientX, width, last: width }
+        drag.current = { x: e.clientX, width, last: width, app: e.currentTarget.parentElement!, frame: 0 }
         onDragging(true)
       }}
       onPointerMove={(e) => {
         if (!drag.current) return
         // the panel is anchored to the right edge, so moving left widens it
-        drag.current.last = drag.current.width + drag.current.x - e.clientX
-        setWidth(drag.current.last)
+        const d = drag.current
+        d.last = clamp(d.width + d.x - e.clientX)
+        // write the CSS variable straight to the DOM, once per frame: re-rendering the app on every pointermove
+        // re-renders the whole graph and the lesson body
+        cancelAnimationFrame(d.frame)
+        d.frame = requestAnimationFrame(() => d.app.style.setProperty('--panel-width', `${d.last}px`))
       }}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}

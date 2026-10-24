@@ -1,7 +1,7 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
 import { ArrowDown, BookOpen, ClipboardCheck, Clock, ExternalLink, X } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { loadBody } from '../curriculum/load'
 import { hasQuiz } from '../curriculum/load'
@@ -78,7 +78,8 @@ function StatusCard({ progressFile, lessonId, onJump }: { progressFile: Progress
   )
 }
 
-export function LessonPanel({ curriculum: c, progressFile, lessonId, onClose, onSelect }: Props) {
+// memo: hovering the graph re-renders the app, and the lesson body is costly to render again
+export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFile, lessonId, onClose, onSelect }: Props) {
   const lesson = c.byId.get(lessonId)!
   const branch = c.branches.find((b) => b.id === lesson.branch)!
   const status = statusOf(progressFile, lessonId)
@@ -216,4 +217,4 @@ export function LessonPanel({ curriculum: c, progressFile, lessonId, onClose, on
       </div>
     </aside>
   )
-}
+})

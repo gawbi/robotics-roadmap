@@ -114,6 +114,7 @@ export function App() {
           hoverBranch={hoverBranch}
           insets={insets}
           onSelect={select}
+          onBackgroundClick={() => selectedId && close()}
           onHover={setHoverId}
         />
       )}

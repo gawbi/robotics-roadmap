@@ -30,6 +30,7 @@ interface Props {
   hoverBranch: string | null
   insets: Insets
   onSelect(id: string): void
+  onBackgroundClick(): void
   onHover(id: string | null): void
   ref?: Ref<GraphControls>
 }
@@ -52,6 +53,7 @@ export function Holygraph({
   hoverBranch,
   insets,
   onSelect,
+  onBackgroundClick,
   onHover,
   ref,
 }: Props) {
@@ -158,7 +160,10 @@ export function Holygraph({
       role="group"
       aria-label="강의 선수 관계 그래프"
       onClick={(e) => {
-        if (e.target === svgRef.current) onHover(null)
+        // d3-zoom swallows the click that ends a pan, so this only fires on a plain click off the nodes
+        if ((e.target as Element).closest('.hg-node')) return
+        onHover(null)
+        onBackgroundClick()
       }}
     >
       <defs>
