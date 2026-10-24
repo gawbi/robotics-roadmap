@@ -26,6 +26,17 @@ export const CONFIG = {
     choiceCount: 4,
   },
 
+  // when the dev server starts it checks the original repository (repoUrl) for commits the fork does not have yet, and
+  // the page offers to merge them
+  update: {
+    remote: 'upstream', // the git remote the original is fetched into; added to the fork if it is missing
+    endpoint: '/__update', // GET: the fork's state; POST: merge the original. Served by the dev server only
+    event: 'roadmap:update', // Vite WebSocket event that carries every change of state to the page
+    fetchTimeoutMs: 20_000,
+    gitTimeoutMs: 10_000,
+    restartFiles: ['site/package.json', 'site/package-lock.json', 'site/vite.config.ts', 'site/quiz-server.ts', 'site/update-server.ts'],
+  },
+
   // layered map from ELK: prerequisites above, the lessons they open below
   layout: {
     nodeRadius: { small: 13, medium: 16, large: 19 },

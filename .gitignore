@@ -1,6 +1,7 @@
 # site
 node_modules/
 site/dist/
+site/dev-server.local.json
 
 # python
 __pycache__/

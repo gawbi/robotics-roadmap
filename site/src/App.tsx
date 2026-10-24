@@ -3,6 +3,7 @@ import { Legend, NextUp, TopBar, ZoomControls } from './components/Chrome'
 import { Holygraph, type GraphControls, type Insets } from './components/Holygraph'
 import { Intro } from './components/Intro'
 import { PanelResizer, usePanelWidth } from './components/PanelResizer'
+import { UpdateBanner } from './components/UpdateBanner'
 import { CONFIG } from './config'
 import { computeLayout, type Layout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
@@ -124,6 +125,8 @@ export function App() {
         progressFile={progressFile}
         onHelp={() => setShowIntro(true)}
       />
+
+      <UpdateBanner />
 
       <div className="sidebar">
         <NextUp curriculum={curriculum} progressFile={progressFile} onSelect={select} onHover={setHoverId} />
