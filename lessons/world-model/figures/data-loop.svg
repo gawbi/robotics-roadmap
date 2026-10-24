@@ -11,7 +11,7 @@
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="24.0" y="40.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
   <text x="99.0" y="62.0" fill="#94a3b8" font-size="12" text-anchor="middle">무작위 action 으로</text>
-  <text x="99.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="middle">처음 데이터 모으기</text>
+  <text x="99.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="middle">처음 데이터 수집</text>
   <line x1="99.0" y1="90.0" x2="99.0" y2="124.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <rect x="34.0" y="128.0" width="130.0" height="56.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="99.0" y="152.0" fill="#e2e8f0" font-size="14" text-anchor="middle">dataset</text>

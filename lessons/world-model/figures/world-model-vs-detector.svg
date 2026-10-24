@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>위는 world model 로, 지금 그림(로봇이 칸 1)과 행동 오른쪽으로 한 칸을 받아 다음 그림(로봇이 칸 2)을 예측한다. 아래는 YOLO-World 같은 물체 인식 모델로, 그림과 단어 컵을 받아 지금 그림 속 컵의 위치에 상자를 친다</title>
+  <title>위는 world model 로, 지금 이미지(로봇이 칸 1)과 행동 오른쪽으로 한 칸을 받아 다음 이미지(로봇이 칸 2)을 예측한다. 아래는 YOLO-World 같은 물체 인식 모델로, 이미지과 단어 컵을 받아 지금 이미지 속 컵의 위치에 상자를 친다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
@@ -18,7 +18,7 @@
   <rect x="120.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <rect x="138.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <rect x="156.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
-  <text x="102.0" y="108.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금 그림 (칸 1)</text>
+  <text x="102.0" y="108.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금 이미지 (칸 1)</text>
   <rect x="196.0" y="22.0" width="130.0" height="30.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="261.0" y="42.0" fill="#f59e0b" font-size="13" text-anchor="middle">action: +1 (오른쪽)</text>
   <line x1="178.0" y1="79.0" x2="226.0" y2="79.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
@@ -34,7 +34,7 @@
   <rect x="498.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <rect x="516.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <rect x="534.0" y="70.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
-  <text x="480.0" y="108.0" fill="#34d399" font-size="13" text-anchor="middle">예측한 다음 그림 (칸 2)</text>
+  <text x="480.0" y="108.0" fill="#34d399" font-size="13" text-anchor="middle">예측한 다음 이미지 (칸 2)</text>
   <text x="320.0" y="140.0" fill="#94a3b8" font-size="13" text-anchor="middle">행동을 받는다 · 미래를 낸다</text>
   <line x1="24.0" y1="158.0" x2="616.0" y2="158.0" stroke="#1e293b" stroke-width="1.5"/>
   <text x="24.0" y="186.0" fill="#a78bfa" font-size="15" text-anchor="start">물체 인식 모델 (YOLO-World)</text>
@@ -42,7 +42,7 @@
   <line x1="30.0" y1="272.0" x2="140.0" y2="272.0" stroke="#334155" stroke-width="1.5"/>
   <path d="M52,246 L76,246 L73,272 L55,272 Z" fill="#1e293b" stroke="#e2e8f0" stroke-width="1.5"/>
   <circle cx="112.0" cy="262.0" r="10" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-  <text x="85.0" y="308.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금 그림</text>
+  <text x="85.0" y="308.0" fill="#94a3b8" font-size="13" text-anchor="middle">지금 이미지</text>
   <rect x="196.0" y="196.0" width="110.0" height="30.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
   <text x="251.0" y="216.0" fill="#a78bfa" font-size="13" text-anchor="middle">단어: "컵"</text>
   <line x1="140.0" y1="250.0" x2="226.0" y2="250.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
@@ -56,6 +56,6 @@
   <circle cx="490.0" cy="262.0" r="10" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
   <rect x="424.0" y="240.0" width="36.0" height="38.0" rx="2" fill="none" stroke="#a78bfa" stroke-width="2"/>
   <text x="442.0" y="235.0" fill="#a78bfa" font-size="12" text-anchor="middle">컵</text>
-  <text x="463.0" y="308.0" fill="#a78bfa" font-size="13" text-anchor="middle">지금 그림 속 컵의 위치</text>
+  <text x="463.0" y="308.0" fill="#a78bfa" font-size="13" text-anchor="middle">지금 이미지 속 컵의 위치</text>
   <text x="320.0" y="336.0" fill="#94a3b8" font-size="13" text-anchor="middle">행동이 없다 · 미래를 예측하지 않는다</text>
 </svg>

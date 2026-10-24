@@ -503,7 +503,7 @@ token 이 많으면 같은 지시를 처리하는 데 계산이 더 들고, cont
 OpenVLA 논문에 따르면 Llama 의 tokenizer 는 새로 더할 token 자리를 100 개만 마련해 두어 256 개에 모자랐다. 그래서 OpenVLA 는 이미 있는
 token 가운데 가장 드물게 쓰이는 256 개(vocabulary 끝의 256 개)를 action token 으로 덮어썼다. 드물게 쓰이는 token 은 지시문에 거의 나오지
 않으므로, action 용으로 바꿔도 지시문을 읽는 데 쓰는 token 은 그대로 남는다. OpenVLA 는 bin 을 나눌 범위도 학습 데이터 action 의 최솟값 ~
-최댓값이 아니라 하위 1% 지점부터 상위 1% 지점까지(1st ~ 99th quantile)로 잡아서, 드물게 튄 값 때문에 bin 이 넓어지지 않게 했다. bin 번호와 token id 를 짝짓는 계산, action token 을 하나씩 생성하는 과정은
+최댓값이 아니라 하위 1% 지점부터 상위 1% 지점까지(1st ~ 99th quantile)로 잡아서, 드물게 튄 값 때문에 bin 이 넓어지지 않게 했다. bin 이 vocabulary 의 어느 token 에 대응하는지와 action token 을 하나씩 생성하는 과정은
 [RT-2 → OpenVLA](../vla-tokens/README.md) 에서 다룬다.
 
 이 방식은 행동 숫자 하나가 token 하나라서, 한 번에 여러 step 의 행동(action chunk)을 내면 token 수가 차원 수 × step 수가 된다.
@@ -523,9 +523,9 @@ token 가운데 가장 드물게 쓰이는 256 개(vocabulary 끝의 256 개)를
 ### 높은 주기에서 늘어나는 token
 
 로봇이 1 초에 명령을 보내는 횟수를 주기라고 하고 Hz 로 적는데, 주기가 높을수록 값마다 bin 하나를 쓰는 방식에서는 token 이 늘어난다. FAST
-논문에서는 1 초 분량 action chunk 의 평균 token 수를 데이터셋마다 비교했다.
+논문에서는 1 초 분량 action chunk 의 평균 token 수를 dataset 마다 비교했다.
 
-| 데이터셋 | 행동 차원 | 주기 | 값마다 bin 하나 | FAST | 압축 비율 |
+| dataset | 행동 차원 | 주기 | 값마다 bin 하나 | FAST | 압축 비율 |
 | --- | --- | --- | --- | --- | --- |
 | BridgeV2 | 7 | 5 Hz | 35 | 20 | 1.75 |
 | DROID | 7 | 15 Hz | 105 | 29 | 3.6 |
@@ -556,7 +556,7 @@ FAST(Frequency-space Action Sequence Tokenization)는 action chunk 를 먼저 DC
 
 ![관절 하나의 8 step 예로 계산한 FAST 의 세 단계. DCT 계수는 앞의 두 값만 크고, 10 을 곱해 반올림하면 8, −4 와 0 여섯 개가 된다. BPE 는 이어진 0 같은 자주 나오는 묶음을 token 하나로 합친다](figures/fast-pipeline.svg)
 
-계수에 10 을 곱해 반올림하면 정수 8 개 가운데 6 개가 0 이다. FAST 논문은 데이터셋마다 따로 만든 tokenizer 에서 이 곱하는 수(scale)를 모두
+계수에 10 을 곱해 반올림하면 정수 8 개 가운데 6 개가 0 이다. FAST 논문은 dataset 마다 따로 만든 tokenizer 에서 이 곱하는 수(scale)를 모두
 10 으로 두었다. scale 이 클수록 원래 값을 더 정확히 되살리지만 0 이 아닌 계수도 늘어난다. 거꾸로 8, −4, 0, … 을 10 으로 나눠 DCT 를
 되돌리면 0.087, 0.117, 0.172, 0.244, 0.322, 0.394, 0.449, 0.479 가 나오는데, 원래 값과 가장 많이 다른 곳도 차이가 약 0.024 다.
 
@@ -588,7 +588,7 @@ $k = 1$ 의 cos 값은 0.981, 0.831, 0.556, 0.195, −0.195, −0.556, −0.831,
 DCT 와 반올림을 거친 정수는 0 이 많지만 개수는 원래와 같다. FAST 는 차원마다 구한 계수를 한 줄로 늘어놓는데, 모든 차원의 낮은 주파수
 계수가 먼저 오도록 차원을 번갈아 놓는다. 그다음 정수 하나하나를 기호로 보고 BPE 를 학습한다. text 의 BPE 는 byte 256 개에서 시작하지만,
 여기서는 나올 수 있는 정수 값들이 처음 vocabulary 가 된다. BPE 는 길게 이어진 0 과 자주 함께 나오는 계수 조합을 token 하나로 합친다.
-FAST 논문은 데이터셋마다 따로 만든 tokenizer 에서 BPE vocabulary 크기를 1024 로 두었다. 반올림을 빼면 모든 단계를 되돌릴 수 있으므로,
+FAST 논문은 dataset 마다 따로 만든 tokenizer 에서 BPE vocabulary 크기를 1024 로 두었다. 반올림을 빼면 모든 단계를 되돌릴 수 있으므로,
 모델이 낸 token 에서 행동을 빠르게 다시 계산할 수 있다.
 
 앞의 표에서 보듯 FAST 는 주기와 관계없이 1 초 분량 chunk 마다 팔 하나에 30 개 안팎의 token 을 냈다. FAST 를
@@ -597,7 +597,7 @@ PaliGemma 기반의 로봇 policy π0 에 붙인 π0-FAST 는 이 token 을 VLM(
 행동을 만드는 원래 π0 와 비슷한 성능을 내면서, 학습에 든 GPU 시간은 π0 의 5 분의 1 이었다. 다만 실행할 때는 token 30 ~ 60 개를 하나씩
 내야 해서 느리다. 논문이 NVIDIA RTX 4090 에서 잰 시간은 1 초 분량 chunk 하나에 π0 가 100 ms 안쪽이고 π0-FAST 가 약 750 ms 다. π0 가 행동을 만드는 방식은 [π0](../pi0/README.md) 에서 다룬다.
 
-BPE 를 데이터셋마다 다시 학습하는 수고를 덜려고, FAST 저자들은 팔 하나·두 팔·이동 로봇의 1 초 분량 action chunk 약 100만 개로 학습한
+BPE 를 dataset 마다 다시 학습하는 수고를 덜려고, FAST 저자들은 팔 하나·두 팔·이동 로봇의 1 초 분량 action chunk 약 100만 개로 학습한
 범용 tokenizer FAST+ 도 공개했다. Hugging Face 에 공개된 FAST+ 설정 파일에서는 scale 이 10 이고 vocabulary 크기가 2048 이다.
 
 **확인 문제.** 두 팔 로봇(14 차원)이 1 초에 50 번 행동을 낸다. 1 초 분량 chunk 를 값마다 bin 하나로 바꾸면 token 이 몇 개이고, FAST 가

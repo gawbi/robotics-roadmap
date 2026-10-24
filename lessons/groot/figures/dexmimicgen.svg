@@ -35,6 +35,6 @@
   <text x="50" y="236" fill="#e2e8f0" font-size="13">GR00T N1 의 규모</text>
   <text x="50" y="262" fill="#94a3b8" font-size="12">사람 시연 수십 개 → 기록 78 만 개 (11 시간)</text>
   <text x="50" y="284" fill="#94a3b8" font-size="12">사람이 조종했다면 6,500 시간 = 쉬지 않고 9 개월</text>
-  <text x="50" y="306" fill="#94a3b8" font-size="12">사전학습용: 그릇 조합 54 × 10,000 = 54 만 개</text>
+  <text x="50" y="306" fill="#94a3b8" font-size="12">pretraining 용: 그릇 조합 54 × 10,000 = 54 만 개</text>
   <text x="640" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">손끝과 사과의 상대 위치는 그대로</text>
 </svg>

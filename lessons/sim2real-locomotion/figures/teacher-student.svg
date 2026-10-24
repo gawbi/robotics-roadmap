@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>teacher-student 학습. 1 단계에서 teacher policy 는 observation 과 함께 발 주변 지형 높이, 발 접촉, 마찰, 외력 같은 privileged information 을 받아 reinforcement learning 으로 학습한다. 2 단계에서 student policy 는 센서로 잴 수 있는 observation 100 step(2 초)의 이력만 받아 teacher 의 action 과 latent 를 따라 하도록 supervised learning 으로 학습하고, 실제 로봇에는 student 만 올린다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="30" fill="#f59e0b" font-size="14" text-anchor="start">1 단계: teacher 를 reinforcement learning 으로 학습 (simulation 안에서만)</text>
+  <rect x="20" y="54" width="200" height="70" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="120" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">observation</text>
+  <text x="120" y="104" fill="#94a3b8" font-size="12" text-anchor="middle">관절·몸통 센서 값</text>
+  <rect x="20" y="150" width="200" height="118" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.8"/>
+  <text x="120" y="174" fill="#f87171" font-size="13" text-anchor="middle">privileged information</text>
+  <text x="120" y="196" fill="#94a3b8" font-size="12" text-anchor="middle">발 주변 지형 높이</text>
+  <text x="120" y="214" fill="#94a3b8" font-size="12" text-anchor="middle">발 접촉 상태와 힘</text>
+  <text x="120" y="232" fill="#94a3b8" font-size="12" text-anchor="middle">마찰 계수</text>
+  <text x="120" y="250" fill="#94a3b8" font-size="12" text-anchor="middle">외부에서 미는 힘</text>
+  <line x1="220" y1="89" x2="268" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="220" y1="209" x2="268" y2="160" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="272" y="112" width="150" height="76" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="347" y="140" fill="#e2e8f0" font-size="14" text-anchor="middle">teacher (MLP)</text>
+  <text x="347" y="162" fill="#94a3b8" font-size="12" text-anchor="middle">→ action aᵀ, latent lᵀ</text>
+  <line x1="422" y1="150" x2="452" y2="150" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <text x="458" y="146" fill="#94a3b8" font-size="12" text-anchor="start">reward 로 고친다</text>
+  <text x="20" y="300" fill="#34d399" font-size="14" text-anchor="start">2 단계: student 가 teacher 를 따라 배움 (DAgger)</text>
+  <rect x="20" y="314" width="200" height="66" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="120" y="340" fill="#e2e8f0" font-size="13" text-anchor="middle">observation 이력</text>
+  <text x="120" y="360" fill="#94a3b8" font-size="12" text-anchor="middle">100 step = 2 초</text>
+  <line x1="220" y1="347" x2="268" y2="347" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="272" y="314" width="150" height="66" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="347" y="340" fill="#e2e8f0" font-size="14" text-anchor="middle">student (TCN)</text>
+  <text x="347" y="360" fill="#94a3b8" font-size="12" text-anchor="middle">→ action aˢ, latent lˢ</text>
+  <line x1="422" y1="347" x2="452" y2="347" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="456" y="296" width="244" height="92" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.8"/>
+  <text x="470" y="320" fill="#e2e8f0" font-size="13" text-anchor="start">loss = (aᵀ − aˢ)² + (lᵀ − lˢ)²</text>
+  <text x="470" y="342" fill="#94a3b8" font-size="12" text-anchor="start">student 가 움직인 상태마다</text>
+  <text x="470" y="360" fill="#94a3b8" font-size="12" text-anchor="start">teacher 가 정답 aᵀ, lᵀ 를 낸다</text>
+  <text x="470" y="378" fill="#34d399" font-size="12" text-anchor="start">실제 로봇에는 student 만 올린다</text>
+  <path d="M347,188 L347,232 L578,232 L578,292" fill="none" stroke="#a78bfa" stroke-width="1.6" marker-end="url(#arrow-violet)"/>
+  <text x="586" y="250" fill="#a78bfa" font-size="12" text-anchor="start">정답 제공</text>
+</svg>

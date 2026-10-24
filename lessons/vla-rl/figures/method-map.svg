@@ -48,7 +48,7 @@
 
   <rect x="540" y="256" width="140" height="120" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
   <text x="610" y="280" fill="#f87171" font-size="14" text-anchor="middle">④ advantage 조건</text>
-  <text x="610" y="304" fill="#e2e8f0" font-size="12" text-anchor="middle">"좋았음/아님" 을</text>
+  <text x="610" y="304" fill="#e2e8f0" font-size="12" text-anchor="middle">positive·negative 를</text>
   <text x="610" y="322" fill="#e2e8f0" font-size="12" text-anchor="middle">입력에 붙여 학습</text>
   <text x="610" y="346" fill="#94a3b8" font-size="12" text-anchor="middle">π*0.6 (RECAP)</text>
 

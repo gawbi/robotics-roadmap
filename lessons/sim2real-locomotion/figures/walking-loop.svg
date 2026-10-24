@@ -1,36 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>보행 학습의 한 step. observation 45 개가 policy network 에 들어가 action 12 개가 나오고, 목표 각도로 바뀐 뒤 PD controller 가 0.005 초마다 torque 를 계산하며 physics step 4 번을 진행한다. 0.02 초 뒤의 새 observation 과 reward 가 돌아온다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
-  <rect x="1" y="1" width="678" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20" y="40" width="170" height="214" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="105" y="64" fill="#e2e8f0" font-size="14" text-anchor="middle">observation 45 개</text>
-  <text x="38" y="92" fill="#94a3b8" font-size="13" text-anchor="start">몸통 회전 3</text>
-  <text x="38" y="118" fill="#94a3b8" font-size="13" text-anchor="start">몸통 기울기 3</text>
-  <text x="38" y="144" fill="#94a3b8" font-size="13" text-anchor="start">속도 명령 3</text>
-  <text x="38" y="170" fill="#94a3b8" font-size="13" text-anchor="start">관절 각도 12</text>
-  <text x="38" y="196" fill="#94a3b8" font-size="13" text-anchor="start">관절 속도 12</text>
-  <text x="38" y="222" fill="#94a3b8" font-size="13" text-anchor="start">직전 action 12</text>
-  <line x1="190" y1="120" x2="222" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <rect x="226" y="88" width="104" height="64" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="278" y="115" fill="#e2e8f0" font-size="14" text-anchor="middle">policy</text>
-  <text x="278" y="135" fill="#94a3b8" font-size="12" text-anchor="middle">network</text>
-  <line x1="330" y1="120" x2="362" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="346" y="110" fill="#94a3b8" font-size="12" text-anchor="middle"></text>
-  <rect x="366" y="88" width="128" height="64" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="430" y="112" fill="#e2e8f0" font-size="14" text-anchor="middle">action 12 개</text>
-  <text x="430" y="133" fill="#94a3b8" font-size="12" text-anchor="middle">→ 목표 각도 12 개</text>
-  <line x1="494" y1="120" x2="526" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <rect x="530" y="88" width="130" height="64" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="595" y="112" fill="#e2e8f0" font-size="14" text-anchor="middle">PD controller</text>
-  <text x="595" y="133" fill="#94a3b8" font-size="12" text-anchor="middle">0.005 초마다 torque</text>
-  <line x1="595" y1="152" x2="595" y2="184" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <rect x="530" y="188" width="130" height="64" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="595" y="212" fill="#e2e8f0" font-size="14" text-anchor="middle">simulator</text>
-  <text x="595" y="233" fill="#94a3b8" font-size="12" text-anchor="middle">physics step × 4</text>
-  <path d="M530,232 L330,232 L194,232" fill="none" stroke="#38bdf8" stroke-width="2" marker-end="url(#ar-sky)"/>
-  <text x="362" y="224" fill="#38bdf8" font-size="13" text-anchor="middle">0.02 초 뒤 새 observation</text>
-  <line x1="530" y1="200" x2="470" y2="200" stroke="#34d399" stroke-width="2" marker-end="url(#ar-green)"/>
-  <text x="440" y="196" fill="#34d399" font-size="13" text-anchor="end">reward</text>
-  <text x="278" y="34" fill="#94a3b8" font-size="13" text-anchor="middle">50 Hz: 0.02 초마다 action 하나</text>
-  <text x="340" y="284" fill="#94a3b8" font-size="13" text-anchor="middle">policy 는 0.02 초에 한 번, PD controller 와 physics 는 그사이 4 번씩 돈다</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>보행 학습의 한 step. observation 48 개가 policy 에 들어가 action 12 개가 나오고, 목표 각도로 바뀐 뒤 0.005 초마다 torque 를 계산하며 physics step 4 번을 진행한다. 0.02 초 뒤의 새 observation 과 reward 가 돌아온다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="698" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="350" y="30" fill="#94a3b8" font-size="13" text-anchor="middle">50 Hz: 0.02 초마다 action 하나</text>
+  <rect x="20" y="44" width="176" height="236" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="108" y="68" fill="#e2e8f0" font-size="14" text-anchor="middle">observation 48 개</text>
+  <text x="38" y="96" fill="#94a3b8" font-size="13" text-anchor="start">몸통 속도 3</text>
+  <text x="38" y="122" fill="#94a3b8" font-size="13" text-anchor="start">몸통 회전 속도 3</text>
+  <text x="38" y="148" fill="#94a3b8" font-size="13" text-anchor="start">중력 방향 3</text>
+  <text x="38" y="174" fill="#94a3b8" font-size="13" text-anchor="start">속도 명령 3</text>
+  <text x="38" y="200" fill="#94a3b8" font-size="13" text-anchor="start">관절 각도 12</text>
+  <text x="38" y="226" fill="#94a3b8" font-size="13" text-anchor="start">관절 속도 12</text>
+  <text x="38" y="252" fill="#94a3b8" font-size="13" text-anchor="start">직전 action 12</text>
+  <line x1="196" y1="130" x2="228" y2="130" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="232" y="98" width="104" height="64" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="284" y="125" fill="#e2e8f0" font-size="14" text-anchor="middle">policy</text>
+  <text x="284" y="145" fill="#94a3b8" font-size="12" text-anchor="middle">MLP</text>
+  <line x1="336" y1="130" x2="368" y2="130" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="372" y="98" width="132" height="64" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="438" y="122" fill="#e2e8f0" font-size="14" text-anchor="middle">action 12 개</text>
+  <text x="438" y="143" fill="#94a3b8" font-size="12" text-anchor="middle">→ 목표 각도 12 개</text>
+  <line x1="504" y1="130" x2="536" y2="130" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="540" y="98" width="140" height="64" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="122" fill="#e2e8f0" font-size="13" text-anchor="middle">목표 각도 → torque</text>
+  <text x="610" y="143" fill="#94a3b8" font-size="12" text-anchor="middle">0.005 초마다</text>
+  <line x1="610" y1="162" x2="610" y2="194" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="540" y="198" width="140" height="64" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="610" y="222" fill="#e2e8f0" font-size="14" text-anchor="middle">simulator</text>
+  <text x="610" y="243" fill="#94a3b8" font-size="12" text-anchor="middle">physics step × 4</text>
+  <line x1="540" y1="244" x2="200" y2="244" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="370" y="236" fill="#38bdf8" font-size="13" text-anchor="middle">0.02 초 뒤 새 observation</text>
+  <line x1="540" y1="210" x2="480" y2="210" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="472" y="214" fill="#34d399" font-size="13" text-anchor="end">reward</text>
+  <text x="350" y="302" fill="#94a3b8" font-size="13" text-anchor="middle">policy 가 한 번 계산할 때 torque 계산과 physics step 은 4 번씩 진행된다</text>
 </svg>

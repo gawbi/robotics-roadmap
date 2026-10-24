@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>advantage 를 조건으로 붙이는 학습. 잡기 직전 상태의 value 는 0.815 다. 가운데 잡기는 0.95 − 0.815 = +0.135 라서 "좋음", 가장자리 잡기는 0.5 − 0.815 = −0.315 라서 "나쁨" 표시를 붙여 모든 rollout 을 학습한다. 실행할 때 "좋음" 을 넣으면 가운데 잡기만 나와 성공률 95% 다</title>
+  <title>advantage 를 조건으로 붙이는 학습. 잡기 직전 상태의 value 는 0.815 다. 가운데 잡기는 0.95 − 0.815 = +0.135 라서 "positive", 가장자리 잡기는 0.5 − 0.815 = −0.315 라서 "negative" 표시를 붙여 모든 rollout 을 학습한다. 실행할 때 "positive" 을 넣으면 가운데 잡기만 나와 성공률 95% 다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
@@ -19,9 +19,9 @@
   <line x1="242" y1="108" x2="300" y2="108" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
   <line x1="242" y1="178" x2="300" y2="178" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
   <rect x="304" y="88" width="130" height="40" rx="8" fill="#34d399" fill-opacity="0.2" stroke="#34d399"/>
-  <text x="369" y="113" fill="#34d399" font-size="13" text-anchor="middle">표시 "좋음"</text>
+  <text x="369" y="113" fill="#34d399" font-size="13" text-anchor="middle">표시 "positive"</text>
   <rect x="304" y="158" width="130" height="40" rx="8" fill="#f87171" fill-opacity="0.2" stroke="#f87171"/>
-  <text x="369" y="183" fill="#f87171" font-size="13" text-anchor="middle">표시 "나쁨"</text>
+  <text x="369" y="183" fill="#f87171" font-size="13" text-anchor="middle">표시 "negative"</text>
 
   <polyline points="436,108 462,108 462,143" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
   <polyline points="436,178 462,178 462,143" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
@@ -29,12 +29,12 @@
   <rect x="490" y="96" width="190" height="94" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="585" y="122" fill="#e2e8f0" font-size="13" text-anchor="middle">표시까지 입력으로 넣어</text>
   <text x="585" y="142" fill="#e2e8f0" font-size="13" text-anchor="middle">100 개 모두 시연처럼 학습</text>
-  <text x="585" y="166" fill="#94a3b8" font-size="12" text-anchor="middle">"좋음" → 가운데 잡기</text>
-  <text x="585" y="182" fill="#94a3b8" font-size="12" text-anchor="middle">"나쁨" → 가장자리 잡기</text>
+  <text x="585" y="166" fill="#94a3b8" font-size="12" text-anchor="middle">"positive" → 가운데 잡기</text>
+  <text x="585" y="182" fill="#94a3b8" font-size="12" text-anchor="middle">"negative" → 가장자리 잡기</text>
 
   <line x1="585" y1="192" x2="585" y2="236" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
   <rect x="440" y="240" width="240" height="56" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="560" y="264" fill="#34d399" font-size="13" text-anchor="middle">실행할 때는 늘 "좋음" 을 넣는다</text>
+  <text x="560" y="264" fill="#34d399" font-size="13" text-anchor="middle">실행할 때는 늘 "positive" 를 넣는다</text>
   <text x="560" y="284" fill="#e2e8f0" font-size="13" text-anchor="middle">가운데 잡기 → 성공률 95%</text>
 
   <text x="40" y="250" fill="#94a3b8" font-size="12">filtered BC 는 성공 81.5 개만 써서 1 round 뒤 86.7%</text>

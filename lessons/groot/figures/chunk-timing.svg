@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>30 Hz 로봇의 시간표. 앞 8 개를 실행하면 Thor 의 105 ms 계산이 제때 끝나고, 앞 2 개만 실행하면 로봇이 38 ms 기다린다</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="818" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="32" fill="#e2e8f0" font-size="14" text-anchor="start">30 Hz 로봇 · Jetson AGX Thor (덩어리 하나에 105 ms)</text>
+  <text x="20" y="92" fill="#e2e8f0" font-size="13" text-anchor="start">앞 8 개 실행</text>
+  <text x="20" y="140" fill="#94a3b8" font-size="12" text-anchor="start">다음 덩어리 계산</text>
+  <rect x="150.0" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="203.3" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="256.7" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="310.0" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="363.3" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="416.7" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="470.0" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="523.3" y="76" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="576.7" y="76" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="630.0" y="76" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="683.3" y="76" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="736.7" y="76" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="150.0" y="124" width="168.0" height="24" rx="3" fill="#2a1a0c" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="234.0" y="141" fill="#f59e0b" font-size="12" text-anchor="middle">105 ms</text>
+  <line x1="576.7" y1="72" x2="576.7" y2="162" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="580.7" y="176" fill="#94a3b8" font-size="12" text-anchor="start">8 × 33.3 ≈ 267 ms 에 다음 덩어리 필요</text>
+  <text x="20" y="232" fill="#e2e8f0" font-size="13" text-anchor="start">앞 2 개 실행</text>
+  <text x="20" y="280" fill="#94a3b8" font-size="12" text-anchor="start">다음 덩어리 계산</text>
+  <rect x="150.0" y="216" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="203.3" y="216" width="51.3" height="26" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="256.7" y="216" width="61.3" height="26" rx="3" fill="#2a1214" stroke="#f87171" stroke-width="1.5"/>
+  <text x="287.3" y="206" fill="#f87171" font-size="12" text-anchor="middle">기다림 38 ms</text>
+  <rect x="318.0" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="371.3" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="424.7" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="478.0" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="531.3" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="584.7" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="638.0" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="691.3" y="216" width="51.3" height="26" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="150.0" y="264" width="168.0" height="24" rx="3" fill="#2a1a0c" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="234.0" y="281" fill="#f59e0b" font-size="12" text-anchor="middle">105 ms</text>
+  <line x1="256.7" y1="212" x2="256.7" y2="302" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="260.7" y="316" fill="#94a3b8" font-size="12" text-anchor="start">2 × 33.3 ≈ 67 ms 에 다음 덩어리 필요</text>
+  <line x1="150.0" y1="330" x2="790.0" y2="330" stroke="#475569" stroke-width="1.5"/>
+  <line x1="150.0" y1="326" x2="150.0" y2="334" stroke="#475569" stroke-width="1.5"/>
+  <text x="150.0" y="348" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="310.0" y1="326" x2="310.0" y2="334" stroke="#475569" stroke-width="1.5"/>
+  <text x="310.0" y="348" fill="#64748b" font-size="12" text-anchor="middle">100</text>
+  <line x1="470.0" y1="326" x2="470.0" y2="334" stroke="#475569" stroke-width="1.5"/>
+  <text x="470.0" y="348" fill="#64748b" font-size="12" text-anchor="middle">200</text>
+  <line x1="630.0" y1="326" x2="630.0" y2="334" stroke="#475569" stroke-width="1.5"/>
+  <text x="630.0" y="348" fill="#64748b" font-size="12" text-anchor="middle">300</text>
+  <line x1="790.0" y1="326" x2="790.0" y2="334" stroke="#475569" stroke-width="1.5"/>
+  <text x="790.0" y="348" fill="#64748b" font-size="12" text-anchor="middle">400</text>
+  <text x="790.0" y="322" fill="#94a3b8" font-size="12" text-anchor="end">시간 (ms)</text>
+  <rect x="560" y="18" width="14" height="14" rx="3" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="580" y="30" fill="#94a3b8" font-size="12" text-anchor="start">지금 덩어리</text>
+  <rect x="670" y="18" width="14" height="14" rx="3" fill="#0f2a22" stroke="#34d399" stroke-width="1.5"/>
+  <text x="690" y="30" fill="#94a3b8" font-size="12" text-anchor="start">다음 덩어리</text>
+</svg>

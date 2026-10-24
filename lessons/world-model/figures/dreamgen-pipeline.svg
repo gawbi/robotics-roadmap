@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DreamGen 의 네 단계. 공개 영상 생성 모델을 GR1 humanoid 시연 2,884 개로 fine-tuning 하고, 첫 장면과 새 지시문으로 시연에 없던 동작의 영상을 만든 뒤, IDM 으로 frame 사이의 action 을 계산해 GR00T N1 policy 를 학습한다. 새 동작 14 개에서 평균 성공률 43.2%, 처음 보는 환경에서 28.5% 였다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="258" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16" y="60" width="152" height="104" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="92.0" y="97.5" fill="#38bdf8" font-size="14" text-anchor="middle">① fine-tuning</text>
+  <text x="92.0" y="116.5" fill="#e2e8f0" font-size="12" text-anchor="middle">공개 영상 생성 모델</text>
+  <text x="92.0" y="135.6" fill="#94a3b8" font-size="12" text-anchor="middle">+ GR1 시연 2,884 개</text>
+  <rect x="196" y="60" width="152" height="104" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="272.0" y="97.5" fill="#a78bfa" font-size="14" text-anchor="middle">② 영상 생성</text>
+  <text x="272.0" y="116.5" fill="#e2e8f0" font-size="12" text-anchor="middle">첫 장면 + 새 지시문</text>
+  <text x="272.0" y="135.6" fill="#94a3b8" font-size="12" text-anchor="middle">→ 시연에 없던 동작</text>
+  <rect x="376" y="60" width="152" height="104" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="452.0" y="97.5" fill="#f59e0b" font-size="14" text-anchor="middle">③ action 추정</text>
+  <text x="452.0" y="116.5" fill="#e2e8f0" font-size="12" text-anchor="middle">IDM 이 frame 사이의</text>
+  <text x="452.0" y="135.6" fill="#94a3b8" font-size="12" text-anchor="middle">action 을 계산</text>
+  <rect x="556" y="60" width="152" height="104" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="632.0" y="97.5" fill="#34d399" font-size="14" text-anchor="middle">④ policy 학습</text>
+  <text x="632.0" y="116.5" fill="#e2e8f0" font-size="12" text-anchor="middle">생성 영상 + action</text>
+  <text x="632.0" y="135.6" fill="#94a3b8" font-size="12" text-anchor="middle">→ GR00T N1</text>
+  <line x1="170" y1="112.0" x2="192" y2="112.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="350" y1="112.0" x2="372" y2="112.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="530" y1="112.0" x2="552" y2="112.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <text x="360" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">DreamGen (2025): video world model 로 만든 policy 학습 데이터</text>
+  <text x="360" y="200" fill="#e2e8f0" font-size="13" text-anchor="middle">pick-and-place 시연만으로 새 동작 14 개 평균 성공률 43.2%, 처음 보는 환경 28.5%</text>
+  <text x="360" y="226" fill="#94a3b8" font-size="12.5" text-anchor="middle">같은 시연만 학습한 GR00T N1 은 새 환경에서 0% (저자들의 보고)</text>
+</svg>

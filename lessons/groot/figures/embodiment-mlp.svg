@@ -1,68 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>로봇마다 따로 둔 encoder 와 decoder. 위쪽 팔 하나 로봇의 숫자 7 개는 자기 encoder 를, 아래쪽 팔 둘 로봇의 숫자 14 개는 자기 encoder 를 지나 둘 다 길이 4 의 token 이 되고, 가운데의 공통 diffusion transformer 를 지난 뒤 각자의 decoder 가 다시 숫자 7 개와 14 개로 되돌린다. 아래 상자는 π0 처럼 18 칸에 맞추면 팔 하나 로봇은 11 칸이 0 이 됨을 보여 준다</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>로봇마다 따로 둔 encoder 와 decoder. 예로 든 숫자 6 개와 14 개가 각자의 encoder 를 지나 길이 4 의 token 이 된다. 아래 상자는 π0 의 18 칸 방식과 GR00T N1 공개 구현의 로봇별 weight 를 비교한다</title>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
-  <rect x="1" y="1" width="858" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
-
+  <rect x="1" y="1" width="858" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="26" fill="#94a3b8" font-size="12" text-anchor="start">예: 공통 길이 4</text>
   <rect x="20" y="40" width="140" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="90" y="64" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 하나 로봇</text>
-  <text x="90" y="84" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 7 개</text>
-  <rect x="20" y="170" width="140" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="90" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 둘 로봇</text>
-  <text x="90" y="214" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 14 개</text>
-
+  <text x="90" y="64" fill="#e2e8f0" font-size="13" text-anchor="middle">SO-101</text>
+  <text x="90" y="84" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 6 개</text>
   <rect x="190" y="40" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
   <text x="250" y="64" fill="#f59e0b" font-size="13" text-anchor="middle">encoder A</text>
-  <text x="250" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">7 → 4, 32 개</text>
+  <text x="250" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">6 → 4, 28 개</text>
+  <line x1="162" y1="68" x2="188" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550" y="40" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="64" fill="#f59e0b" font-size="13" text-anchor="middle">decoder A</text>
+  <text x="610" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 6</text>
+  <line x1="672" y1="68" x2="698" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="770" y="73" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 6 개</text>
+  <rect x="20" y="170" width="140" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="90" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 둘 로봇 (예)</text>
+  <text x="90" y="214" fill="#38bdf8" font-size="12" text-anchor="middle">숫자 14 개</text>
   <rect x="190" y="170" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
   <text x="250" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">encoder B</text>
   <text x="250" y="214" fill="#94a3b8" font-size="11" text-anchor="middle">14 → 4, 60 개</text>
-  <line x1="162" y1="68" x2="188" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="162" y1="198" x2="188" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="550" y="170" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">decoder B</text>
+  <text x="610" y="214" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 14</text>
+  <line x1="672" y1="198" x2="698" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="770" y="203" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 14 개</text>
   <line x1="312" y1="68" x2="350" y2="108" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="312" y1="198" x2="350" y2="158" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="330" y="132" fill="#94a3b8" font-size="11" text-anchor="middle">길이 4</text>
-
+  <text x="330" y="136" fill="#94a3b8" font-size="11" text-anchor="middle">길이 4</text>
   <rect x="352" y="80" width="156" height="106" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
   <text x="430" y="122" fill="#34d399" font-size="14" text-anchor="middle">diffusion</text>
   <text x="430" y="142" fill="#34d399" font-size="14" text-anchor="middle">transformer</text>
   <text x="430" y="166" fill="#94a3b8" font-size="11" text-anchor="middle">모든 로봇 공통</text>
-
   <line x1="510" y1="108" x2="548" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="510" y1="158" x2="548" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="550" y="40" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
-  <text x="610" y="64" fill="#f59e0b" font-size="13" text-anchor="middle">decoder A</text>
-  <text x="610" y="84" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 7</text>
-  <rect x="550" y="170" width="120" height="56" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
-  <text x="610" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">decoder B</text>
-  <text x="610" y="214" fill="#94a3b8" font-size="11" text-anchor="middle">4 → 14</text>
-  <line x1="672" y1="68" x2="698" y2="68" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="672" y1="198" x2="698" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="770" y="73" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 7 개</text>
-  <text x="770" y="203" fill="#e2e8f0" font-size="13" text-anchor="middle">속도 14 개</text>
-
-  <rect x="20" y="262" width="820" height="138" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
-  <text x="40" y="290" fill="#e2e8f0" font-size="14">π0 의 방법 — 18 칸에 맞추고 남는 칸을 0 으로</text>
-  <g font-size="12" text-anchor="middle">
-    <rect x="40" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="60" y="332" fill="#e2e8f0">x₁</text>
-    <rect x="80" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="100" y="332" fill="#e2e8f0">x₂</text>
-    <rect x="120" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="140" y="332" fill="#e2e8f0">x₃</text>
-    <rect x="160" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="180" y="332" fill="#e2e8f0">x₄</text>
-    <rect x="200" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="220" y="332" fill="#e2e8f0">x₅</text>
-    <rect x="240" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="260" y="332" fill="#e2e8f0">x₆</text>
-    <rect x="280" y="310" width="40" height="34" fill="#0c1f33" stroke="#38bdf8"/><text x="300" y="332" fill="#e2e8f0">x₇</text>
-    <rect x="320" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="340" y="332" fill="#94a3b8">0</text>
-    <rect x="360" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="380" y="332" fill="#94a3b8">0</text>
-    <rect x="400" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="420" y="332" fill="#94a3b8">0</text>
-    <rect x="440" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="460" y="332" fill="#94a3b8">0</text>
-    <rect x="480" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="500" y="332" fill="#94a3b8">0</text>
-    <rect x="520" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="540" y="332" fill="#94a3b8">0</text>
-    <rect x="560" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="580" y="332" fill="#94a3b8">0</text>
-    <rect x="600" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="620" y="332" fill="#94a3b8">0</text>
-    <rect x="640" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="660" y="332" fill="#94a3b8">0</text>
-    <rect x="680" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="700" y="332" fill="#94a3b8">0</text>
-    <rect x="720" y="310" width="40" height="34" fill="#1a1f2b" stroke="#475569"/><text x="740" y="332" fill="#94a3b8">0</text>
-  </g>
-  <text x="180" y="372" fill="#38bdf8" font-size="12" text-anchor="middle">팔 하나 로봇의 숫자 7 개</text>
-  <text x="540" y="372" fill="#94a3b8" font-size="12" text-anchor="middle">18 − 7 = 11 칸이 늘 0</text>
-  <text x="430" y="392" fill="#94a3b8" font-size="12" text-anchor="middle">18 칸보다 숫자가 많은 로봇은 넣을 수 없다</text>
+  <rect x="20" y="252" width="820" height="200" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="40" y="280" fill="#e2e8f0" font-size="14" text-anchor="start">π0 — 18 칸에 0 을 채우고, 모든 로봇이 같은 weight</text>
+  <rect x="40" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="55.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
+  <rect x="70" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="85.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
+  <rect x="100" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="115.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₃</text>
+  <rect x="130" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="145.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₄</text>
+  <rect x="160" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="175.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₅</text>
+  <rect x="190" y="292" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="205.0" y="312" fill="#e2e8f0" font-size="12" text-anchor="middle">x₆</text>
+  <rect x="220" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="235.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="250" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="265.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="280" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="295.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="310" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="325.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="340" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="355.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="370" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="385.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="400" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="415.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="430" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="445.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="460" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="475.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="490" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="505.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="520" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="535.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="550" y="292" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="565.0" y="312" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <line x1="588" y1="307" x2="626" y2="307" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="632" y="290" width="190" height="34" rx="6" fill="#0c1f33" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="727" y="312" fill="#38bdf8" font-size="12" text-anchor="middle">weight 하나 (공통)</text>
+  <text x="40" y="342" fill="#94a3b8" font-size="12" text-anchor="start">SO-101 의 숫자 6 개 + 0 이 12 칸</text>
+  <text x="40" y="376" fill="#e2e8f0" font-size="14" text-anchor="start">GR00T N1 공개 구현 — 상태 64 칸에 0 을 채우고, 로봇 번호마다 다른 weight</text>
+  <rect x="40" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="55.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
+  <rect x="70" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="85.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
+  <rect x="100" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="115.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₃</text>
+  <rect x="130" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="145.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₄</text>
+  <rect x="160" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="175.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₅</text>
+  <rect x="190" y="388" width="30" height="30" fill="#0c1f33" stroke="#38bdf8"/>
+  <text x="205.0" y="408" fill="#e2e8f0" font-size="12" text-anchor="middle">x₆</text>
+  <rect x="220" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="235.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="250" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="265.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="280" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="295.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="310" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="325.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="340" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="355.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <rect x="370" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="385.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="418" y="408" fill="#94a3b8" font-size="14" text-anchor="middle">…</text>
+  <rect x="436" y="388" width="30" height="30" fill="#1a1f2b" stroke="#475569"/>
+  <text x="451.0" y="408" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="40" y="438" fill="#94a3b8" font-size="12" text-anchor="start">SO-101 의 숫자 6 개 + 0 이 58 칸</text>
+  <line x1="504" y1="403" x2="542" y2="403" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="548" y="382" width="274" height="42" rx="6" fill="#2a1a0c" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="685" y="400" fill="#f59e0b" font-size="12" text-anchor="middle">로봇 번호로 고른 weight</text>
+  <text x="685" y="416" fill="#94a3b8" font-size="11" text-anchor="middle">(번호는 최대 32 개)</text>
 </svg>

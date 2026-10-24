@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>π0 를 실물 로봇에 올렸을 때의 세 층. 맨 위 π0 가 0.5 초마다 action 덩어리를 만들고, 가운데 queue 가 20 ms 마다 목표 각도를 하나씩 내보내며, 맨 아래 PID 가 1 ms 마다 모터의 힘을 계산해 관절을 목표로 움직인다. 오른쪽 시간축에 세 층의 눈금 간격을 나란히 그렸다</title>
+  <title>π0 를 실물 로봇에 올렸을 때의 세 층. 맨 위 π0 가 0.5 초마다 action chunk 를 만들고, 가운데 queue 가 20 ms 마다 목표 각도를 하나씩 내보내며, 맨 아래 PID 가 예로 든 1 ms 마다 모터의 힘을 계산해 관절을 목표로 움직인다. 오른쪽 시간축에 세 층의 눈금 간격을 나란히 그렸다</title>
   <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="798" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="50.0" width="300.0" height="64.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
   <text x="170.0" y="74.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="600">π0 추론</text>
-  <text x="170.0" y="94.0" fill="#e2e8f0" font-size="12" text-anchor="middle">사진·지시 → action 덩어리 50 개</text>
+  <text x="170.0" y="94.0" fill="#e2e8f0" font-size="12" text-anchor="middle">사진·지시 → action chunk 50 개</text>
   <text x="170.0" y="110.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5 초마다 (2 Hz)</text>
   <line x1="170.0" y1="116.0" x2="170.0" y2="138.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <rect x="20.0" y="140.0" width="300.0" height="64.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="170.0" y="164.0" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">action 실행 (queue)</text>
-  <text x="170.0" y="184.0" fill="#e2e8f0" font-size="12" text-anchor="middle">덩어리에서 목표 각도를 하나씩</text>
+  <text x="170.0" y="184.0" fill="#e2e8f0" font-size="12" text-anchor="middle">chunk 에서 목표 각도를 하나씩</text>
   <text x="170.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="middle">20 ms 마다 (50 Hz)</text>
   <line x1="170.0" y1="206.0" x2="170.0" y2="228.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <rect x="20.0" y="230.0" width="300.0" height="64.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
   <text x="170.0" y="254.0" fill="#34d399" font-size="14" text-anchor="middle" font-weight="600">PID (모터 안)</text>
   <text x="170.0" y="274.0" fill="#e2e8f0" font-size="12" text-anchor="middle">목표와의 차이 → 모터의 힘</text>
-  <text x="170.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">1 ms 마다 (1000 Hz)</text>
+  <text x="170.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">예: 1 ms 마다 (1000 Hz)</text>
   <text x="570.0" y="34.0" fill="#94a3b8" font-size="12" text-anchor="middle">처음 60 ms 를 확대한 시간축</text>
   <line x1="360.0" y1="82.0" x2="780.0" y2="82.0" stroke="#64748b" stroke-width="1"/>
   <line x1="360.0" y1="60.0" x2="360.0" y2="104.0" stroke="#a78bfa" stroke-width="4"/>
-  <text x="374.0" y="68.0" fill="#a78bfa" font-size="11" text-anchor="start">덩어리 1 번 (다음은 500 ms 에)</text>
+  <text x="374.0" y="68.0" fill="#a78bfa" font-size="11" text-anchor="start">chunk 1 번 (다음은 500 ms 에)</text>
   <line x1="360.0" y1="172.0" x2="780.0" y2="172.0" stroke="#64748b" stroke-width="1"/>
   <line x1="360.0" y1="154.0" x2="360.0" y2="190.0" stroke="#f59e0b" stroke-width="3"/>
   <line x1="500.0" y1="154.0" x2="500.0" y2="190.0" stroke="#f59e0b" stroke-width="3"/>

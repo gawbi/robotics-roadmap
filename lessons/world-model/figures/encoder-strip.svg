@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>카메라 그림 세 장이 encoder 를 지나 latent 1, 4, 6 이 되고, decoder 가 latent 에서 같은 그림을 되살린다. 숫자 8 개가 1 개로 줄었다</title>
+  <title>카메라 이미지 세 장이 encoder 를 지나 latent 1, 4, 6 이 되고, decoder 가 latent 에서 같은 이미지을 되살린다. 숫자 8 개가 1 개로 줄었다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
@@ -9,9 +9,9 @@
     <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
   </defs>
   <rect x="1" y="1" width="638" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="92.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">그림 (숫자 8 개)</text>
+  <text x="92.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">이미지 (숫자 8 개)</text>
   <text x="320.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">latent z (숫자 1 개)</text>
-  <text x="548.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">되살린 그림</text>
+  <text x="548.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="middle">되살린 이미지</text>
   <rect x="28.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <rect x="44.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
   <rect x="60.0" y="56.0" width="16.0" height="16.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>

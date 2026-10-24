@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>가로 64, 세로 64 pixel 의 컬러 진자 그림은 숫자 12,288 개다. encoder 가 이것을 latent 30 개로 줄인다. 진자의 실제 state 는 각도와 각속도 같은 숫자 몇 개다</title>
+  <title>가로 64, 세로 64 pixel 의 컬러 진자 이미지은 숫자 12,288 개다. encoder 가 이것을 latent 30 개로 줄인다. 진자의 실제 state 는 각도와 각속도 같은 숫자 몇 개다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
@@ -82,5 +82,5 @@
   <rect x="380.0" y="186.0" width="180.0" height="46.0" rx="6" fill="#0f2a1f" stroke="#34d399" stroke-width="1.5"/>
   <text x="470.0" y="206.0" fill="#34d399" font-size="13" text-anchor="middle">실제 state</text>
   <text x="470.0" y="224.0" fill="#34d399" font-size="12" text-anchor="middle">각도 · 각속도 (숫자 몇 개)</text>
-  <text x="200.0" y="250.0" fill="#94a3b8" font-size="13" text-anchor="middle">그림의 숫자 대부분은 배경이다</text>
+  <text x="200.0" y="250.0" fill="#94a3b8" font-size="13" text-anchor="middle">이미지의 숫자 대부분은 배경이다</text>
 </svg>

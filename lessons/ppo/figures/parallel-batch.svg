@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>legged_gym 과 Isaac Lab 의 기본 PPO 설정으로 본 한 iteration. env 4096 개를 각 24 step 씩 움직여 sample 98,304 개를 모으고, 섞어서 24,576 개씩 mini-batch 4 개로 나눠 5 epoch, 모두 20 번 고친다. mini-batch 마다 KL 을 재서 0.02 를 넘으면 learning rate 를 1.5 로 나누고 0.005 아래면 1.5 를 곱한다</title>
+  <rect x="1" y="1" width="678" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="110.0" width="120.0" height="120.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80.0" y="146.0" fill="#38bdf8" font-size="14" text-anchor="middle">rollout</text>
+  <text x="80.0" y="170.0" fill="#e2e8f0" font-size="12" text-anchor="middle">env 4096 개</text>
+  <text x="80.0" y="188.0" fill="#e2e8f0" font-size="12" text-anchor="middle">× 24 step</text>
+  <text x="80.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">= 98,304 개</text>
+  <text x="420.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">mini-batch (24,576 개씩)</text>
+  <text x="270.0" y="50.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
+  <text x="370.0" y="50.0" fill="#94a3b8" font-size="12" text-anchor="middle">2</text>
+  <text x="470.0" y="50.0" fill="#94a3b8" font-size="12" text-anchor="middle">3</text>
+  <text x="570.0" y="50.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="205.0" y="83.0" fill="#e2e8f0" font-size="12" text-anchor="end">epoch 1</text>
+  <line x1="142.0" y1="170.0" x2="160.0" y2="78.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="225.0" y="62.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="270.0" y="83.0" fill="#34d399" font-size="12" text-anchor="middle">step 1</text>
+  <rect x="325.0" y="62.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="370.0" y="83.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 2</text>
+  <rect x="425.0" y="62.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="470.0" y="83.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 3</text>
+  <rect x="525.0" y="62.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="570.0" y="83.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 4</text>
+  <text x="205.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="end">epoch 2</text>
+  <line x1="142.0" y1="170.0" x2="160.0" y2="120.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="225.0" y="104.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="270.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 5</text>
+  <rect x="325.0" y="104.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="370.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 6</text>
+  <rect x="425.0" y="104.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="470.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 7</text>
+  <rect x="525.0" y="104.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="570.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 8</text>
+  <text x="205.0" y="167.0" fill="#e2e8f0" font-size="12" text-anchor="end">epoch 3</text>
+  <line x1="142.0" y1="170.0" x2="160.0" y2="162.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="225.0" y="146.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="270.0" y="167.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 9</text>
+  <rect x="325.0" y="146.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="370.0" y="167.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 10</text>
+  <rect x="425.0" y="146.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="470.0" y="167.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 11</text>
+  <rect x="525.0" y="146.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="570.0" y="167.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 12</text>
+  <text x="205.0" y="209.0" fill="#e2e8f0" font-size="12" text-anchor="end">epoch 4</text>
+  <line x1="142.0" y1="170.0" x2="160.0" y2="204.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="225.0" y="188.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="270.0" y="209.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 13</text>
+  <rect x="325.0" y="188.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="370.0" y="209.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 14</text>
+  <rect x="425.0" y="188.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="470.0" y="209.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 15</text>
+  <rect x="525.0" y="188.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="570.0" y="209.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 16</text>
+  <text x="205.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="end">epoch 5</text>
+  <line x1="142.0" y1="170.0" x2="160.0" y2="246.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="225.0" y="230.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="270.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 17</text>
+  <rect x="325.0" y="230.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="370.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 18</text>
+  <rect x="425.0" y="230.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="470.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 19</text>
+  <rect x="525.0" y="230.0" width="90.0" height="32.0" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="570.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="middle">step 20</text>
+  <text x="215.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="start">epoch 마다 다시 섞어서 나눔</text>
+  <text x="650.0" y="290.0" fill="#f59e0b" font-size="12" text-anchor="end">같은 데이터로 gradient step 5 × 4 = 20 번</text>
+  <text x="20.0" y="322.0" fill="#a78bfa" font-size="12" text-anchor="start">mini-batch 마다 KL 측정 (desired_kl = 0.01)</text>
+  <text x="650.0" y="314.0" fill="#f87171" font-size="12" text-anchor="end">KL &gt; 0.02 → learning rate ÷ 1.5</text>
+  <text x="650.0" y="334.0" fill="#34d399" font-size="12" text-anchor="end">KL &lt; 0.005 → learning rate × 1.5</text>
+</svg>

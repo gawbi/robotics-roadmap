@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>π0 의 학습 단계. 왼쪽 사전학습은 PaliGemma weight 에서 출발해 직접 모은 로봇 데이터 약 10,000 시간(7 가지 로봇, 68 가지 작업)과 공개 데이터 9.1% 로 학습한다. 가운데 fine-tuning 은 작업 하나의 데이터 5 ~ 100 시간 이상으로 더 학습한다. 오른쪽 π0.5 는 여기에 인터넷의 사진 설명·질문 답하기·물체 위치 찾기 데이터와 다음에 할 일을 글로 맞히는 예시를 함께 섞는다</title>
+  <title>π0 의 학습 단계. 왼쪽 pretraining 은 PaliGemma weight 에서 출발해 직접 모은 로봇 데이터 약 10,000 시간(7 가지 로봇, 68 가지 작업)과 공개 데이터 9.1% 로 학습한다. 가운데 fine-tuning 은 작업 하나의 데이터 5 ~ 100 시간 이상으로 더 학습한다. 오른쪽 π0.5 는 여기에 인터넷의 사진 설명·질문 답하기·물체 위치 찾기 데이터와 다음에 할 일을 글로 맞히는 예시를 함께 섞는다</title>
   <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="798" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="40.0" width="240.0" height="220.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="140.0" y="68.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="600">① 사전학습</text>
+  <text x="140.0" y="68.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="600">① pretraining</text>
   <text x="140.0" y="100.0" fill="#e2e8f0" font-size="12" text-anchor="middle">출발점: PaliGemma weight</text>
   <text x="140.0" y="126.0" fill="#e2e8f0" font-size="12" text-anchor="middle">+ 무작위 action expert</text>
   <text x="140.0" y="152.0" fill="#e2e8f0" font-size="12" text-anchor="middle">직접 모은 로봇 데이터</text>
@@ -23,9 +23,9 @@
   <text x="660.0" y="126.0" fill="#e2e8f0" font-size="12" text-anchor="middle">질문 답하기 · 물체 위치 찾기</text>
   <text x="660.0" y="152.0" fill="#e2e8f0" font-size="12" text-anchor="middle">다음 할 일을 글로 맞히기</text>
   <text x="660.0" y="178.0" fill="#e2e8f0" font-size="12" text-anchor="middle">사람의 말 지시</text>
-  <text x="660.0" y="204.0" fill="#e2e8f0" font-size="12" text-anchor="middle">→ 처음 보는 집과 물체로</text>
-  <text x="660.0" y="230.0" fill="#e2e8f0" font-size="12" text-anchor="middle">더 잘 넓혀 간다</text>
+  <text x="660.0" y="204.0" fill="#e2e8f0" font-size="12" text-anchor="middle">→ 학습에 없던 집에서</text>
+  <text x="660.0" y="230.0" fill="#e2e8f0" font-size="12" text-anchor="middle">부엌·침실 정리</text>
   <line x1="262.0" y1="150.0" x2="278.0" y2="150.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <line x1="522.0" y1="150.0" x2="538.0" y2="150.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)" stroke-dasharray="4 3"/>
-  <text x="400.0" y="284.0" fill="#94a3b8" font-size="12" text-anchor="middle">사전학습의 다양한 데이터는 실수에서 회복하는 동작을, fine-tuning 데이터는 매끄러운 수행을 가르친다</text>
+  <text x="400.0" y="284.0" fill="#94a3b8" font-size="12" text-anchor="middle">pretraining 의 다양한 데이터에서 회복 동작을 배우고, fine-tuning 데이터에서 매끄러운 수행을 배운다</text>
 </svg>

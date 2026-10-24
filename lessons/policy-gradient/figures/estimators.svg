@@ -25,7 +25,7 @@
   <text x="420.0" y="206.0" fill="#94a3b8" font-size="12" text-anchor="start">bias 없음 · variance 줄어듦</text>
   <path d="M70 248 V240 H160 V248" fill="none" stroke="#34d399" stroke-width="2"/>
   <path d="M160 244 H390" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="275.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="middle">나머지는 V<tspan baseline-shift="sub" font-size="10">φ</tspan>(sₜ₊₁) 로 추정</text>
+  <text x="275.0" y="229.0" fill="#94a3b8" font-size="12" text-anchor="middle">나머지는 V<tspan baseline-shift="sub" font-size="10">φ</tspan>(sₜ₊₁) 로 추정</text>
   <text x="70.0" y="272.0" fill="#e2e8f0" font-size="13" text-anchor="start">rₜ₊₁ + γV<tspan baseline-shift="sub" font-size="10">φ</tspan>(sₜ₊₁) − V<tspan baseline-shift="sub" font-size="10">φ</tspan>(sₜ)</text>
   <text x="420.0" y="246.0" fill="#34d399" font-size="14" text-anchor="start">actor-critic</text>
   <text x="420.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="start">V<tspan baseline-shift="sub" font-size="10">φ</tspan> 가 틀린 만큼 bias</text>

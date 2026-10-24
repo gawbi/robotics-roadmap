@@ -2,317 +2,322 @@
 # answer 는 choices 의 0부터 센 번호다.
 
 - topic: observation-action
-  title: policy 의 observation 과 목표 각도 action
+  title: 보행 policy 의 observation 과 목표 각도 action
   variants:
     - question: |
-        simulator 는 바닥의 마찰 계수를 정확히 안다. 그런데도 보행 policy 의 observation 에 마찰 계수를 넣지 않는 이유로 맞는 것은?
+        면접관: "simulator 는 바닥의 마찰 계수를 정확히 압니다. 그런데 보행 policy 의 observation 에 마찰 계수를 넣지 않는 이유는 무엇인가요?"
       choices:
-        - '마찰 계수를 알면 simulator 에서도 오히려 더 못 걷기 때문이다'
-        - '실제 로봇에는 마찰 계수를 재는 센서가 없어서, 그 숫자를 받아야 움직이는 policy 는 실제 로봇에서 쓸 수 없기 때문이다'
-        - '마찰 계수는 걷기와 아무 상관이 없기 때문이다'
-        - 'observation 은 숫자가 45 개로 정해져 있어 더 넣을 수 없기 때문이다'
+        - '마찰 계수를 넣으면 simulation 에서도 오히려 더 못 걷기 때문이다'
+        - '실제 로봇에는 마찰 계수를 재는 센서가 없어서, 그 숫자를 받아야 움직이는 policy 는 실물에 옮길 수 없기 때문이다'
+        - '마찰 계수는 보행에 거의 영향을 주지 않기 때문이다'
+        - 'observation 의 개수는 관절 수의 네 배로 정해져 있어서 더 넣을 자리가 없기 때문이다'
       answer: 1
       explanation: |
-        policy 의 입력은 실제 로봇에서도 똑같이 만들 수 있는 숫자로만 짜야 한다. 마찰 계수를 받는 policy 는 simulator 에서는 실제로 더 잘
-        걷지만, 실물에서는 그 숫자를 줄 방법이 없어 옮길 수 없다. 마찰은 걷기에 크게 영향을 주는 값이고, observation 의 개수는 설계에 따라
-        정하는 것이지 고정된 규칙이 아니다.
+        policy 의 입력은 실제 로봇에서도 똑같이 만들 수 있는 숫자로만 짜야 하고, 마찰 계수를 받는 policy 는 실물에서 그 숫자를 줄 방법이 없다.
+        마찰 계수를 넣으면 simulation 에서는 실제로 더 잘 걷기 때문에 첫째 보기는 틀렸다. 마찰은 발이 미끄러지는지를 정하는 값이라 보행에 영향이
+        크다. observation 의 개수는 설계에 따라 정하는 것이고 정해진 규칙이 없다.
     - question: |
-        보행 policy 의 action 을 모터 torque 가 아니라 관절의 목표 각도로 두는 이유로 맞는 것은?
+        면접관: "보행 policy 의 action 을 motor torque 가 아니라 관절의 목표 각도로 두는 경우가 많습니다. 이유가 무엇인가요?"
       choices:
-        - 'policy 가 목표 각도를 0.02 초마다 내면, 그 아래에서 훨씬 빠르게 도는 PD controller 가 관절을 붙잡아 다리가 흔들리지 않기 때문이다'
-        - '모터는 torque 명령을 받을 수 없기 때문이다'
-        - '목표 각도로 두면 PD controller 가 필요 없어지기 때문이다'
-        - 'torque 는 simulator 에서 계산할 수 없기 때문이다'
-      answer: 0
-      explanation: |
-        policy 가 torque 를 직접 내면 0.02 초에 한 번 정한 힘이 그동안 그대로 걸려 관절이 쉽게 흔들린다. 목표 각도를 내면 0.005 초마다 도는
-        PD controller 가 목표와의 차이와 도는 빠르기로 torque 를 다시 계산해 관절을 붙잡아 준다. 그래서 PD controller 는 꼭 필요하고, 모터와
-        simulator 모두 torque 를 다룰 수 있다.
-    - question: |
-        보행 학습에서 state 와 observation 을 구분하는 것으로 맞는 것은?
-      choices:
-        - '둘은 같은 숫자 묶음을 부르는 다른 이름이다'
-        - 'observation 은 simulator 가 아는 전부이고, state 는 그중 로봇이 볼 수 있는 부분이다'
-        - 'state 는 action 이고 observation 은 reward 다'
-        - 'state 는 simulator 가 아는 세계의 전부이고, observation 은 그 가운데 로봇이 센서로 직접 잴 수 있는 부분이다'
+        - '실제 motor 는 torque 명령을 받을 수 없기 때문이다'
+        - '목표 각도로 두면 policy 가 1초에 1000 번 이상 계산해야 하기 때문이다'
+        - '목표 각도로 두면 그 아래의 PD controller 가 필요 없어지기 때문이다'
+        - 'policy 가 1초에 수십 번 목표를 내도, 그 아래에서 더 자주 계산하는 PD controller 가 그사이에도 관절을 목표 쪽으로 계속 당겨 주기 때문이다'
       answer: 3
       explanation: |
-        simulator 는 몸통의 정확한 속도, 바닥의 미끄러운 정도, 부품의 무게까지 모두 안다. 이 전부가 state 이고, policy 에는 그중 IMU 나 관절
-        센서처럼 실제 로봇에서도 잴 수 있는 숫자만 observation 으로 준다. observation 이 simulator 가 아는 전부라는 설명은 두 말을 뒤바꾼 것이고, action 과 reward 는 따로 있는 개념이다.
+        policy 는 0.02 초쯤마다 한 번 목표 각도를 내고, 그 아래의 PD controller 가 목표와의 차이와 관절 속도로 torque 를 더 자주 다시 계산한다.
+        torque 를 직접 받는 motor 도 많으므로 첫째 보기는 틀렸다. 목표 각도를 쓰면 policy 는 오히려 드물게 계산해도 된다. 목표 각도를 torque 로
+        바꾸는 것이 PD controller 의 일이라서 PD controller 는 꼭 필요하다.
+    - question: |
+        면접관: "legged_gym 으로 학습한 ANYmal 보행 policy 는 관절의 목표 각도를 냅니다. 실제 ANYmal 에서 이 목표 각도를 torque 로 바꾸는 것은 무엇인가요?"
+      choices:
+        - 'motor 안의 PD controller 가 목표 각도와 지금 각도의 차이로 torque 를 만든다'
+        - '로봇의 컴퓨터에서 actuator network 가 torque 를 계산해 motor 에 보낸다'
+        - 'policy 가 목표 각도와 함께 torque 도 내서 motor 에 보낸다'
+        - 'simulator 가 실시간으로 torque 를 계산해 로봇에 보낸다'
+      answer: 0
+      explanation: |
+        Rudin 등에 따르면 policy 의 출력은 목표 각도로 motor 에 그대로 보내지고, motor 안의 PD controller 가 torque 를 만든다. actuator network 는
+        simulation 안에서 실제 motor 의 반응을 흉내 낼 때만 쓰고 실제 로봇에는 올리지 않는다. policy 의 출력은 관절 12 개의 목표 각도뿐이다.
+        실제 로봇에서는 simulator 가 돌아가지 않는다.
 
 - topic: reward-design
   title: 여러 항목을 더한 보행 reward
   variants:
     - question: |
-        보행 reward 를 "명령한 빠르기를 얼마나 잘 따르는가" 하나로만 정하면 생기는 문제로 맞는 것은?
+        면접관: "보행 reward 를 명령한 속도를 얼마나 잘 따르는지 하나로만 정하면 어떤 문제가 생기나요?"
       choices:
         - '로봇이 아예 움직이지 않는다'
-        - '학습 속도가 빨라질 뿐 문제는 없다'
-        - '같은 빠르기라면 덜컹거리며 모터를 혹사하는 걸음과 차분한 걸음을 구별하지 못해, 실제 로봇에서 쓸 수 없는 걸음을 배워도 손해가 없다'
-        - '로봇이 명령보다 항상 느리게 걷게 된다'
+        - '학습이 빨라질 뿐 문제는 없다'
+        - '같은 속도라면 몸통이 크게 흔들리며 torque 를 많이 쓰는 걸음과 차분한 걸음이 같은 점수를 받아서, 실물에서 쓸 수 없는 걸음을 배워도 손해가 없다'
+        - '로봇이 명령보다 늘 느리게 걷는다'
       answer: 2
       explanation: |
-        reward 가 빠르기만 보면 몸통이 위아래로 덜컹거리거나 torque 를 마구 쓰는 걸음도 같은 점수를 받는다. simulator 의 모터는 열이 나지 않고
-        부서지지 않아 이런 걸음도 잘 걷는 것처럼 보인다. 그래서 흔들림·torque·action 변화 같은 penalty 를 weight 와 곱해 더해, 원하는
-        걸음의 성질을 하나하나 reward 로 적어 준다.
+        속도만 보는 reward 는 몸통이 위아래로 크게 흔들리거나 torque 를 많이 쓰는 걸음을 차분한 걸음과 구별하지 못하고, simulation 의 motor 는 열이
+        나거나 부서지지 않아 그런 걸음도 잘 걷는 것처럼 보인다. 속도 추종 점수가 있으므로 로봇이 움직이지 않으면 점수를 잃는다. 학습이 빨라진다는
+        근거는 없고, 걸음의 질을 구별하지 못하는 문제가 남는다. 속도 점수는 명령에 가까울수록 커지므로 늘 느리게 걷도록 만들지 않는다.
     - question: |
-        보행 학습에서 말하는 reward hacking 의 뜻으로 맞는 것은?
+        면접관: "보행 학습에서 말하는 reward hacking 은 무엇인가요?"
       choices:
-        - 'policy 가 설계한 사람이 의도하지 않은 방법이라도 reward 만 커지면 그 방법을 배우는 것이다'
-        - '사람이 reward 를 일부러 높게 조작하는 것이다'
-        - 'reward 가 너무 작아 학습이 안 되는 것이다'
-        - 'reward 계산 코드에 버그가 생기는 것이다'
+        - 'policy 가 설계자가 의도하지 않은 방법이라도 reward 만 커지면 그 방법을 배우는 것'
+        - '사람이 학습 중간에 reward 값을 직접 고쳐 넣는 것'
+        - 'reward 를 계산하는 코드에 bug 가 있어 학습이 멈추는 것'
+        - 'reward 가 너무 커서 PPO 의 gradient 가 발산하는 것'
       answer: 0
       explanation: |
-        policy 는 reward 를 키우는 일만 하므로, reward 식의 빈틈을 이용한 걸음이라도 점수가 높으면 그쪽으로 간다. 이런 걸음은 simulator 에서는
-        reward 가 높아도 실제 로봇에서는 모터가 뜨거워지거나 쉽게 넘어진다. 사람의 조작이나 코드 버그가 아니라 reward 설계가 원하는 행동을
-        충분히 적지 못해 생기는 현상이다.
+        policy 는 reward 를 키우는 일만 하므로, 관절을 빠르게 떨며 미끄러지거나 발을 끌며 가는 걸음이라도 reward 가 높으면 그대로 배운다. 그래서
+        원하는 걸음의 성질을 penalty 항목으로 하나하나 적어 준다. 사람이 reward 를 고쳐 넣는 것은 reward 설계의 일이지 reward hacking 이 아니다.
+        코드의 bug 로 학습이 멈추는 것은 다른 문제다. reward 의 크기 때문에 생기는 수치 문제도 reward hacking 과 관계없다.
     - question: |
-        로봇이 넘어지면 episode 를 그 자리에서 끝내는데, 이때 step 마다 받는 reward 가 양수가 되게 설계하는 이유로 맞는 것은?
+        면접관: "legged_gym 은 한 step 의 reward 합이 음수이면 0 으로 자르는 설정을 기본으로 켭니다. 왜 그럴까요?"
       choices:
-        - 'reward 가 양수여야 PPO 의 계산이 가능하기 때문이다'
-        - '음수 reward 는 simulator 가 처리할 수 없기 때문이다'
-        - 'reward 가 양수이면 policy 가 더 빨리 걷기 때문이다'
-        - '살아 있는 동안 받는 reward 가 양수면 일찍 넘어질수록 받을 reward 를 잃어 넘어짐이 곧 벌이 되지만, 음수면 일찍 넘어져 episode 를 끝내는 쪽이 이득이라 일부러 넘어지는 것을 배울 수 있기 때문이다'
+        - 'PPO 는 음수 reward 를 계산할 수 없기 때문이다'
+        - 'reward 를 0 이상으로 두면 penalty 항목이 필요 없어지기 때문이다'
+        - '음수 reward 는 GPU 에서 계산이 느리기 때문이다'
+        - '넘어지면 episode 가 끝나는데, step 마다 reward 가 음수이면 일찍 넘어질수록 return 이 커져 policy 가 일부러 넘어지는 쪽을 배울 수 있기 때문이다'
       answer: 3
       explanation: |
-        episode 가 끝나면 그 뒤로 받을 reward 를 모두 잃는다. step 마다 reward 가 양수면 이것이 큰 손해라서 따로 penalty 를 주지 않아도 넘어지지
-        않는 쪽을 배운다. 반대로 step 마다 음수를 받는다면 빨리 끝내는 쪽이 return 이 커서, policy 가 일부러 넘어지는 이상한 행동을 배운다.
-        PPO 나 simulator 는 음수 reward 도 문제없이 다룬다.
+        episode 가 끝나면 남은 step 의 reward 를 받지 못하므로, reward 가 양수이면 넘어짐이 벌이 되지만 음수이면 오히려 이득이 된다. 0 으로 자르면
+        살아 있는 동안의 reward 가 음수가 되지 않는다. PPO 는 음수 reward 도 문제없이 다룬다. penalty 항목은 자르기 전에 합에 그대로 들어가므로
+        여전히 필요하다. 계산 속도는 부호와 관계없다.
 
-- topic: parallel-simulation
-  title: 수천 개 env 의 병렬 simulation
+- topic: reality-gap
+  title: reality gap 의 원인
   variants:
     - question: |
-        GPU 위에서 똑같은 로봇 수천 대를 동시에 simulation 하면 학습 시간이 크게 주는 이유로 맞는 것은?
+        면접관: "sim-to-real gap 이 생기는 원인을 크게 두 가지로 나눈다면 무엇인가요?"
       choices:
-        - 'GPU 는 물리 법칙을 생략하고 계산하기 때문이다'
-        - '로봇 수천 대의 physics step 은 같은 계산을 숫자만 바꿔 하는 일이라, GPU 가 한 대를 계산하는 시간과 크게 다르지 않은 시간에 모두 계산하기 때문이다'
-        - '로봇이 많으면 각 로봇이 필요한 step 수가 줄기 때문이다'
-        - 'GPU 에서는 policy 를 학습할 필요가 없기 때문이다'
-      answer: 1
-      explanation: |
-        GPU 는 같은 곱셈과 덧셈을 수천 개의 숫자에 동시에 하는 데 뛰어나다. 로봇마다 계산 내용은 같고 숫자만 다르므로, 한 번에 묶어 계산하면
-        실제 로봇으로 수주 걸릴 step 수를 몇 분 만에 모을 수 있다. 물리 계산을 생략하는 것이 아니고, 필요한 전체 step 수가 주는 것도 아니며,
-        policy 는 여전히 PPO 로 학습한다.
-    - question: |
-        on-policy 방법인 PPO 가 보행 학습에서 가장 널리 쓰이는 이유로 맞는 것은?
-      choices:
-        - 'PPO 는 데이터를 영원히 쌓아 두고 다시 쓰기 때문이다'
-        - 'PPO 는 simulator 없이 실제 로봇에서 바로 학습하기 때문이다'
-        - 'PPO 의 약점인 "데이터를 한 iteration 만 쓰고 버린다" 는 점이, 병렬 simulation 이 새 데이터를 아주 싸게 만들어 주어 크게 문제 되지 않기 때문이다'
-        - 'PPO 는 reward 가 필요 없기 때문이다'
-      answer: 2
-      explanation: |
-        PPO 는 데이터를 모은 iteration 안에서만 쓰고 버려서 데이터가 많이 든다. 실물 로봇에서는 이것이 큰 약점이지만, GPU 병렬 simulation 에서는
-        수천 대가 한꺼번에 데이터를 만들어 이 약점이 사라지고, PPO 의 안정적인 update 가 장점으로 남는다. 데이터를 쌓아 두고 다시 쓰는 것은
-        off-policy 방법이다.
-    - question: |
-        env 4096 개를 각각 24 step(0.48 초)씩만 움직이고 rollout 을 끊어도 PPO 학습이 되는 이유로 맞는 것은?
-      choices:
-        - '끊긴 뒤에 받을 reward 는 critic 의 예측으로 메워 advantage 를 계산할 수 있고, 수천 대가 저마다 다른 순간에 있어 데이터도 다양하기 때문이다'
-        - '보행은 0.48 초 안에 끝나는 동작이기 때문이다'
-        - '24 step 뒤의 reward 는 언제나 0 이기 때문이다'
-        - 'env 가 많으면 advantage 를 계산할 필요가 없기 때문이다'
-      answer: 0
-      explanation: |
-        rollout 이 episode 중간에 끊겨도 마지막 state 의 value 를 critic 이 예측해 그 뒤의 reward 를 대신하는 bootstrap 으로 advantage 를 계산한다.
-        또 env 하나를 오래 돌리면 비슷한 순간이 이어지지만, 4096 대는 저마다 다른 자세와 순간에 있어 한 iteration 의 데이터가 다양하다. 걷기는
-        계속 이어지는 동작이라 뒤의 reward 가 0 인 것이 아니다.
-
-- topic: friction-mass-gap
-  title: 마찰과 질량의 sim-to-real gap
-  variants:
-    - question: |
-        simulator 의 바닥($\mu = 1.0$)에서 잘 걷던 policy 가 실제 바닥($\mu = 0.7$)에서는 발이 미끄러졌다. 그 이유로 맞는 것은?
-      choices:
-        - '실제 바닥이 더 뻑뻑해서 발이 걸렸기 때문이다'
-        - 'policy 가 실제 바닥에서는 다른 action 을 내기 때문이다'
-        - '마찰 힘은 $\mu$ × 바닥이 받치는 힘까지만 생기는데, 실제 바닥의 $\mu$ 가 작아 그 한계가 policy 가 늘 밀던 힘보다 낮아졌기 때문이다'
-        - '마찰 계수는 발이 미끄러지는 것과 상관없기 때문이다'
-      answer: 2
-      explanation: |
-        발이 바닥을 뒤로 미는 힘이 마찰 힘의 한계 $\mu \times (\text{normal force})$ 를 넘으면 미끄러진다. simulator 에서는 한계가 넉넉해 버티던
-        힘도, $\mu$ 가 70% 뿐인 바닥에서는 한계를 넘는다. policy 는 같은 observation 에 같은 action 을 내므로 실제 바닥에 맞춰 힘을 줄이지 않는다.
-        $\mu$ 가 작을수록 미끄러운 바닥이다.
-    - question: |
-        실제 로봇에 배터리를 달아 무거워졌다. PD controller 로 관절을 잡는 무릎은 어떻게 되는가?
-      choices:
-        - '모자란 torque 를 더 내려면 PD controller 가 목표와의 각도 차이가 커져야 하므로, 무릎이 목표보다 더 접힌 자리에서 버티고 몸통이 낮아진다'
-        - 'PD controller 가 무게를 알아채 정확히 목표 각도를 지킨다'
-        - '무게와 상관없이 같은 자세가 된다'
-        - '무릎이 목표보다 더 펴진다'
-      answer: 0
-      explanation: |
-        PD controller 의 torque 는 목표와의 각도 차이에 $K_p$ 를 곱한 값이라, 더 큰 torque 가 필요하면 그만큼 목표에서 더 멀어진 자리에서
-        균형이 맞는다. 무게가 늘면 무릎이 조금 더 접히고 몸통이 simulator 보다 낮아지며, policy 는 이 처음 보는 자세에서 엇나간 action 을
-        내기 시작한다. PD controller 는 무게를 따로 알지 못한다.
-    - question: |
-        simulator 의 물리값을 실제 로봇에서 잰 값으로 맞추는 system identification 만으로는 sim-to-real gap 을 다 메우기 어려운 이유로 맞는 것은?
-      choices:
-        - 'system identification 을 하면 policy 를 다시 학습할 수 없기 때문이다'
-        - 'simulator 는 물리값을 바꿀 수 없기 때문이다'
-        - '실제 로봇은 물리값이 없기 때문이다'
-        - '실제 값을 정확히 재기 어렵고, 로봇이 걸을 바닥은 사무실 바닥·타일·카펫처럼 매번 달라서 값 하나로 맞출 수 없기 때문이다'
+        - 'GPU 의 계산 오차와 CPU 의 계산 오차'
+        - 'policy network 의 크기가 너무 작은 경우와 너무 큰 경우'
+        - '학습 데이터가 너무 적은 경우와 학습 시간이 너무 짧은 경우'
+        - 'simulator 의 질량·마찰 같은 숫자가 실물과 다른 경우와, 지연·noise·motor 의 내부 동작처럼 실물의 현상이 모델에 아예 없는 경우'
       answer: 3
       explanation: |
-        system identification 은 범위의 가운데를 정하는 좋은 출발점이지만, 잰 값에도 오차가 있고 실제 환경은 계속 바뀐다. 값 하나에 맞춘
-        policy 는 그 값에서 조금만 벗어나도 무너질 수 있다. 그래서 값을 하나로 맞추기보다 범위 안에서 바꿔 가며 학습하는 domain randomization
-        을 함께 쓴다.
-
-- topic: action-latency
-  title: action 지연과 흔들림
-  variants:
+        reality gap 은 simulation 과 실물의 차이에서 생기는데, 모델의 숫자가 틀린 경우와 모델에 없는 현상이 있는 경우로 나뉜다. GPU 와 CPU 의 계산
+        방식 차이는 simulation 과 실물의 차이를 나누는 기준이 아니다. network 크기는 simulation 안에서의 성능 문제이지 simulation 과 실물의 차이가 아니다. 데이터가 많고
+        오래 학습해도 simulation 이 실물과 다르면 gap 은 그대로 남는다.
     - question: |
-        명령이 한 step 늦게 닿는 로봇에서, policy 가 매 step "지금 기울기만큼을 한 번에 모두 바로잡는" 명령을 낸다. 무슨 일이 생기는가?
+        면접관: "simulation 에서 잘 걷던 policy 가 실제 로봇에서는 처음 몇 걸음은 괜찮다가 몸통이 앞뒤로 점점 크게 흔들려 넘어집니다. 바닥 마찰은 simulation 과 비슷합니다. 가장 먼저 의심할 원인은 무엇인가요?"
       choices:
-        - '지연이 없을 때처럼 한 step 만에 똑바로 선다'
-        - '이미 바로잡힌 뒤에 늦게 닿은 명령이 반대로 기울게 만들어, 흔들림이 멈추지 않는다'
-        - '기울기가 점점 작아져 곧 멈춘다'
-        - '지연은 기울기에 아무 영향을 주지 않는다'
+        - '바닥의 마찰 계수가 simulation 보다 크다'
+        - '명령이 motor 에 닿기까지의 지연을 학습에서 겪지 않아서, 늦게 도착한 옛 명령이 흔들림을 키운다'
+        - 'policy network 의 activation function 이 ELU 라서다'
+        - '로봇이 simulation 모델보다 조금 가볍다'
       answer: 1
       explanation: |
-        한 step 전에 본 기울기로 고른 명령이 이제야 닿으니, 기울기가 이미 0 이 된 뒤에도 같은 크기로 밀어 반대로 기운다. 이것이 되풀이되며
-        흔들림이 영원히 이어진다. 바로잡는 세기를 절반쯤으로 줄이면 같은 지연에서도 흔들림이 점점 작아지므로, 지연이 있는 로봇에서는 덜 세게,
-        더 부드럽게 바로잡아야 한다. 지연 없이 학습한 policy 는 세게 바로잡는 쪽을 배우기 쉽다.
+        지연이 있으면 이미 바로잡은 뒤에 옛 명령이 도착해 반대로 기울게 되고, 지연 없이 세게 바로잡도록 배운 policy 는 이 흔들림을 점점 키운다.
+        마찰은 비슷하다고 했고, 마찰이 크면 미끄러짐이 줄어들 뿐이다. activation function 은 simulation 에서 잘 걷던 policy 와 같으므로 실물에서만
+        생기는 흔들림의 원인이 아니다. 조금 가벼운 몸통은 자세를 약간 바꿀 뿐 점점 커지는 흔들림을 만들지 않는다.
     - question: |
-        학습 때 action 지연을 흉내 내는 방법으로 맞는 것은?
+        면접관: "실제 로봇이 가만히 서 있기만 해도 다리가 떨립니다. simulation 에서는 그런 일이 없었습니다. 어떤 차이를 먼저 의심하나요?"
       choices:
-        - 'policy 의 learning rate 를 줄인다'
-        - 'observation 의 숫자를 줄인다'
-        - 'policy 가 고른 action 을 줄 세워 두었다가 $k$ step 뒤에 env 에 적용하고, $k$ 도 episode 마다 무작위로 뽑는다'
-        - 'reward 를 $k$ step 늦게 준다'
+        - '로봇의 무게가 simulation 모델과 같기 때문이다'
+        - '실제 바닥이 simulation 의 바닥보다 평평하기 때문이다'
+        - '실제 센서 값에는 noise 가 끼는데, 정확한 값만 보고 학습한 policy 가 작은 흔들림에도 세게 반응하기 때문이다'
+        - 'policy 가 0.02 초마다 계산해서 너무 자주 계산하기 때문이다'
       answer: 2
       explanation: |
-        step $t$ 에 고른 action 을 step $t + k$ 에 적용하면 실제 로봇의 계산·통신 지연을 simulator 에서 겪게 할 수 있다. 처음 $k$ step 에는 아직
-        도착한 action 이 없어 기본 자세를 유지하는 값을 넣는다. $k$ 를 0, 1, 2 처럼 뽑으면 policy 는 지연이 얼마인지 모르는 채로도 버티는 법을
-        배운다. learning rate 나 reward 의 시점은 지연과 다른 문제다.
+        실제 IMU 와 관절 센서의 값은 잴 때마다 조금씩 흔들리므로, 작은 기울기에 세게 반응하는 policy 는 실제로는 기울지 않았는데도 action 을 크게
+        뒤집어 다리를 떤다. 무게가 같다면 그것은 차이가 아니므로 원인이 될 수 없다. 더 평평한 바닥은 떨림을 만들지 않는다. 0.02 초 주기는
+        simulation 에서도 같았으므로 실물에서만 생기는 떨림의 원인이 아니다.
+
+- topic: actuator-network
+  title: actuator network
+  variants:
     - question: |
-        지연이 있는 로봇의 observation 에 직전 action 을 넣어 두는 이유로 맞는 것은?
+        면접관: "Hwangbo 등이 ANYmal 에 쓴 actuator network 는 무엇을 입력으로 받아 무엇을 내고, 무엇으로 학습했나요?"
       choices:
-        - '이미 내보냈지만 아직 적용되지 않은 action 이 곧 로봇을 움직일 것을 policy 가 알고, 그것까지 고려해 다음 action 을 정하게 하려는 것이다'
-        - 'observation 의 개수를 맞추기 위한 빈칸 채우기다'
-        - '직전 action 을 그대로 다시 내게 하려는 것이다'
-        - 'reward 를 계산하는 데 필요해서다'
+        - '최근 몇 시점의 관절 각도 오차와 각속도를 받아 관절 torque 를 내고, 실제 motor 에서 기록한 데이터로 학습했다'
+        - '카메라 영상을 받아 관절 목표 각도를 내고, 사람의 시연으로 학습했다'
+        - '속도 명령을 받아 reward 를 내고, simulation 의 return 으로 학습했다'
+        - '관절 torque 를 받아 마찰 계수를 내고, simulator 의 정답 마찰 계수로 학습했다'
       answer: 0
       explanation: |
-        지연이 $k$ step 이면 이미 낸 action $k$ 개가 앞으로 로봇을 움직인다. 지금 observation 만 보면 그 사실을 모르지만, 직전 action 이 있으면
-        "곧 무엇이 적용될지" 를 알고 같은 바로잡기를 두 번 하지 않을 수 있다. 직전 action 을 따라 하라는 뜻이 아니며, reward 계산과는 상관없다.
+        actuator network 는 목표 각도와 지금 각도의 차이, 관절 각속도를 지금과 0.01 초 전, 0.02 초 전에서 받아 그 관절의 torque 를 예측하고, 실제
+        ANYmal 의 motor 에서 기록한 100만 개 넘는 sample 로 supervised learning 했다. 카메라 영상을 받아 목표 각도를 내는 것은 policy 의 일이다.
+        reward 는 사람이 정한 식으로 계산하고 network 로 예측하지 않는다. 마찰 계수 추정은 actuator network 가 하는 일이 아니다.
+    - question: |
+        면접관: "ANYmal 처럼 series elastic actuator 를 쓰는 로봇에서, simulation 의 motor 를 이상적인 PD 식으로 두면 왜 실물과 어긋나나요?"
+      choices:
+        - 'PD 식은 계산이 너무 느려서 simulation 이 실시간보다 느려지기 때문이다'
+        - '실제 motor 에는 PD controller 가 없기 때문이다'
+        - '실제 actuator 는 PD, 전류 제어, 기어, spring 을 거치며 지연과 내부 상태가 생겨서, 같은 목표 각도에도 앞서 일어난 일에 따라 torque 가 달라지기 때문이다'
+        - 'PD 식은 각도 오차가 양수일 때만 쓸 수 있기 때문이다'
+      answer: 2
+      explanation: |
+        이상적인 PD 식은 지연이 없고 torque 가 즉시 나온다고 가정하지만, 실제 SEA 는 여러 단계의 제어와 spring 때문에 반응이 늦고 이력에 따라
+        달라진다. Hwangbo 등의 측정에서 PD 식의 torque 예측 오차는 3.55 N·m 로 actuator network 의 0.740 N·m 보다 컸다. PD 식은 곱셈 몇 번이라
+        계산이 빠르다. 실제 ANYmal 의 motor 안에도 PD controller 가 있다. PD 식은 오차의 부호와 관계없이 쓸 수 있다.
+    - question: |
+        면접관: "actuator network 를 써서 학습한 policy 를 실제 로봇에 올릴 때, actuator network 도 로봇에 함께 올리나요?"
+      choices:
+        - '올린다. policy 의 목표 각도를 actuator network 가 torque 로 바꿔 motor 에 보낸다'
+        - '올리지 않는다. actuator network 는 simulation 안에서 실제 motor 의 반응을 흉내 내는 데만 쓰고, 실물에서는 motor 가 직접 목표 각도를 torque 로 바꾼다'
+        - '올린다. actuator network 가 policy 의 출력을 걸러 떨림을 없앤다'
+        - '올리지 않는다. 실제 로봇에서는 policy 가 torque 를 직접 낸다'
+      answer: 1
+      explanation: |
+        actuator network 는 simulation 의 motor 를 실물처럼 만들려는 모델이고, 실제 로봇에는 흉내 낼 대상인 진짜 motor 가 있다. 그래서 실물에서는
+        목표 각도를 motor 에 보내고 motor 안의 PD controller 가 torque 를 만든다. 첫째 보기는 actuator network 를 controller 로 오해한 것이다.
+        actuator network 는 policy 의 출력을 거르는 filter 가 아니다. 학습할 때와 같이 실물에서도 policy 는 목표 각도를 낸다.
 
 - topic: domain-randomization
-  title: 여러 물리값의 평균 점수를 키우는 domain randomization
+  title: domain randomization 과 범위
   variants:
     - question: |
-        domain randomization 이 학습을 어떻게 바꾸는지 바르게 설명한 것은?
+        면접관: "domain randomization 으로 학습한 policy 는 무엇을 키우도록 학습되나요?"
       choices:
-        - 'policy network 의 weight 를 무작위로 섞는다'
-        - 'reward 를 무작위로 바꾼다'
-        - 'action 을 무작위로 골라 탐색을 늘린다'
-        - 'episode 를 시작할 때마다 마찰·질량·모터 세기·지연 같은 물리값을 범위 안에서 다시 뽑아, policy 가 범위 전체에서의 평균 return 을 키우게 한다'
+        - 'simulation 기본값 한 가지에서의 return'
+        - '정해 둔 범위에서 물리값을 뽑아 가며 얻은 return 의 평균'
+        - '범위 안에서 가장 운 좋은 물리값의 return'
+        - '실제 로봇에서 잰 return'
+      answer: 1
+      explanation: |
+        domain randomization 은 episode 마다 마찰·질량 같은 물리값을 범위 안에서 다시 뽑으므로, PPO 는 그 범위 전체의 평균 return 이 커지는 쪽으로
+        policy 를 고친다. 기본값 하나에서의 return 만 키우는 것은 randomization 을 쓰지 않은 nominal 학습이다. 가장 좋은 물리값 하나만 보면
+        미끄러운 바닥에서 넘어지는 걸음을 고르게 된다. 학습은 simulation 안에서만 하므로 실제 로봇의 return 을 직접 쓰지 않는다.
+    - question: |
+        면접관: "randomization 범위를 정할 때 너무 좁게 잡거나 너무 넓게 잡으면 각각 어떤 문제가 생기나요?"
+      choices:
+        - '둘 다 문제없고, 범위는 학습 시간에만 영향을 준다'
+        - '좁으면 걸음이 너무 조심스러워지고, 넓으면 실제 값을 놓친다'
+        - '좁으면 학습이 발산하고, 넓으면 학습이 너무 빨리 끝난다'
+        - '좁으면 실제 값이 범위 밖에 있어 실물에서 실패할 수 있고, 넓으면 극단값에서도 버티려다 좋은 조건에서까지 걸음이 지나치게 조심스러워진다'
       answer: 3
       explanation: |
-        nominal 값 하나에서만 학습한 policy 는 그 값에 지나치게 맞춰진 행동, 예를 들어 미끄러운 바닥에서는 미끄러질 만큼 세게 미는 걸음을
-        배운다. domain randomization 은 reset 때마다 물리값을 새로 뽑아 여러 바닥을 섞어 겪게 하므로, 모든 바닥에서 버티는 행동이 평균 점수가
-        높아진다. PPO 의 계산 자체는 그대로이고 바뀌는 것은 env 의 물리값뿐이다.
+        실제 값이 범위 밖에 있으면 policy 는 그런 조건을 겪어 본 적이 없어 실패할 수 있다. 범위를 지나치게 넓히면 얼음 같은 바닥에서도 버티려고
+        아주 약하게 미는 느린 걸음을 고르게 되어, 평범한 바닥에서의 성능을 잃는다. 범위는 학습 결과의 걸음 자체를 바꾸므로 학습 시간만의 문제가
+        아니다. 둘째 보기는 두 경우의 결과를 뒤바꿨다. 범위의 크기가 학습을 발산시키거나 빨리 끝내지는 않는다.
     - question: |
-        domain randomization 으로 simulator 에서만 학습한 policy 가 실제 로봇에서도 통하는 이유로 맞는 것은?
+        면접관: "마찰 계수를 0.7 ~ 1.3 에서 뽑아 학습한 policy 를 마찰 계수 0.5 인 바닥에 올렸습니다. 어떻게 판단하고 대응하나요?"
       choices:
-        - 'simulator 가 실제 로봇과 완전히 똑같아지기 때문이다'
-        - '실제 로봇의 물리값이 학습 범위 안에 있으면, policy 에게 실제 로봇은 학습 중에 수없이 본 값 가운데 하나일 뿐이기 때문이다'
-        - '실제 로봇의 물리값을 정확히 알려 주기 때문이다'
-        - 'domain randomization 은 범위 밖의 값에도 언제나 대비하기 때문이다'
-      answer: 1
-      explanation: |
-        실제 로봇을 "범위에서 한 번 더 뽑은 물리값" 으로 볼 수 있어서, 정확한 값을 몰라도 범위 안에만 있으면 이미 그 값에서 버티는 행동을
-        배운 셈이다. simulator 와 현실의 차이는 여전히 남아 있고, policy 는 실제 값을 모른다. 범위 밖의 값에는 대비가 보장되지 않는다.
-    - question: |
-        domain randomization 으로 학습한 policy 가 뻑뻑해서 빨리 걸어도 되는 바닥에서도 조심스럽게 걷는 이유로 맞는 것은?
-      choices:
-        - 'observation 에 지금 바닥의 마찰이 없어 policy 가 바닥이 어떤지 모른 채 범위 전체에서 무난한 걸음을 고르기 때문이다'
-        - '학습이 덜 끝났기 때문이다'
-        - '뻑뻑한 바닥에서는 빨리 걸을 수 없기 때문이다'
-        - 'PD controller 가 속도를 제한하기 때문이다'
+        - '실제 값이 학습 범위 밖이라 미끄러질 수 있다. 실제 마찰을 재서 범위가 0.5 를 담도록 넓히고 다시 학습한다'
+        - 'domain randomization 을 썼으므로 범위와 관계없이 어떤 바닥에서도 잘 걷는다'
+        - '마찰 계수가 작을수록 미끄러지기 어려우니 문제없다'
+        - 'policy 를 다시 학습하지 않고 observation 에 마찰 계수 0.5 를 넣어 주면 된다'
       answer: 0
       explanation: |
-        policy 는 지금 바닥이 미끄러운지 알 수 없으니 어느 바닥에서도 넘어지지 않는 걸음을 고르고, 뻑뻑한 바닥에서의 빠른 걸음은 포기한다.
-        바닥을 알 수 있다면 바닥마다 가장 좋은 걸음을 골라 평균 점수가 더 높아진다. 그래서 RMA 처럼 최근 observation 과 action 이력으로
-        물리값을 짐작해 policy 에 넣는 방법이 다음 단계로 쓰인다.
+        domain randomization 은 범위 안의 값에 대비하게 할 뿐이라 0.5 처럼 범위 밖의 값은 보장하지 못한다. 실제 값을 재서 범위를 고치는 것이 맞다.
+        범위와 관계없이 통한다는 것은 흔한 오해다. 마찰 계수가 작을수록 오히려 잘 미끄러진다. 이 policy 는 마찰 계수를 입력으로 받도록 학습하지
+        않았으므로 observation 에 값을 넣을 자리가 없다.
 
-- topic: randomization-range
-  title: randomization 범위와 robustness 의 비용
+- topic: observation-noise-latency
+  title: observation noise 와 지연의 학습
   variants:
     - question: |
-        domain randomization 의 범위를 nominal 값 근처로 아주 좁게 잡았다. 실제 바닥의 마찰이 그 범위 밖에 있다면 결과는?
+        면접관: "보행 policy 를 학습할 때 observation 에 일부러 noise 를 더하는 이유는 무엇인가요?"
       choices:
-        - '범위가 좁을수록 실제 로봇에서 더 안전하다'
-        - '범위와 상관없이 실제 바닥에서 버틴다'
-        - '좁은 범위 안에서는 nominal 에서 가장 좋던 걸음이 계속 버티므로 그 걸음을 배우고, 실제 바닥에서는 nominal policy 처럼 미끄러진다'
-        - 'policy 가 학습되지 않는다'
+        - 'policy network 의 계산을 빠르게 하려고'
+        - 'reward 를 더 크게 만들려고'
+        - '작은 흔들림에 세게 반응하는 policy 가 action 변화 penalty 등으로 reward 를 잃게 해서, 실제 센서 noise 에 덜 민감한 policy 를 배우게 하려고'
+        - 'simulation 의 physics step 을 더 정확하게 하려고'
       answer: 2
       explanation: |
-        범위가 좁으면 가장 미끄러운 값에서도 한계가 넉넉해, 세게 미는 빠른 걸음이 계속 넘어지지 않는다. 그러면 randomization 을 했어도 nominal
-        policy 와 같은 걸음을 배우고, 범위 밖에 있는 실제 바닥에서는 똑같이 미끄러진다. 범위는 실제 로봇이 겪을 값을 담을 만큼 넓어야 한다.
+        noise 를 더하면 작은 흔들림에 세게 반응하는 policy 는 action 이 크게 뒤집혀 penalty 를 받으므로, PPO 는 덜 민감한 쪽으로 policy 를 고친다.
+        legged_gym 은 이 noise 크기를 실제 로봇에서 잰 데이터로 정했다. noise 는 계산량을 줄이지 않는다. noise 는 오히려 reward 를 받기 어렵게
+        만든다. observation 에 더한 noise 는 physics 계산과 관계없다.
     - question: |
-        "domain randomization 의 범위는 넓을수록 안전하다" 는 생각에 대해 맞는 것은?
+        면접관: "legged_gym 은 observation 에 noise 를 더하면서 속도 명령과 직전 action 에는 더하지 않습니다. 이유는 무엇인가요?"
       choices:
-        - '맞다. 범위가 넓으면 모든 조건에서 성능이 좋아진다'
-        - '틀리다. 범위 안의 극단값, 예를 들어 얼음 같은 바닥에까지 대비하느라 평범한 바닥에서도 거의 기어가는 걸음을 배울 수 있다'
-        - '맞다. 범위를 넓혀도 nominal 조건의 성능은 그대로다'
-        - '틀리다. 범위가 넓으면 policy 가 범위 밖의 값에만 대비한다'
-      answer: 1
+        - '두 값은 센서로 잰 값이 아니라 조종기와 policy 가 정확히 알고 있는 값이기 때문이다'
+        - '두 값은 policy 가 쓰지 않는 입력이기 때문이다'
+        - '두 값에 noise 를 더하면 GPU 메모리가 모자라기 때문이다'
+        - '두 값은 늘 0 이기 때문이다'
+      answer: 0
       explanation: |
-        범위를 넓히면 그 안의 가장 나쁜 조건에서도 버티는 걸음이 평균 점수가 높아져, 조심스럽고 느린 걸음을 고른다. 여러 조건에서 버티는
-        성질을 robustness 라고 하는데, 그 대가로 nominal 조건의 성능을 잃는다. 그래서 범위는 실제 값을 담을 만큼 넓되 지나치게 넓지 않게 잡는다.
-        범위 밖의 값에는 대비하지 못하고, 범위 안의 극단값에는 지나치게 대비하는 것이 문제다.
+        noise 는 실제 센서가 잴 때마다 생기는 오차를 흉내 내는 것인데, 속도 명령은 조종기가 주고 직전 action 은 policy 가 직접 낸 값이라 실물에서도
+        정확하다. 두 값 모두 policy 의 입력으로 쓰인다. noise 를 더하는 계산은 메모리를 거의 쓰지 않는다. 속도 명령과 직전 action 은 걷는 동안 계속
+        바뀐다.
     - question: |
-        처음부터 넓은 randomization 범위로 학습했더니 PPO 가 걷는 법을 찾지 못했다. 흔히 쓰는 해결책으로 맞는 것은?
+        면접관: "actuator network 가 없는 로봇에서 명령 지연에 대비하려면 학습을 어떻게 바꾸나요?"
       choices:
-        - 'randomization 을 아예 빼고 nominal 값에서만 학습해 그대로 실물에 옮긴다'
-        - 'learning rate 를 아주 크게 키운다'
-        - 'reward 의 penalty 를 모두 없앤다'
-        - '범위를 좁게 시작해 policy 가 잘 걷게 될수록 점점 넓히는 curriculum 을 쓴다'
+        - '지연은 실물에만 있는 현상이라 학습으로 대비할 수 없다'
+        - 'policy 를 더 자주 계산하면 지연이 사라지므로 학습은 바꾸지 않는다'
+        - 'reward 에서 action 변화 penalty 를 없앤다'
+        - 'action 이나 observation 을 몇 step 늦게 적용하고 그 지연도 episode 마다 무작위로 바꾸며, observation 에 직전 action 을 넣는다'
       answer: 3
       explanation: |
-        처음부터 어려운 조건이 많으면 policy 가 걷는 법을 배우기도 전에 넘어지기만 해서 쓸 만한 데이터가 모이지 않는다. 쉬운 조건에서 시작해
-        점점 어렵게 바꾸면 이미 배운 걸음을 바탕으로 넓은 범위에 적응해 간다. randomization 을 빼면 실물에서 무너지고, learning rate 를 키우면
-        policy 가 망가지기 쉬우며, penalty 를 없애면 reward hacking 이 생긴다.
+        Tan 등은 잰 지연만큼 지난 observation 을 policy 에 주고 지연을 0 ~ 40 ms 에서 무작위로 바꿨다. 직전 action 이 입력에 있으면 policy 는 아직
+        닿지 않은 명령까지 고려할 수 있다. 지연은 simulation 에 일부러 넣어 학습으로 대비할 수 있다. 계산을 더 자주 해도 통신과 motor 의 지연은
+        그대로 남는다. action 변화 penalty 를 없애면 떨림이 커질 뿐 지연 대비와는 관계없다.
 
-- topic: noise-and-failures
-  title: observation noise 와 실제 로봇의 실패
+- topic: terrain-curriculum
+  title: 지형 curriculum
   variants:
     - question: |
-        학습할 때 observation 에 센서 크기만 한 무작위 noise 를 더해 policy 에 주는 이유로 맞는 것은?
+        면접관: "계단과 경사가 있는 지형의 보행을 학습할 때 쉬운 지형부터 시작하는 curriculum 을 쓰는 이유는 무엇인가요?"
       choices:
-        - 'noise 에도 세게 반응하는 policy 는 action 이 크게 뒤집혀 penalty 를 받으므로, 작은 흔들림에 덜 민감한 policy 를 배우게 하려는 것이다'
-        - 'noise 를 더하면 simulator 계산이 빨라지기 때문이다'
-        - 'noise 가 클수록 policy 가 언제나 더 좋아지므로 최대한 크게 넣는다'
-        - 'observation 을 정확하게 만들기 위해서다'
-      answer: 0
+        - '쉬운 지형만 학습해도 어려운 지형을 저절로 걷기 때문이다'
+        - '어려운 지형은 simulator 가 계산할 수 없기 때문이다'
+        - 'curriculum 을 쓰면 reward 를 설계할 필요가 없기 때문이다'
+        - '처음부터 어려운 지형에 두면 policy 가 걷는 법을 찾기 전에 넘어지기만 해서, episode 가 일찍 끝나 배울 데이터가 적어지기 때문이다'
+      answer: 3
       explanation: |
-        정확한 값만 보고 학습한 policy 는 작은 기울기에도 세게 반응하도록 배울 수 있고, 실제 센서의 흔들림 앞에서 서 있기만 해도 다리를 떤다.
-        학습 때 noise 를 넣으면 그런 policy 는 action 변화와 흔들림 penalty 로 reward 를 잃어, PPO 가 덜 민감한 쪽으로 고친다. 다만 반응이 너무
-        둔해지면 실제 기울기를 바로잡는 데도 오래 걸리므로 noise 를 실제보다 지나치게 크게 잡지 않는다.
+        넘어지면 episode 가 끝나므로 어려운 지형에서 시작한 policy 는 학습 신호를 적게 받는다. Lee 등의 실험에서도 지형을 고르게 섞어 학습한 policy 는
+        reward 가 더 낮은 수준에서 더 오르지 않았다. 쉬운 지형만으로는 계단을 배우지 못하므로 결국 어려운 지형으로 옮겨야 한다. simulator 는 계단도 계산한다.
+        curriculum 을 써도 reward 는 그대로 필요하다.
     - question: |
-        simulator 에서 잘 걷던 policy 가 실제 로봇에서 걸을수록 몸통 흔들림이 점점 커지다 넘어졌다. 가장 먼저 의심할 원인과 대비로 맞는 것은?
+        면접관: "legged_gym 의 지형 curriculum 은 로봇을 언제 더 어려운 단계로 옮기나요? episode 길이는 20 초, 지형 한 칸은 8 m × 8 m 입니다."
       choices:
-        - '바닥의 마찰이 너무 커서 생긴 일이라 마찰을 줄인다'
-        - '로봇이 너무 가벼워서 생긴 일이라 무게를 늘린다'
-        - 'action 지연 때문에 늦게 닿는 바로잡기가 흔들림을 키운 것이라, 학습 때 action 을 $k$ step 늦게 적용하고 직전 action 을 observation 에 넣는다'
-        - 'reward 가 너무 커서 생긴 일이라 reward 를 줄인다'
-      answer: 2
-      explanation: |
-        점점 커지는 흔들림은 지연된 명령이 이미 바로잡힌 자세를 다시 반대로 미는 모습과 짝을 이룬다. 그래서 학습 때 지연을 흉내 내고 그 크기도
-        randomization 하며, 오는 중인 action 을 policy 가 볼 수 있게 한다. 발이 미끄러지는 실패는 마찰, 서 있어도 떠는 실패는 센서 noise,
-        몸통이 처지는 실패는 질량이나 모터와 짝을 이룬다.
-    - question: |
-        실제 로봇에 옮기기 전에 sim-to-sim 평가를 할 때, 평가 격자의 물리값 범위를 학습 범위보다 넓게 잡는 이유로 맞는 것은?
-      choices:
-        - '넓게 잡으면 policy 가 그 범위로 다시 학습되기 때문이다'
-        - '학습 범위 밖에서 policy 가 얼마나 버티는지 드러나고, nominal 조건의 성능과 함께 보면 robustness 의 비용도 확인할 수 있기 때문이다'
-        - '학습 범위 안의 값은 평가할 필요가 없기 때문이다'
-        - '격자가 넓을수록 실제 로봇이 넘어지지 않는 것이 보장되기 때문이다'
+        - '학습 iteration 이 100 번 지날 때마다 모든 로봇을 함께 한 단계 올린다'
+        - 'episode 가 끝날 때 출발점에서 지형 칸의 절반인 4 m 보다 멀리 간 로봇을 한 단계 올린다'
+        - 'reward 가 가장 높은 로봇 하나만 한 단계 올린다'
+        - '넘어진 로봇을 한 단계 올린다'
       answer: 1
       explanation: |
-        sim-to-sim 평가는 학습에 쓰지 않은 물리값을 실제 로봇 대신 두고 넘어짐 비율과 평균 return 을 재는 점검이다. 학습 범위 밖까지 보아야
-        실제 값이 범위를 벗어났을 때의 위험을 알 수 있고, nominal 칸의 성능으로 robustness 를 얻느라 잃은 성능도 잰다. 평가는 policy 를 다시
-        학습시키지 않으며, 통과해도 실제 로봇에서는 줄에 매달거나 잡을 준비를 하고 천천히 시험한다.
+        legged_gym 은 reset 할 때 로봇이 출발점에서 간 거리를 보고, 지형 칸을 벗어날 만큼(4 m 넘게) 갔으면 한 단계 올리고 명령 거리의 절반도 못 갔으면
+        한 단계 내린다. 정해진 iteration 마다 함께 올리는 방식은 로봇마다 실력이 다른 것을 반영하지 못한다. 로봇마다 따로 단계를 정하므로 하나만
+        올리지 않는다. 넘어진 로봇은 대개 멀리 가지 못해서 내려간다.
+    - question: |
+        면접관: "legged_gym 의 지형 curriculum 은 맨 위 단계를 통과한 로봇을 무작위 단계로 보냅니다. 왜 그렇게 하나요?"
+      choices:
+        - '맨 위 단계의 지형을 다른 로봇에게 비워 주려고'
+        - '맨 위 단계에서는 reward 를 계산할 수 없어서'
+        - '여러 단계의 지형을 계속 섞어 학습해 쉬운 지형에서 걷는 법을 잊지 않게 하려고'
+        - '학습을 끝내는 신호로 쓰려고'
+      answer: 2
+      explanation: |
+        Rudin 등은 맨 위 단계를 넘은 로봇을 무작위 단계로 돌려보내 데이터를 다양하게 하고 이미 배운 것을 잊는 일(catastrophic forgetting)을 막았다. 지형
+        칸에는 로봇 여러 대가 함께 설 수 있어서 자리를 비울 필요가 없다. reward 는 단계와 관계없이 같은 식으로 계산한다. 학습은 정한 iteration 수까지
+        이어지고, 로봇이 모든 단계에 고르게 퍼진 것은 학습이 끝나 간다는 신호로만 본다.
+
+- topic: teacher-student
+  title: teacher-student 학습과 privileged information
+  variants:
+    - question: |
+        면접관: "teacher-student 보행 학습에서 privileged information 은 무엇이고, 왜 teacher 에게만 주나요?"
+      choices:
+        - 'simulation 에는 있지만 실제 로봇에서는 잴 수 없는 지형 높이·마찰·발 접촉 같은 정보다. teacher 는 이 정보로 빨리 잘 걷게 되고, student 는 실물에서 쓸 수 있는 센서 값만으로 teacher 를 따라 배운다'
+        - '사람이 조종해 모은 시연 데이터다. teacher 는 시연만 보고 학습한다'
+        - '학습에 쓰는 GPU 의 개수다. teacher 가 더 많은 GPU 를 쓴다'
+        - '실제 로봇에서 잰 센서 값이다. student 는 simulation 값만 쓴다'
+      answer: 0
+      explanation: |
+        Lee 등의 teacher 는 발 주변 지형 높이, 발 접촉 상태와 힘, 마찰 계수, 외력을 받아 reinforcement learning 으로 학습했다. 이 정보는 실물에서 얻을
+        수 없으므로 실제 로봇에 올라가는 student 에게는 주지 않는다. Lee 등의 teacher 는 시연 없이 reinforcement learning 으로 학습했다. GPU 개수는
+        privileged information 과 관계없다. student 가 받는 것은 실제 로봇에서도 얻을 수 있는 센서 값이다.
+    - question: |
+        면접관: "teacher-student 학습에서 student policy 는 무엇을 받아 어떻게 학습하나요?"
+      choices:
+        - 'privileged information 을 받아 reinforcement learning 으로 학습한다'
+        - '실제 로봇에서 모은 reward 로 reinforcement learning 을 다시 한다'
+        - '센서로 얻을 수 있는 observation 의 최근 이력을 받아, student 가 지나간 상태마다 teacher 가 낸 action 과 latent 를 정답으로 supervised learning 한다'
+        - 'teacher 의 weight 를 그대로 복사해 쓴다'
+      answer: 2
+      explanation: |
+        student 는 최근 2 초쯤의 센서 이력을 받는 network 이고, loss 는 teacher 와 student 의 action 차이 제곱과 latent 차이 제곱의 합이다. student 가
+        직접 움직여 데이터를 모으고 그 상태마다 teacher 가 정답을 내는 DAgger 방식이다. privileged information 은 teacher 만 받는다. student 도
+        simulation 안에서 학습하고, 실제 로봇의 데이터로 다시 학습하지 않는다. teacher 와 student 는 입력이 달라 weight 를 그대로 복사할 수 없다.
+    - question: |
+        면접관: "student policy 가 지금 순간의 센서 값 하나가 아니라 최근 몇 초의 이력을 받는 이유는 무엇인가요?"
+      choices:
+        - '이력을 받으면 network 의 계산량이 줄기 때문이다'
+        - '지형이나 마찰처럼 센서로 직접 잴 수 없는 정보도, 같은 힘에 발이 얼마나 미끄러졌는지 같은 최근 움직임에서 짐작할 수 있기 때문이다'
+        - '센서 값이 0.02 초마다 한 번만 들어와서 그 사이를 채우려는 것이다'
+        - 'teacher 가 이력을 받으므로 입력의 모양을 맞추려는 것이다'
+      answer: 1
+      explanation: |
+        한 순간의 센서 값에는 바닥이 미끄러운지, 발 앞에 계단이 있는지가 드러나지 않지만, 최근 움직임에는 그 단서가 남는다. Lee 등의 실험에서 2 초
+        이력의 student 는 0.02 초 이력의 student 보다 옆에서 밀릴 때 진행 방향에서 덜 벗어났고 더 높은 계단을 넘었다. 이력이 길수록 입력이 커져
+        계산량은 오히려 늘어난다. 이력은 step 사이를 채우는 것이 아니라 지난 step 들을 함께 보는 것이다. teacher 는 이력 대신 privileged information
+        을 받는다.

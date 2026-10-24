@@ -1,324 +1,320 @@
 # 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
 # answer 는 choices 의 0부터 센 번호다.
 
-- topic: reward
+- topic: rl-problem
   title: reward 로 배우는 문제와 MDP
   variants:
     - question: |
-        로봇 팔이 컵을 집으면 reward +1, 놓치면 0 을 받는다. 컵을 놓친 뒤 받은 reward 0 에서 알 수 있는 것은?
+        면접관: "reinforcement learning 의 reward 는 supervised learning 의 label 과 무엇이 다른가요?"
       choices:
-        - '팔을 몇 cm 더 내렸어야 했는지'
-        - '실패했다는 결과뿐이고, 어떻게 했어야 했는지는 여러 행동을 직접 해 보고 비교해야 안다'
-        - '어느 joint 가 틀렸는지'
-        - '정답 행동과의 오차'
+        - 'reward 는 입력마다 정답 action 을 알려 주므로 label 과 같은 역할을 한다'
+        - 'reward 는 행동한 뒤에 받는 점수 하나라서 결과가 좋았는지만 알려 주고, 어떤 action 이 정답이었는지는 알려 주지 않는다'
+        - 'reward 는 학습이 끝난 뒤에만 계산되는 평가 지표다'
+        - 'reward 는 항상 0 또는 1 이어야 하지만 label 은 실수일 수 있다'
       answer: 1
       explanation: |
-        reward 는 행동한 뒤에 받는 점수 하나라서 결과가 좋았는지 나빴는지만 알려 준다. 정답이 함께 주어지는 supervised learning 은 예측이
-        어느 쪽으로 얼마나 틀렸는지 알 수 있지만, reward 0 에는 그런 방향 정보가 없다. 그래서 reinforcement learning 은 팔을 더 내려 보기도
-        하고 덜 내려 보기도 하며 어느 쪽에서 +1 이 나오는지 시행착오로 비교한다.
+        reward 는 action 을 한 뒤 environment 가 돌려주는 점수 하나라서, 다른 action 이었다면 어땠는지는 여러 번 시도해 비교해야 안다. 그래서 RL
+        은 시행착오로 배운다. label 처럼 정답 action 을 알려 주는 것은 reward 가 아니다. reward 는 학습 중 매 step 받는 신호이지 학습 뒤의 평가
+        지표가 아니다. reward 는 −1, 0.37 같은 어떤 실수여도 된다.
     - question: |
-        방을 돌아다니다 충전기로 돌아가는 로봇 청소기를 reinforcement learning 문제로 볼 때 environment 에 해당하는 것은?
+        면접관: "multi-armed bandit 과 MDP 의 차이를 설명해 보세요."
       choices:
-        - '청소기 안에서 이동 방향을 고르는 프로그램'
-        - '청소기가 지금 서 있는 위치'
-        - '"위로 한 칸" 같은 이동 명령'
-        - '방·가구·충전기·계단처럼 청소기의 행동에 결과를 돌려주는 세계'
-      answer: 3
-      explanation: |
-        행동을 고르는 쪽이 agent, agent 가 행동하는 대상 세계가 environment 다. 방향을 고르는 프로그램은 agent, 지금 위치는 agent 가 보는
-        state, 이동 명령은 agent 가 고르는 action 이다. environment 는 그 action 에 따라 다음 state 와 reward 를 돌려준다.
-    - question: |
-        multi-armed bandit 과 MDP 의 차이로 맞는 것은?
-      choices:
-        - 'MDP 에서는 지금의 action 이 다음 state 를 바꿔 몇 step 뒤의 reward 까지 좌우하지만, bandit 에서는 무엇을 고르든 다음 상황이 같다'
+        - 'bandit 에는 확률이 없고 MDP 에만 확률이 있다'
         - 'bandit 에는 reward 가 없고 MDP 에만 reward 가 있다'
-        - 'bandit 은 확률이 없고 MDP 에만 확률이 있다'
         - '둘은 같은 문제를 부르는 다른 이름이다'
-      answer: 0
-      explanation: |
-        슬롯머신 A 를 당겨도 기계 B 가 사라지지 않듯 bandit 에서는 매 step 의 상황이 같아서, 바로 받는 reward 만 비교하면 된다. 로봇이
-        움직이는 문제는 한 칸 가면 서 있는 자리가 바뀌고 그 자리에서 고를 길과 받을 reward 도 바뀌므로 MDP 로 적는다. bandit 도 reward 와
-        확률이 있으며, state 가 하나이고 한 step 으로 끝나는 가장 작은 MDP 로 볼 수 있다.
-
-- topic: expected-value
-  title: 기댓값과 sample 평균
-  variants:
-    - question: |
-        슬롯머신 하나가 0.5 의 확률로 동전 4 개, 0.5 의 확률로 0 개를 준다. 이 기계의 기댓값 2 에 대한 설명으로 맞는 것은?
-      choices:
-        - '한 번 당길 때마다 동전을 정확히 2 개씩 받는다는 뜻이다'
-        - '두 번 당기면 반드시 4 개를 받는다는 뜻이다'
-        - '아주 많이 당겼을 때 한 번에 평균적으로 받는 개수가 2 라는 뜻이다'
-        - '가장 자주 나오는 결과가 2 라는 뜻이다'
-      answer: 2
-      explanation: |
-        기댓값은 결과마다 값 × 확률을 더한 $4 \times 0.5 + 0 \times 0.5 = 2$ 로, 아주 많이 되풀이했을 때의 평균이다. 이 기계는 실제로는
-        4 개나 0 개만 주므로 2 개를 받는 일은 한 번도 없고, 두 번 당겨도 운에 따라 0 개나 8 개가 나올 수 있다. 가장 자주 나오는 결과와
-        기댓값도 다른 개념이다.
-    - question: |
-        기댓값이 가장 큰 기계를 두 번 당겼더니 운이 나빠 둘 다 0 개가 나왔다. 이 상황을 바르게 해석한 것은?
-      choices:
-        - '평균이 0 이므로 이 기계는 동전을 주지 않는 기계다'
-        - '두 번의 결과는 운이 크게 섞인 sample 이라 기댓값과 크게 다를 수 있고, 더 많이 당겨야 평균이 기댓값에 다가간다'
-        - '기댓값은 처음 두 번의 평균으로 정해진다'
-        - '두 번 연속 0 이 나왔으므로 다음에는 반드시 동전이 나온다'
-      answer: 1
-      explanation: |
-        직접 해 본 결과 하나하나가 sample 이고, sample 의 평균은 횟수가 늘수록 기댓값에 다가가지만 몇 번뿐이면 운 때문에 크게 벗어난다.
-        그래서 두 번의 평균 0 만 믿고 버리면 좋은 기계를 나쁜 기계로 오해하게 된다. 기댓값은 기계의 성질이라 몇 번의 결과로 바뀌지 않고,
-        지난 결과가 다음 결과를 정해 주지도 않는다.
-    - question: |
-        추정값을 incremental 평균 $Q \leftarrow Q + \frac{1}{n}(r - Q)$ 로 고칠 때, 당긴 횟수 $n$ 이 커질수록 새 reward 하나에 덜 움직이는
-        이유로 맞는 것은?
-      choices:
-        - '이미 많은 sample 이 쌓인 평균은 새 sample 하나로 크게 흔들리지 않아야 하고, 이렇게 고쳐야 정확히 모든 reward 의 평균이 되기 때문이다'
-        - '나중에 받은 reward 일수록 덜 중요하기 때문이다'
-        - '$n$ 이 커지면 reward 가 작아지기 때문이다'
-        - '계산을 빠르게 하려고 일부러 근사한 것이기 때문이다'
-      answer: 0
-      explanation: |
-        $n$ 번째 reward 는 $n$ 개의 평균에서 $\frac{1}{n}$ 의 몫을 차지하므로, 차이의 $\frac{1}{n}$ 만큼만 옮기면 모든 reward 를 적어 두지
-        않고도 정확한 평균이 된다. 근사가 아니라 평균 그 자체이고, 모든 reward 를 똑같은 무게로 섞으므로 나중 reward 를 덜 중요하게 보는 것도
-        아니다. reward 의 크기는 $n$ 과 상관없다.
-
-- topic: epsilon-greedy
-  title: greedy 와 ε-greedy
-  variants:
-    - question: |
-        추정값이 가장 큰 arm 만 고르는 greedy 전략의 위험으로 맞는 것은?
-      choices:
-        - '추정값이 큰 arm 을 고르므로 언제나 가장 좋은 arm 을 찾는다'
-        - '모든 arm 을 똑같이 자주 당기게 된다'
-        - '좋은 arm 이 첫 sample 에서 운 나쁘게 낮게 나오면 다시 당기지 않아, 그 추정값을 영영 고치지 못하고 좋은 arm 을 버린다'
-        - '추정값이 계속 커져 발산한다'
-      answer: 2
-      explanation: |
-        추정값을 고치려면 그 arm 을 다시 당겨야 하는데, greedy 는 지금 더 커 보이는 다른 arm 만 고르므로 낮게 잡힌 arm 은 다시 기회를
-        얻지 못한다. 평균은 당겨 본 arm 에 대해서만 믿을 만하다는 점을 놓친 것이다. 그래서 가끔 덜 확실한 arm 을 일부러 당겨 보는
-        exploration 이 필요하다. greedy 는 한 arm 에 붙잡히므로 모든 arm 을 고르게 당기지 않는다.
-    - question: |
-        ε-greedy 에서 $\varepsilon$ 을 크게 잡을수록 좋다는 생각에 대해 맞는 것은?
-      choices:
-        - '맞다. exploration 은 많을수록 언제나 reward 가 커진다'
-        - '틀리다. 추정값이 정확해진 뒤에는 무작위 선택이 손해만 내고, $\varepsilon = 1$ 이면 매번 무작위라 아무것도 배우지 않은 것과 같다'
-        - '맞다. $\varepsilon = 1$ 이 가장 좋은 arm 을 가장 자주 고른다'
-        - '$\varepsilon$ 은 결과에 아무 영향이 없다'
-      answer: 1
-      explanation: |
-        ε-greedy 는 확률 $\varepsilon$ 으로 무작위 arm 을, 나머지 확률로 추정값이 가장 큰 arm 을 고른다. exploration 은 추정값을 정확하게
-        만드는 대가로 당장 reward 를 줄이므로, 이미 잘 알게 된 뒤에는 그만큼 손해다. 그래서 $\varepsilon$ 은 0.1 이나 0.01 처럼 작게
-        잡는다. $\varepsilon = 1$ 은 배운 추정값을 전혀 쓰지 않는다.
-    - question: |
-        arm 이 10 개인 문제에서 $\varepsilon = 0.1$ 인 ε-greedy 를 아주 오래 돌려도, 가장 좋은 arm 을 고르는 비율이 어느 수준 위로 오르지
-        않는다. 그 이유로 맞는 것은?
-      choices:
-        - '가장 좋은 arm 을 끝내 알아내지 못하기 때문이다'
-        - '추정값이 시간이 지나면 다시 0 으로 돌아가기 때문이다'
-        - 'arm 이 10 개라 계산이 너무 느리기 때문이다'
-        - '가장 좋은 arm 을 정확히 알아낸 뒤에도 열 번에 한 번꼴로 계속 무작위로 고르기 때문이다'
+        - 'MDP 에서는 지금 action 이 다음 state 를 바꿔 몇 step 뒤의 reward 까지 좌우하지만, bandit 은 state 가 하나라 무엇을 고르든 다음 상황이 같다'
       answer: 3
       explanation: |
-        ε-greedy 의 무작위 선택은 학습이 끝나도 멈추지 않으므로, 가장 좋은 arm 을 고를 확률은 $0.9 + 0.1 \times \frac{1}{10} = 0.91$ 에서
-        더 오르지 않는다. 오래 돌리면 추정값은 정확해지고 가장 좋은 arm 도 알아내지만, 고정된 무작위 선택이 그 이상을 막는다. 추정값이
-        저절로 0 으로 돌아가는 일은 없다.
+        bandit 은 state 가 하나이고 한 step 으로 끝나는 가장 작은 MDP 라서 바로 받는 reward 만 비교하면 된다. MDP 에서는 action 이 다음 state 를
+        바꾸므로 미래의 reward 까지 따져야 한다. bandit 의 reward 도 확률적으로 나오므로 확률이 없다는 말은 틀리다. bandit 도 arm 을 당길
+        때마다 reward 를 받는다. 두 문제는 action 이 state 를 바꾸는지가 다르므로 같은 문제가 아니다.
+    - question: |
+        면접관: "보행 로봇 policy 의 입력에 관절 각도만 넣지 않고 관절 속도와 직전 action 까지 넣는 이유를 MDP 관점에서 설명해 보세요."
+      choices:
+        - '각도만으로는 관절이 어느 쪽으로 움직이는 중인지 알 수 없어 다음 state 를 예측할 수 없으므로, state 가 Markov 성질을 갖도록 움직임 정보를 더한다'
+        - '입력 숫자가 많을수록 neural network 가 항상 더 빨리 학습하기 때문이다'
+        - 'reward 계산에 속도가 필요해서 policy 입력에도 같은 값을 넣어야 하기 때문이다'
+        - 'simulator 가 각도만으로는 실행되지 않기 때문이다'
+      answer: 0
+      explanation: |
+        Markov 성질은 다음 state 가 지금 state 와 action 에만 달려 있다는 가정이다. 같은 각도라도 움직이는 방향과 속도에 따라 다음 순간이
+        달라지므로, 속도와 직전 action 을 넣어야 지금 state 만으로 다음을 정할 수 있다. 입력을 늘린다고 학습이 항상 빨라지지는 않는다. reward
+        에 쓰는 값을 policy 입력에 꼭 넣어야 하는 규칙은 없다. simulator 는 policy 입력과 상관없이 전체 물리 상태로 계산한다.
+
+- topic: exploration
+  title: exploration 과 exploitation
+  variants:
+    - question: |
+        면접관: "bandit 문제에서 지금까지 평균 reward 가 가장 높았던 arm 만 고르는 greedy 전략의 문제는 무엇인가요?"
+      choices:
+        - '첫 몇 번의 결과가 운 나쁘게 낮았던 좋은 arm 을 다시 당기지 않아, 그 arm 의 추정값이 고쳐지지 않은 채 영영 버려질 수 있다'
+        - '추정값이 가장 큰 arm 을 고르는 계산이 너무 오래 걸린다'
+        - 'greedy 는 reward 의 평균을 계산하지 않는다'
+        - 'greedy 는 arm 을 무작위로 골라 reward 가 낮다'
+      answer: 0
+      explanation: |
+        추정값은 그 arm 을 다시 당겨야만 고쳐지는데, greedy 는 추정값이 낮아 보이는 arm 을 다시 당기지 않는다. 그래서 첫 sample 이 운 나쁘게
+        낮았던 좋은 arm 을 끝내 버릴 수 있다. 가장 큰 값을 고르는 계산은 간단하다. greedy 도 평균으로 추정값을 계산한다. 무작위로 고르는 것은
+        greedy 가 아니라 exploration 이다.
+    - question: |
+        면접관: "arm 이 10 개인 bandit 에 ε = 0.1 인 ε-greedy 를 고정해 쓰면, 가장 좋은 arm 을 정확히 알아낸 뒤 그 arm 을 고르는 확률은 얼마가 되나요?"
+      choices:
+        - '1. 정확히 알아낸 뒤에는 항상 그 arm 을 고른다'
+        - '0.9. 무작위로 고를 때는 그 arm 이 절대 나오지 않는다'
+        - '0.91. 0.9 의 greedy 선택에 무작위 선택 0.1 가운데 그 arm 이 나오는 1/10 이 더해진다'
+        - '0.1. 무작위 선택의 확률과 같다'
+      answer: 2
+      explanation: |
+        확률 0.9 로는 추정값이 가장 큰 arm 을 고르고, 확률 0.1 로는 10 개 가운데 무작위로 골라 그 안에서도 1/10 은 같은 arm 이다. 그래서
+        $0.9 + 0.1 \times 0.1 = 0.91$ 이다. ε 을 고정하면 무작위 선택이 끝까지 남아 1 이 되지 않는다. 무작위 선택에서도 가장 좋은 arm 이 나올
+        수 있으므로 0.9 는 틀리다. 0.1 은 무작위로 고를 확률이지 가장 좋은 arm 을 고를 확률이 아니다.
+    - question: |
+        면접관: "exploration 을 많이 할수록 좋은 것 아닌가요?"
+      choices:
+        - '맞다. exploration 은 정보를 얻으므로 많을수록 reward 합도 커진다'
+        - '맞다. ε = 1 로 두면 모든 arm 을 같은 횟수로 당겨 가장 좋은 결과를 얻는다'
+        - '틀리다. exploration 은 처음 한 번만 하면 충분하고, 그 뒤에는 필요 없다'
+        - '틀리다. 추정값이 정확해진 뒤의 exploration 은 나쁜 arm 을 당기는 손해만 내므로, 정보를 얻는 이득과 당장의 reward 사이에서 균형을 잡아야 한다'
+      answer: 3
+      explanation: |
+        exploration 은 추정값을 정확하게 만들지만, 그 순간에는 나빠 보이는 arm 을 당겨 reward 를 잃는다. 추정이 정확해진 뒤에도 계속하면
+        손해만 쌓이므로 ε 을 작게 잡거나 점점 줄인다. 많을수록 좋다는 첫 보기는 이 손해를 무시한다. ε = 1 은 매번 무작위라 배운 것을 전혀
+        쓰지 않는다. 처음 한 번씩만 당기면 운 나쁜 첫 sample 로 좋은 arm 을 버리는 greedy 의 문제가 그대로 남는다.
 
 - topic: ucb
   title: UCB 의 bonus
   variants:
     - question: |
-        UCB 가 추정값 $Q(a)$ 에 $c\sqrt{\ln t / N(a)}$ 의 bonus 를 더해 arm 을 고르는 이유로 맞는 것은?
+        면접관: "UCB 는 arm 마다 추정값에 bonus $c\sqrt{\ln t / N(a)}$ 를 더해 가장 큰 arm 을 고릅니다. 이 bonus 는 무엇을 반영하나요?"
       choices:
-        - '덜 당겨 본 arm 일수록 평균이 운에 따라 크게 틀릴 수 있어, 진짜 값이 더 높을 가능성까지 열어 두고 비교하려는 것이다'
-        - '많이 당긴 arm 에 상을 주어 계속 고르게 하려는 것이다'
-        - '추정값이 작은 arm 을 영원히 버리려는 것이다'
-        - 'reward 의 단위를 맞추려는 것이다'
-      answer: 0
-      explanation: |
-        bonus 는 당긴 횟수 $N(a)$ 가 작을수록 커서, 두어 번만 당긴 arm 은 "잘 풀리면 이만큼일 수도 있다" 는 높은 값으로 비교된다. 그래서
-        UCB 는 덜 확인한 arm 을 골라 확인하고, 정말 나쁘다고 밝혀지면 $N(a)$ 가 늘어 bonus 가 줄며 다시 다른 arm 으로 돌아간다. 많이 당긴
-        arm 은 오히려 bonus 가 작다.
-    - question: |
-        UCB 에서 어떤 arm 을 한동안 전혀 당기지 않으면 그 arm 의 bonus 는 어떻게 되는가?
-      choices:
-        - '0 으로 떨어져 다시는 골라지지 않는다'
-        - '변하지 않는다'
-        - '전체 횟수 $t$ 만 늘어나므로 bonus 가 천천히 커져, 버려 둔 arm 도 언젠가 다시 확인하게 된다'
-        - '갑자기 무한히 커진다'
-      answer: 2
-      explanation: |
-        bonus 의 분자 $\ln t$ 는 전체 횟수 $t$ 에 따라 천천히 커지고, 분모 $N(a)$ 는 그 arm 을 당기지 않는 동안 그대로다. 그래서 오래 버려
-        둔 arm 의 bonus 는 조금씩 커져 결국 다시 골라진다. 무한히 큰 bonus 는 한 번도 당기지 않아 $N(a) = 0$ 인 처음에만 해당한다.
-    - question: |
-        ε-greedy 와 UCB 의 exploration 을 비교한 것으로 맞는 것은?
-      choices:
-        - '둘 다 덜 당긴 arm 을 우선해서 고른다'
-        - 'UCB 는 무작위로 고르고 ε-greedy 는 당긴 횟수를 따진다'
-        - '둘은 같은 확률로 같은 arm 을 고른다'
-        - 'ε-greedy 의 무작위 선택은 덜 당긴 arm 인지 따지지 않지만, UCB 는 당긴 횟수로 bonus 를 정해 덜 확인한 arm 을 골라 확인한다'
-      answer: 3
-      explanation: |
-        ε-greedy 는 무작위로 고를 때 1000 번 당겨 확실히 나쁜 arm 과 두 번만 당긴 arm 을 똑같이 다룬다. UCB 는 당긴 횟수가 적을수록 큰
-        bonus 를 주어 정보가 부족한 arm 부터 확인하고, 고정된 무작위 선택이 없어서 오래 돌면 bonus 가 작아져 가장 좋은 arm 을 거의 항상
-        고른다. 그래서 같은 문제에서 UCB 가 더 빨리, 더 높이 오른다.
-
-- topic: discounted-return
-  title: discount 한 return
-  variants:
-    - question: |
-        reward 를 더해 return 을 계산할 때 늦게 받는 reward 일수록 discount factor $\gamma$ ($0 < \gamma < 1$)를 더 많이 곱해 깎는다.
-        같은 충전기에 4 step 만에 닿는 경로와 6 step 만에 닿는 경로의 return 을 비교하면?
-      choices:
-        - '4 step 경로의 return 이 더 크다. 같은 reward 도 늦게 받을수록 더 많이 깎이기 때문이다'
-        - '받는 reward 의 합이 같으므로 return 도 같다'
-        - '6 step 경로의 return 이 더 크다'
-        - 'step 수와 return 은 관계가 없다'
-      answer: 0
-      explanation: |
-        return 은 바로 다음 reward 는 그대로, 한 step 뒤는 $\gamma$ 한 번, 두 step 뒤는 $\gamma$ 두 번 곱해 더한다. 충전기 reward 를
-        6 step 째에 받으면 4 step 째보다 $\gamma$ 가 두 번 더 곱해져 작아진다. 그래서 return 을 키우려는 agent 는 가장 짧은 길을 찾게 된다.
-        단순 합이라면 둘이 같겠지만 discount 가 그 차이를 만든다.
-    - question: |
-        discount factor $\gamma$ 를 0 으로 두면 어떻게 되는가?
-      choices:
-        - '먼 미래까지 모두 똑같이 중요하게 본다'
-        - '바로 다음 reward 만 남아, 몇 step 뒤에야 reward 가 나오는 문제에서는 어느 방향이 좋은지 고를 수 없게 된다'
-        - '계산이 쉬워져 언제나 더 좋은 policy 를 얻는다'
-        - 'reward 가 모두 음수로 바뀐다'
+        - '그 arm 이 지금까지 준 reward 의 합'
+        - '그 arm 을 덜 당겨 봐서 추정값이 얼마나 불확실한지. 덜 당긴 arm 일수록 진짜 값이 추정보다 높을 가능성을 크게 쳐 준다'
+        - '그 arm 의 reward 가 얼마나 자주 0 이 나왔는지'
+        - 'discount factor 로 깎은 미래 reward'
       answer: 1
       explanation: |
-        $\gamma = 0$ 이면 한 step 뒤부터의 reward 에 모두 0 이 곱해져 return 이 바로 다음 reward 하나가 된다. 출발 칸에서 어느 방향으로
-        가든 바로 받는 reward 가 0 이면 return 도 모두 0 이라 길을 고를 수 없다. $\gamma$ 가 작을수록 먼 미래를 덜 보게 되므로 "작을수록
-        좋다" 는 오해다. 먼 미래까지 똑같이 보는 것은 $\gamma$ 가 1 에 가까울 때다.
+        $N(a)$ 가 작을수록 bonus 가 커지므로, 적게 당겨 본 arm 은 추정값이 낮아도 한 번 더 확인할 기회를 얻는다. 이것이 "믿을 만한 범위의 위쪽
+        끝" 으로 비교한다는 뜻이다. reward 의 합은 추정값 쪽에 들어 있고 bonus 와는 다르다. 0 이 나온 횟수는 식에 없다. bandit 의 UCB 에는
+        discount factor 가 쓰이지 않는다.
     - question: |
-        reward 와 return 의 차이로 맞는 것은?
+        면접관: "UCB 에서 어떤 arm 을 4 배 더 많이 당기면, 전체 횟수 $t$ 가 거의 그대로일 때 그 arm 의 bonus 는 어떻게 되나요?"
       choices:
-        - '둘은 같은 말이다'
-        - 'return 은 episode 가 끝날 때 받는 마지막 reward 하나다'
-        - 'reward 는 여러 step 의 점수를 합한 값이고 return 은 한 step 의 점수다'
-        - 'reward 는 한 step 에 받는 점수이고, return 은 지금부터 앞으로 받을 reward 를 discount 해서 모두 더한 값이다'
+        - '4 배가 된다'
+        - '4 분의 1 이 된다'
+        - '절반이 된다'
+        - '그대로다'
+      answer: 2
+      explanation: |
+        bonus 는 $\sqrt{\ln t / N}$ 에 비례하므로 $N$ 이 4 배가 되면 $\sqrt{1/4} = 1/2$ 배가 된다. 많이 당길수록 bonus 는 커지지 않고 줄어든다.
+        4 분의 1 은 제곱근을 빼먹은 계산이다. $N$ 이 분모에 있으므로 bonus 가 그대로일 수는 없다.
+    - question: |
+        면접관: "ε-greedy 와 비교해 UCB 의 exploration 이 갖는 장점은 무엇인가요?"
+      choices:
+        - '무작위 선택이 없으므로 exploration 을 전혀 하지 않는다'
+        - 'reward 의 분산을 알아야만 쓸 수 있어 더 정확하다'
+        - '계산이 필요 없어 항상 더 빠르다'
+        - '덜 당겨 본 arm 을 골라 확인하므로, 이미 나쁘다고 밝혀진 arm 에 exploration 을 낭비하지 않는다'
       answer: 3
       explanation: |
-        reward 는 action 을 한 번 한 직후 받는 숫자 하나다. return $G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \cdots$ 는 그 뒤로
-        이어지는 reward 를 늦을수록 깎아 모두 더한 값이라, agent 가 키우려는 목표가 된다. 마지막 reward 하나만 보는 것도 아니고, reward 가
-        합이고 return 이 한 step 의 점수인 것도 아니다.
+        ε-greedy 는 무작위로 고를 때 많이 당겨 나쁘다고 밝혀진 arm 과 거의 안 당긴 arm 을 같은 확률로 고른다. UCB 는 bonus 로 덜 당긴 arm 을
+        골라 확인하므로 exploration 이 필요한 곳에 몰린다. UCB 도 bonus 로 exploration 을 하므로 전혀 하지 않는다는 말은 틀리다. UCB1 은 reward 가
+        0 ~ 1 사이라는 조건만 쓰고 분산을 알 필요가 없다. 매 step bonus 를 계산하므로 계산이 없는 것도 아니다.
 
-- topic: bellman
+- topic: discount
+  title: discount factor 와 control 주기
+  variants:
+    - question: |
+        면접관: "discount factor γ 를 0 으로 두면 agent 는 어떻게 행동하나요?"
+      choices:
+        - '바로 다음 reward 만 보고 그 뒤의 결과는 전혀 반영하지 않는다'
+        - '모든 미래 reward 를 똑같이 중요하게 본다'
+        - 'reward 를 받지 않는다'
+        - 'exploration 만 한다'
+      answer: 0
+      explanation: |
+        return 에서 k step 뒤의 reward 에는 $\gamma^k$ 를 곱하므로 γ = 0 이면 첫 reward 만 남는다. 그래서 목표가 몇 step 뒤에 있으면 지금 어느 쪽으로
+        가든 return 이 같아 길을 고를 수 없다. 모든 미래를 똑같이 보는 것은 γ = 1 이다. γ 는 reward 를 깎을 뿐 reward 를 없애지 않는다. γ 와
+        exploration 의 양은 서로 다른 설정이다.
+    - question: |
+        면접관: "50 Hz 로 action 을 내며 γ = 0.99 로 학습하던 보행 policy 를 200 Hz 로 바꿨습니다. γ 를 그대로 두면 무엇이 달라지나요?"
+      choices:
+        - '아무것도 달라지지 않는다. γ 는 초 단위로 정의되어 있다'
+        - 'γ 는 step 마다 곱하므로 같은 시간 동안 네 배 더 많이 깎여, agent 가 내다보는 시간이 약 4 분의 1 로 줄어든다'
+        - 'agent 가 내다보는 시간이 네 배로 늘어난다'
+        - 'reward 의 크기가 네 배가 되어 학습이 불안정해진다'
+      answer: 1
+      explanation: |
+        γ 는 step 단위로 곱한다. 200 Hz 에서는 같은 1 초에 step 이 네 배라서 $\gamma^n$ 이 네 배 빨리 줄어든다. 같은 시간을 내다보려면 $\gamma^4$ 가
+        원래 γ 와 같도록 γ 를 1 에 더 가깝게 올려야 한다(0.99 → 약 0.9975). γ 는 초 단위가 아니므로 그대로라는 첫 보기는 틀리다. 내다보는 시간은
+        늘지 않고 줄어든다. γ 는 미래 reward 를 깎는 비율이지 reward 의 크기를 바꾸지 않는다.
+    - question: |
+        면접관: "γ = 0.99 일 때 agent 가 대략 몇 step 앞까지의 reward 를 반영한다고 볼 수 있나요?"
+      choices:
+        - '약 1 step'
+        - '약 10 step'
+        - '약 100 step. 흔히 $1/(1-\gamma)$ step 을 agent 가 내다보는 길이의 어림으로 쓴다'
+        - '무한히 먼 미래까지 똑같이 반영한다'
+      answer: 2
+      explanation: |
+        $\gamma^n$ 은 0.99 에서 약 69 step 만에 0.5 가 되고, 흔히 쓰는 어림인 $1/(1-\gamma)$ 는 100 step 이다. 50 Hz 라면 2 초쯤이다. 1 step 은
+        γ = 0 에 가깝다. 10 step 은 γ = 0.9 의 어림이다. γ < 1 이면 먼 미래일수록 계속 작아지므로 똑같이 반영되지 않는다.
+
+- topic: reward-design
+  title: reward 설계
+  variants:
+    - question: |
+        면접관: "로봇 팔 reaching 과제에서 '목표 반경 안이면 0, 밖이면 −1' 인 sparse reward 를 쓰면 학습 초반에 어떤 어려움이 있나요?"
+      choices:
+        - 'reward 가 음수라서 학습이 아예 불가능하다'
+        - 'sparse reward 는 최적 policy 를 바꿔 엉뚱한 행동을 배우게 한다'
+        - 'reward 가 너무 자주 바뀌어 학습이 흔들린다'
+        - '목표에 한 번도 닿지 못하면 어느 자리에서나 reward 가 똑같이 −1 이라 어느 쪽으로 움직여야 할지 단서가 없다'
+      answer: 3
+      explanation: |
+        목표 반경 밖에서는 가까운 자리와 먼 자리가 같은 −1 을 받으므로, 성공을 몇 번 겪기 전에는 비교할 정보가 없다. 목표에서 생긴 값이
+        앞쪽 state 로 퍼지려면 먼저 목표에 한 번은 닿아 봐야 한다. reward 가 음수여도 상대적인 차이로 학습할 수 있다. sparse reward 는 과제의
+        뜻을 그대로 적은 것이라 최적 policy 를 바꾸지 않는다. 반경 밖에서 reward 가 바뀌지 않는 것이 문제이지 자주 바뀌는 것이 문제가 아니다.
+    - question: |
+        면접관: "목표에 다가갈 때마다 +reward 를 주고 멀어질 때는 아무 penalty 도 주지 않는 shaping 을 넣었더니, 로봇이 목표 근처를 맴돌기만 합니다. 원인은 무엇인가요?"
+      choices:
+        - 'discount factor 가 너무 작아서 목표를 보지 못했다'
+        - '다가갔다 멀어졌다를 되풀이하면 다가가는 구간마다 점수가 쌓이므로, 목표에 들어가 끝내는 것보다 맴도는 쪽의 return 이 커졌다'
+        - 'shaping reward 는 항상 학습을 느리게 만든다'
+        - 'exploration 이 부족해서 목표를 찾지 못했다'
+      answer: 1
+      explanation: |
+        멀어질 때 손해가 없으면 맴돌기 한 바퀴마다 양의 점수가 남아, γ 가 1 에 가까울수록 계속 맴도는 return 이 목표 reward 보다 커진다. Ng 등이
+        든 자전거 사례가 이 경우다. 맴도는 행동은 미래 점수를 크게 볼 때 생기므로 γ 가 너무 작아서 생긴 일이 아니다. 잘 설계한 shaping 은 학습을
+        빠르게 한다. 로봇은 목표 근처까지 이미 갔으므로 exploration 부족이 원인이 아니다.
+    - question: |
+        면접관: "reward shaping 을 넣으면서도 원래 과제의 최적 policy 를 바꾸지 않으려면 shaping 항을 어떤 꼴로 줘야 하나요?"
+      choices:
+        - 'state 마다 점수 Φ 를 정해 두고 transition 마다 γΦ(s′) − Φ(s) 처럼 "다음 state 의 점수 − 지금 state 의 점수" 꼴로 준다'
+        - '모든 step 에 같은 양수 상수를 더한다'
+        - '목표에 가까워질 때만 양수를 주고 멀어질 때는 0 을 준다'
+        - 'shaping 항을 원래 reward 보다 훨씬 크게 준다'
+      answer: 0
+      explanation: |
+        potential-based shaping 은 한 바퀴를 돌아 제자리에 오면 점수 합이 (γ = 1 에서) 0 이 되어 맴돌 이유를 없앤다. Ng, Harada, Russell 은 이
+        꼴이 최적 policy 를 지킨다는 것을 보였다. 모든 step 에 상수를 더하면 episode 를 오래 끌거나 빨리 끝내는 쪽으로 policy 가 바뀔 수 있다.
+        다가갈 때만 주는 꼴은 맴돌기를 부른다. shaping 이 원래 reward 보다 크면 원래 과제보다 shaping 을 키우는 행동을 배운다.
+
+- topic: value-bellman
   title: value 와 Bellman 식
   variants:
     - question: |
-        gridworld 의 어떤 칸의 value 가 $V^\pi(s) = 0.9$ 라는 것의 뜻으로 맞는 것은?
+        면접관: "state 의 value 와 reward 는 어떻게 다른가요?"
       choices:
-        - '그 칸에 서 있기만 해도 reward 0.9 를 받는다'
-        - '그 칸에 들어갈 확률이 0.9 다'
-        - '그 칸에서 출발해 policy $\pi$ 를 따르면 앞으로 받을 return 의 기댓값이 0.9 다'
-        - '그 칸에서 가장 좋은 action 을 고를 확률이 0.9 다'
+        - '둘은 같은 값을 부르는 다른 이름이다'
+        - 'reward 는 그 state 에 서 있기만 해도 매 step 받는 값이다'
+        - 'reward 는 한 step 의 transition 에서 받는 점수이고, value 는 그 state 에서 출발해 policy 를 따를 때 앞으로 받을 return 의 기댓값이다'
+        - 'value 는 학습이 끝난 뒤 사람이 매기는 점수다'
       answer: 2
       explanation: |
-        value 는 그 칸에서 출발해 정해진 policy 를 따를 때 받을 return 의 기댓값이다. 칸에 서 있는 것만으로 받는 reward 는 없으므로 value 를
-        reward 로 읽는 것은 흔한 오해다. reward 는 한 step 의 점수이고 value 는 앞으로의 합이며, 확률을 나타내는 값도 아니다.
+        reward 는 transition 하나의 점수이고, value 는 그 뒤의 reward 를 discount 해 더한 return 의 기댓값이라 미래까지 담는다. 목표 바로 옆 state
+        는 그 자리에서 받는 reward 가 없어도 value 가 크다. 둘을 같은 값으로 보는 첫 보기는 이 차이를 놓친다. reward 는 transition 에서 받으며,
+        서 있기만 해서 받는 것으로 정의되지 않는다. value 는 MDP 와 policy 로 정해지는 값이지 사람이 매기는 점수가 아니다.
     - question: |
-        어떤 칸 A 에서 policy 대로 움직이면 reward 0 을 받고 언제나 칸 B 에 도착한다. $V(B)$ 를 알고 discount factor 가 $\gamma$ 일 때,
-        Bellman 식에 따른 $V(A)$ 는?
+        면접관: "Bellman 식을 한 문장으로 설명해 보세요."
       choices:
-        - '$V(B)$'
-        - '$\gamma\,V(B)$'
-        - '$V(B) - \gamma$'
-        - '$V(B) + \gamma$'
-      answer: 1
-      explanation: |
-        Bellman 식은 "value = 바로 받는 reward + $\gamma$ × 다음 칸의 value" 를 도착 확률로 평균한 관계다. 여기서는 reward 가 0 이고 언제나
-        B 에 도착하므로 $V(A) = 0 + \gamma V(B)$ 다. B 부터의 return 을 한 step 늦게 받으니 $\gamma$ 로 한 번 깎는 것이고, $\gamma$ 를 더하거나
-        빼는 것이 아니다. 깎지 않으면 먼 칸과 가까운 칸의 value 가 같아진다.
-    - question: |
-        $Q(s, a)$ 와 최적 value $V^*(s)$ 의 관계로 맞는 것은?
-      choices:
-        - '$Q(s, a)$ 는 state $s$ 에서 action $a$ 를 먼저 하고 그 뒤 최적으로 행동할 때의 return 기댓값이고, $V^*(s)$ 는 그중 가장 큰 값이다'
-        - '$Q(s, a)$ 는 action $a$ 를 할 확률이고, $V^*(s)$ 는 그 확률의 합이다'
-        - '$V^*(s)$ 는 action 마다의 $Q(s, a)$ 를 평균한 값이다'
-        - '$Q(s, a)$ 는 action $a$ 를 했을 때 바로 받는 reward 하나다'
+        - '한 state 의 value 는 한 step 의 reward 에 γ × 다음 state 의 value 를 더한 값을, 다음 state 가 나올 확률로 평균한 것이다'
+        - 'value 는 episode 끝에서 받은 reward 와 같다'
+        - 'value 는 state 마다 방문한 횟수에 비례한다'
+        - 'value 는 모든 reward 를 discount 없이 더한 값이다'
       answer: 0
       explanation: |
-        $Q(s, a)$ 는 첫 action 을 $a$ 로 정해 둔 value 라서 action 마다 하나씩 있다. 최적 value 는 그중 가장 좋은 action 을 고른 값이라
-        $V^*(s) = \max_a Q(s, a)$ 다. 평균은 action 을 확률로 섞는 policy 의 value 이지 최적 value 가 아니다. $Q$ 에는 바로 받는 reward 뿐
-        아니라 그 뒤의 value 까지 들어 있다.
+        Bellman 식은 value 를 이웃 state 의 value 로 적은 재귀 관계다. 이 관계 덕분에 끝에서 받은 reward 가 한 step 씩 앞쪽 state 로 전해진다.
+        끝의 reward 만 보는 두 번째 보기는 중간의 reward 와 discount 를 빼먹는다. 방문 횟수는 value 의 정의와 무관하다. γ < 1 이면 늦은 reward 는
+        깎이므로 discount 없이 더한다는 말은 틀리다.
+    - question: |
+        면접관: "V(s) 대신 Q(s, a) 를 쓰면 무엇이 편한가요?"
+      choices:
+        - 'Q 는 reward 를 쓰지 않아 계산이 없다'
+        - 'Q 는 state 마다 숫자 하나뿐이라 저장 공간이 더 작다'
+        - 'Q 를 쓰면 discount factor 가 필요 없다'
+        - 'Q 는 action 마다 값을 따로 주므로, 그 state 에서 가장 큰 Q 를 내는 action 을 고르기만 하면 policy 가 된다'
+      answer: 3
+      explanation: |
+        $Q(s, a)$ 는 state 에서 action 을 먼저 하고 그 뒤 가장 좋게 행동할 때의 return 기댓값이라, $\max_a Q(s, a) = V^*(s)$ 이고 그 argmax 가
+        가장 좋은 action 이다. V 만 있으면 action 마다 transition 확률로 한 step 을 더 계산해야 한다. Q 도 reward 로 정의되므로 계산이 없다는
+        말은 틀리다. Q 는 state × action 개수만큼 값이 있어 V 보다 크다. Q 의 정의에도 discount factor 가 들어간다.
 
 - topic: value-iteration
   title: value iteration
   variants:
     - question: |
-        value iteration 으로 최적 value 를 구하려면 반드시 알아야 하는 것은?
+        면접관: "value iteration 을 쓰려면 무엇을 알아야 하나요?"
       choices:
         - '최적 policy'
-        - '사람이 시연한 정답 경로'
-        - 'transition 확률 $P(s'' \mid s, a)$ 와 reward $r$'
-        - '실제 로봇으로 모은 수천 개의 경험'
-      answer: 2
-      explanation: |
-        value iteration 은 모든 칸에서 "reward + $\gamma$ × 다음 칸의 value" 를 도착 확률로 평균한 값의 최댓값으로 value 를 덮어쓴다. 이
-        계산에 transition 확률과 reward 가 들어가므로 둘을 알아야 한다. 최적 policy 는 계산의 결과로 얻는 것이고, 정답 경로나 직접 모은
-        경험 없이도 돌아간다. 확률을 모를 때 경험으로 배우는 방법이 Q-learning 이다.
-    - question: |
-        value iteration 을 멈출 시점을 정하는 기준으로 맞는 것은?
-      choices:
-        - '모든 칸의 value 가 1 이 되었을 때'
-        - '한 sweep 동안 가장 크게 바뀐 칸의 변화량(Bellman residual)이 정한 기준보다 작아졌을 때'
-        - '정확히 sweep 10 번을 했을 때'
-        - '출발 칸의 value 가 0 이 아니게 되었을 때'
+        - 'transition 확률 P(s′ | s, a) 와 reward 함수. 이 둘로 모든 state 의 Bellman optimality equation 오른쪽을 계산한다'
+        - '전문가의 시연 데이터'
+        - '아무것도 몰라도 되고 경험만 있으면 된다'
       answer: 1
       explanation: |
-        sweep 을 거듭할수록 value 가 바뀌는 양이 줄어들므로, 가장 크게 바뀐 칸의 변화량이 작은 기준 아래로 내려가면 수렴했다고 보고 멈춘다.
-        미끄러운 바닥처럼 칸이 자기 자신에 기대는 경우에는 변화량이 0 이 되지 않고 줄기만 하므로 기준이 필요하다. value 는 칸마다 다르므로
-        모두 1 이 되지 않고, 필요한 sweep 수는 문제마다 다르다.
+        value iteration 은 매 sweep 모든 state 에서 action 마다 도착 확률로 평균한 값을 계산하므로 P 와 reward 를 알아야 한다. 최적 policy 는
+        value iteration 의 결과이지 입력이 아니다. 시연 데이터는 imitation learning 의 입력이다. 경험만으로 배우는 것은 Q-learning 같은 model-free
+        방법이다.
     - question: |
-        미끄러운 바닥의 gridworld 에서 $\gamma = 0.99$ 로 value iteration 을 돌리면, 계단 옆 칸이 충전기로 바로 가지 않고 일부러 벽 쪽을
-        고르는 policy 가 나온다. 그 이유로 맞는 것은?
+        면접관: "value 를 0 에서 시작해 value iteration 을 하면, 목표에서 k step 떨어진 state 는 언제 처음 0 이 아닌 값을 얻나요? (목표에 들어갈 때만 reward 가 있다고 하자)"
       choices:
-        - 'value iteration 이 수렴하지 않아 생긴 오류다'
-        - '벽에 부딪히면 reward 를 받기 때문이다'
-        - '$\gamma$ 가 크면 계산이 불안정해지기 때문이다'
-        - '미래를 거의 깎지 않으므로 몇 step 기다리는 손해보다 미끄러져 계단에 빠질 위험이 훨씬 커서, 계단 쪽으로 미끄러지지 않는 방향을 고르는 것이다'
-      answer: 3
+        - '첫 sweep 에서 모든 state 가 동시에 값을 얻는다'
+        - '목표에서 먼 state 부터 값을 얻는다'
+        - '대략 k 번째 sweep 이다. 값은 sweep 마다 목표에서 한 칸씩 멀리 퍼진다'
+        - 'sweep 횟수와 무관하게 무작위로 정해진다'
+      answer: 2
       explanation: |
-        벽 쪽을 고르면 대부분 제자리에 머물고 직각 방향으로만 미끄러지는데, 그 방향이 계단 쪽이 아니라 빠질 일이 없고 언젠가 충전기 쪽으로
-        미끄러진다. $\gamma = 0.99$ 에서는 기다리는 동안 깎이는 양이 작아 이 안전한 길이 더 큰 value 를 준다. 벽에 부딪히는 이동의 reward 는
-        0 이고, 이것은 오류가 아니라 transition 확률 안의 위험까지 계산에 넣은 결과다.
-
-- topic: q-learning
-  title: Q-learning update 와 off-policy
-  variants:
+        한 sweep 안에서 각 state 의 값은 직전 sweep 의 이웃 value 로만 계산하므로, 목표 바로 옆 state 가 첫 sweep 에 값을 얻고 그 값이 다음 sweep 에 한 칸
+        더 퍼진다. 첫 sweep 에는 목표에 바로 들어가는 state 만 reward 를 본다. 먼 state 부터가 아니라 가까운 state 부터 값이 생긴다. value
+        iteration 은 정해진 계산이라 무작위가 아니다.
     - question: |
-        Q-learning 이 value iteration 과 다른 점으로 맞는 것은?
+        면접관: "transition 이 확률적인 MDP 에서 value iteration 의 값이 정확히 멈추지 않고 계속 조금씩 바뀝니다. 언제 멈추나요?"
       choices:
-        - 'transition 확률을 모른 채, 직접 겪은 경험 $(s, a, r, s'')$ 하나하나로 $Q(s, a)$ 를 target 쪽으로 조금씩 옮긴다'
-        - 'transition 확률로 모든 칸을 한꺼번에 계산한다'
-        - 'discount factor 를 쓰지 않는다'
-        - 'reward 가 없어도 배울 수 있다'
+        - '한 sweep 동안 가장 크게 바뀐 값(Bellman residual)이 미리 정한 작은 기준보다 작아지면 멈춘다'
+        - '값이 정확히 0 만큼 바뀔 때까지 반드시 기다린다'
+        - '정확히 state 개수만큼 sweep 하면 항상 멈춘다'
+        - '첫 sweep 이 끝나면 멈춘다'
       answer: 0
       explanation: |
-        Q-learning 은 도착 확률로 평균하는 대신 실제로 한 번 겪은 다음 칸 $s'$ 을 써서 target $r + \gamma \max_{a'} Q(s', a')$ 를 만들고,
-        $Q(s, a)$ 를 그쪽으로 $\alpha$ 만큼 옮긴다. 그래서 확률을 몰라도 되지만 겪어 본 (state, action) 짝만 배운다. 모든 칸을 확률로
-        한꺼번에 계산하는 것은 value iteration 이고, Q-learning 도 target 에 $\gamma$ 와 reward 를 쓴다.
+        제자리에 머무는 transition 이 있어 state 의 새 value 가 자기 옛 value 에도 달려 있으면 값이 기하급수적으로 다가가기만 해서 변화량이 0 이 되지 않는다. 그래서
+        0.0001 같은 기준을 두고 residual 이 그보다 작으면 멈춘다. 정확히 0 을 기다리면 끝나지 않을 수 있다. 필요한 sweep 수는 γ 와 기준에 따라
+        정해지고 state 개수와 같지 않다. 첫 sweep 은 바로 받는 reward 만 반영한다.
+
+- topic: q-learning
+  title: Q-learning 과 off-policy
+  variants:
     - question: |
-        미끄러운 바닥에서 Q-learning 의 learning rate $\alpha$ 를 1 보다 작게 잡는 이유로 맞는 것은?
+        면접관: "Q-learning 의 update 에서 target 은 무엇이고, value iteration 과 무엇이 다른가요?"
       choices:
-        - '$\alpha$ 가 클수록 언제나 더 빨리 정확하게 배우기 때문에 사실 1 이 가장 좋다'
-        - '$\alpha$ 가 작으면 target 을 쓰지 않아도 되기 때문이다'
-        - '같은 $(s, a)$ 라도 운에 따라 target 이 매번 달라지는데, $\alpha = 1$ 이면 마지막 target 을 그대로 베껴 흔들리므로 작게 잡아 여러 target 을 평균에 가깝게 섞기 위해서다'
-        - 'reward 의 부호를 바꾸기 위해서다'
+        - 'target 은 episode 끝에서 받은 return 이고, value iteration 과 같은 계산이다'
+        - 'target 은 전문가가 고른 action 의 값이다'
+        - 'target 은 r + γ max_{a′} Q(s′, a′) 이고, 도착 확률로 평균하는 대신 실제로 겪은 다음 state 하나를 쓰고 learning rate 만큼만 옮긴다'
+        - 'target 은 지금의 Q(s, a) 그대로라서 값이 바뀌지 않는다'
       answer: 2
       explanation: |
-        미끄러운 바닥에서는 같은 칸에서 같은 action 을 해도 충전기에 닿기도 하고 계단에 빠지기도 해서 target 이 달라진다. $Q$ 가 배워야
-        하는 것은 target 의 기댓값이므로, $\alpha$ 를 작게 잡아 여러 번 겪은 target 을 섞어야 한다. target 이 매번 같은 미끄럽지 않은
-        바닥에서만 $\alpha = 1$ 이 가장 빠르다.
+        Q-learning 은 경험 $(s, a, r, s')$ 하나로 target $r + \gamma \max_{a'} Q(s', a')$ 를 만들고 $Q(s, a)$ 를 그쪽으로 α 만큼 옮긴다.
+        transition 확률을 몰라도 되지만, 여러 번 겪어 평균을 내야 한다. episode 끝의 return 을 target 으로 쓰는 것은 Monte Carlo 방법이다. 전문가의
+        action 은 Q-learning 에 쓰이지 않는다. target 이 지금 값과 같으면 TD error 가 0 이라 아무것도 배우지 않는다.
     - question: |
-        Q-learning 은 데이터를 ε-greedy 로 모으지만 target 에는 $\max_{a'} Q(s', a')$ 을 쓴다. 이 성질에 대한 설명으로 맞는 것은?
+        면접관: "transition 이 확률적인 환경에서 Q-learning 의 learning rate α 를 1 로 두면 어떤 문제가 생기나요?"
       choices:
-        - '무작위 action 을 섞으므로 $Q$ 표에는 무작위 policy 의 값이 쌓인다'
-        - 'agent 가 가끔 엉뚱한 action 을 해도 $Q$ 표에는 "그다음부터 가장 좋게 행동할 때" 의 값이 쌓이는 off-policy 방법이다'
-        - '데이터를 모으는 policy 와 배우는 policy 가 언제나 같은 on-policy 방법이다'
-        - 'target 에 다음에 실제로 고를 action 의 $Q$ 를 써야만 수렴한다'
+        - 'α = 1 이면 Q 가 전혀 바뀌지 않는다'
+        - '같은 (s, a) 의 target 이 겪을 때마다 달라지는데 Q 가 마지막 target 을 그대로 베끼므로, 기댓값에 수렴하지 않고 값이 흔들린다'
+        - 'α = 1 이면 off-policy 성질이 사라진다'
+        - '확률적인 환경에서는 α 가 클수록 더 빨리, 더 정확하게 수렴한다'
       answer: 1
       explanation: |
-        target 에 다음에 실제로 고를 action 이 아니라 가장 좋은 action 의 값을 쓰므로, 데이터를 모으는 ε-greedy 와 배우는 greedy policy 가
-        다르다. 이것이 off-policy 이고, 그래서 사람이 정해 준 경로로 데이터를 모아도 최적 value 와 같은 숫자를 배울 수 있다. 다음에 실제로
-        고를 action 의 값을 쓰면 데이터를 모으는 policy 자신의 값을 배우는 on-policy 방법이 된다.
+        Q 가 배워야 하는 것은 target 의 기댓값인데 α = 1 은 매번 마지막 target 으로 덮어써 운에 따라 값이 뛴다. α 를 1 보다 작게, 또는 1/n 처럼
+        줄여 가며 여러 target 을 섞어야 한다. α = 1 이면 Q 는 오히려 가장 크게 바뀐다. off-policy 성질은 target 에 max 를 쓰는 데서 오고 α 와는
+        관계없다. 확률적인 환경에서 큰 α 는 수렴을 방해한다.
+    - question: |
+        면접관: "Q-learning 이 off-policy 라는 말은 무슨 뜻인가요?"
+      choices:
+        - 'Q 표를 쓰지 않고 policy 를 직접 학습한다는 뜻이다'
+        - '학습이 끝나면 policy 를 쓰지 않는다는 뜻이다'
+        - 'exploration 을 하지 않는다는 뜻이다'
+        - '데이터는 ε-greedy 같은 다른 policy 로 모아도 target 에 max 를 쓰므로, greedy policy 의 값을 배운다는 뜻이다'
+      answer: 3
+      explanation: |
+        target 에는 다음에 실제로 고를 action 이 아니라 가장 좋은 action 의 값을 쓰므로, 가끔 무작위로 움직이며 모은 경험으로도 그다음부터 가장
+        좋게 행동할 때의 값을 배운다. 데이터를 모으는 policy 와 배우는 policy 가 다른 이 성질이 off-policy 다. policy 를 직접 학습하는 것은
+        policy gradient 계열이다. 학습한 Q 로 고른 greedy policy 를 실제로 쓴다. Q-learning 도 데이터를 모을 때 ε-greedy 로 exploration 을 한다.

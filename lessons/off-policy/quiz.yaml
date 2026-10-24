@@ -1,323 +1,328 @@
 # 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
 # answer 는 choices 의 0부터 센 번호다.
 
-- topic: table-limit
-  title: 표로 배우는 Q 의 한계
+- topic: function-approximation
+  title: 표에서 neural network 로
   variants:
     - question: |
-        CartPole 의 state 는 막대 각도처럼 연속된 숫자 네 개다. 이런 state 에 칸마다 $Q$ 를 적는 표를 쓰기 어려운 이유로 맞는 것은?
+        면접관: "CartPole 처럼 state 가 막대 각도 같은 연속된 숫자인 문제에서 Q 를 표로 배우기 어려운 이유는 무엇인가요?"
       choices:
-        - '숫자 네 개는 표에 적기에 너무 큰 값이기 때문이다'
-        - 'reward 가 연속된 숫자라서 target 을 계산할 수 없기 때문이다'
-        - '가능한 값을 셀 수 없어 칸을 만들 수 없고, 각도 1.5° 를 배운 칸이 거의 같은 1.51° 에는 아무것도 전하지 못하기 때문이다'
-        - 'action 이 두 개뿐이라 표가 너무 작기 때문이다'
+        - 'action 이 두 개뿐이라 표의 열이 모자라기 때문이다'
+        - 'reward 가 연속된 숫자라서 Q-learning 의 target 을 계산할 수 없기 때문이다'
+        - 'state 를 셀 수 없어 칸을 만들 수 없고, 구간으로 잘라도 칸 수가 숫자 개수만큼 곱으로 불어나 대부분의 칸이 한 번도 채워지지 않기 때문이다'
+        - '표는 discount factor 를 1 보다 작게 둘 수 없기 때문이다'
       answer: 2
       explanation: |
-        막대 각도는 1.5° 일 수도 1.51° 일 수도 있어서 state 의 개수를 셀 수 없다. 설령 칸을 만들어도 표에서는 두 state 가 서로 다른 칸이라,
-        거의 같은 상황인데도 한쪽에서 배운 것이 다른 쪽에 전해지지 않는다. 같은 숫자가 정확히 다시 나오는 일은 거의 없으니 표는 배운 것을
-        다시 쓸 기회를 얻지 못한다. 숫자의 크기나 action 개수가 문제가 아니다.
+        막대 각도는 1.5° 일 수도 있고 1.51° 일 수도 있어서 state 마다 칸을 만들 수 없고, 숫자 네 개를 10 칸씩만 잘라도 $10^4$ 칸이 되어 대부분의
+        칸은 한 번도 학습되지 못한다. action 개수는 표의 열 수를 정할 뿐이고 둘이어도 표는 만들 수 있다. CartPole 의 reward 는 step 마다 1 이고,
+        reward 가 연속이어도 target 은 계산할 수 있다. discount factor 는 표로 배우든 network 로 배우든 똑같이 1 보다 작게 둔다.
     - question: |
-        연속된 state 숫자를 일정한 폭의 구간으로 잘라 칸을 만들어 표에 담았다. 이 방법의 문제로 맞는 것은?
+        면접관: "neural network 로 Q 를 계산할 때, state 하나의 경험으로 weight 를 고치면 다른 state 의 Q 는 어떻게 되나요?"
       choices:
-        - '구간으로 자르면 경계 문제와 칸 수 문제가 모두 사라진다'
-        - '구간으로 자르면 Q-learning update 식을 쓸 수 없다'
-        - '칸을 잘게 자를수록 칸 수가 줄어든다'
-        - '칸 경계를 사이에 둔 아주 가까운 두 값은 서로 아무것도 나누지 못하고, 숫자마다 자른 칸 수가 곱해져 칸이 금방 엄청나게 많아진다'
-      answer: 3
-      explanation: |
-        같은 칸 안의 먼 두 값은 같은 $Q$ 를 쓰고, 경계 양쪽의 가까운 두 값은 다른 칸이 되는 어색함이 생긴다. 또 숫자 네 개를 10 칸씩만
-        잘라도 $10^4$ 칸이 되어, 잘게 자를수록 칸 수가 곱으로 불어난다. 칸을 잘게 자르면 경계 문제는 줄지만 칸 수 문제가 커진다. update
-        식 자체는 그대로 쓸 수 있다.
-    - question: |
-        칸이 아주 많은 $Q$ 표로 Q-learning 을 하면, 학습이 끝날 때까지 대부분의 칸이 처음 값에 머문다. 그 이유로 맞는 것은?
-      choices:
-        - 'learning rate 가 너무 작기 때문이다'
-        - '표의 update 는 겪은 칸 하나만 고치고 다른 칸은 건드리지 않아서, 한 번도 겪지 못한 칸은 고쳐질 기회가 없기 때문이다'
-        - 'discount factor 가 1 보다 작기 때문이다'
-        - '표의 칸끼리 값이 자동으로 평균되기 때문이다'
-      answer: 1
-      explanation: |
-        표로 배우는 Q-learning 은 경험 $(s, a, r, s')$ 하나마다 $Q(s, a)$ 한 칸만 고치고, target 에 쓴 다음 칸도 그대로 둔다. 칸끼리 값을
-        나누는 장치가 없으므로 겪어 보지 못한 칸은 영영 처음 값에 머문다. 칸이 아주 많으면 대부분의 칸은 한 번도 겪지 못한다. learning
-        rate 나 discount factor 는 겪은 칸이 얼마나 빨리 변하는지를 정할 뿐이다.
-
-- topic: generalization
-  title: 함께 바뀌는 다른 state 의 Q
-  variants:
-    - question: |
-        표 대신 neural network 로 $Q$ 를 계산할 때, state 하나의 경험으로 weight 를 고치면 다른 state 의 $Q$ 는 어떻게 되는가?
-      choices:
-        - '모든 state 가 같은 weight 를 함께 쓰므로, 학습에 쓰지 않은 state 의 $Q$ 도 함께 바뀐다'
-        - '학습에 쓴 state 의 $Q$ 만 바뀌고 나머지는 그대로다'
-        - '모든 state 의 $Q$ 가 0 으로 초기화된다'
-        - '학습에 쓴 state 의 $Q$ 는 그대로이고 다른 state 만 바뀐다'
+        - '모든 state 가 같은 weight 를 함께 쓰므로, 학습에 쓰지 않은 state 의 Q 도 함께 바뀐다'
+        - '학습에 쓴 state 의 Q 만 바뀌고 나머지는 그대로다'
+        - '학습에 쓰지 않은 state 의 Q 는 모두 0 으로 돌아간다'
+        - '학습에 쓴 state 의 Q 는 그대로이고 다른 state 의 Q 만 바뀐다'
       answer: 0
       explanation: |
-        network 는 몇 개의 weight 로 모든 state 의 $Q$ 를 계산하므로, 한 state 를 배워 weight 가 바뀌면 그 weight 를 쓰는 모든 state 의 $Q$ 가
-        바뀐다. 이것이 generalization 이다. "state 하나만 배웠으니 나머지는 그대로" 는 칸이 따로 있는 표에서만 맞는 말이다. 학습에 쓴
-        state 의 $Q$ 도 당연히 바뀐다.
+        network 는 weight 몇 개로 모든 state 의 Q 를 계산하므로, 한 state 를 배워 weight 가 바뀌면 그 weight 를 쓰는 모든 state 의 Q 가 바뀐다.
+        이 성질을 generalization 이라고 한다. 학습한 칸만 바뀌는 것은 칸마다 값을 따로 적는 표의 성질이다. weight 를 고친다고 다른 state 의 값이 0 으로
+        초기화되지는 않는다. 학습에 쓴 state 의 Q 는 target 쪽으로 움직이도록 고쳤으니 당연히 바뀐다.
     - question: |
-        neural network 로 $Q$ 를 배울 때 생기는 generalization 에 대한 설명으로 맞는 것은?
+        면접관: "Q 를 function approximation 으로 배울 때 생기는 generalization 의 장점과 단점을 함께 말해 보세요."
       choices:
-        - '장점만 있고 단점은 없다'
-        - '단점만 있어서 가능하면 표를 써야 한다'
-        - '비슷한 state 에 배운 것이 번지는 장점이 있지만, 배운 적 없는 state 의 값까지 원하지 않게 바꿔 놓는 단점도 있다'
-        - '학습에 쓴 state 와 아주 비슷한 state 에만 일어나고 먼 state 에는 절대 영향이 없다'
-      answer: 2
+        - '장점은 학습이 항상 안정해지는 것이고, 단점은 계산이 느려지는 것이다'
+        - '장점은 탐색이 필요 없어지는 것이고, 단점은 reward 를 직접 설계해야 하는 것이다'
+        - '장점은 Q 가 실제 값보다 작게 나오는 것이고, 단점은 action 을 하나만 다룰 수 있는 것이다'
+        - '장점은 비슷한 state 에 배운 것이 번져 처음 보는 state 도 다룰 수 있는 것이고, 단점은 원하지 않은 state 의 Q 까지 바뀌어 틀어질 수 있는 것이다'
+      answer: 3
       explanation: |
-        각도 1.5° 를 배우면 1.51° 의 $Q$ 도 비슷하게 바뀌어 같은 상황을 처음부터 다시 배우지 않아도 된다. 하지만 같은 weight 변화가 멀리
-        떨어진 state 의 값도 바꾸며, 그 state 를 배운 적이 없으니 잘못 바뀐 값을 바로잡을 정보도 없다. 연속 state 에서는 표를 쓸 수 없으니
-        이 단점을 다루는 장치가 필요하다.
-    - question: |
-        neural network 로 $Q$ 를 학습하는 과정을 바르게 설명한 것은?
-      choices:
-        - '정답 $Q$ 값이 미리 주어져 그것을 외운다'
-        - 'Q-learning 의 target $r + \gamma \max_{a''} Q(s'', a'')$ 를 정답처럼 두고, $(Q - \text{target})^2$ 을 gradient descent 로 줄이는 regression 이다'
-        - 'reward 가 큰 transition 만 골라 외운다'
-        - 'weight 를 무작위로 바꿔 보며 reward 가 커지면 남긴다'
-      answer: 1
-      explanation: |
-        정답 $Q$ 는 아무도 모르므로, 겪은 경험으로 만든 target 을 정답 자리에 두고 예측과의 차이 제곱을 줄인다. 그래서 형태는 Linear
-        Regression 과 같은 regression 이지만, target 이 지금의 $Q$ 로 계산된다는 점이 다르고 이것이 뒤의 흔들림을 만든다. reward 가 큰
-        경험만 고르거나 무작위로 weight 를 바꾸는 방법이 아니다.
+        weight 를 함께 쓰므로 막대 각도 1.5° 를 배우면 1.51° 의 Q 도 비슷하게 바뀌는 것이 장점이고, 배운 적 없는 state 의 Q 가 받을 수 없는 크기로
+        바뀌기도 하는 것이 단점이다. generalization 은 오히려 target 이 따라 움직이는 불안정의 원인이 되므로 학습을 항상 안정하게 만들지 않는다.
+        탐색과 reward 설계는 Q 를 표로 배우든 network 로 배우든 똑같이 필요하다. Q 를 작게 잡는 성질이나 action 개수의 제한은 generalization 과
+        관계없다.
 
 - topic: moving-target
-  title: 따라 움직이는 target
+  title: 따라 움직이는 target 과 target network
   variants:
     - question: |
-        neural network 로 Q-learning 을 하면 $Q$ 를 target 쪽으로 고칠수록 target 도 함께 달아나는 moving target 문제가 생길 수 있다. 그
-        원인으로 맞는 것은?
+        면접관: "neural network 로 Q-learning 을 하면 Q 를 target 쪽으로 고칠수록 target 도 달아나 값이 발산할 수 있습니다. 왜 그런가요?"
       choices:
-        - 'reward 가 매번 무작위로 바뀌기 때문이다'
-        - '학습하는 $Q$ 와 target 에 쓰는 다음 state 의 $Q$ 를 같은 weight 로 계산해서, weight 를 고치면 target 도 바뀌기 때문이다'
-        - 'learning rate 가 0 이기 때문이다'
-        - 'target 을 사람이 매번 다시 정해 주기 때문이다'
+        - 'learning rate 가 너무 작아서 target 에 다가가지 못하기 때문이다'
+        - '학습하는 Q 와 target 에 들어가는 다음 state 의 Q 를 같은 weight 로 계산해서, weight 를 고치면 target 도 함께 바뀌기 때문이다'
+        - 'reward 에 잡음이 섞여 target 이 매번 무작위로 바뀌기 때문이다'
+        - 'discount factor 가 0 이라 미래 reward 를 무시하기 때문이다'
       answer: 1
       explanation: |
-        표에서는 $Q(s, a)$ 칸을 고쳐도 target 에 쓰는 다음 칸이 그대로라 target 이 멈춰 있다. network 에서는 두 값을 같은 weight 로 계산하므로,
-        $Q$ 를 고치려고 weight 를 바꾸는 순간 target 도 움직인다. 그림자를 밟으려 다가가면 그림자도 물러나는 것과 같다. reward 가 고정이어도
-        생기는 문제다.
+        target 은 reward 에 다음 state 의 Q 를 더한 값인데, 그 Q 도 학습 중인 weight 로 계산하므로 weight 를 고치는 순간 target 도 움직인다. 다음
+        state 의 Q 가 더 크게 움직이면 차이가 오히려 커져 발산한다. learning rate 가 작으면 느리게 다가갈 뿐 달아나지는 않는다. reward 가 잡음 없이
+        고정되어 있어도 이 문제는 생긴다. discount factor 가 0 이면 target 에 다음 state 의 Q 가 들어가지 않으므로 오히려 target 이 움직이지 않는다.
     - question: |
-        "target 쪽으로 고쳤으니 target 과 $Q$ 의 차이는 반드시 줄어든다" 는 생각에 대해 맞는 것은?
+        면접관: "DQN 의 target network 는 무엇을 하나요?"
       choices:
-        - '맞다. 고친 방향이 target 쪽이므로 차이는 언제나 준다'
-        - '맞다. 다만 속도가 느릴 뿐이다'
-        - '틀리다. 차이는 항상 정확히 두 배가 된다'
-        - '틀리다. 고치는 동안 target 이 $Q$ 보다 더 많이 움직이면 차이가 오히려 커지고, 되풀이하면 값이 발산할 수 있다'
+        - '다음 state 에서 고를 action 을 무작위로 뽑아 탐색을 맡는다'
+        - 'reward 를 예측해 environment 대신 transition 을 만들어 낸다'
+        - 'online network 와 같은 weight 를 매 step 함께 학습해 학습 속도를 두 배로 높인다'
+        - 'weight 복사본으로 target 만 계산하고 gradient descent 로는 고치지 않아서, 복사본을 두는 동안 target 을 고정한다'
       answer: 3
       explanation: |
-        $Q$ 가 target 쪽으로 조금 움직일 때 같은 weight 를 쓰는 target 은 그보다 더 크게 움직일 수 있다. 그러면 차이가 커지고, update 를
-        되풀이할수록 값이 끝없이 커지는 발산으로 이어진다. 차이가 줄지 커질지는 target 이 얼마나 따라 움직이느냐에 달려 있어서 늘 일정한
-        배수로 정해지지는 않는다.
+        target network 는 online network 의 weight 를 복사해 두고 target 계산에만 쓰며 gradient 로 고치지 않으므로, 그동안 target 이 고정되어 정답이
+        정해진 regression 이 된다. DQN 의 탐색은 ε-greedy 가 맡는다. environment 대신 transition 을 만드는 것은 world model 의 일이다. target
+        network 는 gradient 로 학습하지 않고 정해진 주기에 복사하거나 조금씩 옮겨 올 뿐이다.
     - question: |
-        agent 가 겪는 transition 을 들어오는 순서대로 하나씩 배우고 바로 버리는 방식의 문제로 맞는 것은?
+        면접관: "target network 를 online network 쪽으로 옮기는 hard update 와 soft update 는 어떻게 다른가요?"
       choices:
-        - '연달아 들어오는 거의 같은 transition 만 몰아서 배워 그 근처 값에 휩쓸리고, transition 하나를 딱 한 번만 쓰고 버린다'
-        - 'transition 이 너무 다양하게 섞여 학습이 느려진다'
-        - '같은 transition 을 너무 여러 번 써서 외워 버린다'
-        - '순서대로 배우면 target 을 계산할 수 없다'
+        - 'hard update 는 정해진 주기마다 weight 를 통째로 복사하고, soft update 는 매 step 복사본을 online weight 쪽으로 τ 비율만큼 조금씩 옮긴다'
+        - 'hard update 는 gradient descent 로 고치고, soft update 는 무작위로 고친다'
+        - 'hard update 는 actor 에만 쓰고 soft update 는 critic 에만 쓴다'
+        - '둘은 이름만 다르고 매 step 통째로 복사하는 같은 방법이다'
       answer: 0
       explanation: |
-        한 step 이 짧으면 연달아 들어오는 transition 들은 거의 같은 상황이라, 그것만 되풀이해 배우면 network 가 그 근처로 쏠리고 generalization
-        때문에 지금 겪지 않는 state 까지 끌려간다. 또 한 번 쓰고 버리니 낭비인데, 실물 로봇에서 transition 하나는 실제로 흐른 시간이다.
-        섞이지 않는 것이 문제이지 너무 섞이는 것이 문제가 아니다.
+        hard update 는 DQN 논문처럼 update 10,000 번마다 $\bar\theta \leftarrow \theta$ 로 통째로 복사하고, soft update 는 매 step
+        $\bar\theta \leftarrow \tau\theta + (1-\tau)\bar\theta$ 로 조금씩 따라간다(SAC 는 τ = 0.005). 두 방법 모두 복사본을 gradient descent 로
+        고치지 않고, 무작위로 바꾸지도 않는다. 두 방법은 actor 와 critic 어느 쪽의 target network 에도 쓸 수 있다. 매 step 통째로 복사하면 target
+        이 고정되지 않아 target network 를 두는 의미가 없다.
 
 - topic: replay-buffer
   title: replay buffer
   variants:
     - question: |
-        DQN 의 replay buffer 에서 transition 을 무작위 batch 로 뽑아 학습할 때 얻는 이점으로 맞는 것은?
+        면접관: "DQN 이 transition 을 replay buffer 에 쌓아 두고 무작위 batch 로 뽑아 학습하면 무엇이 좋아지나요?"
       choices:
-        - 'reward 가 큰 transition 만 골라 배울 수 있다'
-        - '항상 가장 최근 transition 만 배울 수 있다'
-        - '서로 다른 시점의 transition 이 한 batch 에 섞이고, transition 하나를 buffer 에 머무는 동안 여러 번 다시 쓸 수 있다'
-        - 'target network 가 필요 없어진다'
+        - '연달아 들어온 비슷한 transition 들이 흩어져 한 batch 에 여러 상황이 섞이고, transition 하나를 여러 번 학습에 쓸 수 있다'
+        - 'target 을 계산할 필요가 없어진다'
+        - 'reward 가 없는 transition 을 자동으로 지워 buffer 를 깨끗하게 유지한다'
+        - '학습할 때마다 environment 를 다시 실행해 transition 을 새로 만든다'
+      answer: 0
+      explanation: |
+        한 step 이 짧으면 연달아 들어오는 transition 은 거의 같은 상황이라, 순서대로 배우면 weight 가 그 상황 쪽으로 쏠린다. 무작위로 뽑으면 서로
+        다른 시점의 transition 이 섞이고, 하나가 buffer 에 머무는 동안 여러 번 뽑혀 다시 쓰인다. target 은 buffer 를 써도 매번 target network 로
+        계산해야 한다. buffer 는 reward 가 0 인 transition 도 그대로 둔다. buffer 에서 뽑는 것은 이미 겪은 transition 이라 environment 를 다시
+        실행하지 않는다.
+    - question: |
+        면접관: "replay buffer 에는 학습 초반의 거의 무작위인 policy 가 모은 transition 도 섞여 있습니다. 그래도 DQN 이 이것으로 학습할 수 있는 이유는 무엇인가요?"
+      choices:
+        - '무작위 policy 의 transition 은 학습 전에 모두 지워지기 때문이다'
+        - 'DQN 은 transition 을 모은 policy 를 함께 저장해 두고 그 policy 로 target 을 계산하기 때문이다'
+        - 'transition 은 environment 가 보인 반응을 적은 기록이고, DQN 의 target 은 다음 state 에서 가장 좋은 action 의 값을 쓰므로 누가 action 을 골랐는지와 상관없기 때문이다'
+        - '무작위 policy 의 transition 은 reward 가 항상 0 이라 target 에 영향을 주지 않기 때문이다'
       answer: 2
       explanation: |
-        buffer 에 쌓인 transition 을 무작위로 뽑으면 연달아 들어온 비슷한 transition 들이 흩어져 batch 마다 여러 상황이 섞인다. 또 buffer 에
-        머무는 동안 여러 번 뽑히므로 같은 경험을 평균 batch size 만큼 다시 쓴다. 뽑는 기준은 무작위라 reward 크기나 최신 순서와 상관없고,
-        target 이 달아나는 문제는 target network 가 따로 맡는다.
+        이 state 에서 이 action 을 했더니 어떤 reward 와 다음 state 가 나왔는지는 누가 골랐든 같고, target 의 $\max_{a'}$ 는 다음 state 에서
+        지금 network 가 가장 좋다고 보는 action 의 값을 쓰므로 모은 policy 와 상관없이 계산된다. 무작위 policy 의 transition 도 capacity 가 찰
+        때까지 buffer 에 남는다. DQN 은 transition 을 모은 policy 를 저장하지 않는다. 무작위 policy 도 reward 를 받을 수 있고, reward 가 0 인
+        transition 도 target 계산에 쓰인다.
     - question: |
-        replay buffer 에는 학습 초반의 거의 무작위인 policy 가 모은 transition 도 섞여 있다. 그래도 DQN 이 이것으로 학습할 수 있는 이유로
-        맞는 것은?
+        면접관: "replay buffer 에서 batch 크기 32 로 뽑고, environment step 4 번마다 update 를 한 번 합니다. buffer 에 들어온 transition 하나는 평균 몇 번 학습에 쓰이나요?"
       choices:
-        - '오래된 transition 은 학습할 때 자동으로 버려지기 때문이다'
-        - 'transition 은 environment 가 실제로 어떻게 반응했는지의 기록이고, target 은 다음 state 에서 가장 좋은 action 의 값을 써서 누가 action 을 골랐는지와 상관없기 때문이다'
-        - '무작위 policy 의 데이터가 가장 정확하기 때문이다'
-        - '초반 transition 에는 reward 가 없기 때문이다'
+        - '한 번'
+        - '8 번'
+        - '32 번'
+        - 'buffer capacity 에 따라 달라서 정할 수 없다'
       answer: 1
       explanation: |
-        "이 state 에서 이 action 을 했더니 이런 reward 와 다음 state 가 나왔다" 는 사실은 그 action 을 누가 골랐든 그대로다. DQN 의 target 은
-        $\max_{a'}$ 로 가장 좋은 action 의 값을 쓰므로 transition 을 모은 policy 가 식에 들어가지 않는다. 이 성질이 off-policy 이고, 그래서
-        사람 시연도 같은 buffer 에 넣어 쓸 수 있다.
-    - question: |
-        replay buffer 의 capacity 가 꽉 차면 어떻게 되며, capacity 에 상한을 두는 이유로 맞는 것은?
-      choices:
-        - '더 이상 저장하지 않고 학습을 멈춘다'
-        - '가장 최근 transition 을 지운다'
-        - 'buffer 전체를 비우고 다시 채운다'
-        - '가장 오래된 transition 자리에 새 transition 을 덮어쓴다. 메모리 때문이기도 하고, 아주 오래된 transition 은 초반의 엉성한 policy 가 가던 상황이라 지금 policy 와 동떨어져 있기 때문이기도 하다'
-      answer: 3
-      explanation: |
-        replay buffer 는 칸을 돌려 가며 쓰는 ring buffer 라서 꽉 차면 가장 오래된 칸부터 덮어쓴다. 오래된 transition 도 쓸 수는 있지만, 지금
-        policy 가 거의 가지 않는 곳에 학습을 묶어 둘 수 있어 너무 오래 남기지 않는다. 학습을 멈추거나 최근 것을 지우거나 통째로 비우면
-        쌓아 둔 경험을 잃는다.
+        capacity 가 N 이면 transition 은 N step 동안 buffer 에 머물고 그동안 update 는 N ÷ 4 번이다. update 마다 N 개 가운데 32 개를 뽑으므로 뽑히는
+        횟수의 기댓값은 (N ÷ 4) × 32 ÷ N = 8 번이다. 한 번만 쓰는 것은 buffer 없이 겪는 대로 배우고 버리는 방식이다. 32 번은 step 마다 update 를
+        할 때의 값이다. 계산에서 N 이 지워지므로 capacity 와 상관없이 batch 크기를 update 사이의 step 수로 나눈 값이 된다.
 
 - topic: dqn-target
-  title: DQN 의 target 과 target network
+  title: DQN 의 target 과 episode 의 끝
   variants:
     - question: |
-        DQN 의 target network 가 하는 일로 맞는 것은?
+        CartPole 에서 막대가 서 있는 채로 500 step 시간 제한에 걸려 episode 가 끊겼다. reward 1, discount factor 0.9, 다음 state 에서 target network 의 Q 가 (5, 7) 일 때 이 transition 의 DQN target 은?
       choices:
-        - 'weight 의 복사본으로 target 을 계산해, 복사본을 고정한 동안 target 이 움직이지 않는 보통의 regression 이 되게 한다'
-        - 'action 을 고르는 network 를 하나 더 두어 탐색을 늘린다'
-        - 'reward 를 대신 계산한다'
-        - 'online network 와 함께 gradient descent 로 매 step 학습한다'
-      answer: 0
-      explanation: |
-        moving target 은 target 을 학습 중인 weight 로 계산해서 생기므로, 복사본 $\bar\theta$ 를 따로 두고 target 은 복사본으로만 계산한다.
-        복사본은 gradient descent 로 고치지 않고 가끔 online network 의 값을 옮겨 받기만 해서, 그동안 target 이 정답처럼 고정된다. 탐색이나
-        reward 계산과는 상관없다.
-    - question: |
-        target network 를 online network 쪽으로 옮기는 hard update 와 soft update 의 차이로 맞는 것은?
-      choices:
-        - 'hard update 는 매 step 조금씩, soft update 는 정해진 step 마다 통째로 옮긴다'
-        - 'soft update 는 online network 를 target network 쪽으로 옮긴다'
-        - '둘 다 복사본을 영원히 고정한다'
-        - 'hard update 는 정해진 step 마다 weight 를 통째로 복사해 target 이 한꺼번에 뛰고, soft update 는 매 step 작은 비율 $\tau$ 만큼씩 부드럽게 따라가게 한다'
+        - '1. episode 가 끝났으므로 미래 항을 지운다'
+        - '0. 시간 제한에 걸린 transition 은 학습에서 뺀다'
+        - '6.3. reward 를 빼고 미래 항만 쓴다'
+        - '7.3. 시간 제한으로 끊긴 것은 진짜 끝(terminated)이 아니라서 $1 + 0.9 \times 7$ 로 미래 항을 남긴다'
       answer: 3
       explanation: |
-        hard update 는 예를 들어 500 step 마다 $\bar\theta \leftarrow \theta$ 로 통째 복사하고, soft update 는 매 step
-        $\bar\theta \leftarrow \tau\theta + (1 - \tau)\bar\theta$ 로 남은 거리의 일부만 옮긴다. 복사본을 영원히 고정하면 target 이 처음의
-        엉터리 $Q$ 에 묶여 버리므로 둘 다 언젠가는 옮긴다. 옮기는 방향은 언제나 복사본이 online network 를 따라가는 쪽이다.
+        시간 제한으로 끊긴 순간에도 막대는 서 있고 그 뒤의 미래가 남아 있으므로 done 을 0 으로 두고 target 을 $1 + 0.9 \times \max(5, 7) = 7.3$ 으로
+        계산한다. 미래 항을 지워 1 로 두는 것은 막대가 쓰러져 진짜로 끝난 경우의 계산이다. 시간 제한에 걸린 transition 도 버리지 않고 학습에 쓴다.
+        받은 reward 1 은 target 에 그대로 더해야 하므로 6.3 이 될 수 없다.
     - question: |
-        CartPole 에서 막대가 서 있는 채로 500 step 시간 제한에 걸려 episode 가 끊겼다. 이 마지막 transition 의 DQN target 에 대한 설명으로
-        맞는 것은?
+        면접관: "DQN 의 target $r + \gamma(1-d)\max_{a'} Q_{\bar\theta}(s', a')$ 에서 $(1-d)$ 항은 무엇을 하나요?"
       choices:
-        - 'episode 가 끝났으므로 미래 항을 지우고 reward 만 target 으로 쓴다'
-        - 'target 을 0 으로 둔다'
-        - '막대가 쓰러진 것이 아니라 미래가 남아 있으므로 $d = 0$ 으로 두고 미래 항을 지우지 않는다'
-        - '이 transition 은 buffer 에 넣지 않는다'
+        - 'action 을 무작위로 고를 확률을 줄인다'
+        - 'episode 가 진짜로 끝난 transition 에서 다음 state 의 Q 를 지워, 끝난 뒤에는 받을 reward 가 없다는 것을 반영한다'
+        - 'reward 를 0 과 1 사이로 자른다'
+        - 'online network 와 target network 의 차이를 줄인다'
+      answer: 1
+      explanation: |
+        d 는 그 transition 에서 episode 가 진짜로 끝났으면 1 이라서, $(1-d) = 0$ 이 되어 미래 항이 사라지고 target 은 reward 만 남는다. 무작위 action
+        의 확률은 ε-greedy 의 ε 가 정한다. reward 를 자르는 것은 따로 하는 전처리이고 $(1-d)$ 의 역할이 아니다. 두 network 를 가깝게 하는 일은 hard
+        update 나 soft update 가 맡는다.
+    - question: |
+        면접관: "DQN 의 loss 에서 target 을 계산하는 network 와 gradient 가 흘러 weight 가 고쳐지는 network 는 각각 무엇인가요?"
+      choices:
+        - '둘 다 online network 다'
+        - '둘 다 target network 다'
+        - 'target 은 target network 로 계산하고, gradient 는 online network 로만 흘러 online network 의 weight 만 고친다'
+        - 'target 은 online network 로 계산하고, gradient 는 target network 로 흐른다'
       answer: 2
       explanation: |
-        $(1 - d)$ 는 episode 가 진짜로 끝나 더 받을 reward 가 없을 때 미래 항을 지운다. 시간 제한으로 끊긴 순간에는 막대가 아직 서 있고 그
-        뒤의 미래가 남아 있으므로, 쓰러져 끝난 경우와 달리 $d = 0$ 으로 둬야 한다. 미래 항을 지우면 그 state 의 값을 실제보다 작게 배우게
-        된다. 그래서 gymnasium 은 terminated 와 truncated 를 나눠 알려 준다.
+        target network 는 target 을 계산만 하고 복사할 때만 바뀌며, loss 의 gradient 는 online network 의 $Q_\theta(s, a)$ 로만 흐른다. target 까지
+        online network 로 계산하면 target network 를 두지 않은 것이라 moving target 문제가 그대로 남는다. 두 역할을 모두 target network 가 맡으면
+        학습되는 network 가 없다. 역할을 거꾸로 맡기면 target 이 학습 중인 weight 로 계산되어 따라 움직이고, 학습된 weight 도 행동을 고르는 online
+        network 에 반영되지 않는다.
 
-- topic: on-off-policy
-  title: on-policy 와 off-policy
+- topic: overestimation
+  title: overestimation 과 double Q
   variants:
     - question: |
-        사람이 조종기로 로봇을 움직여 모은 시연 transition 을 DQN 의 replay buffer 에 넣어 함께 학습해도 되는가?
+        면접관: "Q-learning 이나 DQN 이 Q 를 실제보다 크게 잡는 overestimation 은 왜 생기나요?"
       choices:
-        - '된다. target 이 transition 을 모은 policy 와 상관없는 off-policy 방법이라, 누가 action 을 골랐든 같은 target 을 계산한다'
-        - '안 된다. agent 가 직접 고른 action 만 학습할 수 있다'
-        - '된다. 다만 사람 시연의 reward 를 두 배로 해야 한다'
-        - '안 된다. 사람 시연에는 다음 state 가 없다'
-      answer: 0
-      explanation: |
-        데이터를 모은 behavior policy 와 배우는 policy 가 달라도 되는 방법이 off-policy 다. DQN 의 target 은 다음 state 에서 가장 좋은
-        action 의 값을 써서 behavior policy 가 식 어디에도 들어가지 않으므로, 사람 시연도 그대로 쓸 수 있다. 시연 transition 에도 state·
-        action·reward·다음 state 가 모두 있고, reward 를 따로 조정할 이유도 없다.
-    - question: |
-        policy gradient 같은 on-policy 방법이 policy 를 고칠 때마다 예전 데이터를 버리고 새로 모으는 이유로 맞는 것은?
-      choices:
-        - '예전 데이터는 메모리를 너무 많이 차지하기 때문이다'
-        - '예전 데이터에는 reward 가 없기 때문이다'
-        - '지금 policy 가 얼마나 좋은지를 지금 policy 로 얻은 return 으로 재므로, 예전 policy 의 데이터는 예전 policy 의 성적표일 뿐이기 때문이다'
-        - '데이터를 다시 쓰면 항상 발산하기 때문이다'
+        - 'reward 를 실제보다 크게 기록하기 때문이다'
+        - 'discount factor 가 1 보다 크기 때문이다'
+        - '잡음이 섞인 추정값들 가운데 가장 큰 값을 target 에 쓰므로, 위로 튄 잡음이 골라지고 그 값이 앞 state 로 쌓이기 때문이다'
+        - 'replay buffer 가 오래된 transition 을 지우기 때문이다'
       answer: 2
       explanation: |
-        on-policy 방법은 지금 policy 로 직접 움직여 얻은 return 으로 학습한다. 예전 policy 가 돌아가는 길로 다녔다면 그 return 은 지금
-        policy 의 실력을 잘못 잰다. 그래서 policy 가 바뀌면 새 policy 로 데이터를 다시 모은다. 메모리나 reward 유무는 이유가 아니다.
+        추정값 하나하나는 평균적으로 맞아도 여럿 가운데 큰 값을 고르면 위로 튄 잡음을 고르게 되어 평균이 진짜보다 커지고, 그 값이 target 을 거쳐 앞
+        state 의 Q 로 번진다. reward 는 environment 가 준 값을 그대로 기록한다. discount factor 는 0 과 1 사이로 둔다. 오래된 transition 을 지우는
+        것은 데이터 분포의 문제이지 큰 값을 고르는 쏠림의 원인이 아니다.
     - question: |
-        실물 로봇에서는 off-policy 방법이, simulator 에서는 on-policy 인 PPO 가 널리 쓰이는 이유로 맞는 것은?
+        면접관: "Double DQN 은 DQN 의 target 계산을 어떻게 바꿔 overestimation 을 줄이나요?"
       choices:
-        - 'simulator 에서는 off-policy 방법이 동작하지 않기 때문이다'
-        - '실물 로봇에는 reward 가 없기 때문이다'
-        - 'PPO 가 실물 로봇에서 더 sample efficiency 가 높기 때문이다'
-        - '실물 로봇은 step 하나가 실제 시간이라 비싸서 transition 을 여러 번 쓰는 off-policy 가 유리하고, simulator 는 환경 수천 개를 빠르게 돌려 step 이 싸기 때문이다'
+        - '다음 state 의 action 은 online network 로 고르고, 그 action 의 값은 target network 로 읽는다'
+        - 'network 를 두 배로 깊게 쌓는다'
+        - 'replay buffer 를 두 개 두고 번갈아 뽑는다'
+        - 'target 에 max 대신 모든 action 의 평균을 쓴다'
+      answer: 0
+      explanation: |
+        DQN 은 target network 하나로 가장 좋은 action 을 고르고 그 값까지 읽어서, 위로 튄 값을 고르고 그대로 쓴다. Double DQN 은 action 고르기를 online
+        network 에 맡기고 값 읽기를 target network 에 맡겨, 잡음이 서로 다르게 섞인 두 network 를 함께 쓴다. network 를 깊게 쌓는 것은 표현력을 바꿀 뿐이다.
+        buffer 를 둘 두는 것은 Double DQN 의 방법이 아니다. 모든 action 의 평균은 가장 좋은 action 의 값이 아니라서 Q-learning 의 target 이 되지
+        못한다.
+    - question: |
+        면접관: "TD3 와 SAC 가 critic 을 두 개 두고 target 에 두 값 가운데 작은 쪽을 쓰는 이유는 무엇인가요?"
+      choices:
+        - '두 critic 의 평균을 쓰면 계산이 더 오래 걸리기 때문이다'
+        - '작은 값을 써야 actor 가 action 을 더 크게 내기 때문이다'
+        - 'critic 하나는 actor 를, 다른 하나는 temperature 를 학습하기 때문이다'
+        - '잡음이 다르게 섞인 두 추정 가운데 작은 쪽을 쓰면 크게 잡는 쏠림이 줄고, 작게 잡은 값은 policy 가 찾아가지 않아 쌓이지 않기 때문이다'
       answer: 3
       explanation: |
-        같은 성능에 이르는 데 environment step 이 얼마나 적게 드는지가 sample efficiency 이고, 데이터를 버리지 않는 off-policy 가 이 점에서
-        유리하다. 실물에서 수백만 step 은 하루가 넘는 시간과 모터 마모, 사람의 손을 뜻한다. simulator 는 step 이 싸서 데이터를 버리며 새로
-        모으는 on-policy 의 약점이 덜 드러난다. off-policy 방법도 simulator 에서 잘 동작한다.
+        clipped double Q 는 처음 weight 가 다른 두 critic 의 작은 값을 써서 위로 튄 잡음이 target 에 들어가는 것을 막는다. 작게 잡는 쪽으로 틀린 값은
+        policy 가 일부러 찾아가지 않으므로 쏠림이 쌓이지 않는다. 평균과 최솟값의 계산 시간 차이는 이유가 되지 않는다. 작은 값을 쓰는 것과 action
+        의 크기 사이에는 관계가 없다. 두 critic 은 같은 target 쪽으로 똑같이 regression 하며, actor 와 temperature 는 각자의 loss 로 따로 학습한다.
 
 - topic: actor-critic
-  title: actor-critic 과 overestimation
+  title: 연속 action 과 actor-critic
   variants:
     - question: |
-        action 이 관절 토크처럼 연속된 숫자일 때 actor 와 critic 을 따로 두는 이유로 맞는 것은?
+        면접관: "action 이 관절 torque 처럼 연속된 숫자일 때 DQN 대신 actor 와 critic 을 따로 두는 이유는 무엇인가요?"
       choices:
-        - 'target 의 $\max_{a''} Q(s'', a'')$ 를 action 몇 개를 넣어 보는 것으로는 구하기 어려워, $Q$ 를 크게 만드는 action 을 바로 내는 actor 를 학습하고 critic 이 그 action 의 $Q$ 를 매기게 한다'
-        - 'critic 이 action 을 내고 actor 가 점수를 매긴다'
-        - '연속 action 에서는 $Q$ 를 정의할 수 없기 때문이다'
-        - 'network 를 두 개 쓰면 계산이 항상 더 빠르기 때문이다'
-      answer: 0
-      explanation: |
-        action 이 연속이면 가장 큰 $Q$ 를 찾으려고 값을 촘촘히 넣어 봐야 하고, 관절이 여럿이면 조합이 폭발한다. 그래서 state 를 받아 action 을
-        내는 actor 와, state·action 을 받아 $Q$ 하나를 내는 critic 을 함께 학습한다. critic 이 action 을 낸다는 설명은 역할이 뒤바뀐 것이다. 연속 action 에도 $Q$ 는
-        정의되며, network 가 둘이라 계산이 늘 빨라지는 것도 아니다.
-    - question: |
-        어떤 state 에서 critic 이 알려 준 비율 $\partial Q / \partial a$ 가 음수다. actor 는 이 state 의 action 을 어느 쪽으로 옮기는가?
-      choices:
-        - 'action 을 키운다'
-        - 'action 을 줄인다. $a$ 를 줄여야 $Q$ 가 커지기 때문이다'
-        - '움직이지 않는다'
-        - 'action 의 부호를 뒤집는다'
+        - 'critic 만으로는 reward 를 계산할 수 없기 때문이다'
+        - 'target 의 max 를 구하려면 action 을 촘촘히 넣어 봐야 하고 관절이 여럿이면 조합이 너무 많아서, Q 를 크게 하는 action 을 바로 내는 actor 를 따로 학습하기 때문이다'
+        - 'actor 를 두면 replay buffer 가 필요 없어지기 때문이다'
+        - '연속 action 에서는 discount factor 를 쓸 수 없기 때문이다'
       answer: 1
       explanation: |
-        actor 는 $Q$ 를 키워야 하므로 $a \leftarrow a + \eta\,\frac{\partial Q}{\partial a}$ 로 비율과 같은 쪽으로 간다. 비율이 음수라는 것은
-        $a$ 를 늘리면 $Q$ 가 줄어든다는 뜻이라, 반대로 $a$ 를 줄여야 $Q$ 가 커진다. loss 를 줄일 때 gradient 의 반대쪽으로 가던 것과 방향이
-        반대인 이유는 여기서는 값을 키우려 하기 때문이다. 부호를 뒤집는 것은 비율의 크기와 상관없는 엉뚱한 움직임이다.
+        관절 6 개에 값 5 개씩만 넣어도 조합이 $5^6 = 15{,}625$ 개라 target 마다 max 를 찾기 어렵다. 그래서 actor 가 action 을 내고 critic 은 그
+        action 의 Q 를 매기며, target 의 max 자리에 actor 가 낸 action 의 Q 를 쓴다. reward 는 environment 가 주므로 critic 이 계산할 필요가 없다.
+        DDPG·TD3·SAC 같은 actor-critic 도 replay buffer 를 쓴다. discount factor 는 action 이 연속이어도 똑같이 쓴다.
     - question: |
-        잡음이 섞인 $Q$ 추정값 가운데 가장 큰 값을 target 에 쓰면 생기는 문제와 그 대책으로 맞는 것은?
+        면접관: "어떤 state 에서 critic 으로 구한 비율 ∂Q/∂a 가 음수입니다. actor 는 이 state 의 action 을 어느 쪽으로 옮기나요?"
       choices:
-        - '값을 실제보다 작게 잡게 되므로, 두 critic 가운데 큰 값을 쓴다'
-        - '문제가 없다. 추정값 하나하나의 평균이 진짜와 같으므로 큰 값을 골라도 평균은 진짜와 같다'
-        - '마침 위로 튄 값을 고르는 경향이 있어 실제보다 크게 잡는 overestimation 이 생기고 쌓이므로, 따로 학습한 두 critic 가운데 작은 값을 target 에 쓴다'
-        - 'critic 을 없애고 reward 만 쓴다'
-      answer: 2
-      explanation: |
-        추정값 하나하나는 평균적으로 맞아도 여럿 가운데 큰 값을 고르면 위로 튄 잡음을 골라 평균이 진짜보다 커진다. 이 값이 target 에 들어가면
-        앞 state 의 $Q$ 도 커지며 쏠림이 쌓인다. 두 critic 의 작은 값은 조금 작게 잡힐 수 있지만 actor 가 일부러 찾아가지 않아 쌓이지 않는다.
-        이 방법이 clipped double Q 이고 TD3 와 SAC 가 쓴다.
-
-- topic: entropy-sac
-  title: entropy 와 SAC
-  variants:
-    - question: |
-        action 이 두 개(왼쪽, 오른쪽)인 policy 세 개가 있다. entropy 가 가장 큰 것은?
-      choices:
-        - '왼쪽 1, 오른쪽 0 으로 고르는 policy'
-        - '왼쪽 0.9, 오른쪽 0.1 로 고르는 policy'
-        - '셋 다 같다'
-        - '왼쪽 0.5, 오른쪽 0.5 로 고르는 policy'
+        - 'action 을 키운다. loss 를 줄일 때처럼 gradient 의 반대쪽으로 가야 하기 때문이다'
+        - '옮기지 않는다. 비율이 음수면 학습을 멈춘다'
+        - 'action 을 무작위로 바꾼다'
+        - 'action 을 줄인다. action 을 늘리면 Q 가 줄어드니 줄이는 쪽이 Q 를 키우는 쪽이다'
       answer: 3
       explanation: |
-        entropy 는 action 을 얼마나 고르게 섞는지를 재는 값으로, 확률이 고르게 퍼질수록 크다. 반반으로 섞으면 가장 크고, 한쪽으로 쏠릴수록
-        작아지며, 한 action 만 고르면 놀라운 결과가 전혀 없어 0 이다. 그래서 세 policy 의 entropy 는 서로 다르다.
+        actor 는 Q 를 키워야 하므로 $a \leftarrow a + \eta\,\partial Q / \partial a$ 처럼 비율과 같은 부호로 움직이고, 비율이 음수면 action 이
+        줄어든다. gradient 의 반대쪽으로 가는 것은 loss 를 줄일 때의 규칙이라, Q 를 키우는 actor 에 쓰면 Q 가 오히려 작아진다. 비율이 음수여도 0 이 아니면 Q 를 더 키울 방향이 있으므로 학습은 계속된다.
+        critic 에서 방향을 구할 수 있으니 무작위로 바꿀 이유가 없다.
     - question: |
-        SAC 는 reward 에 temperature $\alpha$ × entropy 를 더한 값을 키운다. 이렇게 하면 탐색이 어떻게 달라지는가?
+        면접관: "TD3 는 DDPG 의 critic 이 Q 를 크게 잡는 문제를 어떻게 고쳤나요?"
       choices:
-        - 'ε-greedy 처럼 모든 action 을 같은 확률로 무작위로 섞는다'
-        - '탐색을 policy 가 스스로 맡아, $Q$ 가 비슷한 action 은 자주 섞고 확실히 나쁜 action 은 드물게 고른다'
-        - '탐색을 완전히 없애 한 action 만 고른다'
-        - 'reward 와 상관없이 entropy 만 키운다'
-      answer: 1
-      explanation: |
-        entropy 를 쳐주면 거의 같은 $Q$ 를 가진 action 들을 섞는 쪽이 점수가 높아지지만, $Q$ 가 확실히 나쁜 action 은 그 손해를 entropy
-        bonus 로 메울 수 없어 드물게만 고른다. ε-greedy 의 무작위 선택은 좋은 action 과 나쁜 action 을 똑같이 다루는 점이 다르다. reward 와
-        entropy 를 함께 키우므로 entropy 만 보는 것도 아니고, 탐색을 없애는 것도 아니다.
-    - question: |
-        SAC 의 temperature 자동 조정에서 policy 의 entropy 가 목표값보다 낮으면 $\alpha$ 는 어떻게 바뀌는가?
-      choices:
-        - '$\alpha$ 가 커져, 다음 actor update 에서 entropy 를 더 쳐주어 policy 가 더 퍼지게 된다'
-        - '$\alpha$ 가 작아진다'
-        - '$\alpha$ 는 learning rate 라서 entropy 와 상관없다'
-        - '$\alpha$ 가 0 으로 고정된다'
+        - 'critic 을 둘 두고 작은 값을 target 에 쓰며, target 의 다음 action 에 작은 noise 를 더하고, actor 는 critic 을 두 번 고칠 때 한 번만 고친다'
+        - 'actor 를 없애고 action 을 촘촘히 넣어 max 를 직접 찾는다'
+        - 'reward 를 0 과 1 사이로 잘라 Q 가 커지지 못하게 한다'
+        - 'replay buffer 를 없애고 지금 policy 로 모은 데이터만 쓴다'
       answer: 0
       explanation: |
-        SAC 는 $\alpha \leftarrow \alpha - \eta(\mathcal H - \bar{\mathcal H})$ 로 고치므로, entropy 가 목표보다 낮으면 괄호가 음수라 $\alpha$
-        가 커진다. 그러면 entropy 를 더 쳐주는 쪽으로 actor 가 바뀌어 entropy 가 목표 근처로 모인다. 높으면 반대로 $\alpha$ 가 작아진다.
-        SAC 의 $\alpha$ 는 Q-learning 의 learning rate 와 같은 글자일 뿐 entropy 의 무게를 정하는 temperature 다.
+        TD3 는 clipped double Q, target policy smoothing, delayed policy update 세 가지로 DDPG 의 overestimation 과 불안정을 줄였다. actor 를 없애면
+        연속 action 의 max 문제가 다시 생긴다. reward 를 자르는 것은 TD3 가 쓴 방법이 아니다. TD3 는 DDPG 처럼 replay buffer 를 쓰는 off-policy
+        방법이다.
+
+- topic: sac-entropy
+  title: SAC 의 entropy bonus 와 temperature
+  variants:
+    - question: |
+        면접관: "SAC 가 reward 에 temperature α × entropy 를 더하면 policy 의 탐색은 어떻게 달라지나요?"
+      choices:
+        - 'Q 가 비슷한 action 들은 섞어 고르고 확실히 나쁜 action 은 드물게 골라서, 탐색을 별도 규칙 없이 policy 가 맡는다'
+        - '모든 action 을 항상 같은 확률로 고르게 된다'
+        - 'Q 가 가장 큰 action 하나만 고르게 되어 탐색이 사라진다'
+        - 'ε-greedy 와 똑같이 일정한 확률로 아무 action 이나 고른다'
+      answer: 0
+      explanation: |
+        entropy 를 쳐주면 Q 가 거의 같은 action 들을 섞는 쪽이 점수가 높지만, Q 가 확실히 나쁜 action 은 그 손해를 entropy bonus 로 메울 수 없어
+        드물게 고른다. 모든 action 을 같은 확률로 고르는 것은 α 가 아주 클 때의 극단이다. action 하나만 고르면 entropy 가 0 이라 bonus 를 받지
+        못하므로 α 가 0 보다 크면 그 policy 가 가장 좋지 않다. ε-greedy 는 Q 와 상관없이 무작위 action 을 고르지만 SAC 는 Q 에 따라 확률을 정한다.
+    - question: |
+        면접관: "SAC 의 temperature 자동 조정에서 지금 policy 의 entropy 가 목표값보다 낮으면 α 는 어떻게 바뀌나요?"
+      choices:
+        - '0 으로 고정된다'
+        - '목표와 상관없이 일정한 비율로 줄어든다'
+        - '커진다. entropy 를 더 쳐주어 policy 가 더 퍼지도록 한다'
+        - '작아진다. entropy 가 낮으면 탐색이 충분하다는 뜻이기 때문이다'
+      answer: 2
+      explanation: |
+        SAC 는 $\alpha \leftarrow \alpha - \eta(\mathcal H - \bar{\mathcal H})$ 로 고치므로 entropy 가 목표보다 낮으면 괄호가 음수라 α 가 커지고, 다음
+        actor update 에서 entropy 가 늘어 목표 쪽으로 돌아온다. α 를 0 으로 두면 entropy bonus 가 사라진다. 목표와 상관없이 줄이면 자동 조정이
+        아니다. entropy 가 낮다는 것은 policy 가 한 action 에 몰렸다는 뜻이라 탐색이 부족하다.
+    - question: |
+        면접관: "SAC 의 critic target 은 DQN 의 target 과 무엇이 다른가요?"
+      choices:
+        - 'reward 를 쓰지 않고 entropy 만으로 target 을 만든다'
+        - 'max 대신 지금 actor 가 다음 state 에서 뽑은 action 을 쓰고, target critic 두 개 가운데 작은 값을 쓰며, 그 action 의 −α log π 를 더한다'
+        - 'target network 없이 online critic 으로 target 을 계산한다'
+        - 'discount factor 를 쓰지 않는다'
+      answer: 1
+      explanation: |
+        SAC 의 target 은 $r + \gamma(1-d)\big(\min_i Q_{\bar\theta_i}(s', a') - \alpha \log \pi(a' \mid s')\big)$ 이고, $a'$ 은 지금 actor 에서 뽑는다.
+        reward 는 target 의 첫 항으로 그대로 들어간다. SAC 도 τ = 0.005 의 soft update 로 옮기는 target critic 을 쓴다. discount factor γ 도 DQN
+        과 똑같이 곱한다.
+
+- topic: off-policy-real-robot
+  title: off-policy 의 sample efficiency 와 실물 로봇
+  variants:
+    - question: |
+        면접관: "simulator 에서는 PPO 같은 on-policy 방법이 많이 쓰이는데, 실물 로봇에서는 SAC 계열 off-policy 방법을 많이 쓰는 이유는 무엇인가요?"
+      choices:
+        - 'off-policy 방법은 reward 가 필요 없기 때문이다'
+        - '실물 로봇은 action 이 항상 두 개뿐이기 때문이다'
+        - 'on-policy 방법은 neural network 를 쓸 수 없기 때문이다'
+        - '실물에서는 step 하나마다 실제 시간이 들어 비싼데, off-policy 는 예전 데이터를 버리지 않고 여러 번 다시 써서 sample efficiency 가 높기 때문이다'
+      answer: 3
+      explanation: |
+        simulator 는 환경 수천 개를 실제 시간보다 빨리 계산해 step 이 싸지만, 실물에서는 step 마다 시간이 흐르고 모터가 닳는다. off-policy 는
+        replay buffer 의 transition 을 여러 번 써서 같은 성능에 이르는 step 수가 적다. off-policy 방법도 reward 로 학습한다. 실물 로봇의 action 은
+        대개 연속된 숫자다. PPO 같은 on-policy 방법도 neural network 로 policy 를 계산한다.
+    - question: |
+        면접관: "사람이 조종해 모은 시연 transition 을 SAC 의 replay buffer 에 넣어 함께 학습해도 되나요?"
+      choices:
+        - '안 된다. 시연은 behavior cloning 에만 쓸 수 있다'
+        - '된다. SAC 는 off-policy 라서 target 이 transition 을 모은 policy 와 상관없이 계산되므로, 사람이 고른 action 의 transition 도 쓸 수 있다'
+        - '안 된다. 사람의 action 은 확률을 알 수 없어서 target 을 계산할 수 없다'
+        - '된다. 다만 시연 transition 은 reward 를 0 으로 바꿔 넣어야 한다'
+      answer: 1
+      explanation: |
+        SAC 의 target 은 다음 state 에서 지금 actor 가 뽑은 action 으로 계산하므로, buffer 의 action 을 누가 골랐는지 몰라도 된다. RLPD·SERL 은
+        실제로 batch 의 절반을 시연에서 뽑는다. 시연을 behavior cloning 에만 쓸 이유는 없다. 사람이 고른 action 의 확률은 target 에 들어가지 않는다.
+        시연 transition 의 reward 도 실제로 받은 값을 그대로 쓴다.
+    - question: |
+        면접관: "SERL 이나 HIL-SERL 이 실물 로봇에서 몇십 분 ~ 몇 시간 만에 학습하는 데 쓴 방법으로 맞지 않는 것은 무엇인가요?"
+      choices:
+        - 'batch 의 절반을 사람 시연 같은 미리 모은 데이터에서 뽑는다'
+        - '로봇을 움직이는 actor process 와 학습하는 learner process 를 나눈다'
+        - 'policy 를 고칠 때마다 replay buffer 를 비우고 지금 policy 로 데이터를 새로 모은다'
+        - 'environment step 하나마다 gradient update 를 여러 번 한다'
+      answer: 2
+      explanation: |
+        buffer 를 비우고 새로 모으는 것은 on-policy 방법의 방식이라 실물에서 데이터를 버리게 되므로, SERL 계열은 buffer 를 계속 쌓아 다시 쓴다.
+        batch 의 절반을 시연에서 뽑는 것은 SERL 이 쓰는 RLPD 의 방법이다. actor 와 learner 를 나눠 update 를 많이 하는 동안에도 로봇이 정해진
+        주기로 움직이게 한다. step 당 update 를 여러 번 하는 높은 UTD ratio 도 RLPD 의 방법이다.

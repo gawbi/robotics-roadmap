@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>1 초 동안의 시간표. 위 줄은 OpenVLA 로, 약 167 ms 마다 token 7 개를 하나씩 내서 1 초에 action 이 약 6 개 나온다. 아래 줄은 π0 로, 추론 한 번(약 73 ms)에 1 초 분량의 action 50 개가 한꺼번에 나오고 로봇은 20 ms 마다 하나씩 실행한다</title>
+  <title>1 초 동안의 시간표. 위 줄은 OpenVLA 로, 약 167 ms 마다 token 7 개를 하나씩 내서 1 초에 action 이 약 6 개 나온다. 가운데 줄은 50 Hz 로봇이 20 ms 마다 action 을 하나씩 받는 모습이다. 아래 줄은 π0 로, 추론 한 번(73 ms)에 1 초 분량의 action 50 개가 한꺼번에 나오고 로봇은 그 chunk 안의 action 을 20 ms 마다 하나씩 실행한다</title>
   <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="758" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="40.0" fill="#e2e8f0" font-size="15" text-anchor="start">1 초 동안 로봇이 받는 action</text>
@@ -162,7 +162,7 @@
   <line x1="707.6" y1="262.0" x2="707.6" y2="286.0" stroke="#34d399" stroke-width="2"/>
   <line x1="718.8" y1="262.0" x2="718.8" y2="286.0" stroke="#34d399" stroke-width="2"/>
   <line x1="730.0" y1="262.0" x2="730.0" y2="286.0" stroke="#34d399" stroke-width="2"/>
-  <text x="726.0" y="304.0" fill="#34d399" font-size="12" text-anchor="end">덩어리에서 20 ms 마다 하나씩 꺼낸다</text>
+  <text x="726.0" y="304.0" fill="#34d399" font-size="12" text-anchor="end">chunk 에서 20 ms 마다 하나씩 꺼낸다</text>
   <line x1="170.0" y1="322.0" x2="730.0" y2="322.0" stroke="#64748b" stroke-width="1"/>
   <line x1="170.0" y1="318.0" x2="170.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
   <line x1="310.0" y1="318.0" x2="310.0" y2="326.0" stroke="#64748b" stroke-width="1"/>
