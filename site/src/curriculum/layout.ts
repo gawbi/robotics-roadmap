@@ -575,8 +575,9 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
   const dividers = [...after.values()].map((a) => ({ from: turn({ x: 0, y: -outer }, a), to: turn({ x: 0, y: -reach }, a) }))
 
   // each tree's area is the wedge between the line before it and the line after it; its name is written large and faint
-  // like a background, among the tree's lessons (at the middle of their distances from the centre), kept inside the
-  // wedge and off the hub
+  // like a background, as near as it can to the middle of the tree's lessons (the middle of their distances from the
+  // centre) without covering a lesson, kept inside the wedge and off the hub; if no spot is free of lessons, it sits
+  // behind them at the nearest spot in the wedge
   const sectors: Sector[] = []
   const S = CONFIG.sector
   for (const [i, t] of around.entries()) {
@@ -595,18 +596,26 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
       }
       return Math.hypot(Math.max(Math.abs(x) - hw, 0), Math.max(Math.abs(y) - hh, 0)) >= outer + S.gap
     }
+    const bare = (x: number, y: number) =>
+      [...nodes.values()].every(
+        (n) =>
+          x + width / 2 + S.gap < n.x + n.box.left ||
+          x - width / 2 - S.gap > n.x + n.box.right ||
+          y + height / 2 + S.gap < n.y + n.box.top ||
+          y - height / 2 - S.gap > n.y + n.box.bottom,
+      )
     const dists = [...nodes.values()].filter((n) => n.tree === t.id).map((n) => Math.hypot(n.x, n.y)).sort((a, b) => a - b)
     const anchor = turn({ x: 0, y: -(dists[Math.floor(dists.length / 2)] ?? outer * 2) }, t.angle)
-    let spot = anchor
-    search: for (let r = 0; r <= S.searchRadius; r += S.searchStep) {
-      for (let a = 0; a < 360; a += r ? Math.max(5, (S.searchStep / r) * (180 / Math.PI)) : 360) {
-        const p = { x: anchor.x + r * Math.sin((a * Math.PI) / 180), y: anchor.y - r * Math.cos((a * Math.PI) / 180) }
-        if (fits(p.x, p.y)) {
-          spot = p
-          break search
+    const nearest = (ok: (x: number, y: number) => boolean) => {
+      for (let r = 0; r <= S.searchRadius; r += S.searchStep) {
+        for (let a = 0; a < 360; a += r ? Math.max(5, (S.searchStep / r) * (180 / Math.PI)) : 360) {
+          const p = { x: anchor.x + r * Math.sin((a * Math.PI) / 180), y: anchor.y - r * Math.cos((a * Math.PI) / 180) }
+          if (ok(p.x, p.y)) return p
         }
       }
+      return undefined
     }
+    const spot = nearest((x, y) => fits(x, y) && bare(x, y)) ?? nearest(fits) ?? anchor
     sectors.push({ tree: t.id, lines, ...spot, width, height, start, end: start + ((((end - start) % 360) + 360) % 360) })
   }
 

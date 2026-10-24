@@ -57,8 +57,8 @@ export const CONFIG = {
   },
 
   sector: {
-    charWidth: 41, // JetBrains Mono advance at the name's 56px, with its letter spacing
-    lineHeight: 64,
+    charWidth: 46, // JetBrains Mono advance at the name's 64px, with its letter spacing
+    lineHeight: 74,
     gap: 40, // least px between a tree's name and the hub
     angleGap: 3, // least degrees between a tree's name and the lines that mark off its area
     searchStep: 16, // px between the spots tried for a name, outward from the middle of its tree
