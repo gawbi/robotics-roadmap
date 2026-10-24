@@ -1,6 +1,8 @@
 # 강의 작성 안내
 
 강의를 고치거나 새로 쓸 때 지키는 규칙과, 강의를 읽어 지도를 그리는 사이트의 구조다. 공부하는 법은 [README](README.md) 에 있다.
+문장을 검수할 때 고치는 패턴은 [docs/korean-prose.md](docs/korean-prose.md), Claude Code 로 강의를 쓸 때의 작업 순서는
+[CLAUDE.md](CLAUDE.md) 에 있다.
 
 ## 강의 폴더와 frontmatter
 
@@ -86,8 +88,8 @@
 ## 지도 사이트
 
 `site/` 는 `lessons/` 의 frontmatter 와 퀴즈 기록을 읽어 선수 관계 지도를 그리는 Vite + React 앱이다. `npm run dev` 로
-띄우면 `site/quiz-server.ts` 가 퀴즈 답안을 채점해 `progress/<강의>.json` 에 쌓는다. 채점은 dev server 에서만
-돌아서 `npm run build` 결과물로는 지도와 강의를 읽을 수만 있고 퀴즈는 풀 수 없다.
+띄우면 `site/quiz-server.ts` 가 퀴즈 답안을 채점해 `progress/<강의>.json` 에 쌓는다. `npm run build` 결과물(예시 사이트)에는
+dev server 가 없어서 페이지 안에서 채점하고, 결과는 새로고침하면 사라진다.
 
 dev server 는 시작할 때 `site/update-server.ts` 로 원본 리포를 `upstream` remote 에 받아 와(없으면 remote 를 더한다) fork 가 몇 커밋
 뒤처졌는지 확인하고, 화면이 업데이트할지 물은 뒤 `git merge upstream/main` 으로 합친다. 상태 변화는 Vite 의 WebSocket 으로 화면에
