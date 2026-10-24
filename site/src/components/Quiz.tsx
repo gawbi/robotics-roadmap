@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { hasQuiz, loadBank } from '../curriculum/load'
 import { progress } from '../curriculum/progress'
-import { clearedAt, parseBank, passed, pickVariants, wrongTopics, type Attempt, type Pick, type Topic } from '../curriculum/quiz'
+import { clearedAt, grade, parseBank, passed, pickVariants, wrongTopics, type Attempt, type Pick, type Topic } from '../curriculum/quiz'
 import { Markdown } from './Markdown'
 
 const url = (id: string) => `${CONFIG.quiz.endpoint}/${id}`
@@ -42,16 +42,15 @@ export function QuizSection({ lessonId, title, attempts }: { lessonId: string; t
           마지막 응시 {last.date} · {score(last)} 정답{wrong > 0 && ` · 남은 문항 ${wrong}개`}
         </p>
       )}
-      {import.meta.env.DEV ? (
-        <button type="button" className="primary-button quiz-start" onClick={() => setOpen(true)}>
-          {!last ? '퀴즈 풀기' : wrong > 0 ? `틀린 문제 다시 풀기 (${wrong}문항)` : '처음부터 다시 풀기'}
-        </button>
-      ) : (
+      {!import.meta.env.DEV && (
         <p className="quiz-card-text">
-          답안은 리포에 저장되므로 로컬에서 띄운 지도에서만 풀 수 있습니다. 리포의 <code>site/</code> 에서{' '}
+          이 사이트에서는 풀어 볼 수만 있고 결과는 새로고침하면 사라집니다. 기록을 남기려면 리포를 fork 해 <code>site/</code> 에서{' '}
           <code>npm run dev</code> 로 띄웁니다.
         </p>
       )}
+      <button type="button" className="primary-button quiz-start" onClick={() => setOpen(true)}>
+        {!last ? '퀴즈 풀기' : wrong > 0 ? `틀린 문제 다시 풀기 (${wrong}문항)` : '처음부터 다시 풀기'}
+      </button>
       {open && (
         <QuizDialog
           key={run}
@@ -124,6 +123,13 @@ function QuizDialog({ lessonId, title, attempts: opened, onClose, onSubmitted, o
     setSending(true)
     setError(null)
     try {
+      // a built site has no dev server: grade in the page and keep the result only until reload
+      if (!import.meta.env.DEV) {
+        const attempt: Attempt = { date: new Date().toISOString().slice(0, 10), answers: grade(bank!, picks, choices as number[]) }
+        setResult(attempt)
+        onSubmitted(attempt)
+        return
+      }
       const attempt = await request<Attempt>(lessonId, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -271,6 +277,7 @@ function Results({
             : '모두 맞혔습니다.'
           : `틀린 문항이 ${wrong}개입니다. 아래 해설을 읽은 뒤 "틀린 문제 다시 풀기" 를 누르면 그 ${wrong}문항만 같은 원리의 다른 문항으로 다시 묻습니다.`}
       </p>
+
       <ol className="quiz-review">
         {attempt.answers.map((a) => {
           const topic = bank.find((t) => t.topic === a.topic)!

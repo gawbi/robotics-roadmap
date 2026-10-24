@@ -11,7 +11,7 @@
 [![Node](https://img.shields.io/badge/node-%E2%89%A520.19-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![GitHub stars](https://img.shields.io/github/stars/woolimi/robotics-roadmap?style=social)](https://github.com/woolimi/robotics-roadmap/stargazers)
 
-[설치와 실행](#설치와-실행) · [커리큘럼](#커리큘럼) · [강의와 퀴즈](#강의와-퀴즈) · [기여](#기여) · [라이선스](#라이선스)
+[예시 사이트](https://woolimi.github.io/robotics-roadmap/) · [설치와 실행](#설치와-실행) · [커리큘럼](#커리큘럼) · [강의와 퀴즈](#강의와-퀴즈) · [기여](#기여) · [라이선스](#라이선스)
 
 <img src="docs/tour.gif" alt="커리큘럼 지도에서 강의 원을 눌러 선수·후속 강의가 강조되고, 오른쪽 창에 강의 본문이 열리는 모습" width="960">
 
@@ -35,6 +35,9 @@ manipulation, mobile robot·자율주행 세 직무 방향으로 나아갑니다
 - **업데이트 알림**: 원본 리포에 새 강의가 올라오면 지도 화면에서 업데이트할지 묻고, 버튼 하나로 내 fork 에 합칩니다.
 
 ## 설치와 실행
+
+설치하기 전에 [예시 사이트](https://woolimi.github.io/robotics-roadmap/)에서 지도와 강의를 둘러보고 퀴즈를 풀어 볼 수 있습니다. 예시
+사이트의 퀴즈 결과는 새로고침하면 사라지므로, 진행 기록을 남기려면 아래처럼 내 fork 를 띄워서 씁니다.
 
 [Node.js](https://nodejs.org/) 20.19 이상(또는 22.12 이상)과 git 이 필요합니다. 퀴즈 기록을 내 GitHub 에 남길 수 있도록 fork 해서 씁니다.
 
