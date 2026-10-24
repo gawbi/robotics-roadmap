@@ -29,7 +29,7 @@
   <text x="495.0" y="138.6" fill="#34d399" font-size="13" text-anchor="middle">bites 출력 [0.577, 0.844]</text>
   <text x="495.0" y="184.0" fill="#f87171" font-size="12" text-anchor="middle">두 문장의 출력이 같다</text>
   <line x1="20.0" y1="200.0" x2="600.0" y2="200.0" stroke="#1e293b" stroke-width="1"/>
-  <text x="20.0" y="226.0" fill="#e2e8f0" font-size="15" text-anchor="start">위치 vector 를 더하면 (2차원: [sin(pos), cos(pos)])</text>
+  <text x="20.0" y="226.0" fill="#e2e8f0" font-size="15" text-anchor="start">위치 vector 를 더한 dog (2차원: [sin(pos), cos(pos)])</text>
   <text x="30.0" y="265.0" fill="#f59e0b" font-size="13" text-anchor="start">dog bites man 의 dog</text>
   <text x="205.0" y="265.0" fill="#94a3b8" font-size="12" text-anchor="start">pos 0</text>
   <rect x="255.0" y="244.0" width="200.0" height="32.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>

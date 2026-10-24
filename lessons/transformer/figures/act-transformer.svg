@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ACT 의 Transformer. token 1,202 개가 encoder 4 층을 지나고, decoder 는 query 100 개로 encoder 출력을 읽은 뒤 linear layer 로 100 × 14 관절 목표값을 만든다</title>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker></defs>
+  <rect x="1" y="1" width="678" height="498" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="160.0" y="150" fill="#38bdf8" font-size="15" text-anchor="middle">encoder</text>
+  <text x="520.0" y="27" fill="#f59e0b" font-size="15" text-anchor="middle">decoder</text>
+  <rect x="40" y="416" width="132" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="106.0" y="436.7" fill="#e2e8f0" font-size="13" text-anchor="middle">사진 구역 1,200</text>
+  <text x="106.0" y="454.7" fill="#94a3b8" font-size="12" text-anchor="middle">카메라 4 대 × 300</text>
+  <rect x="180" y="416" width="48" height="50" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="204.0" y="436.8" fill="#a78bfa" font-size="12" text-anchor="middle">관절</text>
+  <text x="204.0" y="453.8" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <rect x="234" y="416" width="46" height="50" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="257.0" y="436.8" fill="#a78bfa" font-size="12" text-anchor="middle">z</text>
+  <text x="257.0" y="453.8" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+  <text x="160.0" y="402" fill="#e2e8f0" font-size="12" text-anchor="middle">token 1,202 개 × 512</text>
+  <line x1="160.0" y1="388" x2="160.0" y2="348" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="40" y="256" width="240" height="90" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="160.0" y="287.7" fill="#e2e8f0" font-size="13" text-anchor="middle">self-attention → FFN</text>
+  <text x="160.0" y="305.7" fill="#94a3b8" font-size="12" text-anchor="middle">residual · LayerNorm</text>
+  <text x="160.0" y="323.7" fill="#94a3b8" font-size="12" text-anchor="middle">× 4 층</text>
+  <line x1="160.0" y1="256" x2="160.0" y2="216" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="40" y="170" width="240" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="160.0" y="196.7" fill="#38bdf8" font-size="13" text-anchor="middle">512 차원 vector 1,202 개</text>
+  <rect x="400" y="416" width="240" height="50" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="520.0" y="436.7" fill="#f59e0b" font-size="13" text-anchor="middle">query 100 개</text>
+  <text x="520.0" y="454.7" fill="#94a3b8" font-size="12" text-anchor="middle">step 1, 2, …, 100 마다 하나</text>
+  <line x1="520.0" y1="416" x2="520.0" y2="368" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="400" y="226" width="240" height="140" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="420" y="320" width="200" height="32" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="520.0" y="340.3" fill="#e2e8f0" font-size="12" text-anchor="middle">self-attention (mask 없음)</text>
+  <rect x="420" y="278" width="200" height="32" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520.0" y="298.3" fill="#34d399" font-size="12" text-anchor="middle">cross-attention</text>
+  <rect x="420" y="236" width="200" height="32" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="520.0" y="256.3" fill="#e2e8f0" font-size="12" text-anchor="middle">FFN</text>
+  <text x="634" y="382" fill="#94a3b8" font-size="12" text-anchor="end">× 7 층 (논문 표)</text>
+  <line x1="520.0" y1="226" x2="520.0" y2="196" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="400" y="152" width="240" height="42" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="520.0" y="177.7" fill="#f59e0b" font-size="13" text-anchor="middle">512 차원 vector 100 개</text>
+  <line x1="520.0" y1="152" x2="520.0" y2="130" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="400" y="92" width="240" height="36" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="520.0" y="114.3" fill="#e2e8f0" font-size="12" text-anchor="middle">linear layer 512 → 14</text>
+  <line x1="520.0" y1="92" x2="520.0" y2="76" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
+  <rect x="400" y="40" width="240" height="34" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520.0" y="61.7" fill="#34d399" font-size="13" text-anchor="middle">action chunk 100 × 14</text>
+  <path d="M280,192 H340.0 V294 H418" fill="none" stroke="#34d399" stroke-width="2" marker-end="url(#a34d399)"/>
+  <text x="340.0" y="184" fill="#34d399" font-size="12" text-anchor="middle">key, value</text>
+</svg>

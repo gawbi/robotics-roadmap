@@ -2,323 +2,330 @@
 # answer 는 choices 의 0부터 센 번호다.
 
 - topic: embedding
-  title: token id 에서 vector 로, embedding
+  title: token id 와 embedding
   variants:
     - question: |
-        Transformer 가 token id 를 그대로 입력 숫자로 쓰지 않고 embedding 표에서 vector 를 꺼내 쓰는 까닭은?
+        면접관: "Transformer 가 token id 를 그대로 입력 숫자로 쓰지 않고 embedding 표에서 vector 를 꺼내 쓰는 이유는 무엇인가요?"
       choices:
-        - 'token id 는 너무 큰 숫자라서 메모리에 담을 수 없기 때문에'
-        - 'token id 는 정수라서 곱셈·덧셈을 할 수 없기 때문에'
-        - 'token id 는 vocabulary 에 넣은 차례일 뿐 크기에 뜻이 없는데, 그대로 곱하면 의미 없는 크기 차이가 계산에 들어가기 때문에'
-        - 'vector 가 token id 보다 짧아서 계산이 줄기 때문에'
+        - 'token id 는 정수라서 GPU 가 곱셈과 덧셈을 할 수 없기 때문이다'
+        - 'token id 는 너무 큰 숫자라서 float32 에 담을 수 없기 때문이다'
+        - 'token id 는 vocabulary 에 넣은 차례일 뿐이라 크기에 뜻이 없는데, 그대로 곱하면 의미 없는 크기 차이가 계산에 들어가기 때문이다'
+        - 'vector 가 token id 보다 짧아서 계산량이 줄기 때문이다'
       answer: 2
       explanation: |
-        id 가 2 와 3 인 두 token 은 id 가 가까워 보여도 뜻이 가까운 것이 아니고, 한쪽이 1.5 배인 것도 아무 의미가 없다. 그런
-        숫자에 weight 를 곱하면 엉뚱한 크기 차이가 계산에 섞인다. 정수도 곱하고 더할 수 있고, 메모리 문제도 아니며, vector 는
-        숫자 하나인 id 보다 오히려 길다.
+        id 가 2 와 3 인 두 token 은 번호가 가까워도 뜻이 가까운 것이 아니고, 3 이 2 의 1.5 배라는 것도 아무 의미가 없다. 이런 숫자에 weight
+        를 곱하면 엉뚱한 크기 차이가 계산에 섞이므로, token 마다 학습되는 vector 를 따로 둔다. 정수도 GPU 에서 곱하고 더할 수 있으니 첫째 보기는
+        틀리다. vocabulary 가 수만 개여도 id 는 float32 에 충분히 담기므로 둘째 보기도 틀리다. vector 는 숫자 하나인 id 보다 오히려 길어서 넷째
+        보기도 틀리다.
     - question: |
-        embedding 표에 든 숫자들은 어떻게 정해지는가?
+        면접관: "embedding 표의 숫자는 어떻게 정해지나요?"
       choices:
-        - '처음에는 무작위 값으로 채우고, 학습하면서 loss 가 줄어드는 쪽으로 고쳐 나가는 parameter 다'
+        - '무작위 값에서 시작해 loss 가 줄어드는 쪽으로 학습하면서 고쳐 나가는 parameter 다'
         - '사람이 단어의 뜻을 보고 칸마다 값을 정해 넣는다'
-        - 'tokenizer 가 BPE 학습을 할 때 함께 정한다'
+        - 'tokenizer 가 BPE 학습을 할 때 vocabulary 와 함께 정한다'
         - 'token id 를 이진수로 바꾼 값을 그대로 쓴다'
       answer: 0
       explanation: |
-        embedding 표의 숫자는 처음에 무작위 값으로 채운 뒤 weight 처럼 loss 가 줄어드는 쪽으로 고쳐 나가는 parameter 라서,
-        칸마다의 뜻도 사람이 읽을 수 있게 정해지지 않는다. 강의의 2차원 표는 계산을 따라가기 쉽도록 사람이 정한 예시일 뿐이고,
-        실제 모델에서는 사람이 값을 넣지 않는다. tokenizer 는 text 와 id 를 오갈 뿐 vector 를 만들지 않는다. id 를 이진수로
-        바꾸면 id 의 의미 없는 크기 정보가 그대로 남는다.
+        embedding 표는 다른 weight 처럼 학습되는 parameter 다. 비슷한 자리에 나오는 token 은 loss 를 줄이는 방향도 비슷해서 행이 비슷하게
+        고쳐지고, 학습이 끝나면 두 vector 가 가까워진다. 사람이 값을 정해 넣지 않으므로 둘째 보기는 틀리다. tokenizer 는 text 와 id 를 오갈
+        뿐 vector 를 만들지 않으므로 셋째 보기도 틀리다. id 를 이진수로 바꾸면 id 의 의미 없는 크기 정보가 그대로 남으므로 넷째 보기도 틀리다.
     - question: |
-        "배를 먹었다" 와 "배를 탔다" 에서 token "배" 가 embedding 표에서 꺼내는 vector 는 어떤가?
+        면접관: "'배를 먹었다' 와 '배를 탔다' 에서 token '배' 가 embedding 표에서 꺼내는 vector 는 같나요, 다른가요?"
       choices:
         - '다르다. embedding 표가 뒤에 오는 동사를 보고 다른 행을 꺼낸다'
-        - '다르다. 문장 길이에 따라 다른 표를 쓴다'
-        - '다르다. 과일과 탈것은 vocabulary 에 따로 들어 있기 때문이다'
-        - '같다. embedding 은 id 로 행을 꺼낼 뿐이고, 문맥에 따라 뜻을 고치는 일은 attention 이 한다'
+        - '다르다. 문장 길이에 따라 다른 embedding 표를 쓴다'
+        - '다르다. 과일과 탈것이 vocabulary 에 따로 들어 있다'
+        - '같다. embedding 은 id 로 행을 꺼낼 뿐이고, 문맥에 따라 vector 를 고치는 일은 attention 이 한다'
       answer: 3
       explanation: |
-        두 문장의 "배" 는 token id 가 같으므로 표에서 같은 행을 꺼낸다. embedding 은 주변 token 을 보지 않는다. 과일인지
-        탈것인지는 attention 이 "먹었다" 나 "탔다" 를 참고해 vector 를 고치면서 정해진다. 같은 글자는 vocabulary 에 하나만
-        있고, 문장 길이에 따라 표가 바뀌지도 않는다.
+        두 문장의 "배" 는 token id 가 같으므로 표에서 같은 행을 꺼낸다. 과일인지 탈것인지는 attention 이 "먹었다" 나 "탔다" 의 정보를 섞어
+        vector 를 고치면서 정해진다. embedding 은 주변 token 을 보지 않으므로 첫째 보기는 틀리다. 표는 문장 길이와 상관없이 하나이므로 둘째
+        보기도 틀리다. 같은 글자의 token 은 vocabulary 에 하나만 있으므로 셋째 보기도 틀리다.
 
-- topic: softmax
-  title: 점수를 합이 1 인 비율로, softmax
+- topic: query-key-value
+  title: query·key·value 와 self-attention
   variants:
     - question: |
-        attention 에서 관련도 점수를 비율로 바꿀 때, 점수를 그 합으로 나누지 않고 softmax 를 쓰는 까닭은?
+        면접관: "self-attention 에서 token 하나의 출력은 어떻게 계산되나요?"
       choices:
-        - '합으로 나누는 것보다 계산이 빠르기 때문에'
-        - '점수에는 음수도 있어서 합으로 나누면 음수 비율이 나오거나 0 으로 나누게 되므로, 먼저 모두 양수로 바꾸되 순서를 지키려고'
-        - '가장 큰 점수만 1 로, 나머지는 모두 0 으로 만들려고'
-        - '점수의 합을 0 으로 맞추려고'
+        - '모든 token 의 value 를 똑같은 비율로 평균한 값이다'
+        - '자기 query 와 각 token 의 key 의 dot product 를 softmax 한 weight 로, 각 token 의 value 를 가중 평균한 값이다'
+        - '점수가 가장 큰 token 하나의 value 를 그대로 가져온 값이다'
+        - '자기 query 와 key 를 더한 vector 다'
       answer: 1
       explanation: |
-        비율은 모두 0 이상이고 합이 1 이어야 한다. 점수에 음수가 섞이면 합으로 나눈 값이 음수가 되거나 합이 0 이라 나눌 수 없다.
-        softmax 는 $e^{s}$ 로 모든 점수를 양수로 바꾸되 큰 점수는 큰 양수로 바꿔 순서를 지킨 뒤 합으로 나눈다. 가장 큰 점수만
-        남기는 것은 softmax 가 아니고, 합은 0 이 아니라 1 로 맞춘다.
+        query·key 의 dot product 가 관련도 점수가 되고, 점수를 softmax 한 weight 로 value 들을 가중 평균한 값이 출력이다. 같은 비율로 평균하면
+        token 마다 다른 정보를 골라 모을 수 없으므로 첫째 보기는 틀리다. softmax 는 가장 큰 점수에 가장 큰 weight 를 줄 뿐 나머지도 0 이 아닌
+        몫을 받으므로 셋째 보기도 틀리다. query 와 key 는 점수를 매기는 데만 쓰이고 출력은 value 로 만들므로 넷째 보기도 틀리다.
     - question: |
-        softmax 에 넣는 점수 모두에 똑같이 10 을 더하면 softmax 결과(weight)는 어떻게 될까?
+        면접관: "embedding 하나로 점수를 매기고 내용도 넘기면 될 텐데, 굳이 query·key·value 세 vector 로 나누는 이유는 무엇인가요?"
       choices:
-        - '모든 weight 가 커진다'
-        - '가장 큰 점수 쪽으로 더 쏠린다'
-        - '모든 weight 가 똑같아진다'
-        - '변하지 않는다'
+        - 'vector 를 세 개로 늘리면 parameter 수가 줄어들기 때문이다'
+        - 'token 의 순서 정보를 query·key·value 가 나눠 담기 때문이다'
+        - 'softmax 가 vector 세 개를 입력으로 받아야 계산되기 때문이다'
+        - '찾는 기준, 남에게 보여 주는 표지, 넘겨주는 내용을 서로 다른 행렬로 만들어야 자기 자신과의 점수가 저절로 커지지 않고 다양한 관계를 담을 수 있기 때문이다'
       answer: 3
       explanation: |
-        softmax 는 점수끼리의 차이로 weight 를 정한다. 모두에 같은 수를 더하면 $e^{s}$ 가 모두 같은 배수로 커지고, 합으로 나눌
-        때 그 배수가 지워져 weight 가 그대로다. weight 합은 언제나 1 이라 모두 커질 수 없고, 차이가 그대로이므로 쏠림 정도도
-        변하지 않는다.
+        embedding 을 그대로 쓰면 자기 자신과의 dot product 가 칸마다 제곱의 합이라 크게 나오기 쉽다. 게다가 vector 하나가 세 역할을 한꺼번에
+        맡는다. $W_Q$, $W_K$, $W_V$ 를 따로 두면 "동작" token 의 query 가 "물건" token 의 key 와 잘 맞는 관계를 학습할 수 있다. 행렬이 세 개라
+        parameter 는 오히려 늘어나므로 첫째 보기는 틀리다. 순서 정보는 positional encoding 이 맡으므로 둘째 보기도 틀리다. softmax 는 점수 한 줄을
+        받는 계산이므로 셋째 보기도 틀리다.
     - question: |
-        softmax 결과에 대한 설명으로 옳은 것은?
+        면접관: "self-attention 에서 token 이 1,000 개에서 2,000 개로 늘면 점수 표를 계산하는 양은 어떻게 되나요?"
       choices:
-        - '모든 값이 0 이상이고 합이 1 이며, 점수가 큰 쪽이 더 큰 값을 받는다'
-        - '가장 큰 점수만 1 이고 나머지는 모두 0 이다'
-        - '음수 점수를 받은 쪽은 음수 값을 받는다'
-        - '값의 합이 원래 점수의 합과 같다'
+        - '약 4 배가 된다. 모든 token 쌍의 점수를 매기므로 점수 표의 칸 수가 token 수의 제곱이다'
+        - '약 2 배가 된다. token 마다 점수를 하나씩 매긴다'
+        - '변하지 않는다. head 수가 그대로이기 때문이다'
+        - '절반이 된다. token 이 많을수록 weight 가 작아진다'
       answer: 0
       explanation: |
-        softmax 는 점수를 양수로 바꾼 뒤 합으로 나누므로 모든 값이 0 보다 크고 합이 1 이며, 점수의 순서도 지킨다. 가장 큰
-        점수만 남기는 것은 "가장 큰 것 고르기" 이고, 음수 점수도 $e^{s}$ 를 거쳐 작은 양수가 된다. 합은 점수의 합이 아니라
-        언제나 1 이다.
-
-- topic: attention
-  title: query·key·value 의 역할과 attention 출력
-  variants:
-    - question: |
-        attention 에서 한 token 의 출력은 무엇인가?
-      choices:
-        - 'weight 가 가장 큰 token 의 value 하나를 그대로 복사한 것'
-        - '점수들을 모두 더한 숫자 하나'
-        - 'softmax 로 만든 weight 로 모든 token 의 value 를 가중 평균한 vector'
-        - '자기 query 와 key 를 이어 붙인 vector'
-      answer: 2
-      explanation: |
-        attention 은 가장 잘 맞는 token 하나만 고르지 않고, 맞는 정도(weight)만큼 모든 value 를 섞는다. 그래서 출력은 value 와
-        같은 길이의 vector 다. 점수는 weight 를 만드는 데 쓰일 뿐 출력이 아니고, query·key 는 점수를 매기는 데만 쓴다.
-    - question: |
-        embedding 하나를 그대로 써서 점수도 매기고 내용도 넘기지 않고, query·key·value 세 vector 로 나누는 까닭은?
-      choices:
-        - '계산을 세 배 빠르게 하려고'
-        - '찾는 기준·보여 주는 표지·넘기는 내용이 한 vector 면 token 이 자기 자신과 점수가 커지기 쉽고, "동작이 물건을 찾는" 것 같은 관계를 담기 어렵기 때문에'
-        - 'vector 길이를 줄여 메모리를 아끼려고'
-        - '서로 다른 세 문장을 동시에 처리하려고'
-      answer: 1
-      explanation: |
-        같은 vector 끼리의 dot product 는 칸마다 제곱을 더한 값이라 크게 나오기 쉬워서, 각 token 이 자기 자신만 많이 보게 된다.
-        또 "집어" 처럼 물건을 찾아야 하는 token 은 찾는 것(query)과 자기를 보여 주는 것(key)이 달라야 한다. 행렬을 세 번
-        곱하므로 계산은 오히려 늘고, 메모리나 문장 수와는 관계없다.
-    - question: |
-        token $i$ 가 token $j$ 에서 정보를 얼마나 가져올지 정하는 점수와, 실제로 가져오는 내용은 각각 무엇인가?
-      choices:
-        - '점수는 $\mathbf{q}_i \cdot \mathbf{q}_j$, 내용은 $\mathbf{k}_j$'
-        - '점수는 $\mathbf{v}_i \cdot \mathbf{v}_j$, 내용은 $\mathbf{q}_j$'
-        - '점수는 $\mathbf{k}_i \cdot \mathbf{v}_j$, 내용은 $\mathbf{k}_j$'
-        - '점수는 $\mathbf{q}_i \cdot \mathbf{k}_j$, 내용은 $\mathbf{v}_j$'
-      answer: 3
-      explanation: |
-        query 는 token $i$ 가 찾는 것, key 는 token $j$ 가 보여 주는 표지라서 둘의 dot product 가 관련도 점수다. 점수로 weight
-        를 정한 뒤 가져오는 것은 token $j$ 의 value 다. 나머지 보기는 세 역할을 뒤섞었다.
+        점수 표는 query 수 × key 수라서 token 이 $n$ 개면 $n^2$ 칸이다. 1,000 개면 100 만 칸이고 2,000 개면 400 만 칸이라 약 4 배다. token 하나가
+        다른 모든 token 과 점수를 매기므로 token 마다 하나라는 둘째 보기는 틀리다. head 수와 상관없이 칸 수가 token 수로 정해지므로 셋째 보기도
+        틀리다. weight 가 작아져도 계산해야 할 칸 수는 줄지 않으므로 넷째 보기도 틀리다.
 
 - topic: scaling
-  title: √d 로 나누는 scaling
+  title: √d_k 로 나누는 scaling
   variants:
     - question: |
-        attention 점수를 query·key 의 차원 $d_k$ 의 제곱근 $\sqrt{d_k}$ 로 나누는 까닭은?
+        면접관: "scaled dot-product attention 에서 점수를 $\sqrt{d_k}$ 로 나누는 이유는 무엇인가요?"
       choices:
-        - '차원이 크면 점수가 커져 softmax 가 한 token 에 쏠리고, 그러면 gradient 가 거의 0 이 되어 학습이 막히기 때문에'
-        - '점수에서 음수를 없애려고'
-        - 'weight 의 합을 1 로 맞추려고'
-        - '계산량을 줄이려고'
-      answer: 0
-      explanation: |
-        dot product 는 칸 $d_k$ 개의 곱을 더한 값이라 차원이 크면 점수의 크기가 대략 $\sqrt{d_k}$ 로 자란다. 점수가 크면 softmax
-        가 거의 한 token 에 몰리고, 그 상태에서는 점수를 바꿔도 weight 가 거의 움직이지 않는다. 나눗셈은 음수를 없애지 않고, 합
-        1 은 softmax 가 이미 맞추며, 계산량은 그대로다.
-    - question: |
-        점수를 $\sqrt{d_k}$ 로 나누면 가장 큰 점수를 받던 token 은 어떻게 되는가?
-      choices:
-        - '점수가 작아져 순위가 밀려나고, 다른 token 이 가장 큰 weight 를 받는다'
-        - '모든 token 의 weight 가 똑같아진다'
-        - '점수의 순서는 그대로라 여전히 가장 큰 weight 를 받고, 쏠림의 정도만 줄어든다'
-        - '음수 점수가 양수로 바뀌어 순서가 뒤집힌다'
-      answer: 2
-      explanation: |
-        모든 점수를 같은 양수로 나누므로 크기 순서는 바뀌지 않는다. 바뀌는 것은 점수 사이의 간격이라서, weight 가 한 token 에
-        덜 몰린다. 순위가 밀리지 않고, 간격이 줄 뿐 0 이 되지 않아 weight 가 같아지지도 않으며, 양수로 나눠도 부호는 그대로다.
-    - question: |
-        softmax weight 가 $[0.9997, 0.0003, 0.0000]$ 처럼 한 token 에 거의 다 몰려 있다. 이때 점수를 조금 바꾸면 학습에
-        어떤 일이 생길까?
-      choices:
-        - 'weight 가 크게 흔들려 학습이 발산한다'
-        - 'weight 가 거의 움직이지 않아 gradient 가 0 에 가깝고, 모델이 다른 token 을 보는 법을 배우지 못한다'
-        - '모델이 이미 확신하고 있으므로 학습이 더 빨라진다'
-        - '점수를 바꾸는 크기와 상관없이 weight 가 늘 같은 만큼 변한다'
+        - '점수를 모두 양수로 만들기 위해서다'
+        - 'query·key 의 차원 $d_k$ 가 크면 dot product 가 커져 softmax 가 한 token 에 쏠리고 gradient 가 0 에 가까워지는데, 이를 막기 위해서다'
+        - 'weight 의 합을 1 로 맞추기 위해서다'
+        - '계산량을 $\sqrt{d_k}$ 배로 줄이기 위해서다'
       answer: 1
       explanation: |
-        softmax 가 한쪽에 쏠린 영역에서는 점수를 바꿔도 weight 가 거의 변하지 않는다. 학습은 이 변화량, 곧 gradient 를 보고
-        parameter 를 고치므로, gradient 가 거의 0 이면 처음 쏠린 곳에 머문다. 발산하거나 빨라지는 것이 아니라 멈추는 쪽이고,
-        weight 의 변화량은 점수의 크기 영역에 따라 달라진다.
+        칸이 평균 0, 분산 1 인 query·key 의 dot product 는 분산이 $d_k$ 라서 크기가 $\sqrt{d_k}$ 정도로 자란다. 점수가 크면 softmax 가 거의 한
+        token 에만 weight 를 주고, 점수를 조금 바꿔도 weight 가 거의 움직이지 않아 학습이 멈춘다. 같은 양수로 나누는 것은 부호를 바꾸지 않으므로
+        첫째 보기는 틀리다. 합을 1 로 맞추는 것은 softmax 의 일이므로 셋째 보기도 틀리다. 나눗셈 한 번은 계산량을 줄이지 않으므로 넷째 보기도 틀리다.
+    - question: |
+        면접관: "attention 점수를 $\sqrt{d_k}$ 로 나누면, 원래 가장 큰 점수를 받던 token 은 어떻게 되나요?"
+      choices:
+        - '가장 작은 weight 를 받게 된다'
+        - '모든 token 과 같은 weight 를 받게 된다'
+        - 'weight 가 0 이 된다'
+        - '여전히 가장 큰 weight 를 받지만, 다른 token 과의 차이가 줄어 쏠림이 덜해진다'
+      answer: 3
+      explanation: |
+        모든 점수를 같은 양수로 나누므로 점수의 순서는 그대로이고, 가장 큰 점수의 token 이 여전히 가장 큰 weight 를 받는다. 바뀌는 것은 점수
+        사이의 차이라서 weight 가 덜 쏠린다. 순서가 뒤집히지 않으므로 첫째 보기는 틀리다. 점수 차이가 줄어들 뿐 0 이 되지는 않으므로 둘째 보기도
+        틀리다. softmax 의 weight 는 0 이 되지 않으므로 셋째 보기도 틀리다.
+    - question: |
+        면접관: "softmax weight 가 한 token 에 0.999 넘게 몰려 있습니다. 학습에 어떤 문제가 생기나요?"
+      choices:
+        - '점수를 조금 바꿔도 weight 가 거의 변하지 않아 gradient 가 0 에 가깝고, 다른 token 을 보는 법을 배우기 어렵다'
+        - 'weight 의 합이 1 을 넘어 출력이 발산한다'
+        - '몰린 token 의 value 가 0 이 된다'
+        - '문제가 없다. 쏠릴수록 학습이 빨라진다'
+      answer: 0
+      explanation: |
+        softmax 가 거의 0 또는 1 만 내는 영역에서는 점수를 바꿔도 weight 가 거의 움직이지 않으므로 gradient 가 작아져, 처음 쏠린 곳에서
+        벗어나기 어렵다. 이것이 점수를 $\sqrt{d_k}$ 로 나누는 이유다. softmax 의 weight 합은 언제나 1 이므로 둘째 보기는 틀리다. value 는 weight
+        와 따로 만들어지는 vector 라 0 이 되지 않으므로 셋째 보기도 틀리다. gradient 가 사라지면 학습은 느려지므로 넷째 보기도 틀리다.
 
 - topic: multi-head
-  title: 여러 head 로 나누는 multi-head attention
+  title: multi-head attention
   variants:
     - question: |
-        attention 을 head 하나로만 하면 생기는 한계는?
+        면접관: "attention 을 head 하나로만 하면 어떤 한계가 있나요?"
       choices:
-        - 'token 이 자기 자신을 볼 수 없다'
-        - 'token 의 순서를 지나치게 따진다'
-        - '문장 길이가 vector 차원보다 길면 계산할 수 없다'
-        - 'token 마다 weight 한 줄만 만들어서, "꾸미는 말" 과 "동작의 대상" 처럼 여러 종류의 관계를 따로 담지 못하고 섞어 버린다'
-      answer: 3
-      explanation: |
-        "컵" 은 어떤 컵인지(빨간)와 무엇을 할지(집어)를 함께 알아야 하는데, weight 한 줄로는 두 token 에 비중을 나눠 준 뒤
-        value 를 한 vector 로 섞을 수밖에 없다. head 를 나누면 head 마다 다른 관계를 따로 본다. head 하나로도 자기 자신을 볼 수
-        있고, attention 은 원래 순서를 모르며, 문장 길이와 차원은 관계없다.
-    - question: |
-        multi-head attention 에서 head 마다 서로 다른 weight 가 나오는 까닭은?
-      choices:
-        - 'head 마다 자기 $W_Q$, $W_K$, $W_V$ 를 따로 가져서 query·key·value 가 다르게 나오기 때문에'
-        - 'head 마다 서로 다른 문장을 입력으로 받기 때문에'
-        - 'head 마다 무작위 noise 를 더하기 때문에'
-        - 'head 마다 softmax 대신 다른 함수를 쓰기 때문에'
+        - 'token 마다 weight 한 줄만 만들어서, 꾸미는 말과 동작의 대상처럼 여러 종류의 관계를 따로 담기 어렵다'
+        - 'token 이 두 개 이상이면 계산할 수 없다'
+        - '위치 정보를 쓸 수 없다'
+        - 'softmax 를 쓸 수 없다'
       answer: 0
       explanation: |
-        모든 head 는 같은 token vector 를 받지만, 각자의 행렬로 query·key·value 를 만들기 때문에 점수와 weight 가 달라진다.
-        학습하면서 head 마다 다른 관계를 보도록 행렬이 정해진다. 입력 문장은 같고, noise 를 더하지 않으며, 모든 head 가 같은
-        softmax 를 쓴다.
+        head 하나는 token 마다 weight 한 줄을 만들므로, 두 token 을 모두 봐야 하면 weight 를 나눠 줄 수밖에 없고 출력도 둘을 섞은 vector 하나가
+        된다. head 를 여럿 두면 head 마다 다른 token 을 크게 볼 수 있다. head 하나로도 token 이 몇 개든 계산할 수 있으므로 둘째 보기는 틀리다.
+        위치 정보는 head 수와 상관없이 positional encoding 이 더하므로 셋째 보기도 틀리다. head 하나도 softmax 를 쓰므로 넷째 보기도 틀리다.
     - question: |
-        vector 차원 $d_\text{model}$ 을 head $h$ 개로 나누면 head 하나의 차원은 $d_\text{model} / h$ 다. head 수를 늘릴 때
-        전체 계산량은 어떻게 되는가?
+        면접관: "multi-head attention 에서 head 마다 서로 다른 weight 가 나오는 이유는 무엇인가요?"
       choices:
-        - 'head 수에 비례해 늘어난다'
-        - 'head 수의 제곱으로 늘어난다'
-        - 'head 하나가 맡는 차원이 그만큼 줄어서, head 하나로 전체 차원을 계산할 때와 비슷하다'
-        - 'head 수에 반비례해 줄어든다'
+        - 'head 마다 softmax 대신 다른 함수를 쓰기 때문이다'
+        - 'head 마다 다른 token 들을 입력으로 받기 때문이다'
+        - 'head 마다 자기 $W_Q$, $W_K$, $W_V$ 를 따로 학습해서 query·key·value 가 다르게 나오기 때문이다'
+        - 'head 마다 점수를 나누는 수가 다르기 때문이다'
       answer: 2
       explanation: |
-        head 를 늘리면 개수는 많아지지만 head 하나의 차원이 $d_\text{model} / h$ 로 줄어서, 전체 칸 수는 $d_\text{model}$ 그대로다.
-        그래서 계산량은 크게 변하지 않는다. head 마다 전체 차원을 쓰는 것이 아니라서 비례하거나 제곱으로 늘지 않고, 일이
-        사라지는 것도 아니라서 줄어들지도 않는다.
-
-- topic: positional-encoding
-  title: 순서를 알려 주는 positional encoding
-  variants:
+        모든 head 는 같은 token 들을 받지만 head 마다 행렬이 따로 있어서 query·key 가 다르게 만들어지고, 그래서 점수와 weight 도 달라진다. head
+        들은 모두 softmax 를 쓰므로 첫째 보기는 틀리다. 입력 token 은 모든 head 가 같으므로 둘째 보기도 틀리다. head 의 차원이 같으면 모두 같은
+        $\sqrt{d_k}$ 로 나누므로 넷째 보기도 틀리다.
     - question: |
-        위치 정보를 더하지 않은 attention 에 "dog bites man" 과 "man bites dog" 를 넣으면 bites 의 출력은 어떻게 될까?
+        면접관: "token vector 의 차원 $d_\text{model}$ 은 그대로 두고 head 수를 8 개에서 16 개로 늘리면, head 하나의 차원과 attention 의 전체 계산량은 어떻게 되나요?"
       choices:
-        - '다르다. attention 은 앞쪽 token 을 더 많이 보기 때문이다'
-        - '같다. 점수는 vector 끼리의 dot product 이고 가중 평균은 더하는 순서와 상관없어서, 위치가 계산에 들어가지 않기 때문이다'
-        - '다르다. 마지막 token 이 출력을 정하기 때문이다'
-        - '순서가 바뀐 문장은 계산할 수 없다'
+        - 'head 하나의 차원은 그대로이고 전체 계산량은 2 배가 된다'
+        - 'head 하나의 차원은 절반이 되고 전체 계산량은 비슷하다'
+        - 'head 하나의 차원은 2 배가 되고 전체 계산량도 2 배가 된다'
+        - 'head 하나의 차원은 절반이 되고 전체 계산량도 절반이 된다'
       answer: 1
       explanation: |
-        두 문장은 token 세 개가 같고 순서만 다르다. 점수와 weight 는 vector 로만 정해지고 가중 평균은 순서를 바꿔 더해도 같아서,
-        bites 는 두 문장에서 똑같은 출력을 얻는다. 그래서 위치를 따로 알려 줘야 한다. attention 에는 앞쪽이나 마지막 token 을
-        특별히 대하는 규칙이 없고, 순서가 바뀐 문장도 문제없이 계산된다.
-    - question: |
-        위치를 알려 주려고 위치 번호 0, 1, 2, … 를 그대로 embedding 에 더하지 않는 까닭은?
-      choices:
-        - '위치 번호는 정수라서 vector 에 더할 수 없기 때문에'
-        - '위치 번호는 모든 token 에서 같은 값이라 구별이 안 되기 때문에'
-        - '문장이 길수록 위치 번호가 한없이 커져서, 1 근처인 embedding 의 숫자를 덮어 버리기 때문에'
-        - '위치 번호는 학습할 수 없어서 gradient 가 흐르지 않기 때문에'
-      answer: 2
-      explanation: |
-        1000 번째 token 에 1000 을 더하면 위치 값이 token 의 뜻을 담은 숫자를 압도한다. 그래서 위치 vector 는 일정한 범위
-        안에 있으면서 위치마다 달라야 하고, sin·cos 는 언제나 $-1$ 과 1 사이에 머문다. 정수도 더할 수 있고, 위치 번호는 token
-        마다 다르며, 위치 vector 는 학습하지 않는 고정값이어도 쓸 수 있다.
-    - question: |
-        sin·cos 로 만드는 positional encoding 은 위치에 따라 빠르게 변하는 칸과 아주 천천히 변하는 칸을 함께 둔다. 그렇게
-        섞는 까닭은?
-      choices:
-        - '빠른 칸은 가까운 token 의 뜻을, 느린 칸은 먼 token 의 뜻을 담으려고'
-        - '짝수 칸에는 단어의 뜻을, 홀수 칸에는 위치를 담으려고'
-        - '느린 칸으로 learning rate 를 조절하려고'
-        - '빠른 칸만으로는 값이 일정한 간격마다 되풀이되어 먼 위치끼리 헷갈리지만, 느린 칸을 함께 보면 위치마다 다른 숫자 조합이 나오기 때문에'
-      answer: 3
-      explanation: |
-        sin·cos 는 주기마다 같은 값이 되풀이되므로 빠른 칸 하나만 보면 멀리 떨어진 두 위치가 같은 값을 가질 수 있다. 그사이
-        거의 변하지 않으면서 조금씩 커지는 느린 칸이 있으면 둘을 가려 낼 수 있다. 시계에서 분침과 시침을 함께 보아야 시각이
-        정해지는 것과 같다. 칸들은 token 의 뜻이 아니라 위치만 나타내고, learning rate 와도 관계없다.
+        head 하나의 차원은 $d_\text{model} / h$ 라서 head 를 두 배로 늘리면 절반이 된다. head 수 × head 차원은 $d_\text{model}$ 로 그대로라서
+        전체 계산량은 head 하나로 $d_\text{model}$ 전체를 계산할 때와 비슷하다. head 차원이 그대로이려면 $d_\text{model}$ 이 커져야 하므로 첫째
+        보기는 틀리다. head 가 늘면 head 하나의 차원은 줄어들므로 셋째 보기도 틀리다. head 수 × head 차원이 같으니 계산량이 절반이 되지 않아
+        넷째 보기도 틀리다.
 
-- topic: layer-parts
-  title: residual connection, layer normalization, FFN
+- topic: positional-encoding
+  title: positional encoding
   variants:
     - question: |
-        Transformer 의 feed-forward network(FFN) 는 행렬 $W_1$ 곱하기 → ReLU → 행렬 $W_2$ 곱하기로 되어 있다. 가운데 ReLU 를
-        빼면 어떻게 될까?
+        면접관: "위치 정보를 더하지 않은 self-attention 에 'dog bites man' 과 'man bites dog' 를 넣으면 bites 의 출력은 어떻게 되나요?"
       choices:
-        - '두 행렬을 차례로 곱한 것이 행렬 하나를 곱한 것과 같아져서, 층을 둘로 나눈 의미가 없어진다'
-        - '음수 값이 쌓여 학습이 발산한다'
-        - 'token 들 사이에 정보가 섞이지 않게 된다'
-        - '출력 vector 의 길이가 입력과 달라진다'
-      answer: 0
+        - '첫 token 이 다르므로 출력이 다르다'
+        - 'man 이 앞에 오는 문장의 출력이 더 크다'
+        - '마지막 token 쪽으로 weight 가 쏠린다'
+        - '같다. 점수는 vector 끼리의 dot product 이고 가중 평균은 더하는 순서와 상관없어서 순서를 구분하지 못한다'
+      answer: 3
       explanation: |
-        행렬 곱 두 번은 두 행렬을 미리 곱한 행렬 하나로 바꿔 쓸 수 있으므로, 꺾임을 넣는 ReLU 가 없으면 복잡한 관계를 표현할
-        수 없다. FFN 은 원래 token 마다 따로 계산해서 token 사이를 섞지 않고(그 일은 attention 이 한다), $W_2$ 가 길이를
-        되돌리므로 출력 길이도 그대로다. ReLU 를 뺀다고 발산하지도 않는다.
+        점수는 token 의 vector 로만 정해지고, 가중 평균은 더하는 순서를 바꿔도 결과가 같다. 그래서 세 token 이 같으면 순서가 달라도 bites 는
+        같은 출력을 얻고, positional encoding 으로 위치 vector 를 더해야 구분된다. attention 은 첫 token 이 무엇인지 따로 보지 않으므로 첫째 보기는
+        틀리다. 순서가 출력에 영향을 주지 않으므로 둘째 보기도 틀리다. 위치 정보 없이는 마지막 token 이라는 것도 알 수 없으므로 셋째 보기도
+        틀리다.
     - question: |
-        attention 이나 FFN 의 출력에 입력을 더해 넘기는 residual connection 의 역할로 옳은 것은?
+        면접관: "순서를 알려 주려고 위치 번호 0, 1, 2, … 를 그대로 embedding 에 더하지 않는 이유는 무엇인가요?"
       choices:
-        - 'vector 의 평균을 0, 크기를 1 로 맞춘다'
+        - '위치 번호는 정수라서 vector 에 더할 수 없기 때문이다'
+        - '위치 번호는 sequence 가 길수록 한없이 커져서 1 근처인 embedding 의 숫자를 덮어 버리기 때문이다'
+        - '위치 번호를 더하면 attention 이 순서를 모르게 되기 때문이다'
+        - '위치 번호는 token 마다 같아서 구분이 안 되기 때문이다'
+      answer: 1
+      explanation: |
+        1,000 번째 token 에 1,000 을 더하면 위치가 token 의 뜻을 덮는다. 그래서 원래 Transformer 는 값이 $-1$ 과 1 사이에 머무는 sin·cos 으로
+        위치 vector 를 만든다. 정수도 실수 vector 에 더할 수 있으므로 첫째 보기는 틀리다. 번호를 더하면 오히려 순서 정보가 들어가므로 셋째
+        보기도 틀리다. 위치 번호는 token 마다 다르므로 넷째 보기도 틀리다.
+    - question: |
+        면접관: "GPT-2 처럼 위치마다 학습되는 position embedding 표를 쓰는 모델이, 학습 때 정한 최대 길이보다 긴 입력을 받으면 어떤 문제가 생기나요?"
+      choices:
+        - '없다. 표가 자동으로 늘어난다'
+        - 'sin·cos 식으로 자동으로 바뀌어 계산된다'
+        - '그 위치에 해당하는 행이 표에 없어서 더할 position vector 가 없다'
+        - 'causal mask 가 그 위치를 막는다'
+      answer: 2
+      explanation: |
+        학습되는 position embedding 은 위치마다 한 행인 표라서 학습 때 정한 개수(GPT-2 는 1,024)까지만 행이 있다. 그보다 뒤의 위치에는 쓸
+        vector 가 없다. 표는 학습 때 크기가 정해진 parameter 라 저절로 늘지 않으므로 첫째 보기는 틀리다. 학습되는 표와 sin·cos 식은 서로 다른
+        방식이라 자동으로 바뀌지 않으므로 둘째 보기도 틀리다. causal mask 는 뒤쪽 token 을 막을 뿐 위치 vector 의 개수와 관계없으므로 넷째
+        보기도 틀리다.
+
+- topic: residual-layernorm
+  title: residual connection 과 LayerNorm
+  variants:
+    - question: |
+        면접관: "Transformer block 에서 sub-layer 출력에 입력을 더해 넘기는 residual connection 은 어떤 역할을 하나요?"
+      choices:
         - 'token 의 순서를 알려 준다'
-        - 'sub-layer 가 0 에 가까운 값을 내도 입력이 그대로 전해지고, 덧셈 경로로 gradient 가 앞 층까지 줄어들지 않고 닿는다'
+        - 'weight 의 합을 1 로 맞춘다'
+        - 'sub-layer 가 0 에 가까운 값을 내도 입력이 그대로 전해지고, backward 에서 gradient 가 덧셈 경로로 앞 층까지 줄지 않고 닿게 한다'
         - '뒤쪽 token 을 보지 못하게 막는다'
       answer: 2
       explanation: |
-        출력 = 입력 + sub-layer 출력 이라서, sub-layer 가 아직 쓸모 있는 것을 배우지 못해도 입력 정보가 사라지지 않는다. 또
-        backward 때 덧셈 경로의 비율 1 이 더해져 gradient 가 층을 지나며 줄어드는 것을 막는다. 평균·크기를 맞추는 것은
-        layer normalization, 순서는 positional encoding, 뒤쪽을 막는 것은 causal mask 의 일이다.
+        residual connection 은 $\mathbf{x} + \mathrm{Sublayer}(\mathbf{x})$ 를 넘기므로 층을 많이 쌓아도 입력 정보가 보존되고, gradient 가
+        층마다 곱해져 사라지는 것을 덧셈 경로가 막는다. 순서 정보는 positional encoding 이 더하므로 첫째 보기는 틀리다. 합을 1 로 맞추는 것은
+        softmax 가 하는 일이므로 둘째 보기도 틀리다. 뒤쪽 token 을 막는 것은 causal mask 이므로 넷째 보기도 틀리다.
     - question: |
-        layer normalization 은 무엇을 기준으로 정규화하는가?
+        면접관: "LayerNorm 은 무엇을 기준으로 평균과 표준편차를 계산하나요?"
       choices:
-        - '문장의 모든 token 에서 같은 칸끼리 모아 평균 0, 크기 1 로 맞춘다'
-        - 'token vector 하나마다 그 칸들의 평균을 0, 표준편차를 1 로 맞춘 뒤, 학습되는 $\gamma$, $\beta$ 로 다시 조절한다'
-        - '모든 값을 0 과 1 사이로 잘라 낸다'
-        - 'vector 의 칸들을 크기 순서로 정렬한다'
-      answer: 1
-      explanation: |
-        LayerNorm 은 token 하나의 vector 안에서 평균과 표준편차를 구해 정규화하므로, 크기가 10 배 다른 두 vector 도 같은 범위로
-        맞춰진다. 맞춘 뒤 $\gamma$ 를 곱하고 $\beta$ 를 더해 필요한 크기와 위치를 학습하게 한다. token 들 사이의 같은 칸끼리
-        모으는 것이 아니고, 값을 잘라 내거나 정렬하지도 않는다.
-
-- topic: decoder
-  title: decoder 의 causal mask 와 cross-attention
-  variants:
-    - question: |
-        decoder 를 학습할 때 정답 sequence 를 한꺼번에 입력으로 넣으면서(teacher forcing) causal mask 를 거는 까닭은?
-      choices:
-        - '계산량을 절반으로 줄이려고'
-        - '짧은 문장 뒤를 채운 `<pad>` 칸을 막으려고'
-        - 'decoder 가 encoder 의 출력을 보지 못하게 하려고'
-        - '막지 않으면 각 위치가 뒤에 있는 정답 token 을 베껴서, 학습 때만 쉽게 맞히고 실제로 한 token 씩 만들 때는 맞히지 못하기 때문에'
-      answer: 3
-      explanation: |
-        self-attention 은 모든 token 이 모든 token 을 보므로, 막지 않으면 "다음 token" 을 맞혀야 하는 자리에서 바로 옆의 정답을
-        본다. 실제로 생성할 때는 뒤쪽 token 이 아직 없으므로 학습과 쓸 때의 조건이 어긋난다. `<pad>` 를 막는 것은 padding
-        mask 이고, encoder 출력은 cross-attention 이 일부러 보는 것이며, 계산량을 줄이려는 장치가 아니다.
-    - question: |
-        causal mask 를 적용하는 방법으로 옳은 것은?
-      choices:
-        - '막을 칸의 점수를 softmax 전에 $-\infty$ 로 바꿔서, 그 칸의 weight 는 0 이 되고 남은 칸들이 합 1 을 나눠 갖게 한다'
-        - '막을 칸의 점수를 0 으로 바꾸면 충분하다'
-        - 'softmax 를 먼저 하고 뒤쪽 weight 를 0 으로 지워도 결과가 같다'
-        - '$-\infty$ 는 계산할 수 없는 값이라 실제로는 mask 를 쓰지 않는다'
+        - 'token vector 하나 안의 칸들'
+        - 'batch 안의 모든 샘플에서 같은 칸'
+        - 'dataset 전체에서 미리 구한 통계'
+        - 'sequence 안의 모든 token 에서 같은 칸'
       answer: 0
       explanation: |
-        $e^{-\infty} = 0$ 이라서 $-\infty$ 로 바꾼 칸은 weight 가 0 이 되고, 나머지 칸만으로 합 1 을 다시 나눈다. 점수를 0 으로
-        바꾸면 $e^{0} = 1$ 이라 weight 가 남는다. softmax 뒤에 지우면 남은 weight 의 합이 1 보다 작아진다. 실제 구현은 아주 큰
-        음수나 $-\infty$ 를 써서 mask 를 건다.
+        LayerNorm 은 token vector 하나의 칸들로 평균과 표준편차를 구해 평균 0, 표준편차 1 로 맞춘 뒤 학습되는 $\gamma$, $\beta$ 로 다시
+        조절한다. 그래서 batch 크기나 다른 token 과 상관없이 계산된다. batch 의 같은 칸으로 정규화하는 것은 BatchNorm 이므로 둘째 보기는 틀리다.
+        dataset 통계를 쓰는 것은 입력 normalization 이므로 셋째 보기도 틀리다. LayerNorm 은 다른 token 의 값을 섞지 않으므로 넷째 보기도 틀리다.
     - question: |
-        encoder-decoder Transformer 의 cross-attention 에 대한 설명으로 옳은 것은?
+        면접관: "Post-LN 과 Pre-LN Transformer 의 차이는 무엇인가요?"
       choices:
-        - 'query 는 encoder 출력에서, key·value 는 decoder 쪽 vector 에서 만든다'
-        - 'query 는 decoder 쪽 vector 에서, key·value 는 encoder 출력에서 만들어 decoder 가 입력 문장을 들여다보게 한다'
-        - 'encoder 의 self-attention 에 causal mask 를 건 것이다'
-        - 'decoder 만 쌓은 language model 에도 반드시 들어 있다'
+        - 'Post-LN 은 LayerNorm 을 쓰지 않는다'
+        - 'Pre-LN 은 residual connection 을 쓰지 않는다'
+        - 'Post-LN 은 decoder 에만 쓰고 Pre-LN 은 encoder 에만 쓰는 배치다'
+        - 'Post-LN 은 더한 뒤에 정규화해서 learning rate warm-up 이 필요하고, Pre-LN 은 sub-layer 에 넣기 전에 정규화해서 warm-up 없이도 안정적으로 학습된다'
+      answer: 3
+      explanation: |
+        Post-LN 은 $\mathrm{LayerNorm}(\mathbf{x} + \mathrm{Sublayer}(\mathbf{x}))$ 이고, Pre-LN 은 $\mathbf{x} + \mathrm{Sublayer}(\mathrm{LayerNorm}(\mathbf{x}))$
+        다. Xiong 등은 Post-LN 에서 학습 초기에 출력 쪽 gradient 가 커서 warm-up 이 필요하고, Pre-LN 은 warm-up 없이 학습된다는 것을 보였다.
+        두 배치 모두 LayerNorm 을 쓰므로 첫째 보기는 틀리다. 두 배치 모두 residual connection 을 쓰므로 둘째 보기도 틀리다. LayerNorm 을 놓는
+        자리는 encoder·decoder 구분과 상관없으므로 셋째 보기도 틀리다.
+
+- topic: causal-mask
+  title: causal mask 와 teacher forcing
+  variants:
+    - question: |
+        면접관: "decoder 를 teacher forcing 으로 학습할 때 causal mask 를 쓰는 이유는 무엇인가요?"
+      choices:
+        - '학습 속도를 높이려고 일부 token 을 무작위로 지우기 위해서다'
+        - '정답 sequence 를 한꺼번에 넣어도 위치마다 자기보다 뒤의 정답 token 을 보고 베끼지 못하게 해서, 한 token 씩 생성할 때와 같은 조건으로 학습하기 위해서다'
+        - 'encoder 출력을 보지 못하게 막기 위해서다'
+        - '<pad> token 을 막기 위해서다'
       answer: 1
       explanation: |
-        decoder 가 지금 쓰는 위치에서 입력의 어디를 볼지 찾아야 하므로, 찾는 쪽(query)은 decoder 이고 찾아지는 쪽(key·value)은
-        encoder 출력이다. 계산은 self-attention 과 같고 query 와 key·value 의 출처만 다르다. encoder 는 입력 전체가 주어지므로
-        mask 를 걸지 않고, decoder 만 쓰는 모델은 encoder 가 없으니 cross-attention 도 없다.
+        teacher forcing 은 정답을 한꺼번에 넣어 모든 위치를 동시에 학습하므로, mask 가 없으면 위치마다 바로 다음 정답을 보고 맞힐 수 있다. 생성할
+        때는 뒤쪽 token 이 아직 없으므로 causal mask 로 앞의 token 만 보게 해야 학습과 생성의 조건이 같아진다. mask 는 무작위가 아니라 정해진
+        계단 모양이므로 첫째 보기는 틀리다. encoder 출력은 cross-attention 으로 그대로 보므로 셋째 보기도 틀리다. `<pad>` 를 막는 것은 padding
+        mask 이므로 넷째 보기도 틀리다.
+    - question: |
+        면접관: "causal mask 는 attention 계산의 어느 단계에서 어떻게 적용하나요?"
+      choices:
+        - 'softmax 뒤에 뒤쪽 칸의 weight 를 0 으로 지운다'
+        - 'value 에서 뒤쪽 token 의 칸을 0 으로 만든다'
+        - '출력 vector 에서 뒤쪽 token 의 출력을 지운다'
+        - 'softmax 전에 막을 칸의 점수를 $-\infty$ 로 바꿔, 그 칸의 weight 가 0 이 되고 남은 칸끼리 합 1 을 나눠 갖게 한다'
+      answer: 3
+      explanation: |
+        점수를 $-\infty$ 로 바꾸면 $e^{-\infty} = 0$ 이라 그 칸의 weight 가 0 이 되고, softmax 가 남은 칸만으로 합 1 을 다시 나눈다. softmax 뒤에
+        weight 를 0 으로 지우면 남은 weight 의 합이 1 보다 작아지므로 첫째 보기는 틀리다. value 를 지워도 그 칸이 weight 를 가져가 다른 token 의
+        몫이 줄어들므로 둘째 보기도 틀리다. 출력 vector 를 지우면 그 위치의 계산 자체가 사라지므로 셋째 보기도 틀리다.
+    - question: |
+        면접관: "encoder-decoder Transformer 에서 causal mask 는 어느 attention 에 쓰나요?"
+      choices:
+        - 'decoder 의 self-attention 에만 쓰고, 입력 전체가 처음부터 주어지는 encoder 의 self-attention 과 cross-attention 에는 쓰지 않는다'
+        - 'encoder 의 self-attention 에만 쓴다'
+        - 'cross-attention 에만 쓴다'
+        - '세 가지 attention 모두에 쓴다'
+      answer: 0
+      explanation: |
+        causal mask 는 생성 순서를 지키려는 장치라서 출력을 한 token 씩 만드는 decoder 의 self-attention 에만 필요하다. encoder 입력과 encoder
+        출력은 처음부터 다 주어지므로 encoder self-attention 과 cross-attention 은 막을 이유가 없다. encoder 를 막으면 입력의 뒷부분을 볼 수 없게
+        되므로 둘째 보기는 틀리다. cross-attention 은 이미 다 계산된 encoder 출력을 볼 뿐이고, 정작 mask 가 필요한 decoder 의 self-attention
+        을 막지 않으므로 셋째 보기도 틀리다. 세 가지 모두에 쓰면 encoder 가 입력의 뒷부분을 보지 못하게 되므로 넷째 보기도 틀리다.
+
+- topic: encoder-decoder
+  title: cross-attention 과 ACT 의 encoder-decoder
+  variants:
+    - question: |
+        면접관: "encoder-decoder Transformer 의 cross-attention 은 query, key, value 를 각각 어디서 만드나요?"
+      choices:
+        - 'query, key, value 를 모두 encoder 의 출력에서 만든다'
+        - 'query 는 encoder 의 출력에서 만들고, key 와 value 는 decoder 쪽 vector 에서 만든다'
+        - 'query 는 decoder 쪽 vector 에서 만들고, key 와 value 는 encoder 의 출력에서 만든다'
+        - 'query, key, value 를 모두 decoder 쪽 vector 에서 만든다'
+      answer: 2
+      explanation: |
+        cross-attention 은 decoder 가 입력을 들여다보는 통로라서, decoder 의 query 가 encoder 출력의 key 와 맞춰 보고 encoder 출력의 value 를
+        가져온다. 모두 encoder 에서 만들면 encoder 의 self-attention 이므로 첫째 보기는 틀리다. 둘째 보기는 query 와 key·value 의 출처가 뒤바뀌어
+        틀리다. 모두 decoder 에서 만들면 decoder 의 self-attention 이므로 넷째 보기도 틀리다.
+    - question: |
+        면접관: "ACT 의 Transformer decoder 는 번역 decoder 처럼 한 step 씩 만들지 않고 action 100 step 을 한 번에 냅니다. 어떻게 가능한가요?"
+      choices:
+        - 'causal mask 를 더 강하게 걸어 100 step 을 차례로 계산하기 때문이다'
+        - 'encoder 가 action 100 개를 직접 내고 decoder 는 그대로 넘기기 때문이다'
+        - 'step 마다 하나인 query vector 100 개를 한꺼번에 넣고, 각 query 가 cross-attention 으로 encoder 출력을 읽어 자기 step 의 action 을 내기 때문이다'
+        - '앞에서 낸 action 을 다시 입력으로 넣어 100 번 계산하기 때문이다'
+      answer: 2
+      explanation: |
+        ACT 의 decoder 입력은 입력 사진과 상관없이 언제나 같은 query vector 100 개이고, $i$ 번째 query 가 $i$ 번째 step 의 action 을 찾는다.
+        앞의 출력을 기다리지 않으므로 decoder 를 한 번 계산하면 100 step 이 함께 나오고, 저자의 코드도 이 self-attention 에 causal mask 를 쓰지
+        않는다. causal mask 로 차례로 계산하는 것은 autoregressive 생성이므로 첫째 보기는 틀리다. encoder 는 사진·관절 token 을 합친 vector 를
+        낼 뿐 action 을 내지 않으므로 둘째 보기도 틀리다. 앞 출력을 다시 넣는 것은 번역 decoder 의 방식이므로 넷째 보기도 틀리다.
+    - question: |
+        면접관: "카메라 4 대의 사진을 각각 token 300 개로 만들어 Transformer encoder 에 넣는 policy 가 있습니다. 카메라를 2 대로 줄이면 encoder self-attention 의 점수 표 크기는 대략 어떻게 되나요?"
+      choices:
+        - '절반이 된다'
+        - '약 4 분의 1 이 된다. token 수가 절반이 되고 점수 표는 token 수의 제곱이다'
+        - '변하지 않는다. head 수가 그대로다'
+        - '2 배가 된다'
+      answer: 1
+      explanation: |
+        사진 token 이 1,200 개에서 600 개로 절반이 되므로 점수 표 칸 수는 $(1/2)^2 = 1/4$ 정도가 된다(관절 등 몇 개의 token 은 그대로라서 정확히는
+        조금 더 크다). 점수 표는 token 쌍마다 칸이 하나라 제곱으로 줄기 때문에 첫째 보기는 틀리다. 칸 수는 head 수가 아니라 token 수로 정해지므로
+        셋째 보기도 틀리다. token 이 줄었는데 표가 커질 수 없으므로 넷째 보기도 틀리다.

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>PaliGemma 를 바탕으로 한 VLA 의 사진 입구. 224×224 사진을 14×14 pixel patch 256 개로 잘라 SigLIP(ViT 구조)에 넣고, 나온 256 개 vector 를 모두 image token 으로 언어 모델에 넘긴다. 지시문 token 과 함께 읽은 뒤 로봇 행동을 낸다</title>
+  <title>PaliGemma 를 바탕으로 한 VLA 의 사진 입력 처리. 224×224 사진을 14×14 pixel patch 256 개로 잘라 SigLIP(ViT 구조)에 넣고, 나온 256 개 vector 를 모두 image token 으로 언어 모델에 넘긴다. 지시문 token 과 함께 읽은 뒤 로봇 행동을 낸다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>

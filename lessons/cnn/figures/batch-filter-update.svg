@@ -42,6 +42,6 @@
   <text x="576" y="224" fill="#94a3b8" font-size="13">변화량</text>
   <text x="650" y="224" fill="#34d399" font-size="13">0.54 − 0.5 = +0.04</text>
 
-  <text x="430" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">늘리라는 두 사진의 크기 합 0.6 + 0.9 = 1.5 가 줄이라는 한 사진의 0.3 보다 커서 w 가 늘었다</text>
+  <text x="430" y="300" fill="#94a3b8" font-size="13" text-anchor="middle">w 를 늘리는 쪽 두 사진의 크기 합 0.6 + 0.9 = 1.5 가 줄이는 쪽 한 사진의 0.3 보다 커서 w 가 늘었다</text>
   <text x="430" y="324" fill="#94a3b8" font-size="13" text-anchor="middle">filter 는 숫자마다 따로 있지 않아서, 모든 사진의 gradient 평균으로 고쳐진다</text>
 </svg>

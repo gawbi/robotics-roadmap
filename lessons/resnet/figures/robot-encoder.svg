@@ -1,40 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>로봇 policy 의 image encoder 로 쓰는 ResNet-18</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <title>로봇 policy 의 ResNet-18 image encoder. ACT 는 480×640 사진을 ImageNet pretrained ResNet-18(FrozenBatchNorm)에 넣어 layer4 의 512×15×20 feature map 을 얻고, 1×1 conv 를 거쳐 512 개 숫자짜리 token 300 개로 쓴다. Diffusion Policy 는 96×96 PushT 사진을 layer4 의 512×3×3 으로 줄인 뒤 spatial softmax 로 keypoint 32 개, 숫자로는 64 개를 만든다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
   <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20" y="150" width="130" height="70" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="85" y="177" fill="#e2e8f0" font-size="14" text-anchor="middle">카메라 사진</text>
-  <text x="85" y="200" fill="#38bdf8" font-size="13" text-anchor="middle">3 × 480 × 640</text>
-  <line x1="150" y1="185" x2="185" y2="185" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="188" y="140" width="150" height="90" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="263" y="170" fill="#e2e8f0" font-size="14" text-anchor="middle">ResNet-18</text>
-  <text x="263" y="192" fill="#94a3b8" font-size="12" text-anchor="middle">stem ~ layer4</text>
-  <text x="263" y="212" fill="#94a3b8" font-size="12" text-anchor="middle">가로세로 ÷ 32</text>
-  <line x1="338" y1="185" x2="373" y2="185" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="376" y="150" width="140" height="70" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="446" y="177" fill="#e2e8f0" font-size="14" text-anchor="middle">feature map</text>
-  <text x="446" y="200" fill="#34d399" font-size="13" text-anchor="middle">512 × 15 × 20</text>
-  <path d="M516,170 L560,70 L575,70" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="578" y="30" width="128" height="86" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="642" y="54" fill="#f59e0b" font-size="14" text-anchor="middle">ACT</text>
-  <text x="642" y="76" fill="#e2e8f0" font-size="12" text-anchor="middle">15 × 20 = 300 칸</text>
-  <text x="642" y="96" fill="#e2e8f0" font-size="12" text-anchor="middle">→ token 300 개</text>
-  <text x="642" y="112" fill="#94a3b8" font-size="11" text-anchor="middle">(token 하나 = 512 개)</text>
-  <path d="M516,185 L575,185" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="578" y="148" width="128" height="76" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="642" y="172" fill="#38bdf8" font-size="13" text-anchor="middle">global avg pool</text>
-  <text x="642" y="194" fill="#e2e8f0" font-size="12" text-anchor="middle">→ 숫자 512 개</text>
-  <text x="642" y="212" fill="#94a3b8" font-size="11" text-anchor="middle">위치 정보는 사라짐</text>
-  <path d="M516,200 L560,300 L575,300" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="578" y="256" width="128" height="96" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="642" y="278" fill="#a78bfa" font-size="13" text-anchor="middle">Diffusion Policy</text>
-  <text x="642" y="298" fill="#e2e8f0" font-size="12" text-anchor="middle">pooling →</text>
-  <text x="642" y="314" fill="#e2e8f0" font-size="12" text-anchor="middle">spatial softmax</text>
-  <text x="642" y="334" fill="#e2e8f0" font-size="12" text-anchor="middle">BN → GroupNorm</text>
-  <text x="20" y="290" fill="#f59e0b" font-size="13" text-anchor="start">ACT: ImageNet pretrained weight,</text>
-  <text x="20" y="310" fill="#f59e0b" font-size="13" text-anchor="start">BatchNorm → FrozenBatchNorm</text>
-  <text x="20" y="345" fill="#a78bfa" font-size="13" text-anchor="start">Diffusion Policy 원 논문: 사전학습 없이</text>
-  <text x="20" y="365" fill="#a78bfa" font-size="13" text-anchor="start">로봇 데이터로 처음부터 학습</text>
-  <text x="20" y="60" fill="#94a3b8" font-size="13" text-anchor="start">921,600 개 숫자 → 153,600 개</text>
-  <text x="20" y="80" fill="#94a3b8" font-size="13" text-anchor="start">(512 × 300)</text>
+  <text x="30" y="40" fill="#f59e0b" font-size="16" text-anchor="start" font-weight="600">ACT</text>
+  <rect x="25.0" y="62" width="120" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="85" y="87.0" fill="#e2e8f0" font-size="14" text-anchor="middle">카메라 사진</text>
+  <text x="85" y="105.0" fill="#38bdf8" font-size="12" text-anchor="middle">3 × 480 × 640</text>
+  <line x1="147" y1="90" x2="175" y2="90" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="177.0" y="62" width="186" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="87.0" fill="#e2e8f0" font-size="13" text-anchor="middle">ResNet-18 (stem ~ layer4)</text>
+  <text x="270" y="105.0" fill="#f59e0b" font-size="12" text-anchor="middle">ImageNet weight, FrozenBN</text>
+  <line x1="365" y1="90" x2="393" y2="90" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="395.0" y="62" width="130" height="56" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="460" y="87.0" fill="#e2e8f0" font-size="14" text-anchor="middle">feature map</text>
+  <text x="460" y="105.0" fill="#34d399" font-size="12" text-anchor="middle">512 × 15 × 20</text>
+  <line x1="527" y1="90" x2="555" y2="90" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="557.0" y="62" width="150" height="56" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="632" y="87.0" fill="#e2e8f0" font-size="13" text-anchor="middle">1×1 conv → token</text>
+  <text x="632" y="105.0" fill="#f59e0b" font-size="12" text-anchor="middle">300 개 × 512</text>
+  <text x="360" y="144" fill="#94a3b8" font-size="12" text-anchor="middle">15 × 20 = 300 칸이 칸마다 위치를 가진 token 이 된다. 카메라 4 대면 token 1,200 개</text>
+  <line x1="24" y1="186" x2="696" y2="186" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="30" y="222" fill="#a78bfa" font-size="16" text-anchor="start" font-weight="600">Diffusion Policy</text>
+  <rect x="25.0" y="244" width="120" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="85" y="269.0" fill="#e2e8f0" font-size="14" text-anchor="middle">PushT 사진</text>
+  <text x="85" y="287.0" fill="#38bdf8" font-size="12" text-anchor="middle">3 × 96 × 96</text>
+  <line x1="147" y1="272" x2="175" y2="272" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="177.0" y="244" width="186" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="269.0" fill="#e2e8f0" font-size="13" text-anchor="middle">ResNet-18 (stem ~ layer4)</text>
+  <text x="270" y="287.0" fill="#a78bfa" font-size="12" text-anchor="middle">논문: 처음부터, GroupNorm</text>
+  <line x1="365" y1="272" x2="393" y2="272" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="395.0" y="244" width="130" height="56" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="460" y="269.0" fill="#e2e8f0" font-size="14" text-anchor="middle">feature map</text>
+  <text x="460" y="287.0" fill="#34d399" font-size="12" text-anchor="middle">512 × 3 × 3</text>
+  <line x1="527" y1="272" x2="555" y2="272" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="557.0" y="244" width="150" height="56" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="632" y="269.0" fill="#e2e8f0" font-size="13" text-anchor="middle">spatial softmax</text>
+  <text x="632" y="287.0" fill="#a78bfa" font-size="12" text-anchor="middle">keypoint 32 개, 숫자 64 개</text>
+  <text x="360" y="326" fill="#94a3b8" font-size="12" text-anchor="middle">global average pooling 자리에 위치 (x, y) 를 뽑는 spatial softmax 를 둔다</text>
+  <text x="360" y="348" fill="#94a3b8" font-size="12" text-anchor="middle">LeRobot 기본값은 ImageNet weight 와 BatchNorm</text>
 </svg>

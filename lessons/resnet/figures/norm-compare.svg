@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>BatchNorm, GroupNorm, FrozenBatchNorm 이 평균과 분산을 구하는 값. 가로는 channel 8 개, 세로는 batch 의 사진 4 장이고 한 칸이 feature map 한 장이다. BatchNorm 은 channel 하나를 batch 의 모든 사진에서 모으고, GroupNorm 은 사진 한 장 안에서 channel 묶음 하나(그림은 4 개씩 묶은 예)를 모으며, FrozenBatchNorm 은 모으지 않고 저장해 둔 평균 2, 분산 4, γ = 3, β = 1 로 입력 6 을 7 로 바꾼다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="125" y="40" fill="#38bdf8" font-size="15" text-anchor="middle">BatchNorm</text>
+  <text x="146" y="70" fill="#64748b" font-size="11" text-anchor="middle">channel 0 ~ 7 →</text>
+  <text x="42" y="96" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <rect x="48" y="80" width="22" height="22" rx="3" fill="#38bdf8" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+  <rect x="73" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="98" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="123" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="148" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="173" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="198" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="223" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="42" y="121" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <rect x="48" y="105" width="22" height="22" rx="3" fill="#38bdf8" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+  <rect x="73" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="98" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="123" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="148" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="173" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="198" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="223" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="42" y="146" fill="#64748b" font-size="11" text-anchor="end">3</text>
+  <rect x="48" y="130" width="22" height="22" rx="3" fill="#38bdf8" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+  <rect x="73" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="98" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="123" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="148" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="173" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="198" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="223" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="42" y="171" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <rect x="48" y="155" width="22" height="22" rx="3" fill="#38bdf8" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+  <rect x="73" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="98" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="123" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="148" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="173" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="198" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="223" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="46" y="70" fill="#64748b" font-size="11" text-anchor="end">사진 ↓</text>
+  <text x="360" y="40" fill="#34d399" font-size="15" text-anchor="middle">GroupNorm</text>
+  <text x="381" y="70" fill="#64748b" font-size="11" text-anchor="middle">channel 0 ~ 7 →</text>
+  <text x="277" y="96" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <rect x="283" y="80" width="22" height="22" rx="3" fill="#34d399" fill-opacity="0.75" stroke="#34d399" stroke-width="1.2"/>
+  <rect x="308" y="80" width="22" height="22" rx="3" fill="#34d399" fill-opacity="0.75" stroke="#34d399" stroke-width="1.2"/>
+  <rect x="333" y="80" width="22" height="22" rx="3" fill="#34d399" fill-opacity="0.75" stroke="#34d399" stroke-width="1.2"/>
+  <rect x="358" y="80" width="22" height="22" rx="3" fill="#34d399" fill-opacity="0.75" stroke="#34d399" stroke-width="1.2"/>
+  <rect x="383" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="408" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="433" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="458" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="277" y="121" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <rect x="283" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="308" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="333" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="358" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="383" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="408" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="433" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="458" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="277" y="146" fill="#64748b" font-size="11" text-anchor="end">3</text>
+  <rect x="283" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="308" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="333" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="358" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="383" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="408" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="433" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="458" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="277" y="171" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <rect x="283" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="308" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="333" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="358" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="383" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="408" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="433" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="458" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="281" y="70" fill="#64748b" font-size="11" text-anchor="end">사진 ↓</text>
+  <text x="595" y="40" fill="#a78bfa" font-size="15" text-anchor="middle">FrozenBatchNorm</text>
+  <text x="616" y="70" fill="#64748b" font-size="11" text-anchor="middle">channel 0 ~ 7 →</text>
+  <text x="512" y="96" fill="#64748b" font-size="11" text-anchor="end">1</text>
+  <rect x="518" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="543" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="568" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="593" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="618" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="643" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="668" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="693" y="80" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="512" y="121" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <rect x="518" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="543" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="568" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="593" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="618" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="643" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="668" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="693" y="105" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="512" y="146" fill="#64748b" font-size="11" text-anchor="end">3</text>
+  <rect x="518" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="543" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="568" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="593" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="618" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="643" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="668" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="693" y="130" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="512" y="171" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <rect x="518" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="543" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="568" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="593" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="618" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="643" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="668" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <rect x="693" y="155" width="22" height="22" rx="3" fill="#111a2e" stroke="#334155" stroke-width="1.2"/>
+  <text x="516" y="70" fill="#64748b" font-size="11" text-anchor="end">사진 ↓</text>
+  <text x="125" y="210" fill="#e2e8f0" font-size="13" text-anchor="middle">channel 하나를</text>
+  <text x="125" y="230" fill="#e2e8f0" font-size="13" text-anchor="middle">batch 의 모든 사진에서 모은다</text>
+  <text x="125" y="262" fill="#f87171" font-size="13" text-anchor="middle">batch 가 작으면 흔들린다</text>
+  <text x="360" y="210" fill="#e2e8f0" font-size="13" text-anchor="middle">사진 한 장 안에서</text>
+  <text x="360" y="230" fill="#e2e8f0" font-size="13" text-anchor="middle">channel 묶음 하나를 모은다</text>
+  <text x="360" y="262" fill="#34d399" font-size="13" text-anchor="middle">batch 크기와 상관없다</text>
+  <text x="595" y="210" fill="#e2e8f0" font-size="13" text-anchor="middle">모으지 않고</text>
+  <text x="595" y="230" fill="#e2e8f0" font-size="13" text-anchor="middle">저장해 둔 숫자를 쓴다</text>
+  <text x="595" y="262" fill="#34d399" font-size="13" text-anchor="middle">batch 크기와 상관없다</text>
+  <rect x="500" y="290" width="190" height="84" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="595" y="312" fill="#a78bfa" font-size="12" text-anchor="middle">μ = 2, σ² = 4, γ = 3, β = 1</text>
+  <text x="595" y="336" fill="#e2e8f0" font-size="12" text-anchor="middle">입력 6 → 3 × (6 − 2) ÷ 2 + 1</text>
+  <text x="595" y="360" fill="#34d399" font-size="13" text-anchor="middle">= 7 (언제나)</text>
+  <line x1="250" y1="24" x2="250" y2="380" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="485" y1="24" x2="485" y2="380" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="140" y="330" fill="#94a3b8" font-size="12" text-anchor="middle">ResNet 원래 설계</text>
+  <text x="140" y="350" fill="#94a3b8" font-size="12" text-anchor="middle">LeRobot Diffusion Policy 기본값</text>
+  <text x="375" y="330" fill="#94a3b8" font-size="12" text-anchor="middle">Diffusion Policy 논문</text>
+  <text x="375" y="350" fill="#94a3b8" font-size="12" text-anchor="middle">(channel 16 개씩 묶음)</text>
+</svg>

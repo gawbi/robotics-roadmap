@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 390" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>4차원 vector 를 2차원 head 두 개로 나눠 head 1 은 빨간 을, head 2 는 집어 를 크게 보고, 두 출력을 이어 붙인 뒤 W_O 를 곱하는 흐름</title>
+  <title>4차원 vector 를 2차원 head 두 개로 나누면 head 1 은 빨간 에 큰 weight 를 주고 head 2 는 집어 에 큰 weight 를 준다. 두 출력을 이어 붙인 뒤 W_O 를 곱한다</title>
   <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
   <rect x="1" y="1" width="658" height="388" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20.0" y="30.0" fill="#e2e8f0" font-size="15" text-anchor="start">컵 의 vector (4차원) 를 head 두 개로 나눈다</text>
+  <text x="20.0" y="30.0" fill="#e2e8f0" font-size="15" text-anchor="start">컵 의 4차원 vector 와 head 두 개</text>
   <rect x="230.0" y="48.0" width="90.0" height="30.0" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
   <rect x="320.0" y="48.0" width="90.0" height="30.0" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
   <text x="275.0" y="68.0" fill="#f59e0b" font-size="12" text-anchor="middle">칸 1, 2</text>
@@ -10,7 +10,7 @@
   <line x1="275.0" y1="80.0" x2="150.0" y2="112.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#af59e0b)"/>
   <line x1="365.0" y1="80.0" x2="490.0" y2="112.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#a38bdf8)"/>
   <rect x="40.0" y="115.0" width="250.0" height="150.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="165.0" y="138.0" fill="#f59e0b" font-size="14" text-anchor="middle">head 1: 빨간 을 크게 본다</text>
+  <text x="165.0" y="138.0" fill="#f59e0b" font-size="14" text-anchor="middle">head 1 (빨간 에 큰 weight)</text>
   <rect x="70.0" y="165.9" width="40.0" height="69.1" rx="2" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="1"/>
   <text x="90.0" y="161.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.576</text>
   <text x="90.0" y="253.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>
@@ -24,7 +24,7 @@
   <text x="165.0" y="301.6" fill="#f59e0b" font-size="13" text-anchor="middle">[0.576, 0.212]</text>
   <line x1="165.0" y1="266.0" x2="165.0" y2="280.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#af59e0b)"/>
   <rect x="370.0" y="115.0" width="250.0" height="150.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="495.0" y="138.0" fill="#38bdf8" font-size="14" text-anchor="middle">head 2: 집어 를 크게 본다</text>
+  <text x="495.0" y="138.0" fill="#38bdf8" font-size="14" text-anchor="middle">head 2 (집어 에 큰 weight)</text>
   <rect x="400.0" y="209.6" width="40.0" height="25.4" rx="2" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1"/>
   <text x="420.0" y="205.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.212</text>
   <text x="420.0" y="253.0" fill="#94a3b8" font-size="12" text-anchor="middle">빨간</text>

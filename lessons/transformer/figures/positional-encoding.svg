@@ -49,5 +49,5 @@
   <text x="366.0" y="61.0" fill="#f59e0b" font-size="13" text-anchor="start">sin(pos): 칸 0</text>
   <line x1="330.0" y1="78.0" x2="360.0" y2="78.0" stroke="#38bdf8" stroke-width="2.5"/>
   <text x="366.0" y="83.0" fill="#38bdf8" font-size="13" text-anchor="start">sin(pos / 100): 칸 2</text>
-  <text x="20.0" y="30.0" fill="#e2e8f0" font-size="15" text-anchor="start">위치마다 칸 0 은 빠르게, 칸 2 는 천천히 변한다</text>
+  <text x="20.0" y="30.0" fill="#e2e8f0" font-size="15" text-anchor="start">위치에 따른 칸 0 과 칸 2 의 값</text>
 </svg>

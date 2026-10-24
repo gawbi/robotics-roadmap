@@ -1,369 +1,371 @@
 # 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
 # answer 는 choices 의 0부터 센 번호다.
 
-- topic: image-numbers
-  title: 숫자 격자로 된 사진과 channel
+- topic: convolution
+  title: convolution 계산과 feature map
   variants:
     - question: |
-        같은 가로세로 크기의 흑백 사진과 컬러 사진을 숫자로 저장할 때 달라지는 점으로 옳은 것은?
+        면접관: "CNN 의 convolution layer 가 출력 한 칸을 계산하는 방법을 설명해 보세요."
       choices:
-        - 컬러 사진은 pixel 수가 세 배로 늘어난다
-        - 컬러 사진은 pixel 마다 0 ~ 255 대신 소수 하나를 적는다
-        - 컬러 사진은 사진과 크기가 같은 숫자 판이 R·G·B 세 장이라 숫자가 세 배다
-        - 색은 따로 적어 두는 정보라 숫자 격자 자체는 똑같다
-      answer: 2
-      explanation: |
-        컬러 사진은 pixel 마다 빨강·초록·파랑 빛의 세기를 숫자 세 개로 적는다. 같은 색끼리 모으면 사진과 크기가 같은
-        판이 세 장 나오므로, 가로세로는 그대로이고 숫자만 세 배가 된다. pixel 수(가로 × 세로)는 늘지 않으며, 세기는 흑백과
-        마찬가지로 0 ~ 255 범위의 숫자다. 색은 별도 정보가 아니라 바로 이 세 장의 숫자 판으로 저장된다.
-    - question: |
-        컬러 사진에서 channel 은 무엇인가?
-      choices:
-        - 사진의 가로 한 줄
-        - pixel 하나
-        - 사진 한 장의 밝기 평균
-        - 같은 색의 세기만 모은, 사진과 크기가 같은 숫자 판 한 장
-      answer: 3
-      explanation: |
-        컬러 사진은 pixel 마다 빨강·초록·파랑 세기를 숫자 세 개로 적는데, 같은 색의 숫자만 모으면 사진과 크기가 같은 판이
-        한 장 나오고 이 판이 channel 이다. 그래서 컬러 사진은 channel 3 장, 흑백 사진은 1 장이다. 가로 한 줄은 MLP 에 넣으려고
-        펼칠 때 이어 붙이는 단위이고, pixel 은 숫자 판의 칸 하나다. 밝기 평균은 숫자 하나일 뿐 판이 아니다.
-    - question: |
-        흑백 사진은 보통 0 이 검정, 255 가 흰색이다. 어떤 pixel 의 값이 30 에서 220 으로 바뀌었다면 사진에서 무슨 일이
-        일어난 것인가?
-      choices:
-        - 그 칸이 훨씬 밝아졌다
-        - 그 칸이 훨씬 어두워졌다
-        - 사진의 가로세로 크기가 커졌다
-        - 그 칸의 색이 빨강으로 바뀌었다
-      answer: 0
-      explanation: |
-        흑백 사진의 pixel 값은 밝기 하나이고 클수록 흰색에 가깝다. 30 은 검정에 가까운 어두운 회색, 220 은 흰색에 가까운
-        밝은 회색이라 그 칸이 밝아졌다. 값이 커지면 어두워진다고 보는 것은 방향을 거꾸로 읽은 것이다. pixel 값 하나가 바뀌어도
-        격자의 크기는 그대로이고, 흑백 사진에는 색을 적는 channel 이 따로 없다.
-
-- topic: mlp-limits
-  title: 사진을 MLP 에 넣을 때의 문제
-  variants:
-    - question: |
-        사진을 MLP 에 넣으려고 격자를 한 줄로 펼친다(flatten). 이때 모델 입장에서 사라지는 정보는?
-      choices:
-        - 어느 칸이 어느 칸의 위아래·옆에 붙어 있었는지
-        - 각 pixel 의 밝기 값
-        - 사진에 든 숫자의 총개수
-        - 사진이 흑백인지 컬러인지에 따른 숫자 차이
-      answer: 0
-      explanation: |
-        펼치면 위아래로 붙어 있던 두 칸이 한 줄에서 한 줄 길이만큼 멀리 떨어진다. MLP 는 모든 입력을 똑같이 "서로 다른 입력"
-        으로 다루므로 어떤 칸들이 이웃이었는지는 모델에 남지 않는다. 밝기 값과 숫자의 개수는 펼쳐도 그대로이고, 컬러 사진의
-        channel 숫자도 그대로 이어 붙는다.
-    - question: |
-        숫자 "1" 사진을 잘 알아보도록 weight 가 맞춰진 MLP neuron 이 있다. 같은 "1" 을 오른쪽으로 한 칸만 옮긴 사진을 넣었더니
-        반응이 크게 떨어졌다. 그 이유로 옳은 것은?
-      choices:
-        - 옮긴 사진은 흰 칸의 개수가 줄어들기 때문
-        - MLP 는 입력 자리마다 따로 weight 를 써서, 모양이 옮겨 가면 다른 weight 와 곱해지기 때문
-        - 사진을 옮기면 bias 가 바뀌기 때문
-        - MLP 는 흑백 사진을 다룰 수 없기 때문
+        - '입력 사진 전체의 pixel 마다 서로 다른 weight 를 곱해 모두 더한다'
+        - 'filter 를 입력 위에 겹쳐 그 밑에 깔린 조각과 같은 자리의 숫자끼리 곱해 모두 더하고 bias 를 더한다'
+        - 'filter 밑에 깔린 조각에서 가장 큰 값 하나를 골라 출력 칸에 적는다'
+        - '입력 조각의 평균을 구한 뒤 filter 의 평균과 비교해 같으면 1, 다르면 0 을 적는다'
       answer: 1
       explanation: |
-        옮긴 사진에도 흰 칸 수는 그대로다. 하지만 MLP 의 weight 는 "몇 번째 입력" 마다 따로 있어서, 흰 칸이 옆으로 가면 큰
-        weight 가 걸린 자리와 겹치는 흰 칸이 줄어든다. 그래서 사람 눈에 같은 사진이 MLP 에게는 입력의 상당 부분이 바뀐 다른
-        사진이다. bias 는 사진과 상관없이 고정된 숫자이고, MLP 는 흑백 사진도 숫자 한 줄로 받으면 다룰 수 있다.
+        convolution 은 작은 filter 를 입력 위에 겹치고, 겹친 조각(window)과 filter 에서 같은 자리의 숫자끼리 곱해 모두 더한 뒤 bias 를 더해
+        출력 한 칸을 만든다. filter 를 한 칸씩 옮기며 이 계산을 되풀이하면 출력 판이 채워진다.
+        사진 전체의 pixel 마다 다른 weight 를 곱하는 것은 MLP layer 의 계산이다.
+        조각에서 가장 큰 값을 고르는 것은 max pooling 이다.
+        평균을 비교해 0·1 을 적는 계산은 convolution 에 없다.
     - question: |
-        224×224 컬러 사진을 펼쳐 MLP 에 넣으면 첫 layer 의 parameter 가 매우 많아진다. 이것이 문제가 되는 이유로 가장 알맞은 것은?
+        면접관: "세로선 모양으로 숫자를 넣은 filter 를 사진에 대어 얻은 feature map 에서 값이 큰 칸은 무엇을 뜻하나요?"
       choices:
-        - MLP 는 입력이 수만 개를 넘으면 계산 자체를 할 수 없어서
-        - parameter 가 많으면 backpropagation 이 작동하지 않아서
-        - parameter 가 많을수록 사진의 색 정보가 사라져서
-        - 계산과 메모리가 크게 들고, 그 많은 숫자를 맞추려면 학습 데이터도 훨씬 많이 필요해서
+        - '그 칸의 원래 pixel 이 사진에서 가장 밝다는 뜻이다'
+        - '사진 전체에 세로선이 몇 개 있는지 센 값이다'
+        - '그 칸에서 filter 의 숫자가 학습 중에 가장 많이 바뀌었다는 뜻이다'
+        - '그 자리의 window 가 filter 모양인 세로선과 많이 닮았다는 뜻이다'
       answer: 3
       explanation: |
-        MLP 의 neuron 하나는 입력마다 weight 를 하나씩 가지므로 사진의 숫자가 15 만 개면 neuron 하나에 weight 가 15 만 개다.
-        neuron 을 여러 개 두면 첫 layer 에만 수억 개가 되어 계산·메모리가 크게 들고, 그 숫자들을 제대로 맞추려면 데이터도 훨씬
-        많이 필요하다. 입력이 많아도 계산과 backpropagation 은 원리상 똑같이 되고, parameter 수와 색 정보 손실은 관계가 없다.
-
-- topic: conv-calc
-  title: filter 와 feature map
-  variants:
+        feature map 의 칸 하나는 그 자리에서 filter 와 window 를 곱해 더한 값이라서, window 가 filter 모양을 닮을수록 커진다. 그래서 세로선
+        filter 의 feature map 은 "세로선이 어디에 얼마나 있는가" 를 자리별로 적은 지도다.
+        pixel 하나의 밝기만으로 정해지는 값이 아니라 주변 window 전체와 filter 의 곱의 합이다.
+        사진 전체의 개수를 세는 값이 아니라 자리마다 따로 계산한 값이다.
+        filter 의 숫자는 모든 칸에 같이 쓰이므로 칸마다 바뀐 정도가 다를 수 없다.
     - question: |
-        convolution 이 사진에 하는 계산을 바르게 설명한 것은?
+        면접관: "딥러닝 framework 의 convolution 은 수학 교과서의 convolution 과 달리 filter 를 뒤집지 않습니다. 이 차이가 학습 결과에 문제가 되나요?"
       choices:
-        - 사진 전체의 pixel 마다 weight 를 하나씩 곱해 모두 더한 숫자 하나를 낸다
-        - 이웃한 칸 몇 개 중 가장 큰 값만 골라 남긴다
-        - 작은 filter 를 사진 위에서 옮기며, 겹친 window 와 칸끼리 곱해 더한 값(+ bias)을 자리마다 출력 칸에 적는다
-        - 사진을 한 줄로 편 뒤 큰 값부터 순서대로 정렬한다
-      answer: 2
-      explanation: |
-        convolution 은 3×3 같은 작은 filter 를 한 자리에 겹쳐 칸끼리 곱해 더하고, 한 칸 옮겨 같은 계산을 되풀이해 출력 판을
-        채운다. 사진 전체에 weight 를 하나씩 곱해 숫자 하나를 내는 것은 MLP neuron 의 계산이고, 묶음에서 가장 큰 값을 고르는
-        것은 max pooling 이다. 정렬은 칸의 위치 정보를 버리는 계산이라 convolution 과 무관하다.
-    - question: |
-        세로선 모양에 맞춘 filter 를 사진에 대어 feature map 을 얻었다. feature map 의 어떤 칸에 큰 양수가 나왔다면 그것은 무엇을 뜻하나?
-      choices:
-        - 그 칸에 대응하는 사진 자리에 세로선 모양이 있다
-        - 그 자리의 pixel 하나가 사진에서 가장 밝다
-        - 그 자리에서만 filter 숫자가 학습으로 커졌다
-        - 사진 전체에 세로선이 몇 개인지를 센 값이다
+        - '문제가 되지 않는다. filter 숫자를 학습으로 정하므로 뒤집힌 모양이 필요하면 그 모양을 배우면 된다'
+        - '문제가 된다. 뒤집지 않으면 translation equivariance 가 깨진다'
+        - '문제가 된다. 뒤집지 않으면 출력 크기가 입력보다 커진다'
+        - '문제가 되지 않는다. 사진은 상하좌우가 대칭이라서 뒤집어도 같은 사진이기 때문이다'
       answer: 0
       explanation: |
-        filter 와 겹친 window 가 filter 모양을 닮을수록 칸끼리 곱해 더한 값이 커진다. 그래서 세로선 filter 의 출력이 큰 칸은
-        사진의 그 자리에 세로선이 있다는 뜻이다. 값은 pixel 하나가 아니라 window 전체의 모양으로 정해지고, filter 는 모든 자리에
-        똑같은 숫자를 쓰므로 자리마다 따로 커지지 않는다. 출력 칸 하나는 자기 window 만 반영하므로 사진 전체의 개수가 아니다.
-    - question: |
-        실제 CNN 에서 filter 의 숫자는 어떻게 정해지나?
-      choices:
-        - 사람이 세로선·가로선 같은 filter 를 직접 설계해 넣는다
-        - 아무 숫자로 시작해, loss 를 줄이도록 gradient descent 로 다른 weight 와 함께 학습한다
-        - 학습 사진들의 pixel 평균으로 한 번 계산해 둔다
-        - 처음 정한 random 값을 학습 내내 바꾸지 않는다
-      answer: 1
-      explanation: |
-        CNN 은 filter 숫자를 MLP 의 weight 처럼 parameter 로 두고, loss 를 줄이는 방향으로 조금씩 고친다. 학습을 마친 첫 층
-        filter 를 그려 보면 선이나 경계에 반응하는 모양이 많은데, 사람이 넣은 것이 아니라 학습이 스스로 찾은 것이다. 손으로
-        고른 filter 는 원리를 설명하기 위한 예일 뿐이고, pixel 평균이나 고정된 random 값으로는 과제에 맞는 모양을 배울 수 없다.
+        뒤집지 않는 계산은 수학에서 cross-correlation 이라고 부른다. filter 의 숫자는 사람이 정하지 않고 학습으로 정하므로, 뒤집힌 filter 가
+        필요하면 network 가 그 숫자를 배우면 되어 결과가 같다.
+        뒤집든 안 뒤집든 같은 filter 를 모든 자리에 쓰므로 equivariance 는 그대로 성립한다.
+        출력 크기는 filter 크기·padding·stride 로 정해지고 뒤집기와 관계없다.
+        사진은 일반적으로 대칭이 아니므로 대칭이라는 이유는 틀렸다.
 
 - topic: filter-learning
   title: label 에서 filter 까지의 학습 신호
   variants:
     - question: |
-        손글씨 숫자 사진마다 "이 사진은 7" 같은 정답 숫자(label)가 붙은 데이터로 CNN 을 학습한다. 첫 층 filter 의 숫자를 고칠
-        때 쓰는 정답에 대한 설명으로 옳은 것은?
+        면접관: "손글씨 숫자 분류 CNN 을 학습할 때 첫 층 filter 의 숫자는 무엇을 정답 삼아 고쳐지나요?"
       choices:
-        - filter 마다 사람이 "세로선 모양" 같은 목표 숫자를 정해 두고, filter 를 그 숫자에 맞춘다
-        - feature map 마다 목표 판이 따로 있어서 출력 판과 목표 판의 차이를 줄인다
-        - filter 에 대한 정답은 따로 없고, 사진의 label 로 계산한 loss 를 backpropagation 이 거꾸로 전해 filter 숫자마다 gradient 를 준다
-        - 정답이 없으므로 filter 는 처음 정한 random 값 그대로 둔다
+        - '사람이 filter 마다 "세로선 모양" 같은 목표 숫자를 정해 두고 그 숫자에 맞춘다'
+        - 'feature map 마다 목표 판이 따로 있어서 출력 판과 목표 판의 차이를 줄인다'
+        - 'filter 에 대한 정답은 따로 없고, 사진의 label 로 계산한 loss 를 backpropagation 이 거꾸로 전해 filter 숫자마다 gradient 를 준다'
+        - 'filter 에 대한 정답이 없으므로 filter 는 처음 정한 random 값 그대로 두고 마지막 layer 만 학습한다'
       answer: 2
       explanation: |
-        데이터에 있는 정답은 사진 한 장마다 붙은 숫자 하나뿐이다. CNN 이 낸 점수 10 개를 softmax 로 확률로 바꾸고, label
-        자리의 확률로 loss 를 계산한 뒤 backpropagation 이 이 loss 를 입력 쪽으로 거꾸로 전해 filter 숫자까지 gradient 를 구한다.
-        filter 나 feature map 에 대한 목표값은 어디에도 없고, filter 가 선·경계 모양이 되는 것은 학습의 결과다. 정답이 filter 에
-        직접 없다고 해서 학습을 안 하는 것도 아니다.
+        데이터에 있는 정답은 사진마다 붙은 label 하나뿐이다. CNN 이 낸 점수를 softmax 로 확률로 바꾸고 label 자리의 확률로 cross-entropy
+        loss 를 계산하면, backpropagation 이 이 loss 를 입력 쪽으로 거꾸로 전해 filter 숫자까지 gradient 를 구한다.
+        filter 마다 정해 둔 목표 숫자는 없고, filter 가 선 모양이 되는 것은 학습의 결과다.
+        feature map 에 대한 목표 판도 어디에도 없다.
+        filter 도 parameter 라서 gradient 를 받아 함께 학습하며, random 값 그대로 두지 않는다.
     - question: |
-        숫자 분류 CNN 의 첫 층 filter 하나는 모든 사진에 똑같이 쓰인다. label 이 7, 3, 1 인 사진 3 장짜리 mini-batch 로 SGD
-        한 step 을 할 때, 이 filter 의 한 칸 숫자는 어떻게 고쳐지나?
+        면접관: "첫 층 filter 하나는 mini-batch 의 모든 사진에 똑같이 쓰입니다. label 이 서로 다른 사진들이 그 filter 의 한 숫자에 서로 반대 방향의 gradient 를 주면, SGD 한 step 에서 그 숫자는 어떻게 고쳐지나요?"
       choices:
-        - 세 사진에서 각각 구한 gradient 의 평균 반대 방향으로 고쳐진다
-        - label 이 가장 큰 숫자인 7 사진의 gradient 만 따른다
-        - 사진마다 filter 를 하나씩 따로 복사해 고친 뒤 셋 다 남겨 둔다
-        - 세 사진의 gradient 부호가 서로 다르면 학습이 멈추고 다시 시작한다
+        - 'sample 마다 구한 gradient 의 평균을 구하고, 그 평균에 learning rate 를 곱한 만큼 반대 방향으로 고친다'
+        - 'label 숫자가 가장 큰 사진의 gradient 만 따른다'
+        - '사진마다 filter 를 하나씩 복사해 따로 고친 뒤 모두 남겨 둔다'
+        - 'gradient 부호가 서로 다르면 그 step 의 학습을 멈추고 다음 batch 로 넘어간다'
       answer: 0
       explanation: |
-        filter 는 숫자마다 따로 있지 않아서 사진마다 그 칸 숫자에 바라는 방향이 다를 수 있다. mini-batch 는 sample 마다 구한
-        gradient 를 평균해 하나로 만들고, SGD 는 그 평균에 learning rate 를 곱해 뺀다. 예를 들어 gradient 가 −0.6, +0.3, −0.9 면
-        평균 −0.4 라 숫자가 늘어난다. label 의 크기는 가중치와 무관하고, filter 를 사진마다 복사하지도 않으며, 부호가 섞여도
-        평균이 정해지므로 학습은 그대로 이어진다.
+        filter 는 사진마다 따로 있지 않아서, 그 숫자를 어느 쪽으로 고쳐야 loss 가 줄어드는지가 사진마다 다를 수 있다. mini-batch SGD 는 sample
+        마다 구한 gradient 를 평균해 하나로 만들고, 그 평균에 learning rate 를 곱해 뺀다. 부호가 반대인 gradient 는 평균에서 서로 일부 지워지고,
+        숫자는 크기의 합이 더 큰 쪽이 가리키는 방향으로 움직인다.
+        label 은 class 번호일 뿐이라 숫자의 크기가 gradient 의 비중을 정하지 않는다.
+        filter 를 사진마다 복사하지 않고 한 벌을 모든 사진이 같이 쓴다.
+        부호가 섞여도 평균은 정해지므로 학습은 그대로 이어진다.
     - question: |
-        손글씨 숫자 0 ~ 9 를 분류하도록 학습을 마친 CNN 에서 "숫자 7 에만 해당하는" parameter 를 찾으려 한다. 어디에 있나?
+        면접관: "숫자 0 ~ 9 를 분류하도록 학습을 마친 CNN 에서 '숫자 7 에만 쓰이는' parameter 는 어디에 있나요?"
       choices:
-        - 첫 층 filter 중 하나가 숫자 7 전용 filter 다
-        - 첫 층 filter 의 bias 만 숫자마다 따로 있다
-        - max pooling 층에 숫자마다 다른 parameter 가 있다
-        - 마지막 layer 에서 7 자리 점수를 계산하는 weight 다
+        - '첫 층 filter 가운데 하나가 숫자 7 전용 filter 다'
+        - '첫 층 filter 의 bias 만 숫자마다 따로 있다'
+        - 'max pooling 층에 숫자마다 다른 parameter 가 있다'
+        - '마지막 layer 에서 7 자리 점수를 계산하는 weight 다'
       answer: 3
       explanation: |
-        첫 층 filter 는 모든 사진의 gradient 평균으로 고쳐지므로 한 숫자 전용이 되지 않고, 여러 숫자를 가르는 데 두루 쓰이는
-        선·경계 무늬에 반응하게 된다. 숫자 하나에만 쓰이는 것은 마지막 layer 에서 그 숫자 자리의 점수를 계산하는 weight 다.
-        filter 의 bias 도 filter 처럼 모든 사진이 함께 쓰고, max pooling 은 가장 큰 값을 고르는 계산이라 parameter 가 없다.
+        첫 층 filter 는 모든 사진의 gradient 평균으로 고쳐지므로 한 숫자 전용이 되지 않고, 선이나 밝기 경계처럼 여러 숫자를 가르는 데 두루
+        쓰이는 무늬에 반응하게 된다. 숫자 하나에만 쓰이는 것은 마지막 layer 에서 그 숫자 자리의 점수를 계산하는 weight 다.
+        숫자 7 전용 filter 가 따로 생기지는 않는다.
+        filter 의 bias 도 filter 처럼 모든 사진이 같이 쓴다.
+        max pooling 은 가장 큰 값을 고르는 계산이라 parameter 가 없다.
+
+- topic: weight-sharing
+  title: weight sharing 과 translation equivariance
+  variants:
+    - question: |
+        면접관: "사진을 펼쳐 MLP 에 넣는 대신 convolution 을 쓰면 parameter 가 크게 줄어드는 이유는 무엇인가요?"
+      choices:
+        - 'convolution 은 사진을 미리 작게 줄여서 받기 때문이다'
+        - 'convolution 은 weight 를 0 과 1 로만 저장하기 때문이다'
+        - 'convolution 은 bias 를 쓰지 않기 때문이다'
+        - '작은 filter 한 벌을 모든 자리에 돌려 써서, parameter 수가 사진 크기가 아니라 filter 크기와 channel 수로만 정해지기 때문이다'
+      answer: 3
+      explanation: |
+        MLP 의 neuron 은 입력 pixel 마다 weight 를 따로 두어서 사진이 커지면 parameter 도 비례해 는다. convolution 은 가까운 pixel 몇 개만
+        보는 작은 filter 를 모든 자리에 같이 쓰므로(weight sharing) parameter 수가 사진 크기와 무관하다.
+        사진을 미리 줄이지 않아도 parameter 는 적다.
+        weight 는 0·1 이 아닌 실수다.
+        convolution layer 도 filter 마다 bias 를 하나씩 둘 수 있고, bias 를 빼도 줄어드는 양은 filter 수만큼뿐이다.
+    - question: |
+        면접관: "convolution layer 에 넣는 사진을 오른쪽으로 2 pixel 옮기면 출력 feature map 은 어떻게 되나요? padding 이 있고 stride 는 1 이며, 사진 가장자리 효과는 무시합니다."
+      choices:
+        - '출력 값이 모두 0 이 된다'
+        - '같은 값들이 오른쪽으로 2 칸 옮겨 간다'
+        - '출력이 완전히 그대로이고 자리도 바뀌지 않는다'
+        - '값의 크기가 2 배가 된다'
+      answer: 1
+      explanation: |
+        같은 filter 가 모든 자리를 똑같이 계산하므로, 사진 속 모양이 옮겨 가면 그 모양에 대한 답도 같은 만큼 옮겨 간다. 이 성질을
+        translation equivariance 라고 한다.
+        같은 filter 가 옮겨 간 모양도 똑같이 계산하므로 값이 모두 0 이 될 이유가 없다.
+        출력이 자리까지 그대로인 것은 invariance 이고, convolution 이 아니라 pooling 이 묶음 안의 작은 이동에 대해 주는 성질이다.
+        이동은 값의 크기를 바꾸지 않는다.
+    - question: |
+        면접관: "ImageNet 의 224×224 사진으로 미리 학습한 ResNet-18 의 convolution 부분을 480×640 로봇 카메라 사진에 그대로 쓸 수 있는 이유는 무엇인가요?"
+      choices:
+        - '480×640 사진을 넣기 전에 반드시 224×224 로 잘라야 하므로 실제로는 같은 크기를 넣는다'
+        - 'ResNet-18 은 입력 크기마다 다른 weight 묶음을 미리 저장해 두기 때문이다'
+        - 'convolution 의 parameter 는 filter 크기와 channel 수로만 정해져서, 같은 filter 를 더 큰 사진의 더 많은 자리에 대면 되기 때문이다'
+        - '사진이 커지면 filter 도 자동으로 같은 비율로 커지기 때문이다'
+      answer: 2
+      explanation: |
+        conv layer 의 weight 는 사진 크기와 무관한 filter 몇 벌뿐이라서, 큰 사진에는 같은 filter 를 더 많은 자리에 대면 되고 출력 feature map 만
+        커진다. ACT 는 480×640 사진에서 15×20 feature map 을 얻는다. 입력 크기에 묶이는 것은 마지막 분류용 fully connected 층뿐이다.
+        사진을 224×224 로 꼭 자를 필요는 없다.
+        입력 크기마다 다른 weight 를 저장하지 않는다.
+        filter 크기는 고정이고 사진에 따라 바뀌지 않는다.
 
 - topic: output-size
   title: stride 와 padding
   variants:
     - question: |
-        convolution 에서 사진 테두리에 0 을 한 줄씩 덧대는 padding 에 대한 설명으로 옳은 것은?
+        면접관: "3×3 convolution 에서 padding 1, stride 1 을 쓰는 이유는 무엇인가요?"
       choices:
-        - 사진에 없던 새 정보를 더해 모델이 더 많이 보게 한다
-        - 출력 크기를 반으로 줄여 계산을 빠르게 한다
-        - 테두리 칸의 값을 0 으로 지워 잡음을 없앤다
-        - 테두리 칸도 filter 가운데에 올 수 있게 자리를 만들어, 출력 크기가 줄어드는 것을 막는다
-      answer: 3
-      explanation: |
-        padding 없이 3×3 filter 를 대면 맨 가장자리 칸은 filter 가운데에 오지 못해 출력이 입력보다 작아진다. 테두리 바깥에
-        0 을 덧대면 가장자리 칸도 가운데에 올 수 있어 크기가 유지된다. 덧댄 값은 0 이라 곱해도 0 이므로 새 정보는 생기지 않고,
-        원래 테두리 칸의 값도 그대로 남는다. 크기를 줄이는 것은 stride 나 pooling 의 일이다.
-    - question: |
-        다른 설정은 그대로 두고 convolution 의 stride 를 1 에서 2 로 바꾸면 어떻게 되나?
-      choices:
-        - filter 크기가 두 배가 된다
-        - 출력의 가로세로가 두 배로 커진다
-        - 출력의 가로세로가 대략 반으로 줄어 계산이 줄지만, 건너뛴 자리의 값은 계산되지 않는다
-        - parameter 수가 반으로 줄어든다
-      answer: 2
-      explanation: |
-        stride 는 filter 를 한 번에 옮기는 칸 수다. 2 칸씩 건너뛰면 filter 가 놓이는 자리가 가로세로로 대략 반이 되어 출력이
-        작아지고 계산도 줄지만, 건너뛴 자리에 있던 특징을 놓칠 수 있다. filter 의 크기와 숫자 수는 stride 와 무관해서
-        parameter 수도 그대로다.
-    - question: |
-        padding 없이 3×3 convolution 층을 여러 번 쌓으면 어떤 일이 생기나?
-      choices:
-        - 층을 지날 때마다 출력이 조금씩 커진다
-        - 층을 지날 때마다 가로세로가 줄어, 몇 층만 쌓아도 feature map 이 아주 작아진다
-        - 크기는 그대로이고 테두리 칸의 영향만 점점 커진다
-        - 층을 쌓아도 출력 크기와 상관없이 언제나 입력과 같다
-      answer: 1
-      explanation: |
-        padding 이 없으면 3×3 filter 는 가장자리 한 줄을 가운데에 두지 못해 층마다 가로세로가 양쪽 한 칸씩 줄어든다. 이것이
-        쌓이면 깊이 쌓기 전에 feature map 이 사라지므로 보통 padding 을 준다. 출력이 커지는 일은 없고, 테두리 칸은 오히려 가운데
-        칸보다 적은 window 에만 들어가 영향이 작다.
-
-- topic: conv-params
-  title: weight sharing 과 channel
-  variants:
-    - question: |
-        224×224 흑백 사진이든 28×28 흑백 사진이든, 3×3 filter 하나로 된 convolution 의 parameter 수는 똑같다. 그 이유는?
-      choices:
-        - 같은 filter 한 벌을 사진의 모든 자리에 돌려 써서, parameter 수가 filter 크기로만 정해지기 때문
-        - pooling 이 사진을 먼저 작게 줄이기 때문
-        - 큰 사진은 가운데 일부만 잘라서 쓰기 때문
-        - convolution 은 학습하는 숫자가 없기 때문
+        - '테두리에 0 을 한 줄 덧대 테두리 칸도 filter 가운데에 올 수 있게 해서, 출력 가로세로를 입력과 같게 지키려고'
+        - '테두리에 사진에 없던 정보를 더해 정확도를 높이려고'
+        - '출력 가로세로를 입력의 절반으로 줄여 계산량을 줄이려고'
+        - 'filter 의 parameter 수를 줄이려고'
       answer: 0
       explanation: |
-        convolution 은 자리마다 weight 를 따로 두지 않고 filter 숫자 9 개와 bias 하나를 모든 자리에 돌려 쓴다. 이것을 weight
-        sharing 이라 하고, 그래서 사진이 커져도 parameter 는 늘지 않고 filter 를 옮기는 횟수만 는다. pooling 이나 잘라 쓰기와는
-        상관이 없고, filter 숫자는 학습하는 parameter 다.
+        padding 없이 3×3 filter 를 대면 출력이 가로세로 2 칸씩 작아진다. 0 을 한 줄 덧대면 출력 길이가 $\lfloor (H + 2 - 3)/1 \rfloor + 1 = H$ 라서
+        층을 많이 쌓아도 크기가 유지된다.
+        덧댄 값은 0 이라 새 정보를 만들지 않는다.
+        가로세로를 반으로 줄이는 것은 stride 2 의 효과다.
+        padding 은 parameter 수와 관계없다.
     - question: |
-        컬러 사진(channel 3 장)에 3×3 filter 하나를 쓰는 convolution 에 대한 설명으로 옳은 것은?
+        면접관: "높이 H 인 feature map 에 3×3 convolution 을 padding 1, stride 2 로 하면 출력 높이는 대략 어떻게 되나요?"
       choices:
-        - filter 는 숫자 9 개짜리 판 하나이고, 이것을 channel 마다 따로 대어 출력 3 장을 낸다
-        - 출력 channel 수는 언제나 입력 channel 수와 같다
-        - 세 channel 중 빨강 channel 만 계산에 쓴다
-        - filter 도 3×3 판 3 장이고, 장마다 곱해 더한 값을 모두 합쳐 feature map 한 장을 낸다
-      answer: 3
-      explanation: |
-        입력이 여러 장이면 filter 도 입력과 같은 장 수로 만들고, 장마다 곱해 더한 값을 하나로 더한 뒤 bias 를 더한다. 그래서
-        filter 하나는 입력이 몇 장이든 출력 판 한 장을 만든다. 출력 channel 수는 입력 channel 수가 아니라 filter 개수로 정해지고,
-        세 channel 을 모두 써야 특정 색의 경계 같은 것에 반응할 수 있다.
-    - question: |
-        어떤 conv layer 의 filter 를 16 개에서 32 개로 늘렸다. 무엇이 바뀌나?
-      choices:
-        - 출력 feature map 의 가로세로가 두 배가 된다
-        - filter 하나의 크기가 커진다
-        - 출력 channel(feature map 장 수)이 32 장이 되고, parameter 도 두 배가 된다
-        - 이 층이 받는 입력 channel 수가 32 장이 된다
+        - '입력과 같은 H 다'
+        - 'H 보다 2 작다'
+        - '대략 H 의 절반이다'
+        - '대략 H 의 2 배다'
       answer: 2
       explanation: |
-        filter 하나가 feature map 한 장을 만들므로 출력 channel 수는 filter 개수와 같다. filter 마다 숫자가 같은 개수씩 있으니
-        filter 가 두 배면 parameter 도 두 배다. 가로세로는 filter 크기·stride·padding 으로 정해지고, filter 하나의 크기와 입력
-        channel 수는 filter 개수와 상관없다. 이 층의 출력 32 장은 다음 층의 입력 channel 이 된다.
+        출력 길이는 $\lfloor (H + 2p - k)/s \rfloor + 1$ 이고, $p = 1$, $k = 3$, $s = 2$ 를 넣으면 $\lfloor (H - 1)/2 \rfloor + 1$ 로 대략 $H/2$ 다.
+        예를 들어 32 는 16 이 된다. filter 를 두 칸씩 건너뛰며 놓기 때문이다.
+        입력과 같은 크기는 stride 1 일 때다.
+        2 작아지는 것은 padding 0, stride 1 일 때다.
+        convolution 의 stride 는 출력을 키우지 않는다.
+    - question: |
+        면접관: "stride 를 1 에서 2 로 키우면 무엇을 얻고 무엇을 잃나요?"
+      choices:
+        - '얻는 것도 잃는 것도 없이 결과가 같다'
+        - '출력 가로세로가 대략 반으로 줄어 계산이 빨라지지만, 건너뛴 자리의 값을 보지 못해 세밀한 위치 정보를 일부 잃는다'
+        - 'parameter 가 반으로 줄지만 출력 크기는 그대로다'
+        - '출력이 2 배로 커져 더 정확해지지만 계산이 느려진다'
+      answer: 1
+      explanation: |
+        stride 2 는 filter 를 두 칸씩 옮겨서 출력 가로세로가 대략 반으로 줄고 칸 수는 대략 4 분의 1 이 된다. 다음 층의 계산도 그만큼 줄지만, 건너뛴
+        자리에 있던 강한 반응을 놓칠 수 있다.
+        출력 크기가 바뀌므로 결과가 같지 않다.
+        filter 의 parameter 수는 stride 와 관계없다.
+        stride 를 키우면 출력은 작아진다.
+
+- topic: channels
+  title: 여러 channel 의 convolution 과 parameter 수
+  variants:
+    - question: |
+        면접관: "RGB 사진을 받는 첫 conv layer 의 3×3 filter 하나에는 학습할 weight 가 몇 개 있나요? bias 는 빼고 셉니다."
+      choices:
+        - '9 개'
+        - '27 개'
+        - '3 개'
+        - '81 개'
+      answer: 1
+      explanation: |
+        filter 는 입력 channel 마다 3×3 판을 한 장씩 가져서 $3 \times 3 \times 3 = 27$ 개다. channel 마다 곱해 더한 값을 마지막에 모두 더해 숫자
+        하나를 낸다.
+        9 개는 입력 channel 수를 곱하는 것을 빠뜨린 값이다.
+        3 개는 channel 수만 센 값이다.
+        81 개는 9 를 한 번 더 곱한 값으로 근거가 없다.
+    - question: |
+        면접관: "conv layer 의 출력 channel 수는 무엇으로 정해지나요?"
+      choices:
+        - '입력 channel 수와 항상 같다'
+        - 'filter 크기 k 와 같다'
+        - '입력 사진의 가로 길이로 정해진다'
+        - '그 층이 가진 filter 의 개수와 같다'
+      answer: 3
+      explanation: |
+        입력이 몇 장이든 filter 하나는 channel 마다 곱해 더한 값을 합쳐 출력 판 한 장을 만든다. 그래서 filter 를 64 개 두면 출력도 64 장이다.
+        입력과 출력의 channel 수는 설계자가 따로 정하며 같을 필요가 없다.
+        filter 크기는 한 칸이 보는 범위를 정할 뿐이다.
+        사진 크기는 출력의 가로세로를 정하고 channel 수와는 관계없다.
+    - question: |
+        면접관: "입력 channel 64 장에 3×3 filter 128 개를 쓰는 conv layer 의 parameter 수를 구하는 식으로 맞는 것은? 각 filter 에 bias 가 하나씩 있습니다."
+      choices:
+        - '$128 \times (64 \times 3 \times 3 + 1)$'
+        - '$128 \times 3 \times 3 + 128$'
+        - '$64 \times 128 + 3 \times 3$'
+        - '$(64 + 128) \times 3 \times 3$'
+      answer: 0
+      explanation: |
+        filter 하나는 입력 channel 마다 3×3 판이 있어 $64 \times 9$ 개이고 bias 가 하나 붙는다. 그런 filter 가 128 개라서
+        $C_{\text{out}} \times (C_{\text{in}} k^2 + 1) = 128 \times 577 = 73{,}856$ 개다.
+        둘째 식은 입력 channel 수를 곱하는 것을 빠뜨렸다.
+        셋째 식은 MLP 처럼 channel 끼리만 곱하고 filter 크기를 더해 버렸다.
+        넷째 식은 channel 수를 곱하지 않고 더했다.
 
 - topic: pooling
-  title: max pooling 과 위치 이동
+  title: pooling 과 translation invariance
   variants:
     - question: |
-        2×2 max pooling 에 대한 설명으로 옳은 것은?
+        면접관: "2×2 max pooling 이 하는 일과, 학습할 parameter 가 몇 개인지 말해 보세요."
       choices:
-        - 묶음마다 weight 를 곱해 더하고, 그 weight 를 학습한다
-        - 겹치지 않는 2×2 묶음마다 가장 큰 값만 남겨 가로세로를 반으로 줄이고, 학습하는 숫자가 없다
-        - 묶음에서 가장 큰 값이 있던 자리의 좌표를 남긴다
-        - 크기는 그대로 두고 작은 값을 0 으로 바꾼다
-      answer: 1
+        - '2×2 filter 의 weight 4 개를 학습해 묶음을 곱해 더하므로 parameter 가 4 개다'
+        - '묶음의 평균을 내고, 평균에 곱할 계수 하나를 학습한다'
+        - '겹치지 않는 2×2 묶음마다 가장 큰 값만 남겨 가로세로를 반으로 줄이고, 학습할 parameter 는 없다'
+        - '묶음마다 가장 작은 값을 남겨 noise 를 지우고, 묶음마다 문턱값을 학습한다'
+      answer: 2
       explanation: |
-        max pooling 은 "이 구역 어딘가에 그 특징이 강하게 있었는가" 만 남기고 정확한 자리는 버린다. 가장 큰 값을 고르는 규칙만
-        있어서 학습할 parameter 가 없다. weight 를 곱해 더하는 것은 convolution 이고, 좌표는 오히려 버리는 정보다. 크기를
-        유지하며 음수를 0 으로 바꾸는 것은 ReLU 다.
+        max pooling 은 묶음마다 가장 큰 값을 고르는 고정된 계산이라 학습할 숫자가 없다. "이 구역 어딘가에 그 특징이 강하게 있었는가" 만 남기고
+        구역 안의 정확한 자리는 버린다.
+        곱해 더하는 weight 를 학습하는 것은 convolution 이다.
+        평균을 내는 것은 average pooling 이고, 보통 학습하는 계수가 없다.
+        가장 작은 값을 남기거나 문턱값을 학습하지 않는다.
     - question: |
-        입력 사진을 조금 옮겼을 때, convolution 출력과 max pooling 출력의 변화를 바르게 짝지은 것은?
+        면접관: "convolution 의 translation equivariance 와 max pooling 이 주는 translation invariance 는 어떻게 다른가요?"
       choices:
-        - convolution 출력은 같은 만큼 함께 옮겨 가고(equivariance), pooling 출력은 같은 묶음 안의 이동이면 그대로다(invariance)
-        - convolution 출력은 그대로이고(invariance), pooling 출력은 함께 옮겨 간다(equivariance)
-        - 둘 다 MLP 처럼 값이 크게 바뀐다
-        - 둘 다 어떤 이동에도 완전히 그대로다
+        - 'equivariance 는 입력이 옮겨 가면 출력도 같은 만큼 옮겨 가는 것이고, invariance 는 입력이 조금 옮겨 가도 출력이 그대로인 것이다'
+        - '둘은 같은 말이다'
+        - 'equivariance 는 회전에 대한 성질이고, invariance 는 크기 변화에 대한 성질이다'
+        - 'equivariance 는 출력이 그대로인 것이고, invariance 는 출력이 함께 옮겨 가는 것이다'
       answer: 0
       explanation: |
-        convolution 은 모든 자리에 같은 filter 를 쓰므로 모양이 옮겨 가면 그 모양에 대한 반응도 같은 값으로 자리만 옮겨 간다.
-        max pooling 은 묶음 안의 가장 큰 값만 남기므로, 큰 값이 같은 묶음 안에서 움직이면 결과가 아예 같다. 둘의 짝을 바꾼
-        보기는 순서가 뒤집혔고, 어느 쪽도 MLP 처럼 값이 무너지지는 않는다. 다만 묶음 경계를 넘는 이동은 pooling 결과도 바꾼다.
+        convolution 은 같은 filter 를 모든 자리에 써서 모양이 옮겨 가면 답도 같은 자리만큼 옮겨 간다(equivariance). max pooling 은 묶음 안의
+        가장 큰 값만 남기므로 그 값이 묶음 안에서 움직여도 결과가 같다(invariance). 묶음 경계를 넘는 이동은 결과를 바꾼다.
+        두 성질은 결과가 다르므로 같은 말이 아니다.
+        둘 다 평행 이동에 대한 성질이고, 보통의 CNN 은 회전에 대해 equivariance 를 갖지 않는다.
+        넷째 보기는 두 정의를 서로 바꿔 적었다.
     - question: |
-        "max pooling 을 넣으면 CNN 은 물체의 위치에 완전히 무관해진다" 는 주장에 대한 평가로 옳은 것은?
+        면접관: "max pooling 을 여러 번 거친 CNN 은 물체가 사진 어디에 있든 결과가 완전히 같아지나요?"
       choices:
-        - 맞다. pooling 은 어떤 이동이든 결과를 바꾸지 않는다
-        - 맞다. pooling 은 위치 정보를 모두 채널 수로 옮겨 적는다
-        - 틀렸다. pooling 은 오히려 작은 이동에도 결과를 크게 바꾼다
-        - 틀렸다. 같은 묶음 안의 이동만 지우고, 묶음 경계를 넘는 이동은 결과를 바꾼다
-      answer: 3
+        - '같아진다. pooling 은 위치 정보를 모두 지운다'
+        - '완전히 같아지지는 않는다. 같은 묶음 안의 작은 이동은 지워지지만 묶음 경계를 넘는 이동은 결과를 바꾼다'
+        - '같아진다. convolution 이 이미 위치에 무관한 값을 내기 때문이다'
+        - '오히려 위치에 더 민감해진다. pooling 은 이동을 키우기 때문이다'
+      answer: 1
       explanation: |
-        2×2 max pooling 은 큰 값이 같은 묶음 안에서 움직일 때만 결과가 같다. 묶음 경계를 넘으면 큰 값이 다른 칸으로 가서 결과도
-        바뀐다. pooling 을 여러 번 거치면 묶음 한 칸이 사진의 넓은 구역을 대표해 한두 pixel 이동에는 거의 흔들리지 않지만, 위치에
-        완전히 무관해지지는 않는다. pooling 은 위치를 channel 로 옮겨 적지 않고 그냥 버린다.
+        max pooling 은 묶음 안의 이동만 지운다. 큰 값이 옆 묶음으로 넘어가면 결과 칸도 바뀌므로 위치에 완전히 무관해지지는 않고, pooling 을
+        여러 번 거칠수록 한두 pixel 정도의 이동에 덜 흔들릴 뿐이다.
+        pooling 이 위치 정보를 모두 지우지는 않는다.
+        convolution 은 위치를 함께 옮기는 equivariance 라서 위치에 무관한 값을 내지 않는다.
+        pooling 이 이동을 키우지는 않는다.
 
 - topic: receptive-field
-  title: receptive field
+  title: receptive field 와 층의 깊이
   variants:
     - question: |
-        CNN 에서 어떤 출력 칸의 receptive field 란?
+        면접관: "3×3 convolution 을 stride 1 로 세 번 쌓으면, 마지막 출력 한 칸의 receptive field 는 입력에서 얼마인가요?"
       choices:
-        - 그 칸을 계산하는 filter 의 숫자 개수
-        - 그 층의 출력 feature map 전체 크기
-        - 그 칸의 값을 계산하는 데 쓰인 입력 사진의 영역
-        - 그 칸의 값이 0 보다 큰지 여부
-      answer: 2
-      explanation: |
-        receptive field 는 출력 한 칸이 반영하는 입력 영역이다. 3×3 convolution 의 출력 한 칸은 입력 3×3 만 보고, 그 바깥 pixel
-        이 바뀌어도 이 칸은 바뀌지 않는다. filter 숫자 개수는 parameter 수이고, feature map 크기는 층 전체의 출력 모양이라
-        칸 하나가 보는 범위와 다르다.
-    - question: |
-        3×3 filter 만 쓰는 CNN 이 사진 전체를 덮는 큰 물체도 알아볼 수 있는 이유는?
-      choices:
-        - 마지막 층에서 filter 가 사진 크기로 자동으로 커지기 때문
-        - 층을 쌓을수록 한 칸의 receptive field 가 넓어져, 깊은 층이 아래층의 작은 feature 를 조합해 큰 패턴을 보기 때문
-        - 3×3 filter 도 사실은 사진 전체를 한 번에 보기 때문
-        - 큰 물체는 pixel 값이 커서 작은 filter 에도 크게 반응하기 때문
-      answer: 1
-      explanation: |
-        한 층의 출력 칸은 3×3 만 보지만, 그 위 층의 칸은 아래층 칸 3×3 을 보고 그 칸들이 각자 입력 3×3 을 보므로 더 넓은 영역을
-        반영한다. 층이 쌓이면 작은 선 → 모서리 → 부분 → 물체 순서로 큰 패턴이 만들어진다. filter 크기는 층마다 고정이고, 3×3 은
-        한 번에 9 칸만 본다. pixel 값의 크기는 물체의 크기와 상관이 없다.
-    - question: |
-        conv 층 사이에 2×2 pooling 을 넣으면 뒤쪽 층의 receptive field 는 어떻게 되나?
-      choices:
-        - pooling 은 학습하는 숫자가 없으므로 receptive field 에 영향이 없다
-        - 크기를 줄이므로 receptive field 도 좁아진다
-        - receptive field 는 filter 크기로만 정해지므로 그대로다
-        - pooling 뒤에는 이웃한 칸이 원래 사진에서 더 멀리 떨어진 자리를 대표해, receptive field 가 더 빨리 넓어진다
+        - '3×3 이다. filter 크기가 3 이기 때문이다'
+        - '9×9 다. 3 을 세 번 곱하기 때문이다'
+        - '27×27 이다'
+        - '7×7 이다. 층마다 양쪽으로 1 칸씩, 2 칸 넓어진다'
       answer: 3
       explanation: |
-        pooling 을 지나면 feature map 의 이웃한 두 칸은 원래 사진에서 2 pixel 떨어진 자리를 대표한다. 그래서 그 위의 filter 가 한
-        칸 넓게 볼 때마다 사진에서는 2 pixel 씩 넓어진다. 학습 숫자가 없어도 칸의 간격을 바꾸므로 영향이 있고, feature map 이 작아
-        지는 것과 한 칸이 보는 범위가 넓어지는 것은 서로 반대 방향이 아니라 같은 일의 두 면이다.
-
-- topic: feature-policy
-  title: CNN feature 와 로봇 policy
-  variants:
+        3×3 conv 한 층은 receptive field 가 3 이고, 한 층을 더 쌓을 때마다 $k - 1 = 2$ 씩 넓어진다. 그래서 $1 + 3 \times 2 = 7$ 이다.
+        3×3 은 한 층만 쌓았을 때의 값이다.
+        stride 1 에서는 receptive field 가 곱이 아니라 덧셈으로 넓어지므로 9 가 아니다.
+        27 은 $3^3$ 으로 근거가 없다.
     - question: |
-        사진을 받는 모델에서 CNN 이 맡는 역할을 가장 잘 설명한 것은?
+        면접관: "CNN 이 3×3 같은 작은 filter 만 쓰는데도 사진 전체를 덮는 큰 물체를 알아볼 수 있는 이유는 무엇인가요?"
       choices:
-        - 사진을 판단에 필요한 내용만 담은 적은 수의 숫자(feature)로 요약한다
-        - 사진의 해상도를 높여 더 선명하게 만든다
-        - 사진을 사람이 읽을 수 있는 문장으로 바꾼다
-        - 사진의 pixel 값을 손실 없이 그대로 압축 저장한다
-      answer: 0
-      explanation: |
-        CNN 은 수만 ~ 수십만 개의 pixel 숫자를 "이 구역에 이런 모양이 얼마나 있는가" 를 담은 적은 수의 feature 로 줄인다. 잘
-        학습된 feature 는 조명이나 작은 위치 변화에 pixel 값보다 덜 흔들린다. 해상도를 높이는 것은 반대 방향의 일이고, 문장으로
-        바꾸는 일은 하지 않는다. 판단에 필요 없는 내용은 버리므로 원래 pixel 을 되살릴 수 있는 무손실 압축도 아니다.
-    - question: |
-        로봇 policy 에 카메라 사진을 그대로 MLP 입력으로 넣지 않고 CNN 으로 feature 를 먼저 뽑아 넣는 이유로 알맞은 것은?
-      choices:
-        - policy 는 사진 대신 관절 각도만 있어도 충분하기 때문
-        - 사진을 그대로 넣으면 첫 layer 의 parameter 가 지나치게 많고, 물체가 조금만 옮겨 가도 policy 가 처음 보는 입력으로 받아들이기 때문
-        - MLP 는 0 ~ 255 범위의 숫자를 입력으로 받을 수 없기 때문
-        - CNN 을 거치면 사진의 숫자가 오히려 늘어나 정보가 많아지기 때문
+        - '마지막 층에서 filter 크기를 사진 크기로 키우기 때문이다'
+        - '층을 쌓고 stride 와 pooling 을 거칠수록 한 칸의 receptive field 가 넓어져, 깊은 층은 아래층의 작은 feature 를 조합해 큰 패턴을 보기 때문이다'
+        - 'filter 가 학습 중에 점점 커지기 때문이다'
+        - '사진을 작은 조각으로 잘라 조각마다 따로 분류한 뒤 투표하기 때문이다'
       answer: 1
       explanation: |
-        사진을 펼쳐 MLP 에 넣으면 사진을 MLP 에 넣을 때의 두 문제, 곧 parameter 폭증과 위치 이동에 대한 약함이 그대로 생긴다.
-        CNN 이 사진을 적은 수의 feature 로 줄여 주면 policy 는 그 feature 와 관절 각도를 함께 받아 행동을 정한다. 사진 없이는
-        물체의 위치를 알 수 없고, MLP 는 어떤 범위의 숫자든 입력으로 받을 수 있다. CNN 은 숫자를 줄이는 쪽이다.
+        한 층이 새로 배우는 것은 바로 아래층 feature 의 조합뿐이지만, 층이 쌓이면 receptive field 가 넓어져 짧은 선에서 모서리, 부분, 물체 순서로
+        큰 패턴이 만들어진다. stride 와 pooling 은 이웃 칸 사이의 간격을 넓혀 receptive field 를 더 빨리 키운다.
+        filter 크기는 층마다 정해 두고 사진 크기로 키우지 않는다.
+        학습은 filter 의 숫자만 바꾸고 크기는 바꾸지 않는다.
+        조각마다 따로 분류해 투표하는 방식은 CNN 의 기본 구조가 아니다.
     - question: |
-        로봇 팔 policy 가 카메라 사진을 CNN 으로 feature 로 바꾸고, 그 feature 를 관절 각도와 이어 붙여 받아 다음 관절 목표 각도를
-        낸다. 각 요소를 바르게 짝지은 것은?
+        면접관: "receptive field 가 넓어지는 속도에 stride 2 층이나 2×2 pooling 이 주는 영향은 무엇인가요?"
       choices:
-        - 카메라 사진이 action, 관절 목표 각도가 observation, CNN 은 policy 다
-        - 관절 각도만 observation 이고, 사진은 학습에만 쓰는 정답이다
-        - 사진과 관절 각도가 observation, 다음 관절 목표 각도가 action, 사진을 feature 로 바꾸는 CNN 이 image encoder 다
-        - CNN 이 action 을 내고, policy 는 사진을 저장하는 역할만 한다
+        - '영향이 없다. receptive field 는 filter 크기로만 정해진다'
+        - 'receptive field 를 줄인다. 출력이 작아지기 때문이다'
+        - '그 뒤의 층에서 이웃 칸이 입력에서 더 멀리 떨어진 곳을 대표하게 되어, 같은 3×3 filter 가 입력의 더 넓은 영역을 보게 한다'
+        - 'receptive field 를 사진 전체로 즉시 넓힌다'
       answer: 2
       explanation: |
-        policy 는 지금 보고 있는 것(observation)을 받아 다음에 할 행동(action)을 내는 모델이다. 로봇 팔에서는 사진과 관절 각도가
-        observation, 관절마다 다음에 갈 목표 각도가 action 이다. CNN 은 그중 사진을 숫자로 바꿔 적는 부분이라 image encoder 라고
-        부른다. 첫 보기는 입력과 출력을 뒤집었고, 사진은 실행 중에도 policy 가 받는 입력이다.
+        stride 2 나 2×2 pooling 뒤에는 출력의 이웃한 두 칸이 입력에서 2 배 멀리 떨어진 자리를 대표한다. 그래서 그 위의 3×3 filter 가 한 칸 넓게
+        볼 때마다 입력에서는 더 많이 넓어진다. 층마다 넓어지는 양은 $(k - 1) \times$ 지금까지의 간격이다.
+        filter 크기만으로 정해지지 않고 앞 층들의 stride 가 함께 정한다.
+        출력이 작아져도 한 칸이 보는 입력 영역은 오히려 넓어진다.
+        한 번에 사진 전체로 넓어지지는 않고 층을 지날 때마다 조금씩 넓어진다.
+
+- topic: robot-encoder
+  title: 로봇 image encoder 와 위치 정보
+  variants:
+    - question: |
+        면접관: "로봇 팔 policy 의 image encoder 로 ImageNet 분류용 CNN 을 가져올 때, 마지막의 global average pooling 을 그대로 쓰면 어떤 문제가 생길 수 있나요?"
+      choices:
+        - 'feature map 의 자리별 값을 평균 내 버려 물체가 사진 어디에 있는지가 사라지고, policy 가 손을 뻗을 위치를 알기 어려워진다'
+        - 'parameter 가 너무 많아져 학습이 느려진다'
+        - '출력이 1000 class 점수로 고정되어 관절 각도와 이어 붙일 수 없다'
+        - '아무 문제가 없다. 평균은 모든 정보를 보존한다'
+      answer: 0
+      explanation: |
+        분류는 물체가 어디 있든 같은 답을 내야 해서 자리를 지우는 pooling 이 쓸모 있지만, 로봇 제어는 물체의 위치에 따라 행동이 정해진다. Levine
+        등(2016)은 이 이유로 pooling 을 쓰지 않았고, Diffusion Policy 는 global average pooling 을 spatial softmax 로 바꿨으며, ACT 는 15×20
+        feature map 을 그대로 쓴다.
+        global average pooling 은 parameter 가 없어서 parameter 를 늘리지 않는다.
+        1000 class 점수는 그 뒤의 분류 층이 내는 것이고, 분류 층은 떼어 내면 된다.
+        평균은 자리 정보를 버리므로 모든 정보를 보존하지 않는다.
+    - question: |
+        면접관: "spatial softmax 는 CNN 의 feature map 을 어떤 숫자로 바꾸나요?"
+      choices:
+        - 'channel 마다 feature map 의 평균값 하나로 바꾼다'
+        - 'channel 마다 가장 큰 값 하나로 바꾼다'
+        - 'channel 마다 자리별 softmax 확률로 열 번호와 줄 번호의 평균을 내어, 그 특징이 있는 좌표 (x, y) 로 바꾼다'
+        - '모든 channel 을 하나로 더해 class 확률로 바꾼다'
+      answer: 2
+      explanation: |
+        spatial softmax 는 channel 마다 feature map 전체에 softmax 를 걸어 자리별 확률을 만들고, 그 확률로 좌표의 평균을 낸다. 그래서 channel
+        하나가 그 특징이 사진 어디쯤 있는지 나타내는 숫자 두 개 $(x, y)$ 가 되고, 위치 정보가 policy 까지 남는다. 계산이 미분 가능해서 policy loss 로 conv
+        층까지 함께 학습한다.
+        평균값 하나는 global average pooling 이라 자리를 잃는다.
+        가장 큰 값 하나는 global max pooling 이라 역시 자리를 잃는다.
+        class 확률을 내는 계산이 아니다.
+    - question: |
+        면접관: "Dex-Net 2.0 의 GQ-CNN 은 grasp 후보마다 depth image 를 후보 중심에 맞춰 옮기고 gripper 축 방향에 맞춰 돌린 뒤 넣습니다. 돌려서 넣는 이유는 무엇인가요?"
+      choices:
+        - 'depth image 는 돌리지 않으면 값이 음수가 되기 때문이다'
+        - '사진 크기를 줄여 parameter 를 줄이기 위해서다'
+        - '돌리면 translation invariance 가 생겨 pooling 이 필요 없어지기 때문이다'
+        - 'convolution 의 equivariance 는 평행 이동에만 성립하고 회전에는 성립하지 않아서, 사진을 grasp 방향에 맞춰 돌려 두면 network 가 회전마다 따로 배울 필요가 없기 때문이다'
+      answer: 3
+      explanation: |
+        같은 filter 를 모든 자리에 쓰는 convolution 은 평행 이동에는 맞춰 반응하지만, 회전한 모양은 다른 모양으로 본다. 그래서 grasp 축을 늘 같은
+        방향(가로)에 오도록 돌려 넣으면 network 는 한 방향의 grasp 만 판단하면 된다. 논문에 따르면 이 정렬 덕분에 회전 invariance 를 따로 배울 필요가 없다.
+        회전은 depth 값의 부호를 바꾸지 않는다.
+        돌리기는 사진 크기나 parameter 수와 관계없고, 크기는 32×32 로 자르는 단계에서 정해진다.
+        회전 정렬은 평행 이동에 대한 invariance 를 만들지 않는다.
