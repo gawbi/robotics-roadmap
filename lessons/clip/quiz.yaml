@@ -5,12 +5,12 @@
   title: 짝 고르기로 하는 학습
   variants:
     - question: |
-        면접관: "CLIP 은 사진에 붙은 설명 글로 학습하는데, 설명을 한 단어씩 생성하게 하지 않고 여러 설명 가운데 짝을 고르게 했습니다. 왜 그렇게 했나요?"
+        CLIP 은 사진에 붙은 설명 글로 학습하는데, 설명을 한 단어씩 생성하게 하지 않고 여러 설명 가운데 짝을 고르게 했다. 왜 그렇게 했는가?
       choices:
         - '짝 고르기는 label 이 달린 사진만 쓸 수 있어서 데이터가 더 깨끗하기 때문이다'
-        - '같은 사진에도 설명이 끝없이 다르게 붙어서 단어를 정확히 맞히는 문제는 어렵고, 맞는 설명을 다른 설명과 구별하기만 하는 편이 같은 정확도에 드는 계산이 적기 때문이다'
-        - '짝 고르기를 하면 text encoder 가 필요 없어져 model 이 작아지기 때문이다'
-        - '설명을 생성하는 방식은 Transformer 로 만들 수 없기 때문이다'
+        - '단어를 맞히기보다 맞는 설명을 구별하는 편이 같은 정확도에 드는 계산이 적기 때문이다'
+        - '짝 고르기를 하면 text encoder 가 필요 없어져 model 이 작고 학습이 빨라지기 때문이다'
+        - '설명을 한 단어씩 생성하는 방식은 Transformer 로 만들 수 없기 때문이다'
       answer: 1
       explanation: |
         같은 고양이 사진에도 "소파 위의 고양이", "낮잠 자는 우리 집 나비" 처럼 설명이 끝없이 달라서, 설명을 단어 그대로 맞히게 하면 model 이
@@ -19,12 +19,12 @@
         vector 로 바꿀 text encoder 가 반드시 있어야 한다. 설명을 한 단어씩 생성하는 방식도 Transformer language model 로 만들 수 있고, CLIP
         논문이 비교한 기준이 그 방식이다.
     - question: |
-        면접관: "CLIP 의 학습 데이터 4억 쌍은 어떻게 만들었고, 사람이 label 을 단 dataset 과 무엇이 다른가요?"
+        CLIP 의 학습 데이터 4억 쌍은 어떻게 만들었고, 사람이 label 을 단 dataset 과 무엇이 다른가?
       choices:
         - '사람이 사진마다 1000 가지 class 중 하나를 골라 단 label 이다'
-        - '로봇이 직접 찍은 사진에 작업 성공 여부를 붙인 데이터다'
-        - '사진을 생성 model 로 만들고 그 생성에 쓴 문장을 짝으로 붙였다'
-        - '인터넷에서 사진과 함께 올라온 설명 글을 검색어 50만 개로 모은 것이라, 사람이 label 로 단 글은 아니지만 대개 사진의 내용이 적혀 있다'
+        - '로봇이 직접 찍은 사진에 작업 성공 여부를 붙인 데이터라 로봇에 바로 맞는다'
+        - '사진을 생성 model 로 만들고, 그 생성에 쓴 문장을 짝으로 붙여 사람 손이 들지 않았다'
+        - '인터넷에 사진과 함께 올라온 설명 글을 모은 것으로, 사람이 label 로 단 글이 아니다'
       answer: 3
       explanation: |
         CLIP 은 영어 Wikipedia 에 자주 나오는 단어 등으로 검색어 50만 개를 만들고, 글에 그 검색어가 들어간 사진–글 쌍을 검색어 하나당 2만 개까지
@@ -32,12 +32,12 @@
         필요도 없다. 사람이 1000 가지 class 중 하나를 골라 단 label 은 ImageNet 의 방식이다. 로봇이 찍은 사진에 성공 여부를 붙인 데이터는 CLIP 의
         학습 데이터가 아니다. 생성 model 로 만든 사진도 쓰지 않았다.
     - question: |
-        면접관: "contrastive learning 의 contrastive 는 무엇을 대조한다는 뜻인가요?"
+        contrastive learning 의 contrastive 는 무엇을 대조한다는 뜻인가?
       choices:
-        - '짝인 사진–글 쌍과 짝이 아닌 쌍을 대조해, 짝의 점수는 올리고 짝이 아닌 쌍의 점수는 내린다는 뜻이다'
-        - '사진의 밝은 부분과 어두운 부분의 대비(contrast)를 키워 학습한다는 뜻이다'
-        - '학습 데이터와 평가 데이터를 대조해 overfitting 을 막는다는 뜻이다'
-        - '두 model 의 출력을 대조해 더 좋은 쪽만 남긴다는 뜻이다'
+        - '짝인 쌍과 짝이 아닌 쌍을 대조해, 짝의 점수는 올리고 아닌 쌍의 점수는 내린다는 뜻이다'
+        - '사진의 밝은 부분과 어두운 부분의 대비(contrast)를 키워 물체를 또렷하게 학습한다는 뜻이다'
+        - '학습 데이터와 평가 데이터를 대조해 overfitting 이 생기기 전에 학습을 멈춘다는 뜻이다'
+        - '두 model 의 출력을 대조해 더 좋은 쪽만 남기고 나머지는 버린다는 뜻이다'
       answer: 0
       explanation: |
         contrastive learning 은 짝인 쌍(positive)과 짝이 아닌 쌍(negative)을 대조하며 배운다. CLIP 에서는 유사도 행렬의 대각선이 positive, 나머지
@@ -49,12 +49,12 @@
   title: 두 encoder 와 유사도 행렬
   variants:
     - question: |
-        면접관: "CLIP 이 사진과 문장의 짝이 맞는 정도를 점수로 내는 과정을 설명해 보세요."
+        CLIP 이 사진과 문장의 짝이 맞는 정도를 점수로 내는 과정으로 맞는 것은?
       choices:
         - '사진과 문장을 한 Transformer 에 이어 붙여 넣고, 마지막 층이 짝일 확률을 직접 낸다'
-        - '사진의 pixel 과 문장의 글자 수를 비교해 비슷하면 높은 점수를 준다'
-        - 'image encoder 와 text encoder 가 각자 vector 를 내고, 같은 길이로 projection 한 뒤 길이 1 로 맞춰 dot product(cosine similarity)를 점수로 쓴다'
-        - 'text encoder 만 쓰고, 사진은 미리 정한 1000 가지 class 의 이름으로 바꿔 비교한다'
+        - '사진의 pixel 값과 문장의 글자를 같은 숫자로 바꿔 비슷할수록 높은 점수를 준다'
+        - 'encoder 둘이 낸 vector 를 projection 하고 길이 1 로 맞춰 cosine similarity 를 점수로 쓴다'
+        - 'text encoder 만 쓰고, 사진은 미리 정한 1000 가지 class 의 이름으로 바꿔 글끼리 비교한다'
       answer: 2
       explanation: |
         CLIP 은 dual encoder 구조다. image encoder(ViT 의 [CLS] 출력)와 text encoder(EOT 자리 출력)가 각자 vector 를 내고, 행렬을 곱하는
@@ -62,24 +62,25 @@
         붙이지 않고 encoder 를 따로 둔다. pixel 이나 글자 수를 직접 비교하는 일도 없다. 사진을 class 이름으로 바꾸면 정해진 목록의 한계가 그대로
         남는다.
     - question: |
-        면접관: "CLIP 이 embedding 을 길이 1 로 정규화한 뒤 비교하는 이유는 무엇인가요?"
+        CLIP 이 embedding 을 길이 1 로 정규화한 뒤 비교하는 이유는 무엇인가?
       choices:
-        - '방향만 비교하려는 것이다. 밝은 사진이라 vector 가 길게 나와도 모든 설명과의 점수가 덩달아 커지지 않게 한다'
-        - 'vector 의 숫자 개수를 512 개로 맞추기 위해서다'
-        - '정규화하면 학습할 parameter 가 줄어 학습이 빨라지기 때문이다'
-        - '정규화하지 않으면 dot product 를 계산할 수 없기 때문이다'
+        - '방향만 비교하려는 것이다. 길이가 긴 vector 가 모든 설명과 큰 점수를 받지 않게 한다'
+        - 'image embedding 과 text embedding 의 숫자 개수를 512 개로 똑같이 맞추기 위해서다'
+        - '정규화하면 학습할 parameter 가 줄어 학습이 빨라지고 memory 도 아끼기 때문이다'
+        - '길이가 1 이 아니면 dot product 가 너무 커져 계산할 수 없기 때문이다'
       answer: 0
       explanation: |
         길이 1 로 맞춘 두 vector 의 dot product 는 두 방향이 이루는 각의 cosine 이라 −1 ~ 1 사이이고, vector 의 길이와 관계없이 방향만 비교한다.
         숫자 개수를 512 개로 맞추는 것은 projection 이 하는 일이다. 정규화는 vector 를 자기 길이로 나누기만 하므로 parameter 수를 바꾸지 않는다.
         길이가 1 이 아니어도 dot product 는 계산할 수 있지만, 그러면 길이가 긴 vector 가 모든 상대와 큰 점수를 받는다.
     - question: |
-        면접관: "CLIP 의 loss 는 유사도 행렬을 가로(사진마다 맞는 설명 고르기)로 한 번, 세로(설명마다 맞는 사진 고르기)로 한 번 계산해 평균합니다. 두 방향을 모두 쓰는 이유는?"
+        CLIP 의 loss 는 유사도 행렬을 가로(사진마다 맞는 설명 고르기)로 한 번, 세로(설명마다 맞는 사진 고르기)로 한 번 계산해 평균한다. 두
+        방향을 모두 쓰는 이유는?
       choices:
-        - '한 방향만 쓰면 행렬의 대각선이 계산되지 않기 때문이다'
-        - '세로 방향은 negative 가 없어서 loss 를 안정시키는 역할만 한다'
-        - '두 방향의 평균을 내야 loss 가 0 ~ 1 사이에 들어오기 때문이다'
-        - '사진으로 글을 찾는 능력과 글로 사진을 찾는 능력을 함께 기르기 위해서다. 두 방향은 같은 행렬을 다른 문제로 읽은 것이다'
+        - '한 방향만 쓰면 행렬의 대각선이 계산되지 않아 positive 를 알 수 없기 때문이다'
+        - '세로 방향에는 negative 가 없어서 loss 를 안정시키는 역할만 하기 때문이다'
+        - '두 방향의 평균을 내야 loss 가 0 ~ 1 사이에 들어와 확률처럼 읽히기 때문이다'
+        - '사진으로 글을 찾는 능력과 글로 사진을 찾는 능력을 함께 기르기 위해서다'
       answer: 3
       explanation: |
         행 방향은 사진 하나에 대해 $B$ 개 설명 중 짝을 고르는 문제이고, 열 방향은 설명 하나에 대해 $B$ 개 사진 중 짝을 고르는 문제다. 둘 다 쓰면
@@ -90,24 +91,25 @@
   title: InfoNCE loss 와 in-batch negative
   variants:
     - question: |
-        면접관: "CLIP 은 짝이 아닌 설명(negative)을 어디서 얻나요?"
+        CLIP 은 짝이 아닌 설명(negative)을 어디서 얻는가?
       choices:
-        - '사람이 사진마다 틀린 설명을 따로 써서 붙인다'
-        - '설명의 단어를 무작위로 바꿔 매번 새로 만든다'
-        - '학습이 끝난 뒤 별도의 dataset 에서 모은다'
-        - '같은 batch 에 들어온 다른 쌍의 설명을 그대로 negative 로 쓴다'
+        - '사람이 사진마다 그럴듯하지만 틀린 설명을 따로 써서 붙여 둔다'
+        - '정답 설명의 단어를 무작위로 바꿔 step 마다 새로 만든다'
+        - '학습이 끝난 뒤 별도의 dataset 에서 모아 다시 학습한다'
+        - '같은 batch 에 들어온 다른 쌍의 설명을 그대로 쓴다'
       answer: 3
       explanation: |
         CLIP 은 in-batch negative 를 쓴다. batch 에 쌍이 $B$ 개면 사진마다 자기 짝 하나가 positive 이고 나머지 $B - 1$ 개 설명이 negative 다.
         따로 만들거나 모을 필요가 없어서 batch 를 키우면 negative 가 저절로 늘어난다. 사람이 틀린 설명을 따로 써 붙이는 일은 없다. 단어를 바꿔
         만든 negative 는 NegCLIP 같은 후속 연구가 더한 방법이고, 원래 CLIP 은 쓰지 않는다. 학습이 끝난 뒤에 모은 negative 는 학습에 쓸 수 없다.
     - question: |
-        면접관: "InfoNCE loss 에서 한 행의 negative 가 둘인데, 하나는 positive 와 점수가 거의 같고 하나는 이미 점수가 아주 낮습니다. 두 negative 가 받는 gradient 는 어떻게 다른가요?"
+        InfoNCE loss 에서 한 행의 negative 가 둘인데, 하나는 positive 와 점수가 거의 같고 하나는 이미 점수가 아주 낮다. 두 negative 가 받는
+        gradient 는 어떻게 다른가?
       choices:
-        - '두 negative 가 똑같은 크기로 밀린다'
-        - '점수가 positive 에 가까운 negative 가 훨씬 세게 밀린다. logit 의 gradient 가 그 칸의 softmax 확률이라 헷갈리는 칸일수록 크다'
-        - '이미 점수가 낮은 negative 가 더 세게 밀려 더 멀어진다'
-        - 'negative 는 gradient 를 받지 않고 positive 만 올라간다'
+        - 'loss 가 행 전체에 같이 걸리므로 두 negative 가 똑같은 크기로 밀린다'
+        - 'positive 와 점수가 비슷한 negative 가 훨씬 세게 밀린다. gradient 가 그 칸의 확률이기 때문이다'
+        - '이미 점수가 낮은 negative 가 더 세게 밀린다. 멀리 있을수록 오차가 크기 때문이다'
+        - 'negative 는 gradient 를 받지 않고, positive 의 점수만 올라가며 상대적으로 멀어진다'
       answer: 1
       explanation: |
         softmax 와 cross-entropy 를 함께 쓰면 각 logit 의 gradient 는 "그 칸의 확률 − (정답이면 1, 아니면 0)" 이다. negative 칸의 gradient 는 그 칸의
@@ -115,12 +117,12 @@
         이미 점수가 낮은 negative 는 확률이 거의 0 이라 오히려 거의 밀리지 않는다. negative 칸의 gradient 도 0 이 아니므로 negative 역시 gradient
         를 받는다.
     - question: |
-        면접관: "CLIP 이 batch 에 쌍을 32,768 개씩 넣은 이유와, 학습 첫 loss 가 대략 얼마일지 설명해 보세요."
+        CLIP 이 batch 에 쌍을 32,768 개씩 넣은 이유와 학습 첫 loss 의 대략적인 값으로 맞는 것은?
       choices:
-        - 'GPU memory 를 아끼려는 것이고, 첫 loss 는 0 이다'
+        - 'GPU memory 를 아끼려는 것이고, 점수가 모두 비슷한 첫 loss 는 0 이다'
         - 'batch 가 크면 temperature 가 필요 없어지기 때문이고, 첫 loss 는 1 이다'
-        - 'batch 가 클수록 사진마다 비교할 negative 가 많아지고 헷갈리는 negative 가 들어올 가능성도 커지기 때문이다. 점수가 모두 비슷한 첫 loss 는 log 32768, 약 10.4 다'
-        - '큰 batch 는 positive 를 늘리기 위해서고, 첫 loss 는 32,768 이다'
+        - 'negative 를 늘리려는 것이고, 점수가 모두 비슷한 첫 loss 는 log 32768, 약 10.4 다'
+        - '큰 batch 는 positive 를 늘리기 위해서고, 첫 loss 는 batch 크기와 같은 32,768 이다'
       answer: 2
       explanation: |
         batch 안의 다른 쌍이 negative 라서 batch 가 클수록 negative 가 늘고, "소파 위의 고양이" 와 "소파 위의 강아지" 처럼 헷갈리는 negative 가
@@ -132,36 +134,37 @@
   title: temperature 와 logit scale
   variants:
     - question: |
-        면접관: "CLIP 이 cosine similarity 를 그대로 softmax 에 넣지 않고 temperature 로 나누는 이유는 무엇인가요?"
+        CLIP 이 cosine similarity 를 그대로 softmax 에 넣지 않고 temperature 로 나누는 이유는 무엇인가?
       choices:
-        - 'cosine 은 −1 ~ 1 이라 그대로 넣으면 확률이 평평해서, embedding 이 완벽해도 loss 가 크게 남고 학습 신호가 약하기 때문이다'
-        - 'cosine 이 음수가 될 수 있어 softmax 에 넣으면 계산이 안 되기 때문이다'
-        - 'temperature 로 나누면 점수의 순서가 바뀌어 더 좋은 짝을 찾기 때문이다'
-        - 'GPU 에서 나눗셈이 곱셈보다 빠르기 때문이다'
+        - 'cosine 은 −1 ~ 1 이라 그대로 넣으면 확률이 평평해 loss 가 크게 남기 때문이다'
+        - 'cosine 이 음수가 될 수 있어서, 그대로 softmax 에 넣으면 계산이 안 되기 때문이다'
+        - 'temperature 로 나누면 점수의 순서가 바뀌어 더 좋은 짝이 위로 올라오기 때문이다'
+        - 'GPU 에서 나눗셈이 곱셈보다 빨라서, 점수를 나눠 두면 학습이 빨라지기 때문이다'
       answer: 0
       explanation: |
         cosine 은 −1 ~ 1 이라 정답이 1 이고 나머지가 모두 −1 인 가장 좋은 경우에도, batch 32,768 에서는 정답 확률이 약 0.0002 라서 loss 가 8.4
         아래로 내려가지 않는다. 작은 $\tau$ 로 나누면 점수 차이가 $1/\tau$ 배가 되어 확률이 정답에 몰린다. softmax 는 음수 logit 도 문제없이
         계산한다. 양수로 나누면 점수의 순서는 바뀌지 않는다. 나눗셈 속도와는 관계없다.
     - question: |
-        면접관: "CLIP 의 logit scale 은 무엇이고, 학습 중 어떻게 다루나요?"
+        CLIP 의 logit scale 은 무엇이고, 학습 중 어떻게 다루는가?
       choices:
-        - '사람이 100 으로 고정해 두는 값이다'
-        - 'batch 크기와 같게 정하는 값이다'
-        - '$1/\tau$ 로, $\tau$ 를 0.07 에서 시작해 encoder 와 함께 학습하고, logit scale 이 100 을 넘지 않게 잘라 학습을 안정시킨다'
-        - '사진 embedding 에만 곱해 사진 쪽 점수를 키우는 값이다'
+        - '사람이 100 으로 고정해 두는 값으로, 학습 중에는 바뀌지 않는다'
+        - 'batch 크기와 같게 정하는 값으로, batch 가 클수록 커진다'
+        - '$1/\tau$ 로, encoder 와 함께 학습하되 100 을 넘지 않게 자른다'
+        - '사진 embedding 에만 곱해, 사진 쪽 점수를 글 쪽보다 크게 만드는 값이다'
       answer: 2
       explanation: |
-        logit scale 은 cosine 에 곱하는 수 $1/\tau$ 다. CLIP 은 $\tau$ 를 0.07 (logit scale 약 14.3)에서 시작해 함께 학습하고, 100 을 넘지 않게 잘랐다.
-        논문은 이 상한이 없으면 학습이 불안정했다고 적었고, 공개된 model 은 학습이 끝났을 때 상한 100 에 닿아 있다. 사람이 100 으로 고정한 값이
-        아니라 학습한 값이 100 에 닿은 것이다. batch 크기와도 관계없다. 사진 embedding 한쪽이 아니라 두 embedding 의 cosine 에 곱한다.
+        logit scale 은 cosine 에 곱하는 수 $1/\tau$ 다. CLIP 은 $\tau$ 를 0.07 (logit scale 약 14.3)에서 시작해 함께 학습하고, 100 을 넘지 않게
+        잘랐다. 논문은 이 상한이 없으면 학습이 불안정했다고 적었고, 공개된 model 은 학습이 끝났을 때 상한 100 에 닿아 있다. 사람이 100 으로
+        고정한 값이 아니라 학습한 값이 100 에 닿은 것이다. batch 크기와도 관계없다. 사진 embedding 한쪽이 아니라 두 embedding 의 cosine 에
+        곱한다.
     - question: |
-        면접관: "temperature $\tau$ 는 작을수록 좋다는 말이 맞나요?"
+        temperature $\tau$ 는 작을수록 좋다는 말이 맞는가?
       choices:
         - '맞다. $\tau$ 가 0 에 가까울수록 정답 확률이 1 이 되어 언제나 좋다'
-        - '아니다. $\tau$ 가 너무 작으면 cosine 의 아주 작은 차이도 큰 logit 차이가 되어 loss 와 gradient 가 크게 튀고 학습이 불안정해진다'
-        - '맞다. $\tau$ 를 줄이면 점수 순서가 바뀌어 헷갈리는 짝이 사라진다'
-        - '아니다. $\tau$ 가 작으면 확률이 평평해져 학습 신호가 사라진다'
+        - '아니다. 너무 작으면 cosine 의 작은 차이도 큰 logit 차이가 되어 학습이 불안정해진다'
+        - '맞다. $\tau$ 를 줄이면 점수 순서가 바뀌어 헷갈리는 짝이 정답보다 위로 올라오지 못한다'
+        - '아니다. $\tau$ 가 작으면 확률이 평평해져서 정답과 오답의 점수 차이가 사라진다'
       answer: 1
       explanation: |
         $\tau = 0.01$ 이면 cosine 0.01 차이가 logit 1 차이가 되어, 짝을 조금만 잘못 놓아도 loss 와 gradient 가 크게 튄다. 그래서 CLIP 은 $\tau$ 를
@@ -172,36 +175,36 @@
   title: zero-shot 분류와 prompt
   variants:
     - question: |
-        면접관: "CLIP 의 분류를 zero-shot 이라고 부를 때 0 개인 것은 무엇인가요?"
+        CLIP 의 분류를 zero-shot 이라고 부를 때 0 개인 것은 무엇인가?
       choices:
-        - 'CLIP 이 학습 중에 본 고양이 사진의 수'
-        - '분류할 때 쓰는 text encoder 의 층 수'
-        - '그 분류 문제의 class label 이 달린 학습 예시의 수. 학습 중에 비슷한 사진을 봤을 수는 있다'
-        - '분류할 때 쓰는 class 의 수'
+        - '4억 쌍 속에서 CLIP 이 학습 중에 본 고양이 사진의 수'
+        - 'zero-shot 분류에 쓰는 text encoder 의 층 수'
+        - '그 분류 문제의 class label 이 달린 학습 예시의 수'
+        - '분류할 때 미리 정해 두어야 하는 class 의 수'
       answer: 2
       explanation: |
         zero-shot 은 그 분류 문제의 label 달린 예시로 따로 학습하지 않았다는 뜻이다. CLIP 은 4억 쌍 속에서 고양이 사진을 아주 많이 봤을 수 있으니
         학습 중에 본 고양이 사진의 수는 0 이 아니다. 반대로 학습 데이터에 거의 없던 손글씨 숫자(MNIST)에서는 정확도가 88% 에 그쳤다. text
         encoder 에는 층이 있어야 한다. 고를 class 도 둘 이상 있어야 분류가 된다.
     - question: |
-        면접관: "CLIP 으로 고양이·개·자동차 셋 가운데 하나를 고르는 zero-shot 분류는 어떤 순서로 하나요?"
+        CLIP 으로 고양이·개·자동차 셋 가운데 하나를 고르는 zero-shot 분류는 어떤 순서로 하는가?
       choices:
-        - '세 class 의 사진을 모아 마지막 층을 학습한 뒤 고른다'
-        - '사진을 text encoder 에 넣어 class 이름을 생성하게 한다'
-        - '세 class 이름을 각각 사진에 겹쳐 그린 뒤 image encoder 로 비교한다'
-        - 'class 이름을 "a photo of a {}." 같은 template 에 넣은 prompt 를 text encoder 로 embedding 으로 바꾸고, 사진 embedding 과의 cosine 에 logit scale 을 곱해 softmax 한 뒤 가장 큰 class 를 고른다'
+        - '세 class 의 사진을 모아 마지막 층을 학습한 뒤, 그 층으로 고른다'
+        - '사진을 text encoder 에 넣어 class 이름을 글로 생성하게 하고, 그 글을 읽어 고른다'
+        - '세 class 이름을 각각 사진에 겹쳐 그린 뒤 image encoder 로 비교해 가장 비슷한 것을 고른다'
+        - 'prompt 의 text embedding 과 사진 embedding 의 cosine 이 가장 큰 class 를 고른다'
       answer: 3
       explanation: |
         zero-shot 분류는 class 를 text encoder 의 embedding 으로 나타낸다. prompt 마다 embedding 을 만들고 사진 embedding 과의 cosine 에 logit scale
         (학습한 CLIP 은 100)을 곱해 softmax 하면 class 마다 확률이 나온다. label 달린 사진으로 마지막 층을 학습하면 zero-shot 이 아니다. text
         encoder 는 글을 받아 vector 를 낼 뿐 글을 생성하지 않는다. class 이름을 사진에 그려 넣는 절차도 없다.
     - question: |
-        면접관: "zero-shot 분류에서 class 이름 "crane" 이 공사장 크레인인지 새(두루미)인지 헷갈립니다. 정확도를 높이는 방법은?"
+        zero-shot 분류에서 class 이름 "crane" 이 공사장 크레인인지 새(두루미)인지 헷갈린다. 정확도를 높이는 방법은?
       choices:
-        - '"a photo of a crane, a type of bird." 처럼 종류를 밝힌 prompt 를 쓰거나, 여러 template 의 embedding 을 평균하는 ensemble 을 쓴다'
-        - 'logit scale 을 1 로 낮춰 확률을 평평하게 만든다'
-        - 'class 이름을 대문자 "CRANE" 으로 바꾼다'
-        - '사진의 해상도를 두 배로 키운다'
+        - '종류를 밝힌 prompt 를 쓰거나, 여러 template 의 embedding 을 평균한다'
+        - 'logit scale 을 1 로 낮춰 확률을 평평하게 만들어, 두 뜻을 함께 받아들이게 한다'
+        - 'class 이름을 대문자 "CRANE" 으로 바꿔 text encoder 가 고유한 이름으로 읽게 한다'
+        - '사진의 해상도를 두 배로 키워 크레인과 두루미를 더 잘 구별하게 한다'
       answer: 0
       explanation: |
         이름만 받은 text encoder 는 어느 뜻인지 알 수 없어서, 종류를 밝힌 문구가 뜻을 정해 준다. CLIP 논문에 따르면 ImageNet 정확도는
@@ -213,24 +216,24 @@
   title: 개수·위치 관계·세밀한 구분의 한계
   variants:
     - question: |
-        면접관: ""말이 풀을 먹는다" 와 "풀이 말을 먹는다" 중 사진에 맞는 설명을 고르는 시험에서 CLIP 이 무작위(50%)와 비슷하게 맞힌 이유는 무엇인가요?"
+        "말이 풀을 먹는다" 와 "풀이 말을 먹는다" 중 사진에 맞는 설명을 고르는 시험에서 CLIP 이 무작위(50%)와 비슷하게 맞힌 이유는 무엇인가?
       choices:
-        - 'text encoder 가 동사를 읽지 못하는 tokenizer 를 쓰기 때문이다'
-        - 'batch 의 다른 설명과 구별하는 데 어떤 단어가 들어 있는지만 봐도 충분해서, 단어 순서를 담으라는 학습 신호를 받지 못했기 때문이다'
-        - 'image encoder 가 말과 풀을 알아보지 못하기 때문이다'
-        - 'temperature 가 너무 커서 두 문장의 점수가 같아졌기 때문이다'
+        - 'text encoder 의 tokenizer 가 동사를 token 으로 나누지 못해 읽지 못하기 때문이다'
+        - '다른 설명과 구별하는 데 단어가 있는지만 봐도 충분해, 순서를 배우지 않았기 때문이다'
+        - 'image encoder 가 사진 속의 말과 풀을 서로 알아보지 못하기 때문이다'
+        - 'temperature 가 너무 커서 두 문장의 점수가 같은 값으로 뭉개졌기 때문이다'
       answer: 1
       explanation: |
         contrastive learning 은 정답 설명을 "소파 위의 고양이" 같은 다른 설명과 구별만 하면 loss 가 내려간다. 이때는 "말" 과 "풀" 이라는 단어가
         있는지만 봐도 충분해서, encoder 는 순서를 담는 법을 배우지 않고 bag-of-words 처럼 행동한다. tokenizer 는 동사도 다른 단어처럼 token 으로
         나눈다. image encoder 는 말과 풀 자체는 잘 알아본다. temperature 는 모든 점수를 같은 수로 나눌 뿐이라, 다르던 두 점수를 같게 만들지 않는다.
     - question: |
-        면접관: "CLIP 의 위치 관계 약점을 학습으로 보강하려면 batch 에 어떤 negative 를 넣어야 하나요?"
+        CLIP 의 위치 관계 약점을 학습으로 보강하려면 batch 에 어떤 negative 를 넣어야 하는가?
       choices:
-        - '정답 설명과 단어는 같고 순서나 관계만 다른 설명을 hard negative 로 넣는다'
-        - '정답 설명과 단어가 하나도 겹치지 않는 설명만 넣는다'
-        - 'negative 를 모두 빼고 positive 만으로 학습한다'
-        - '사진을 좌우로 뒤집은 것만 negative 로 넣는다'
+        - '단어는 같고 순서나 관계만 다른 설명을 hard negative 로 넣는다'
+        - '정답 설명과 단어가 하나도 겹치지 않아 확실히 틀린 설명만 골라 넣는다'
+        - 'negative 를 모두 빼고 positive 만으로 관계를 학습한다'
+        - '사진을 좌우로 뒤집어 위치 관계를 바꾼 사진만 negative 로 골라 넣는다'
       answer: 0
       explanation: |
         헷갈리는 negative 가 있어야 그 차이를 구별하는 gradient 가 생긴다. 관계 시험 정확도는 원래 CLIP ViT-B/32 가 59% 였고 negative 없이 COCO 로
@@ -238,7 +241,7 @@
         있는지만으로 구별되어 순서를 가르치지 못한다. negative 를 빼면 contrastive learning 이 성립하지 않는다. 좌우로 뒤집은 사진만으로는 문장의
         순서를 가르칠 수 없다.
     - question: |
-        면접관: "다음 가운데 CLIP 의 zero-shot 이 가장 약한 일은 무엇인가요?"
+        다음 가운데 CLIP 의 zero-shot 이 가장 약한 일은 무엇인가?
       choices:
         - '사진 속 동물이 고양이인지 개인지 고르기'
         - '사진이 바다인지 도시인지 고르기'
@@ -254,24 +257,24 @@
   title: 칸마다 판정하는 SigLIP
   variants:
     - question: |
-        면접관: "SigLIP 의 loss 는 CLIP 의 loss 와 무엇이 다른가요?"
+        SigLIP 의 loss 는 CLIP 의 loss 와 무엇이 다른가?
       choices:
-        - 'image encoder 를 CNN 으로 바꾸고 loss 는 그대로 둔다'
-        - 'negative 를 쓰지 않고 positive 의 점수만 올린다'
-        - '설명을 한 단어씩 생성하는 loss 로 바꾼다'
-        - '행마다 softmax 를 계산하는 대신, 칸마다 sigmoid 로 "이 사진과 이 설명이 짝인가" 를 따로 판정한다'
+        - 'image encoder 를 CNN 으로 바꾸고, 유사도 행렬과 loss 는 그대로 둔다'
+        - 'negative 를 쓰지 않고 짝인 칸의 점수만 올려 계산을 줄인다'
+        - '설명을 한 단어씩 생성하는 loss 로 바꿔 짝 고르기를 없앤다'
+        - '행마다 softmax 대신, 칸마다 sigmoid 로 짝인지를 따로 판정한다'
       answer: 3
       explanation: |
         SigLIP 은 같은 두 encoder 와 같은 유사도 행렬을 쓰고 loss 만 바꾼다. 칸마다 logit $t \cdot s + b$ 에 sigmoid 를 씌워 짝인 칸은 1 쪽으로,
         짝이 아닌 칸은 0 쪽으로 보낸다. 분모에 행 전체의 합이 없어서 칸마다 loss 를 따로 계산할 수 있다. SigLIP 은 loss 를 바꿨고 image encoder 는
         ViT 를 쓴다. 짝이 아닌 칸도 loss 에 들어간다. 설명을 생성하는 loss 도 쓰지 않는다.
     - question: |
-        면접관: "SigLIP 이 bias $b$ 를 0 이 아니라 −10 에서 시작하는 이유는 무엇인가요?"
+        SigLIP 이 bias $b$ 를 0 이 아니라 −10 에서 시작하는 이유는 무엇인가?
       choices:
-        - '−10 이 sigmoid 의 출력을 가장 빠르게 바꾸는 지점이기 때문이다'
-        - '짝인 칸의 점수를 처음부터 높게 주기 위해서다'
-        - '칸 $B^2$ 개 중 짝은 $B$ 개뿐이라, "거의 모두 짝이 아님" 에서 출발해야 처음부터 크게 틀리지 않고 짝이 아닌 칸의 loss 가 첫 학습 단계를 흔들지 않기 때문이다'
-        - 'bias 를 음수로 두면 temperature 를 쓸 필요가 없기 때문이다'
+        - '−10 이 sigmoid 의 출력이 가장 빠르게 바뀌는 지점이라 학습이 빨라지기 때문이다'
+        - '짝인 칸의 점수를 처음부터 높게 주어 positive 를 빨리 찾게 하기 위해서다'
+        - '칸 $B^2$ 개 중 짝은 $B$ 개뿐이라, "거의 모두 짝이 아님" 에서 출발해야 크게 틀리지 않기 때문이다'
+        - 'bias 를 음수로 두면 scale 이 따로 필요 없어 temperature 를 쓰지 않기 때문이다'
       answer: 2
       explanation: |
         batch 32,768 이면 짝의 비율은 약 0.00003 이다. $b = -10$ 이면 처음 logit 이 거의 −10 이고 $\sigma(-10) \approx 0.00005$ 이므로, 모든 칸의
@@ -279,12 +282,12 @@
         parameter 를 크게 바꿔 놓는다. sigmoid 의 기울기가 가장 큰 곳은 −10 이 아니라 0 이다. −10 은 짝의 점수를 처음부터 낮게 주는 쪽이다.
         bias 를 음수로 두어도 SigLIP 은 $t$ 라는 scale 을 함께 쓴다.
     - question: |
-        면접관: "SigLIP 이 큰 batch 를 여러 GPU 에 나눠 학습하기 쉬운 이유는 무엇인가요?"
+        SigLIP 이 큰 batch 를 여러 GPU 에 나눠 학습하기 쉬운 이유는 무엇인가?
       choices:
-        - 'SigLIP 은 batch 를 작게만 쓰기 때문이다'
-        - '칸마다 loss 를 따로 계산하므로, 행 전체의 softmax 분모를 모으려고 모든 embedding 을 한곳에 모을 필요가 없기 때문이다'
-        - 'sigmoid 가 softmax 보다 parameter 가 적기 때문이다'
-        - 'GPU 마다 서로 다른 model 을 학습하기 때문이다'
+        - 'SigLIP 은 batch 를 작게만 써서 GPU 하나에도 batch 가 다 들어가기 때문이다'
+        - '칸마다 loss 를 따로 계산해서, embedding 을 한곳에 모아 분모를 구할 필요가 없기 때문이다'
+        - 'sigmoid 가 softmax 보다 parameter 가 적어서 GPU 사이에 주고받을 값이 줄기 때문이다'
+        - 'GPU 마다 서로 다른 model 을 학습한 뒤 마지막에 합치기 때문이다'
       answer: 1
       explanation: |
         softmax 는 분모가 행의 모든 칸을 더한 값이라, 사진 한 장의 loss 에 batch 의 모든 설명 점수가 필요하다. sigmoid loss 는 칸마다 독립이라
@@ -296,12 +299,12 @@
   title: 로봇에서의 CLIP 과 SigLIP
   variants:
     - question: |
-        면접관: "YOLO-World 같은 open-vocabulary detector 로 로봇이 찾을 물체를 "cup" 에서 "screwdriver" 로 바꾸려면 무엇을 해야 하나요?"
+        YOLO-World 같은 open-vocabulary detector 로 로봇이 찾을 물체를 "cup" 에서 "screwdriver" 로 바꾸려면 무엇을 해야 하는가?
       choices:
-        - '"screwdriver" 를 CLIP text encoder 에 넣어 새 embedding 을 만들기만 하면 된다. 드라이버 사진을 모아 다시 학습할 필요가 없다'
-        - '드라이버 사진 수백 장에 bounding box 를 그려 detector 를 다시 학습한다'
-        - 'detector 의 마지막 층에 class 칸을 하나 더 붙이고 fine-tuning 한다'
-        - '카메라를 드라이버 전용으로 바꾼다'
+        - '"screwdriver" 를 CLIP text encoder 에 넣어 새 embedding 을 만들기만 하면 된다'
+        - '드라이버 사진 수백 장에 bounding box 를 그려 detector 를 처음부터 다시 학습한다'
+        - 'detector 의 마지막 층에 class 칸을 하나 더 붙이고 드라이버 사진으로 fine-tuning 한다'
+        - '카메라를 드라이버가 잘 보이는 전용 카메라로 바꾼다'
       answer: 0
       explanation: |
         open-vocabulary detector 는 물체 이름을 CLIP text encoder 의 embedding 으로 나타내고, 사진의 영역마다 계산한 embedding 과 비교해 box 를
@@ -309,12 +312,12 @@
         사진에 box 를 그려 다시 학습하는 것은 이름표가 정해진 detector 의 방식이다. 마지막 층에 class 칸을 더해 fine-tuning 하는 것도 같은 방식이다.
         카메라는 찾을 물체의 이름과 관계없다.
     - question: |
-        면접관: "CLIPort 는 CLIP 과 Transporter network 를 두 갈래로 묶었습니다. 왜 CLIP 만으로 집을 위치를 정하지 않았나요?"
+        CLIPort 는 CLIP 과 Transporter network 를 두 갈래로 묶었다. 왜 CLIP 만으로 집을 위치를 정하지 않았는가?
       choices:
-        - 'CLIP 은 학습 속도가 너무 느려서다'
-        - 'CLIP 은 "어느 물체인가" 는 잘 알지만 위치 관계 같은 "어디에" 정보를 잘 담지 못해서, 정밀한 위치는 Transporter 가 맡게 했다'
-        - 'CLIP 은 영어 지시문을 읽지 못해서다'
-        - 'CLIP 은 RGB 사진을 받을 수 없어서다'
+        - 'CLIP 은 학습 속도가 너무 느려서 로봇 데이터로 다시 학습할 수 없기 때문이다'
+        - 'CLIP 은 "어느 물체인가" 는 잘 알지만 "어디에" 정보를 잘 담지 못하기 때문이다'
+        - 'CLIP 은 영어 지시문을 읽지 못해 지시를 Transporter 가 대신 읽어야 하기 때문이다'
+        - 'CLIP 은 RGB 사진을 받을 수 없어 Transporter 가 사진을 대신 받기 때문이다'
       answer: 1
       explanation: |
         CLIP 은 인터넷 사진–글 쌍으로 물체 이름과 색 같은 뜻을 넓게 배웠지만, 학습 신호가 위치 관계를 요구하지 않아 "어디에" 정보가 약하다.
@@ -322,12 +325,12 @@
         image–action 쌍 179 개로 학습했다. 두 갈래로 나눈 이유는 학습 속도가 아니라 위치 정보다. CLIP 은 영어 지시문을 읽는다. RGB 사진도 CLIP
         의 기본 입력이다.
     - question: |
-        면접관: "π0·OpenVLA 같은 VLA 가 사진 입력으로 SigLIP 의 image encoder 를 쓰는 이유와, VLA 가 SigLIP 의 출력을 넘기는 방식을 설명해 보세요."
+        π0·OpenVLA 같은 VLA 가 사진 입력으로 SigLIP 의 image encoder 를 쓰는 이유와, VLA 가 SigLIP 의 출력을 넘기는 방식으로 맞는 것은?
       choices:
         - 'SigLIP 은 로봇 데이터로만 학습해서 action 을 직접 내기 때문이고, [CLS] vector 하나만 넘긴다'
         - 'SigLIP 은 parameter 가 가장 적은 encoder 이기 때문이고, 사진을 class 이름 하나로 바꿔 넘긴다'
-        - 'SigLIP 은 사진–글 짝 맞히기로 학습해 출력이 말과 같은 공간에 놓이므로 지시문과 함께 다루기 쉽기 때문이고, 위치 정보를 지키려고 patch token 전부를 언어 model 에 넘긴다'
-        - 'SigLIP 은 깊이 사진을 받을 수 있기 때문이고, 깊이 값만 넘긴다'
+        - '출력이 말과 같은 공간에 놓여 지시문과 다루기 쉽기 때문이고, patch token 전부를 넘긴다'
+        - 'SigLIP 은 깊이 사진을 받아 거리를 알 수 있기 때문이고, 깊이 값만 언어 model 에 넘긴다'
       answer: 2
       explanation: |
         SigLIP 은 인터넷 사진–글 쌍으로 sigmoid loss 를 써서 학습해, 출력이 "빨간 컵" 같은 말과 같은 공간에 놓인다. PaliGemma(π0 의 출발점)는

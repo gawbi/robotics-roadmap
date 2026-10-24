@@ -5,12 +5,12 @@
   title: pixel 대신 patch 를 token 으로 쓰는 이유
   variants:
     - question: |
-        면접관: "ViT 는 왜 pixel 하나하나를 token 으로 쓰지 않고, 가로세로 여러 pixel 을 묶은 patch 를 token 으로 쓰나요?"
+        ViT 가 pixel 하나하나를 token 으로 쓰지 않고, 가로세로 여러 pixel 을 묶은 patch 를 token 으로 쓰는 이유는 무엇인가?
       choices:
-        - 'Transformer 는 입력 token 수가 196 개로 정해져 있어서 그 수에 맞춰야 하기 때문이다'
+        - 'Transformer 는 입력 token 수가 196 개로 정해져 있어서, 사진을 그 수에 맞춰 잘라야 하기 때문이다'
         - 'pixel 값은 정수라서 Transformer 가 받는 실수 vector 로 바꿀 수 없기 때문이다'
-        - 'attention 점수 표가 token 수의 제곱으로 커지는데 pixel 은 수가 너무 많고, pixel 하나에는 색 하나뿐이라 뜻이 거의 없기 때문이다'
-        - 'patch 로 묶으면 사진의 정보가 압축되어 parameter 수가 pixel 수에 비례해 줄기 때문이다'
+        - 'attention 점수 표가 token 수의 제곱으로 커지는데 pixel 은 너무 많고, pixel 하나에는 뜻이 거의 없기 때문이다'
+        - 'patch 로 묶으면 사진의 정보가 압축되어, parameter 수가 pixel 수에 비례해 줄어들기 때문이다'
       answer: 2
       explanation: |
         attention 은 token 쌍마다 점수를 매기므로 token 이 N 개면 점수 표가 N × N 칸이다. 224×224 사진의 pixel 50,176 개를 token 으로 쓰면
@@ -19,7 +19,7 @@
         Transformer 의 token 수는 정해져 있지 않으므로 첫째 보기는 틀렸다. pixel 값은 그대로 숫자라서 vector 로 쓸 수 있으므로 둘째 보기도
         틀렸다. 모든 patch 가 같은 행렬을 쓰므로 parameter 수는 patch 수와 관계없어서 넷째 보기의 이유는 성립하지 않는다.
     - question: |
-        면접관: "글을 읽도록 만든 Transformer 에 카메라 사진을 넣으려면, 사진을 어떤 형태로 바꿔야 하나요?"
+        글을 읽도록 만든 Transformer 에 카메라 사진을 넣으려면, 사진을 어떤 형태로 바꿔야 하는가?
       choices:
         - '같은 길이의 vector 여러 개를 늘어놓은 목록으로 바꿔야 한다'
         - 'vocabulary 의 token 번호 목록으로 바꿔야 한다'
@@ -32,12 +32,12 @@
         사진 조각은 pixel 값의 조합이 끝없이 많아 vocabulary 번호를 붙일 수 없으므로 둘째 보기는 틀렸다. 컬러 사진도 그대로 받으므로
         흑백으로 바꿔야 한다는 셋째 보기도 틀렸다. feature map 한 장은 그대로는 vector 목록이 아니므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "사진의 왼쪽 위 구석과 오른쪽 아래 구석의 관계를 첫 층에서 바로 계산할 수 있는 쪽은 3×3 convolution 의 CNN 과 ViT 중 어느 쪽인가요?"
+        사진의 왼쪽 위 구석과 오른쪽 아래 구석의 관계를 첫 층에서 바로 계산할 수 있는 쪽은 3×3 convolution 의 CNN 과 ViT 중 어느 쪽인가?
       choices:
-        - 'CNN 이다. filter 가 사진 전체를 한 번에 덮기 때문이다'
-        - '둘 다 첫 층에서는 바로 이웃한 칸만 본다'
-        - '둘 다 층을 수십 개 쌓아야만 두 구석이 한 계산에 들어온다'
-        - 'ViT 다. 첫 층부터 patch 하나가 모든 patch 와 attention 점수를 매기기 때문이다'
+        - 'CNN 이다. filter 를 사진 전체에 밀어 가며 쓰므로 첫 층에서 모든 자리를 한 번에 보기 때문이다'
+        - '둘 다 첫 층에서는 바로 이웃한 칸만 보고, 먼 칸의 관계는 다음 층에서 계산한다'
+        - '어느 쪽도 못 한다. 둘 다 층을 수십 개 쌓아야만 두 구석이 한 계산에 들어온다'
+        - 'ViT 다. 첫 층부터 patch 마다 모든 patch 와 attention 점수를 매긴다'
       answer: 3
       explanation: |
         ViT 의 self-attention 은 첫 층부터 모든 patch 쌍에 점수를 매기므로 멀리 떨어진 두 구석도 바로 만난다.
@@ -48,7 +48,7 @@
   title: patch embedding 의 역할
   variants:
     - question: |
-        면접관: "ViT 는 펼친 patch 에 행렬 E 를 곱해 token 을 만들고 모든 patch 가 같은 E 를 씁니다. 사진을 키워 patch 수가 4 배가 되면 E 의 parameter 수는 어떻게 되나요?"
+        ViT 는 펼친 patch 에 행렬 E 를 곱해 token 을 만들고 모든 patch 가 같은 E 를 쓴다. 사진을 키워 patch 수가 4 배가 되면 E 의 parameter 수는 어떻게 되는가?
       choices:
         - '4 배로 늘어난다'
         - '그대로다'
@@ -61,7 +61,7 @@
         4 배라는 첫째 보기는 patch 마다 행렬을 따로 둔다고 착각한 답이다. 16 배라는 셋째 보기는 token 수의 제곱으로 커지는 attention
         점수 표와 헷갈린 답이다. patch 가 많아진다고 행렬이 작아질 이유도 없으므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "ViT 의 patch embedding 을 convolution 층 하나로 구현할 수 있다고 하는데, 어떤 convolution 인가요? patch 크기는 P 입니다."
+        ViT 의 patch embedding 은 convolution 층 하나로 구현할 수 있다. 어떤 convolution 인가? patch 크기는 P 이다.
       choices:
         - 'filter 크기 3, stride 1 인 convolution 을 여러 층 쌓은 것'
         - 'filter 크기 P, stride 1 인 convolution 으로 patch 가 겹치게 읽는 것'
@@ -74,12 +74,12 @@
         3×3 convolution 을 쌓는 것은 CNN 의 구조라서 첫째 보기는 틀렸다. stride 1 이면 patch 가 겹쳐 출력 자리가 patch 수보다 훨씬
         많아지므로 둘째 보기도 틀렸다. filter 크기 1 이면 patch 안의 pixel 대부분을 보지 않으므로 셋째 보기도 틀렸다.
     - question: |
-        면접관: "ViT-B/16 은 숫자 768 개짜리 patch 를 숫자 768 개짜리 token 으로 바꿉니다. 크기가 그대로인데 patch embedding 은 왜 필요한가요?"
+        ViT-B/16 은 숫자 768 개짜리 patch 를 숫자 768 개짜리 token 으로 바꾼다. 크기가 그대로인데도 patch embedding 이 필요한 이유는 무엇인가?
       choices:
-        - '칸마다 밝기를 적은 숫자를 학습으로 정한 기준들로 다시 적어, 모델이 쓰기 좋은 vector 로 바꾸기 위해서다'
-        - 'patch 의 정보를 압축해 숫자 수를 줄이기 위해서다'
-        - 'patch 마다 vocabulary 번호를 붙이기 위해서다'
-        - 'patch 의 자리 정보를 token 에 더하기 위해서다'
+        - '밝기 숫자를 학습으로 정한 기준들로 다시 적어, 모델이 쓰기 좋은 vector 로 바꾸기 위해서다'
+        - 'patch 의 정보를 압축해 숫자 수를 줄여서, 뒤의 attention 계산을 가볍게 하기 위해서다'
+        - '글의 token 처럼 patch 마다 vocabulary 번호를 붙여서 embedding 표에서 vector 를 찾기 위해서다'
+        - 'patch 가 사진의 어느 자리에서 왔는지를 token 에 더해 순서를 알려 주기 위해서다'
       answer: 0
       explanation: |
         펼친 patch 는 pixel 마다 밝기를 적은 숫자일 뿐이라서, 학습으로 정하는 행렬 E 를 곱해 모델에 쓸모 있는 기준들로 다시 적는다.
@@ -91,12 +91,12 @@
   title: '[CLS] token 의 역할'
   variants:
     - question: |
-        면접관: "ViT 의 [CLS] token 은 무엇이고 어떻게 쓰이나요?"
+        ViT 의 [CLS] token 은 무엇이고 어떻게 쓰이는가?
       choices:
-        - '사진의 첫 번째 patch 를 펼친 vector 로, 왼쪽 위 구석의 정보만 담는다'
-        - '사진마다 patch 들의 평균으로 계산해 넣는 vector 다'
-        - 'class 이름을 글로 적은 token 으로, 정답을 모델에 넣어 준다'
-        - 'patch token 앞에 붙이는 학습된 vector 로, 마지막 층에서 이 자리의 출력을 사진 전체의 요약으로 head 에 넣는다'
+        - '사진의 첫 번째 patch 를 펼친 vector 로, 왼쪽 위 구석의 정보만 따로 담아 둔다'
+        - '사진마다 patch 들의 평균을 계산해 맨 앞에 넣는 vector 로, 처음부터 사진 전체를 요약한다'
+        - 'class 이름을 글로 적은 token 으로, 학습할 때 정답을 함께 넣어 모델이 맞히게 돕는다'
+        - 'patch token 앞에 붙이는 학습된 vector 로, 마지막 층의 이 자리 출력을 사진의 요약으로 쓴다'
       answer: 3
       explanation: |
         [CLS] 는 어느 patch 에도 해당하지 않는 학습된 vector 로, 모든 사진에서 같은 값으로 출발해 attention 으로 patch 들의 정보를 모은다.
@@ -104,7 +104,7 @@
         [CLS] 는 patch 가 아니므로 첫째 보기는 틀렸다. 처음 값은 사진에서 계산하지 않고 학습으로 정하므로 둘째 보기도 틀렸다. 정답을
         입력으로 넣으면 학습이 의미가 없으므로 셋째 보기도 틀렸다.
     - question: |
-        면접관: "patch 196 개로 자른 사진에 [CLS] token 을 붙이면 Transformer 에 들어가는 token 은 몇 개이고, 나오는 token 은 몇 개인가요?"
+        patch 196 개로 자른 사진에 [CLS] token 을 붙이면 Transformer 에 들어가는 token 은 몇 개이고, 나오는 token 은 몇 개인가?
       choices:
         - '들어가는 token 은 196 개이고 나오는 token 은 1 개다'
         - '들어가는 token 은 197 개이고 나오는 token 도 197 개다'
@@ -117,12 +117,12 @@
         [CLS] 를 붙이면 입력이 196 개일 수 없으므로 첫째 보기는 틀렸다. 층은 token 수를 줄이지 않으므로 셋째 보기도 틀렸다. [CLS] 는 하나만
         붙이므로 392 개라는 넷째 보기도 틀렸다.
     - question: |
-        면접관: "[CLS] token 없이 patch 출력들을 평균해서 분류하면 ViT 가 제대로 학습되지 않나요?"
+        [CLS] token 없이 patch 출력들을 평균해서 분류하면 ViT 가 제대로 학습되지 않는가?
       choices:
-        - '학습되지 않는다. attention 은 [CLS] 가 있어야만 계산된다'
-        - '학습되지 않는다. 평균을 내면 position embedding 이 사라지기 때문이다'
-        - '학습된다. ViT 논문은 평균으로 분류해도 learning rate 를 알맞게 바꾸면 [CLS] 와 비슷하게 잘 된다고 보고했다'
-        - '학습되지만 정확도가 항상 [CLS] 의 절반 이하로 떨어진다'
+        - '학습되지 않는다. attention 은 [CLS] 를 기준으로 점수를 매기므로 [CLS] 가 없으면 계산되지 않는다'
+        - '학습되지 않는다. 평균을 내면 patch 마다 더한 position embedding 이 섞여 사라지기 때문이다'
+        - '학습된다. ViT 논문은 learning rate 를 맞추면 평균으로도 [CLS] 와 비슷하게 잘 된다고 보고했다'
+        - '학습되지만 [CLS] 처럼 요약을 맡은 자리가 없어서 정확도가 항상 절반 이하로 떨어진다'
       answer: 2
       explanation: |
         ViT 논문 부록에 따르면 patch 출력의 평균(global average pooling)으로 분류해도 learning rate 만 맞추면 [CLS] 와 비슷한 성능이
@@ -134,12 +134,12 @@
   title: position embedding 이 필요한 이유
   variants:
     - question: |
-        면접관: "position embedding 을 빼면 ViT 에는 어떤 문제가 생기나요?"
+        position embedding 을 빼면 ViT 에는 어떤 문제가 생기는가?
       choices:
         - 'patch 의 배치만 다른 두 사진에서 token 의 모음이 같아져, 모델이 두 사진을 구별하지 못한다'
-        - 'patch embedding 을 계산할 수 없게 된다'
-        - 'attention 점수 표의 크기가 token 수의 세제곱으로 커진다'
-        - '[CLS] token 이 더 이상 학습되지 않는다'
+        - 'patch embedding 이 자리 정보를 받아 계산하므로, patch embedding 을 계산할 수 없게 된다'
+        - '자리를 모르는 token 끼리 모든 순서를 따져야 해서 attention 점수 표가 token 수의 세제곱으로 커진다'
+        - '[CLS] 가 맨 앞 자리라는 것을 몰라서 [CLS] token 이 더 이상 학습되지 않는다'
       answer: 0
       explanation: |
         attention 의 점수와 가중 평균은 token 이 몇 번째 자리에 있는지를 보지 않는다. 그래서 위치 정보가 없으면 patch 의 자리만 바꾼 두
@@ -147,7 +147,7 @@
         patch embedding 은 위치와 관계없이 계산되므로 둘째 보기는 틀렸다. 점수 표 크기는 token 수의 제곱 그대로이므로 셋째 보기도 틀렸다.
         [CLS] 는 위치 정보가 없어도 학습되므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "ViT 의 position embedding 은 Transformer 원 논문의 positional encoding 과 무엇이 다른가요?"
+        ViT 의 position embedding 은 Transformer 원 논문의 positional encoding 과 무엇이 다른가?
       choices:
         - '둘 다 sin·cos 식으로 계산하고, ViT 는 그 값을 두 배로 키워 쓴다'
         - 'ViT 는 위치 정보를 token 에 더하지 않고 attention 점수에 곱한다'
@@ -160,12 +160,12 @@
         ViT 는 sin·cos 식을 쓰지 않으므로 첫째 보기는 틀렸다. 위치 vector 를 token 에 더하는 방식이므로 둘째 보기도 틀렸다. 처음 값은
         무작위라서 학습 전에는 patch 사이의 이웃 관계를 담지 않으므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "224×224 사진, patch 16 으로 학습한 ViT 를 384×384 사진으로 fine-tuning 하려고 합니다. position embedding 은 어떻게 하나요?"
+        224×224 사진, patch 16 으로 학습한 ViT 를 384×384 사진으로 fine-tuning 하려고 한다. position embedding 은 어떻게 하는가?
       choices:
-        - '그대로 쓴다. 표의 행 수가 patch 수와 관계없기 때문이다'
+        - '그대로 쓴다. position embedding 표의 행 수는 patch 수와 관계없이 정해져 있기 때문이다'
         - '원래 표의 vector 들을 사진 속 위치에 맞춰 2차원 interpolation 으로 늘려 쓴다'
-        - 'patch 크기를 키워 patch 수를 원래와 같게 맞춘다'
-        - '늘어난 자리에는 0 vector 를 더하고 원래 자리만 원래 값을 쓴다'
+        - 'patch 크기를 사진에 맞춰 키워서 patch 수를 원래와 같게 맞추고 표를 그대로 쓴다'
+        - '원래 자리에는 원래 값을 쓰고, 새로 늘어난 자리에는 0 vector 를 더해 자리 정보 없이 둔다'
       answer: 1
       explanation: |
         patch 크기 16 은 그대로라서 patch 가 14×14 = 196 개에서 24×24 = 576 개로 늘고, 원래 표에는 196 자리뿐이다. ViT 논문에서는 원래 14×14
@@ -177,7 +177,7 @@
   title: patch 크기와 계산량
   variants:
     - question: |
-        면접관: "같은 사진에서 patch 한 변을 절반으로 줄이면 token 수와 attention 점수 표의 크기는 어떻게 되나요?"
+        같은 사진에서 patch 한 변을 절반으로 줄이면 token 수와 attention 점수 표의 크기는 어떻게 되는가?
       choices:
         - 'token 은 2 배가 되고 점수 표는 4 배가 된다'
         - 'token 은 4 배가 되고 점수 표는 그대로다'
@@ -190,7 +190,7 @@
         첫째 보기는 한 방향의 patch 수만 센 답이다. 점수 표는 token 수에 따라 커지므로 둘째 보기는 틀렸다. patch 를 작게 자르면 token 이
         늘어나므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "patch 14 를 쓰는 image encoder 의 입력 사진을 224×224 에서 448×448 로 키우면 image token 수는 어떻게 되나요?"
+        patch 14 를 쓰는 image encoder 의 입력 사진을 224×224 에서 448×448 로 키우면 image token 수는 어떻게 되는가?
       choices:
         - '2 배가 된다'
         - '그대로다. patch 크기가 같기 때문이다'
@@ -203,12 +203,12 @@
         첫째 보기는 한 방향만 센 답이다. patch 크기가 같아도 사진이 커지면 patch 수가 늘어나므로 둘째 보기는 틀렸다. 16 배라는 셋째 보기는
         token 수가 아니라 attention 점수 표가 늘어나는 배수다.
     - question: |
-        면접관: "OpenVLA 는 입력 사진을 224×224 와 384×384 로 비교한 뒤 224×224 를 골랐습니다. 이유로 가장 알맞은 것은?"
+        OpenVLA 는 입력 사진을 224×224 와 384×384 로 비교한 뒤 224×224 를 골랐다. 이유로 가장 알맞은 것은?
       choices:
-        - '로봇 작업 성공률에는 차이가 없었는데, 큰 사진은 image token 이 늘어 학습 시간이 3 배 걸렸기 때문이다'
-        - '384×384 는 patch 14 로 나누어떨어지지 않아 쓸 수 없기 때문이다'
-        - '사진이 크면 attention 이 멀리 떨어진 patch 를 보지 못하기 때문이다'
-        - '사진이 크면 position embedding 표가 작아져 정확도가 떨어지기 때문이다'
+        - '작업 성공률 차이는 없었는데, 큰 사진은 image token 이 늘어 학습 시간이 3 배 걸렸기 때문이다'
+        - '384×384 는 patch 크기 14 로 나누어떨어지지 않아서, 사진을 patch 로 자를 수 없기 때문이다'
+        - '사진이 크면 patch 사이가 멀어져서, attention 이 멀리 떨어진 patch 를 보지 못하기 때문이다'
+        - '사진이 크면 position embedding 표가 상대적으로 작아져서 자리 정보가 흐려지고 정확도가 떨어지기 때문이다'
       answer: 0
       explanation: |
         OpenVLA 저자들은 두 크기에서 로봇 작업 성능 차이를 찾지 못했다. 384×384 로는 image token 이 늘어 학습에 3 배의 시간이 걸려서
@@ -221,12 +221,12 @@
   title: inductive bias 와 데이터 양
   variants:
     - question: |
-        면접관: "ViT 가 CNN 보다 학습 데이터를 훨씬 많이 봐야 하는 이유는 무엇인가요?"
+        ViT 가 CNN 보다 학습 데이터를 훨씬 많이 봐야 하는 이유는 무엇인가?
       choices:
-        - 'ViT 는 parameter 가 CNN 보다 항상 100 배 이상 많기 때문이다'
-        - 'CNN 은 locality 와 translation equivariance 를 구조에 담고 있지만, ViT 는 이런 가정이 거의 없어 patch 사이의 공간 관계까지 데이터에서 배워야 하기 때문이다'
+        - 'ViT 는 parameter 가 CNN 보다 항상 100 배 이상 많아서, 그만큼의 숫자를 채우려면 데이터가 더 필요하기 때문이다'
+        - 'CNN 과 달리 ViT 는 locality 같은 가정이 구조에 거의 없어, 공간 관계까지 데이터에서 배워야 하기 때문이다'
         - 'ViT 는 컬러 사진을 처리하지 못해 흑백으로 바꾼 사진을 더 많이 봐야 하기 때문이다'
-        - 'ViT 는 loss 를 계산하지 않아 학습이 느리기 때문이다'
+        - 'ViT 는 loss 대신 attention 점수만으로 학습해서, 한 장에서 배우는 양이 적기 때문이다'
       answer: 1
       explanation: |
         CNN 은 가까운 pixel 끼리 보고 같은 filter 를 모든 자리에 쓰는 가정(inductive bias)을 구조에 담고 있다. ViT 는 첫 층부터 모든 patch 를
@@ -235,11 +235,11 @@
         ViT-B/16 의 parameter 는 약 8,660만 개로 ResNet-18 의 약 7 배이므로 100 배 이상이라는 첫째 보기는 틀렸다. ViT 는 컬러 사진을
         그대로 받으므로 셋째 보기도 틀렸다. ViT 도 loss 를 계산해 학습하므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "ImageNet 130만 장만으로 미리 학습하면 ViT-L/16 이 더 작은 ViT-B/16 보다 정확도가 낮습니다. 데이터가 3억 장이 되면 어떻게 되나요?"
+        ImageNet 130만 장만으로 미리 학습하면 ViT-L/16 이 더 작은 ViT-B/16 보다 정확도가 낮다. 데이터가 3억 장이 되면 어떻게 되는가?
       choices:
         - '순서가 뒤집혀 ViT-L/16 이 ViT-B/16 보다 높아진다'
-        - '두 모델의 차이가 그대로 유지된다'
-        - '두 모델 모두 정확도가 떨어진다'
+        - '두 모델 모두 오르지만 ViT-B/16 이 앞선 차이는 그대로 유지된다'
+        - '데이터가 너무 많아 두 모델 모두 다 외우지 못하고 정확도가 떨어진다'
         - 'ViT-B/16 만 좋아지고 ViT-L/16 은 그대로다'
       answer: 0
       explanation: |
@@ -248,12 +248,12 @@
         1.38%p 뒤처지던 ViT-L/16 이 2.97%p 앞서게 되므로 차이가 그대로라는 둘째 보기는 틀렸다. ViT-B/16 도 77.91% 에서 84.15% 로
         오르므로 두 모델 모두 떨어진다는 셋째 보기도 틀렸다. ViT-L/16 은 76.53% 에서 87.12% 로 더 크게 오르므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "작업 하나에 시연 50 개 정도로 학습하는 ACT 는 image encoder 로 ResNet-18 을 쓰고, 인터넷 사진·글 수억 쌍으로 미리 학습한 VLA 는 ViT 계열을 씁니다. 이 선택을 가장 잘 설명하는 것은?"
+        작업 하나에 시연 50 개 정도로 학습하는 ACT 는 image encoder 로 ResNet-18 을 쓰고, 인터넷 사진·글 수억 쌍으로 미리 학습한 VLA 는 ViT 계열을 쓴다. 이 선택을 가장 잘 설명하는 것은?
       choices:
-        - 'ResNet-18 은 사진을 token 으로 바꿀 수 없어서 VLA 에 쓸 수 없다'
-        - 'ViT 는 로봇 시연 데이터로는 fine-tuning 할 수 없다'
-        - 'CNN 은 inductive bias 가 없어서 시연이 적을 때 유리하다'
-        - '데이터가 적으면 구조에 가정이 담긴 CNN 이 유리하고, 데이터가 아주 많으면 가정이 적은 ViT 가 데이터에서 직접 배워 앞서기 때문이다'
+        - 'ResNet-18 은 사진을 token 으로 바꿀 수 없어서, Transformer 로 된 VLA 에는 넣을 수 없기 때문이다'
+        - 'ViT 는 로봇 시연 데이터로 fine-tuning 할 수 없어서, 시연으로 학습하는 ACT 는 쓰지 못하기 때문이다'
+        - 'CNN 은 inductive bias 가 없어 데이터에 맞춰 자유롭게 배우므로 시연이 적을 때 유리하기 때문이다'
+        - '데이터가 적으면 가정이 담긴 CNN 이 유리하고, 아주 많으면 가정이 적은 ViT 가 앞서기 때문이다'
       answer: 3
       explanation: |
         ViT 논문은 작은 데이터에서는 convolution 의 inductive bias 가 도움이 되고, 큰 데이터에서는 패턴을 데이터에서 바로 배우는 편이
@@ -265,12 +265,12 @@
   title: VLA 가 patch token 전부를 넘기는 이유
   variants:
     - question: |
-        면접관: "VLA 는 ViT image encoder 의 [CLS] 출력 하나가 아니라 patch 출력 전부를 언어 모델에 넘깁니다. 왜 그런가요?"
+        VLA 는 ViT image encoder 의 [CLS] 출력 하나가 아니라 patch 출력 전부를 언어 모델에 넘긴다. 그 이유는 무엇인가?
       choices:
-        - '[CLS] 출력은 숫자 개수가 너무 많아 언어 모델에 들어가지 않기 때문이다'
-        - 'patch 출력 전부를 넘기면 계산량이 줄어들기 때문이다'
+        - '[CLS] 출력은 숫자 개수가 너무 많아서 언어 모델의 token 길이에 맞출 수 없기 때문이다'
+        - 'patch 출력 전부를 넘기면 [CLS] 를 따로 계산하지 않아도 되어 언어 모델의 계산량이 줄어들기 때문이다'
         - 'SigLIP 같은 encoder 에는 patch 출력이 없고 [CLS] 만 있기 때문이다'
-        - '[CLS] 하나로 요약하면 무엇이 있는지는 남아도 어디에 있는지가 흐려지는데, patch token 은 저마다 사진의 한 구역에서 나와 위치 정보가 남기 때문이다'
+        - '[CLS] 하나로는 위치가 흐려지지만, patch token 은 저마다 한 구역에서 나와 위치 정보가 남기 때문이다'
       answer: 3
       explanation: |
         물체를 집으려면 물체가 사진의 어디에 있는지가 중요하다. patch token 은 저마다 사진의 한 구역에서 나왔기 때문에, 언어 모델이 지시문의 단어와
@@ -278,7 +278,7 @@
         [CLS] 출력은 patch token 하나와 길이가 같으므로 첫째 보기는 틀렸다. token 이 많을수록 계산은 늘어나므로 둘째 보기도 틀렸다.
         ViT 구조의 encoder 는 patch 마다 출력을 내므로 셋째 보기도 틀렸다.
     - question: |
-        면접관: "PaliGemma 를 바탕으로 한 VLA 가 224×224 카메라 사진 한 장을 patch 14 의 SigLIP 에 넣으면 언어 모델이 받는 image token 은 몇 개인가요? patch 출력을 모두 넘깁니다."
+        PaliGemma 를 바탕으로 한 VLA 가 224×224 카메라 사진 한 장을 patch 14 의 SigLIP 에 넣으면 언어 모델이 받는 image token 은 몇 개인가? patch 출력은 모두 넘긴다.
       choices:
         - '196 개'
         - '1 개'
@@ -289,12 +289,12 @@
         224 ÷ 14 = 16 이라 patch 가 16 × 16 = 256 개이고, patch 출력을 모두 image token 으로 넘기므로 256 개다.
         196 개는 patch 16 일 때의 수다. 1 개는 [CLS] 하나만 넘길 때의 수다. 50,176 개는 pixel 하나를 token 으로 쓸 때의 수다.
     - question: |
-        면접관: "VLA 안의 언어 모델은 image token 과 text token 을 어떻게 함께 처리하나요?"
+        VLA 안의 언어 모델은 image token 과 text token 을 어떻게 함께 처리하는가?
       choices:
-        - 'image token 은 언어 모델 밖에서 따로 처리하고 결과만 마지막 층에 더한다'
-        - 'image token 을 projection 으로 text token 과 같은 길이로 맞춘 뒤 한 sequence 에 넣어, 둘 사이에도 attention 을 계산한다'
+        - 'image token 은 언어 모델 밖에서 따로 처리하고, 그 결과만 마지막 층의 출력에 더한다'
+        - 'image token 의 길이를 text token 에 맞춰 한 sequence 에 넣고, 함께 attention 을 계산한다'
         - 'image token 을 vocabulary 의 가장 가까운 단어 번호로 바꿔 text 처럼 넣는다'
-        - 'text token 을 사진으로 그려 image encoder 에 함께 넣는다'
+        - 'text token 을 글자 그림으로 바꿔 사진과 함께 image encoder 에 넣고, 출력을 언어 모델에 넘긴다'
       answer: 1
       explanation: |
         patch-as-token 방식에서는 encoder 의 patch 출력을 행렬이나 작은 MLP 로 언어 모델의 token 길이에 맞춘 뒤 지시문 token 과 같은
@@ -306,10 +306,10 @@
   title: 로봇 VLA 의 image encoder 선택
   variants:
     - question: |
-        면접관: "OpenVLA 는 SigLIP 과 함께 DINOv2 encoder 를 써서, patch 마다 두 encoder 의 출력을 이어 붙입니다. DINOv2 를 더하는 이유로 알맞은 것은?"
+        OpenVLA 는 SigLIP 과 함께 DINOv2 encoder 를 써서, patch 마다 두 encoder 의 출력을 이어 붙인다. DINOv2 를 더하는 이유로 알맞은 것은?
       choices:
-        - '글 없이 사진만으로 self-supervised 학습한 DINOv2 의 patch 출력이 위치와 모양 같은 낮은 수준의 공간 정보를 담아, 글의 짝을 맞히며 학습한 SigLIP 을 보완하기 때문이다'
-        - 'DINOv2 가 지시문을 읽어 text token 을 만들기 때문이다'
+        - '사진만으로 학습한 DINOv2 가 위치·모양 같은 공간 정보를 담아 SigLIP 을 보완하기 때문이다'
+        - 'DINOv2 가 지시문을 읽어 text token 을 만들어서, 언어 모델이 지시문을 따로 읽지 않아도 되기 때문이다'
         - 'DINOv2 를 더하면 image token 수가 절반으로 줄어 계산이 빨라지기 때문이다'
         - 'SigLIP 은 224×224 사진을 받을 수 없어서 DINOv2 가 사진 크기를 맞추기 때문이다'
       answer: 0
@@ -319,11 +319,11 @@
         DINOv2 는 image encoder 라서 text token 을 만들지 않으므로 둘째 보기는 틀렸다. 두 encoder 의 출력을 patch 마다 이어 붙이므로 token 수는
         그대로이고 계산은 오히려 늘어서 셋째 보기도 틀렸다. SigLIP 은 224×224 를 그대로 받으므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "인터넷 데이터로 미리 학습한 ViT image encoder 를 VLA 학습 중에 고정하는 것과 함께 fine-tuning 하는 것 중 OpenVLA 는 어느 쪽이 나았다고 보고했나요?"
+        인터넷 데이터로 미리 학습한 ViT image encoder 를 VLA 학습 중에 고정하는 것과 함께 fine-tuning 하는 것 중 OpenVLA 는 어느 쪽이 나았다고 보고했는가?
       choices:
-        - '고정하는 쪽이 나았다. 미리 학습한 feature 를 망가뜨리지 않기 때문이다'
-        - '함께 fine-tuning 하는 쪽이 크게 나았다. 고정한 encoder 는 정밀한 제어에 필요한 세밀한 위치 정보를 충분히 담지 못한다고 추측했다'
-        - '두 방법의 성공률이 같았다'
+        - '고정하는 쪽이 나았다. 적은 로봇 데이터로 encoder 를 건드리면 미리 학습한 feature 가 망가지기 때문이다'
+        - '함께 fine-tuning 하는 쪽이 크게 나았다. 고정한 encoder 는 세밀한 위치 정보가 부족하다고 추측했다'
+        - '두 방법의 성공률이 같아서, 학습이 빠른 고정 쪽을 고르면 된다고 보고했다'
         - 'encoder 를 아예 빼고 pixel 을 직접 언어 모델에 넣는 쪽이 나았다'
       answer: 1
       explanation: |
@@ -332,12 +332,12 @@
         첫째 보기는 VLM 에서의 결과를 로봇에 그대로 옮긴 오해다. 두 방법의 차이가 컸으므로 셋째 보기는 틀렸다. encoder 를 빼는 실험은
         보고되지 않았으므로 넷째 보기도 틀렸다.
     - question: |
-        면접관: "GR00T N1 은 224×224 사진 한 장을 image token 64 개로 만들어 언어 모델에 넣습니다. patch 출력을 그대로 넘기는 방식과 비교해 무엇이 달라지나요?"
+        GR00T N1 은 224×224 사진 한 장을 image token 64 개로 만들어 언어 모델에 넣는다. patch 출력을 그대로 넘기는 방식과 비교해 무엇이 달라지는가?
       choices:
-        - 'token 이 줄지만 사진의 숫자도 4 분의 1 로 버려져 정보가 크게 사라진다'
-        - 'token 수는 같고 token 하나의 길이만 줄어든다'
-        - '이웃한 token 을 이어 붙여 합치므로, 숫자는 버리지 않고 token 수만 줄여 언어 모델의 계산량을 줄인다'
-        - 'token 수가 늘어 사진을 더 자세히 본다'
+        - 'token 이 줄어드는 만큼 사진의 숫자도 4 분의 1 만 남기고 버려져 정보가 크게 사라진다'
+        - 'token 수는 그대로 두고, token 하나의 길이를 줄여 언어 모델의 계산량을 줄인다'
+        - '이웃한 token 을 이어 붙여 숫자는 버리지 않고 token 수만 줄인다'
+        - '사진을 64 구역으로 더 잘게 나눠 token 수가 늘고, 사진을 더 자세히 본다'
       answer: 2
       explanation: |
         GR00T N1 은 pixel shuffle 로 이웃한 token 을 이어 붙여 한 token 으로 합친다. 숫자는 그대로 두고 token 하나의 길이를 늘려

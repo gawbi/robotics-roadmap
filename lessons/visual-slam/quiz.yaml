@@ -5,36 +5,36 @@
   title: feature point 와 ORB
   variants:
     - question: |
-        면접관: "Visual SLAM 은 흰 벽 한가운데의 pixel 이 아니라 corner 를 feature point 로 씁니다. 왜 그런가요?"
+        Visual SLAM 은 흰 벽 한가운데의 pixel 이 아니라 corner 를 feature point 로 쓴다. 그 이유는 무엇인가?
       choices:
         - 'corner 는 밝기가 가장 밝은 pixel 이라 사진이 어두워도 항상 보이기 때문이다'
-        - 'corner 는 두 방향으로 밝기가 바뀌어 주변과 구별되므로 다음 사진에서 같은 자리를 다시 찾을 수 있기 때문이다'
-        - 'corner 는 사진마다 개수가 정확히 같아서 짝짓기 계산량이 일정하기 때문이다'
-        - '흰 벽의 pixel 은 거리가 멀어 triangulation 오차가 커지기 때문이다'
+        - 'corner 는 두 방향으로 밝기가 바뀌어 주변과 구별되므로 다음 사진에서 다시 찾을 수 있기 때문이다'
+        - 'corner 는 장면이 바뀌어도 사진마다 개수가 정확히 같아서, 짝짓기 계산량이 일정하게 유지되기 때문이다'
+        - '흰 벽의 pixel 은 카메라에서 멀리 있어 parallax 가 작고 triangulation 오차가 커지기 때문이다'
       answer: 1
       explanation: |
         흰 벽의 한 pixel 은 옆 pixel 과 똑같이 생겨서 다음 사진에서 어느 pixel 이 그 pixel 인지 가릴 수 없고, 직선 위의 점도 직선을 따라 옮겨
         가면 똑같아 보인다. 두 방향으로 밝기가 바뀌는 corner 만 주변과 구별되어 다시 찾을 수 있다. corner 가 가장 밝은 pixel 인 것도 아니고,
         사진마다 개수가 같지도 않으며, 벽까지의 거리와는 관계가 없다.
     - question: |
-        면접관: "ORB descriptor 는 256 bit 의 binary 값입니다. 실수 vector 가 아니라 bit 열이라서 얻는 이점은 무엇인가요?"
+        ORB descriptor 는 256 bit 의 binary 값이다. 실수 vector 가 아니라 bit 열이라서 얻는 이점은 무엇인가?
       choices:
-        - '사진이 회전해도 bit 값이 바뀌지 않아서 방향을 따로 계산할 필요가 없다'
+        - '0 과 1 은 회전해도 바뀌지 않는 값이라, 사진이 돌아가도 방향을 따로 계산할 필요가 없다'
         - 'bit 열은 3D 좌표를 담고 있어서 triangulation 없이 depth 를 알 수 있다'
-        - '두 descriptor 의 차이를 서로 다른 bit 의 개수(Hamming distance)로 재므로, XOR 하고 1 을 세는 몇 개의 CPU 명령으로 빠르게 비교할 수 있다'
-        - 'bit 열은 항상 같은 점에서 정확히 같은 값이 나와서 짝을 고를 때 비교가 필요 없다'
+        - '차이를 서로 다른 bit 의 개수(Hamming distance)로 재므로, XOR 과 1 세기로 빠르게 비교할 수 있다'
+        - 'bit 열은 noise 에 흔들리지 않아 같은 점에서 언제나 같은 값이 나오므로, 짝을 고를 때 거리를 비교할 필요가 없다'
       answer: 2
       explanation: |
         binary descriptor 는 두 bit 열에 XOR 을 하고 1 의 개수를 세면 차이(Hamming distance)가 나오므로 비교가 매우 빠르다. 회전에 강한 것은
         bit 열이라서가 아니라 ORB 가 점의 방향을 계산해 비교 pattern 을 돌리기 때문이다. descriptor 에는 3D 좌표가 없고, 같은 점이라도 noise 때문에
         몇 bit 는 달라지므로 거리 비교가 필요하다.
     - question: |
-        면접관: "카메라가 기울거나 물체에서 멀어져도 ORB 가 같은 점을 다시 찾을 수 있는 이유는 무엇인가요?"
+        카메라가 기울거나 물체에서 멀어져도 ORB 가 같은 점을 다시 찾을 수 있는 이유는 무엇인가?
       choices:
-        - '점 주변 밝기의 무게중심 방향으로 비교 pattern 을 돌려 회전에 맞추고, 여러 배율로 줄인 사진(pyramid)에서 모두 feature 를 찾아 크기 변화에 맞춘다'
-        - 'descriptor 를 매 사진마다 새로 학습해 그때그때 생김새에 맞추기 때문이다'
-        - 'IMU 로 카메라의 기울기와 거리를 재서 descriptor 를 보정하기 때문이다'
-        - '사진 전체의 평균 밝기를 descriptor 로 쓰기 때문에 회전과 크기에 영향을 받지 않는다'
+        - '점 주변 밝기의 무게중심 쪽으로 비교 pattern 을 돌리고, 여러 배율로 줄인 사진에서 모두 feature 를 찾는다'
+        - 'descriptor 를 매 사진마다 새로 학습해서, 기울거나 작아진 생김새에 그때그때 맞추기 때문이다'
+        - 'IMU 로 카메라가 기운 각도와 물체까지의 거리를 재서, 그만큼 descriptor 를 돌리고 늘려 보정하기 때문이다'
+        - '사진 전체의 평균 밝기를 descriptor 로 쓰므로, 사진을 돌리거나 키워도 descriptor 가 거의 바뀌지 않는다'
       answer: 0
       explanation: |
         ORB 는 corner 주변 밝기의 무게중심 쪽을 점의 방향으로 정하고 pixel 비교 pattern 을 그만큼 돌려서 회전에 강하다. 크기 변화는 사진을 일정
@@ -45,36 +45,36 @@
   title: feature matching 과 ratio test
   variants:
     - question: |
-        면접관: "어떤 feature 의 가장 가까운 후보가 Hamming distance 30 bit, 두 번째 후보가 32 bit 입니다. ratio 0.6 의 ratio test 를 쓰면 이 짝은 어떻게 되나요?"
+        어떤 feature 의 가장 가까운 후보가 Hamming distance 30 bit, 두 번째 후보가 32 bit 이다. ratio 0.6 의 ratio test 를 쓰면 이 짝은 어떻게 되는가?
       choices:
-        - '가장 가까운 후보가 30 bit 로 충분히 작으므로 받는다'
-        - '두 후보를 평균 낸 위치를 짝으로 쓴다'
-        - '두 후보를 모두 짝으로 받아 BA 가 고르게 한다'
-        - '30 이 0.6 × 32 = 19.2 보다 커서 받지 않는다. 두 후보가 비슷해 어느 쪽이 진짜 짝인지 확신할 수 없기 때문이다'
+        - '256 bit 가운데 30 bit 만 달라서 충분히 가까우므로 짝으로 받는다'
+        - '두 후보가 거의 같으므로 두 위치를 평균 낸 자리를 짝으로 쓴다'
+        - '어느 쪽인지 모르니 두 후보를 모두 짝으로 받아 BA 가 고르게 한다'
+        - '받지 않는다. 30 이 0.6 × 32 = 19.2 보다 크다'
       answer: 3
       explanation: |
         ratio test 는 가장 가까운 후보의 거리가 두 번째 후보 거리의 일정 비율보다 작을 때만 짝으로 받는다. 30 은 0.6 × 32 = 19.2 보다 커서
         버린다. 두 후보가 거의 같은 거리라는 것은 반복 무늬처럼 헷갈리는 상황이라는 뜻이다. 거리 값 자체가 작아도 이 조건을 지나야 하고,
         후보를 평균 내거나 둘 다 받으면 틀린 짝이 지도에 들어간다.
     - question: |
-        면접관: "바닥 타일처럼 같은 무늬가 반복되는 곳에서 descriptor 가 가장 가까운 후보만 골라 짝지으면 어떤 문제가 생기고, 어떻게 막나요?"
+        바닥 타일처럼 같은 무늬가 반복되는 곳에서 descriptor 가 가장 가까운 후보만 골라 짝지으면 어떤 문제가 생기고, 그 문제는 어떻게 막는가?
       choices:
-        - 'descriptor 가 모두 같아져서 feature 가 하나도 검출되지 않으므로 사진 해상도를 높인다'
-        - '여러 위치의 descriptor 가 거의 같아 엉뚱한 짝이 생긴다. 가장 가까운 후보가 두 번째 후보보다 충분히 가까울 때만 받는 ratio test 와 RANSAC 같은 기하 검사로 거른다'
+        - 'descriptor 가 모두 같아져서 feature 가 하나도 검출되지 않으므로, 사진 해상도를 높여 무늬를 구별한다'
+        - '여러 자리의 descriptor 가 거의 같아 엉뚱한 짝이 생기므로, ratio test 와 RANSAC 으로 거른다'
         - 'Hamming distance 가 음수가 되어 계산이 멈추므로 거리에 절댓값을 씌운다'
-        - '반복 무늬는 descriptor 를 더 잘 구별하게 해 주므로 문제가 없다'
+        - '반복 무늬는 corner 가 많아 짝을 더 많이 만들어 주므로 오히려 정확도가 오르고 문제가 없다'
       answer: 1
       explanation: |
         반복 무늬에서는 서로 다른 점의 descriptor 가 거의 같아서 가장 가까운 후보가 틀린 짝인 경우가 많다. 그래서 두 번째 후보와의 차이를 보는
         ratio test 로 애매한 짝을 버리고, 남은 짝은 RANSAC 같은 기하 검사로 한 번 더 거른다. feature 는 검출되고, Hamming distance 는 음수가 될 수
         없으며, 반복 무늬는 구별을 어렵게 만든다.
     - question: |
-        면접관: "ratio test 를 지난 뒤에도 남아 있는 틀린 짝(outlier)은 보통 어떻게 걸러 내나요?"
+        ratio test 를 지난 뒤에도 남아 있는 틀린 짝(outlier)은 보통 어떻게 걸러 내는가?
       choices:
-        - '모든 짝을 그대로 BA 에 넣고, 오차는 평균을 내면 저절로 0 이 된다'
+        - '모든 짝을 그대로 BA 에 넣는다. 틀린 짝의 오차는 방향이 제각각이라 평균을 내면 저절로 0 이 된다'
         - 'descriptor 길이를 256 bit 에서 512 bit 로 늘리면 outlier 가 생기지 않는다'
-        - '짝 몇 개를 무작위로 뽑아 두 사진 사이의 움직임을 계산하고, 그 움직임과 맞는 짝이 가장 많은 경우를 골라 나머지를 버린다(RANSAC)'
-        - 'Hamming distance 가 가장 작은 짝 하나만 남기고 나머지를 모두 버린다'
+        - '짝 몇 개를 무작위로 뽑아 움직임을 계산하고, 그 움직임과 맞는 짝이 가장 많은 경우를 골라 나머지를 버린다'
+        - 'Hamming distance 가 가장 작은 짝 하나만 남기고 나머지를 모두 버린 뒤, 그 짝 하나로 pose 를 구한다'
       answer: 2
       explanation: |
         RANSAC 은 짝 몇 개로 움직임을 계산해 보고, 그 움직임과 맞는 짝이 가장 많은 가설을 골라 맞지 않는 짝을 outlier 로 버린다. outlier 를 BA 에
@@ -85,10 +85,10 @@
   title: triangulation 과 parallax
   variants:
     - question: |
-        면접관: "같은 1 pixel 의 feature 위치 오차인데, 2 m 앞의 점보다 10 m 앞의 점의 depth 오차가 훨씬 큰 이유는 무엇인가요?"
+        같은 1 pixel 의 feature 위치 오차인데, 2 m 앞의 점보다 10 m 앞의 점의 depth 오차가 훨씬 큰 이유는 무엇인가?
       choices:
-        - '먼 점일수록 두 시선이 이루는 각도(parallax)가 작아 두 직선이 거의 나란히 만나므로, 작은 방향 오차가 depth 방향으로 크게 번진다'
-        - '먼 점은 사진에서 더 밝게 찍혀 feature 위치가 덜 정확하기 때문이다'
+        - '먼 점일수록 두 시선의 각도(parallax)가 작아, 작은 방향 오차가 depth 방향으로 크게 번지기 때문이다'
+        - '먼 점은 빛이 약해 사진에서 흐리게 찍히므로, feature 위치 오차가 실제로는 1 pixel 보다 크기 때문이다'
         - '먼 점은 ORB pyramid 의 작은 층에서만 찾을 수 있어 descriptor 가 짧아지기 때문이다'
         - 'depth 오차는 거리와 관계없이 항상 같고, 비율로 볼 때만 달라 보인다'
       answer: 0
@@ -97,12 +97,12 @@
         방향으로 크게 번지고, 나란한 stereo 의 경우 $Z = f b / d$ 에서 disparity $d$ 가 작아 1 pixel 의 의미가 커진다. 밝기나 descriptor 길이는
         관계가 없고, 오차의 절대 크기 자체가 거리에 따라 커진다.
     - question: |
-        면접관: "카메라 한 대만 쓰는 Visual SLAM 에서 카메라가 제자리에서 회전만 하면 새 map point 를 triangulation 할 수 없는 이유는 무엇인가요?"
+        카메라 한 대만 쓰는 Visual SLAM 에서 카메라가 제자리에서 회전만 하면 새 map point 를 triangulation 할 수 없는 이유는 무엇인가?
       choices:
-        - '회전하면 사진이 항상 흐려져서 feature 가 검출되지 않기 때문이다'
-        - '회전 중에는 ORB descriptor 의 방향 계산이 멈추기 때문이다'
-        - '회전하면 IMU 가 꺼지기 때문이다'
-        - '카메라 중심이 움직이지 않아 baseline 이 0 이므로, 같은 점을 본 두 시선이 같은 직선이 되어 만나는 점이 정해지지 않기 때문이다'
+        - '회전하면 사진이 항상 흐려져서 feature 가 검출되지 않고, 짝도 만들 수 없기 때문이다'
+        - '회전하는 동안에는 ORB 가 점의 방향을 정할 수 없어 descriptor 를 만들지 못하기 때문이다'
+        - '카메라 한 대만 쓰면 회전량을 잴 IMU 가 없어서 두 사진의 자세 차이를 모르기 때문이다'
+        - '카메라 중심이 그대로라 baseline 이 0 이고, 두 시선이 한 직선이 되어 만나는 점이 정해지지 않기 때문이다'
       answer: 3
       explanation: |
         triangulation 은 서로 다른 두 자리에서 본 시선이 만나는 곳으로 위치를 구하므로, 카메라 중심이 움직인 거리(baseline)가 있어야 한다.
@@ -125,11 +125,11 @@
   title: keyframe 과 bundle adjustment
   variants:
     - question: |
-        면접관: "Visual SLAM 이 모든 사진을 bundle adjustment 에 넣지 않고 keyframe 만 고르는 이유는 무엇인가요?"
+        Visual SLAM 이 모든 사진을 bundle adjustment 에 넣지 않고 keyframe 만 고르는 이유는 무엇인가?
       choices:
-        - 'keyframe 이 아닌 사진에서는 feature 를 검출할 수 없기 때문이다'
-        - 'keyframe 은 IMU 측정이 있는 사진만 고른 것이기 때문이다'
-        - '이웃한 사진은 거의 같은 장면이라 parallax 가 작아 새 정보가 적은데, BA 의 계산은 넣는 사진 수에 따라 커지므로 장면이 충분히 바뀐 사진만 남긴다'
+        - 'keyframe 이 아닌 사진에서는 ORB 를 돌리지 않아 feature 가 없어서 BA 에 넣을 관측이 없기 때문이다'
+        - 'keyframe 은 IMU 측정이 함께 찍힌 사진만 고른 것이라, 나머지는 BA 에 쓸 수 없기 때문이다'
+        - '이웃한 사진은 거의 같은 장면이라 새 정보가 적은데, BA 계산은 넣는 사진 수에 따라 커지기 때문이다'
         - 'BA 는 사진이 많을수록 부정확해지므로 사진을 최소한으로 줄여야 하기 때문이다'
       answer: 2
       explanation: |
@@ -137,24 +137,24 @@
         커지므로 장면이 바뀐 사진만 keyframe 으로 남긴다. 모든 사진에서 feature 를 찾고 tracking 에 쓰며, keyframe 은 IMU 유무로 고르는 것이 아니다.
         관측이 많다고 BA 가 부정확해지는 것도 아니다.
     - question: |
-        면접관: "bundle adjustment 는 무엇을 최소화하도록 무엇을 조정하나요?"
+        bundle adjustment 는 무엇을 최소화하도록 무엇을 조정하는가?
       choices:
-        - '여러 keyframe 의 pose 와 map point 의 위치를 함께 움직여, 모든 관측에서 map point 를 투영한 pixel 과 실제로 찍힌 pixel 사이의 거리(reprojection error)의 합을 최소화한다'
+        - 'keyframe 의 pose 와 map point 위치를 함께 움직여 reprojection error 의 합을 최소화한다'
         - 'camera intrinsics 만 조정해 사진의 lens distortion 을 최소화한다'
         - 'map point 는 고정하고 가장 최근 사진 한 장의 pose 만 조정해 Hamming distance 를 최소화한다'
-        - 'IMU bias 만 조정해 가속도 측정의 noise 를 최소화한다'
+        - 'IMU bias 만 조정해서, 가속도로 적분한 위치와 사진으로 구한 위치의 차이를 최소화한다'
       answer: 0
       explanation: |
         bundle adjustment 는 pose 와 map point 를 함께 움직여 모든 관측의 reprojection error 합을 줄인다. 이름도 3D 점에서 카메라들로 모이는
         시선 다발(bundle)을 함께 조정(adjust)한다는 뜻이다. intrinsics 를 구하는 것은 calibration 이고, 사진 한 장의 pose 만 구하는 것은 tracking 의
         PnP 이며, Hamming distance 는 짝짓기에서 쓰는 값이다. IMU bias 는 VIO 에서 함께 추정할 수 있지만 BA 의 정의는 아니다.
     - question: |
-        면접관: "ORB-SLAM 의 local bundle adjustment 에서는 어떤 변수를 움직이고 어떤 것을 고정하나요?"
+        ORB-SLAM 의 local bundle adjustment 에서는 어떤 변수를 움직이고 어떤 것을 고정하는가?
       choices:
-        - '지도의 모든 keyframe 과 모든 map point 를 매번 움직인다'
-        - '새 keyframe 의 pose 하나만 움직이고 나머지는 모두 고정한다'
-        - 'map point 만 움직이고 keyframe pose 는 모두 고정한다'
-        - '새 keyframe 과 그것과 map point 를 함께 보는 keyframe 들, 그 keyframe 들이 본 map point 를 움직이고, 그 점들을 보지만 새 keyframe 과 연결되지 않은 keyframe 은 식에 넣되 고정한다'
+        - '지도의 모든 keyframe 과 모든 map point 를 매번 함께 움직여야 지도 전체의 오차가 고르게 줄어든다'
+        - '새 keyframe 의 pose 하나만 움직이고, 이미 최적화를 마친 이전 keyframe 과 map point 는 모두 고정한다'
+        - 'tracking 이 이미 pose 를 구했으므로 keyframe pose 는 모두 고정하고 map point 위치만 움직인다'
+        - '새 keyframe 과 같은 점을 보는 keyframe 들, 그들이 본 점을 움직이고, 그 점을 보는 나머지 keyframe 은 고정한다'
       answer: 3
       explanation: |
         local BA 는 새 keyframe 주변의 covisible keyframe 과 그들이 본 map point 만 최적화하고, 그 점들을 보는 다른 keyframe 은 고정한 채 관측만
@@ -165,11 +165,11 @@
   title: monocular scale ambiguity
   variants:
     - question: |
-        면접관: "카메라 한 대만 쓰는 monocular Visual SLAM 이 실제 m 단위의 지도를 만들지 못하는 이유는 무엇인가요?"
+        카메라 한 대만 쓰는 monocular Visual SLAM 이 실제 m 단위의 지도를 만들지 못하는 이유는 무엇인가?
       choices:
-        - 'monocular 카메라는 해상도가 낮아서 feature 를 충분히 찾지 못하기 때문이다'
-        - '카메라 이동 거리와 모든 점의 거리를 같은 비율로 키워도 사진의 pixel 이 똑같아서, 사진만으로는 전체 크기(scale)를 정할 수 없기 때문이다'
-        - 'monocular SLAM 은 triangulation 을 하지 않기 때문이다'
+        - 'monocular 카메라는 해상도가 낮아 feature 를 충분히 찾지 못해서, 지도에 길이를 잴 점이 모자라기 때문이다'
+        - '이동 거리와 모든 점의 거리를 같은 비율로 키워도 사진이 똑같아서, 사진만으로는 scale 을 정할 수 없기 때문이다'
+        - '두 시선이 필요한 triangulation 을 카메라 한 대로는 할 수 없어서 점의 거리를 구하지 못하기 때문이다'
         - 'lens distortion 때문에 거리가 항상 2 배로 계산되기 때문이다'
       answer: 1
       explanation: |
@@ -177,23 +177,23 @@
         SLAM 은 길이 하나를 임의로 1 로 정하고 그 단위로 지도를 만든다. 해상도와는 관계없고, monocular SLAM 도 카메라가 움직인 두 자리로
         triangulation 을 한다. distortion 은 calibration 으로 고치는 다른 문제다.
     - question: |
-        면접관: "monocular SLAM 에서 scale drift 란 무엇이고, loop closure 때 이를 어떻게 다루나요?"
+        monocular SLAM 에서 scale drift 란 무엇이고, loop closure 때 이를 어떻게 다루는가?
       choices:
         - '카메라의 focal length 가 시간에 따라 바뀌는 현상이고, 매 loop 마다 calibration 을 다시 한다'
-        - 'IMU 의 bias 가 쌓이는 현상이고, IMU 를 끄면 사라진다'
-        - '새 map point 를 이전 추정 위에서 계속 만들면서 지도의 단위가 조금씩 바뀌는 현상이고, loop 를 닫을 때 위치·회전에 scale 까지 7 자유도를 고치는 similarity transform(Sim(3))을 계산한다'
-        - '지도가 회전하는 현상이고, roll 과 pitch 만 고치면 된다'
+        - 'IMU 의 bias 가 쌓여 이동 거리가 조금씩 틀어지는 현상이고, loop 를 닫을 때 IMU 를 끄고 다시 시작한다'
+        - '지도의 단위가 새 점을 만들 때마다 조금씩 바뀌는 현상이고, loop 에서 scale 까지 고치는 Sim(3) 를 계산한다'
+        - '지도가 중력축 둘레로 조금씩 회전하는 현상이고, loop 를 닫을 때 roll 과 pitch 만 고치면 된다'
       answer: 2
       explanation: |
         monocular 지도는 scale 이 관측되지 않으므로, 오래 움직이면 새 점과 pose 가 이전 추정에 기대며 단위가 조금씩 어긋난다. 그래서 ORB-SLAM 은
         monocular 지도가 위치 3, 회전 3, scale 1 의 7 자유도로 어긋날 수 있다고 보고 loop 에서 Sim(3) 를 계산한다. focal length 변화나 IMU bias 와는
         다른 문제이고, 회전만 고쳐서는 단위의 어긋남이 남는다.
     - question: |
-        면접관: "monocular SLAM 의 궤적 정확도를 평가할 때 정답 궤적에 위치와 회전뿐 아니라 scale 까지 맞춘 뒤 오차를 재는 이유는 무엇인가요?"
+        monocular SLAM 의 궤적 정확도를 평가할 때 정답 궤적에 위치와 회전뿐 아니라 scale 까지 맞춘 뒤 오차를 재는 이유는 무엇인가?
       choices:
-        - 'monocular SLAM 의 궤적은 임의의 단위로 만들어져서 m 단위 정답과 바로 비교할 수 없기 때문에, 크기를 맞춘 뒤 모양의 오차를 잰다'
-        - 'scale 을 맞추면 오차가 항상 0 이 되어 비교가 쉬워지기 때문이다'
-        - '정답 궤적이 cm 단위로 저장되어 있어서 단위를 바꾸는 과정이기 때문이다'
+        - '궤적이 임의의 단위로 나와 m 단위 정답과 바로 비교할 수 없어서, 크기를 맞춘 뒤 모양의 오차를 잰다'
+        - 'scale 까지 맞추면 궤적이 정답과 완전히 겹쳐 오차가 항상 0 이 되므로 비교가 쉬워지기 때문이다'
+        - '정답 궤적은 cm 단위로 저장되어 있어서, m 단위로 나오는 SLAM 결과와 맞추려고 단위를 바꾸는 과정이다'
         - 'stereo 결과와 비교할 때만 필요하고 monocular 끼리 비교할 때는 필요 없다'
       answer: 0
       explanation: |
@@ -204,35 +204,35 @@
   title: VIO
   variants:
     - question: |
-        면접관: "IMU 를 붙이면 monocular 카메라가 모르던 scale 을 알 수 있는 이유는 무엇인가요?"
+        IMU 를 붙이면 monocular 카메라가 모르던 scale 을 알 수 있는 이유는 무엇인가?
       choices:
-        - 'IMU 가 카메라의 focal length 를 정확히 재 주기 때문이다'
-        - 'IMU 가 주변 물체까지의 거리를 직접 재기 때문이다'
-        - 'IMU 가 사진의 feature 를 대신 찾아 주기 때문이다'
-        - 'accelerometer 가 가속도를 m/s² 라는 실제 단위로 재므로, 같은 구간에서 IMU 로 구한 이동 거리와 SLAM 이 구한 단위 이동을 비교하면 1 단위가 몇 m 인지 정해지기 때문이다'
+        - 'IMU 가 카메라의 focal length 를 정확히 재 주므로, pixel 을 m 로 바꾸는 비율을 알 수 있기 때문이다'
+        - 'IMU 가 LiDAR 처럼 주변 물체까지의 거리를 직접 재서 map point 의 depth 를 알려 주기 때문이다'
+        - 'IMU 가 흐린 사진에서도 feature 를 대신 찾아 주어 triangulation 할 점이 늘어나기 때문이다'
+        - 'accelerometer 는 m/s² 단위로 재므로, IMU 로 구한 이동 거리와 SLAM 의 단위 이동을 비교할 수 있다'
       answer: 3
       explanation: |
         IMU 의 가속도는 처음부터 실제 단위로 나온다. 멈춰 있던 카메라가 1 초 동안 1 m/s² 로 가속하면 0.5 m 를 움직였으므로, SLAM 이 구한 그 구간의
         이동 거리가 2 단위라면 1 단위는 0.25 m 다. IMU 는 거리 센서가 아니고, focal length 를 재거나 feature 를 찾지 않는다.
     - question: |
-        면접관: "monocular VIO 를 정지 상태나 일정한 속도의 직선 운동만으로 초기화하려 하면 어떤 문제가 있나요?"
+        monocular VIO 를 정지 상태나 일정한 속도의 직선 운동만으로 초기화하려 하면 어떤 문제가 있는가?
       choices:
-        - '가속이 없으면 지도를 키우고 속도도 같은 비율로 키워도 카메라와 IMU 측정이 모두 맞아서 scale 이 정해지지 않는다. 가속을 주는 움직임이 필요하다'
-        - '정지 상태에서는 IMU 가 아무 값도 내지 않아 프로그램이 멈춘다'
-        - '일정한 속도에서는 feature 가 검출되지 않는다'
-        - '문제가 없다. 일정한 속도일 때 scale 이 가장 정확하게 정해진다'
+        - '가속이 없으면 지도와 속도를 같은 비율로 키워도 두 센서 측정이 모두 맞아 scale 이 정해지지 않는다'
+        - '정지 상태에서는 IMU 가 아무 값도 내지 않아서, 초기화 단계가 측정을 기다리며 멈춘다'
+        - '일정한 속도로 움직이면 사진이 매번 똑같이 바뀌어서 새 feature 가 검출되지 않는다'
+        - '문제가 없다. 흔들림 없이 일정한 속도로 움직일 때 IMU 측정이 깨끗해서 scale 이 가장 정확하게 정해진다'
       answer: 0
       explanation: |
         scale 은 IMU 가 잰 가속과 사진으로 구한 움직임을 비교해 정한다. 가속이 없으면 accelerometer 는 중력만 재고, 지도와 속도를 같은 비율로
         키워도 두 센서의 측정이 그대로 맞아 scale 을 정할 수 없다. VINS-Mono 논문도 멈춘 상태에서는 시작할 수 없다고 적었다. 정지 상태에서도
         IMU 는 중력을 재고, feature 검출은 속도와 관계없다.
     - question: |
-        면접관: "VIO 에서는 roll 과 pitch 는 drift 없이 정해지는데, 어떤 자유도는 여전히 천천히 어긋납니다. 어느 것이고 왜 그런가요?"
+        VIO 에서는 roll 과 pitch 는 drift 없이 정해지는데, 어떤 자유도는 여전히 천천히 어긋난다. 어느 자유도이고, 그 이유는 무엇인가?
       choices:
-        - 'roll 과 pitch 만 어긋난다. 중력은 회전을 알려 주지 않기 때문이다'
-        - '6 자유도 모두 어긋나지 않는다. IMU 가 모든 drift 를 없애기 때문이다'
-        - 'x, y, z 위치와 중력축 둘레의 회전(yaw) 4 자유도다. accelerometer 가 재는 중력은 아래 방향만 알려 주므로 그 축을 도는 회전과 위치는 직접 관측되지 않기 때문이다'
-        - 'scale 만 어긋난다. IMU 가 있어도 scale 은 관측되지 않기 때문이다'
+        - 'roll 과 pitch 만 어긋난다. accelerometer 는 위치 변화만 재고 기울기는 알려 주지 않기 때문이다'
+        - '6 자유도 모두 어긋나지 않는다. 카메라와 IMU 가 서로의 오차를 지워 주므로 drift 가 남지 않기 때문이다'
+        - 'x, y, z 위치와 yaw 의 4 자유도다. 중력은 아래 방향만 알려 주어 그 축을 도는 회전과 위치는 관측되지 않는다'
+        - 'scale 만 어긋난다. monocular 카메라가 scale 을 모르는 것은 IMU 를 붙여도 그대로이기 때문이다'
       answer: 2
       explanation: |
         accelerometer 는 늘 중력을 재서 어느 쪽이 아래인지 알려 주므로 roll 과 pitch 는 관측된다. 그러나 중력은 그 축을 도는 yaw 와 위치를 알려 주지 않아
@@ -243,12 +243,12 @@
   title: Visual SLAM 의 실패 상황
   variants:
     - question: |
-        면접관: "카메라가 무늬 없는 흰 벽을 보면 Visual SLAM 의 tracking 이 끊기는 이유는 무엇인가요?"
+        카메라가 무늬 없는 흰 벽을 보면 Visual SLAM 의 tracking 이 끊기는 이유는 무엇인가?
       choices:
-        - '흰 벽은 빛을 너무 많이 반사해 카메라가 꺼지기 때문이다'
-        - 'corner 가 거의 없어 feature 와 짝의 수가 줄고, inlier 가 정해진 문턱(ORB-SLAM3 는 카메라만 쓸 때 30 개)보다 적어지면 pose 를 믿을 수 없어 tracking 실패로 보기 때문이다'
+        - '흰 벽은 빛을 너무 많이 반사해 사진이 하얗게 날아가고, 카메라가 노출을 맞추느라 꺼지기 때문이다'
+        - 'corner 가 거의 없어 짝이 문턱보다 적어지면, pose 를 믿을 수 없어 실패로 보기 때문이다'
         - '흰 벽은 너무 가까워서 triangulation 의 parallax 가 지나치게 커지기 때문이다'
-        - '흰 벽 앞에서는 IMU 의 bias 가 갑자기 커지기 때문이다'
+        - '흰 벽처럼 밝은 장면 앞에서는 IMU 의 bias 가 갑자기 커져 pose 예측이 틀어지기 때문이다'
       answer: 1
       explanation: |
         Visual SLAM 은 corner 를 찾아 짝지어야 pose 를 구하는데, 흰 벽에는 corner 가 거의 없다. 짝 수가 문턱 아래로 떨어지면 pose 를 믿을 수 없어
@@ -265,12 +265,12 @@
         번진 길이는 focal length × 각속도 × 노출 시간이라 $500 \times 1 \times 0.01 = 5$ pixel 이다. 0.05 와 50 은 노출 시간의 단위를 잘못 넣은
         값이고, 500 은 노출 시간을 빼먹은 값이다. 5 pixel 이면 FAST 가 비교하는 원의 크기와 비슷해 corner 를 찾기 어려워진다.
     - question: |
-        면접관: "빠르게 회전하는 드론에서 IMU 를 합친 VIO 가 카메라만 쓰는 Visual SLAM 보다 tracking 을 덜 잃는 이유는 무엇인가요?"
+        빠르게 회전하는 드론에서 IMU 를 합친 VIO 가 카메라만 쓰는 Visual SLAM 보다 tracking 을 덜 잃는 이유는 무엇인가?
       choices:
-        - 'IMU 가 motion blur 를 사진에서 지워 주기 때문이다'
-        - 'IMU 만으로 몇 분이고 정확하게 위치를 낼 수 있어 카메라가 필요 없기 때문이다'
-        - '사진 사이에 훨씬 자주 들어오는 gyroscope 측정으로 그동안 얼마나 돌았는지 알아 map point 가 다음 사진의 어디쯤 찍힐지 예측하고, 사진으로 위치를 잃은 몇 초 동안 IMU 로 pose 를 이어 가기 때문이다'
-        - 'IMU 가 있으면 feature 를 하나도 찾지 않아도 지도를 만들 수 있기 때문이다'
+        - 'IMU 로 잰 회전만큼 사진을 거꾸로 밀어 motion blur 를 지우므로, 흐린 사진에서도 corner 가 살아나기 때문이다'
+        - 'IMU 만으로 몇 분이고 정확하게 위치를 낼 수 있어서, 회전이 빠를 때는 카메라를 쓰지 않아도 되기 때문이다'
+        - '사진 사이에 자주 들어오는 gyroscope 측정으로 점이 찍힐 자리를 예측하고, 끊긴 몇 초를 IMU 로 잇기 때문이다'
+        - 'IMU 가 있으면 feature 를 하나도 찾지 않아도 지도를 만들 수 있어서, 사진이 흐려도 지도가 계속 자라기 때문이다'
       answer: 2
       explanation: |
         IMU 는 카메라보다 자주(EuRoC 에서 200 Hz 대 20 Hz) 측정해서 사진 사이의 회전을 알려 주므로, map point 가 찍힐 자리를 예측해 다시 짝을 찾을

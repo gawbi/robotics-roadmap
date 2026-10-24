@@ -5,13 +5,13 @@
   title: 깊은 plain network 의 degradation
   variants:
     - question: |
-        면접관: "conv 층을 차례로 쌓기만 한 CNN 을 18 층에서 34 층으로 깊게 했더니 test error 는 물론 training error 까지 올랐습니다.
-        이 현상을 어떻게 설명하겠습니까?"
+        conv 층을 차례로 쌓기만 한 CNN 을 18 층에서 34 층으로 깊게 했더니 test error 는 물론 training error 까지 올랐다.
+        이 현상은 어떻게 설명할 수 있는가?
       choices:
-        - '층이 많아 parameter 가 늘어서 학습 데이터를 외운 overfitting 이다'
-        - '학습 데이터가 부족해서 처음 보는 사진에서만 성능이 떨어진 것이다'
+        - '층이 많아 parameter 가 늘어서, 깊은 망이 학습 데이터를 외운 overfitting 이다'
+        - '학습 데이터가 부족해서, 깊은 망이 처음 보는 사진에서만 성능이 떨어진 것이다'
         - 'degradation 이다. 깊은 망이 학습 데이터조차 잘 맞히지 못하니 덜 배운 것이다'
-        - '깊은 망은 얕은 망보다 표현할 수 있는 함수가 적어서 생기는 당연한 결과다'
+        - '깊은 망은 얕은 망보다 표현할 수 있는 함수가 적어서, 학습 데이터도 덜 맞히는 것이 당연하다'
       answer: 2
       explanation: |
         training error 가 높다는 것은 학습 사진조차 잘 맞히지 못한다는 뜻이라 외운 것이 아니라 덜 배운 것이고, ResNet 논문에서는 이
@@ -19,12 +19,12 @@
         error 만 오르므로 training error 가 오른 것을 설명하지 못한다. 깊은 망은 얕은 망이 표현하는 함수를 모두 표현할 수 있어서, 표현력이
         적다는 설명도 틀렸다.
     - question: |
-        면접관: "깊은 망의 training error 가 얕은 망보다 높을 이유가 원리적으로는 없다고 말할 수 있는 근거가 무엇인가요?"
+        깊은 망의 training error 가 얕은 망보다 높을 이유가 원리적으로는 없다고 말할 수 있는 근거가 무엇인가?
       choices:
-        - '잘 학습한 얕은 망 뒤에 입력을 그대로 내보내는 identity 층을 붙이면 얕은 망과 똑같은 답을 내는 깊은 망이 되기 때문이다'
-        - '깊은 망은 parameter 가 많아 학습이 언제나 더 빨리 끝나기 때문이다'
-        - '깊은 망에서는 overfitting 이 생기지 않기 때문이다'
-        - '층이 많을수록 gradient 가 커져서 학습이 더 잘 되기 때문이다'
+        - '잘 학습한 얕은 망 뒤에 identity 층을 붙이면 얕은 망과 똑같은 답을 내는 깊은 망이 되기 때문이다'
+        - '깊은 망은 parameter 가 많아서, 같은 시간 동안 학습하면 언제나 더 빨리 loss 가 줄기 때문이다'
+        - '깊은 망에서는 overfitting 이 생기지 않아서, training error 도 늘 얕은 망보다 낮게 나오기 때문이다'
+        - '층이 많을수록 gradient 가 층을 지나며 커져서, 앞쪽 층까지 학습이 더 잘 되기 때문이다'
       answer: 0
       explanation: |
         얕은 망 뒤에 아무것도 바꾸지 않는 identity 층을 붙인 깊은 망은 얕은 망과 같은 답을 내고 같은 만큼만 틀린다. 깊은 망이 가질 수
@@ -32,13 +32,13 @@
         않는다. 깊은 망에도 overfitting 은 생길 수 있고, overfitting 이 없다는 것은 training error 를 비교하는 근거가 되지도 않는다. 층이
         많으면 gradient 는 오히려 작아지기 쉽다.
     - question: |
-        면접관: "degradation 은 vanishing gradient 때문이라서, BatchNorm 과 He 초기화로 gradient 크기만 지키면 사라진다는 주장을 어떻게
-        보나요?"
+        degradation 은 vanishing gradient 때문이라서, BatchNorm 과 He 초기화로 gradient 크기만 지키면 사라진다는 주장은
+        옳은가?
       choices:
         - '맞다. gradient 크기를 지키면 깊은 plain network 도 얕은 망보다 언제나 training error 가 낮다'
-        - '맞다. degradation 은 BatchNorm 을 쓰지 않은 망에서만 나타난다'
-        - '틀렸다. degradation 은 overfitting 이라 dropout 으로 막아야 한다'
-        - '틀렸다. ResNet 논문의 plain network 는 BatchNorm 과 He 초기화를 썼고 gradient 크기도 정상이었는데 degradation 이 남았다'
+        - '맞다. degradation 은 BatchNorm 을 쓰지 않아 gradient 가 사라지는 망에서만 나타난다'
+        - '틀렸다. degradation 은 깊은 망이 학습 데이터를 외운 overfitting 이라 dropout 으로 막아야 한다'
+        - '틀렸다. BatchNorm 과 He 초기화로 gradient 크기가 정상이던 plain network 에서도 degradation 이 남았다'
       answer: 3
       explanation: |
         ResNet 논문의 plain network 는 BatchNorm 과 He 초기화를 모두 썼고, 논문에 따르면 backward gradient 의 크기가 정상이었는데도 학습을
@@ -64,13 +64,13 @@
         $\frac{\partial \mathcal F}{\partial x}$ 만 쓰면 shortcut 이 없는 plain block 의 비율이 된다. $1$ 만 쓰면 $\mathcal F$ 길을
         빠뜨린 것이다. 두 길의 비율은 더할 뿐이라 입력 $x$ 를 곱할 이유가 없다.
     - question: |
-        면접관: "block 안 층들의 weight 가 아주 작아서 $\mathcal F$ 쪽 비율이 거의 0 이 되었습니다. gradient 가 이 block 을 거꾸로
-        지날 때 plain block 과 residual block 은 어떻게 다른가요?"
+        block 안 층들의 weight 가 아주 작아서 $\mathcal F$ 쪽 비율이 거의 0 이 되었다. gradient 가 이 block 을 거꾸로
+        지날 때 plain block 과 residual block 은 어떻게 다른가?
       choices:
-        - '둘 다 gradient 가 거의 0 이 된다'
-        - 'residual block 에서는 0 이 되고 plain block 에서는 그대로 지나간다'
-        - '둘 다 gradient 가 정확히 두 배가 된다'
-        - 'plain block 에서는 거의 0 이 되지만 residual block 에서는 shortcut 을 따라 거의 그대로 지나간다'
+        - '둘 다 거의 0 이 된다. shortcut 의 gradient 도 결국 $\mathcal F$ 쪽 비율에 곱해지기 때문이다'
+        - 'residual block 에서는 두 길 중 한 길이 0 이라 0 이 되고, plain block 에서는 gradient 가 그대로 지나간다'
+        - '둘 다 정확히 두 배가 된다. 들어온 gradient 가 두 길로 나뉘었다가 다시 더해지기 때문이다'
+        - 'plain block 에서는 거의 0 이 되지만, residual block 에서는 shortcut 으로 거의 그대로 지나간다'
       answer: 3
       explanation: |
         plain block 의 비율은 $\frac{\partial \mathcal F}{\partial x}$ 뿐이라 이것이 0 에 가까우면 gradient 도 사라진다. residual block
@@ -78,12 +78,12 @@
         1 배로 전해진다. 둘 다 0 이 된다는 보기는 residual block 의 shortcut 을 빠뜨렸다. residual block 에서 0 이 되고 plain block 에서
         그대로 지나간다는 보기는 두 block 을 뒤집었다. 두 배가 되려면 $\mathcal F$ 쪽 비율이 1 이어야 하는데, 문항의 조건은 0 에 가깝다.
     - question: |
-        면접관: "residual connection 이 있으면 gradient 가 몇 block 을 지나든 언제나 정확히 1 로 전해진다는 말이 맞나요?"
+        residual connection 이 있으면 gradient 가 몇 block 을 지나든 언제나 정확히 1 로 전해진다는 말은 맞는가?
       choices:
-        - '틀렸다. block 마다 비율이 1 에 $\mathcal F$ 쪽 비율을 더한 값이라 1 에서 조금씩 벗어나지만, weight 를 거치지 않는 길이 하나 있어 0 으로 사라지지는 않는다'
-        - '맞다. shortcut 이 gradient 를 1 로 고정한다'
-        - '맞다. $\mathcal F$ 쪽 gradient 는 backward 에서 버려진다'
-        - '틀렸다. residual connection 은 gradient 를 block 마다 언제나 두 배로 키운다'
+        - '틀렸다. block 마다 1 에 $\mathcal F$ 쪽 비율을 더하므로 1 에서 벗어나지만, 0 으로 사라지지는 않는다'
+        - '맞다. shortcut 의 비율이 1 이므로 몇 block 을 지나든 gradient 를 1 로 고정한다'
+        - '맞다. backward 에서는 $\mathcal F$ 쪽 gradient 를 버리고 shortcut 의 1 만 남긴다'
+        - '틀렸다. 두 길의 gradient 가 더해지므로, residual connection 은 block 마다 gradient 를 언제나 두 배로 키운다'
       answer: 0
       explanation: |
         block 하나의 비율은 $1 + \frac{\partial \mathcal F}{\partial x}$ 라 정확히 1 이 아니고, 여러 block 을 곱하면 1 보다 커지거나 작아질
@@ -99,10 +99,10 @@
         block 안 층들의 weight 가 모두 0 이라 층들의 출력 $\mathcal F(x)$ 가 0 이다. residual block $y = \mathcal F(x) + x$ 와 plain block
         $y = \mathcal F(x)$ 의 출력은 각각 어떻게 되나?
       choices:
-        - 'residual block 은 입력을 그대로 내고(identity), plain block 은 0 을 내 입력의 정보가 사라진다'
-        - 'residual block 은 0 을 내고, plain block 은 입력을 그대로 낸다'
-        - '둘 다 입력을 그대로 낸다'
-        - '둘 다 0 을 낸다'
+        - 'residual block 은 입력을 그대로 내고, plain block 은 0 을 내서 입력의 정보가 사라진다'
+        - 'residual block 은 0 을 내고, plain block 은 weight 가 없는 층이 되어 입력을 그대로 낸다'
+        - '둘 다 입력을 그대로 낸다. weight 가 0 인 층은 아무것도 바꾸지 않고 입력을 넘기기 때문이다'
+        - '둘 다 0 을 낸다. 층들의 출력이 0 이면 block 전체가 꺼진 것과 같기 때문이다'
       answer: 0
       explanation: |
         $\mathcal F(x) = 0$ 이면 residual block 은 $y = 0 + x = x$ 로 입력을 그대로 전한다. plain block 은 어떤 입력이 들어와도 0 을 내므로
@@ -110,13 +110,13 @@
         plain block 은 $\mathcal F(x) = 0$ 일 때 입력을 그대로 낼 수 없으므로 둘 다 입력을 낸다는 보기도 틀렸다. residual block 은 0 에
         입력을 더하므로 둘 다 0 을 낸다는 보기도 틀렸다.
     - question: |
-        면접관: "weight 를 0 근처의 작은 무작위 값으로 시작할 때, residual block 이 plain block 보다 identity 를 배우기 쉬운 이유는
-        무엇인가요?"
+        weight 를 0 근처의 작은 무작위 값으로 시작할 때, residual block 이 plain block 보다 identity 를 배우기 쉬운 이유는
+        무엇인가?
       choices:
-        - 'residual block 은 weight 를 학습하지 않기 때문이다'
-        - 'residual block 은 parameter 가 plain block 의 두 배라서 표현력이 크기 때문이다'
-        - 'residual block 은 weight 가 0 일 때 identity 라서 처음 값에서 조금만 움직이면 되지만, plain block 은 identity 를 흉내 내도록 weight 를 크게 바꿔야 하기 때문이다'
-        - 'plain block 은 identity 를 절대 표현할 수 없기 때문이다'
+        - 'residual block 의 층은 weight 를 학습하지 않고, 입력을 shortcut 으로 넘기기만 하기 때문이다'
+        - 'shortcut 에도 weight 가 있어서, residual block 은 parameter 가 plain block 의 두 배이기 때문이다'
+        - 'weight 가 0 일 때 이미 identity 라서, residual block 은 처음 값에서 조금만 움직이면 되기 때문이다'
+        - 'plain block 은 conv 와 ReLU 때문에 identity 를 절대 표현할 수 없고, residual block 만 표현하기 때문이다'
       answer: 2
       explanation: |
         residual block 은 weight 가 0 이어서 $\mathcal F(x) = 0$ 이 되면 이미 identity 이고, 0 근처에서 시작한 weight 는 거기서 조금만
@@ -124,7 +124,7 @@
         실제 block 에서는 훨씬 어렵다. residual block 의 층도 weight 를 학습한다. shortcut 은 parameter 를 늘리지 않으므로 parameter 가 두
         배라는 보기도 틀렸다. plain block 이 identity 를 아예 표현할 수 없는 것은 아니고 찾기가 어려울 뿐이다.
     - question: |
-        면접관: "ResNet 의 이름에 있는 residual 은 block 의 층들이 무엇을 배운다는 뜻인가요? block 이 내야 할 출력을 $H$ 라고 합시다."
+        ResNet 의 이름에 있는 residual 은 block 의 층들이 무엇을 배운다는 뜻인가? block 이 내야 할 출력을 $H$ 라고 하자.
       choices:
         - '출력 $H$ 전체를 처음부터 배운다'
         - '입력과 출력의 차이 $H - x$ 를 배운다'
@@ -140,38 +140,38 @@
   title: 학습 때와 평가 때의 BatchNorm
   variants:
     - question: |
-        면접관: "BatchNorm 이 들어간 모델을 평가 모드로 두고 로봇에서 카메라 사진을 한 장씩 넣습니다. 이때 BatchNorm 은 어떤 평균과
-        분산으로 정규화하나요?"
+        BatchNorm 이 들어간 모델을 평가 모드로 두고 로봇에서 카메라 사진을 한 장씩 넣는다. 이때 BatchNorm 은 어떤 평균과
+        분산으로 정규화하는가?
       choices:
-        - '들어온 사진 한 장에서 구한 평균과 분산'
-        - '평균 0, 분산 1 로 고정된 값'
-        - '마지막 학습 batch 하나의 평균과 분산'
-        - '학습하는 동안 batch 의 통계를 moving average 로 쌓아 둔 running mean 과 running variance'
+        - '평가 때는 batch 가 없으므로, 들어온 사진 한 장에서 channel 마다 새로 구한 평균과 분산'
+        - '정규화의 목표가 평균 0, 분산 1 이므로, 학습한 데이터와 상관없이 그 값으로 고정한 평균과 분산'
+        - '학습이 끝날 때 마지막으로 계산한 batch 하나의 평균과 분산을 그대로 저장해 둔 값'
+        - 'batch 통계를 moving average 로 쌓아 둔 running mean 과 running variance'
       answer: 3
       explanation: |
         BatchNorm 은 학습 때 batch 의 평균과 분산으로 정규화하면서 그 값을 moving average 로 쌓아 두고, 평가 때는 쌓아 둔 값을 고정해
         쓴다. 그래야 같은 사진이 함께 들어온 다른 사진과 상관없이 같은 결과를 낸다. 들어온 사진 한 장의 통계를 쓰면 사진마다 기준이
         달라진다. 평균 0, 분산 1 은 정규화의 결과이지 나누는 기준이 아니다. 마지막 batch 하나의 통계는 그 batch 에 들어온 사진에 치우친다.
     - question: |
-        면접관: "학습을 마친 policy 를 로봇에서 실행하면서 PyTorch 의 `model.eval()` 을 빠뜨렸습니다. BatchNorm 때문에 어떤 일이
-        생길 수 있나요?"
+        학습을 마친 policy 를 로봇에서 실행하면서 PyTorch 의 `model.eval()` 을 빠뜨렸다. BatchNorm 때문에 어떤 일이
+        생길 수 있는가?
       choices:
-        - 'BatchNorm 이 꺼져서 정규화 없이 계산하지만 결과는 같다'
-        - '쌓아 둔 통계 대신 그때 들어온 입력의 통계로 정규화해서, 같은 장면에도 함께 계산한 입력에 따라 다른 action 이 나올 수 있다'
-        - 'running mean 이 0 으로 초기화되어 모든 출력이 0 이 된다'
-        - 'gradient 가 계산되지 않아 실행이 멈춘다'
+        - '학습 모드에서는 BatchNorm 이 꺼져서 정규화 없이 계산하지만, 결과는 평가 모드와 같다'
+        - '쌓아 둔 통계 대신 그때 들어온 입력의 통계로 정규화해서, 같은 장면에도 다른 action 이 나올 수 있다'
+        - 'running mean 이 0 으로 초기화되어, 정규화한 값이 모두 0 이 되고 같은 action 만 나온다'
+        - '학습 모드는 gradient 를 계산해야 하는데 loss 가 없어서, 오류를 내고 실행이 멈춘다'
       answer: 1
       explanation: |
         학습 모드의 BatchNorm 은 들어온 batch 의 평균과 분산으로 정규화하므로, 같은 사진이라도 무엇과 함께 계산했는지에 따라 결과가
         바뀐다. 평가 모드여야 학습 중 쌓아 둔 고정 통계를 쓴다. 학습 모드라고 BatchNorm 이 꺼지지는 않는다. running mean 도 0 으로
         초기화되지 않고 오히려 실행 중의 통계로 계속 갱신된다. 실행이 멈추는 것도 아니라서 오류 메시지 없이 action 만 달라진다.
     - question: |
-        면접관: "PyTorch 의 BatchNorm 에는 기본값이 0.1 인 `momentum` 이라는 인자가 있습니다. 이 숫자는 무엇을 정하나요?"
+        PyTorch 의 BatchNorm 에는 기본값이 0.1 인 `momentum` 이라는 인자가 있다. 이 숫자는 무엇을 정하는가?
       choices:
-        - 'optimizer 의 momentum 처럼 gradient 의 이동 평균 비율을 정한다'
-        - '학습 때 값을 무작위로 0 으로 만드는 비율을 정한다'
-        - 'running mean·variance 를 쌓을 때 이번 batch 의 통계를 섞는 비율이라, 새 값 10% 와 쌓아 둔 값 90% 를 섞는다'
-        - '정규화한 값에 곱하는 $\gamma$ 의 처음 값을 정한다'
+        - 'optimizer 의 momentum 처럼, 지난 gradient 를 이번 gradient 에 10% 섞는 비율을 정한다'
+        - '학습 때 overfitting 을 막으려고, 정규화한 값의 10% 를 무작위로 0 으로 만드는 비율이다'
+        - 'running mean·variance 를 쌓을 때 이번 batch 의 통계를 섞는 비율로, 새 값을 10% 섞는다'
+        - '정규화한 값에 곱하는 $\gamma$ 의 처음 값을 정해서, 처음에는 퍼진 정도를 0.1 배로 줄인다'
       answer: 2
       explanation: |
         BatchNorm 의 `momentum` 은 running 통계를 쌓아 둔 값 × 0.9 + 이번 batch 의 통계 × 0.1 로 갱신할 때의 0.1 이다. optimizer 의
@@ -182,12 +182,12 @@
   title: 작은 batch 와 FrozenBatchNorm·GroupNorm
   variants:
     - question: |
-        면접관: "로봇 policy 를 GPU 하나에 batch 2 로 학습하면 BatchNorm 에 어떤 문제가 생기나요?"
+        로봇 policy 를 GPU 하나에 batch 2 로 학습하면 BatchNorm 에 어떤 문제가 생기는가?
       choices:
-        - 'batch 가 작을수록 평균과 분산이 데이터 전체의 값에 더 정확히 맞는다'
-        - 'parameter 수가 batch 크기에 비례해 줄어 표현력이 떨어진다'
-        - '평균과 분산을 두 값으로만 구해서 크게 흔들리고, 같은 사진도 함께 들어온 사진에 따라 정규화 결과가 크게 바뀐다'
-        - 'batch 가 작으면 BatchNorm 이 자동으로 꺼진다'
+        - 'batch 가 작을수록 서로 다른 사진이 덜 섞여서, 평균과 분산이 데이터 전체의 값에 더 정확히 맞는다'
+        - 'BatchNorm 의 parameter 수가 batch 크기에 비례해 줄어서, 정규화의 표현력이 떨어진다'
+        - '평균과 분산을 두 값으로만 구해 크게 흔들려서, 같은 사진도 함께 들어온 사진에 따라 결과가 바뀐다'
+        - 'batch 가 2 장이면 평균과 분산을 제대로 구할 수 없어서, BatchNorm 이 자동으로 꺼진다'
       answer: 2
       explanation: |
         값이 두 개뿐이면 정규화 결과는 값이 무엇이든 −1 과 1 이 되어, 1 과 100 처럼 크기가 전혀 다른 값도 같은 −1 이 될 수 있다. 통계가
@@ -195,12 +195,12 @@
         통계는 batch 가 클수록 정확해지므로 작을수록 정확하다는 보기는 반대다. BatchNorm 의 parameter 수는 channel 수로 정해지며 batch
         크기와 상관없다. batch 가 작다고 BatchNorm 이 저절로 꺼지지도 않는다.
     - question: |
-        면접관: "ACT 의 ResNet-18 은 BatchNorm 자리에 FrozenBatchNorm 을 씁니다. FrozenBatchNorm 은 무엇이고 왜 쓰나요?"
+        ACT 의 ResNet-18 은 BatchNorm 자리에 FrozenBatchNorm 을 쓴다. FrozenBatchNorm 은 무엇이고 왜 쓰는가?
       choices:
-        - 'ImageNet 학습 때 쌓아 둔 평균·분산과 $\gamma$·$\beta$ 를 모두 고정한 BatchNorm 으로, 학습 중에도 batch 통계를 쓰지 않아 batch 가 작아도 흔들리지 않는다'
-        - 'backbone 의 모든 conv weight 까지 고정해 학습을 빠르게 하는 층이다'
-        - '사진 한 장 안에서 channel 을 묶어 평균과 분산을 구하는 층이다'
-        - '평가 때만 정규화를 끄는 층이다'
+        - '쌓아 둔 평균·분산과 $\gamma$·$\beta$ 를 모두 고정한 BatchNorm 이라, batch 가 작아도 흔들리지 않는다'
+        - 'BatchNorm 과 backbone 의 conv weight 까지 모두 고정해서, 학습할 parameter 를 줄이는 층이다'
+        - 'batch 대신 사진 한 장 안에서 channel 을 묶어 평균과 분산을 구해, batch 크기에 영향받지 않는 층이다'
+        - '학습 때는 batch 통계로 정규화하고, 평가 때만 정규화를 꺼서 사진 한 장씩 처리하는 층이다'
       answer: 0
       explanation: |
         FrozenBatchNorm 은 정규화에 쓰는 숫자 네 가지를 모두 고정해서, 입력이 같으면 batch 에 무엇이 함께 있든 출력이 같다. ACT 는 batch
@@ -208,13 +208,13 @@
         weight 를 fine-tuning 으로 계속 고친다. channel 을 묶어 사진 한 장 안에서 통계를 구하는 것은 GroupNorm 이다. FrozenBatchNorm 은
         정규화를 끄지 않고, 학습 때와 평가 때 모두 같은 고정값으로 정규화한다.
     - question: |
-        면접관: "ImageNet 으로 pretraining 한 ResNet-18 을 가져와 BatchNorm 층만 GroupNorm 으로 바꿔 fine-tuning 하려 합니다. 무엇이
-        문제인가요?"
+        ImageNet 으로 pretraining 한 ResNet-18 을 가져와 BatchNorm 층만 GroupNorm 으로 바꿔 fine-tuning 하려 한다. 무엇이
+        문제인가?
       choices:
-        - '문제없다. 두 층은 계산이 같고 이름만 다르다'
-        - 'GroupNorm 은 parameter 가 없어서 pretrained weight 를 불러올 수 없다'
-        - 'GroupNorm 은 batch 가 클 때만 쓸 수 있다'
-        - 'pretrained 의 conv weight 와 $\gamma$·$\beta$ 는 BatchNorm 통계로 정규화한 값에 맞춰 학습됐는데, GroupNorm 은 다른 값들로 평균과 분산을 구해 다음 층이 받는 값이 달라진다'
+        - '문제없다. 두 층 모두 평균을 빼고 표준편차로 나누는 같은 계산이라, pretrained weight 를 그대로 쓸 수 있다'
+        - 'GroupNorm 에는 $\gamma$·$\beta$ 같은 parameter 가 없어서, BatchNorm 자리에 pretrained weight 를 불러올 수 없다'
+        - 'GroupNorm 은 여러 batch 의 통계를 묶어서 쓰므로, batch 가 큰 학습에서만 쓸 수 있다'
+        - 'pretrained weight 는 BatchNorm 으로 정규화한 값에 맞춰 학습돼서, GroupNorm 으로 바꾸면 다음 층이 받는 값이 달라진다'
       answer: 3
       explanation: |
         BatchNorm 은 channel 하나를 batch 전체에서 모아 평균과 분산을 구하고 GroupNorm 은 사진 한 장 안의 channel 묶음에서 구하므로, 같은
@@ -227,24 +227,24 @@
   title: bottleneck block 과 ResNet-50
   variants:
     - question: |
-        면접관: "ResNet-50 의 bottleneck block 에서 앞뒤의 1×1 conv 는 무슨 일을 하나요?"
+        ResNet-50 의 bottleneck block 에서 앞뒤의 1×1 conv 는 무슨 일을 하는가?
       choices:
-        - '사진의 가로세로를 반으로 줄인다'
-        - '앞의 1×1 conv 가 channel 수를 줄이고, 뒤의 1×1 conv 가 channel 수를 원래대로 되돌려 가운데 3×3 conv 가 좁은 channel 에서 계산하게 한다'
-        - '이웃 칸의 값을 모아 receptive field 를 넓힌다'
-        - 'shortcut 이 더할 입력을 만든다'
+        - '앞의 1×1 conv 가 사진의 가로세로를 반으로 줄이고, 뒤의 1×1 conv 가 다시 원래 가로세로로 되돌린다'
+        - '앞 1×1 conv 가 channel 을 줄이고 뒤 1×1 conv 가 되돌려, 3×3 conv 가 좁은 channel 에서 계산한다'
+        - '1×1 conv 가 이웃 칸의 값을 모아, 가운데 3×3 conv 보다 receptive field 를 더 넓힌다'
+        - '1×1 conv 는 이웃 칸을 보지 않아 사실상 아무 계산도 하지 않고, 층 수만 50 개로 맞춘다'
       answer: 1
       explanation: |
         1×1 conv 는 한 칸에 쌓인 channel 값들만 곱해 더하므로 channel 수를 바꾸는 데 쓴다. bottleneck 은 1×1 conv 로 channel 을 4 분의
         1 로 줄여 3×3 conv 를 하고 다시 1×1 conv 로 되돌린다. 가로세로를 줄이는 것은 stride 의 몫이다. 1×1 conv 는 이웃 칸을 보지 않아
-        receptive field 를 넓히지 않는다. bottleneck 의 shortcut 은 모양이 같으면 입력을 그대로 더한다.
+        receptive field 를 넓히지 않는다. 1×1 conv 도 channel 값들을 곱해 더하는 계산이라 층 수만 채우는 층이 아니다.
     - question: |
-        면접관: "256 channel 을 다루는 block 에서 3×3 conv 두 개 대신 bottleneck block 을 쓰는 이유는 무엇인가요?"
+        256 channel 을 다루는 block 에서 3×3 conv 두 개 대신 bottleneck block 을 쓰는 이유는 무엇인가?
       choices:
-        - 'bottleneck block 이 receptive field 를 두 배로 넓히기 때문이다'
-        - 'bottleneck block 은 shortcut 이 없어도 학습되기 때문이다'
-        - 'bottleneck block 은 ReLU 를 쓰지 않아 계산이 단순하기 때문이다'
-        - '3×3 conv 를 줄인 channel 에서만 해서 weight 와 계산량이 크게 줄기 때문이다. 256 channel 에서 3×3 두 개는 약 118만 개이고 bottleneck 은 약 7만 개다'
+        - '1×1 conv 가 둘 더 붙어 층이 깊어지므로, receptive field 가 3×3 두 개보다 두 배로 넓어지기 때문이다'
+        - 'bottleneck block 은 channel 을 좁혀 gradient 가 덜 사라지므로, shortcut 없이도 학습되기 때문이다'
+        - 'bottleneck block 은 1×1 conv 뒤에 ReLU 를 쓰지 않아서, 계산이 단순하고 빠르기 때문이다'
+        - '3×3 conv 를 줄인 channel 에서만 해서 weight 와 계산량이 크게 줄기 때문이다'
       answer: 3
       explanation: |
         3×3 conv 의 weight 는 channel 수의 제곱에 비례해서 256 channel 에 두 개를 쓰면 $256 \times 256 \times 9 \times 2 = 1{,}179{,}648$
@@ -252,10 +252,10 @@
         는 하나뿐이라 receptive field 를 더 넓히지 않는다. bottleneck 도 shortcut 을 둔 residual block 이다. bottleneck 의 conv 뒤에도
         ReLU 가 붙는다.
     - question: |
-        면접관: "ResNet-18 과 ResNet-50 의 global average pooling 이 내는 feature vector 의 길이는 각각 얼마인가요?"
+        ResNet-18 과 ResNet-50 의 global average pooling 이 내는 feature vector 의 길이는 각각 얼마인가?
       choices:
         - 'ResNet-18 은 512 이고 ResNet-50 은 2048 이다'
-        - '둘 다 512 다'
+        - '둘 다 layer4 가 512 channel 이라 512 다'
         - 'ResNet-18 은 512 이고 ResNet-50 은 1000 이다'
         - 'ResNet-18 은 18 이고 ResNet-50 은 50 이다'
       answer: 0
@@ -269,13 +269,13 @@
   title: feature map 과 global average pooling
   variants:
     - question: |
-        면접관: "ImageNet 용 ResNet-18 은 224×224 사진을 layer4 에서 7×7 로 줄입니다. 같은 network 에 448×448 사진을 넣으면 layer4 의
-        출력 모양은 어떻게 되나요?"
+        ImageNet 용 ResNet-18 은 224×224 사진을 layer4 에서 7×7 로 줄인다. 같은 network 에 448×448 사진을 넣으면 layer4 의
+        출력 모양은 어떻게 되는가?
       choices:
         - '가로세로가 32 분의 1 이 되어 512 × 14 × 14 다'
-        - '사진 크기와 상관없이 512 × 7 × 7 이다'
+        - 'network 가 같으니 사진 크기와 상관없이 512 × 7 × 7 이다'
         - 'channel 이 두 배가 되어 1024 × 7 × 7 이다'
-        - '입력 크기가 달라 계산할 수 없다'
+        - '입력 크기가 학습 때와 달라서 conv 를 계산할 수 없다'
       answer: 0
       explanation: |
         ResNet-18 은 stem 의 conv·max pooling 과 layer2·3·4 의 첫 block 까지 다섯 곳에서 크기를 반으로 줄여 가로세로가 32 분의 1 이 된다.
@@ -283,12 +283,12 @@
         크기를 따라 커지므로 7 × 7 로 고정되지 않는다. channel 수는 filter 수로 정해져 입력 크기와 상관없다. conv 층은 같은 filter 를 옮겨
         가며 계산하므로 어떤 크기의 사진도 받는다.
     - question: |
-        면접관: "ResNet 의 마지막에 global average pooling 을 두면 어떤 점이 좋고, 무엇을 잃나요?"
+        ResNet 의 마지막에 global average pooling 을 두면 어떤 점이 좋고, 무엇을 잃는가?
       choices:
-        - '위치 정보를 더 정확히 남기고, 대신 channel 수가 줄어든다'
-        - '2×2 묶음마다 평균을 내 가로세로를 반으로 줄이고, 대신 parameter 가 늘어난다'
-        - 'channel 마다 모든 칸의 평균 하나를 내서 사진 크기가 달라도 feature 개수가 같지만, 특징이 사진의 어디에 있었는지는 사라진다'
-        - '학습하는 weight 가 많아 표현력이 커지고, 대신 계산이 느려진다'
+        - '칸마다 값을 모아 두므로 위치 정보를 더 정확히 남기지만, 대신 channel 수가 절반으로 줄어든다'
+        - '2×2 묶음마다 평균을 내 가로세로를 반으로 줄이고, 대신 줄인 만큼 parameter 가 늘어난다'
+        - 'channel 마다 평균 하나를 내서 사진 크기와 상관없이 feature 개수가 같지만, 특징의 위치는 사라진다'
+        - '평균을 내는 데 쓰는 weight 를 학습해 표현력이 커지고, 대신 학습할 parameter 가 늘어 계산이 느려진다'
       answer: 2
       explanation: |
         global average pooling 은 channel 마다 feature map 전체의 평균을 내므로 7×7 이든 14×14 든 결과는 channel 수만큼이고, 뒤의 fc
@@ -296,13 +296,13 @@
         더 정확히 남긴다는 보기는 반대다. 2×2 묶음마다 평균을 내는 것은 보통의 average pooling 이다. global average pooling 에는 학습하는
         weight 가 없다.
     - question: |
-        면접관: "ACT 는 ResNet-18 의 global average pooling 출력 512 개 대신 그 앞의 feature map 을 칸마다 token 으로 꺼내 씁니다. 왜
-        그렇게 하나요?"
+        ACT 는 ResNet-18 의 global average pooling 출력 512 개 대신 그 앞의 feature map 을 칸마다 token 으로 꺼내 쓴다. 왜
+        그렇게 하는가?
       choices:
-        - 'global average pooling 층은 ImageNet 으로 학습되지 않아서'
-        - '물체를 집으려면 물체가 사진의 어느 구역에 있는지가 중요한데, 칸마다의 token 에는 위치가 남고 평균 하나에는 남지 않아서'
-        - 'token 을 많이 쓸수록 계산량이 줄어서'
-        - 'feature map 의 칸이 사진의 pixel 하나와 같아서'
+        - 'global average pooling 층은 ImageNet 으로 학습되지 않은 층이라 로봇 사진에 쓸 수 없어서'
+        - '물체를 집으려면 물체가 사진의 어느 구역에 있는지가 중요한데, 평균 하나에는 위치가 남지 않아서'
+        - 'token 300 개로 나누면 Transformer 가 한 번에 볼 양이 작아져 계산량이 줄어서'
+        - 'feature map 의 칸 하나가 원래 사진의 pixel 하나를 그대로 나타내서'
       answer: 1
       explanation: |
         480×640 사진의 layer4 feature map 은 15 × 20 칸이고, ACT 는 이 300 칸을 위치가 붙은 token 300 개로 Transformer 에 넣는다.
@@ -314,12 +314,12 @@
   title: pretrained backbone, head, fine-tuning
   variants:
     - question: |
-        면접관: "물체 10 종류를 가려내는 로봇에 ImageNet 1000 class 로 pretraining 한 ResNet-18 을 쓰려 합니다. 어떻게 하겠습니까?"
+        물체 10 종류를 가려내는 로봇에 ImageNet 1000 class 로 pretraining 한 ResNet-18 을 쓰려 한다. 어떻게 해야 하는가?
       choices:
-        - '1000 점수를 그대로 쓰고 그중 10 개만 골라 답으로 쓴다'
-        - 'pretrained weight 를 버리고 10 class 용 network 를 처음부터 새로 설계한다'
-        - '마지막 fc 의 출력 1000 개 가운데 990 개의 weight 를 0 으로 둔다'
-        - '1000 점수를 내는 마지막 fc(head)를 떼고 10 개를 내는 새 head 를 붙여, backbone 은 pretrained weight 에서 출발한다'
+        - '1000 점수를 그대로 쓰고, 로봇의 물체와 비슷한 ImageNet class 10 개를 골라 답으로 쓴다'
+        - 'ImageNet 과 로봇 사진은 달라서, pretrained weight 를 버리고 10 class 용 network 를 처음부터 학습한다'
+        - '마지막 fc 의 출력 1000 개 가운데 990 개의 weight 를 0 으로 두고, 남은 10 개를 답으로 쓴다'
+        - '마지막 fc(head)를 10 개를 내는 새 head 로 바꾸고, backbone 은 pretrained weight 에서 출발한다'
       answer: 3
       explanation: |
         backbone 은 사진을 feature 512 개로 바꾸는 부분이고 head 는 그 feature 를 원하는 출력으로 바꾸는 부분이다. ImageNet 용 head
@@ -327,12 +327,12 @@
         에는 로봇이 가려낼 물체가 없을 수 있어 점수 10 개를 골라 쓰는 방법은 맞지 않는다. 처음부터 학습하면 pretraining 으로 얻은 feature 를
         버리게 된다. weight 를 0 으로 둔 990 개를 빼면 남은 10 개도 ImageNet class 의 점수라서 로봇의 물체 10 종류와 짝이 맞지 않는다.
     - question: |
-        면접관: "pretrained backbone 에 새 head 를 붙인 뒤 freeze 와 fine-tuning 중 하나를 고릅니다. 둘은 무엇이 다른가요?"
+        pretrained backbone 에 새 head 를 붙인 뒤 freeze 와 fine-tuning 중 하나를 고른다. 둘은 무엇이 다른가?
       choices:
-        - 'freeze 는 head 를 고정하고 backbone 만 학습하며, fine-tuning 은 둘 다 고정한다'
-        - 'freeze 는 backbone 의 pretrained weight 를 고정하고 head 만 학습하며, fine-tuning 은 backbone 도 작은 learning rate 로 함께 고친다'
-        - 'freeze 는 무작위 값에서 출발하고, fine-tuning 은 pretrained weight 에서 출발한다'
-        - '둘 다 backbone 을 학습하고 learning rate 만 다르다'
+        - 'freeze 는 head 를 고정하고 backbone 만 학습하며, fine-tuning 은 backbone 과 head 를 모두 고정한다'
+        - 'freeze 는 backbone 을 고정하고 head 만 학습하며, fine-tuning 은 backbone 도 작은 learning rate 로 고친다'
+        - 'freeze 는 backbone 을 무작위 값에서 출발시키고, fine-tuning 은 pretrained weight 에서 출발시킨다'
+        - '둘 다 backbone 과 head 를 함께 학습하며, freeze 는 learning rate 만 더 작게 둔다'
       answer: 1
       explanation: |
         freeze 는 backbone 을 고치지 않아 학습할 parameter 가 head 뿐이고, fine-tuning 은 pretrained weight 에서 출발해 backbone 까지
@@ -341,13 +341,13 @@
         방식이고, freeze 도 pretrained weight 를 쓴다. freeze 는 backbone 을 아예 학습하지 않으므로 둘 다 backbone 을 학습한다는 보기도
         틀렸다.
     - question: |
-        면접관: "torchvision 의 ImageNet weight 로 만든 ResNet-18 encoder 에 로봇 카메라 사진을 0 ~ 255 값 그대로 넣었더니 성능이
-        나쁩니다. 가장 먼저 확인할 것은 무엇인가요?"
+        torchvision 의 ImageNet weight 로 만든 ResNet-18 encoder 에 로봇 카메라 사진을 0 ~ 255 값 그대로 넣었더니 성능이
+        나쁘다. 가장 먼저 확인할 것은 무엇인가?
       choices:
-        - 'ResNet-18 대신 ResNet-50 으로 바꾸었는지'
-        - 'head 의 출력 개수가 1000 인지'
-        - '사진을 0 ~ 1 로 바꾼 뒤 pretraining 때와 같은 ImageNet 평균·표준편차로 정규화했는지'
-        - 'BatchNorm 의 momentum 을 0.1 로 두었는지'
+        - 'ResNet-18 은 작아서 로봇 사진을 다루기 어려우니, ResNet-50 으로 바꾸었는지'
+        - '새 head 의 출력 개수를 ImageNet 과 같은 1000 개로 맞추었는지'
+        - '사진을 0 ~ 1 로 바꾼 뒤 ImageNet 평균·표준편차로 정규화했는지'
+        - 'BatchNorm 의 momentum 을 기본값 0.1 로 두어 running 통계를 쌓았는지'
       answer: 2
       explanation: |
         torchvision 의 ImageNet weight 는 0 ~ 1 로 바꾼 뒤 channel 마다 ImageNet 평균을 빼고 표준편차로 나눈 사진으로 학습했다. 0 ~ 255 를

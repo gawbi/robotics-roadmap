@@ -5,7 +5,7 @@
   title: configuration space 와 C-obstacle
   variants:
     - question: |
-        면접관: "로봇팔 motion planning 에서 configuration space 의 점 하나는 무엇을 뜻하나요?"
+        로봇팔 motion planning 에서 configuration space 의 점 하나는 무엇을 뜻하는가?
       choices:
         - '손끝(end-effector)이 놓일 수 있는 3D 위치 하나'
         - '모든 관절 각도를 정한 팔의 자세 하나'
@@ -16,11 +16,11 @@
         configuration 은 관절 각도를 모은 묶음이라서, C-space 의 점 하나는 팔 전체의 모양이 정해진 자세 하나다. 손끝 위치는 작업 공간의 점이고,
         같은 손끝 위치에도 여러 자세가 있을 수 있다. 장애물은 C-space 에서 C-obstacle 영역으로 나타나고, 시각과 속도는 trajectory 의 정보다.
     - question: |
-        면접관: "작업 공간에서는 둥근 기둥 하나인데, 2 관절 팔의 C-space 에 그리면 C-obstacle 이 비스듬한 긴 띠 모양이 됩니다. 왜 그런가요?"
+        작업 공간에서는 둥근 기둥 하나인데, 2 관절 팔의 C-space 에 그리면 C-obstacle 이 비스듬한 긴 띠 모양이 된다. 왜 그런가?
       choices:
         - 'C-space 그림의 축 눈금이 작업 공간과 다르게 늘어나 있어서 원이 타원으로 보이는 것이다'
-        - '기둥이 팔의 움직임에 따라 실제로 움직이기 때문이다'
-        - '첫 관절 각도가 바뀌면 둘째 link 가 기둥에 닿는 둘째 관절 각도도 함께 바뀌어서, 닿는 자세들의 모임이 기울어진 띠가 된다'
+        - '팔이 기둥에 닿을 때마다 기둥이 조금씩 밀려나, 닿는 자리가 옮겨 가기 때문이다'
+        - '첫 관절 각도가 바뀌면 둘째 link 가 기둥에 닿는 둘째 관절 각도도 함께 바뀌기 때문이다'
         - 'C-obstacle 은 손끝이 기둥 안에 들어가는 자세만 모은 것이라 모양이 기둥과 무관하다'
       answer: 2
       explanation: |
@@ -28,13 +28,13 @@
         모양이 비스듬한 띠가 된다. 축 눈금이 늘어나서 생기는 모양이 아니고, 기둥은 움직이지 않는다. C-obstacle 에는 손끝뿐 아니라 link 몸통이
         닿는 자세도 모두 들어간다.
     - question: |
-        면접관: "시작 자세와 목표 자세를 관절마다 일정한 비율로 보간했더니 손끝은 장애물을 피해 갔는데 팔꿈치가 장애물에 닿았습니다. 무엇을
-        잘못 생각한 걸까요?"
+        시작 자세와 목표 자세를 관절마다 일정한 비율로 보간했더니 손끝은 장애물을 피해 갔는데 팔꿈치가 장애물에 닿았다. 무엇을
+        잘못 생각한 걸까?
       choices:
-        - '손끝이 장애물을 피하면 팔도 안전하다고 본 것이다. 충돌은 모든 link 의 모양으로 따져야 하고, 그래서 자세 전체를 점으로 보는 C-space 에서 계획한다'
-        - '관절 보간 대신 손끝을 직선으로 움직이면 팔꿈치 충돌이 항상 사라진다'
-        - '보간 속도가 너무 빨라서 생긴 문제이므로 속도만 줄이면 된다'
-        - 'IK 해가 틀렸기 때문이며, 목표 자세를 다시 구하면 해결된다'
+        - '손끝이 장애물을 피하면 팔 전체도 안전하다고 본 것이다. 충돌은 모든 link 로 따져야 한다'
+        - '관절을 보간한 것이 잘못이다. 손끝을 직선으로 움직이면 팔꿈치 충돌이 항상 사라진다'
+        - '보간 속도를 너무 빠르게 잡은 것이다. 속도를 줄이면 팔꿈치가 장애물을 비켜 간다'
+        - 'IK 로 구한 목표 자세를 믿은 것이다. 목표 자세를 다시 구하면 해결된다'
       answer: 0
       explanation: |
         손끝의 길만 보면 link 몸통의 충돌을 놓친다. C-space 에서 경로가 C-obstacle 을 지나는지 검사해야 팔 전체가 안전하다. 손끝 직선 이동도
@@ -44,12 +44,12 @@
   title: 관절 수와 grid 의 크기
   variants:
     - question: |
-        면접관: "2 관절 팔은 C-space 를 grid 로 나눠 A* 로 풀 수 있는데, 7 관절 팔에서는 왜 그렇게 하지 않나요?"
+        2 관절 팔은 C-space 를 grid 로 나눠 A* 로 풀 수 있는데, 7 관절 팔에서는 왜 그렇게 하지 않는가?
       choices:
-        - '7 관절 팔은 A* 의 heuristic 을 정의할 수 없어서'
-        - '7 관절 팔의 C-space 는 연속이 아니라서 칸으로 나눌 수 없어서'
+        - '7 관절 팔은 관절 공간의 거리를 정할 수 없어 A* 의 heuristic 을 정의할 수 없어서'
+        - '7 관절 팔의 C-space 는 연속이 아니라 끊긴 조각이라서 칸으로 나눌 수 없어서'
         - 'grid 는 장애물이 움직일 때만 쓸 수 없고, 정지 장면이면 7 관절도 문제없다'
-        - '칸 수가 관절 수에 대해 지수적으로 늘어서, 관절마다 10° 칸이어도 7 관절이면 약 784억 칸이 되기 때문이다'
+        - '칸 수가 관절 수에 대해 지수적으로 늘어, 7 관절이면 칸이 수백억 개가 되기 때문이다'
       answer: 3
       explanation: |
         관절마다 칸이 36 개면 전체 칸 수는 36ⁿ 이라 관절이 하나 늘 때마다 36 배가 된다. 7 관절이면 약 784억 칸이고, 칸마다 충돌 검사가 필요하다.
@@ -66,12 +66,12 @@
         관절 하나에서 칸 수가 36 에서 18 로 절반이 되고, 전체 칸 수는 관절마다의 칸 수를 곱한 값이라 6 관절이면 2⁶ = 64 분의 1 이다. 2 분의 1 은
         관절 하나만 볼 때의 비율이고, 12 는 2 를 여섯 번 곱해야 할 것을 여섯 번 더한 값(2 × 6)이다. 칸이 성겨지면 장애물을 놓치기도 쉬워진다.
     - question: |
-        면접관: "sampling-based planner 는 C-space 를 어떻게 다루기에 7 관절 팔에서도 쓸 수 있나요?"
+        sampling-based planner 는 C-space 를 어떻게 다루기에 7 관절 팔에서도 쓸 수 있는가?
       choices:
-        - 'C-space 전체를 미리 표로 만들되 압축해서 메모리를 줄인다'
-        - 'C-space 를 표로 만들지 않고, 무작위로 고른 자세와 그 사이 선분에 대해서만 collision checker 에 충돌 여부를 묻는다'
-        - '관절 7 개 가운데 2 개만 골라 2 차원으로 줄여서 푼다'
-        - '작업 공간에서 손끝 경로만 찾고 관절 각도는 IK 로 나중에 구한다'
+        - 'C-space 전체를 미리 표로 만들되, 압축해서 7 관절이어도 메모리에 들어가게 한다'
+        - '무작위로 고른 자세와 그 사이 선분에 대해서만 그때그때 충돌 여부를 묻는다'
+        - '관절 7 개 가운데 많이 움직이는 2 개만 골라 2 차원 C-space 로 줄여서 푼다'
+        - '작업 공간에서 손끝 경로만 찾고, 관절 각도는 나중에 IK 로 구한다'
       answer: 1
       explanation: |
         PRM 과 RRT 는 필요한 자세만 골라 그때그때 충돌을 묻기 때문에 차원이 높아도 메모리가 칸 수에 묶이지 않는다. 표를 압축해도 칸마다 검사하는
@@ -81,35 +81,35 @@
   title: collision checking 의 모양과 padding
   variants:
     - question: |
-        면접관: "URDF 에서 visual mesh 와 별도로 단순한 collision mesh 나 primitive 를 쓰는 이유는 무엇인가요?"
+        URDF 에서 visual mesh 와 별도로 단순한 collision mesh 나 primitive 를 쓰는 이유는 무엇인가?
       choices:
-        - 'RViz 가 collision mesh 를 더 빨리 그리기 때문이다'
+        - 'RViz 가 화면에 그릴 때 collision mesh 를 쓰므로 그리는 속도를 높이려고'
         - 'collision mesh 가 visual mesh 보다 실제 모양에 더 정확하기 때문이다'
-        - 'planner 가 충돌 검사를 아주 많이 부르므로, 검사 한 번의 비용을 줄이려고 삼각형 수가 적은 모양을 쓴다'
-        - 'primitive 를 쓰면 padding 을 줄 수 없어서 더 안전하다'
+        - 'planner 가 충돌 검사를 아주 많이 부르므로 한 번의 검사 비용을 줄이려고'
+        - 'primitive 에는 padding 을 줄 수 없어서 실제 모양 그대로 검사할 수 있으므로'
       answer: 2
       explanation: |
         sampling-based planner 는 경로 하나에 충돌 검사를 수백 ~ 수천 번 부르므로 검사 비용이 전체 속도를 정한다. 예를 들어 Panda 의 link0 는
         visual mesh 가 삼각형 20,483 개, collision mesh 가 200 개다. collision 모양은 그리기용이 아니고, 보통 실제보다 단순하고 약간 크다.
         primitive 에도 padding 을 줄 수 있다.
     - question: |
-        면접관: "충돌 여유를 넉넉히 두려고 robot padding 을 크게 키웠더니, 전에 되던 planning 이 실패합니다. 가능한 원인은?"
+        충돌 여유를 넉넉히 두려고 robot padding 을 크게 키웠더니, 전에 되던 planning 이 실패한다. 가능한 원인은?
       choices:
-        - 'padding 이 클수록 OMPL 의 무작위 seed 가 바뀌어서 운이 나빠진 것이다'
-        - 'padding 이 link 가 지나가던 틈보다 커서 C-free 가 끊겼거나, 현재 자세가 이미 padding 안에 들어가 시작 자세 충돌로 판정된 것이다'
-        - 'padding 은 visual mesh 에만 적용되므로 planning 결과와 무관하다'
-        - 'padding 을 키우면 planning 시간 기본값이 자동으로 줄어든다'
+        - 'padding 을 바꾸면 OMPL 의 무작위 seed 도 바뀌어서, 이번에 표본이 틈을 놓쳐 운이 나빴던 것이다'
+        - 'padding 이 틈보다 커져 C-free 가 끊겼거나, 시작 자세가 이미 충돌로 판정된 것이다'
+        - 'padding 은 visual mesh 에만 적용되므로, 실패는 padding 과 무관한 다른 원인이다'
+        - 'padding 을 키우면 planning 시간 기본값이 자동으로 줄어 시간 안에 못 찾는다'
       answer: 1
       explanation: |
         padding 은 모양을 사방으로 키워 C-obstacle 을 넓힌다. 틈보다 크면 갈 수 있는 길 자체가 사라지고, 시작 자세가 padding 안에 들어가면 planner 를
         부르기 전에 시작 상태 충돌로 거절된다. seed 운이나 planning 시간 기본값과는 관계없고, padding 은 collision 모양에 적용된다.
     - question: |
-        면접관: "MoveIt 2 에서 longest_valid_segment_fraction 을 크게 키우면 어떤 일이 생길 수 있나요?"
+        MoveIt 2 에서 longest_valid_segment_fraction 을 크게 키우면 어떤 일이 생길 수 있는가?
       choices:
-        - '두 자세 사이 선분을 더 성기게 검사해서 planning 은 빨라지지만, 작거나 얇은 물체와의 충돌을 놓칠 수 있다'
-        - '선분을 더 촘촘하게 검사해서 planning 이 느려진다'
-        - 'RRT 의 goal bias 가 커져서 목표 쪽으로만 tree 가 자란다'
-        - 'self-collision 검사가 꺼진다'
+        - '선분을 더 성기게 검사해 빨라지지만, 얇은 물체와의 충돌을 놓칠 수 있다'
+        - '두 자세 사이 선분을 더 촘촘하게 검사하게 되어 planning 이 느려진다'
+        - 'RRT 의 goal bias 가 함께 커져서 tree 가 목표 쪽으로만 자란다'
+        - 'link 끼리 맞닿는 것을 허용하는 값이라 self-collision 검사가 꺼진다'
       answer: 0
       explanation: |
         이 값은 C-space 크기 대비 몇 분의 1 마다 선분 위 자세를 검사할지 정한다. 크게 하면 검사 간격이 넓어져 빨라지지만 간격 사이에 낀 얇은
@@ -119,12 +119,12 @@
   title: self-collision 과 allowed collision matrix
   variants:
     - question: |
-        면접관: "SRDF 의 disable_collisions(allowed collision matrix)는 무엇을 위해 쓰나요?"
+        SRDF 의 disable_collisions(allowed collision matrix)는 무엇을 위해 쓰는가?
       choices:
-        - '로봇이 주변 물체와 부딪혀도 되는 영역을 정한다'
-        - '관절 한계를 넘어도 되는 관절을 정한다'
-        - 'controller 가 무시해도 되는 관절 오차를 정한다'
-        - '늘 맞닿아 있거나 절대 닿을 수 없는 link 쌍의 self-collision 검사를 꺼서, 검사할 쌍 수를 줄인다'
+        - '로봇이 작업 중에 주변 물체와 부딪혀도 되는 영역을 정해서 그 영역을 충돌 검사에서 뺀다'
+        - '관절 한계를 넘어도 되는 관절을 정해 planner 가 더 넓은 범위를 쓰게 한다'
+        - 'controller 가 따라가며 무시해도 되는 관절 오차의 크기를 정한다'
+        - '늘 맞닿거나 절대 닿을 수 없는 link 쌍의 self-collision 검사를 끈다'
       answer: 3
       explanation: |
         link 가 n 개면 쌍이 n(n−1)/2 개인데, 관절로 이어진 이웃 쌍은 늘 맞닿아 있고 어떤 쌍은 관절 범위 안에서 닿을 수 없다. 이런 쌍을 끄면
@@ -141,12 +141,12 @@
         서로 다른 두 link 를 고르는 경우의 수는 11 × 10 ÷ 2 = 55 다. 110 은 순서를 구분해 같은 쌍을 두 번 센 값이고, 121 은 자기 자신과의 쌍까지
         넣은 11² 이고, 11 은 link 수다. 이 가운데 ACM 으로 끈 쌍을 빼면 실제로 검사하는 쌍이 된다.
     - question: |
-        면접관: "MoveIt Setup Assistant 가 'Never' 로 표시한 link 쌍을 그대로 끄면 위험할 수 있는 경우는?"
+        MoveIt Setup Assistant 가 'Never' 로 표시한 link 쌍을 그대로 끄면 위험할 수 있는 경우는?
       choices:
-        - 'Never 쌍은 관절로 이어진 이웃이라 끄면 항상 안전하다'
-        - 'Never 쌍을 끄면 주변 물체와의 충돌 검사도 함께 꺼진다'
-        - 'Never 쌍은 기본 자세에서 닿아 있는 쌍이라 끄면 시작 자세 충돌이 생긴다'
-        - 'sampling density 를 낮게 두어 무작위 자세 수가 적으면, 드물게 닿는 쌍도 한 번도 안 닿아 Never 로 꺼질 수 있다'
+        - 'Never 쌍은 관절로 이어진 이웃 link 라서 끄면 항상 안전하고 위험한 경우가 없다'
+        - 'Never 쌍을 끄면 그 link 들과 주변 물체 사이의 충돌 검사도 함께 꺼진다'
+        - 'Never 쌍은 기본 자세에서 이미 닿아 있는 쌍이라 끄면 시작 자세 충돌이 생긴다'
+        - '자세 표본이 적으면 드물게 닿는 쌍이 한 번도 안 닿아 Never 로 꺼질 수 있다'
       answer: 3
       explanation: |
         Never 는 무작위 자세에서 한 번도 닿지 않았다는 통계 결과일 뿐 증명이 아니다. 표본이 적으면 드문 충돌을 놓치므로 문서는 sampling density 를
@@ -157,11 +157,11 @@
   title: PRM 과 RRT
   variants:
     - question: |
-        면접관: "같은 작업 셀에서 장애물은 거의 그대로이고 출발·목표만 바꿔 가며 수백 번 planning 해야 합니다. PRM 과 RRT 중 어느 쪽이 유리하고 왜인가요?"
+        같은 작업 셀에서 장애물은 거의 그대로이고 출발·목표만 바꿔 가며 수백 번 planning 해야 한다. PRM 과 RRT 중 어느 쪽이 유리하고, 그 이유는 무엇인가?
       choices:
-        - 'PRM. roadmap 을 한 번 만들어 두면 새 질문마다 출발·목표 두 점만 이어 붙이고 graph search 하면 되기 때문이다'
-        - 'RRT. 매번 처음부터 tree 를 키우므로 이전 계산을 다시 쓸 수 있기 때문이다'
-        - 'RRT. PRM 은 probabilistically complete 하지 않기 때문이다'
+        - 'PRM. 한 번 만든 roadmap 에 출발·목표만 이어 붙이고 graph search 하면 된다'
+        - 'RRT. 지난 질문에서 키운 tree 를 그대로 이어 키우므로 이전 계산을 다시 쓸 수 있다'
+        - 'RRT. PRM 은 roadmap 에 없는 길을 찾지 못해 probabilistically complete 하지 않다'
         - '둘 다 같다. sampling-based planner 는 이전 계산을 다시 쓸 수 없다'
       answer: 0
       explanation: |
@@ -179,11 +179,11 @@
         방향 (60, 80) 의 길이는 √(60² + 80²) = 100 이고, 20° 만큼만 가므로 (60, 80) × 20 ÷ 100 = (12, 16) 이다. q_rand 까지 바로 가는 것은 거리가
         ε 이하일 때뿐이고, (20, 20) 은 축마다 20 씩 더해 길이가 28.3° 가 되므로 ε 을 넘는다. (10, 10) 은 방향도 길이도 맞지 않는다.
     - question: |
-        면접관: "RRT-Connect 가 기본 RRT 보다 빨리 경로를 찾는 경우가 많은 이유는?"
+        RRT-Connect 가 기본 RRT 보다 빨리 경로를 찾는 경우가 많은 이유는?
       choices:
-        - '무작위 표본 대신 grid 위의 점만 쓰기 때문이다'
-        - '출발과 목표에서 tree 를 하나씩 키우고, 한 tree 가 새 점을 붙이면 다른 tree 가 그 점을 향해 막힐 때까지 뻗어 두 tree 를 빨리 잇기 때문이다'
-        - '경로를 찾은 뒤 rewire 로 최적 경로로 다듬기 때문이다'
+        - '무작위 표본 대신 grid 위의 점만 써서 같은 자리를 두 번 뽑지 않기 때문이다'
+        - '출발과 목표에서 tree 를 키우고, 한쪽이 점을 붙이면 다른 쪽이 막힐 때까지 그 점으로 뻗어서'
+        - '새 점을 붙일 때마다 rewire 로 둘레 점의 부모를 바꿔, 더 짧은 경로로 다듬어 가기 때문이다'
         - '충돌 검사를 하지 않고 경로를 먼저 찾은 뒤 마지막에 한 번만 검사하기 때문이다'
       answer: 1
       explanation: |
@@ -194,22 +194,22 @@
   title: probabilistic completeness 와 경로 품질
   variants:
     - question: |
-        면접관: "RRT 가 probabilistically complete 하다는 것은 무슨 뜻이고, 실무에서 어떤 한계가 있나요?"
+        RRT 가 probabilistically complete 하다는 것은 무슨 뜻이고, 실무에서 어떤 한계가 있는가?
       choices:
-        - '항상 가장 짧은 경로를 찾는다는 뜻이고, 대신 계산이 느리다'
-        - '길이 없으면 정해진 시간 안에 반드시 없다고 증명한다는 뜻이다'
-        - '길이 있다면 표본이 늘수록 찾을 확률이 1 에 가까워진다는 뜻이고, 길이 없을 때는 시간을 다 쓰고 실패할 뿐 없다는 것을 증명하지 못한다'
-        - '한 번 찾은 경로는 장애물이 움직여도 계속 안전하다는 뜻이다'
+        - '항상 가장 짧은 경로를 찾는다는 뜻이고, 그 대가로 시간이 오래 걸린다는 한계가 있다'
+        - '길이 없으면 정해진 시간 안에 반드시 없다고 증명해 주므로 실패 원인을 바로 알 수 있다'
+        - '길이 있으면 표본이 늘수록 찾을 확률이 1 로 가지만, 길이 없다는 것은 증명하지 못한다'
+        - '한 번 찾은 경로는 장애물이 움직여도 계속 안전하다는 뜻이고, 한계는 계산 시간뿐이다'
       answer: 2
       explanation: |
         probabilistic completeness 는 해가 있을 때 찾을 확률이 시간에 따라 1 로 간다는 성질이다. 길이 없으면 planner 는 시간 한도를 다 쓰고
         실패를 돌려줄 뿐이고, 좁은 틈은 표본이 그 안에 떨어질 확률이 작아 오래 걸린다. 최적성과는 별개이고, 장면이 바뀌면 경로를 다시 검사해야 한다.
     - question: |
-        면접관: "RRT-Connect 가 장애물을 크게 돌아가는 경로를 냈습니다. shortcutting 을 아무리 많이 해도 반대쪽의 훨씬 짧은 길에 닿지 못하는
-        이유는?"
+        RRT-Connect 가 장애물을 크게 돌아가는 경로를 냈다. shortcutting 을 아무리 많이 해도 반대쪽의 훨씬 짧은 길에 닿지 못하는
+        이유는?
       choices:
-        - 'shortcut 은 경로를 시간적으로 늘려 속도만 줄이는 처리이기 때문이다'
-        - 'shortcut 은 경로 위 두 점을 충돌 없는 직선으로 잇는 것뿐이라, 장애물의 다른 쪽으로 넘어가는 길은 만들지 못하기 때문이다'
+        - 'shortcut 은 경로 모양은 그대로 두고 시간 축만 늘려 속도를 줄이는 처리이기 때문이다'
+        - 'shortcut 은 두 점을 직선으로 잇기만 해서 장애물 반대쪽으로 넘어가지 못하기 때문이다'
         - 'shortcut 은 꼭짓점을 늘리는 처리라 경로가 오히려 길어지기 때문이다'
         - 'shortcut 은 self-collision 을 검사하지 않아 결과가 버려지기 때문이다'
       answer: 1
@@ -217,12 +217,12 @@
         shortcut 은 기존 경로 근처에서 꺾인 부분을 곧게 펼 뿐, 직선이 장애물을 가로지를 수 없으므로 반대쪽 길로 옮겨 가지 못한다. 다른 쪽 길을 찾으려면
         RRT* 처럼 C-space 를 다시 탐색해야 한다. shortcut 은 시간 정보를 다루지 않고, 꼭짓점을 줄이며, 직선마다 충돌을 검사한다.
     - question: |
-        면접관: "RRT* 는 RRT 와 무엇이 달라서 경로가 최적에 가까워지나요?"
+        RRT* 는 RRT 와 무엇이 달라서 경로가 최적에 가까워지는가?
       choices:
-        - '새 점의 부모를 둘레에서 출발점부터의 비용이 가장 작은 점으로 고르고, 둘레 점들이 새 점을 거쳐 가는 쪽이 싸면 부모를 바꾸는(rewire) 단계를 더한다'
-        - 'step 길이 ε 을 0 으로 줄여 grid search 와 같게 만든다'
-        - '목표 쪽으로만 표본을 뽑아 경로를 곧게 만든다'
-        - '두 tree 를 마주 키워 만나는 순간 멈춘다'
+        - '부모를 비용이 가장 작은 둘레 점으로 고르고, 더 싸지면 둘레 점의 부모를 바꾸는 rewire 를 더한다'
+        - 'step 길이 ε 을 0 으로 줄여 grid search 처럼 촘촘하게 모든 자세를 훑는다'
+        - '표본을 목표 쪽으로만 뽑아 tree 가 돌아가지 않고 곧게 목표를 향해 자라게 한다'
+        - '출발과 목표에서 두 tree 를 마주 키워, 만나는 순간 가장 짧은 경로로 멈춘다'
       answer: 0
       explanation: |
         RRT* 는 부모 선택과 rewire 로 tree 안의 비용을 계속 줄여, 표본이 늘면 경로 길이가 최적값으로 수렴한다. 대신 첫 경로를 찾은 뒤에도 시간을 써야
@@ -232,38 +232,38 @@
   title: MoveIt 2 의 planning pipeline
   variants:
     - question: |
-        면접관: "MoveIt 2 의 move_group 이 돌려주는 결과는 path 인가요, trajectory 인가요? 시간 정보는 어디서 붙나요?"
+        MoveIt 2 의 move_group 이 돌려주는 결과는 path 인가, trajectory 인가? 시간 정보는 어디서 붙는가?
       choices:
-        - 'path 다. 시간 정보는 controller 가 실행하면서 스스로 정한다'
-        - 'trajectory 다. OMPL 이 표본을 뽑을 때 시간도 함께 뽑는다'
-        - 'path 다. 시간 정보는 사용자가 따로 계산해 붙여야 한다'
-        - 'trajectory 다. OMPL 이 찾은 path 에 response adapter 의 time parameterization 이 속도·가속도 한계에 맞는 시각을 붙인다'
+        - 'path 다. 시간 정보는 controller 가 받은 path 를 실행하면서 관절 한계에 맞춰 스스로 정한다'
+        - 'trajectory 다. OMPL 이 표본을 뽑을 때 시각도 함께 뽑아 path 와 시간을 한 번에 얻는다'
+        - 'path 다. 시간 정보는 사용자가 속도 한계를 보고 따로 계산해 붙여야 한다'
+        - 'trajectory 다. OMPL 이 찾은 path 에 time parameterization 단계가 시각을 붙인다'
       answer: 3
       explanation: |
         OMPL 은 시간 없는 관절 각도의 줄(path)을 찾고, 그 뒤 response adapter 의 time parameterization(MoveIt 2 main·Jazzy 의 AddTimeOptimalParameterization)이 관절 속도·가속도 한계를 지키는
         시각과 속도를 붙여 trajectory 를 만든다. OMPL 의 표본에는 시간이 없고, controller 는 받은 trajectory 를 따라갈 뿐이며, 사용자가 따로 계산할
         필요도 없다.
     - question: |
-        면접관: "planning 이 START_STATE_IN_COLLISION 오류로 실패합니다. planning 시간을 늘리면 해결될까요?"
+        planning 이 START_STATE_IN_COLLISION 오류로 실패한다. planning 시간을 늘리면 해결될까?
       choices:
-        - '해결되지 않는다. request adapter 가 planner 를 부르기 전에 시작 자세가 이미 충돌 중이라고 거절한 것이라, padding·ACM·planning scene 의 물체를 먼저 확인해야 한다'
-        - '해결된다. 시간을 늘리면 planner 가 시작 자세 주변을 더 많이 탐색한다'
-        - '해결된다. 시도 횟수와 planning 시간은 시작 자세 검사를 건너뛰게 한다'
-        - '해결되지 않는다. 이 오류는 controller 연결이 끊겼다는 뜻이다'
+        - '해결되지 않는다. planner 를 부르기 전에 시작 자세가 이미 충돌이라 거절된 것이다'
+        - '해결된다. 시간을 늘리면 planner 가 시작 자세 주변을 더 많이 탐색해 충돌 없는 길을 찾는다'
+        - '해결된다. planning 시간과 시도 횟수를 늘리면 시작 자세 검사를 건너뛰게 된다'
+        - '해결되지 않는다. 이 오류는 controller 연결이 끊겼다는 뜻이라 연결부터 고쳐야 한다'
       answer: 0
       explanation: |
         request adapter(MoveIt 2 main·Jazzy 의 CheckStartStateCollision)는 planner 를 부르기 전에 시작 자세를 검사하고 충돌이면 바로 오류를 돌려준다. 그래서 planning
         시간이나 시도 횟수와 무관하고, padding 이 너무 크거나 ACM 에서 이웃 link 쌍이 켜져 있거나 planning scene 에 잘못 넣은 물체가 있는지 본다.
         controller 연결 문제는 실행 단계의 오류다.
     - question: |
-        면접관: "부품을 구멍에 끼우는 마지막 10 cm 는 손끝이 정확히 직선으로 움직여야 합니다. MoveIt 2 에서 어떤 planner 가 맞고, 주의할 점은?"
+        부품을 구멍에 끼우는 마지막 10 cm 는 손끝이 정확히 직선으로 움직여야 한다. MoveIt 2 에서 어떤 planner 가 맞고, 주의할 점은?
       choices:
-        - 'OMPL RRTConnect. 무작위 tree 가 항상 손끝 직선 경로를 낸다'
-        - 'CHOMP. gradient 로 손끝을 직선에 맞춰 준다'
-        - 'Pilz LIN. 손끝을 직선으로 움직이는 trajectory 를 만들지만 장애물을 돌아가지 않으므로, 경로가 충돌하면 실패로 돌아온다'
-        - 'STOMP. noise 를 더한 후보 가운데 직선을 고른다'
+        - 'OMPL RRTConnect. 두 tree 를 직선으로 이어 붙이므로 손끝도 항상 직선으로 움직인다'
+        - 'CHOMP. gradient 로 경로를 다듬으면서 손끝을 정확한 직선에 맞춰 준다'
+        - 'Pilz LIN. 손끝을 직선으로 움직이지만 장애물을 돌아가지 않아 충돌하면 실패한다'
+        - 'STOMP. noise 를 더한 후보 경로 가운데 손끝이 직선인 것을 골라 준다'
       answer: 2
       explanation: |
         Pilz 의 LIN 은 손끝 위치를 직선으로, 방향을 slerp 로 보간하고 사다리꼴 속도 profile 을 붙인다. 정해진 모양만 만들고 장애물을 피하지 않아서
-        충돌하면 경로 재검사 단계(main·Jazzy 의 ValidateSolution)에서 실패로 돌아온다. RRTConnect 는 관절 공간에서 무작위 경로를 내서 손끝이 직선이 되지 않고, CHOMP·STOMP 는 비용을
+        충돌하면 경로 재검사 단계(main·Jazzy 의 ValidateSolution)에서 실패로 돌아온다. RRTConnect 는 관절 공간에서 tree 를 이으므로 손끝이 직선이 되지 않고, CHOMP·STOMP 는 비용을
         줄이는 최적화라 손끝 직선을 보장하지 않는다.

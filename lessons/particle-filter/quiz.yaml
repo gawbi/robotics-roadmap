@@ -5,36 +5,36 @@
   title: 봉우리가 여럿인 belief
   variants:
     - question: |
-        면접관: "양쪽 끝이 똑같이 생긴 복도에서 로봇이 자기 위치를 전혀 모르는 채로 출발합니다. Kalman filter 대신 particle filter 를 쓰는 이유는 무엇인가요?"
+        양쪽 끝이 똑같이 생긴 복도에서 로봇이 자기 위치를 전혀 모르는 채로 출발한다. Kalman filter 대신 particle filter 를 쓰는 이유는 무엇인가?
       choices:
-        - '위치의 믿음이 "왼쪽 끝 아니면 오른쪽 끝" 처럼 봉우리가 둘인데, Kalman filter 는 봉우리 하나인 Gaussian 만 나타낼 수 있고 particle 은 점의 배치로 어떤 모양이든 나타낼 수 있기 때문이다'
-        - 'particle filter 가 Kalman filter 보다 항상 계산량이 적기 때문이다'
-        - 'Kalman filter 는 LiDAR 측정을 받을 수 없기 때문이다'
-        - 'particle filter 는 motion model 없이 측정만으로 위치를 구하기 때문이다'
+        - 'belief 의 봉우리가 둘인데, Kalman filter 는 봉우리 하나인 Gaussian 만 나타낼 수 있기 때문이다'
+        - 'particle filter 는 후보 점만 옮기면 되므로 Kalman filter 보다 항상 계산량이 적기 때문이다'
+        - 'Kalman filter 는 LiDAR 처럼 거리를 여러 개 내는 측정을 받을 수 없기 때문이다'
+        - 'particle filter 는 motion model 없이 측정만으로 위치를 구해서 출발 위치를 몰라도 되기 때문이다'
       answer: 0
       explanation: |
         대칭인 복도에서는 두 끝이 똑같이 보여서 belief 가 두 자리에 봉우리를 하나씩 가진다. Kalman filter 는 belief 를 평균 하나와 분산 하나인 Gaussian
         으로만 들고 다니므로 이 모양을 적을 수 없다. particle filter 는 후보 점을 두 무리로 두면 된다. particle filter 는 보통 Kalman filter 보다 계산이
         많고, Kalman filter 도 LiDAR 로 만든 측정을 받을 수 있으며, particle filter 도 예측 단계에서 motion model 을 쓴다.
     - question: |
-        면접관: "20 m 복도의 4 m 와 14 m 에 똑같은 문이 있고, 로봇이 문 옆에 있다는 것만 압니다. 이 belief 를 Gaussian 하나로 근사하면 어떤 문제가 생기나요?"
+        20 m 복도의 4 m 와 14 m 에 똑같은 문이 있고, 로봇이 문 옆에 있다는 것만 안다. 이 belief 를 Gaussian 하나로 근사하면 어떤 문제가 생기는가?
       choices:
-        - '분산이 0 이 되어 계산이 멈춘다'
-        - '평균이 4 m 로 고정되어 14 m 후보를 잃을 뿐 다른 문제는 없다'
-        - '평균이 두 문의 가운데인 9 m 에 놓여, 문이 없어 로봇이 있을 수 없는 자리를 가장 그럴듯한 위치로 내고 분산도 복도 전체로 퍼진다'
-        - 'Gaussian 은 1차원 위치를 나타낼 수 없다'
+        - '두 봉우리를 하나로 합치면서 분산이 0 이 되어 그 뒤로 계산이 멈춘다'
+        - '평균이 처음 본 4 m 문에 고정되어 14 m 문 쪽 후보를 잃을 뿐, 다른 문제는 없다'
+        - '평균이 두 문 가운데인 9 m 에 놓여, 로봇이 있을 수 없는 자리를 가장 그럴듯하다고 낸다'
+        - 'Gaussian 은 2차원 이상에만 쓰이므로 복도 같은 1차원 위치를 나타낼 수 없다'
       answer: 2
       explanation: |
         두 봉우리를 평균 하나로 맞추면 평균은 두 봉우리의 가운데로 가고, 분산은 두 봉우리가 평균에서 떨어진 거리만큼 커진다. 그 가운데 자리는 문이 없는
         곳이라 실제로는 확률이 거의 0 인데 Gaussian 은 그곳을 가장 그럴듯하다고 낸다. 분산이 0 이 되거나 한쪽 봉우리에 고정되는 것이 아니고, Gaussian
         은 1차원 값도 잘 나타낸다.
     - question: |
-        면접관: "kidnapped robot problem 이 무엇이고, 왜 일반적인 위치 추적보다 어렵나요?"
+        kidnapped robot problem 이 무엇이고, 왜 일반적인 위치 추적보다 어려운가?
       choices:
-        - '로봇의 센서를 누군가 가려서 측정이 하나도 들어오지 않는 문제다'
-        - '로봇이 너무 빨리 움직여 odometry 가 계산을 따라가지 못하는 문제다'
-        - '지도가 실제 환경과 조금 다른 문제다'
-        - '위치를 잘 알던 로봇을 누군가 들어 다른 곳에 옮겨서, belief 가 틀린 자리에 뾰족하게 남아 있고 새 자리 근처에는 후보가 없는 문제다'
+        - '누군가 센서를 가려서 측정이 하나도 들어오지 않아, 위치를 고칠 정보가 끊기는 문제다'
+        - '로봇이 너무 빨리 움직여 odometry 가 계산을 따라가지 못하고 위치가 밀리는 문제다'
+        - '지도가 실제 환경과 조금 달라서 particle 의 점수가 모두 낮게 나오는 문제다'
+        - '위치를 확신하던 로봇이 몰래 옮겨져, belief 가 틀린 자리에 뾰족하게 남는 문제다'
       answer: 3
       explanation: |
         kidnapped robot 은 위치를 확신하던 로봇이 odometry 에 잡히지 않게 다른 곳으로 옮겨진 상황이다. 처음부터 모르는 global localization 보다 어려운
@@ -45,36 +45,36 @@
   title: 예측과 motion noise
   variants:
     - question: |
-        면접관: "particle filter 의 예측 단계에서 odometry 이동량을 모든 particle 에 똑같이 더하지 않고 particle 마다 무작위 noise 를 섞는 이유는 무엇인가요?"
+        particle filter 의 예측 단계에서 odometry 이동량을 모든 particle 에 똑같이 더하지 않고 particle 마다 무작위 noise 를 섞는 이유는 무엇인가?
       choices:
-        - '계산을 빠르게 하려고'
-        - '바퀴가 미끄러지는 등 실제 이동이 odometry 와 다를 수 있다는 불확실성을 particle 이 퍼지는 것으로 나타내고, resampling 으로 겹친 복사본을 다시 여러 자리로 나누기 위해서'
-        - 'LiDAR 측정의 noise 를 지우기 위해서'
-        - 'particle 수를 늘리기 위해서'
+        - 'noise 를 섞어 두면 가중치 계산을 일부 particle 만 해도 되어 계산이 빨라지므로'
+        - '실제 이동이 odometry 와 다를 수 있는 불확실성을 particle 이 퍼지는 것으로 나타내려고'
+        - '이동량에 noise 를 섞어 두면 LiDAR 측정의 noise 와 상쇄되어 가중치가 깨끗해지므로'
+        - '같은 자리의 particle 을 noise 로 나눠 particle 수를 늘리고 belief 를 촘촘하게 만들려고'
       answer: 1
       explanation: |
         noise 를 섞어야 particle 무리가 실제 움직임의 불확실성만큼 퍼진다. Kalman filter 가 예측 때 분산에 Q 를 더하는 것과 같은 역할이다. 또 resampling 으로
         복사된 particle 은 같은 자리에 겹쳐 있어서 noise 없이 옮기면 계속 겹친 채로 남는다. noise 는 계산을 줄이거나 측정 noise 를 지우지 않고, particle 수도
         바꾸지 않는다.
     - question: |
-        면접관: "AMCL 의 motion noise parameter(alpha1 ~ alpha4)를 실제보다 아주 작게 잡으면 어떤 일이 생기나요?"
+        AMCL 의 motion noise parameter(alpha1 ~ alpha4)를 실제보다 아주 작게 잡으면 어떤 일이 생기는가?
       choices:
-        - 'particle 무리가 넓어져 추정이 크게 흔들린다'
-        - 'LiDAR 측정을 무시하게 된다'
-        - '아무 영향이 없다. noise 는 KLD sampling 이 알아서 정한다'
-        - 'particle 무리가 지나치게 좁아져, 바퀴가 미끄러져 실제 로봇이 무리 밖으로 벗어나면 근처에 후보가 없어 위치를 잃는다'
+        - 'particle 무리가 넓어져 추정이 크게 흔들리고 평균 위치가 계속 바뀐다'
+        - 'odometry 를 그대로 믿게 되어 LiDAR 측정을 무시하고 가중치를 매기지 않는다'
+        - '아무 영향이 없다. motion noise 는 KLD sampling 이 particle 수에 맞춰 알아서 정한다'
+        - 'particle 무리가 너무 좁아져, 로봇이 미끄러져 무리 밖으로 벗어나면 위치를 잃는다'
       answer: 3
       explanation: |
         noise 가 작으면 particle 이 odometry 를 거의 그대로 따라 좁게 모인다. 실제 움직임이 odometry 와 달라지면 실제 위치 근처에 particle 이 없어서, 가중치를
         아무리 매겨도 맞는 후보가 없고 위치를 잃는다. 무리가 넓어져 흔들리는 것은 noise 를 크게 잡았을 때의 일이다. noise 는 측정을 무시하게 만들지 않고,
         KLD sampling 은 particle 수를 정할 뿐 motion noise 를 정하지 않는다.
     - question: |
-        면접관: "Nav2 AMCL 을 띄우고 로봇을 세워 둔 채 RViz 에서 기다렸는데 particle 이 전혀 모이지 않습니다. 가장 가능성 높은 이유는?"
+        Nav2 AMCL 을 띄우고 로봇을 세워 둔 채 RViz 에서 기다렸는데 particle 이 전혀 모이지 않는다. 가장 가능성 높은 이유는?
       choices:
-        - 'AMCL 은 로봇이 update_min_d 나 update_min_a 이상 움직였을 때만 한 cycle 을 수행하기 때문이다'
-        - 'LiDAR 가 고장 났기 때문이다'
-        - 'particle 수가 너무 많아서 계산이 끝나지 않았기 때문이다'
-        - 'AMCL 은 지도 없이 동작하기 때문이다'
+        - 'AMCL 은 로봇이 일정 거리나 각도 이상 움직였을 때만 한 cycle 을 수행하기 때문이다'
+        - 'LiDAR 가 고장 나서 scan 이 들어오지 않아 가중치를 매길 수 없기 때문이다'
+        - 'particle 수가 너무 많아서 첫 cycle 의 계산이 아직 끝나지 않았기 때문이다'
+        - 'AMCL 은 지도 없이 동작해서, 지도가 다 쌓일 때까지는 particle 이 모이지 않기 때문이다'
       answer: 0
       explanation: |
         AMCL 은 기본으로 0.25 m(update_min_d) 이상 움직이거나 0.2 rad(update_min_a) 이상 돌았을 때만 예측·가중치·resampling 을 한 번 수행한다. 로봇이 서
@@ -85,36 +85,36 @@
   title: Likelihood field 로 매기는 가중치
   variants:
     - question: |
-        면접관: "AMCL 의 likelihood field 모델은 LiDAR scan 으로 particle 의 가중치를 어떻게 매기나요?"
+        AMCL 의 likelihood field 모델은 LiDAR scan 으로 particle 의 가중치를 어떻게 매기는가?
       choices:
         - 'particle 자리에서 beam 마다 지도 위에 선을 그어 벽까지의 예상 거리를 구하고 측정과 비교한다'
-        - 'scan 의 평균 거리를 지도의 평균 거리와 비교한다'
-        - 'particle 자리에서 각 beam 의 끝점을 지도 위에 찍고, 미리 계산해 둔 "가장 가까운 장애물까지의 거리" 를 읽어 그 거리가 작을수록 높은 점수를 준다'
-        - '가장 가까운 장애물 하나까지의 거리만 비교한다'
+        - 'scan 의 평균 거리를 particle 자리에서 본 지도의 평균 거리와 비교해 차이가 작을수록 높은 점수를 준다'
+        - 'beam 끝점을 지도에 찍고, 미리 계산해 둔 가장 가까운 장애물까지의 거리가 작을수록 높은 점수를 준다'
+        - 'particle 자리에서 가장 가까운 장애물 하나까지의 거리만 측정과 비교한다'
       answer: 2
       explanation: |
         likelihood field 는 선을 긋지 않고 beam 끝점만 본다. 끝점에서 가장 가까운 장애물까지의 거리는 지도가 바뀌지 않으므로 칸마다 미리 계산해 두고, 끝점이
         떨어진 칸의 값을 Gaussian 점수로 바꾼다. 선을 그어 예상 거리를 구하는 것은 beam 모델의 방식이라 계산이 더 많다. 평균 거리나 장애물 하나만 비교하면
         scan 의 모양 정보를 버린다.
     - question: |
-        면접관: "AMCL 의 beam 점수에 z_rand 로 작은 바닥 값을 더해 두는 이유는 무엇인가요?"
+        AMCL 의 beam 점수에 z_rand 로 작은 바닥 값을 더해 두는 이유는 무엇인가?
       choices:
-        - '지도에 없는 사람 같은 물체에 맞은 beam 하나 때문에 올바른 particle 의 점수가 사실상 0 이 되는 것을 막기 위해서'
-        - 'particle 수를 늘리기 위해서'
-        - 'beam 수를 줄여 계산을 빠르게 하기 위해서'
-        - '지도의 해상도를 높이기 위해서'
+        - '지도에 없는 사람에 맞은 beam 하나가 올바른 particle 의 점수를 0 으로 만들지 않게 하려고'
+        - '점수가 바닥 아래인 particle 을 지우지 않고 남겨, 결과적으로 particle 수를 늘리려고'
+        - '바닥 값보다 점수가 낮은 beam 은 건너뛰어 beam 수를 줄이고 계산을 빠르게 하려고'
+        - '바닥 값으로 지도의 빈 칸을 채워 지도의 해상도를 높인 것과 같은 효과를 내려고'
       answer: 0
       explanation: |
         beam 점수를 곱해 particle 점수를 만들면, 사람에 맞아 벽에서 1 m 쯤 떨어진 끝점 하나의 Gaussian 점수가 거의 0 이라 올바른 particle 까지 0 이 된다.
         z_rand 로 바닥 값을 깔면 그런 beam 이 점수를 0 이 아니라 몇 분의 일로만 깎아서 다른 beam 들이 맞는 particle 이 살아남는다. particle 수, 계산량, 지도
         해상도와는 관계없다.
     - question: |
-        면접관: "센서가 아주 정확하다고 likelihood field 의 sigma_hit 를 실제보다 훨씬 작게 잡았습니다. particle filter 에서는 어떤 일이 생기나요?"
+        센서가 아주 정확하다고 likelihood field 의 sigma_hit 를 실제보다 훨씬 작게 잡았다. particle filter 에서는 어떤 일이 생기는가?
       choices:
-        - 'Kalman filter 처럼 측정을 더 세게 따를 뿐 결과는 더 정확해진다'
-        - '실제 위치에서 조금만 벗어난 particle 도 점수가 거의 0 이 되어 살아남는 particle 이 몇 개뿐이고, degeneracy 가 심해져 위치를 잃기 쉽다'
-        - 'particle 이 지도 밖으로 퍼진다'
-        - 'motion noise 가 자동으로 커진다'
+        - 'Kalman filter 에서처럼 측정을 더 세게 따를 뿐이라 결과는 오히려 더 정확해진다'
+        - '조금만 벗어난 particle 도 점수가 거의 0 이 되어 degeneracy 가 심해진다'
+        - '점수가 높은 자리가 좁아져 particle 이 그 자리를 찾아 지도 밖까지 퍼진다'
+        - '측정을 믿는 만큼 motion noise 가 자동으로 커져 예측 단계에서 particle 이 더 퍼진다'
       answer: 1
       explanation: |
         sigma_hit 가 작으면 beam 끝점이 벽에서 조금만 떨어져도 점수가 급격히 작아진다. particle 은 유한해서 실제 위치에 딱 맞는 것이 없는 경우가 많은데, 그러면
@@ -125,36 +125,36 @@
   title: Resampling
   variants:
     - question: |
-        면접관: "particle filter 의 resampling 단계는 무엇을 하나요?"
+        particle filter 의 resampling 단계는 무엇을 하는가?
       choices:
-        - 'particle 을 측정에 더 잘 맞는 새 자리로 옮긴다'
-        - '가중치가 작은 particle 의 가중치를 키워 모두 살린다'
-        - 'particle 수를 매번 두 배로 늘린다'
-        - '가중치에 비례하는 확률로 particle 을 다시 뽑아, 무거운 것은 여러 번 복사하고 가벼운 것은 지운 뒤 가중치를 모두 같게 되돌린다'
+        - 'particle 하나하나를 가중치가 높아지는 방향으로 밀어 측정에 더 잘 맞는 새 자리로 옮긴다'
+        - '가중치가 작은 particle 의 가중치를 키워, 가벼운 후보까지 모두 살려 둔다'
+        - 'particle 수를 매번 두 배로 늘리고, 늘어난 것들에 같은 가중치를 준다'
+        - '가중치에 비례해 particle 을 다시 뽑아 무거운 것은 복사하고 가벼운 것은 지운다'
       answer: 3
       explanation: |
         resampling 은 이미 있는 particle 중에서 가중치에 비례해 다시 뽑는다. 무거운 particle 은 여러 개로 복사되고 가벼운 particle 은 사라지며, 새 particle
         들의 가중치는 같아진다. 새 자리를 만드는 단계가 아니라서 복사본을 퍼뜨리는 일은 다음 예측의 motion noise 가 맡는다. 가벼운 것을 살리거나 개수를
         두 배로 늘리지 않는다.
     - question: |
-        면접관: "low-variance(systematic) resampling 이 particle 마다 난수를 따로 뽑는 multinomial resampling 보다 나은 점은 무엇인가요?"
+        low-variance(systematic) resampling 이 particle 마다 난수를 따로 뽑는 multinomial resampling 보다 나은 점은 무엇인가?
       choices:
-        - '가중치를 계산할 필요가 없다'
-        - '난수 하나로 시작점을 정하고 1/N 간격으로 뽑아서, 가중치가 1/N 이상인 particle 은 반드시 남고 복사 개수가 가중치에 비례한 기대값에서 크게 벗어나지 않는다'
-        - 'particle 의 위치를 더 정확하게 바꿔 준다'
-        - '가벼운 particle 을 모두 살려 다양성을 지킨다'
+        - '누적 가중치를 쓰지 않고 순서대로 뽑으므로 가중치를 계산할 필요가 없다'
+        - '시작점만 난수로 정하고 1/N 간격으로 뽑아, 가중치가 1/N 이상이면 반드시 남는다'
+        - '뽑으면서 particle 의 위치를 가중치가 큰 쪽으로 옮겨 더 정확한 자리로 바꿔 준다'
+        - '1/N 간격으로 뽑으면 가벼운 particle 도 모두 한 번씩은 뽑혀 다양성을 지킨다'
       answer: 1
       explanation: |
         multinomial 은 N 번 따로 뽑기 때문에 운이 나쁘면 무거운 particle 이 한 번도 뽑히지 않을 수 있다. low-variance 는 누적 가중치 막대 위에 1/N 간격으로
         바늘을 꽂으므로 폭이 1/N 이상인 칸에는 반드시 바늘이 들어가고, 복사 개수가 N × w 에서 1 개 넘게 벗어나지 않는다. 두 방법 모두 가중치가 필요하고,
         위치를 바꾸지 않으며, 가벼운 particle 은 여전히 지워질 수 있다.
     - question: |
-        면접관: "같은 측정으로 resampling 을 여러 번 되풀이하면 어떤 문제가 생기나요?"
+        같은 측정으로 resampling 을 여러 번 되풀이하면 어떤 문제가 생기는가?
       choices:
-        - 'particle 수가 0 이 된다'
-        - '가중치가 음수가 된다'
-        - '몇몇 particle 의 복사본만 남아 후보의 다양성이 사라지는 sample impoverishment 가 생긴다'
-        - '아무 문제 없다. resampling 은 할수록 정확해진다'
+        - '되풀이할 때마다 가벼운 particle 이 지워지므로, 결국 particle 수가 0 이 된다'
+        - '정규화를 여러 번 하면서 가중치가 1 보다 커지거나 음수가 된다'
+        - '몇몇 복사본만 남아 다양성이 사라지는 sample impoverishment 가 생긴다'
+        - '아무 문제 없다. 같은 측정이라도 resampling 은 할수록 정확해진다'
       answer: 2
       explanation: |
         resampling 은 새 자리를 만들지 않고 있는 particle 을 복사하므로, 새 정보 없이 되풀이하면 무거운 몇 개의 복사본으로 채워져 다양성이 줄어든다. 이를
@@ -165,12 +165,12 @@
   title: Degeneracy 와 effective sample size
   variants:
     - question: |
-        면접관: "particle filter 에서 degeneracy 란 무엇인가요?"
+        particle filter 에서 degeneracy 란 무엇인가?
       choices:
-        - 'resampling 없이 가중치를 계속 곱해 나가면 particle 몇 개가 가중치를 거의 다 차지하고 나머지는 0 에 가까워져, 대부분의 particle 이 추정에 보탬이 되지 않는 현상이다'
-        - 'particle 이 지도 밖으로 나가는 현상이다'
-        - 'motion model 이 비선형이라 particle 이 휘어지는 현상이다'
-        - 'particle 수가 시간이 지나며 저절로 줄어드는 현상이다'
+        - 'resampling 없이 가중치를 곱해 가면 몇 개가 가중치를 거의 다 차지하는 현상이다'
+        - 'noise 를 섞어 예측하는 동안 particle 이 벽을 넘어 지도 밖으로 나가는 현상이다'
+        - 'motion model 이 비선형이라 particle 무리가 곧게 퍼지지 않고 휘어지는 현상이다'
+        - 'resampling 할 때마다 가벼운 particle 이 지워져 particle 수가 저절로 줄어드는 현상이다'
       answer: 0
       explanation: |
         가중치는 측정마다 곱해지므로 조금씩 앞선 particle 이 빠르게 전부를 차지한다. 그러면 particle 수천 개를 옮기고 점수를 매겨도 실제로 belief 를 나타내는
@@ -178,21 +178,21 @@
     - question: |
         particle 4 개의 가중치가 0.25, 0.25, 0.25, 0.25 일 때와 0.97, 0.01, 0.01, 0.01 일 때 effective sample size $N_{eff} = 1 / \sum w_i^2$ 는 각각 어떻게 되나?
       choices:
-        - '둘 다 4 다. particle 수가 같기 때문이다'
-        - '앞은 1, 뒤는 4 다'
-        - '둘 다 1 이다'
-        - '앞은 4, 뒤는 약 1.06 이다. 한 particle 이 가중치를 거의 다 가지면 1 에 가까워진다'
+        - '둘 다 4 다. N_eff 는 particle 수와 같기 때문이다'
+        - '앞은 1, 뒤는 4 다. 고르게 퍼질수록 작아진다'
+        - '둘 다 1 이다. 가중치의 합이 1 이기 때문이다'
+        - '앞은 4, 뒤는 약 1.06 이다. 몰릴수록 1 에 가깝다'
       answer: 3
       explanation: |
         가중치가 모두 0.25 이면 제곱의 합이 4 × 0.0625 = 0.25 라서 N_eff = 4 다. 뒤의 경우는 0.9409 + 3 × 0.0001 = 0.9412 라서 N_eff ≈ 1.06 이다.
         N_eff 는 particle 수가 아니라 실제로 belief 를 나누어 맡는 particle 수를 나타내므로, 가중치가 한쪽에 몰리면 1 로 떨어진다.
     - question: |
-        면접관: "effective sample size 를 보고 resampling 시점을 정하는 방식은 어떻게 동작하나요?"
+        effective sample size 를 보고 resampling 시점을 정하는 방식은 어떻게 동작하는가?
       choices:
-        - 'N_eff 가 particle 수와 같아지면 resampling 한다'
-        - 'N_eff 가 기준(예: particle 수의 절반) 아래로 떨어져 가중치가 몇 개에 몰렸을 때만 resampling 해서, 필요 없는 resampling 으로 다양성을 잃지 않게 한다'
-        - 'N_eff 가 커질수록 particle 을 더 많이 지운다'
-        - 'N_eff 는 particle 수를 늘리는 데만 쓴다'
+        - 'N_eff 가 particle 수와 같아져 모든 particle 이 고르게 쓰일 때 resampling 한다'
+        - 'N_eff 가 기준 아래로 떨어져 가중치가 몇 개에 몰렸을 때만 resampling 한다'
+        - 'N_eff 가 커질수록 쓸모없는 particle 이 많다는 뜻이라 더 많이 지운다'
+        - 'N_eff 는 resampling 시점이 아니라 particle 수를 늘리는 데만 쓴다'
       answer: 1
       explanation: |
         N_eff 가 크면 가중치가 고르게 퍼져 있어 resampling 할 이유가 적고, 작으면 몇 개에 몰려 있어 resampling 이 필요하다. 그래서 N_eff 가 N/2 같은 기준
@@ -203,36 +203,36 @@
   title: Particle 수와 KLD sampling
   variants:
     - question: |
-        면접관: "particle 수를 계속 늘리면 위치 추정이 계속 정확해지나요?"
+        particle 수를 계속 늘리면 위치 추정이 계속 정확해지는가?
       choices:
-        - '그렇다. particle 수에 비례해 오차가 줄어든다'
-        - '그렇다. particle 이 무한히 많으면 측정이 필요 없다'
-        - '아니다. 처음에는 정확해지지만 한 cycle 의 계산이 길어져 그사이 들어온 측정을 버리게 되면 오히려 오차가 커진다'
-        - '아니다. particle 수는 정확도와 관계없다'
+        - '그렇다. 오차는 particle 수에 비례해 줄어들므로 늘리면 늘릴수록 계속 정확해진다'
+        - '그렇다. particle 이 충분히 많으면 측정 없이도 위치를 좁힐 수 있다'
+        - '아니다. 계산이 길어져 그사이 들어온 측정을 버리게 되면 오히려 오차가 커진다'
+        - '아니다. particle 수는 계산량만 바꾸고 정확도와는 관계없다'
       answer: 2
       explanation: |
         particle 이 많을수록 belief 를 촘촘하게 나타내지만, 계산량이 particle 수 × beam 수로 늘어난다. 실시간으로 동작하는 로봇에서는 계산이 길어지면 그
         사이의 측정을 처리하지 못해 버리게 되고, MCL 과 KLD sampling 논문 모두 particle 수에 따른 오차가 줄다가 다시 커지는 결과를 보고했다. particle 이 아무리
         많아도 측정 없이는 위치를 좁힐 수 없고, 너무 적으면 위치를 찾지 못하므로 정확도와 무관하지도 않다.
     - question: |
-        면접관: "AMCL 이 쓰는 KLD sampling 은 particle 수를 어떻게 정하나요?"
+        AMCL 이 쓰는 KLD sampling 은 particle 수를 어떻게 정하는가?
       choices:
-        - '측정의 가중치 합이 클수록 particle 을 늘린다'
-        - 'resampling 하면서 particle 이 들어간 bin(위치·방향을 나눈 칸)의 수를 세고, bin 수에 거의 비례하는 목표에 닿으면 그만 뽑아서 퍼져 있을 때는 많이, 모였을 때는 적게 쓴다'
-        - '로봇의 속도에 비례해 particle 을 늘린다'
-        - '처음 정한 수를 끝까지 유지한다'
+        - '측정의 가중치 합이 클수록 위치가 확실하다고 보고 particle 을 늘린다'
+        - 'particle 이 들어간 bin 수를 세어 퍼져 있으면 많이, 모여 있으면 적게 뽑는다'
+        - '로봇의 속도에 비례해 particle 을 늘려 빨리 움직일 때 위치를 놓치지 않게 한다'
+        - '처음 정한 수를 끝까지 유지하고, resampling 때 가중치만 다시 나눈다'
       answer: 1
       explanation: |
         KLD sampling 은 sample 로 만든 분포와 실제 분포의 KL divergence 가 정한 값 아래가 되도록, particle 이 차지한 bin 수 k 에 맞춰 필요한 개수를 계산한다.
         global localization 처럼 퍼져 있으면 k 가 커서 많이 쓰고, 위치를 찾아 모이면 k 가 작아 수백 개로 줄어든다. AMCL 은 그 값을 min_particles 와
         max_particles 사이로 자른다. 가중치 합이나 속도로 정하지 않고, 개수를 고정하지도 않는다.
     - question: |
-        면접관: "global localization 에는 particle 이 많이 필요하고, 위치를 이미 아는 tracking 에는 적게 필요한 이유는 무엇인가요?"
+        global localization 에는 particle 이 많이 필요하고, 위치를 이미 아는 tracking 에는 적게 필요한 이유는 무엇인가?
       choices:
-        - 'tracking 에서는 LiDAR 를 쓰지 않기 때문이다'
-        - 'global localization 에서는 motion model 을 쓰지 않기 때문이다'
-        - 'tracking 에서는 resampling 을 하지 않기 때문이다'
-        - 'global localization 에서는 belief 가 지도 전체에 퍼져 있어 모든 후보 자리를 덮어야 하지만, tracking 에서는 belief 가 좁은 곳에 모여 있어 그 근처만 덮으면 되기 때문이다'
+        - 'tracking 에서는 LiDAR 를 쓰지 않고 odometry 만 따라가므로 가중치를 매길 particle 이 적어도 되기 때문이다'
+        - 'global localization 에서는 motion model 을 쓰지 않아 noise 로 퍼뜨릴 수 없으니 처음부터 많이 뿌려야 하기 때문이다'
+        - 'tracking 에서는 resampling 을 하지 않아 particle 이 줄어들 일이 없기 때문이다'
+        - 'global localization 은 지도 전체를 덮어야 하지만, tracking 은 좁은 무리 근처만 덮으면 되기 때문이다'
       answer: 3
       explanation: |
         particle 은 belief 가 퍼진 공간을 충분히 덮어야 실제 위치 근처에 후보가 생긴다. 위치를 모를 때는 지도 전체가 후보라 덮어야 할 칸이 많고, 위치를 알 때는
@@ -242,38 +242,38 @@
   title: Nav2 의 AMCL 운용
   variants:
     - question: |
-        면접관: "Nav2 의 AMCL 은 무엇을 입력으로 받고 위치를 어떤 형태로 내보내나요?"
+        Nav2 의 AMCL 은 무엇을 입력으로 받고 위치를 어떤 형태로 내보내는가?
       choices:
-        - '카메라 영상만 받아 /odom topic 으로 속도를 낸다'
-        - 'GPS 를 받아 위도·경도를 낸다'
-        - 'LiDAR scan 만 받아 지도를 만들어 낸다'
-        - 'LiDAR scan, map_server 의 지도, odometry tf 를 받아 particle 로 위치를 추정하고, map → odom tf 와 amcl_pose 로 내보내 odometry 의 drift 를 고친다'
+        - '카메라 영상과 odometry 를 받아 /odom topic 으로 로봇의 위치와 속도를 낸다'
+        - 'GPS 와 odometry tf 를 받아 particle 로 위치를 추정하고 위도·경도로 낸다'
+        - 'LiDAR scan 과 odometry 만 받아 지도를 만들면서 그 지도 위의 위치를 map topic 으로 낸다'
+        - 'LiDAR scan, 지도, odometry tf 를 받아 위치를 추정하고 map → odom tf 와 amcl_pose 로 낸다'
       answer: 3
       explanation: |
         AMCL 은 /scan, /map, odom → base_footprint tf 를 받고, 초기 위치는 /initialpose 로 받는다. 추정한 위치는 map → odom tf 로 내보내 odometry 가 쌓은 drift
         만큼을 고치고, 가장 무거운 particle 무리의 평균·공분산을 /amcl_pose 로 낸다. AMCL 은 지도를 만들지 않고 이미 있는 지도를 쓰며, 카메라나 GPS 를
         기본 입력으로 받지 않는다.
     - question: |
-        면접관: "Nav2 를 처음 띄우면 RViz 의 2D Pose Estimate 로 로봇 위치를 찍어 주라고 합니다. AMCL 이 지도 전체에서 스스로 위치를 찾게 하지 않는 이유는?"
+        Nav2 를 처음 띄우면 RViz 의 2D Pose Estimate 로 로봇 위치를 찍어 주라고 한다. AMCL 이 지도 전체에서 스스로 위치를 찾게 하지 않는 이유는?
       choices:
-        - '지도 전체를 덮기에는 기본 최대 particle 수가 적어서 실제 위치 근처에 particle 이 거의 없을 수 있으므로, 초기 위치를 주고 그 주변의 Gaussian 에 particle 을 뿌리는 편이 확실하기 때문이다'
-        - 'AMCL 은 global localization 기능이 전혀 없기 때문이다'
-        - 'RViz 로 찍은 위치를 AMCL 이 정답으로 고정하고 더는 고치지 않기 때문이다'
-        - 'LiDAR 는 초기 위치가 있어야 켜지기 때문이다'
+        - '지도 전체를 덮기에는 기본 최대 particle 수가 적어, 초기 위치 주변에 뿌리는 편이 확실하기 때문이다'
+        - 'AMCL 에는 global localization 기능이 전혀 없어서 처음 위치를 사람이 알려 줘야 하기 때문이다'
+        - 'RViz 로 찍은 위치를 AMCL 이 정답으로 고정하고, 그 뒤로는 odometry 만 더해 가기 때문이다'
+        - 'LiDAR 는 초기 위치가 있어야 켜지므로, 위치를 찍기 전에는 scan 이 들어오지 않기 때문이다'
       answer: 0
       explanation: |
         AMCL 도 reinitialize_global_localization service 로 지도의 빈 칸 전체에 particle 을 뿌릴 수 있다. 그러나 0.5 m × 0.5 m × 10° bin 으로 나누면 작은 공간도
         수만 칸이 되어, 기본 최대 2000 개로는 실제 위치 근처에 후보가 없을 수 있다. 2D Pose Estimate 는 위치와 공분산을 보내고 AMCL 은 그 Gaussian 에서
         particle 을 뽑아 이후로 계속 고친다. LiDAR 는 초기 위치와 관계없이 동작한다.
     - question: |
-        면접관: "AMCL 의 recovery_alpha_slow 와 recovery_alpha_fast 는 무엇을 위한 parameter 인가요?"
+        AMCL 의 recovery_alpha_slow 와 recovery_alpha_fast 는 무엇을 위한 parameter 인가?
       choices:
-        - 'particle 의 최소·최대 개수를 정한다'
-        - 'LiDAR beam 의 최대 거리를 정한다'
-        - 'particle 점수의 짧은 기간 평균이 긴 기간 평균보다 떨어지면 무작위 위치의 particle 을 섞어 넣어, kidnapped robot 같은 상황에서 위치를 되찾게 한다. Nav2 기본값은 0 이라 꺼져 있다'
-        - 'resampling 주기를 정한다'
+        - 'particle 의 최소·최대 개수를 정해, 위치가 불확실할 때 particle 수를 늘리고 줄이게 한다'
+        - 'LiDAR beam 의 최대 거리를 정해, 너무 멀리서 돌아온 beam 을 점수 계산에서 뺀다'
+        - '점수의 짧은 기간 평균이 긴 기간 평균보다 떨어지면 무작위 particle 을 섞어 위치를 되찾게 한다'
+        - 'resampling 주기를 정해, 점수가 떨어질 때 resampling 을 더 자주 하게 한다'
       answer: 2
       explanation: |
         두 값은 particle 점수 평균을 따라가는 짧은 기간 평균(w_fast)과 긴 기간 평균(w_slow)의 갱신 비율이다. 측정이 갑자기 particle 과 맞지 않아 w_fast 가 w_slow
-        보다 떨어지면 1 − w_fast / w_slow 의 확률로 무작위 particle 을 넣는다. 켤 때는 alpha_slow 를 alpha_fast 보다 훨씬 작게 둔다. 개수는 min/max_particles,
+        보다 떨어지면 1 − w_fast / w_slow 의 확률로 무작위 particle 을 넣어 kidnapped robot 같은 상황에서 위치를 되찾는다. Nav2 기본값은 둘 다 0 이라 꺼져 있고, 켤 때는 alpha_slow 를 alpha_fast 보다 훨씬 작게 둔다. 개수는 min/max_particles,
         resampling 주기는 resample_interval 이 정하고, beam 거리와는 관계없다.

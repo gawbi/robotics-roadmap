@@ -5,13 +5,13 @@
   title: action chunking 과 compounding error
   variants:
     - question: |
-        면접관: "ACT 는 관측 한 번에 앞으로 여러 step 의 action 을 묶어서(action chunk) 냅니다. 이것이 behavior cloning 의 compounding
-        error 를 줄이는 이유는 무엇인가요?"
+        ACT 는 관측 한 번에 앞으로 여러 step 의 action 을 묶어서(action chunk) 낸다. 이것이 behavior cloning 의 compounding error 를 줄이는
+        이유는 무엇인가?
       choices:
-        - 'episode 동안 관측을 보고 결정하는 횟수가 chunk 길이로 나눈 만큼 줄어, 실수가 생기고 이어져 쌓일 기회가 줄기 때문이다'
-        - 'chunk 안의 action 하나하나가 step 마다 낸 action 보다 언제나 정확하기 때문이다'
-        - '로봇이 움직이는 횟수가 줄어 실제로 덜 움직이기 때문이다'
-        - '학습 때 loss 가 더 작아지기 때문이다'
+        - '관측을 보고 결정하는 횟수가 chunk 길이로 나눈 만큼 줄어, 실수가 생겨 쌓일 기회도 줄기 때문이다'
+        - 'chunk 안의 action 은 앞뒤 step 을 함께 보고 정하므로 step 마다 낸 action 보다 언제나 정확하기 때문이다'
+        - '한 chunk 를 실행하는 동안 로봇이 덜 움직여서, 실수할 만큼 크게 움직이는 일이 줄기 때문이다'
+        - '여러 step 을 한꺼번에 맞히게 학습하면 학습 loss 가 더 작아져 실행 중 오차도 작아지기 때문이다'
       answer: 0
       explanation: |
         결정 한 번이 $k$ step 을 맡으므로 길이 $T$ 인 episode 의 결정 횟수가 $T \div k$ 로 줄고, 실수가 생겨 다음 결정으로 이어질 기회도 그만큼
@@ -22,23 +22,23 @@
         가장 나쁜 경우 틀리는 결정의 수가 결정 횟수의 제곱에 비례한다고 하자. chunk 길이를 10 배로 늘려 결정 횟수를 10 분의 1 로 줄이면,
         결정 한 번이 틀릴 확률이 그대로일 때 가장 나쁜 경우의 틀린 결정 수는 어떻게 될까?
       choices:
-        - '그대로다'
-        - '10 배가 된다'
+        - '그대로 유지된다'
+        - '10 배로 늘어난다'
         - '100 분의 1 이 된다'
-        - '10 분의 1 이 된다'
+        - '10 분의 1 로 줄어든다'
       answer: 2
       explanation: |
         제곱에 비례하므로 결정 횟수가 10 분의 1 이 되면 틀린 결정 수는 $10 \times 10 = 100$ 분의 1 이 된다. 결정 횟수가 줄었는데 틀린 결정
         수가 그대로일 수는 없다. 10 배가 된다는 답은 결정 횟수가 줄어든 것을 늘어난 것으로 거꾸로 읽은 것이다. 10 분의 1 은 결정 횟수가 줄어드는
         비율이고, 실수가 이어져 커지는 경우에는 효과가 그보다 크다.
     - question: |
-        면접관: "사람 시연 중에 잠깐 멈췄다가 다시 움직이는 구간이 있었습니다. step 마다 지금 관측만 보고 action 하나를 내는 policy 는 그
-        자세에서 멈춘 채 움직이지 않기도 하는데, action chunking 이 이 문제를 줄이는 이유는 무엇인가요?"
+        사람 시연 중에 잠깐 멈췄다가 다시 움직이는 구간이 있었다. step 마다 지금 관측만 보고 action 하나를 내는 policy 는 그 자세에서 멈춘 채
+        움직이지 않기도 하는데, action chunking 이 이 문제를 줄이는 이유는 무엇인가?
       choices:
-        - 'chunk 를 쓰면 멈춘 구간이 데이터에서 자동으로 지워지기 때문이다'
-        - '멈춤과 그 뒤의 움직임이 한 chunk 에 함께 들어 있으면, policy 가 멈췄다가 다시 움직이는 묶음을 통째로 내기 때문이다'
-        - 'chunk 를 쓰면 로봇이 멈출 수 없게 속도의 최솟값이 정해지기 때문이다'
-        - 'chunk 를 쓰면 policy 가 과거 관측을 여러 장 함께 보기 때문이다'
+        - 'chunk 로 묶을 때 멈춘 구간은 action 이 0 이라 학습 데이터에서 자동으로 빠지기 때문이다'
+        - '멈춤과 그 뒤의 움직임이 한 chunk 에 함께 들어 있어, policy 가 그 묶음을 통째로 내기 때문이다'
+        - 'chunk 를 쓰면 로봇이 멈추지 않도록 action 사이의 속도에 최솟값이 정해지기 때문이다'
+        - 'chunk 를 내려면 과거 관측을 여러 장 함께 봐야 해서, 멈춘 뒤 시간이 얼마나 흘렀는지 알 수 있기 때문이다'
       answer: 1
       explanation: |
         지금 관측만 보는 single-step policy 는 멈췄던 자세에서 멈춤을 배우고, 다음 step 에도 거의 같은 관측을 받아 계속 멈출 수 있다. chunk
@@ -49,25 +49,25 @@
   title: 추론 시한과 chunk 길이
   variants:
     - question: |
-        면접관: "action chunking 을 쓰면 모델의 추론이 로봇의 제어 주기보다 느려도 로봇이 명령을 기다리지 않는다고 하는데, 왜 그런가요?"
+        action chunking 을 쓰면 모델의 추론이 로봇의 제어 주기보다 느려도 로봇이 명령을 기다리지 않는다고 하는데, 왜 그런가?
       choices:
         - 'chunk 를 쓰면 모델 안의 계산량이 chunk 길이만큼 나뉘어 줄어 추론이 빨라지기 때문이다'
         - 'chunk 를 쓰면 로봇의 제어 주기가 chunk 길이만큼 느려져 명령이 덜 필요하기 때문이다'
-        - '로봇이 chunk 의 마지막 action 하나만 실행하고 나머지는 버리기 때문이다'
-        - '추론 한 번이 여러 step 분량의 action 을 내므로, 다음 추론은 그 chunk 를 다 실행하기 전에만 끝나면 되기 때문이다'
+        - '로봇이 chunk 의 마지막 action 하나만 실행하고, 다음 chunk 가 올 때까지 그 자세를 유지하기 때문이다'
+        - '한 번 낸 chunk 를 다 실행하기 전에만 다음 추론이 끝나면 되기 때문이다'
       answer: 3
       explanation: |
         추론 한 번으로 $k$ 개의 action 이 나오고 로봇은 그것을 제어 주기마다 하나씩 꺼내 쓰므로, 추론이 끝나야 하는 시한이 step 하나의 길이에서
         $k$ step 의 길이로 늘어난다. 추론 한 번의 계산량은 chunk 를 써도 줄지 않는다. 로봇의 제어 주기도 그대로다. chunk 의 action 은 버리지
         않고 차례로 모두 실행한다.
     - question: |
-        면접관: "1초에 50 번 명령을 받는 로봇이 2 초 분량의 action chunk 를 내는 policy 로 움직입니다. temporal ensembling 은 쓰지 않습니다.
-        이 로봇은 어떻게 움직이나요?"
+        1초에 50 번 명령을 받는 로봇이 2 초 분량의 action chunk 를 내는 policy 로 움직인다. temporal ensembling 은 쓰지 않는다. 이 로봇은 어떻게
+        움직이는가?
       choices:
-        - '로봇은 여전히 1초에 50 번 새 목표를 받아 움직이고, 줄어드는 것은 관측을 보고 결정하는 횟수다'
-        - '로봇은 2 초에 한 번만 움직이고 그 사이에는 멈춰 있다'
-        - '로봇은 2 초 동안 같은 목표 각도 하나를 계속 유지한다'
-        - '로봇은 chunk 를 쓰지 않을 때보다 2 배 빨리 움직인다'
+        - '여전히 1초에 50 번 새 목표를 받아 움직이고, 관측을 보고 결정하는 횟수만 준다'
+        - '2 초에 한 번만 새 목표를 받아 움직이고, 그 사이에는 그 자리에 멈춰 있다'
+        - 'chunk 를 낼 때 본 관측에 맞는 목표 각도 하나를 2 초 동안 계속 유지한다'
+        - '명령을 2 초 분량씩 한꺼번에 받으므로 chunk 를 쓰지 않을 때보다 빨리 움직인다'
       answer: 0
       explanation: |
         chunk 안에는 step 마다의 목표가 하나씩 들어 있어서, 로봇은 chunk 를 쓰든 안 쓰든 같은 간격으로 새 목표를 받아 움직인다. 2 초에 한
@@ -75,12 +75,12 @@
         않는다. chunk 안의 목표는 step 마다 다르므로 한 목표를 2 초 동안 유지하지도 않는다. 명령을 받는 횟수가 같으므로 움직임이 빨라지는
         것도 아니다.
     - question: |
-        면접관: "결정 횟수가 적을수록 좋다면 chunk 길이를 episode 전체로 늘려 첫 관측 한 번으로 모든 action 을 정하면 되지 않나요?"
+        결정 횟수가 적을수록 좋다면 chunk 길이를 episode 전체로 늘려 첫 관측 한 번으로 모든 action 을 정하면 되지 않는가?
       choices:
-        - '결정이 한 번뿐이라 compounding error 가 없으므로 언제나 가장 좋다'
-        - '추론 시한이 너무 짧아져 로봇이 멈춘다'
-        - '실행 중에 물체가 밀리는 등 상황이 바뀌어도 새 관측을 보지 않아 대응하지 못하고, 먼 미래의 예측도 어려워 오히려 나빠질 수 있다'
-        - '로봇이 episode 동안 움직이지 않는다'
+        - '결정이 한 번뿐이라 compounding error 가 생길 틈이 없으므로 언제나 가장 좋은 선택이다'
+        - '추론 시한이 chunk 길이에 반비례해 짧아지므로, episode 전체 길이면 시한이 모자라 로봇이 멈춘다'
+        - '상황이 바뀌어도 새 관측을 보지 않아 대응하지 못하고, 먼 미래를 맞히기도 어려워 오히려 나빠질 수 있다'
+        - 'episode 전체를 한 chunk 로 내면 decoder 가 낼 action 이 너무 많아 로봇이 움직이지 않는다'
       answer: 2
       explanation: |
         chunk 를 실행하는 동안에는 새 관측을 보지 않으므로 chunk 가 길수록 open-loop 제어에 가까워진다. episode 전체를 한 chunk 로 정하면
@@ -92,13 +92,13 @@
   title: 겹치는 chunk 예측의 가중 평균
   variants:
     - question: |
-        면접관: "chunk 를 끝까지 실행한 뒤 다음 chunk 로 넘어가는 policy 에서 chunk 가 바뀔 때마다 팔이 갑자기 튑니다. 원인이 무엇이고,
-        temporal ensembling 은 이것을 어떻게 해결하나요?"
+        chunk 를 끝까지 실행한 뒤 다음 chunk 로 넘어가는 policy 에서 chunk 가 바뀔 때마다 팔이 갑자기 튄다. 원인은 무엇이고, temporal ensembling
+        은 이것을 어떻게 해결하는가?
       choices:
-        - '모터가 느려서 생기는 문제라, temporal ensembling 은 모터 속도를 높인다'
-        - '새 chunk 의 첫 목표가 이전 chunk 의 마지막 목표와 크게 다를 수 있어서이고, temporal ensembling 은 step 마다 추론해 같은 시각에 대한 여러 예측을 평균한다'
-        - '학습 데이터가 부족해서 생기는 문제라, temporal ensembling 은 시연을 늘린다'
-        - '관측이 너무 자주 바뀌어서 생기는 문제라, temporal ensembling 은 관측을 덜 보게 한다'
+        - '모터가 목표를 따라가는 속도가 느려서 생기는 문제라, temporal ensembling 은 모터 속도를 높인다'
+        - '새 chunk 의 첫 목표가 앞 chunk 의 마지막 목표와 다를 수 있어서이고, step 마다 추론해 같은 시각의 예측들을 평균한다'
+        - '시연이 적어 chunk 경계의 움직임을 배우지 못한 문제라, temporal ensembling 은 경계 구간의 시연을 늘려 다시 학습한다'
+        - '관측이 너무 자주 바뀌어 생기는 문제라, temporal ensembling 은 관측을 여러 step 에 한 번만 보게 한다'
       answer: 1
       explanation: |
         새 관측을 보고 낸 chunk 는 이전 chunk 와 상황을 조금 다르게 읽을 수 있어서, 경계에서 목표 각도가 한 step 사이에 크게 튄다. temporal
@@ -106,25 +106,25 @@
         원인은 모터가 아니라 chunk 경계의 목표값이라서, temporal ensembling 은 모터 속도를 건드리지 않는다. 학습은 그대로 두고 추론 때 계산만
         더하므로 시연을 늘리지도 않는다. 관측은 덜 보는 것이 아니라 오히려 step 마다 보게 된다.
     - question: |
-        면접관: "temporal ensembling 과 바로 옆 시각의 action 을 섞어 매끄럽게 만드는 smoothing 은 무엇이 다른가요?"
+        temporal ensembling 과 바로 옆 시각의 action 을 섞어 매끄럽게 만드는 smoothing 은 무엇이 다른가?
       choices:
-        - '둘은 같은 계산이고 이름만 다르다'
-        - 'temporal ensembling 은 학습 때만 쓰고 smoothing 은 추론 때만 쓴다'
-        - 'temporal ensembling 은 가장 최근 예측 하나만 남기고 나머지를 버린다'
-        - 'temporal ensembling 은 서로 다른 chunk 가 같은 시각에 대해 낸 예측만 섞고, smoothing 은 다른 시각의 action 을 섞는다'
+        - '둘 다 앞뒤 시각의 action 을 평균하는 계산이라, 섞는 대상이 같고 이름만 다르다'
+        - 'temporal ensembling 은 학습 때 chunk 를 매끄럽게 만들고, smoothing 은 추론 때 action 을 매끄럽게 만든다'
+        - 'temporal ensembling 은 겹치는 예측 중 가장 최근 것 하나만 남기고, smoothing 은 모두 평균한다'
+        - 'temporal ensembling 은 같은 시각에 대한 여러 chunk 의 예측을 섞고, smoothing 은 다른 시각의 action 을 섞는다'
       answer: 3
       explanation: |
         smoothing 은 옆 시각의 값을 섞으므로 그 시각에 가야 할 각도에서 벗어날 수 있다. temporal ensembling 은 같은 시각을 두고 여러 chunk 가
         낸 예측끼리만 합치므로 그런 어긋남이 없다. 섞는 대상이 다르니 같은 계산이 아니다. temporal ensembling 은 학습은 그대로 두고 추론 때
         계산만 더한다. 예측을 하나만 남기지 않고 모두 weight 를 매겨 평균한다.
     - question: |
-        면접관: "LeRobot 의 ACT 는 temporal ensembling 을 기본으로 꺼 두고, 켤 때는 추론 한 번에 실행하는 action 수를 1 로 두게 합니다.
-        temporal ensembling 의 대가는 무엇인가요?"
+        LeRobot 의 ACT 는 temporal ensembling 을 기본으로 꺼 두고, 켤 때는 추론 한 번에 실행하는 action 수를 1 로 두게 한다. temporal ensembling
+        의 대가는 무엇인가?
       choices:
-        - 'step 마다 추론해야 하므로 추론 한 번이 제어 주기 안에 끝나야 해서, chunk 로 얻던 넉넉한 추론 시한을 잃는다'
-        - '학습을 처음부터 다시 해야 한다'
-        - 'chunk 길이를 1 로 줄여야 한다'
-        - '학습 loss 에 새로운 항을 더해야 한다'
+        - 'step 마다 추론하므로 추론이 제어 주기 안에 끝나야 해서, chunk 로 얻던 넉넉한 추론 시한을 잃는다'
+        - '겹치는 chunk 를 평균하도록 policy 를 바꿔야 하므로 학습을 처음부터 다시 해야 한다'
+        - '실행하는 action 수를 1 로 두므로 chunk 길이도 1 로 줄여 chunk 의 이점이 사라진다'
+        - '겹치는 예측들이 서로 같아지도록 학습 loss 에 새로운 항을 더해야 한다'
       answer: 0
       explanation: |
         chunk 를 끝까지 실행할 때는 추론이 chunk 하나의 길이 안에만 끝나면 됐지만, temporal ensembling 은 매 step 새 chunk 를 내야 하므로 추론
@@ -135,8 +135,8 @@
   title: weight 식 exp(−m·i) 와 m 의 역할
   variants:
     - question: |
-        면접관: "ACT 의 temporal ensembling 은 같은 시각에 대한 예측들에 $w_i = \exp(-m \cdot i)$ 의 weight 를 주고, $i = 0$ 이 가장 오래전에
-        낸 예측입니다. $m > 0$ 일 때 가장 큰 weight 를 받는 예측은 무엇인가요?"
+        ACT 의 temporal ensembling 은 같은 시각에 대한 예측들에 $w_i = \exp(-m \cdot i)$ 의 weight 를 주고, $i = 0$ 이 가장 오래전에 낸
+        예측이다. $m > 0$ 일 때 가장 큰 weight 를 받는 예측은 무엇인가?
       choices:
         - '가장 오래전에 낸 예측'
         - '가장 최근에 낸 예측'
@@ -148,8 +148,7 @@
         관측을 본 예측이 가장 큰 weight 를 받을 것 같지만 이 식은 반대다. weight 는 예측의 값이 아니라 번호로 정해진다. 모든 weight 가 같아지는
         것은 $m = 0$ 일 때뿐이다.
     - question: |
-        면접관: "weight 식 $w_i = \exp(-m \cdot i)$ ($i = 0$ 이 가장 오래된 예측)에서 $m$ 을 0 으로 두면 temporal ensembling 은 어떤 계산이
-        되나요?"
+        weight 식 $w_i = \exp(-m \cdot i)$ ($i = 0$ 이 가장 오래된 예측)에서 $m$ 을 0 으로 두면 temporal ensembling 은 어떤 계산이 되는가?
       choices:
         - '가장 최근 예측만 쓰는 계산'
         - '가장 오래된 예측만 쓰는 계산'
@@ -161,13 +160,12 @@
         나머지 weight 가 0 이어야 하는데 $\exp$ 는 0 이 되지 않는다. 오래된 예측만 쓰는 계산도 같은 이유로 될 수 없다. 한가운데 값을 고르는
         것은 평균이 아니라 L1 loss 의 성질이다.
     - question: |
-        면접관: "ACT 의 weight 식 $w_i = \exp(-m \cdot i)$ ($i = 0$ 이 가장 오래된 예측)에서 $m$ 을 크게 키우면 실행되는 action 은 어떻게
-        달라지나요?"
+        ACT 의 weight 식 $w_i = \exp(-m \cdot i)$ ($i = 0$ 이 가장 오래된 예측)에서 $m$ 을 크게 키우면 실행되는 action 은 어떻게 달라지는가?
       choices:
-        - '최근 예측이 결과를 거의 정해 새 관측이 바로 반영된다'
-        - '오래된 예측이 결과를 거의 정해, 움직임은 매끄럽지만 새 관측이 실행에 늦게 반영된다'
-        - '모든 예측이 같은 weight 를 받는다'
-        - 'chunk 길이가 짧아진다'
+        - '최근 예측이 결과를 거의 정해, 움직임은 덜 매끄럽지만 새 관측이 바로 반영된다'
+        - '오래된 예측이 결과를 거의 정해, 움직임은 매끄럽지만 새 관측이 늦게 반영된다'
+        - '$m$ 이 커지면 모든 $i$ 에서 weight 가 1 에 가까워져 보통 평균과 같아진다'
+        - 'weight 가 빨리 작아지는 만큼 평균할 예측이 줄어 chunk 길이가 짧아진다'
       answer: 1
       explanation: |
         $m$ 이 크면 $i$ 가 커질수록 weight 가 빠르게 작아져서 최근 예측의 몫이 줄고 오래된 예측이 결과를 거의 정한다. 최근 예측은 가장 새 관측을
@@ -178,12 +176,12 @@
   title: style 이 갈린 시연과 평균의 함정
   variants:
     - question: |
-        면접관: "같은 장면에서 사람이 어떤 때는 곧장 내려가 큐브를 잡고, 어떤 때는 잠깐 멈췄다가 내려가 잡았습니다. 둘 다 성공한 시연이고
-        관측은 거의 같습니다. 이 시연으로 chunk 를 MSE 로 학습한 policy 는 무엇을 낼까요?"
+        같은 장면에서 사람이 어떤 때는 곧장 내려가 큐브를 잡고, 어떤 때는 잠깐 멈췄다가 내려가 잡았다. 둘 다 성공한 시연이고 관측은 거의 같다.
+        이 시연으로 chunk 를 MSE 로 학습한 policy 는 무엇을 낼까?
       choices:
-        - '시연이 더 많은 쪽 하나를 그대로 낸다'
-        - '두 시연 가운데 하나를 무작위로 골라 낸다'
-        - '학습이 수렴하지 않아 아무 값이나 낸다'
+        - 'MSE 는 많은 쪽 오차를 더 크게 줄이므로, 시연이 더 많은 쪽 하나를 그대로 낸다'
+        - '정답이 둘이라 학습 때마다 한쪽을 골라 배우므로, 두 시연 가운데 하나를 무작위로 낸다'
+        - '두 정답이 서로 당겨 loss 가 줄지 않으므로, 학습이 수렴하지 않아 아무 값이나 낸다'
         - '칸마다 두 시연의 평균을 내서, 어느 시연과도 다른 어정쩡하게 느린 움직임이 된다'
       answer: 3
       explanation: |
@@ -191,25 +189,24 @@
         시연이 많은 쪽으로 기울 수는 있지만 그쪽 시연을 그대로 내지는 않는다. 같은 관측에 같은 출력을 내는 network 는 무작위로 고르지 않는다.
         학습은 평균 쪽으로 잘 수렴한다.
     - question: |
-        면접관: "L1 loss 는 정답들의 평균 대신 한가운데 값을 고르니 평균의 함정을 피한다는 주장이 있습니다. 시연이 정확히 반반으로 갈린 경우에도
-        맞는 말인가요?"
+        L1 loss 는 정답들의 평균 대신 한가운데 값을 고르니 평균의 함정을 피한다는 주장이 있다. 시연이 정확히 반반으로 갈린 경우에도 맞는 말인가?
       choices:
-        - '아니다. 두 값 사이의 어느 출력이든 L1 합이 같아서 평균이나 칸마다 섞인 chunk 도 똑같이 좋은 답이 된다'
-        - '맞다. L1 은 언제나 시연 하나를 그대로 고른다'
-        - '맞다. L1 은 시연이 갈리면 학습을 멈춘다'
-        - '아니다. L1 은 MSE 와 언제나 같은 답을 낸다'
+        - '아니다. 두 값 사이 어느 출력이든 L1 합이 같아 평균이나 섞인 chunk 도 막지 못한다'
+        - '맞다. 한가운데 값은 언제나 실제 시연 값 하나이므로 L1 은 시연 하나를 그대로 고른다'
+        - '맞다. L1 은 시연이 갈린 장면을 알아보고 그 장면에 대한 학습을 멈춰 평균을 피한다'
+        - '아니다. L1 은 시연이 몇 개로 갈리든 언제나 MSE 와 같은 평균을 답으로 낸다'
       answer: 0
       explanation: |
         두 값으로 반반 갈린 시연에서 그 사이의 값을 예측하면, 한쪽 오차가 느는 만큼 다른 쪽 오차가 줄어 L1 합이 변하지 않는다. 그래서 loss 의
         바닥이 평평해져 평균 chunk 도, 칸마다 다른 시연에서 가져온 섞인 chunk 도 막지 못한다. 시연 하나를 고르는 것은 한가운데 값이 시연 값
         하나로 정해질 때뿐이다. L1 에 학습을 멈추는 장치는 없다. 시연이 셋 이상이면 L1 의 한가운데 값과 MSE 의 평균이 달라질 수 있다.
     - question: |
-        면접관: "behavior cloning 에서 평균의 함정이 생기는 근본 원인은 무엇인가요?"
+        behavior cloning 에서 평균의 함정이 생기는 근본 원인은 무엇인가?
       choices:
-        - 'network 가 너무 작아서'
-        - '학습률이 너무 커서'
-        - '같은 관측에 옳은 정답이 여럿인데, 관측만 받는 policy 는 하나만 낼 수 있어서'
-        - '시연 수가 너무 많아서'
+        - 'network 가 작아 두 움직임을 함께 담을 parameter 가 모자라서'
+        - '학습률이 커서 두 정답 사이를 오가다 가운데에 멈춰서'
+        - '같은 관측에 옳은 정답이 여럿인데, policy 는 하나만 낼 수 있어서'
+        - '시연이 많을수록 서로 다른 움직임이 섞여 평균이 흐려져서'
       answer: 2
       explanation: |
         관측만으로는 사람이 이번에 어떤 방식으로 움직일지 알 수 없는데 정답이 여럿이면, 하나만 낼 수 있는 policy 는 loss 를 줄이려고 정답들
@@ -220,37 +217,37 @@
   title: CVAE 의 style 변수 z 와 KL
   variants:
     - question: |
-        면접관: "ACT 는 학습 때 CVAE encoder 가 시연의 정답 chunk 를 보고 style 변수 $z$ 를 만들어 policy 에 함께 넣습니다. 이것이 평균의
-        함정을 막는 이유는 무엇인가요?"
+        ACT 는 학습 때 CVAE encoder 가 시연의 정답 chunk 를 보고 style 변수 $z$ 를 만들어 policy 에 함께 넣는다. 이것이 평균의 함정을 막는
+        이유는 무엇인가?
       choices:
-        - '$z$ 가 시연 가운데 잘못된 것을 골라 지우기 때문이다'
-        - '$z$ 가 loss 를 MSE 에서 L1 로 바꾸기 때문이다'
-        - '$z$ 가 시연들의 평균을 미리 계산해 주기 때문이다'
-        - '시연마다 다른 $z$ 가 policy 의 입력에 더해져 입력이 서로 달라지므로, 같은 입력에 정답이 여럿인 상황이 없어지기 때문이다'
+        - '$z$ 가 시연마다 잘된 정도를 매겨, 잘못된 시연을 학습에서 골라 지우기 때문이다'
+        - '$z$ 가 들어가면 loss 가 MSE 에서 L1 로 바뀌어 한가운데 값을 고르기 때문이다'
+        - '$z$ 가 시연들의 평균 chunk 를 미리 계산해 policy 에 정답으로 주기 때문이다'
+        - '시연마다 다른 $z$ 가 입력에 더해져, 같은 입력에 정답이 여럿인 상황이 없어지기 때문이다'
       answer: 3
       explanation: |
         평균의 함정은 같은 입력에 정답이 여럿이라서 생긴다. encoder 가 시연마다 그 움직임 방식을 담은 $z$ 를 주면 policy 의 입력이 (관측, $z$)
         로 서로 달라져, policy 는 시연마다 제 chunk 를 내면 된다. 둘 다 성공한 시연이라 지울 것이 없다. loss 의 종류는 $z$ 와 상관없다. 평균을
         계산해 주면 오히려 함정에 빠진다.
     - question: |
-        면접관: "CVAE 의 loss 에서 KL 항(encoder 가 낸 $z$ 의 분포가 표준 정규분포에서 얼마나 먼지)을 빼고 학습하면 어떤 일이 생길 수 있나요?"
+        CVAE 의 loss 에서 KL 항(encoder 가 낸 $z$ 의 분포가 표준 정규분포에서 얼마나 먼지)을 빼고 학습하면 어떤 일이 생길 수 있는가?
       choices:
-        - '$z$ 가 언제나 0 이 된다'
-        - 'encoder 가 정답 chunk 를 $z$ 에 그대로 적어 넘기고, policy 는 관측을 보지 않고 $z$ 를 베끼게 될 수 있다'
-        - '학습이 더 느려질 뿐 결과는 같다'
-        - 'policy 가 사진을 볼 수 없게 된다'
+        - 'KL 이 없으면 encoder 가 정답을 담을 이유도 없어져 $z$ 가 언제나 0 이 된다'
+        - 'encoder 가 정답 chunk 를 $z$ 에 담아 넘기고 policy 는 그것을 베낄 수 있다'
+        - 'KL 은 학습을 안정시키는 역할만 하므로 학습이 조금 느려질 뿐 결과는 같다'
+        - 'KL 이 빠지면 policy 가 사진 대신 $z$ 만 입력으로 받게 되어 사진을 볼 수 없게 된다'
       answer: 1
       explanation: |
         encoder 는 정답 chunk 를 보고 $z$ 를 만들므로, 막는 것이 없으면 $z$ 에 정답을 통째로 담는 것이 L1 을 줄이는 가장 쉬운 길이다. 그러면
         정답이 없는 추론 때 쓸 수 없는 policy 가 된다. KL 은 $z$ 를 표준 정규분포 근처에 모아 담을 수 있는 정보를 줄인다. KL 이 없을 때 $z$ 가
         0 으로 모일 이유는 없다. 학습 속도만이 아니라 $z$ 에 담기는 정보가 달라진다. policy 의 입력에는 그대로 사진이 들어간다.
     - question: |
-        면접관: "ACT 의 loss 는 L1 에 KL 을 $\beta$ 배 해서 더합니다. $\beta$ 를 크게 키우면 $z$ 는 어떻게 되나요?"
+        ACT 의 loss 는 L1 에 KL 을 $\beta$ 배 해서 더한다. $\beta$ 를 크게 키우면 $z$ 는 어떻게 되는가?
       choices:
         - '$z$ 가 0 근처에 더 강하게 모여 $z$ 로 전해지는 정보가 줄어든다'
-        - '$z$ 가 정답 chunk 를 더 자세히 담는다'
-        - '$z$ 의 숫자 개수가 늘어난다'
-        - '$z$ 가 사진의 내용을 담기 시작한다'
+        - 'L1 보다 KL 의 몫이 커져 $z$ 가 정답 chunk 를 더 자세히 담게 된다'
+        - '$z$ 에 담을 정보를 늘리려고 $z$ 의 숫자 개수가 늘어난다'
+        - 'encoder 가 정답 chunk 대신 사진의 내용을 $z$ 에 담기 시작한다'
       answer: 0
       explanation: |
         $\beta$ 가 크면 encoder 의 분포가 표준 정규분포에서 멀어질 때 loss 가 크게 늘어서, encoder 는 꼭 필요한 정보만 $z$ 에 담고 $z$ 들을 0
@@ -261,37 +258,38 @@
   title: 추론 때 z = 0 을 쓰는 이유
   variants:
     - question: |
-        면접관: "학습이 끝난 ACT 로 로봇을 움직일 때는 CVAE encoder 를 쓰지 않습니다. 가장 직접적인 이유는 무엇인가요?"
+        학습이 끝난 ACT 로 로봇을 움직일 때는 CVAE encoder 를 쓰지 않는다. 가장 직접적인 이유는 무엇인가?
       choices:
-        - 'encoder 는 학습 중에 망가지기 때문이다'
-        - 'encoder 는 시연의 정답 chunk 를 입력으로 받아야 하는데, 로봇을 움직이는 순간에는 앞으로 할 정답 chunk 가 없기 때문이다'
-        - 'encoder 의 계산이 너무 느려 실시간으로 쓸 수 없기 때문이다'
-        - 'encoder 는 사진을 볼 수 없기 때문이다'
+        - '학습이 끝나면 KL 때문에 encoder 의 weight 가 0 으로 모여 쓸모가 없어지기 때문이다'
+        - 'encoder 는 정답 chunk 를 입력으로 받는데, 로봇이 움직이는 순간에는 그 정답이 없기 때문이다'
+        - 'encoder 는 Transformer 라 계산이 느려서 제어 주기 안에 $z$ 를 낼 수 없기 때문이다'
+        - 'encoder 는 사진을 입력으로 받지 않아, 지금 장면에 맞는 $z$ 를 만들 수 없기 때문이다'
       answer: 1
       explanation: |
-        CVAE encoder 는 정답 chunk 와 관절 각도를 보고 $z$ 를 만드는데, 실제로 움직일 때는 그 정답이 없어서 encoder 를 쓸 수 없다. 그래서
-        학습 때만 쓰고 추론 때는 $z$ 를 prior 의 평균인 0 으로 둔다. encoder 는 학습 중에 망가지지 않는다. 층 4 개짜리 Transformer 라
-        너무 느려서 버리는 것도 아니다. 사진을 넣지 않은 것은 학습을 빠르게 하려는 설계일 뿐 encoder 를 버리는 이유가 아니다.
+        CVAE encoder 는 정답 chunk 와 관절 각도를 보고 $z$ 를 만드는데, 실제로 움직일 때는 그 정답이 없어서 encoder 를 쓸 수 없다. 그래서 학습
+        때만 쓰고 추론 때는 $z$ 를 prior 의 평균인 0 으로 둔다. KL 이 0 근처로 모으는 것은 encoder 의 weight 가 아니라 $z$ 의 분포라서 encoder
+        가 쓸모없어지지 않는다. 층 4 개짜리 Transformer 라 너무 느려서 버리는 것도 아니다. 사진을 넣지 않은 것은 학습을 빠르게 하려는 설계일 뿐
+        encoder 를 버리는 이유가 아니다.
     - question: |
-        면접관: "추론 때 step 마다 $z$ 를 표준 정규분포에서 새로 뽑고, 겹치는 chunk 들을 temporal ensembling 으로 평균하면 어떤 문제가
-        생길 수 있나요?"
+        추론 때 step 마다 $z$ 를 표준 정규분포에서 새로 뽑고, 겹치는 chunk 들을 temporal ensembling 으로 평균하면 어떤 문제가 생길 수 있는가?
       choices:
-        - '아무 문제가 없다. 무작위 $z$ 가 움직임을 더 다양하게 만든다'
-        - '추론이 너무 느려진다'
-        - 'chunk 의 길이가 step 마다 달라진다'
-        - '연달아 낸 chunk 들이 서로 다른 style 을 따를 수 있고, 그 예측들을 평균하면 어느 시연에도 없는 움직임이 다시 나온다'
+        - '아무 문제가 없다. 무작위 $z$ 가 움직임을 다양하게 만들어 시연들을 고루 따라 한다'
+        - '$z$ 를 뽑을 때마다 decoder 를 처음부터 다시 계산해야 해서 추론이 제어 주기보다 느려진다'
+        - '$z$ 가 바뀔 때마다 decoder 의 query 수가 달라져 chunk 의 길이가 step 마다 달라진다'
+        - '연달아 낸 chunk 들이 서로 다른 style 을 따르면, 그 평균이 어느 시연에도 없는 움직임이 된다'
       answer: 3
       explanation: |
-        temporal ensembling 은 같은 시각에 대한 여러 chunk 의 예측을 평균한다. chunk 마다 $z$ 가 다르면 한 chunk 는 바로 내려가고 다른 chunk
-        는 멈췄다 내려가는 식으로 style 이 갈리고, 그 평균은 평균의 함정과 같은 어정쩡한 움직임이 된다. 다양해진 style 이 평균으로 섞이므로
-        문제가 없다고 할 수 없다. $z$ 하나를 뽑는 계산은 가벼워 추론 속도와 상관없다. chunk 의 길이는 고정된 설정값이다.
+        temporal ensembling 은 같은 시각에 대한 여러 chunk 의 예측을 평균한다. chunk 마다 $z$ 가 다르면 한 chunk 는 바로 내려가고 다른 chunk 는
+        멈췄다 내려가는 식으로 style 이 갈리고, 그 평균은 평균의 함정과 같은 어정쩡한 움직임이 된다. 다양해진 style 이 평균으로 섞이므로 문제가
+        없다고 할 수 없다. decoder 는 $z$ 와 상관없이 step 마다 한 번 계산하고 $z$ 하나를 뽑는 계산은 가벼워서, 추론 속도와 상관없다.
+        chunk 의 길이는 고정된 설정값이다.
     - question: |
-        면접관: "추론 때 $z = 0$ 으로 고정하는 ACT 의 방식에 대한 설명으로 옳은 것은 무엇인가요?"
+        추론 때 $z = 0$ 으로 고정하는 ACT 의 방식에 대한 설명으로 옳은 것은 무엇인가?
       choices:
-        - '시연이 정반대인 두 방식으로 반반 갈려도 언제나 둘 중 하나를 확실히 고른다'
-        - '0 근처는 KL 이 학습 내내 $z$ 들을 모아 둔 곳이라 policy 에게 익숙하지만, 언제나 style 하나만 내고 다른 style 은 쓰지 않는다'
-        - '$z = 0$ 이면 policy 가 관측을 무시하고 언제나 같은 chunk 를 낸다'
-        - '0 은 학습 때 한 번도 쓰이지 않은 값이라 새로운 움직임을 만든다'
+        - '시연이 정반대인 두 방식으로 반반 갈려도, 0 이 한쪽 무리에 속하므로 언제나 하나를 확실히 고른다'
+        - '0 근처는 KL 이 $z$ 들을 모아 둔 곳이라 policy 에게 익숙하지만, 언제나 style 하나만 낸다'
+        - '$z = 0$ 이면 style 정보가 사라져 policy 가 관측도 무시하고 언제나 같은 chunk 를 낸다'
+        - '0 은 KL 이 $z$ 를 밀어낸 값이라 학습 때 쓰이지 않았고, 그래서 새로운 움직임을 만든다'
       answer: 1
       explanation: |
         KL 이 $z$ 들을 prior 의 평균인 0 근처로 모았으므로 policy 는 0 근처의 $z$ 를 가장 많이 보고 배웠고, $z$ 를 고정하면 같은 관측에 같은
@@ -303,12 +301,12 @@
   title: ACT 의 token 과 decoder
   variants:
     - question: |
-        면접관: "ACT 의 Transformer decoder 에는 학습으로 정해지는 고정 query 가 chunk 길이만큼 들어갑니다. 이 query 들은 어떤 역할을 하나요?"
+        ACT 의 Transformer decoder 에는 학습으로 정해지는 고정 query 가 chunk 길이만큼 들어간다. 이 query 들은 어떤 역할을 하는가?
       choices:
-        - '카메라 사진의 각 구역을 나타낸다'
-        - '앞 step 에서 낸 action 을 다시 입력으로 넣는 자리다'
-        - '각 query 가 chunk 안의 한 step 의 action 을 맡아 cross-attention 으로 encoder 출력을 읽고, 모든 step 을 한꺼번에 낸다'
-        - 'CVAE 의 $z$ 를 뽑는 데 쓰인다'
+        - '카메라 사진을 칸으로 나눈 구역을 하나씩 나타내, decoder 에 사진을 넣는 자리다'
+        - '앞 step 에서 낸 action 을 다음 query 로 다시 넣어, chunk 를 한 step 씩 차례로 낸다'
+        - '각 query 가 한 step 을 맡아 cross-attention 으로 encoder 출력을 읽고, 모든 step 을 한꺼번에 낸다'
+        - 'CVAE 의 $z$ 를 뽑는 자리라, query 마다 다른 style 의 $z$ 를 하나씩 만든다'
       answer: 2
       explanation: |
         $i$ 번째 query 가 $i$ 번째 step 의 action 을 찾는 자리이고, cross-attention 으로 사진·관절·$z$ 를 요약한 encoder 출력을 읽은 뒤
@@ -316,25 +314,25 @@
         encoder 에 들어가는 token 이다. 앞 출력을 다시 넣는 것은 번역 decoder 의 방식이고 ACT 는 그렇게 하지 않는다. $z$ 는 CVAE encoder 가
         만든다.
     - question: |
-        면접관: "ACT 는 ResNet-18 의 마지막 feature map 을 평균 내 vector 하나로 줄이지 않고, 칸마다 token 으로 만든 뒤 2D positional
-        embedding 을 더합니다. 왜 그렇게 하나요?"
+        ACT 는 ResNet-18 의 마지막 feature map 을 평균 내 vector 하나로 줄이지 않고, 칸마다 token 으로 만든 뒤 2D positional embedding 을
+        더한다. 왜 그렇게 하는가?
       choices:
-        - '평균을 내면 계산이 더 많아지기 때문이다'
-        - 'positional embedding 이 사진의 색을 보정하기 때문이다'
-        - '평균을 내면 물체가 사진의 어느 구역에 있는지가 사라지는데, 칸마다 token 을 두고 위치를 더하면 attention 이 위치를 구분할 수 있기 때문이다'
-        - 'Transformer 는 vector 하나를 입력으로 받을 수 없기 때문이다'
+        - '평균을 내려면 모든 칸을 한 번씩 더해야 해서 계산이 오히려 더 많아지기 때문이다'
+        - 'positional embedding 이 칸마다 다른 조명을 보정해 사진의 색을 고르게 맞추기 때문이다'
+        - '평균을 내면 물체가 사진의 어느 구역에 있는지가 사라지는데, 칸마다 token 을 두면 위치가 남기 때문이다'
+        - 'Transformer 는 token 을 여러 개 받아야만 attention 을 계산할 수 있어 vector 하나는 넣을 수 없기 때문이다'
       answer: 2
       explanation: |
         global average pooling 은 모든 칸의 값을 평균 내 위치 정보를 없앤다. 칸마다 token 을 두면 구역별 정보가 남고, attention 은 token 의
         순서를 모르므로 줄 번호와 칸 번호를 sin·cos 로 담은 위치 vector 를 더해 어느 칸의 token 인지 구분하게 한다. 평균은 오히려 계산이 적은 쪽이다.
         positional embedding 은 색과 상관없이 위치를 담는다. Transformer 는 token 하나도 받을 수 있지만 위치를 잃는 것이 문제다.
     - question: |
-        면접관: "ACT 논문은 decoder 층을 7 개로 적었는데, LeRobot 은 ACT 의 decoder 층 기본값을 1 로 둡니다. 왜 그런가요?"
+        ACT 논문은 decoder 층을 7 개로 적었는데, LeRobot 은 ACT 의 decoder 층 기본값을 1 로 둔다. 왜 그런가?
       choices:
-        - 'LeRobot 이 계산을 줄이려고 성능을 조금 포기했기 때문이다'
-        - '7 층은 GPU 메모리에 들어가지 않기 때문이다'
-        - 'decoder 층 수는 성공률과 아무 관계가 없다는 실험이 있었기 때문이다'
-        - '원 구현이 각 층의 출력을 모은 목록에서 첫째 층의 출력만 꺼내 써서 2 ~ 7 층이 학습되지 않았고, 쓸데없는 계산 없이 같은 동작을 내려는 것이다'
+        - 'LeRobot 이 학습과 추론 계산을 줄이려고 성공률을 조금 포기하고 층 수를 줄였기 때문이다'
+        - '7 층짜리 decoder 는 parameter 가 너무 많아 보통 GPU 메모리에 들어가지 않기 때문이다'
+        - '층을 늘려도 성공률이 그대로라는 실험 결과를 따라 1 층으로 정했기 때문이다'
+        - '원 구현이 첫째 층의 출력만 action 으로 써서 2 ~ 7 층이 학습되지 않았고, 그 동작을 그대로 따른 것이다'
       answer: 3
       explanation: |
         원 구현은 DETR 에서 각 층의 출력을 모은 목록을 물려받았는데, Transformer 가 목록만 돌려주도록 바꾼 뒤에도 `[0]` 을 남겨 첫째 층의

@@ -5,37 +5,37 @@
   title: 갈라진 정답과 MSE 의 평균
   variants:
     - question: |
-        면접관: "정면의 장애물을 절반은 왼쪽으로, 절반은 오른쪽으로 피한 시연이 있습니다. 행동 하나를 내는 policy 를 MSE 로 학습하면
-        어떤 행동이 나오나요?"
+        정면의 장애물을 절반은 왼쪽으로, 절반은 오른쪽으로 피한 시연이 있다. 행동 하나를 내는 policy 를 MSE 로 학습하면
+        어떤 행동이 나오는가?
       choices:
-        - '시연이 더 많이 들어온 쪽인 왼쪽이나 오른쪽 하나를 고른다'
+        - '시연 수가 조금이라도 많은 쪽을 따라 왼쪽이나 오른쪽 가운데 하나를 고른다'
         - '두 무리의 평균인 가운데 행동을 내서 장애물로 곧장 향할 수 있다'
-        - '실행할 때마다 왼쪽과 오른쪽을 무작위로 번갈아 낸다'
-        - 'loss 가 줄지 않아 학습이 발산한다'
+        - '두 무리를 모두 배웠으므로 실행할 때마다 왼쪽과 오른쪽을 무작위로 번갈아 낸다'
+        - '같은 입력에 정답이 둘이라 loss 가 줄지 않고 학습이 발산한다'
       answer: 1
       explanation: |
         MSE 를 가장 작게 하는 예측은 정답들의 평균이라서, 왼쪽과 오른쪽이 반반이면 어느 쪽으로도 비키지 않는 가운데 행동이 나온다. 시연 수가
         같으므로 한쪽을 고를 근거가 없다. 행동 하나를 내는 policy 는 같은 입력에 늘 같은 출력을 내서 번갈아 고르지 못한다. 학습은 발산하지
         않고 정상적으로 끝나는데, 그 결과가 평균일 뿐이다.
     - question: |
-        면접관: "같은 관측에서 옳은 행동이 여러 무리로 갈라지는 시연 데이터를 multimodal 이라고 부릅니다. 여기서 multimodal 은 무슨 뜻인가요?"
+        같은 관측에서 옳은 행동이 여러 무리로 갈라지는 시연 데이터를 multimodal 이라고 부른다. 여기서 multimodal 은 무슨 뜻인가?
       choices:
         - '카메라 이미지와 관절 각도처럼 입력의 종류가 여럿이라는 뜻이다'
-        - '시연을 여러 사람이 모았다는 뜻이다'
+        - '시연을 여러 사람이 나눠 모아서 사람마다 습관이 다르다는 뜻이다'
         - '정답의 분포에 값이 몰린 봉우리(mode)가 여럿이라는 뜻이다'
-        - 'policy 가 여러 개의 network 로 되어 있다는 뜻이다'
+        - 'policy 가 여러 개의 network 로 되어 있어 정답을 여럿 낸다는 뜻이다'
       answer: 2
       explanation: |
         mode 는 값이 몰린 봉우리이고, multimodal 시연은 같은 관측에 옳은 행동의 봉우리가 여럿인 데이터다. 입력의 종류가 여럿이라는 뜻은 VLA 를
         multimodal 모델이라고 부를 때의 다른 뜻이다. 시연을 모은 사람 수는 봉우리 수와 관계없다. policy 를 이루는 network 의 개수도 데이터의
         성질과 관계없다.
     - question: |
-        면접관: "시연의 정답이 여러 무리로 갈라질 때, 생성 모델로 이 문제를 다루는 방법은 무엇인가요?"
+        시연의 정답이 여러 무리로 갈라질 때, 생성 모델로 이 문제를 다루는 방법은 무엇인가?
       choices:
-        - '정답들의 분포를 배운 뒤, 실행할 때마다 그 분포에서 하나를 뽑아 한 무리에 속한 행동을 낸다'
-        - '정답들의 평균을 더 정확하게 계산하도록 학습 epoch 를 늘린다'
-        - '가장 먼저 모은 시연 하나만 남기고 나머지는 지운다'
-        - 'learning rate 를 줄여 평균으로 가는 속도를 늦춘다'
+        - '정답들의 분포를 배워서, 실행할 때 그 분포에서 한 무리의 행동을 뽑는다'
+        - '평균이 정확해지면 가운데 행동도 맞아지므로 학습 epoch 를 늘린다'
+        - '무리가 하나만 남도록 가장 먼저 모은 시연 하나만 두고 나머지는 지운다'
+        - 'learning rate 를 줄여 policy 가 평균으로 끌려가는 속도를 늦춘다'
       answer: 0
       explanation: |
         분포를 배워서 그 분포에서 뽑으면 매번 한 무리의 행동이 나오고 가운데 행동은 거의 나오지 않는다. epoch 를 늘리면 평균에 더 정확히
@@ -46,24 +46,24 @@
   title: autoencoder 와 latent space 의 빈 곳
   variants:
     - question: |
-        면접관: "잘 학습한 보통의 autoencoder 에서 latent 를 무작위로 골라 decoder 에 넣으면 그럴듯한 새 데이터가 나온다는 보장이 없습니다.
-        이유가 무엇인가요?"
+        잘 학습한 보통의 autoencoder 에서 latent 를 무작위로 골라 decoder 에 넣으면 그럴듯한 새 데이터가 나온다는 보장이 없다.
+        이유는 무엇인가?
       choices:
-        - 'decoder 는 encoder 를 거친 값만 입력으로 받을 수 있기 때문이다'
-        - 'autoencoder 는 학습 데이터도 되살리지 못하기 때문이다'
-        - 'latent 의 차원이 데이터의 차원보다 항상 크기 때문이다'
-        - 'loss 가 학습 데이터의 latent 가 어디에 모일지 정하지 않아서, 모인 곳 사이에 decoder 가 학습 중 받아 본 적 없는 빈 곳이 남기 때문이다'
+        - 'decoder 는 encoder 를 거친 값만 입력으로 받을 수 있어서, 무작위 latent 는 처리하지 못하기 때문이다'
+        - 'autoencoder 는 정보를 줄이는 모델이라 학습 데이터조차 제대로 되살리지 못하기 때문이다'
+        - 'latent 의 차원이 데이터보다 커서 무작위로 고르면 의미 없는 값이 섞이기 때문이다'
+        - 'loss 가 latent 의 위치를 정하지 않아서, 무리 사이에 decoder 가 본 적 없는 빈 곳이 남기 때문이다'
       answer: 3
       explanation: |
         autoencoder 의 loss 는 학습 데이터를 잘 되살리기만 하면 작아지므로 latent 의 위치에는 제약이 없고, 무리 사이의 빈 곳에서는 decoder 의
         출력이 정해져 있지 않다. decoder 는 어떤 latent 든 입력으로 받을 수 있다. 질문의 autoencoder 는 잘 학습해서 학습 데이터는 잘 되살린다.
         latent 는 보통 데이터보다 훨씬 적은 숫자로 줄인 것이라서 차원이 더 크지 않다.
     - question: |
-        면접관: "autoencoder 는 정답 label 없이 무엇을 정답으로 삼아 학습하나요?"
+        autoencoder 는 정답 label 없이 무엇을 정답으로 삼아 학습하는가?
       choices:
-        - '사람이 데이터마다 달아 둔 class label'
-        - '입력 자기 자신. 줄였다가 되살린 출력이 원래 입력과 같아지도록 reconstruction loss 를 줄인다'
-        - '표준 정규분포에서 뽑은 무작위 값'
+        - '사람이 데이터마다 달아 둔 class label 을 latent 로 맞힌다'
+        - '입력 자기 자신. 되살린 출력과 원래 입력의 차이를 줄인다'
+        - '표준 정규분포에서 뽑은 무작위 값을 latent 의 정답으로 삼는다'
         - 'latent 의 각 숫자가 무슨 뜻인지 사람이 정해 둔 값'
       answer: 1
       explanation: |
@@ -71,11 +71,11 @@
         class label 은 필요 없다. 표준 정규분포는 VAE 가 latent 에 붙이는 prior 이고 정답으로 쓰이지 않는다. latent 의 뜻은 사람이 정하지 않고
         학습으로 정해진다.
     - question: |
-        면접관: "autoencoder 의 latent 차원(z_dim)을 아주 작게 줄이면 무엇이 달라지나요?"
+        autoencoder 의 latent 차원(z_dim)을 아주 작게 줄이면 무엇이 달라지는가?
       choices:
         - '담을 수 있는 정보가 줄어 되살린 출력이 원래 입력과 더 많이 달라진다'
-        - '되살린 출력이 원래 입력보다 더 선명해진다'
-        - 'latent space 의 빈 곳이 저절로 모두 사라진다'
+        - '꼭 필요한 정보만 남아 되살린 출력이 원래 입력보다 더 선명해진다'
+        - 'latent 가 좁은 공간에 몰려서 latent space 의 빈 곳이 저절로 모두 사라진다'
         - 'encoder 없이 decoder 만으로 학습할 수 있게 된다'
       answer: 0
       explanation: |
@@ -86,36 +86,36 @@
   title: 평균과 분산을 내는 encoder
   variants:
     - question: |
-        면접관: "VAE 의 encoder 는 왜 latent 의 점 하나 대신 평균과 표준편차를 내나요?"
+        VAE 의 encoder 가 latent 의 점 하나 대신 평균과 표준편차를 내는 이유는 무엇인가?
       choices:
-        - '평균과 표준편차가 점 하나보다 저장 공간을 덜 쓰기 때문이다'
-        - 'decoder 가 표준편차를 입력으로 직접 받아야 하기 때문이다'
-        - '데이터 하나를 범위로 만들어 decoder 가 그 범위 전체를 되살리게 하고, 데이터마다 만든 범위가 겹쳐 latent space 의 빈 곳이 채워지게 하기 위해서다'
-        - '평균만 쓰면 gradient 를 구할 수 없기 때문이다'
+        - '평균과 표준편차 두 숫자로 요약하면 점 하나를 그대로 저장할 때보다 공간을 덜 쓰기 때문이다'
+        - 'decoder 가 얼마나 흐리게 그릴지 정하려면 표준편차를 입력으로 직접 받아야 하기 때문이다'
+        - '데이터 하나를 범위로 만들어 decoder 가 범위 전체를 되살리게 하면, 범위끼리 겹쳐 빈 곳이 채워지기 때문이다'
+        - '평균만 내면 출력이 미분할 수 없는 점이 되어, encoder 로 gradient 를 구할 수 없기 때문이다'
       answer: 2
       explanation: |
         학습 때 그 분포에서 뽑은 latent 가 매번 조금씩 달라서, decoder 는 평균 근처의 범위 전체를 같은 데이터로 되살리는 법을 배운다. 범위끼리
         맞닿거나 겹치면 빈 곳이 줄어든다. 숫자가 두 배라 저장 공간은 오히려 늘어난다. decoder 는 뽑은 latent 하나를 받고 표준편차를 따로 받지
         않는다. 평균만 내는 보통의 autoencoder 도 gradient 는 구할 수 있다.
     - question: |
-        면접관: "VAE 구현에서 encoder 가 표준편차 σ 대신 log σ² (logvar)를 내는 이유는 무엇인가요?"
+        VAE 구현에서 encoder 가 표준편차 σ 대신 log σ² (logvar)를 내는 이유는 무엇인가?
       choices:
-        - 'log 를 씌우면 KL 항이 사라지기 때문이다'
-        - 'logvar 를 내면 reparameterization trick 이 필요 없어지기 때문이다'
-        - 'logvar 가 GPU 에서만 계산되기 때문이다'
-        - '마지막 Linear layer 는 음수도 내는데, logvar 는 어떤 값이든 σ = exp(logvar / 2) 로 바꾸면 언제나 양수인 표준편차가 되기 때문이다'
+        - 'log 를 씌운 값을 내면 KL 항의 log 와 상쇄되어 KL 항을 계산할 필요가 없기 때문이다'
+        - 'logvar 는 무작위성이 없는 값이라, 이것을 내면 reparameterization trick 이 필요 없어지기 때문이다'
+        - 'σ 는 CPU 에서 계산해야 하지만 logvar 는 GPU 에서 바로 계산되기 때문이다'
+        - 'Linear layer 의 출력은 음수일 수 있는데, logvar 는 exp 를 씌우면 언제나 양수인 σ 가 되기 때문이다'
       answer: 3
       explanation: |
         표준편차는 0 보다 커야 하지만 Linear layer 의 출력은 음수일 수 있다. logvar 는 어떤 실수여도 되고, exp 를 씌우면 언제나 양수가 된다.
         KL 항은 logvar 를 넣어 그대로 계산하므로 사라지지 않는다. latent 를 뽑는 단계는 남아 있어서 reparameterization trick 은 여전히 필요하다.
         CPU 와 GPU 중 어디서 계산하는지는 이 선택과 관계없다.
     - question: |
-        면접관: "VAE 에서 prior 와 posterior 는 각각 무엇을 가리키나요?"
+        VAE 에서 prior 와 posterior 는 각각 무엇을 가리키는가?
       choices:
-        - 'prior 는 decoder 의 출력이고, posterior 는 encoder 의 입력이다'
-        - 'prior 는 학습 전에 latent 가 따르도록 정해 둔 분포(보통 N(0, I))이고, posterior 는 encoder 가 데이터 하나를 보고 낸 latent 의 분포다'
-        - 'prior 는 학습 데이터 전체의 평균이고, posterior 는 test 데이터의 평균이다'
-        - 'prior 는 첫 epoch 의 loss 이고, posterior 는 마지막 epoch 의 loss 다'
+        - 'prior 는 decoder 가 되살린 출력 이미지이고, posterior 는 encoder 에 들어가는 원래 입력 이미지다'
+        - 'prior 는 학습 전에 정해 둔 latent 의 분포(보통 N(0, I))이고, posterior 는 encoder 가 데이터 하나를 보고 낸 분포다'
+        - 'prior 는 학습을 시작하기 전에 잰 학습 데이터 전체의 평균이고, posterior 는 test 데이터의 평균이다'
+        - 'prior 는 학습 앞부분인 첫 epoch 의 loss 이고, posterior 는 학습을 마친 마지막 epoch 의 loss 다'
       answer: 1
       explanation: |
         prior 와 posterior 는 라틴어로 앞과 뒤라는 뜻으로, 데이터를 보기 전에 정한 분포와 데이터를 본 뒤의 분포를 가리킨다. VAE 의 prior 는
@@ -126,19 +126,19 @@
   title: reparameterization trick
   variants:
     - question: |
-        면접관: "VAE 에서 reparameterization trick 이 필요한 이유는 무엇인가요?"
+        VAE 에서 reparameterization trick 이 필요한 이유는 무엇인가?
       choices:
-        - 'N(μ, σ²) 에서 latent 를 바로 뽑으면 μ, σ 를 조금 바꿨을 때 latent 가 변하는 비율을 정할 수 없어서, encoder 로 gradient 가 전해지지 않기 때문이다'
-        - 'decoder 의 weight 를 학습할 수 없기 때문이다'
-        - 'latent 의 차원을 줄이기 위해서다'
-        - 'test 할 때 latent 를 뽑지 않기 위해서다'
+        - '바로 뽑으면 μ, σ 를 바꿀 때 latent 가 변하는 비율이 없어서, encoder 로 gradient 가 전해지지 않기 때문이다'
+        - '뽑은 latent 는 gradient 가 없는 값이라, 그 latent 를 받는 decoder 의 weight 를 학습할 수 없기 때문이다'
+        - 'μ 와 σ 를 하나의 latent 로 합쳐 encoder 가 내는 latent 의 차원을 절반으로 줄이기 위해서다'
+        - 'test 할 때는 ε 을 0 으로 두어, 무작위 뽑기 없이 같은 latent 를 내기 위해서다'
       answer: 0
       explanation: |
         바로 뽑으면 μ 를 바꿔 다시 뽑아도 결과가 운에 따라 달라져서, μ 를 바꿀 때 latent 가 변하는 비율을 정할 수 없다. decoder 는 뽑힌 latent 를
         입력으로 받으므로 이 trick 이 없어도 학습된다. 이 trick 을 써도 latent 의 차원은 그대로다. test 때 latent 를 뽑을지는 이 trick 과
         관계없는 별개의 선택이다.
     - question: |
-        면접관: "z = μ + σ ⊙ ε, ε ~ N(0, I) 로 latent 를 만들 때, z 를 μ 와 σ 로 미분하면 각각 무엇이 되나요?"
+        z = μ + σ ⊙ ε, ε ~ N(0, I) 로 latent 를 만들 때, z 를 μ 와 σ 로 미분하면 각각 무엇이 되는가?
       choices:
         - '∂z/∂μ = 0, ∂z/∂σ = 0. ε 이 무작위라서 비율이 없다'
         - '∂z/∂μ = σ, ∂z/∂σ = μ'
@@ -150,12 +150,12 @@
         뒤에는 상수로 보므로 비율은 0 이 아니다. ∂z/∂μ = σ 로 본 보기는 더하는 항 μ 와 ε 에 곱하는 계수 σ 를 혼동했다. ∂z/∂μ = ε 으로 본 보기는
         μ 와 σ 의 역할을 뒤집었다.
     - question: |
-        면접관: "reparameterization trick 을 쓰면 VAE 의 latent 에서 무작위성은 어떻게 되나요?"
+        reparameterization trick 을 쓰면 VAE 의 latent 에서 무작위성은 어떻게 되는가?
       choices:
         - '무작위성이 완전히 사라져 같은 입력에는 늘 같은 latent 가 나온다'
-        - '무작위성이 encoder 의 weight 안으로 옮겨 간다'
-        - '무작위성이 decoder 의 출력에만 남는다'
-        - '무작위성은 그대로 있고, 계산 가운데의 뽑기에서 바깥에서 뽑아 넣는 입력 ε 으로 자리만 옮겨 간다'
+        - '무작위성이 encoder 의 weight 안으로 옮겨 가서, 학습 때마다 weight 가 무작위로 바뀐다'
+        - 'latent 는 고정되고, 무작위성은 decoder 가 출력을 만들 때 더하는 noise 에만 남는다'
+        - '무작위성은 그대로 있고, 바깥에서 뽑아 넣는 입력 ε 으로 자리만 옮겨 간다'
       answer: 3
       explanation: |
         ε 은 학습할 때 매번 새로 뽑으므로 latent 는 여전히 매번 다르다. 다만 뽑기가 μ, σ 를 지나는 계산의 바깥에 있어서 gradient 가 끊기지 않는다.
@@ -166,11 +166,11 @@
   title: KL 항과 ELBO
   variants:
     - question: |
-        면접관: "VAE loss 의 KL 항은 encoder 가 내는 μ 와 σ 를 각각 어느 쪽으로 끌어당기나요? prior 는 N(0, 1) 입니다."
+        VAE loss 의 KL 항은 encoder 가 내는 μ 와 σ 를 각각 어느 쪽으로 끌어당기는가? prior 는 N(0, 1) 이다.
       choices:
         - 'μ 는 0 쪽으로 끌어당기고 σ 는 1 쪽으로 끌어당긴다'
-        - 'μ 는 멀리 흩어 놓고 σ 는 0 쪽으로 끌어당긴다'
-        - 'μ 와 σ 모두 0 쪽으로 끌어당긴다'
+        - 'μ 는 데이터끼리 멀리 흩어 놓고 σ 는 0 쪽으로 끌어당겨 범위를 좁힌다'
+        - 'prior 의 평균이 0 이므로 μ 와 σ 를 모두 0 쪽으로 끌어당긴다'
         - 'μ 와 σ 는 그대로 두고 decoder 의 weight 만 바꾼다'
       answer: 0
       explanation: |
@@ -178,11 +178,11 @@
         것은 reconstruction 항을 줄이는 방향이다. σ 를 0 쪽으로 보내면 −log σ² 이 커져서 KL 이 오히려 커진다. KL 항은 encoder 가 낸 μ, σ 로만
         계산되므로 encoder 의 weight 를 바꾼다.
     - question: |
-        면접관: "ELBO 를 키우는 것과 VAE 의 loss 를 줄이는 것은 어떤 관계인가요?"
+        ELBO 를 키우는 것과 VAE 의 loss 를 줄이는 것은 어떤 관계인가?
       choices:
-        - 'ELBO 는 log p(x) 보다 항상 크므로, ELBO 를 줄여야 loss 가 준다'
-        - 'ELBO 는 reconstruction loss 와 KL 의 합에 마이너스를 붙인 값이라, β = 1 인 loss 를 줄이는 것과 ELBO 를 키우는 것은 같은 일이다'
-        - '둘은 관계가 없고 ELBO 는 test 때만 계산한다'
+        - 'ELBO 는 log p(x) 의 위쪽 경계라서 log p(x) 보다 항상 크므로, ELBO 를 줄여야 loss 가 준다'
+        - 'ELBO 는 reconstruction loss 와 KL 의 합에 마이너스를 붙인 값이라, β = 1 이면 같은 일이다'
+        - '둘은 관계가 없다. ELBO 는 학습이 끝난 뒤 test 때 모델을 평가하려고만 계산한다'
         - 'ELBO 는 KL 항만 뜻하고 reconstruction 항은 포함하지 않는다'
       answer: 1
       explanation: |
@@ -190,12 +190,12 @@
         log p(x) 의 아래쪽 경계라서 log p(x) 보다 크지 않다. VAE 는 학습할 때 ELBO 를 계산해 키우므로 test 때만 계산하는 값이 아니다. ELBO 에는
         KL 항과 reconstruction 항이 모두 들어 있다.
     - question: |
-        면접관: "VAE 는 왜 log p(x) 를 직접 키우지 않고 ELBO 를 키우나요?"
+        VAE 가 log p(x) 를 직접 키우지 않고 ELBO 를 키우는 이유는 무엇인가?
       choices:
-        - 'log p(x) 는 항상 0 이라서 키울 수 없기 때문이다'
-        - 'ELBO 가 log p(x) 보다 언제나 크기 때문이다'
-        - 'p(x) 를 구하려면 가능한 모든 latent 에 걸쳐 확률을 더해야 해서 직접 계산할 수 없고, ELBO 는 계산할 수 있으면서 log p(x) 이하로 보장되기 때문이다'
-        - 'log p(x) 를 키우면 KL 이 음수가 되기 때문이다'
+        - 'p(x) 는 확률이라 1 이하이고 학습 데이터에서는 이미 1 이므로, log p(x) 는 항상 0 이라 키울 수 없기 때문이다'
+        - 'ELBO 가 log p(x) 보다 언제나 커서, ELBO 를 키우면 log p(x) 는 저절로 따라 커지기 때문이다'
+        - 'p(x) 는 모든 latent 에 걸쳐 더해야 해서 계산할 수 없고, ELBO 는 계산할 수 있는 log p(x) 의 하한이기 때문이다'
+        - 'log p(x) 를 직접 키우면 KL 항이 음수가 되어 loss 가 끝없이 작아지기 때문이다'
       answer: 2
       explanation: |
         p(x) 는 모든 z 에 걸쳐 p(z) p(x|z) 를 더하거나 적분해야 해서 계산할 수 없다. ELBO 는 encoder 가 낸 분포로 계산할 수 있고, log p(x) 와의
@@ -206,38 +206,38 @@
   title: β 와 posterior collapse
   variants:
     - question: |
-        면접관: "VAE loss 에서 KL 항의 weight β 를 아주 크게 하면 어떤 일이 생기나요?"
+        VAE loss 에서 KL 항의 weight β 를 아주 크게 하면 어떤 일이 생기는가?
       choices:
-        - '모든 데이터의 latent 가 멀리 흩어져 빈 곳이 많아진다'
-        - '복원이 더 정확해지고 sample 도 더 선명해진다'
-        - 'reconstruction 항이 사라져 보통의 autoencoder 가 된다'
-        - 'encoder 가 어떤 입력에도 prior 와 같은 분포를 내서 latent 에 정보가 담기지 않고, decoder 는 평균에 가까운 흐릿한 출력만 낸다'
+        - 'KL 항이 커질수록 데이터끼리 밀어내서, 모든 데이터의 latent 가 멀리 흩어져 빈 곳이 많아진다'
+        - 'latent space 가 잘 정리되어 복원이 더 정확해지고 sample 도 더 선명해진다'
+        - 'KL 항이 loss 를 거의 다 차지해 reconstruction 항이 사라지고, 보통의 autoencoder 가 된다'
+        - 'encoder 가 어떤 입력에도 prior 와 같은 분포를 내서, decoder 는 평균에 가까운 흐릿한 출력만 낸다'
       answer: 3
       explanation: |
         KL 을 0 으로 만드는 것이 가장 중요해지면 모든 posterior 가 N(0, I) 로 겹치고, decoder 는 latent 로 데이터를 구별하지 못한다. 이것이
         posterior collapse 다. latent 가 흩어지고 빈 곳이 생기는 것은 β = 0 일 때다. β 를 키우면 KL 을 줄이는 쪽에 무게가 실려 복원은 오히려
         나빠진다. 보통의 autoencoder 로 돌아가는 것은 KL 항이 사라지는 β = 0 쪽이다.
     - question: |
-        면접관: "β = 1 로 학습했는데도 KL 이 0 으로 떨어지고 decoder 가 latent 를 무시하는 posterior collapse 가 생겼습니다. 흔한 원인과
-        대처는 무엇인가요?"
+        β = 1 로 학습했는데도 KL 이 0 으로 떨어지고 decoder 가 latent 를 무시하는 posterior collapse 가 생겼다. 흔한 원인과
+        대처는 무엇인가?
       choices:
-        - 'latent 차원이 너무 작아서이며, 차원을 늘리면 반드시 해결된다'
-        - 'learning rate 가 너무 작아서이며, 크게 키우면 해결된다'
-        - 'decoder 가 latent 없이도 데이터를 잘 맞힐 만큼 강해서이며, KL 항의 weight 를 0 에서 1 까지 천천히 올리는 KL annealing 을 쓴다'
-        - 'reconstruction loss 를 합 대신 평균으로 바꾸면 해결된다'
+        - 'latent 차원이 너무 작아 정보를 담을 자리가 없어서이며, 차원을 늘리면 반드시 해결된다'
+        - 'learning rate 가 너무 작아 encoder 가 학습되기 전에 KL 이 먼저 0 이 되어서이며, 크게 키우면 해결된다'
+        - 'decoder 가 latent 없이도 데이터를 잘 맞힐 만큼 강해서이며, KL annealing 으로 KL 의 weight 를 천천히 올린다'
+        - 'reconstruction loss 가 너무 커서 KL 을 가렸기 때문이며, 합 대신 평균으로 바꾸면 해결된다'
       answer: 2
       explanation: |
         앞 단어를 보고 다음 단어를 맞히는 LSTM 같은 강한 decoder 는 latent 없이도 loss 를 줄일 수 있어서 KL 을 0 으로 두는 쪽으로 수렴하기
         쉽다. KL annealing 은 학습 초반에 KL 의 무게를 줄여 latent 를 쓰게 만든다. 차원을 늘려도 decoder 가 latent 를 무시하면 소용이 없다.
         learning rate 는 이 균형을 바꾸지 않는다. reconstruction loss 를 평균하면 KL 이 상대적으로 무거워져 collapse 가 더 쉬워진다.
     - question: |
-        면접관: "VAE 를 구현하면서 784 pixel 의 reconstruction loss 를 합 대신 평균으로 계산했습니다. KL 은 latent 차원마다 구해 더했습니다.
-        무엇이 달라지나요?"
+        VAE 를 구현하면서 784 pixel 의 reconstruction loss 를 합 대신 평균으로 계산했고, KL 은 latent 차원마다 구해 더했다.
+        무엇이 달라지는가?
       choices:
-        - 'reconstruction 항만 784 분의 1 로 작아져서, KL 을 784 배 무겁게 본 것처럼 latent 가 prior 쪽으로 더 세게 당겨진다'
+        - 'β 를 784 배 키운 것과 같아져서, latent 가 prior 쪽으로 더 세게 당겨진다'
         - '평균과 합은 gradient 방향이 같아서 아무것도 달라지지 않는다'
-        - 'KL 항이 784 분의 1 로 작아진다'
-        - 'reparameterization trick 을 쓸 수 없게 된다'
+        - 'KL 항도 784 분의 1 로 함께 작아져서 두 항의 비율은 그대로다'
+        - 'loss 를 평균하면 latent 를 뽑는 단계가 미분되지 않아 reparameterization trick 을 쓸 수 없다'
       answer: 0
       explanation: |
         평균은 합을 784 로 나눈 값이라 reconstruction 항의 무게만 줄고, 두 항의 비율로 보면 β 를 784 배 키운 것과 같다. 한 항만 나눴으므로 두
@@ -247,11 +247,11 @@
   title: sampling, interpolation, 흐릿한 sample
   variants:
     - question: |
-        면접관: "학습을 마친 VAE 로 새 데이터를 만들 때는 어떻게 하나요?"
+        학습을 마친 VAE 로 새 데이터를 만들 때는 어떻게 하는가?
       choices:
         - '학습 데이터 하나를 encoder 에 넣고 그 μ 를 그대로 decoder 에 넣는다'
-        - 'prior N(0, I) 에서 latent 를 뽑아 decoder 에 넣는다. encoder 는 쓰지 않는다'
-        - '각 차원을 −100 ~ 100 에서 고르게 뽑아 decoder 에 넣는다'
+        - 'encoder 는 빼고, prior N(0, I) 에서 뽑은 latent 를 decoder 에 넣는다'
+        - '새로울수록 좋으므로 각 차원을 −100 ~ 100 에서 고르게 뽑아 decoder 에 넣는다'
         - 'decoder 의 출력을 다시 encoder 에 넣기를 여러 번 반복한다'
       answer: 1
       explanation: |
@@ -259,24 +259,24 @@
         μ 를 넣으면 그 데이터를 되살릴 뿐 새 데이터가 아니다. −100 ~ 100 처럼 넓게 뽑으면 대부분 decoder 가 본 적 없는 자리다. encoder 와 decoder
         를 반복하는 단계는 VAE 의 생성 과정에 없다.
     - question: |
-        면접관: "두 데이터 사이의 중간 모습을 VAE 의 latent space 에서 만드는 방법은 무엇인가요?"
+        두 데이터 사이의 중간 모습을 VAE 의 latent space 에서 만드는 방법은 무엇인가?
       choices:
-        - '두 데이터의 pixel 값을 그대로 평균한다'
-        - '두 데이터를 차례로 decoder 에 넣는다'
-        - 'prior 에서 latent 를 여러 번 뽑아 둘 중 가까운 쪽을 고른다'
-        - '두 데이터의 μ 를 잇는 직선 위의 점 (1 − t) z_a + t z_b 를 decoder 에 넣는다'
+        - '두 데이터의 pixel 값을 비율 t 로 섞은 (1 − t) x_a + t x_b 를 만든다'
+        - '두 데이터를 차례로 decoder 에 넣어 나온 두 출력 사이를 이어 붙인다'
+        - 'prior 에서 latent 를 여러 번 뽑아, 두 데이터 중 어느 쪽에 더 가까운지로 줄을 세운다'
+        - '두 μ 를 잇는 직선 위의 점 (1 − t) z_a + t z_b 를 decoder 에 넣는다'
       answer: 3
       explanation: |
         latent space 를 빈 곳 없이 채운 VAE 에서는 두 μ 를 잇는 직선 위의 점도 decoder 가 익숙한 자리라서, t 를 0 에서 1 로 바꾸면 한 데이터가
         다른 데이터로 조금씩 바뀐다. pixel 을 평균하면 두 그림이 겹쳐 보일 뿐이다. decoder 는 데이터가 아니라 latent 를 입력으로 받는다. 무작위로
         뽑으면 두 데이터 사이를 순서대로 지나가지 않는다.
     - question: |
-        면접관: "VAE 가 만든 이미지는 왜 실제 이미지보다 흐릿한가요?"
+        VAE 가 만든 이미지가 실제 이미지보다 흐릿한 이유는 무엇인가?
       choices:
-        - 'decoder 의 출력 해상도가 입력보다 작기 때문이다'
-        - '학습 데이터가 원래 흐릿하기 때문이다'
-        - '여러 데이터의 범위가 겹친 latent 에서 decoder 가 그 데이터들의 평균에 가까운 출력을 내기 때문이다'
-        - 'reparameterization trick 이 이미지에 noise 를 더하기 때문이다'
+        - 'decoder 가 latent 를 키우는 동안 출력 해상도가 입력보다 작아지기 때문이다'
+        - '학습 데이터가 원래 흐릿해서 decoder 도 그 흐릿함을 그대로 배우기 때문이다'
+        - '범위가 겹친 latent 에서 decoder 가 여러 데이터의 평균에 가까운 출력을 내기 때문이다'
+        - 'reparameterization trick 이 뽑은 noise ε 을 이미지에 그대로 더해 가장자리를 흩뜨리기 때문이다'
       answer: 2
       explanation: |
         겹친 자리의 latent 는 학습 중 여러 데이터로 되살려야 했던 자리라서, reconstruction loss 를 줄이는 출력은 그 데이터들의 평균에 가깝고 획의
@@ -287,39 +287,38 @@
   title: CVAE 와 ACT 의 z = 0
   variants:
     - question: |
-        면접관: "ACT 는 CVAE 로 학습하는데, 로봇을 실제로 움직일 때 latent z 는 어떻게 정하나요?"
+        ACT 는 CVAE 로 학습하는데, 로봇을 실제로 움직일 때 latent z 는 어떻게 정하는가?
       choices:
-        - 'CVAE encoder 를 쓰지 않고 z 를 prior 의 평균인 0 으로 고정한다. 앞으로 할 정답 action chunk 가 없어서 encoder 에 넣을 입력이 없기 때문이다'
-        - '매 step 마다 prior N(0, I) 에서 z 를 새로 뽑는다'
-        - '학습 데이터 중 가장 비슷한 시연을 encoder 에 넣어 z 를 구한다'
-        - 'z 를 32 차원 모두 1 로 둔다'
+        - 'encoder 를 쓰지 않고 z 를 prior 평균인 0 으로 고정한다. 넣을 정답 chunk 가 없기 때문이다'
+        - '매 step 마다 prior N(0, I) 에서 z 를 새로 뽑아, 시연처럼 다양한 action chunk 를 낸다'
+        - '지금 관측과 가장 비슷한 학습 시연을 찾아 그 chunk 를 encoder 에 넣어 z 를 구한다'
+        - 'z 를 32 차원 모두 1 로 두어, 학습 때 본 표준편차만큼 떨어진 자리에서 chunk 를 낸다'
       answer: 0
       explanation: |
         ACT 의 CVAE encoder 는 시연의 action chunk 와 관절 위치를 입력으로 받아서, 정답 chunk 가 없는 실행 때는 쓸 수 없고 학습 뒤에 버린다.
         ACT 저자들은 z 를 prior 의 평균 0 으로 둔다. 매 step 새로 뽑지 않으므로 같은 관측에는 같은 chunk 가 나온다. 비슷한 시연을 찾아 encoder 에 넣는
-
         단계는 없다. 1 은 prior 의 평균이 아니라서 policy 가 덜 익숙한 자리다.
     - question: |
-        면접관: "ACT 논문에서 CVAE 를 빼고 L1 로만 학습했더니 사람 시연에서는 성공률이 크게 떨어졌지만, 프로그램으로 만든 시연에서는 거의 차이가
-        없었습니다. 이유가 무엇인가요?"
+        ACT 논문에서 CVAE 를 빼고 L1 로만 학습했더니 사람 시연에서는 성공률이 크게 떨어졌지만, 프로그램으로 만든 시연에서는 거의 차이가
+        없었다. 이유는 무엇인가?
       choices:
-        - '프로그램으로 만든 시연이 사람 시연보다 훨씬 많았기 때문이다'
-        - '사람 시연은 같은 장면에서도 움직임이 갈리는데 CVAE 가 학습 때 그 차이를 z 로 policy 에 넘겨 정답들의 평균을 내지 않게 하고, 프로그램 시연은 매번 같아서 넘길 차이가 없기 때문이다'
-        - '프로그램으로 만든 시연에는 카메라 이미지가 없기 때문이다'
-        - 'CVAE 는 사람 시연의 noise 를 지우는 filter 이기 때문이다'
+        - '프로그램 시연이 사람 시연보다 훨씬 많아서, CVAE 없이도 L1 만으로 충분히 학습되었기 때문이다'
+        - '사람 시연은 같은 장면에서도 움직임이 갈리는데 CVAE 가 그 차이를 z 로 넘겨 평균을 막고, 프로그램 시연은 갈림이 없기 때문이다'
+        - '프로그램 시연에는 카메라 이미지가 없어서, CVAE 가 이미지에서 뽑을 정보가 처음부터 없었기 때문이다'
+        - 'CVAE 는 사람 손떨림 같은 시연의 noise 를 지우는 filter 라서, noise 가 없는 프로그램 시연에는 할 일이 없기 때문이다'
       answer: 1
       explanation: |
         같은 관측에 정답 chunk 가 여럿이면 policy 는 그 평균을 내게 된다. 학습 때 encoder 가 시연마다 다른 움직임을 z 에 담아 주면 policy 의
         입력이 달라져서 평균을 낼 필요가 없다. 프로그램 시연은 매번 똑같아서 z 가 전할 차이가 없다. 데이터 양의 차이로는 이 대비를 설명할 수 없다. 두 경우 모두
         카메라 이미지를 받는다. CVAE 는 noise 를 거르는 filter 가 아니라 latent 를 학습하는 생성 모델이다.
     - question: |
-        면접관: "시연이 왼쪽으로 잡기와 오른쪽으로 잡기로 정확히 반반 갈려 있습니다. ACT 는 실행할 때 둘 중 하나를 고르나요? ACT 는 β = 10 인
-        CVAE 로 학습하고 실행할 때 z = 0 을 씁니다."
+        시연이 왼쪽으로 잡기와 오른쪽으로 잡기로 정확히 반반 갈려 있다. ACT 는 β = 10 인 CVAE 로 학습하고 실행할 때 z = 0 을 쓴다.
+        ACT 는 실행할 때 둘 중 하나를 고르는가?
       choices:
-        - '고른다. 실행할 때마다 z 를 뽑아 두 무리 중 하나로 간다'
-        - '고른다. β = 10 이 두 무리를 강제로 나눠 주기 때문이다'
-        - '고르지 못한다. CVAE 를 쓰면 언제나 정확히 두 무리의 평균이 나온다'
-        - '보장할 수 없다. z 를 0 하나로 고정하고 β 가 커서 z 에 담긴 정보도 적으므로, z = 0 에서 나온 chunk 가 한 무리를 고른다는 보장이 없다'
+        - '고른다. 실행할 때마다 prior 에서 z 를 뽑으므로 그 값에 따라 두 무리 중 하나로 간다'
+        - '고른다. β = 10 으로 KL 을 세게 걸면 latent 가 두 무리로 강제로 나뉘기 때문이다'
+        - '고르지 못한다. z = 0 은 두 무리의 한가운데라서 언제나 정확히 두 무리의 평균이 나온다'
+        - '보장할 수 없다. z 를 0 하나로 고정하고 β 가 커서 z 에 담긴 정보도 적기 때문이다'
       answer: 3
       explanation: |
         ACT 는 실행할 때 z 를 뽑지 않고 0 으로 고정하므로 무리 중 하나를 고르는 장치가 없고, β = 10 이라 z 로 전해지는 정보도 적다. z 를 뽑는다는

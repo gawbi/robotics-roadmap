@@ -5,23 +5,23 @@
   title: 오차 제곱의 평균, MSE
   variants:
     - question: |
-        면접관: "MSE 를 계산할 때 점마다 구한 오차(예측 − 정답)를 그냥 더하지 않고 제곱한 뒤 평균하는 이유가 무엇인가요?"
+        MSE 를 계산할 때 점마다 구한 오차(예측 − 정답)를 그냥 더하지 않고 제곱한 뒤 평균하는 이유가 무엇인가?
       choices:
-        - '제곱하면 계산이 더 빨라지고 loss 가 항상 1 보다 커져서'
-        - '정답 y 를 모두 양수로 바꿔야 평균을 낼 수 있어서'
-        - '위로 빗나간 오차와 아래로 빗나간 오차가 서로 지워지지 않게 하고, 평균을 내서 점의 개수와 상관없이 점 하나당 틀린 정도를 보려고'
-        - '제곱하면 작은 오차가 커져서 모든 점을 고르게 맞추게 되므로'
+        - '제곱하면 계산이 더 빨라지고, loss 가 항상 1 보다 커져서 작은 차이도 눈에 띄므로'
+        - '정답 y 에 음수가 섞이면 평균을 낼 수 없어서, 제곱으로 y 를 모두 양수로 바꾸려고'
+        - '위아래로 빗나간 오차가 서로 지워지지 않게 하고, 점 개수와 상관없이 점 하나당 틀린 정도를 보려고'
+        - '제곱하면 작은 오차는 커지고 큰 오차는 덜 커져서, 모든 점을 고르게 맞추게 되므로'
       answer: 2
       explanation: |
         오차를 그냥 더하면 $+1$ 과 $-1$ 처럼 반대쪽으로 빗나간 오차가 서로 지워져, 두 점을 모두 틀렸는데도 합이 0 이 될 수 있다. 제곱하면
         부호가 사라져 틀린 만큼이 남고, 평균을 내면 점이 3 개든 300 개든 점 하나당 얼마나 틀렸는지로 비교할 수 있다. 제곱은 계산을 빠르게
         하려는 것이 아니고, 오차가 0.5 처럼 작으면 제곱이 더 작아지므로 loss 가 1 보다 커진다는 보장도 없다. 제곱하는 대상은 정답 y 가 아니라
-        오차다. 제곱하면 1 보다 작은 오차는 더 작아지고 큰 오차는 훨씬 커지므로, 모든 점을 고르게 맞추게 된다는 설명도 틀렸다.
+        오차다. 제곱하면 1 보다 작은 오차는 더 작아지고 큰 오차는 훨씬 커지므로, 작은 오차가 커져 모든 점을 고르게 맞추게 된다는 설명도 틀렸다.
     - question: |
-        면접관: "로봇 데이터에 센서가 한 번 튄 값이 하나 섞였습니다. 직선을 MSE 로 맞추면 그 점이 결과에 어떤 영향을 주나요?"
+        로봇 데이터에 센서가 한 번 튄 값이 하나 섞였다. 직선을 MSE 로 맞추면 그 점이 결과에 어떤 영향을 주는가?
       choices:
         - '그 점의 오차가 제곱되어 loss 에 크게 들어가므로, 직선이 그 점 쪽으로 크게 끌려간다'
-        - '점 하나는 평균을 내면서 희석되므로 직선은 거의 바뀌지 않는다'
+        - '점 하나의 오차는 평균을 내면서 N 으로 나뉘어 희석되므로, 직선은 거의 바뀌지 않는다'
         - 'MSE 는 크게 빗나간 점을 자동으로 무시하므로 직선이 바뀌지 않는다'
         - '그 점 때문에 loss 가 커질 뿐 loss 가 가장 작은 직선의 위치는 바뀌지 않는다'
       answer: 0
@@ -32,16 +32,16 @@
         작은 loss 를 주는 parameter 자체가 움직인다. 오차의 크기를
         그대로 평균하는 L1 loss 는 이런 점에 덜 끌려간다.
     - question: |
-        면접관: "데이터는 그대로 두고 직선의 w, b 만 바꿨더니 MSE 가 42 에서 0 이 되었습니다. 이 상황을 어떻게 해석하나요?"
+        데이터는 그대로 두고 직선의 w, b 만 바꿨더니 MSE 가 42 에서 0 이 되었다. 이 상황을 어떻게 해석하는가?
       choices:
-        - 'MSE 는 데이터에 noise 가 얼마나 섞였는지를 재는 값인데 계산이 잘못되었다'
-        - 'MSE 가 0 이 되었으니 데이터가 깨끗해졌다'
-        - 'MSE 는 데이터 점의 개수에 따라서만 정해지므로 이런 일은 일어날 수 없다'
-        - 'MSE 는 지금 고른 parameter 가 이 데이터에 얼마나 안 맞는지를 재는 값이라, parameter 가 바뀌면 값도 바뀐다'
+        - 'MSE 는 데이터에 섞인 noise 의 양을 재는 값이라, 데이터가 그대로인데 값이 바뀌었다면 계산이 잘못되었다'
+        - 'MSE 가 0 이 되었으니 데이터에 섞여 있던 noise 가 없어져 데이터가 깨끗해졌다'
+        - 'MSE 는 점의 개수 N 으로 나눈 값이라 N 에 따라서만 정해지므로 이런 일은 일어날 수 없다'
+        - 'MSE 는 parameter 가 데이터에 얼마나 안 맞는지를 재므로, parameter 가 바뀌면 값도 바뀐다'
       answer: 3
       explanation: |
         데이터가 고정돼 있으면 MSE 를 바꾸는 것은 parameter w, b 뿐이라서 MSE 는 parameter 의 함수다. 같은 데이터라도 직선을 잘못 고르면 42 가
-        나오고, 모든 점을 지나는 직선을 고르면 0 이 나온다. 데이터 자체는 바뀌지 않았으므로 데이터가 깨끗해졌다는 해석은 틀렸다. MSE 는 noise 를
+        나오고, 모든 점을 지나는 직선을 고르면 0 이 나온다. 데이터 자체는 바뀌지 않았으므로 데이터가 깨끗해졌다는 해석은 틀렸다. MSE 는 noise 의 양을
         재는 값이 아니어서 값이 바뀌었다고 계산이 잘못된 것도 아니다. 점의 개수가 그대로인데 MSE 가 42 에서 0 으로 바뀌었으니 점의 개수만으로
         MSE 가 정해진다는 보기도 틀렸다.
 
@@ -49,7 +49,7 @@
   title: gradient 의 부호
   variants:
     - question: |
-        면접관: "어떤 parameter 의 gradient 가 +4 입니다. 이 값은 무엇을 뜻하고, loss 를 줄이려면 그 parameter 를 어떻게 바꿔야 하나요?"
+        어떤 parameter 의 gradient 가 +4 이다. 이 값은 무엇을 뜻하고, loss 를 줄이려면 그 parameter 를 어떻게 바꿔야 하는가?
       choices:
         - '그 parameter 를 늘리면 loss 가 줄어드는 자리라서 늘려야 한다'
         - '그 parameter 를 늘리면 loss 가 커지는 자리라서 줄여야 한다'
@@ -62,11 +62,11 @@
         정하므로 loss 가 4 라서 4 만큼 줄인다는 보기도 틀렸다. +4 는 그 parameter 가 loss 에 4 를 보탠다는 뜻이 아니라서 parameter 를 0 으로
         만들 이유도 없다.
     - question: |
-        면접관: "학습 중 어떤 parameter 의 gradient 가 정확히 0 이 되었습니다. 무엇을 뜻하나요?"
+        학습 중 어떤 parameter 의 gradient 가 정확히 0 이 되었다. 무엇을 뜻하는가?
       choices:
-        - '그 자리에서 loss 가 0 이 되었다'
-        - '그 parameter 의 값이 0 이 되었다'
-        - '계산이 실패해서 gradient 를 구하지 못했다'
+        - '그 자리에서 loss 가 0 이 되어 더 줄일 오차가 남지 않았다'
+        - '그 parameter 의 값이 0 이 되어서 예측에 아무 영향을 주지 못한다'
+        - '계산이 실패해서 gradient 를 구하지 못했고 그 자리에 0 이 들어갔다'
         - '그 자리에서 그 parameter 를 조금 바꿔도 loss 가 거의 변하지 않는다'
       answer: 3
       explanation: |
@@ -74,12 +74,12 @@
         자리이고, 직선의 MSE 처럼 U 자인 loss 에서는 바닥이 그런 자리다. noise 가 있으면 바닥의 loss 도 0 보다 크므로 loss 가 0 이 되었다는
         보기는 틀렸다. gradient 가 0 이라고 parameter 의 값이 0 인 것도 아니다. 0 이라는 gradient 도 계산 결과이지 계산 실패가 아니다.
     - question: |
-        면접관: "loss 곡선의 기울기를 말할 때와 직선 모델 ŷ = wx + b 의 기울기 w 를 말할 때, 두 '기울기' 는 어떤 관계인가요?"
+        loss 곡선의 기울기를 말할 때와 직선 모델 ŷ = wx + b 의 기울기 w 를 말할 때, 두 '기울기' 는 어떤 관계인가?
       choices:
-        - '서로 다른 값이다. w 는 데이터 위에 그은 직선의 기울기이고, gradient 는 w 를 바꿀 때 loss 가 변하는 비율이다'
-        - '같은 값이다. gradient 를 구하면 그 값이 직선의 기울기 w 다'
-        - 'gradient 는 언제나 w 의 두 배다'
-        - 'w 가 양수면 gradient 도 언제나 양수다'
+        - '서로 다르다. w 는 직선의 기울기이고, gradient 는 w 를 바꿀 때 loss 가 변하는 비율이다'
+        - '같은 값이다. 둘 다 기울기라서 gradient 를 구하면 그 값이 곧 지금 직선의 기울기 w 다'
+        - 'MSE 는 제곱이라 미분하면 2 가 내려오므로 gradient 는 언제나 w 의 두 배다'
+        - 'w 가 양수면 직선이 오른쪽 위로 올라가므로 gradient 도 언제나 양수다'
       answer: 0
       explanation: |
         w 는 입력이 1 늘 때 예측이 얼마나 느는지를 정하는 직선의 기울기이고, gradient 는 가로축이 w 이고 세로축이 loss 인 곡선의 기울기다. 예를
@@ -91,19 +91,19 @@
   title: MSE 의 gradient 공식
   variants:
     - question: |
-        면접관: "직선 ŷ = wx + b 의 MSE 에서 ∂L/∂w 공식에는 점마다 오차에 입력 x_i 가 곱해지는데, ∂L/∂b 공식에는 곱해지지 않습니다. 이유가 무엇인가요?"
+        직선 ŷ = wx + b 의 MSE 에서 ∂L/∂w 공식에는 점마다 오차에 입력 x_i 가 곱해지는데, ∂L/∂b 공식에는 곱해지지 않는다. 이유가 무엇인가?
       choices:
-        - 'b 는 학습하지 않는 고정값이라서'
-        - 'x_i 를 곱하면 b 의 gradient 가 너무 커져서 일부러 뺀 것이라서'
-        - '∂L/∂b 는 계산을 간단히 하려고 근사한 값이라서'
-        - 'w 를 조금 바꾸면 예측이 x_i 배로 변하지만, b 를 바꾸면 모든 점에서 같은 양만큼 변하기 때문에'
+        - 'b 는 학습 중에 바꾸지 않는 고정값이라서 gradient 를 정확히 구할 필요가 없어서'
+        - 'x_i 를 곱하면 b 의 gradient 가 너무 커지므로 크기를 맞추려고 일부러 뺀 것이라서'
+        - '∂L/∂b 는 계산을 간단히 하려고 x_i 를 1 로 바꿔 근사한 값이라서'
+        - 'w 를 바꾸면 예측이 x_i 배로 변하지만, b 를 바꾸면 모든 점에서 같은 양만큼 변해서'
       answer: 3
       explanation: |
         예측 $w x_i + b$ 에서 w 를 0.01 늘리면 예측은 $0.01 \times x_i$ 만큼 변하고, b 를 0.01 늘리면 모든 점에서 0.01 만큼 변한다. 예측이 변하는
         비율이 w 쪽은 $x_i$ 이고 b 쪽은 1 이라서 공식의 모양이 다르다. b 도 학습하는 parameter 라서 고정값이라는 보기는 틀렸다. 두 공식 모두 근사가
         아니라 정확한 미분 결과다. $x_i$ 는 크기를 맞추려고 일부러 뺀 것이 아니라 처음부터 b 의 공식에 들어가지 않는다.
     - question: |
-        면접관: "입력 x 가 모두 양수이고, 지금 직선이 모든 데이터 점보다 아래에 있습니다. MSE 의 ∂L/∂w 와 ∂L/∂b 의 부호와 그 의미는 무엇인가요?"
+        입력 x 가 모두 양수이고, 지금 직선이 모든 데이터 점보다 아래에 있다. MSE 의 ∂L/∂w 와 ∂L/∂b 의 부호와 그 의미는 무엇인가?
       choices:
         - '둘 다 음수라서, w 와 b 를 모두 키워야 loss 가 줄어든다'
         - '둘 다 양수라서, w 와 b 를 모두 키워야 loss 가 줄어든다'
@@ -116,12 +116,12 @@
         부호부터 틀렸다. 둘 다 음수인데 줄이라는 보기는 gradient 의 부호와 움직일 방향의 관계를 거꾸로 읽었다. gradient 의 부호는 직선과 데이터의
         위치에 따라 바뀌므로 항상 양수라는 보기도 틀렸다.
     - question: |
-        면접관: "손으로 유도한 gradient 공식이 맞는지 확인하려고 parameter 를 h 만큼 양쪽으로 옮긴 두 loss 의 차이를 2h 로 나눴습니다. h 를 10⁻¹⁵ 처럼 극단적으로 작게 잡으면 어떻게 되나요?"
+        손으로 유도한 gradient 공식이 맞는지 확인하려고 parameter 를 h 만큼 양쪽으로 옮긴 두 loss 의 차이를 2h 로 나눴다. h 를 10⁻¹⁵ 처럼 극단적으로 작게 잡으면 어떻게 되는가?
       choices:
         - 'h 가 작을수록 derivative 의 정의에 가까우므로 항상 더 정확해진다'
-        - '0 으로 나누는 오류가 나서 계산이 멈춘다'
-        - '컴퓨터가 기억하는 자릿수가 한정돼 두 loss 의 차이에 믿을 만한 자리가 거의 남지 않아 오히려 부정확해진다'
-        - '2h 로 나누므로 gradient 가 실제보다 체계적으로 훨씬 커진다'
+        - '10⁻¹⁵ 같은 분모는 컴퓨터에서 0 으로 처리되어, 0 으로 나누는 오류가 나고 계산이 멈춘다'
+        - '컴퓨터가 기억하는 자릿수가 한정돼 두 loss 의 차이가 반올림 오차에 묻혀 부정확해진다'
+        - '작은 2h 로 나누므로 gradient 가 실제보다 체계적으로 훨씬 커진다'
       answer: 2
       explanation: |
         수학에서는 h 가 작을수록 정확하지만, 컴퓨터는 숫자를 앞에서부터 16 자리 정도만 기억한다. h 가 너무 작으면 두 loss 가 그 16 자리 안에서
@@ -135,21 +135,21 @@
     - question: |
         update 식 $w \leftarrow w - \eta \times \frac{\partial L}{\partial w}$ ($\eta > 0$)에서 지금 자리의 gradient 가 $-3$ 이다. update 뒤의 $w$ 는?
       choices:
-        - '줄어든다. gradient 가 음수이므로 그 방향으로 간다'
-        - '그대로다. gradient 가 음수면 움직이지 않는다'
-        - '늘어난다. 음수 gradient 에 양수 η 를 곱해 빼므로 w 가 커지는데, w 를 늘릴 때 loss 가 줄어드는 자리라서 맞는 방향이다'
-        - 'η 의 크기에 따라 늘 수도 있고 줄 수도 있다'
+        - '줄어든다. gradient 가 음수이므로 w 도 그 방향인 음수 쪽으로 움직인다'
+        - '그대로다. gradient 가 음수면 loss 가 이미 줄고 있으므로 움직이지 않는다'
+        - '늘어난다. 음수 gradient 에 양수 η 를 곱한 값을 빼므로 w 가 커진다'
+        - 'η 의 크기에 따라 다르다. η 가 크면 늘어나고 작으면 줄어든다'
       answer: 2
       explanation: |
         gradient 가 음수라는 것은 w 를 늘리면 loss 가 줄어든다는 뜻이다. update 식은 gradient 에 양수 η 를 곱해 빼므로 음수를 빼게 되어 w 가
         커진다. 식의 빼기 부호 때문에 w 는 gradient 의 반대 방향으로 움직이므로, gradient 방향으로 간다는 보기는 틀렸다. gradient 가 0 이 아니면
         w 는 움직이므로 그대로라는 보기도 틀렸다. η 는 양수라서 움직이는 크기만 바꿀 뿐 방향은 바꾸지 못한다.
     - question: |
-        면접관: "learning rate 를 바꾸지 않았는데도 학습 초반에는 parameter 가 step 마다 크게 움직이다가 후반에는 거의 움직이지 않습니다. 왜 그런가요?"
+        learning rate 를 바꾸지 않았는데도 학습 초반에는 parameter 가 step 마다 크게 움직이다가 후반에는 거의 움직이지 않는다. 왜 그런가?
       choices:
         - '학습이 진행되면 기본 gradient descent 의 learning rate 가 저절로 줄어들기 때문에'
-        - 'loss 가 가장 낮은 점에 가까워질수록 gradient 가 작아져, 같은 learning rate 를 곱해도 움직이는 양이 줄기 때문에'
-        - '후반에는 데이터를 덜 쓰기 때문에'
+        - '가장 낮은 점에 가까워질수록 gradient 가 작아져 움직이는 양도 줄기 때문에'
+        - '후반에는 이미 맞춘 점을 건너뛰고 남은 몇 점만으로 gradient 를 구하기 때문에'
         - 'parameter 가 커질수록 update 가 작아지도록 식이 만들어져 있기 때문에'
       answer: 1
       explanation: |
@@ -157,12 +157,12 @@
         같아도 움직임이 줄어 parameter 가 한 값에 수렴한다. 기본 gradient descent 에서 learning rate 는 사람이 정한 값 그대로라서 저절로 줄지
         않는다. 후반이라고 데이터를 덜 쓰는 것도 아니다. update 크기는 parameter 의 크기가 아니라 gradient 의 크기에 비례한다.
     - question: |
-        면접관: "직선 ŷ = wx + b 를 gradient descent 로 학습하는데, 입력 x 가 1 보다 큰 값들이라 w 는 빨리 정답 근처로 가는데 b 는 아주 천천히 움직입니다. 원인이 무엇인가요?"
+        직선 ŷ = wx + b 를 gradient descent 로 학습하는데, 입력 x 가 1 보다 큰 값들이라 w 는 빨리 정답 근처로 가는데 b 는 아주 천천히 움직인다. 원인이 무엇인가?
       choices:
-        - 'b 는 learning rate 가 따로 작게 정해져 있어서'
-        - 'b 의 정답이 0 에 가까워서 gradient 가 계산되지 않아서'
+        - 'b 는 직선 전체를 옮기는 값이라 learning rate 가 따로 작게 정해져 있어서'
+        - 'b 의 정답이 0 에 가까워서 b 의 gradient 가 제대로 계산되지 않아서'
         - 'gradient descent 는 parameter 를 하나씩 차례로 학습해서 w 가 끝나야 b 를 시작하므로'
-        - 'w 의 gradient 에는 오차마다 x_i 가 곱해져 b 의 gradient 보다 크므로, 같은 learning rate 에서 w 가 더 크게 움직이기 때문에'
+        - 'w 의 gradient 에는 오차마다 1 보다 큰 x_i 가 곱해져 b 의 gradient 보다 크기 때문에'
       answer: 3
       explanation: |
         ∂L/∂w 는 오차에 $x_i$ 를 곱해 더하고 ∂L/∂b 는 오차를 그냥 더하므로, 입력이 1 보다 크면 w 쪽 gradient 가 더 크다. 같은 learning rate 를
@@ -174,23 +174,23 @@
   title: learning rate 와 발산
   variants:
     - question: |
-        면접관: "loss 가 L(w) = a·w² (a > 0) 꼴일 때 gradient descent 의 update 는 w 에 매번 같은 수를 곱하는 일이 됩니다. 수렴과 발산을 가르는 기준은 무엇인가요?"
+        loss 가 L(w) = a·w² (a > 0) 꼴일 때 gradient descent 의 update 는 w 에 매번 같은 수를 곱하는 일이 된다. 수렴과 발산을 가르는 기준은 무엇인가?
       choices:
-        - '곱해지는 수 1 − 2aη 에서 부호를 뗀 크기가 1 보다 작으면 수렴하고 크면 발산하므로, η 가 1/a 를 넘으면 발산한다'
-        - '곱해지는 수가 양수면 수렴하고 음수면 발산한다'
-        - 'learning rate η 가 1 보다 작으면 a 와 상관없이 수렴한다'
-        - '시작한 w 가 양수면 수렴하고 음수면 발산한다'
+        - '곱해지는 수 1 − 2aη 의 크기가 1 을 넘으면 발산하므로, η > 1/a 에서 발산한다'
+        - '곱해지는 수 1 − 2aη 가 양수면 수렴하고, 음수가 되어 부호가 바뀌기 시작하면 발산한다'
+        - 'η 가 1 보다 작으면 한 step 에 움직이는 양이 작으므로 a 와 상관없이 수렴한다'
+        - '시작한 w 가 양수면 바닥 쪽으로 내려가 수렴하고, 음수면 반대로 멀어져 발산한다'
       answer: 0
       explanation: |
         gradient 가 $2aw$ 라서 update 는 $w \leftarrow (1 - 2a\eta)\,w$ 다. 크기가 1 보다 작은 수를 거듭 곱하면 0 에 다가가고, 1 보다 큰 수를 거듭
         곱하면 끝없이 커진다. 곱해지는 수가 $-1$ 보다 작아지는 $\eta > 1/a$ 에서 발산한다. 음수여도 크기가 1 보다 작으면 넘나들며 수렴하므로 부호는
         기준이 아니다. a 가 크면 η 가 1 보다 작아도 발산할 수 있다. 시작점의 부호는 곱해지는 수를 바꾸지 않으므로 수렴 여부와 상관없다.
     - question: |
-        면접관: "학습 기록의 loss 가 70, 104, 154, 229, 340 처럼 step 마다 커지다가 결국 nan 이 됐습니다. 가장 먼저 의심할 것은 무엇인가요?"
+        학습 기록의 loss 가 70, 104, 154, 229, 340 처럼 step 마다 커지다가 결국 nan 이 됐다. 가장 먼저 의심할 것은 무엇인가?
       choices:
-        - 'learning rate 가 너무 작아서 학습이 멈췄다'
-        - '데이터에 noise 가 있어서 loss 의 바닥이 0 보다 크다'
-        - '모델의 parameter 가 너무 적어서 데이터를 표현하지 못한다'
+        - 'learning rate 가 너무 작아서 학습이 멈췄고, 그동안 오차가 쌓여 loss 가 커졌다'
+        - '데이터에 noise 가 있어서 loss 의 바닥이 0 보다 크고, 그 noise 가 step 마다 쌓인다'
+        - '모델의 parameter 가 너무 적어서 데이터를 표현하지 못해 loss 가 계속 늘어난다'
         - 'learning rate 가 너무 커서 바닥을 넘을 때마다 더 멀리 튀며 발산하고 있다'
       answer: 3
       explanation: |
@@ -199,12 +199,12 @@
         줄 뿐 커지지 않는다. noise 는 loss 의 바닥을 0 보다 높게 할 뿐 loss 를 키우지 않는다. parameter 가 너무 적은 모델도 loss 가 어느 값에서 멈출
         뿐 끝없이 커지지 않는다.
     - question: |
-        면접관: "learning rate 를 키우면 한 번에 많이 움직이니 언제나 더 빨리 배운다는 말은 맞나요?"
+        learning rate 를 키우면 한 번에 많이 움직이니 언제나 더 빨리 배운다는 말은 맞는가?
       choices:
-        - '맞다. 움직이는 양이 learning rate 에 비례하므로 클수록 빠르다'
-        - '어느 선까지는 빨라지지만, update 마다 곱해지는 수의 크기가 1 을 넘는 선을 지나면 바닥을 넘을 때마다 더 멀리 튀며 발산한다'
-        - '틀리다. learning rate 는 수렴 속도와 상관없고 최종 답만 바꾼다'
-        - '틀리다. learning rate 가 크면 언제나 느려진다'
+        - '맞다. 한 번에 움직이는 양이 learning rate 에 비례하므로 클수록 빨리 배운다'
+        - '틀리다. 어느 선까지는 빨라지지만 그 선을 넘으면 바닥을 넘나들며 발산한다'
+        - '틀리다. learning rate 는 수렴 속도와는 상관없고 수렴한 최종 답의 위치만 바꾼다'
+        - '틀리다. learning rate 가 크면 바닥 근처를 오가느라 언제나 더 느려진다'
       answer: 1
       explanation: |
         learning rate 를 키우면 처음에는 바닥에 더 빨리 다가가고, 바닥을 조금 넘나들어도 크기가 1 보다 작은 수가 곱해지는 동안은 수렴한다. 그 선을
@@ -216,11 +216,11 @@
   title: 입력의 크기, standardization, mean 과 sum
   variants:
     - question: |
-        면접관: "관절 각도를 radian 대신 encoder 눈금 수(한 바퀴 4096 눈금)로 넣어 직선을 학습했더니, radian 일 때 잘 되던 learning rate 에서 발산합니다. 왜 그런가요?"
+        관절 각도를 radian 대신 encoder 눈금 수(한 바퀴 4096 눈금)로 넣어 직선을 학습했더니, radian 일 때 잘 되던 learning rate 에서 발산한다. 왜 그런가?
       choices:
         - 'encoder 눈금 수는 정수라서 gradient 를 계산할 수 없기 때문에'
-        - '입력이 수백 배 커져 loss 가 그 제곱에 비례해 가팔라지므로, learning rate 의 상한이 훨씬 낮아졌기 때문에'
-        - '입력이 커지면 loss 의 바닥 위치가 사라지기 때문에'
+        - '입력이 수백 배 커져 loss 가 훨씬 가팔라지므로 learning rate 의 상한이 낮아져서'
+        - '입력이 커지면 loss 의 바닥이 사라져, 아무리 움직여도 멈출 자리가 없기 때문에'
         - 'radian 은 각도라서 학습되지만 눈금 수는 각도가 아니라서 학습되지 않기 때문에'
       answer: 1
       explanation: |
@@ -229,23 +229,23 @@
         정수 입력도 gradient 계산에는 문제가 없다. loss 의 바닥은 사라지지 않고 자리만 옮겨 간다. 단위는 숫자의 크기만 바꿀 뿐 학습할 수 있는지를
         정하지 않는다.
     - question: |
-        면접관: "학습 전에 입력을 standardization 하는 이유는 무엇인가요?"
+        학습 전에 입력을 standardization 하는 이유는 무엇인가?
       choices:
-        - '입력에서 noise 를 없애 loss 를 0 으로 만들려고'
+        - '평균을 빼고 표준편차로 나누면 입력에 섞인 noise 가 지워지므로, loss 를 0 까지 낮출 수 있어서'
         - 'loss 의 바닥 위치를 원점으로 옮겨 normal equation 을 쓸 수 있게 하려고'
-        - '평균을 빼고 표준편차로 나눠 입력의 크기를 고르게 맞추면, 한 learning rate 로 여러 parameter 를 발산 없이 함께 학습하기 쉬워져서'
-        - '데이터 수를 줄여 학습을 빠르게 하려고'
+        - '입력의 크기를 고르게 맞춰, 한 learning rate 로 여러 parameter 를 함께 학습하기 쉽게 하려고'
+        - '범위를 벗어난 데이터를 걸러 내 데이터 수를 줄이면 학습이 빨라지므로'
       answer: 2
       explanation: |
         입력의 크기가 learning rate 의 상한을 정하고, 입력마다 크기가 다르면 parameter 마다 gradient 크기가 달라 한 learning rate 로는 어떤 parameter 는
         발산하고 어떤 parameter 는 느리게 움직인다. standardization 은 평균을 빼고 표준편차로 나눠 입력마다 평균 0, 표준편차 1 로 맞추므로 이 차이를
         줄인다. noise 는 standardization 뒤에도 그대로 남는다. normal equation 은 standardization 과 상관없이 쓸 수 있다. 데이터 수도 바뀌지 않는다.
     - question: |
-        면접관: "loss 를 오차 제곱의 평균(mean) 대신 합(sum)으로 정의하면 무엇이 달라지나요?"
+        loss 를 오차 제곱의 평균(mean) 대신 합(sum)으로 정의하면 무엇이 달라지는가?
       choices:
-        - 'gradient 가 데이터 수 N 배가 되어, 같은 learning rate 라도 N 배 크게 움직인다. loss 가 가장 작은 parameter 의 위치는 그대로다'
-        - 'loss 가 가장 작은 직선이 달라진다'
-        - 'gradient 는 그대로이고 loss 의 값만 N 배가 된다'
+        - 'gradient 가 N 배가 되어 같은 learning rate 로도 N 배 크게 움직이고, 바닥은 그대로다'
+        - 'loss 가 N 배가 되면서 가장 작은 지점도 옮겨 가 맞춰지는 직선이 달라진다'
+        - 'loss 의 값만 N 배가 되고, 직선의 모양은 그대로라서 gradient 도 바뀌지 않는다'
         - '합으로 정의하면 gradient 를 구할 수 없어 normal equation 만 쓸 수 있다'
       answer: 0
       explanation: |
@@ -257,36 +257,36 @@
   title: normal equation 과 gradient descent
   variants:
     - question: |
-        면접관: "linear regression 은 normal equation 으로 답을 한 번에 구할 수 있습니다. normal equation 은 어떤 식인가요?"
+        linear regression 은 normal equation 으로 답을 한 번에 구할 수 있다. normal equation 은 어떤 식인가?
       choices:
-        - 'loss 를 0 으로 놓은 식이다'
-        - '데이터 점마다 예측이 정답과 같다고 놓은 식이다'
-        - 'learning rate 를 가장 크게 잡았을 때의 update 식이다'
-        - 'MSE 의 gradient 를 0 으로 놓은 연립방정식으로, 행렬로는 AᵀAθ = Aᵀy 다'
+        - 'loss 를 0 으로 놓고 그 식을 만족하는 w, b 를 푸는 식이다'
+        - '데이터 점마다 예측이 정답과 같다고 놓은 식을 모두 모은 연립방정식이다'
+        - 'learning rate 를 가장 크게 잡아 한 step 만에 바닥에 닿게 한 update 식이다'
+        - 'MSE 의 gradient 를 0 으로 놓은 연립방정식 AᵀAθ = Aᵀy 다'
       answer: 3
       explanation: |
         loss 의 바닥에서는 gradient 가 0 이고, 직선의 MSE 는 gradient 가 parameter 의 일차식이라 0 으로 놓으면 바로 풀 수 있는 연립방정식이 된다. noise
         가 있으면 바닥의 loss 도 0 보다 크므로 loss 를 0 으로 놓은 식에는 답이 없을 수 있다. 점마다 예측이 정답과 같다고 놓으면 식이 모르는 값보다 많아
         모든 식을 만족하는 답이 없는 경우가 많다. normal equation 은 반복 없이 푸는 식이라 learning rate 가 없다.
     - question: |
-        면접관: "normal equation 으로 바로 풀 수 있는데, neural network 를 학습할 때 gradient descent 를 쓰는 이유는 무엇인가요?"
+        normal equation 으로 바로 풀 수 있는데, neural network 를 학습할 때 gradient descent 를 쓰는 이유는 무엇인가?
       choices:
         - 'gradient descent 가 normal equation 보다 언제나 더 정확한 답을 주기 때문에'
-        - 'neural network 는 gradient 를 0 으로 놓은 식을 풀 방법이 없고, parameter 가 많으면 d×d 행렬을 푸는 계산이 d³ 에 비례해 커지기 때문에'
-        - 'normal equation 은 데이터가 2 개 이하일 때만 쓸 수 있기 때문에'
-        - 'normal equation 은 noise 가 있는 데이터에서는 답을 주지 않기 때문에'
+        - 'gradient 를 0 으로 놓은 식을 바로 풀 수 없고, 풀 수 있어도 계산이 d³ 에 비례해 커져서'
+        - 'normal equation 은 데이터 수가 parameter 수와 같을 때만 풀 수 있기 때문에'
+        - 'normal equation 은 모든 점을 정확히 지나는 답을 찾으므로 noise 가 있으면 답이 없어서'
       answer: 1
       explanation: |
         normal equation 은 gradient 가 parameter 의 일차식일 때만 나온다. neural network 는 parameter 끼리 곱해지는 단계를 여러 번 거쳐 이 식을 풀 수 없고,
         parameter 가 d 개면 $d \times d$ 행렬을 만들어 푸는 계산이 대략 $d^3$ 에 비례한다. 직선처럼 풀 수 있는 문제에서는 두 방법이 같은 답을 주므로
         gradient descent 가 더 정확한 것은 아니다. normal equation 은 데이터가 많아도 쓸 수 있다. noise 가 있을 때도 오차 제곱의 합이 가장 작은 답을 준다.
     - question: |
-        면접관: "camera 의 pixel 축척을 구하려고 표식 세 개의 위치와 pixel 좌표를 쟀습니다. 모르는 값은 축척 s 와 offset c 두 개뿐인데 식은 세 개입니다. 어떻게 푸나요?"
+        camera 의 pixel 축척을 구하려고 표식 세 개의 위치와 pixel 좌표를 쟀다. 모르는 값은 축척 s 와 offset c 두 개뿐인데 식은 세 개다. 어떻게 푸는가?
       choices:
-        - '식 하나를 버리고 나머지 두 식만 정확히 푼다'
-        - '세 식을 모두 정확히 만족하는 s, c 를 찾을 때까지 표식을 다시 잰다'
-        - '세 식의 오차 제곱의 합이 가장 작은 s, c 를 least squares 로 구한다. normal equation 으로 바로 풀 수 있다'
-        - '식이 모르는 값보다 많으면 답이 없으므로 표식을 두 개만 써야 한다'
+        - '오차가 가장 커 보이는 식 하나를 버리고, 나머지 두 식으로 s, c 를 정확히 푼다'
+        - '세 식을 모두 정확히 만족하는 s, c 가 나올 때까지 표식을 다시 잰다'
+        - '세 식의 오차 제곱의 합이 가장 작은 s, c 를 least squares 로 구한다'
+        - '식이 모르는 값보다 많으면 답이 없으므로 표식을 두 개만 골라 쓴다'
       answer: 2
       explanation: |
         식이 모르는 값보다 많으면 측정 오차 때문에 세 식을 모두 정확히 맞추는 답이 없는 경우가 많다. 이때 오차 제곱의 합을 가장 작게 하는 s, c 를 고르는
@@ -297,11 +297,11 @@
   title: train loss, test loss, overfitting
   variants:
     - question: |
-        면접관: "모델 A 는 train loss 0.01, test loss 3.2 이고 모델 B 는 train loss 0.3, test loss 0.35 입니다. 로봇에 올릴 모델과 그 이유는?"
+        모델 A 는 train loss 0.01, test loss 3.2 이고 모델 B 는 train loss 0.3, test loss 0.35 이다. 로봇에 올릴 모델과 그 이유는?
       choices:
-        - 'B. 처음 보는 데이터에서 덜 틀리기 때문이고, A 는 train data 의 noise 까지 외운 overfitting 이다'
-        - 'A. train loss 가 30 배 작으므로 더 정확한 모델이다'
-        - 'A. test loss 는 noise 때문에 커진 것이라 무시해도 된다'
+        - 'B. 처음 보는 데이터에서 덜 틀린다. A 는 noise 까지 외운 overfitting 이다'
+        - 'A. train loss 가 30 배 작으므로 데이터를 더 정확히 맞춘 좋은 모델이다'
+        - 'A. test loss 는 test 데이터의 noise 때문에 커진 것이라 무시해도 된다'
         - '둘 다 쓸 수 없다. train loss 와 test loss 가 다르면 학습이 실패한 것이다'
       answer: 0
       explanation: |
@@ -310,11 +310,11 @@
         보는 데이터에서 B 보다 9 배쯤 크게 틀리는 모델을 쓰게 된다. test loss 가 바로 처음 보는 데이터에서의 성능이라 무시하면 안 된다. 두 loss 가
         조금 다른 것은 정상이라 B 처럼 차이가 작으면 문제가 없다.
     - question: |
-        면접관: "noise 가 섞인 calibration 데이터 몇 점을 모두 정확히 지나는 곡선을 맞췄더니 train loss 가 0 입니다. 이 곡선이 위험한 이유는 무엇인가요?"
+        noise 가 섞인 calibration 데이터 몇 점을 모두 정확히 지나는 곡선을 맞췄더니 train loss 가 0 이다. 이 곡선이 위험한 이유는 무엇인가?
       choices:
         - 'train loss 가 0 이면 gradient 가 0 이라 더 학습할 수 없어서'
-        - '곡선은 직선보다 계산이 오래 걸려 로봇에서 쓸 수 없어서'
-        - '곡선이 noise 까지 따라가도록 휘어서, 학습에 없던 입력, 특히 데이터를 잰 범위 밖에서 크게 어긋날 수 있어서'
+        - '곡선은 직선보다 계산이 오래 걸려 로봇의 제어 주기 안에 쓸 수 없어서'
+        - '곡선이 noise 까지 따라 휘어서, 특히 데이터를 잰 범위 밖에서 크게 어긋날 수 있어서'
         - 'train loss 가 0 인 모델은 test loss 도 반드시 0 이어서 확인할 필요가 없어서'
       answer: 2
       explanation: |
@@ -323,12 +323,12 @@
         않다. train loss 가 0 이어도 test loss 는
         0 이 아닐 수 있어서, 학습에 쓰지 않은 데이터로 따로 재야 한다.
     - question: |
-        면접관: "모델의 성능을 train set 이 아니라 test set 으로 재야 하는 이유는 무엇인가요?"
+        모델의 성능을 train set 이 아니라 test set 으로 재야 하는 이유는 무엇인가?
       choices:
-        - 'test set 이 train set 보다 항상 크기 때문에'
-        - 'train set 은 parameter 를 고치는 데 이미 쓰여서, 그 위의 loss 로는 처음 보는 데이터에서의 성능을 알 수 없기 때문에'
-        - 'test set 으로 재면 loss 가 항상 더 작게 나오기 때문에'
-        - 'train set 으로는 loss 를 계산할 수 없기 때문에'
+        - 'test set 이 train set 보다 항상 커서 loss 를 더 정확히 잴 수 있기 때문에'
+        - 'train set 은 학습에 이미 쓰여 새 데이터에서의 성능을 보여 주지 못해서'
+        - 'test set 으로 재면 loss 가 항상 더 작게 나와 성능을 보고하기 좋기 때문에'
+        - 'train set 의 loss 는 학습 중에 계속 바뀌어서 계산할 수 없기 때문에'
       answer: 1
       explanation: |
         train set 은 loss 를 줄이도록 parameter 를 맞춘 데이터라서, 그 위의 loss 는 모델이 외운 만큼 작게 나온다. 모델이 실제로 쓰일 처음 보는 데이터에서의

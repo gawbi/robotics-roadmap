@@ -5,19 +5,19 @@
   title: frame 과 pose
   variants:
     - question: |
-        면접관: "로봇에서 어떤 물체의 pose 라고 하면 무엇을 말하나요?"
+        로봇에서 어떤 물체의 pose 라고 하면 무엇을 말하는가?
       choices:
-        - '로봇 팔의 joint 각도를 모은 목록'
+        - '그 물체를 집으려면 로봇 팔의 각 joint 를 몇 도로 돌려야 하는지 모은 목록'
         - '어떤 frame 에서 본 그 물체의 위치와 방향(orientation)을 함께 묶은 것'
-        - '물체가 움직이는 속도와 가속도'
-        - '위치만 가리키고, 방향은 heading 이라는 다른 값으로 적는다'
+        - '물체가 어느 방향으로 얼마나 빨리 움직이는지 나타내는 속도와 가속도'
+        - '위치만 가리키는 말이고, 방향은 heading 이라는 다른 값으로 따로 적는다'
       answer: 1
       explanation: |
         pose 는 기준 frame 에서 잰 위치와 방향을 함께 묶은 것이고, 3D 에서는 translation 3 개와 rotation 으로 적는다. "gripper 의 pose" 는 손끝이
         어디에 있고 어느 쪽을 향하는지를 함께 말한다. joint 각도는 pose 를 정하는 입력이지 pose 자체가 아니고, 속도·가속도는 pose 가 변하는
         빠르기다. 방향을 빼면 pose 가 아니라 위치다.
     - question: |
-        면접관: "frame $b$ 의 orientation 을 frame $a$ 에서 잰 3×3 rotation matrix $R_{ab}$ 가 있습니다. 이 행렬의 첫째 열은 무엇을 뜻하나요?"
+        frame $b$ 의 orientation 을 frame $a$ 에서 잰 3×3 rotation matrix $R_{ab}$ 가 있다. 이 행렬의 첫째 열은 무엇을 뜻하는가?
       choices:
         - 'frame $a$ 의 $x$ 축을 frame $b$ 에서 잰 방향'
         - 'frame $b$ 원점을 frame $a$ 에서 잰 위치'
@@ -29,12 +29,12 @@
         향하는지를 적은 값이다. frame $a$ 의 축을 frame $b$ 에서 잰 값은 $R_{ab}^\top$ 의 열이다. 원점의 위치는 rotation matrix 가 아니라
         translation 에 들어 있고, roll 같은 각도는 행렬의 한 칸에 따로 들어 있지 않다.
     - question: |
-        면접관: "책상 위 컵 하나를 천장 카메라의 frame 과 로봇 base 의 frame 에서 각각 재었더니 좌표가 서로 달랐습니다. 어떻게 해석해야 하나요?"
+        책상 위 컵 하나를 천장 카메라의 frame 과 로봇 base 의 frame 에서 각각 재었더니 좌표가 서로 달랐다. 이 결과는 어떻게 해석해야 하는가?
       choices:
-        - '원점과 축이 다른 두 frame 에서 같은 점을 잰 것이라 두 값이 모두 맞을 수 있고, 두 frame 사이의 transform 을 알면 서로 바꿀 수 있다'
-        - '두 값 가운데 하나는 측정 오차가 섞인 틀린 값이다'
-        - '두 번 재는 사이에 컵이 움직였다'
-        - 'frame 이 달라도 같은 점의 좌표는 같아야 하므로 카메라를 다시 calibration 해야 한다'
+        - '원점과 축이 다른 두 frame 에서 잰 값이라 둘 다 맞을 수 있고, 두 frame 사이의 transform 으로 서로 바꾼다'
+        - '같은 점이면 좌표도 하나여야 하므로, 두 값 가운데 하나는 측정 오차가 섞인 틀린 값이다'
+        - '컵이 그대로였다면 좌표도 같아야 하므로, 두 번 재는 사이에 컵이 움직인 것이다'
+        - '카메라 좌표가 base 좌표와 어긋났다는 뜻이므로, 두 좌표가 같게 나올 때까지 카메라를 다시 calibration 해야 한다'
       answer: 0
       explanation: |
         좌표는 원점에서 각 축 방향으로 얼마나 가는지를 적은 숫자라서, 원점이나 축이 다르면 같은 점도 다른 숫자가 된다. 그래서 좌표에는 어느
@@ -45,36 +45,36 @@
   title: rotation matrix 의 성질
   variants:
     - question: |
-        면접관: "3×3 행렬이 rotation matrix 이려면 어떤 조건을 만족해야 하나요?"
+        3×3 행렬이 rotation matrix 이려면 어떤 조건을 만족해야 하는가?
       choices:
-        - '모든 칸이 −1 과 1 사이에 있어야 한다'
-        - '대각선의 세 칸이 모두 1 이어야 한다'
-        - '열이 서로 직각인 unit vector 여서 $R^\top R = I$ 이고, determinant 가 +1 이어야 한다'
-        - '역행렬이 존재하기만 하면 된다'
+        - '모든 칸이 −1 과 1 사이에 있으면 된다. 그러면 곱한 vector 의 길이가 늘어나지 않기 때문이다'
+        - '대각선의 세 칸이 모두 1 이어야 한다. 그래야 축마다 길이가 1 로 유지되기 때문이다'
+        - '열이 서로 직각인 unit vector 라 $R^\top R = I$ 이고, determinant 가 +1 이어야 한다'
+        - '역행렬이 존재하면 된다. 되돌릴 수 있는 3×3 변환은 모두 rotation 이기 때문이다'
       answer: 2
       explanation: |
         rotation 은 길이와 각도를 바꾸지 않으므로 열이 길이 1 이고 서로 직각이어야 하고($R^\top R = I$), 거울상이 아니어야 해서 determinant 가 +1 이다.
         이 두 조건을 만족하는 행렬의 모임이 SO(3) 다. rotation matrix 의 칸은 모두 −1 과 1 사이에 있지만 그 조건만으로는 부족하고, 대각선이 모두
         1 인 것은 회전하지 않는 identity matrix 하나뿐이다. 역행렬이 있는 행렬 가운데에는 늘이거나 찌그러뜨리는 행렬도 많다.
     - question: |
-        면접관: "rotation matrix 의 역행렬은 어떻게 구하나요?"
+        rotation matrix 의 역행렬은 어떻게 구하는가?
       choices:
-        - 'transpose 하면 된다. 열이 서로 직각인 unit vector 라서 $R^\top R = I$ 이기 때문이다'
-        - '모든 칸의 부호를 바꾼다'
-        - '대각선의 칸만 역수로 바꾼다'
-        - '일반 행렬과 같이 elimination 으로 계산해야 하고 다른 방법은 없다'
+        - 'transpose 하면 된다. 열이 서로 직각인 unit vector 라서 $R^\top R = I$ 이다'
+        - '모든 칸의 부호를 바꾼다. 반대 방향으로 도는 회전이 역행렬이기 때문이다'
+        - '대각선의 칸만 역수로 바꾼다. rotation 의 크기는 대각선에 들어 있기 때문이다'
+        - '일반 행렬과 같이 elimination 으로 계산해야 하고, rotation 이라고 따로 쉬운 방법은 없다'
       answer: 0
       explanation: |
         $R^\top R$ 의 각 칸은 열 두 개의 dot product 라서 같은 열끼리는 1, 다른 열끼리는 0 이 되어 $I$ 가 된다. 그래서 $R^{-1} = R^\top$ 이고, 반대로
         $\theta$ 만큼 돌리는 $R(-\theta)$ 가 $R(\theta)$ 의 transpose 와 같다. 모든 칸의 부호를 바꾸면 rotation 이 아닌 행렬이 되기도 하고, 대각선만
         바꾸는 방법은 근거가 없다. elimination 으로도 같은 답이 나오지만 transpose 로 계산 없이 얻을 수 있다.
     - question: |
-        면접관: "열이 서로 직각이고 길이가 1 인 3×3 행렬인데 determinant 가 −1 입니다. 이 행렬을 로봇 frame 의 orientation 으로 써도 되나요?"
+        열이 서로 직각이고 길이가 1 인 3×3 행렬인데 determinant 가 −1 이다. 이 행렬을 로봇 frame 의 orientation 으로 써도 되는가?
       choices:
-        - '된다. 열이 직각이고 길이가 1 이면 모두 rotation 이다'
-        - '된다. determinant 의 부호는 도는 방향만 반대로 바꾼다'
-        - '안 된다. rotation matrix 는 determinant 가 0 이어야 한다'
-        - '안 된다. 축 하나를 뒤집은 거울상이라 오른손 frame 을 왼손 frame 으로 만들고, 어떤 rotation 으로도 만들 수 없는 자세다'
+        - '된다. 열이 직각이고 길이가 1 이면 길이와 각도가 보존되므로 모두 rotation 이다'
+        - '된다. determinant 가 −1 이면 같은 축을 반대 방향으로 도는 rotation 일 뿐이다'
+        - '안 된다. rotation matrix 는 determinant 가 0 이어야 orientation 으로 쓸 수 있다'
+        - '안 된다. 축 하나를 뒤집은 거울상이라 rotation 으로는 만들 수 없는 자세다'
       answer: 3
       explanation: |
         $z$ 축 하나만 뒤집은 행렬처럼 열이 직각이고 길이가 1 이어도 determinant 가 −1 이면 거울상이다. 오른손 법칙으로 정한 frame 이 왼손 frame
@@ -85,7 +85,7 @@
   title: 변환의 합성과 곱하는 순서
   variants:
     - question: |
-        면접관: "world 에서 본 base 의 pose $T_{wb}$ 와 base 에서 본 camera 의 pose $T_{bc}$ 가 있습니다. world 에서 본 camera 의 pose 는 어떻게 구하나요?"
+        world 에서 본 base 의 pose $T_{wb}$ 와 base 에서 본 camera 의 pose $T_{bc}$ 가 있다. world 에서 본 camera 의 pose 는 어떻게 구하는가?
       choices:
         - '$T_{bc}\,T_{wb}$'
         - '$T_{wb}\,T_{bc}$'
@@ -97,24 +97,24 @@
         행렬의 앞 글자가 같은 $b$ 로 맞닿고, 맞닿은 글자를 지우면 $wc$ 가 남는다. $T_{bc}\,T_{wb}$ 는 글자가 맞닿지 않아 뜻이 없는 곱이고, 행렬을
         더하면 rotation 칸이 rotation 이 아니게 된다. $T_{wb}^{-1}$ 은 world 좌표를 base 좌표로 바꾸는 반대 방향 변환이다.
     - question: |
-        면접관: "로봇의 pose $T$ 에 '$x$ 방향으로 1 m 이동' 하는 변환 $M$ 을 곱하려고 합니다. 로봇이 바라보는 방향으로 1 m 가게 하려면 어떻게 곱해야 하나요?"
+        로봇의 pose $T$ 에 '$x$ 방향으로 1 m 이동' 하는 변환 $M$ 을 곱하려고 한다. 로봇이 바라보는 방향으로 1 m 가게 하려면 어떻게 곱해야 하는가?
       choices:
         - '왼쪽에 곱한 $M\,T$. 나중에 하는 움직임은 언제나 왼쪽에 곱한다'
-        - '어느 쪽에 곱해도 결과가 같다'
+        - '어느 쪽에 곱해도 결과가 같다. 이동만 하는 변환은 곱하는 순서와 관계없기 때문이다'
         - '오른쪽에 곱한 $T\,M$. 로봇 자신의 frame 에서 잰 움직임이기 때문이다'
-        - '역변환을 써서 $T^{-1} M$ 으로 곱해야 한다'
+        - '역변환을 써서 $T^{-1} M$ 으로 곱해야 로봇 frame 기준의 움직임이 된다'
       answer: 2
       explanation: |
         오른쪽에 곱한 움직임은 움직이는 물체 자신의 frame 에서 잰 것이라 "앞으로 1 m" 가 되고, 왼쪽에 곱한 움직임은 바깥의 고정된 frame 에서 잰
         것이라 로봇이 어디를 보든 world 의 $x$ 방향으로 1 m 가 된다. 로봇이 돌아 있으면 두 결과가 다르므로 어느 쪽이든 같다는 보기는 틀렸다.
         $T^{-1} M$ 은 pose 를 움직이는 계산이 아니다.
     - question: |
-        면접관: "회전과 이동을 4×4 homogeneous transform 하나로 묶어 쓰는 이유는 무엇인가요?"
+        회전과 이동을 4×4 homogeneous transform 하나로 묶어 쓰는 이유는 무엇인가?
       choices:
-        - '좌표 끝에 1 을 붙이면 회전과 이동이 행렬 곱 하나가 되어, 여러 frame 을 거치는 변환을 행렬을 차례로 곱해 구할 수 있기 때문이다'
-        - '행렬이 커질수록 계산 정밀도가 높아지기 때문이다'
-        - '이동이 없는 변환만 다루도록 제한하기 위해서다'
-        - 'homogeneous transform 을 쓰지 않으면 3D 회전을 적을 방법이 없기 때문이다'
+        - '좌표 끝에 1 을 붙이면 회전과 이동이 행렬 곱 하나가 되어, 여러 frame 을 거치는 변환을 곱해서 구할 수 있기 때문이다'
+        - '4×4 로 칸을 늘리면 반올림 오차가 줄어 계산 정밀도가 높아지기 때문이다'
+        - '네 번째 칸을 1 로 고정해 이동이 없는 변환만 다루도록 제한하기 위해서다'
+        - '3×3 행렬로는 세 축의 회전을 한 번에 적을 수 없어서, 칸을 하나 늘려야 3D 회전을 적을 수 있기 때문이다'
       answer: 0
       explanation: |
         $p_a = R\,p_b + p$ 는 곱하기와 더하기가 섞여 있어서 frame 을 여러 번 거치면 식이 겹겹이 쌓인다. 끝에 1 을 붙인 좌표에 $[R\ p;\ 0\ 1]$ 을
@@ -125,7 +125,7 @@
   title: 역변환
   variants:
     - question: |
-        면접관: "$T_{ab}$ 의 rotation 이 $R$, translation 이 $p$ 일 때 역변환 $T_{ba}$ 의 translation 칸에는 무엇이 들어가나요?"
+        $T_{ab}$ 의 rotation 이 $R$, translation 이 $p$ 일 때 역변환 $T_{ba}$ 의 translation 칸에는 무엇이 들어가는가?
       choices:
         - '$-p$'
         - '$p$'
@@ -137,24 +137,24 @@
         rotation 이 없을 때($R = I$)만 맞는다. $p$ 는 원점 위치를 빼야 할 자리에 더한 값이고, $R\,p$ 는 부호도 틀린 데다 $R^\top$ 대신 $R$ 로
         방향을 바꾼 값이다.
     - question: |
-        면접관: "동료가 역변환의 translation 칸에 $-p$ 를 넣었더니, rotation 이 있는 경우에만 결과가 틀렸습니다. 이유가 무엇인가요?"
+        동료가 역변환의 translation 칸에 $-p$ 를 넣었더니, rotation 이 있는 경우에만 결과가 틀렸다. 이유는 무엇인가?
       choices:
-        - 'rotation 이 있으면 역변환이 존재하지 않기 때문이다'
-        - '$p$ 는 원래 frame 의 방향으로 적힌 값이라, 반대쪽 frame 의 좌표에서 빼려면 먼저 $R^\top$ 로 그 frame 의 방향으로 바꿔야 하기 때문이다'
-        - 'translation 칸에는 $p$ 의 길이 하나만 넣어야 하기 때문이다'
-        - 'rotation 이 있으면 역변환의 rotation 칸에 $R$ 을 그대로 써야 하기 때문이다'
+        - 'rotation 이 있는 rigid transform 은 역변환이 존재하지 않아서, 어떤 값을 넣어도 틀리기 때문이다'
+        - '$p$ 는 frame $a$ 의 축으로 적은 값이라, 빼기 전에 $R^\top$ 로 frame $b$ 축에 맞춰야 하기 때문이다'
+        - '역변환의 translation 칸에는 vector 가 아니라 $p$ 의 길이 하나만 넣어야 하기 때문이다'
+        - 'rotation 이 있으면 역변환의 rotation 칸에 $R$ 을 그대로 써야 해서 translation 과 맞지 않기 때문이다'
       answer: 1
       explanation: |
         $T_{ab}$ 의 $p$ 는 frame $a$ 의 축으로 적은 원점 위치라서, frame $b$ 의 좌표로 쓰려면 $R^\top$ 로 frame $b$ 의 축에 맞춰 바꿔야 하고 그 결과가
         $-R^\top p$ 다. rotation 이 없으면 $R^\top = I$ 라 $-p$ 와 같아져서 그때만 맞았다. rigid transform 은 언제나 역변환이 있고, translation
         칸에는 세 칸짜리 vector 가 들어가며, 역변환의 rotation 칸은 $R$ 이 아니라 $R^\top$ 이다.
     - question: |
-        면접관: "tf2 에는 부모에서 자식으로 가는 변환만 publish 했는데, 자식 frame 의 점을 부모로 바꾸는 것도, 부모 frame 의 점을 자식으로 바꾸는 것도 됩니다. 왜 그런가요?"
+        tf2 에는 부모에서 자식으로 가는 변환만 publish 했는데, 자식 frame 의 점을 부모로 바꾸는 것도, 부모 frame 의 점을 자식으로 바꾸는 것도 된다. 그 이유는 무엇인가?
       choices:
         - 'publish 할 때 tf2 가 양방향 변환을 따로 두 개 받아 저장하기 때문이다'
         - '부모와 자식 frame 은 언제나 같은 방향이라 이동의 부호만 바꾸면 되기 때문이다'
-        - 'tf2 가 필요할 때 저장된 변환의 역변환(rotation 은 $R^\top$, translation 은 $-R^\top p$)을 계산하기 때문이다'
-        - 'rigid transform 은 자기 자신이 역변환이기 때문이다'
+        - 'tf2 가 저장된 변환의 역변환(rotation 은 $R^\top$)을 필요할 때 계산해 쓰기 때문이다'
+        - 'rigid transform 은 자기 자신이 역변환이라, 저장한 변환 하나를 양쪽 방향에 그대로 쓰면 되기 때문이다'
       answer: 2
       explanation: |
         tf2 는 tree 의 변마다 변환 하나만 저장하고, 두 frame 사이를 물으면 tree 를 따라 변환을 곱하면서 반대 방향으로 가야 하는 변에는 역변환을 계산해
@@ -164,36 +164,36 @@
   title: roll-pitch-yaw 와 gimbal lock
   variants:
     - question: |
-        면접관: "URDF 의 `rpy` 세 값은 어떤 순서로 회전을 적용하나요?"
+        URDF 의 `rpy` 세 값은 어떤 순서로 회전을 적용하는가?
       choices:
-        - '부모 frame 의 고정축 기준으로 $x$(roll) → $y$(pitch) → $z$(yaw) 순서로 돌리고, 행렬로는 $R = R_z(\text{yaw})\,R_y(\text{pitch})\,R_x(\text{roll})$ 이다'
-        - '$z$ → $y$ → $x$ 순서로 돌리고, 행렬로는 $R = R_x(\text{roll})\,R_y(\text{pitch})\,R_z(\text{yaw})$ 이다'
-        - '세 회전은 순서와 관계없이 같은 결과를 낸다'
-        - 'yaw 만 실제로 적용하고 roll 과 pitch 는 표시용이다'
+        - '부모 frame 의 고정축으로 roll → pitch → yaw 순서로 돌려서, 행렬로는 $R_z R_y R_x$ 다'
+        - '부모 frame 의 고정축으로 yaw → pitch → roll 순서로 돌려서, 행렬로는 $R_x R_y R_z$ 다'
+        - '세 각도를 더한 것과 같아서, 세 회전은 어떤 순서로 돌려도 같은 결과를 낸다'
+        - '바닥을 도는 yaw 만 실제로 적용하고, roll 과 pitch 는 시각화에만 쓰는 값이다'
       answer: 0
       explanation: |
         URDF 의 rpy 는 고정된 부모 축으로 roll, pitch, yaw 를 차례로 돌린다. 고정된 frame 기준의 움직임은 왼쪽에 곱하므로 나중에 한 yaw 가 맨 왼쪽에
         와서 $R_z R_y R_x$ 가 된다. 3D 회전은 순서를 바꾸면 결과가 달라지므로 순서와 관계없다는 보기는 틀렸고, 카메라 optical frame 처럼 roll 이
         0 이 아닌 부품도 흔하다.
     - question: |
-        면접관: "gimbal lock 은 무엇이고 언제 생기나요?"
+        gimbal lock 은 무엇이고 언제 생기는가?
       choices:
-        - 'quaternion 의 길이가 1 에서 벗어나면 생기는 오류다'
-        - '관절이 한계 각도에 닿아 더 움직이지 못하는 기계적 현상이다'
-        - 'roll-pitch-yaw 에서 pitch 가 ±90° 가 되면 roll 의 축과 yaw 의 축이 같은 직선에 놓여, 독립인 각도 하나가 사라지는 현상이다'
-        - 'rotation matrix 의 determinant 가 0 이 되는 현상이다'
+        - 'quaternion 을 계속 곱하다 길이가 1 에서 벗어나면 자세가 굳어 버리는 오류다'
+        - '로봇 관절이 한계 각도에 닿아 더 돌지 못하고 그 자리에 잠기는 기계적 현상이다'
+        - 'pitch 가 ±90° 일 때 roll 축과 yaw 축이 한 직선에 놓여, 독립인 각도 하나가 사라지는 현상이다'
+        - 'pitch 가 90° 에 가까워지면 rotation matrix 의 determinant 가 0 이 되어 역행렬이 사라지는 현상이다'
       answer: 2
       explanation: |
         pitch 90° 가 roll 의 축($x$)을 눕혀 yaw 의 축($z$)과 같은 직선에 놓으면 roll 과 yaw 가 같은 일을 해서, 두 값의 차이만 자세를 정한다. 그
         근처에서는 자세가 조금 바뀌어도 roll·yaw 숫자가 크게 튄다. 각도 세 개로 자세를 적는 방식의 문제라서 quaternion 의 길이나 관절 한계와는
         다르고, rotation matrix 는 이때도 determinant 가 +1 인 정상 행렬이다.
     - question: |
-        면접관: "3D 에서 $x$ 축 90° 회전과 $z$ 축 90° 회전을 순서만 바꿔 적용하면 결과는 어떻게 되나요?"
+        3D 에서 $x$ 축 90° 회전과 $z$ 축 90° 회전을 순서만 바꿔 적용하면 결과는 어떻게 되는가?
       choices:
-        - '같다. 회전 각도가 더해지기만 한다'
-        - '대체로 다른 자세가 된다. 3D rotation 의 행렬 곱은 순서를 바꾸면 결과가 달라진다'
-        - '같다. 두 회전의 각도가 모두 90° 이기 때문이다'
-        - '어느 순서든 원래 자세로 돌아온다'
+        - '같다. 두 회전의 각도가 더해지기만 하므로 순서는 상관없다'
+        - '대체로 다른 자세가 된다. 3D rotation 의 곱은 순서를 바꾸면 결과가 달라진다'
+        - '같다. 두 회전의 각도가 모두 90° 로 같아서, 어느 축을 먼저 돌려도 도착하는 자세가 같다'
+        - '어느 순서든 두 회전이 서로를 상쇄해서 원래 자세로 돌아온다'
       answer: 1
       explanation: |
         $R_z(90°)\,R_x(90°)$ 와 $R_x(90°)\,R_z(90°)$ 는 서로 다른 행렬이라 $x$ 축이 도착하는 곳부터 다르다. 각도가 더해지기만 하는 것은 같은 축을
@@ -204,35 +204,35 @@
   title: quaternion 의 성질과 칸 순서
   variants:
     - question: |
-        면접관: "축 $\hat n$ 을 중심으로 $\theta$ 만큼 도는 rotation 을 unit quaternion 으로 적으면 어떻게 되나요?"
+        축 $\hat n$ 을 중심으로 $\theta$ 만큼 도는 rotation 을 unit quaternion 으로 적으면 어떻게 되는가?
       choices:
         - '$(\theta,\ \hat n)$'
         - '$(\cos\theta,\ \hat n \sin\theta)$'
-        - '$(1,\ \hat n\,\theta)$'
+        - '$(\sin\frac{\theta}{2},\ \hat n \cos\frac{\theta}{2})$'
         - '$(\cos\frac{\theta}{2},\ \hat n \sin\frac{\theta}{2})$'
       answer: 3
       explanation: |
         quaternion 은 각도의 절반을 써서 $(\cos\frac{\theta}{2}, \hat n \sin\frac{\theta}{2})$ 로 적고, 네 칸의 제곱합이 늘 1 이다. 점을 돌릴 때
-        $q \otimes (0, \mathbf v) \otimes q^*$ 처럼 양쪽에서 한 번씩 곱하기 때문에 절반 각도를 쓴다. $(\theta, \hat n)$ 은 axis-angle 이고
-        $\hat n\,\theta$ 는 rotation vector 다. 절반이 아닌 $\theta$ 를 쓰면 두 배 각도의 rotation 이 된다.
+        $q \otimes (0, \mathbf v) \otimes q^*$ 처럼 양쪽에서 한 번씩 곱하기 때문에 절반 각도를 쓴다. $(\theta, \hat n)$ 은 axis-angle 이고,
+        sin 과 cos 의 자리를 바꾸면 $\theta = 0$ 일 때 $(0, \hat n)$ 이 되어 회전이 없어야 할 자리에 180° rotation 이 나온다. 절반이 아닌 $\theta$ 를 쓰면 두 배 각도의 rotation 이 된다.
     - question: |
-        면접관: "unit quaternion $q$ 와 $-q$ 는 어떤 관계인가요?"
+        unit quaternion $q$ 와 $-q$ 는 어떤 관계인가?
       choices:
-        - '같은 rotation 이다. 각도의 절반이 들어가서 360° 를 더 돈 같은 자세가 모든 칸의 부호가 뒤집힌 quaternion 으로 적힌다'
-        - '서로 반대 방향으로 도는 rotation 인 역변환이다'
-        - '$-q$ 는 길이가 −1 이라 rotation 이 아니다'
-        - '$-q$ 는 $q$ 를 두 번 적용한 rotation 이다'
+        - '같은 rotation 이다. 360° 를 더 돌면 절반 각도가 180° 늘어 모든 칸의 부호가 바뀌기 때문이다'
+        - '서로 역변환이다. 네 칸의 부호를 모두 바꾸면 같은 축을 반대 방향으로 도는 rotation 이 되기 때문이다'
+        - '$-q$ 는 길이가 −1 이라 unit quaternion 이 아니므로 rotation 을 나타내지 않는다'
+        - '$-q$ 는 같은 축을 두 배 각도로 도는 rotation 이라 $q$ 를 두 번 적용한 것과 같다'
       answer: 0
       explanation: |
         $\theta$ 에 360° 를 더하면 $\frac{\theta}{2}$ 가 180° 커져 cos·sin 의 부호가 모두 바뀌지만 자세는 같으므로, rotation 하나에 quaternion 이
         $q$ 와 $-q$ 두 개 있다. 역변환은 vector 부분의 부호만 바꾼 conjugate $q^*$ 이고, $-q$ 의 길이도 1 이며, 두 번 적용한 rotation 은 $q \otimes q$ 다.
     - question: |
-        면접관: "ROS 의 `geometry_msgs/Quaternion` 값을 MuJoCo 모델의 `quat` 속성에 숫자 순서 그대로 옮겨 적었더니 자세가 엉뚱하게 나왔습니다. 가장 먼저 의심할 것은 무엇인가요?"
+        ROS 의 `geometry_msgs/Quaternion` 값을 MuJoCo 모델의 `quat` 속성에 숫자 순서 그대로 옮겨 적었더니 자세가 엉뚱하게 나왔다. 가장 먼저 의심할 것은 무엇인가?
       choices:
-        - 'ROS 는 degree 를, MuJoCo 는 radian 을 쓴다는 점'
+        - 'ROS 는 quaternion 을 degree 단위로 적고 MuJoCo 는 radian 단위로 적는다는 점'
         - 'MuJoCo 는 quaternion 을 받지 않아 roll-pitch-yaw 로 바꿔야 한다는 점'
-        - '칸 순서. ROS 메시지는 $x, y, z, w$ 순서이고 MuJoCo 의 `quat` 은 $w, x, y, z$ 순서다'
-        - 'ROS 의 quaternion 은 길이가 2 라서 반으로 나눠야 한다는 점'
+        - '칸 순서. ROS 메시지는 $w$ 를 맨 뒤에 두고 MuJoCo 의 `quat` 은 맨 앞에 둔다'
+        - 'ROS 의 quaternion 은 길이가 2 로 적혀 있어서 MuJoCo 에 넣기 전에 반으로 나눠야 한다는 점'
       answer: 2
       explanation: |
         같은 rotation 도 소프트웨어마다 네 칸을 늘어놓는 순서가 다르다. ROS 메시지와 SciPy 기본값은 scalar $w$ 를 맨 뒤에 두고, MuJoCo 와 Eigen 생성자는
@@ -243,34 +243,34 @@
   title: 자세 보간과 slerp
   variants:
     - question: |
-        면접관: "두 자세 사이의 중간 자세를 만들려고 두 rotation matrix 를 칸마다 평균하면 어떤 문제가 생기나요?"
+        두 자세 사이의 중간 자세를 만들려고 두 rotation matrix 를 칸마다 평균하면 어떤 문제가 생기는가?
       choices:
-        - '아무 문제가 없고 정확히 중간 자세가 나온다'
-        - '평균한 행렬의 열이 길이 1 이 아니게 되어 rotation matrix 가 아니고, 곱하면 물체가 줄어들거나 찌그러진다'
-        - '계산량만 늘 뿐 결과는 slerp 와 같다'
-        - '평균하면 언제나 identity matrix 가 된다'
+        - '문제가 없다. 칸마다 평균하면 두 자세의 정확히 중간인 rotation matrix 가 나온다'
+        - '평균한 행렬의 열이 길이 1 보다 짧아져 rotation matrix 가 아니게 되고, 물체를 찌그러뜨린다'
+        - '결과는 slerp 와 같고, 행렬 칸 9 개를 다 계산해야 해서 계산량만 늘어난다'
+        - '두 회전이 서로 상쇄되어, 평균한 행렬은 언제나 회전이 없는 identity matrix 가 된다'
       answer: 1
       explanation: |
         서로 다른 방향의 unit vector 를 평균하면 길이가 1 보다 짧아진다. 예를 들어 $I$ 와 $z$ 축 90° 회전의 첫째 열을 평균하면 길이가 약 0.707 이라
         rotation matrix 가 아니다. 그래서 중간 자세는 quaternion 의 slerp 처럼 rotation 의 성질을 지키는 방법으로 만든다. 평균이 identity 가 되는
         것은 두 자세가 모두 identity 일 때뿐이고, slerp 와 결과가 같지도 않다.
     - question: |
-        면접관: "두 quaternion 을 slerp 하기 전에 dot product 가 음수인지 확인하는 이유는 무엇인가요?"
+        두 quaternion 을 slerp 하기 전에 dot product 가 음수인지 확인하는 이유는 무엇인가?
       choices:
-        - 'dot product 가 음수이면 slerp 식이 정의되지 않아 오류가 나기 때문이다'
+        - 'dot product 가 음수이면 두 자세 사이의 각도를 구하는 slerp 식이 정의되지 않아 오류가 나기 때문이다'
         - 'dot product 가 음수이면 두 자세가 같아서 보간할 필요가 없기 때문이다'
-        - 'quaternion 을 길이 1 로 맞추기 위해서다'
-        - '$q$ 와 $-q$ 가 같은 자세라서, dot product 가 음수이면 한쪽 부호를 바꿔야 짧은 호를 따라 덜 도는 경로로 보간되기 때문이다'
+        - 'dot product 가 음수이면 quaternion 의 길이가 1 이 아니라는 뜻이라, 길이를 맞추려는 것이다'
+        - '$q$ 와 $-q$ 가 같은 자세라서, 음수이면 한쪽 부호를 바꿔야 짧은 호를 따라 보간되기 때문이다'
       answer: 3
       explanation: |
         dot product 가 음수이면 두 점 사이의 원호가 긴 쪽이 되어, 같은 목표 자세에 가더라도 반대 방향으로 크게 돌아간다. 목표를 $-q_1$ 로 바꾸면
         자세는 그대로이고 원호만 짧아진다. 음수여도 식은 계산되고, 두 자세가 같다는 뜻도 아니며, 길이를 맞추는 normalize 와는 다른 일이다.
     - question: |
-        면접관: "자세를 보간할 때 slerp 를 쓰는 이유를 설명해 보세요."
+        자세를 보간할 때 slerp 를 쓰는 이유는 무엇인가?
       choices:
-        - 'unit quaternion 이 놓인 구면 위 원호를 따라 보간해서, 결과가 언제나 rotation 이고 진행 비율에 비례해 각도가 고르게 변하기 때문이다'
-        - 'slerp 가 다른 어떤 보간보다 계산이 간단하기 때문이다'
-        - 'slerp 는 translation 까지 함께 보간하기 때문이다'
+        - '구면 위 원호를 따라 보간해서, 결과가 언제나 rotation 이고 각도가 진행 비율에 맞춰 고르게 변하기 때문이다'
+        - 'sin 하나만 계산하면 되어서, 다른 어떤 보간보다 계산이 간단하고 빠르기 때문이다'
+        - 'slerp 는 rotation 과 translation 을 한 번에 보간해서, pose 를 나눠 다룰 필요가 없기 때문이다'
         - 'quaternion 에는 어떤 형태의 linear interpolation 도 쓸 수 없기 때문이다'
       answer: 0
       explanation: |
@@ -282,11 +282,11 @@
   title: 로봇의 frame 사슬
   variants:
     - question: |
-        면접관: "손목(gripper)에 단 카메라로 찾은 물체 위치 $p_c$ 를 로봇 base 의 좌표로 바꾸려면 어떤 계산을 하나요? $T_{be}$ 는 base 에서 본 gripper 의 pose, $T_{ec}$ 는 gripper 에서 본 카메라의 pose 입니다."
+        손목(gripper)에 단 카메라로 찾은 물체 위치 $p_c$ 를 로봇 base 의 좌표로 바꾸려면 어떤 계산을 하는가? $T_{be}$ 는 base 에서 본 gripper 의 pose 이고, $T_{ec}$ 는 gripper 에서 본 카메라의 pose 이다.
       choices:
         - '$p_b = p_c + (\text{gripper 의 위치})$'
         - '$p_b = T_{ec}\,T_{be}\,p_c$'
-        - '$p_b = T_{be}\,T_{ec}\,p_c$. $T_{be}$ 는 관절 각도로 매번 다시 구하고 $T_{ec}$ 는 고정된 값을 그대로 쓴다'
+        - '$p_b = T_{be}\,T_{ec}\,p_c$'
         - '$p_b = T_{be}^{-1}\,T_{ec}\,p_c$'
       answer: 2
       explanation: |
@@ -294,23 +294,23 @@
         고정해 둔 자리 $T_{ec}$ 는 그대로다. 위치만 더하면 gripper 와 카메라의 rotation 을 빠뜨리고, 순서를 바꾸거나 $T_{be}^{-1}$ 을 쓰면 아래첨자가
         맞닿지 않는다.
     - question: |
-        면접관: "바퀴 odometry 가 매 주기 계산한 이동량 $\Delta T$ 로 `odom` → `base_link` 의 pose $T$ 를 고칠 때, $\Delta T$ 를 어느 쪽에 곱하나요?"
+        바퀴 odometry 가 매 주기 계산한 이동량 $\Delta T$ 로 `odom` → `base_link` 의 pose $T$ 를 고칠 때, $\Delta T$ 를 어느 쪽에 곱하는가?
       choices:
         - '왼쪽에 곱한 $\Delta T\,T$. 이동량은 `odom` frame 에서 잰 값이기 때문이다'
-        - '오른쪽에 곱한 $T\,\Delta T$. 바퀴로 잰 이동량은 로봇 자신의 frame 에서 잰 값이기 때문이다'
-        - '행렬을 더한 $T + \Delta T$ 로 고친다'
-        - '역변환을 곱한 $T\,\Delta T^{-1}$ 로 고친다'
+        - '오른쪽에 곱한 $T\,\Delta T$. 바퀴로 잰 이동량은 로봇 frame 기준이기 때문이다'
+        - '행렬을 더한 $T + \Delta T$ 로 고친다. 이동량을 지금 pose 에 그대로 쌓으면 되기 때문이다'
+        - '역변환을 곱한 $T\,\Delta T^{-1}$ 로 고친다. 바퀴가 바닥을 뒤로 민 만큼 몸체가 움직이기 때문이다'
       answer: 1
       explanation: |
         바퀴가 돈 양은 "앞으로 얼마, 왼쪽으로 몇 도" 처럼 로봇 자신의 frame 에서 잰 움직임이라 오른쪽에 곱한다. 왼쪽에 곱하면 로봇이 어디를 보든
         `odom` 의 축 방향으로 움직이게 되고, 행렬을 더하면 rotation 칸이 rotation 이 아니게 된다. 역변환을 곱하면 반대로 움직인다.
     - question: |
-        면접관: "위치 추정 node 가 `map` 에서 본 로봇의 pose $T_{\text{map,base}}$ 를 구했고, odometry 는 이미 `odom` → `base_link` 를 내고 있습니다. 이 node 는 tf2 에 무엇을 publish 해야 하나요?"
+        위치 추정 node 가 `map` 에서 본 로봇의 pose $T_{\text{map,base}}$ 를 구했고, odometry 는 이미 `odom` → `base_link` 를 내고 있다. 이 node 는 tf2 에 무엇을 publish 해야 하는가?
       choices:
-        - '`map` → `base_link` 를 그대로 publish 한다'
+        - '`map` → `base_link` 를 그대로 publish 해서, tf2 가 두 경로 가운데 나은 쪽을 고르게 한다'
         - '$T_{\text{odom,base}}\,(T_{\text{map,base}})^{-1}$ 을 `map` → `odom` 으로 publish 한다'
         - '`map` 과 `odom` 은 언제나 같으므로 아무것도 publish 하지 않는다'
-        - '$T_{\text{map,odom}} = T_{\text{map,base}}\,(T_{\text{odom,base}})^{-1}$ 을 `map` → `odom` 으로 publish 한다'
+        - '$T_{\text{map,base}}\,(T_{\text{odom,base}})^{-1}$ 을 `map` → `odom` 으로 publish 한다'
       answer: 3
       explanation: |
         tf2 tree 에서 frame 마다 부모가 하나뿐이고 `base_link` 의 부모는 이미 `odom` 이라, `map` → `base_link` 를 따로 낼 수 없다. 그래서 `map` →

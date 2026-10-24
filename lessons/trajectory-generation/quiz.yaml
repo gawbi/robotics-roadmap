@@ -5,50 +5,50 @@
   title: path 와 trajectory
   variants:
     - question: |
-        면접관: "motion planning 에서 path 와 trajectory 는 어떻게 다른가요?"
+        motion planning 에서 path 와 trajectory 는 어떻게 다른가?
       choices:
-        - 'path 는 지나갈 자세를 이은 선으로 시간 정보가 없고, trajectory 는 시각마다 자세를 정한 것이라 속도와 가속도까지 정해진다'
-        - 'path 는 손끝 좌표로, trajectory 는 관절 각도로 적은 것이라는 차이뿐이다'
-        - 'path 는 장애물을 피하지 않은 선이고, trajectory 는 장애물을 피한 선이다'
-        - '둘은 같은 말이고 MoveIt 에서만 이름을 다르게 부른다'
+        - 'path 는 자세를 이은 선이라 시간이 없고, trajectory 는 시각마다 자세를 정해 속도·가속도까지 정해진다'
+        - 'path 는 손끝 좌표로 적은 선이고 trajectory 는 관절 각도로 적은 선이라서, 적는 좌표 공간만 서로 다르다'
+        - 'path 는 장애물을 고려하지 않은 선이고, trajectory 는 그 선을 장애물을 피하도록 고친 것이다'
+        - '둘은 같은 말인데, MoveIt 에서만 계획 단계의 결과와 실행 단계의 결과를 서로 다른 이름으로 부른다'
       answer: 0
       explanation: |
         path 는 $\mathbf q(s)$ 처럼 path 위 위치 $s$ 의 함수라서 언제 어디에 있을지가 없고, trajectory 는 $\mathbf q(t)$ 라서 시간으로 미분하면
         속도와 가속도가 나온다. 두 말 모두 관절 공간과 손끝 공간 어디에서든 쓸 수 있고, 장애물 회피는 path 를 찾는 단계에서 이미 다룬다.
     - question: |
-        면접관: "같은 path 를 따라가는 trajectory 가 여러 개일 수 있나요?"
+        같은 path 를 따라가는 trajectory 가 여러 개일 수 있는가?
       choices:
-        - '아니다. path 가 정해지면 trajectory 도 하나로 정해진다'
-        - '아니다. trajectory 를 바꾸려면 path 를 새로 계획해야 한다'
-        - '그렇다. path 위 위치를 시간의 함수로 정하는 s(t) 를 바꾸면 같은 선을 다른 속도로 지나는 trajectory 가 된다'
-        - '그렇다. 다만 관절 수가 6 개 이상일 때만 가능하다'
+        - '아니다. path 가 정해지면 각 자세 사이의 시간도 정해지므로, trajectory 도 하나로 정해진다'
+        - '아니다. 속도를 바꾸면 관절이 지나는 자세도 달라지므로, path 를 새로 계획해야 한다'
+        - '그렇다. path 위 위치를 시간의 함수로 정하는 s(t) 를 바꾸면, 같은 선을 다른 속도로 지난다'
+        - '그렇다. 다만 관절이 6 개 이상이라 같은 path 를 여러 자세로 지날 수 있을 때만 가능하다'
       answer: 2
       explanation: |
         trajectory 는 $\mathbf q(s(t))$ 이고, $s(t)$ 를 time scaling 또는 time parameterization 이라고 한다. 같은 선을 2.5 초에도, 4.5 초에도
         지날 수 있어서 path 를 다시 계획할 필요 없이 시간만 다시 붙이면 된다. 관절 수와는 관계없다.
     - question: |
-        면접관: "MoveIt 같은 시스템이 충돌 없는 path 를 먼저 찾고 시간은 나중에 붙이는 이유는 무엇인가요?"
+        MoveIt 같은 시스템이 충돌 없는 path 를 먼저 찾고 시간은 나중에 붙이는 이유는 무엇인가?
       choices:
-        - '시간을 먼저 붙이면 planner 가 더 정확한 path 를 찾기 때문이다'
-        - '충돌은 자세만 보면 알 수 있고 속도·가속도 한계는 path 가 정해진 뒤 따로 맞출 수 있어서, 두 문제를 나누면 각각이 단순해지기 때문이다'
-        - '시간을 붙이는 단계에서 장애물을 한 번 더 피하기 때문이다'
-        - '관절 한계는 실행 중에 controller 가 알아서 맞추므로 계획 단계에서는 신경 쓸 필요가 없기 때문이다'
+        - '시간을 path 보다 먼저 정하면 path 가 길어지고, 나중에 붙여야 path 가 가장 짧아지기 때문이다'
+        - '충돌은 자세만으로 알 수 있고 속도·가속도 한계는 path 가 정해진 뒤 맞추면 되므로, 나누면 각각 단순해지기 때문이다'
+        - '시간을 붙이는 단계에서 장애물을 한 번 더 확인하고 피하므로, planner 는 대략적인 path 만 찾으면 되기 때문이다'
+        - '관절 속도·가속도 한계는 실행 중에 controller 가 알아서 맞추므로, 계획 단계에서는 시간을 신경 쓸 필요가 없기 때문이다'
       answer: 1
       explanation: |
         충돌 여부는 자세에만 달려 있으므로 planner 는 시간 없이 path 를 찾고, time parameterization 은 그 path 를 벗어나지 않으면서 관절 한계 안에서
-        얼마나 빨리 지날지만 정한다. 시간을 붙이는 단계는 장애물을 다시 피하지 않고, 한계를 넘는 trajectory 를 controller 에 보내면 따라가지 못하거나
-        driver 가 멈춘다.
+        얼마나 빨리 지날지만 정한다. path 의 길이는 planner 가 정하고 시간을 붙이는 순서와는 관계가 없다. 시간을 붙이는 단계는 장애물을 다시 피하지
+        않고, 한계를 넘는 trajectory 를 controller 에 보내면 따라가지 못하거나 driver 가 멈춘다.
 
 - topic: cartesian
   title: Cartesian 보간과 singularity
   variants:
     - question: |
-        면접관: "손끝을 곧은 선으로 움직이는 Cartesian path 를 만들 때 joint space 보간에는 없던 어떤 문제가 생기나요?"
+        손끝을 곧은 선으로 움직이는 Cartesian path 를 만들 때 joint space 보간에는 없던 어떤 문제가 생기는가?
       choices:
-        - '선을 잘게 나눈 점마다 IK 를 풀어야 해서, 중간에 해가 없거나, 해의 갈래가 바뀌어 관절이 뛰거나, singularity 근처에서 관절 속도가 커질 수 있다'
-        - '손끝 경로가 휘어서 장애물에 닿을 수 있다'
-        - '관절 각도가 늘 일정한 속도로 변해서 출발이 급하다'
-        - '관절 한계를 확인할 방법이 없다'
+        - 'IK 를 점마다 풀어야 해서 해가 없거나, 해의 갈래가 바뀌어 관절이 뛰거나, singularity 근처에서 관절이 빨라질 수 있다'
+        - '관절마다 따로 보간하므로 손끝 경로가 곧은 선에서 바깥으로 휘어져서, planner 가 보지 못한 장애물에 닿을 수 있다'
+        - '관절 각도가 처음부터 끝까지 일정한 속도로 변하도록 보간되어서, 출발하는 순간 관절 속도가 0 에서 한 번에 뛴다'
+        - '손끝 좌표만 다루므로 각 점의 관절 각도가 계산되지 않아서, 관절 한계를 넘는지 확인할 방법이 아예 없다'
       answer: 0
       explanation: |
         Cartesian 보간은 손끝의 곧은 선을 나눠 점마다 IK 를 풀기 때문에 IK 에서 생기는 문제를 그대로 겪는다. MoveIt 의 computeCartesianPath 가
@@ -65,12 +65,12 @@
         축에 가장 가까워지는 순간 joint 1 의 각속도는 속도 ÷ 거리라서 $0.1 \div 0.02 = 5$ rad/s 다. 손목 속도는 느려도 축에 가까이 지날수록 joint 1
         이 크게 돌아야 하고, 축 위를 지나면 한순간에 180° 를 돌아야 한다. 0.002 는 둘을 곱한 값이고, 0.2 와 50 은 자릿수를 잘못 옮긴 값이다.
     - question: |
-        면접관: "Cartesian 직선 경로가 shoulder singularity 근처를 지나면 어떻게 대처하나요?"
+        Cartesian 직선 경로가 shoulder singularity 근처를 지나면 어떻게 대처하는가?
       choices:
-        - '손끝 속도를 일정하게 유지하면 관절 속도도 일정하므로 그대로 실행한다'
-        - 'singularity 근처에서 손끝 속도를 줄이거나, 곧은 선이 꼭 필요하지 않은 구간은 joint space 보간으로 바꾼다'
-        - 'IK solver 의 반복 횟수를 늘리면 관절 속도 문제가 사라진다'
-        - 'eef_step 을 크게 해서 singularity 근처의 점을 건너뛴다'
+        - '손끝 속도를 일정하게 유지하면 관절 속도도 일정하게 유지되므로, 경로를 그대로 실행한다'
+        - 'singularity 근처에서 손끝 속도를 줄이거나, 곧은 선이 필요 없는 구간은 joint space 보간으로 바꾼다'
+        - 'IK solver 의 반복 횟수를 늘려 더 정확한 해를 구하면, singularity 근처에서 관절 속도가 커지는 문제가 사라진다'
+        - 'eef_step 을 크게 해서 singularity 근처의 점을 건너뛰면, 관절이 크게 움직일 일이 없어진다'
       answer: 1
       explanation: |
         singularity 근처에서는 손끝을 조금 옮기는 데 관절이 크게 움직여야 하므로, 같은 손끝 속도를 유지하면 관절 속도 한계를 넘는다. 손끝 속도를
@@ -92,23 +92,23 @@
         3 rad 가 $v_{\max}^2 / a_{\max} = 0.5$ rad 보다 길어 사다리꼴이고, $T = d / v_{\max} + v_{\max} / a_{\max} = 3 + 0.5 = 3.5$ s 다. 3.0 s 는
         가속·감속 없이 최고 속도로만 간 시간이고, 2.45 s 는 최고 속도 한계를 무시한 삼각형 시간 $2\sqrt{3/2}$ 이며, 4.0 s 는 가속 시간을 두 번 더한 값이다.
     - question: |
-        면접관: "사다리꼴 속도 profile 이 삼각형이 되는 것은 어떤 경우인가요?"
+        사다리꼴 속도 profile 이 삼각형이 되는 것은 어떤 경우인가?
       choices:
-        - '가속도 한계가 속도 한계보다 클 때'
-        - '관절이 두 개 이상일 때'
-        - '움직일 거리가 길어 최고 속도로 오래 달릴 때'
-        - '움직일 거리가 짧아 가속과 감속에 드는 거리 v_max²/a_max 보다 작아서, 최고 속도에 닿기 전에 감속을 시작해야 할 때'
+        - '가속도 한계가 속도 한계보다 커서, 가속 구간이 너무 짧아지는 바람에 등속 구간과 붙어 버릴 때'
+        - '관절이 두 개 이상이라서, 느린 관절에 도착 시각을 맞추려고 빠른 관절의 등속 구간을 없앨 때'
+        - '움직일 거리가 길어서, 최고 속도로 오래 달리는 동안 등속 구간이 꼭짓점 하나로 줄어들 때'
+        - '거리가 가속·감속에 드는 거리 v_max²/a_max 보다 짧아서, 최고 속도에 닿기 전에 감속해야 할 때'
       answer: 3
       explanation: |
         최고 속도까지 올렸다가 내리는 데 $v_{\max}^2 / a_{\max}$ 만큼의 거리가 든다. 움직일 거리가 이보다 짧으면 등속 구간이 없어지고 속도가 꼭짓점
         $\sqrt{a_{\max} d}$ 에서 바로 내려온다. 한계의 크기 비교나 관절 수와는 관계없고, 거리가 길면 오히려 등속 구간이 길어진다.
     - question: |
-        면접관: "속도와 가속도 한계만 있을 때 사다리꼴 profile 이 가장 빠른 이유는 무엇이고, 단점은 무엇인가요?"
+        속도와 가속도 한계만 있을 때 사다리꼴 profile 이 가장 빠른 이유는 무엇이고, 단점은 무엇인가?
       choices:
-        - '모든 순간 한계보다 느리게 움직여 안전하기 때문이고, 단점은 없다'
-        - '가속과 감속 구간에서는 가속도 한계를 꽉 채우고 그 사이에는 속도 한계를 꽉 채우기 때문이고, 단점은 가속도가 계단처럼 바뀌어 jerk 가 무한대라는 점이다'
-        - '위치가 다항식이라 미분이 쉽기 때문이고, 단점은 waypoint 를 지날 수 없다는 점이다'
-        - '속도가 늘 일정하기 때문이고, 단점은 출발할 때 속도가 뛴다는 점이다'
+        - '모든 순간 한계보다 조금 느리게 움직여서 안전하기 때문이고, 어느 한계도 넘지 않으므로 단점은 따로 없다'
+        - '가속·감속 구간은 가속도 한계를 채우고 그 사이는 속도 한계를 채우기 때문이고, 단점은 jerk 가 무한대라는 점이다'
+        - '위치가 다항식 하나라 미분이 쉽기 때문이고, 단점은 중간 waypoint 를 지날 수 없다는 점이다'
+        - '속도가 처음부터 끝까지 일정하게 유지되기 때문이고, 단점은 출발하는 순간과 멈추는 순간에 속도가 한 번에 뛴다는 점이다'
       answer: 1
       explanation: |
         두 한계 안에서는 할 수 있는 최대로 가속하고 최대로 달리고 최대로 감속하는 것이 가장 빠르고, 그 모양이 사다리꼴이다. 대신 가속도가 0 과
@@ -118,12 +118,12 @@
   title: jerk 제한과 S-curve
   variants:
     - question: |
-        면접관: "trajectory 에서 jerk 를 제한하는 이유는 무엇인가요?"
+        trajectory 에서 jerk 를 제한하는 이유는 무엇인가?
       choices:
-        - 'jerk 를 제한하면 이동 시간이 짧아지기 때문이다'
-        - 'jerk 를 제한해야 위치 오차가 0 이 되기 때문이다'
-        - '가속도가 갑자기 바뀌면 torque 가 계단처럼 바뀌어 감속기와 link 를 흔들고, 일부 로봇은 가속도 불연속을 감지하면 동작을 멈추기 때문이다'
-        - 'jerk 가 속도 한계를 대신하기 때문이다'
+        - 'jerk 를 제한하면 가속도를 더 빨리 최대까지 올릴 수 있어서, 같은 거리를 옮기는 이동 시간이 짧아지기 때문이다'
+        - 'jerk 를 제한해야 controller 가 목표를 정확히 따라가서, 도착했을 때의 위치 오차가 0 이 되기 때문이다'
+        - '가속도가 갑자기 바뀌면 torque 도 계단처럼 바뀌어 감속기와 link 를 흔들고, 멈춰 버리는 로봇도 있기 때문이다'
+        - 'jerk 한계가 있으면 속도도 그 안에 묶이므로, 따로 속도 한계를 정할 필요가 없어지기 때문이다'
       answer: 2
       explanation: |
         jerk 는 가속도가 1초에 변하는 양이다. 가속도가 계단처럼 바뀌면 motor torque 도 계단처럼 바뀌어 진동이 생기고, Franka 처럼 controller 가 가속도
@@ -140,12 +140,12 @@
         S-curve 는 가속도를 0 에서 $a_{\max}$ 까지 $a_{\max} / j_{\max} = 2 \div 10 = 0.2$ s 동안 올린다. 모든 한계에 닿는 이동에서는 전체 시간이
         이만큼 늘어 $2.5 + 0.2 = 2.7$ s 다. 시간이 그대로일 수는 없고, 3.5 s 나 5.0 s 처럼 크게 늘지도 않는다.
     - question: |
-        면접관: "Ruckig 같은 online trajectory generator 는 오프라인 trajectory 계획과 무엇이 다른가요?"
+        Ruckig 같은 online trajectory generator 는 오프라인 trajectory 계획과 무엇이 다른가?
       choices:
-        - '정지 상태에서 출발하는 경우만 계산할 수 있다'
-        - '관절 하나만 다룰 수 있어서 여러 관절은 따로 계산한다'
-        - 'jerk 를 무시하고 속도만 제한한다'
-        - '지금의 위치·속도·가속도에서 출발해 목표 상태까지 가는 jerk 제한 trajectory 를 제어 주기 안에 계산해서, 목표가 바뀌면 다음 주기에 바로 새로 만든다'
+        - '정지 상태에서 출발하는 trajectory 만 계산할 수 있어서, 움직이는 도중에 목표가 바뀌면 일단 멈춘 뒤에 새로 계산한다'
+        - '관절 하나만 다룰 수 있어서, 여러 관절은 따로따로 계산하고 관절마다 도착 시각이 서로 달라진다'
+        - 'jerk 는 무시하고 속도 한계만 지키는 대신 계산이 단순해서, 오프라인 계획보다 빨리 끝난다'
+        - '지금 위치·속도·가속도에서 목표까지 가는 jerk 제한 trajectory 를 매 제어 주기에 다시 계산해, 목표가 바뀌면 바로 따른다'
       answer: 3
       explanation: |
         Ruckig 는 0 이 아닌 지금 속도·가속도에서 출발해 목표 위치·속도·가속도까지 가는 시간 최적 trajectory 를 jerk·가속도·속도 한계 안에서 구하고,
@@ -155,12 +155,12 @@
   title: cubic 과 quintic 다항식
   variants:
     - question: |
-        면접관: "trajectory 에 cubic 대신 quintic 다항식을 쓰는 이유는 무엇인가요?"
+        trajectory 에 cubic 대신 quintic 다항식을 쓰는 이유는 무엇인가?
       choices:
-        - 'quintic 은 계수가 여섯이라 출발·도착의 가속도까지 맞출 수 있어서, 정지 상태에서 가속도가 0 에서 연속으로 시작한다'
-        - 'quintic 이 같은 시간에 최고 속도가 더 낮기 때문이다'
-        - 'quintic 은 waypoint 를 지날 수 있고 cubic 은 지날 수 없기 때문이다'
-        - 'quintic 은 관절 한계를 자동으로 지키기 때문이다'
+        - 'quintic 은 계수가 여섯이라 출발·도착의 가속도까지 맞춰서, 정지에서 가속도가 0 부터 연속으로 시작한다'
+        - 'quintic 은 차수가 높아 곡선이 완만해서, 같은 시간에 이동할 때 최고 속도가 cubic 보다 낮기 때문이다'
+        - 'quintic 은 중간 waypoint 를 지날 수 있지만, cubic 은 시작점과 끝점만 지날 수 있기 때문이다'
+        - 'quintic 은 차수가 높아서, 관절 속도와 가속도 한계를 계산 없이 자동으로 지키기 때문이다'
       answer: 0
       explanation: |
         cubic 은 계수 넷으로 위치·속도 네 조건만 맞추므로 출발 순간 가속도가 0 에서 뛴다. quintic 은 가속도 조건 두 개를 더 맞춘다. 같은 이동이면
@@ -177,12 +177,12 @@
         정지에서 정지로 가는 cubic $90(3s^2 - 2s^3)$ 의 속도는 가운데에서 가장 크고, 평균 각속도 90 °/s 의 1.5 배인 135 °/s 다. 168.75 °/s 는
         quintic(minimum-jerk)의 최고 각속도이고, 90 °/s 는 평균이고 180 °/s 는 평균의 두 배다.
     - question: |
-        면접관: "v_max·a_max 가 같은 관절을 같은 거리만큼 옮길 때, quintic 다항식이 사다리꼴 profile 보다 오래 걸리는 이유는 무엇인가요?"
+        v_max·a_max 가 같은 관절을 같은 거리만큼 옮길 때, quintic 다항식이 사다리꼴 profile 보다 오래 걸리는 이유는 무엇인가?
       choices:
-        - 'quintic 은 계산이 복잡해서 실행이 늦기 때문이다'
-        - 'quintic 은 가속도가 0 에서 시작하므로 처음 0.5 초 동안 움직이지 않기 때문이다'
-        - '다항식은 속도 한계에 한순간만 닿고 나머지 시간에는 한계보다 느리게 움직이는 반면, 사다리꼴은 등속 구간 내내 한계를 꽉 채우기 때문이다'
-        - 'quintic 은 jerk 가 무한대라서 속도를 줄여야 하기 때문이다'
+        - 'quintic 은 계수 여섯 개를 풀어야 해서, 계산이 끝날 때까지 실행이 늦게 시작되기 때문이다'
+        - 'quintic 은 가속도가 0 에서 시작하므로, 처음 0.5 초 동안은 관절이 전혀 움직이지 않기 때문이다'
+        - '다항식은 속도 한계에 한순간만 닿고 나머지는 더 느린데, 사다리꼴은 등속 구간 내내 한계를 꽉 채우기 때문이다'
+        - 'quintic 은 jerk 가 무한대라서, 감속기를 보호하려면 최고 속도를 일부러 낮춰 천천히 움직여야 하기 때문이다'
       answer: 2
       explanation: |
         다항식은 시간 T 를 정한 뒤 모양이 고정되어서, 최고 속도 $1.875 \, d / T$ 가 한계를 넘지 않게 T 를 골라야 한다. 그래서 한계에는 가운데 한순간만
@@ -192,24 +192,24 @@
   title: 여러 관절의 동기화
   variants:
     - question: |
-        면접관: "관절이 여러 개인 팔의 point-to-point 이동 시간은 무엇이 정하나요?"
+        관절이 여러 개인 팔의 point-to-point 이동 시간은 무엇이 정하는가?
       choices:
-        - '가장 많이 움직이는 관절의 이동 거리'
-        - '각 관절이 자기 한계로 갈 때 걸리는 최단 시간 가운데 가장 긴 것(가장 느린 관절의 시간)'
-        - '모든 관절의 최단 시간의 평균'
-        - '가장 빠른 관절의 최단 시간'
+        - '가장 많이 움직이는 관절의 이동 거리. 거리가 길수록 늦게 도착한다'
+        - '각 관절이 자기 한계로 가는 최단 시간 가운데 가장 긴 것'
+        - '모든 관절의 최단 시간의 평균. 빠른 관절과 느린 관절이 서로 맞춰 준다'
+        - '가장 빠른 관절의 최단 시간. 나머지 관절이 그 시간에 맞춰 더 빨리 움직인다'
       answer: 1
       explanation: |
         모든 관절이 같은 순간에 도착해야 하므로 가장 늦게 도착할 수밖에 없는 관절의 시간이 전체 시간이다. 많이 움직이는 관절이 꼭 가장 느린 것은
         아니어서, 1.2 rad 를 0.4 rad/s 로 가야 하는 관절이 2 rad 를 1 rad/s 로 가는 관절보다 늦다. 평균이나 가장 빠른 관절의 시간에 맞추면 어떤 관절은
         한계를 넘어야 한다.
     - question: |
-        면접관: "각 관절을 자기 한계로 따로 최대한 빨리 움직이면 어떤 문제가 생기나요?"
+        각 관절을 자기 한계로 따로 최대한 빨리 움직이면 어떤 문제가 생기는가?
       choices:
-        - '전체 이동 시간이 더 길어진다'
-        - '관절 한계를 넘게 된다'
-        - '관절마다 도착 시각이 달라 joint 공간에서 곧은 선이었던 path 가 꺾이고, planner 가 충돌 검사를 하지 않은 자세를 지나게 된다'
-        - 'IK 를 다시 풀어야 한다'
+        - '관절마다 따로 가속하고 감속하느라 서로 기다리는 시간이 생겨서, 전체 이동 시간이 더 길어진다'
+        - '각 관절이 자기 한계까지 쓰므로, 여러 관절이 동시에 움직이는 순간에는 관절 한계를 넘게 된다'
+        - '도착 시각이 달라 joint path 가 꺾이고, planner 가 충돌 검사를 하지 않은 자세를 지나게 된다'
+        - '관절마다 도착 시각이 다르면 그사이 손끝 자세가 달라지므로, 도착한 뒤 IK 를 다시 풀어 자세를 고쳐야 한다'
       answer: 2
       explanation: |
         먼저 도착한 관절이 멈춘 뒤 나머지만 움직이면 path 의 모양이 바뀐다. planner 가 검사한 것은 원래 path 이므로 바뀐 path 는 충돌을 보장하지 못한다.
@@ -230,36 +230,36 @@
   title: time-optimal path parameterization
   variants:
     - question: |
-        면접관: "TOPP(time-optimal path parameterization)는 무엇을 입력받아 무엇을 내나요?"
+        TOPP(time-optimal path parameterization)는 무엇을 입력받아 무엇을 내는가?
       choices:
-        - '시작과 목표 자세를 받아 장애물을 피하는 path 를 낸다'
-        - '주어진 path 와 관절 속도·가속도 한계를 받아, path 를 벗어나지 않으면서 한계 안에서 가장 빨리 지나는 시간 함수 s(t) 를 낸다'
-        - '손끝 목표를 받아 관절 각도를 낸다'
-        - 'trajectory 를 받아 motor 전류를 낸다'
+        - '시작과 목표 자세를 받아, 장애물을 피하면서 가장 짧은 시간에 갈 수 있는 path 를 새로 낸다'
+        - '주어진 path 와 관절 한계를 받아, path 를 따라 한계 안에서 가장 빨리 지나는 s(t) 를 낸다'
+        - '손끝의 목표 위치와 자세를 받아, 그 자세를 만드는 관절 각도를 가장 빨리 계산해 낸다'
+        - '시간이 붙은 trajectory 를 받아, 그 trajectory 를 그대로 따라가는 데 필요한 motor 전류를 시각마다 낸다'
       answer: 1
       explanation: |
         TOPP 는 path 를 바꾸지 않고 그 위를 지나는 속도만 정한다. 각 관절의 속도·가속도가 path 속도 $\dot s$ 와 $\ddot s$ 로 표현되므로, 문제는 path
         위치 $s$ 와 $\dot s$ 의 phase plane 에서 한계 곡선 아래로 가장 빠르게 가는 곡선을 찾는 일이 된다. 장애물 회피는 planner 의 일이고, 관절 각도는 IK 의
         일이며, motor 전류는 저수준 controller 의 일이다.
     - question: |
-        면접관: "planner 가 낸 waypoint 에서 path 가 꺾여 있으면 TOTG 는 어떻게 처리하나요?"
+        planner 가 낸 waypoint 에서 path 가 꺾여 있으면 TOTG 는 어떻게 처리하는가?
       choices:
-        - '꺾인 waypoint 마다 반드시 멈춘다'
-        - '꺾인 점을 무시하고 시작점에서 끝점까지 곧은 선으로 간다'
-        - 'waypoint 를 모두 지나는 고차 다항식 하나로 바꾼다'
-        - '꺾인 waypoint 를 정해 둔 허용 거리 안에서 원호로 깎아 path 를 매끄럽게 만든 뒤, 멈추지 않고 지나는 시간 최적 profile 을 구한다'
+        - '꺾인 waypoint 를 정확히 지나도록, 그 자리마다 반드시 멈췄다가 다음 구간을 새로 출발한다'
+        - '꺾인 점을 무시하고 시작점에서 끝점까지 곧은 선으로 이어서, 꺾인 구간에 드는 시간을 아낀다'
+        - 'waypoint 를 모두 지나는 고차 다항식 하나로 바꿔서, 꺾인 점 없이 매끄럽게 이어지게 한다'
+        - '꺾인 waypoint 를 허용 거리 안에서 원호로 깎은 뒤, 멈추지 않고 지나는 시간 최적 profile 을 구한다'
       answer: 3
       explanation: |
         꺾인 점을 정확히 지나려면 방향이 한순간에 바뀌므로 그 점에서 멈춰야 한다. TOTG 는 waypoint 에서 허용 거리(MoveIt 의 path_tolerance, 기본
         0.1) 안쪽을 지나는 원호를 넣어 멈추지 않게 하고, 그 대가로 path 가 waypoint 를 조금 벗어난다. 곧은 선으로 바꾸면 planner 가 검사하지 않은 자세를
         지나고, 고차 다항식 하나는 waypoint 사이에서 크게 넘칠 수 있다.
     - question: |
-        면접관: "TOPP-RA 가 기존의 수치 적분 방식 TOPP 와 다른 점은 무엇인가요?"
+        TOPP-RA 가 기존의 수치 적분 방식 TOPP 와 다른 점은 무엇인가?
       choices:
-        - 'path 를 여러 칸으로 나눠 끝에서 거꾸로 칸마다 도달 가능한 속도 범위를 작은 linear program 으로 구하고, 처음부터 그 범위 안에서 최대 가속을 골라, switching point 를 찾을 필요가 없다'
-        - 'path 를 새로 계획해서 더 짧은 path 를 찾는다'
-        - '관절 한계를 무시하고 손끝 속도만 맞춘다'
-        - '수천 개의 무작위 trajectory 를 뽑아 가장 빠른 것을 고른다'
+        - 'path 를 칸으로 나눠 끝에서 거꾸로 칸마다 갈 수 있는 속도 범위를 구하므로, switching point 를 찾을 필요가 없다'
+        - 'path 를 그대로 쓰지 않고 새로 계획해서, 같은 시작과 목표 사이의 더 짧은 path 를 찾아 시간을 줄인다'
+        - '관절 속도·가속도 한계는 무시하고, 손끝 속도만 정한 값에 맞춰서 path 를 지나는 시간을 정한다'
+        - '무작위 trajectory 를 수천 개 뽑은 뒤, 한계를 지키는 것 가운데 가장 빨리 끝나는 것을 골라 쓴다'
       answer: 0
       explanation: |
         수치 적분 방식은 가속과 감속이 바뀌는 switching point 를 찾아야 해서 구현이 어렵고 실패하기 쉽다. TOPP-RA 는 backward pass 로 controllable set
@@ -270,35 +270,35 @@
   title: MoveIt 2 의 time parameterization 과 scaling factor
   variants:
     - question: |
-        면접관: "MoveIt 2 로 새 팔을 설정했더니 계획한 동작이 아주 느립니다. 가장 먼저 무엇을 확인하나요?"
+        MoveIt 2 로 새 팔을 설정했더니 계획한 동작이 아주 느리다. 가장 먼저 무엇을 확인하는가?
       choices:
-        - 'OMPL planner 의 planning time'
-        - '카메라의 frame rate'
-        - 'velocity·acceleration scaling factor. Setup Assistant 가 joint_limits.yaml 의 기본값을 0.1 로 적어서 한계의 10% 로 움직인다'
-        - 'URDF 의 link 질량'
+        - 'OMPL planner 의 planning time. 시간을 짧게 주면 planner 가 느린 path 를 고른다'
+        - '카메라의 frame rate. 사진이 느리게 들어오면 MoveIt 2 가 동작도 그만큼 느리게 계획한다'
+        - 'velocity·acceleration scaling factor. 기본값 0.1 이면 한계의 10% 로 움직인다'
+        - 'URDF 의 link 질량. TOTG 는 무거운 link 가 달린 관절일수록 속도를 낮춰 계획한다'
       answer: 2
       explanation: |
         MoveIt 은 관절 한계에 velocity·acceleration scaling factor 를 곱해 time parameterization 을 하고, Setup Assistant 는 처음 쓰는 사람을 위해
         default_velocity_scaling_factor 와 default_acceleration_scaling_factor 를 0.1 로 적는다. planning time 은 path 를 찾는 시간이고, link 질량은
         TOTG 가 쓰지 않는다.
     - question: |
-        면접관: "MoveIt 2 에서 TOTG 가 'No acceleration limit was defined for joint' 오류를 내며 실패합니다. 원인은 무엇인가요?"
+        MoveIt 2 에서 TOTG 가 'No acceleration limit was defined for joint' 오류를 내며 실패한다. 원인은 무엇인가?
       choices:
-        - 'URDF 의 <limit> 에는 위치·effort·속도만 있고 가속도가 없어서, joint_limits.yaml 에 has_acceleration_limits 와 max_acceleration 을 채워야 한다'
-        - 'planner 가 path 를 찾지 못했다'
-        - 'scaling factor 를 1.0 으로 줬다'
-        - 'jerk 한계를 정하지 않았다'
+        - 'URDF 의 <limit> 에는 가속도가 없어서, joint_limits.yaml 에 가속도 한계를 적어야 한다'
+        - 'planner 가 path 를 찾지 못해서, TOTG 에 시간을 붙일 waypoint 가 하나도 넘어오지 않았다'
+        - 'scaling factor 를 1.0 으로 줘서, 한계를 꽉 채우는 가속도를 TOTG 가 계산하지 못했다'
+        - 'joint_limits.yaml 에 jerk 한계를 정하지 않아서, TOTG 가 가속도 한계를 정하지 못했다'
       answer: 0
       explanation: |
         TOTG 는 관절마다 가속도 한계가 있어야 계산할 수 있는데, URDF 의 joint limit 에는 가속도 항목이 없다. 그래서 joint_limits.yaml 에 가속도 한계를
         적어야 한다. scaling factor 1.0 은 유효한 값이고, jerk 한계가 없으면 Ruckig smoothing 이 기본값을 쓰고 경고만 남긴다.
     - question: |
-        면접관: "MoveIt 2 의 기본 time parameterization 인 TOTG 로 만든 trajectory 에 jerk 제한이 필요하면 어떻게 하나요?"
+        MoveIt 2 의 기본 time parameterization 인 TOTG 로 만든 trajectory 에 jerk 제한이 필요하면 어떻게 하는가?
       choices:
-        - 'acceleration scaling factor 를 0 으로 준다'
-        - 'TOTG 의 resample_dt 를 줄인다'
-        - 'path_tolerance 를 0 으로 둔다'
-        - 'response adapter 목록에서 TOTG 뒤에 AddRuckigTrajectorySmoothing 을 더하고 joint_limits.yaml 에 max_jerk 를 적는다'
+        - 'acceleration scaling factor 를 0 으로 주어 가속도가 아예 바뀌지 않게 해서, jerk 가 생기지 않게 한다'
+        - 'TOTG 의 resample_dt 를 줄여 trajectory 점을 촘촘하게 만들면, 가속도 변화가 작아져 jerk 가 제한된다'
+        - 'path_tolerance 를 0 으로 두어 원호를 넣지 않으면, waypoint 에서 가속도가 뛰지 않아 jerk 가 줄어든다'
+        - 'TOTG 뒤에 AddRuckigTrajectorySmoothing adapter 를 더하고, joint_limits.yaml 에 max_jerk 를 적는다'
       answer: 3
       explanation: |
         TOTG 는 속도와 가속도만 제한한다. Ruckig smoothing adapter 를 뒤에 붙이면 jerk 한계 안으로 trajectory 를 다듬고, jerk 한계를 적지 않은 관절은

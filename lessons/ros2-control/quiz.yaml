@@ -5,36 +5,36 @@
   title: controller_manager 의 제어 loop
   variants:
     - question: |
-        면접관: "ros2_control 의 controller_manager 가 한 주기에 하는 일을 순서대로 설명해 보세요."
+        ros2_control 의 controller_manager 는 한 주기에 어떤 일을 어떤 순서로 하는가?
       choices:
         - 'hardware 에서 상태를 읽고(read), 켜져 있는 controller 를 모두 계산하고(update), 결과 명령을 hardware 에 쓴다(write)'
-        - 'controller 가 topic 으로 명령을 publish 하면, hardware driver node 가 subscribe 해서 motor 에 보낸다'
-        - 'hardware 에 명령을 먼저 쓰고, 그 결과를 읽은 뒤, 다음 주기에 쓸 명령을 controller 가 계산한다'
-        - 'controller 를 하나씩 번갈아 한 주기에 하나만 계산해서 CPU 사용량을 나눈다'
+        - 'controller 가 계산한 명령을 topic 으로 publish 하면, hardware driver node 가 subscribe 해서 다음 주기에 motor 로 보낸다'
+        - 'hardware 에 지난 주기의 명령을 먼저 쓰고(write), 그 결과 상태를 읽은 뒤(read), 다음 주기 명령을 계산한다(update)'
+        - 'controller 를 하나씩 번갈아 한 주기에 하나만 계산(update)해서, controller 가 많아도 CPU 사용량이 고르게 나뉜다'
       answer: 0
       explanation: |
         controller_manager 는 update_rate 마다 read → update → write 를 실행한다. read 가 state interface 를 채우고, active 인 controller 가 모두
         update 에서 command interface 에 쓰고, write 가 그 명령을 로봇에 보낸다. controller 와 hardware interface 는 같은 process 의 plugin 이라
         topic 을 거치지 않고, 한 주기에 active controller 를 모두 계산한다. 쓰기를 먼저 하면 이번 주기의 상태를 보지 않고 명령을 내게 된다.
     - question: |
-        면접관: "controller_manager 의 update_rate 가 500 Hz 일 때, 어떤 controller 의 update_rate 를 200 Hz 로 주면 어떻게 되나요?"
+        controller_manager 의 update_rate 가 500 Hz 일 때, 어떤 controller 의 update_rate 를 200 Hz 로 주면 어떻게 되는가?
       choices:
-        - '200 Hz 가 정확히 지켜지도록 controller_manager 가 자동으로 1000 Hz 로 올라간다'
-        - '500 Hz 보다 작으니 문제없이 정확히 5 ms 마다 계산된다'
-        - '500 을 200 으로 나누어떨어지지 않아 계산 간격이 일정하지 않고, controller_manager 가 경고를 낸다'
-        - 'controller 의 update_rate 는 무시되고 늘 500 Hz 로 계산된다'
+        - '200 Hz 를 정확히 지키도록 controller_manager 가 200 으로 나누어떨어지는 1000 Hz 로 스스로 올라간다'
+        - '500 Hz 보다 낮은 주기는 언제나 맞출 수 있으므로, 그 controller 는 정확히 5 ms 마다 계산된다'
+        - '500 이 200 으로 나누어떨어지지 않아 계산 간격이 일정하지 않고, controller_manager 가 경고를 낸다'
+        - 'controller 의 update_rate 는 controller_manager 보다 낮으면 무시되고, 그 controller 도 500 Hz 로 계산된다'
       answer: 2
       explanation: |
         controller 는 controller_manager 의 주기 가운데 일부에서만 계산되므로, controller_manager 의 주기가 controller 의 주기로 나누어떨어져야
         간격이 일정하다. 500 ÷ 200 = 2.5 라서 2 주기와 3 주기 간격이 섞이고 경고가 나온다. controller_manager 의 주기가 자동으로 바뀌지는 않고, 100 Hz 처럼
         나누어떨어지는 값은 무시되지 않고 5 주기마다 한 번 계산된다.
     - question: |
-        면접관: "500 Hz 로 설정한 ros2_control loop 에서 한 주기의 계산이 5 ms 걸렸습니다. 기본 설정에서 loop 는 어떻게 동작하나요?"
+        500 Hz 로 설정한 ros2_control loop 에서 한 주기의 계산이 5 ms 걸렸다. 기본 설정에서 loop 는 어떻게 동작하는가?
       choices:
-        - '밀린 주기 두 번을 곧바로 연달아 계산해서 1초에 500 번을 맞춘다'
+        - '밀린 주기 두 번을 곧바로 연달아 계산해서, 1초에 500 번이라는 횟수를 평균으로 맞춘다'
         - '밀린 2 ms, 4 ms 차례를 건너뛰고 다음 정해진 시각에 계산을 이어 가며 overrun 경고를 낸다'
-        - 'controller_manager 가 오류로 종료되고 모든 controller 가 비활성화된다'
-        - 'update_rate 를 자동으로 200 Hz 로 낮춰 다시 시작한다'
+        - '주기를 지키지 못했으므로 controller_manager 가 오류로 종료되고 모든 controller 가 비활성화된다'
+        - 'controller_manager 가 5 ms 에 맞춰 update_rate 를 200 Hz 로 낮춘 뒤 loop 를 다시 시작한다'
       answer: 1
       explanation: |
         overrun 처리를 켠 기본 설정에서 loop 는 밀린 주기를 몰아서 계산하지 않고 건너뛴 뒤 다음 정해진 시각(6 ms)에 계산을 이어 가며
@@ -45,37 +45,37 @@
   title: command interface 와 state interface
   variants:
     - question: |
-        면접관: "ros2_control 의 command interface 와 state interface 는 무엇이 다른가요?"
+        ros2_control 의 command interface 와 state interface 는 무엇이 다른가?
       choices:
-        - 'command interface 는 topic 이고 state interface 는 service 다'
-        - 'command interface 는 position 만, state interface 는 velocity 와 effort 만 담는다'
-        - '둘은 같은 값이고 이름만 다르다'
-        - 'state interface 는 hardware 가 read 에서 채우고 controller 가 읽는 값이고, command interface 는 controller 가 쓰고 hardware 가 write 에서 로봇에 보내는 값이다'
+        - 'command interface 는 controller 가 명령을 보내는 topic 이고, state interface 는 hardware 에 현재 상태를 묻는 service 다'
+        - 'command interface 에는 position 만 담고, state interface 에는 그 결과로 생긴 velocity 와 effort 만 담는다'
+        - '둘은 같은 메모리 값을 가리키는 두 이름이라서, controller 가 command 에 쓰면 state 에도 바로 같은 값이 보인다'
+        - 'state 는 hardware 가 read 에서 채워 controller 가 읽는 값이고, command 는 controller 가 써서 hardware 가 write 에서 보내는 값이다'
       answer: 3
       explanation: |
         두 interface 모두 같은 process 안의 메모리 값이며 topic 이나 service 가 아니다. 이름은 joint1/position 처럼 관절 이름과 종류로 짓고,
         position, velocity, acceleration, effort 는 두 쪽 모두에 쓸 수 있다. 차이는 방향이다. state 는 hardware 가 채우고 controller 가 읽기만 하며,
         command 는 controller 가 쓰고 hardware 가 로봇에 보낸다.
     - question: |
-        면접관: "joint_trajectory_controller 가 active 인 상태에서, 같은 관절의 position command interface 를 쓰는 forward_command_controller 를
-        활성화하면 어떻게 되나요?"
+        joint_trajectory_controller 가 active 인 상태에서, 같은 관절의 position command interface 를 쓰는 forward_command_controller 를
+        활성화하면 어떻게 되는가?
       choices:
-        - '두 controller 의 명령을 평균해서 hardware 에 보낸다'
+        - '두 controller 가 같은 관절에 쓴 명령을 controller_manager 가 평균해서 hardware 에 보낸다'
         - 'command interface 는 한 controller 만 claim 할 수 있어서 활성화가 거부된다'
-        - '나중에 켠 controller 의 명령이 앞의 명령을 덮어쓴다'
-        - 'controller_manager 가 joint_trajectory_controller 를 자동으로 끄고 새 controller 를 켠다'
+        - '나중에 켠 controller 가 command interface 를 넘겨받아, 그 명령이 앞의 명령을 덮어쓴다'
+        - 'controller_manager 가 충돌을 피하려고 joint_trajectory_controller 를 자동으로 끄고 새 controller 를 켠다'
       answer: 1
       explanation: |
         controller_manager 는 command interface 하나를 한 controller 에게만 내준다(claim). 이미 joint_trajectory_controller 가 쥔 interface 를
         요청하면 충돌로 보고 활성화하지 않는데, 두 controller 가 한 관절에 다른 명령을 써서 팔이 튀는 일을 막기 위해서다. 평균하거나 덮어쓰지
         않고, 바꾸려면 switch_controller 로 하나를 끄면서 다른 하나를 켜야 한다.
     - question: |
-        면접관: "joint_trajectory_controller 와 joint_state_broadcaster 가 같은 관절의 position state interface 를 동시에 쓸 수 있나요?"
+        joint_trajectory_controller 와 joint_state_broadcaster 가 같은 관절의 position state interface 를 동시에 쓸 수 있는가?
       choices:
         - '쓸 수 있다. state interface 는 읽기만 하므로 여러 controller 가 함께 읽는다'
-        - '쓸 수 없다. state interface 도 한 controller 만 claim 한다'
-        - 'joint_state_broadcaster 를 켜면 joint_trajectory_controller 는 velocity state 만 읽을 수 있다'
-        - '둘을 함께 쓰려면 관절을 URDF 에 두 번 적어야 한다'
+        - '쓸 수 없다. state interface 도 command interface 처럼 한 controller 만 claim 할 수 있다'
+        - 'joint_state_broadcaster 가 position 을 쥐고 있으므로 joint_trajectory_controller 는 velocity state 만 읽을 수 있다'
+        - '둘이 같은 값을 읽으려면 URDF 에 그 관절을 두 번 적어 state interface 를 하나씩 따로 만들어야 한다'
       answer: 0
       explanation: |
         한 controller 만 쥘 수 있는 것은 쓰기를 하는 command interface 다. state interface 는 hardware 가 채운 값을 읽기만 하므로 여러 controller 가
@@ -86,35 +86,35 @@
   title: ros2_control tag 와 hardware interface
   variants:
     - question: |
-        면접관: "같은 controller 설정으로 실제 로봇과 Gazebo 와 mock hardware 를 오가려면 무엇을 바꾸나요?"
+        같은 controller 설정으로 실제 로봇과 Gazebo 와 mock hardware 를 오가려면 무엇을 바꾸는가?
       choices:
-        - 'controller 의 type 을 시뮬레이션용 controller 로 바꾼다'
-        - 'MoveIt 2 의 planner 를 바꾼다'
+        - 'controller 의 type 을 hardware 마다 맞는 시뮬레이션용 또는 실제 로봇용 controller 로 바꾼다'
+        - 'MoveIt 2 의 planner 를 hardware 마다 따로 골라 trajectory 를 다르게 만든다'
         - 'URDF 의 <ros2_control> tag 안 hardware <plugin> 을 바꾼다'
-        - 'controller_manager 의 update_rate 를 바꾼다'
+        - 'controller_manager 의 update_rate 를 hardware 가 받을 수 있는 주기로 바꾼다'
       answer: 2
       explanation: |
         hardware 와 통신하는 코드는 hardware interface plugin 에 있고, 어느 plugin 을 쓸지는 URDF 의 <ros2_control> tag 의 <plugin> 에 적는다.
         mock_components/GenericSystem, gz_ros2_control/GazeboSimSystem, 실제 로봇 driver 의 plugin 을 바꿔 끼우면 controller, MoveIt 2 설정은
         그대로 쓴다. controller 는 hardware 를 모르도록 만들어서 바꿀 필요가 없고, planner 나 update_rate 는 hardware 선택과 관계없다.
     - question: |
-        면접관: "hardware interface 를 직접 짤 때, 로봇과의 통신을 여는 코드는 어디에 두어야 하나요?"
+        hardware interface 를 직접 짤 때, 로봇과의 통신을 여는 코드는 어디에 두어야 하는가?
       choices:
         - 'on_configure. read 와 write 는 매 주기 real-time loop 에서 불리므로 오래 걸리는 일을 두면 안 된다'
-        - 'read. 매 주기 연결을 새로 열어야 끊김이 없다'
-        - 'write. 명령을 보낼 때만 연결하면 된다'
-        - 'controller 의 update. hardware interface 에는 통신 코드를 두지 않는다'
+        - 'read. 매 주기 연결을 새로 열어 두어야 통신이 잠깐 끊겨도 다음 주기에 바로 다시 이어진다'
+        - 'write. 명령을 보낼 때만 연결을 열고 닫으면 쓰지 않는 동안 통신 자원을 아낄 수 있다'
+        - 'controller 의 update. 로봇과의 통신은 controller 가 맡고, hardware interface 는 주고받을 값만 담아 둔다'
       answer: 0
       explanation: |
         hardware interface 는 on_init 에서 parameter 를 읽고, on_configure 에서 통신을 열고, on_activate 에서 명령을 받을 준비를 한다. read 와
         write 는 loop 의 thread 에서 매 주기 불리므로 주기 안에 끝나야 해서 연결을 여는 것처럼 오래 걸리는 일을 두면 overrun 이 난다. 로봇과의
         통신은 controller 가 아니라 hardware interface 가 맡는다.
     - question: |
-        면접관: "<ros2_control> tag 의 type 으로 system, actuator, sensor 가 있습니다. 관절 6 개를 Ethernet 연결 하나로 제어하는 산업용 팔에는 무엇이 맞나요?"
+        <ros2_control> tag 의 type 으로 system, actuator, sensor 가 있다. 관절 6 개를 Ethernet 연결 하나로 제어하는 산업용 팔에는 무엇이 맞는가?
       choices:
-        - 'sensor. 관절 각도를 읽어야 하므로'
-        - 'actuator 여섯 개. 관절이 여섯 개이므로'
-        - '어느 것을 골라도 동작이 같으므로 상관없다'
+        - 'sensor. 관절 6 개의 각도를 Ethernet 으로 읽어 와야 하므로 읽기 전용 type 이 맞다'
+        - 'actuator 여섯 개. 관절이 여섯 개이므로 관절마다 actuator 를 하나씩 적는다'
+        - '세 type 은 이름만 다르고 동작이 같아서 어느 것을 골라도 상관없다'
         - 'system. 통신 채널 하나로 관절 여러 개를 읽고 쓰는 hardware 에 쓴다'
       answer: 3
       explanation: |
@@ -126,12 +126,12 @@
   title: joint_trajectory_controller 의 보간
   variants:
     - question: |
-        면접관: "joint_trajectory_controller 에 각 점의 위치만 담은 trajectory 를 보내면 점 사이를 어떻게 보간하고, 무엇이 문제인가요?"
+        joint_trajectory_controller 에 각 점의 위치만 담은 trajectory 를 보내면 점 사이를 어떻게 보간하고, 무엇이 문제인가?
       choices:
-        - 'quintic 으로 보간해 가속도까지 이어지므로 문제가 없다'
+        - '위치만 있어도 quintic 으로 보간해 가속도까지 이어 주므로 문제가 없다'
         - '직선(linear)으로 이어서 점에서 속도가 한 번에 바뀌고, 그 순간 큰 가속도가 필요하다'
-        - '점 사이를 보간하지 않고 다음 점의 시각까지 처음 위치에 머문다'
-        - '위치만 있으면 trajectory 를 거부한다'
+        - '점 사이를 보간하지 않고 다음 점의 시각까지 처음 위치에 머물다가 한 번에 뛴다'
+        - '속도가 없는 점은 실행할 수 없으므로 controller 가 trajectory 를 거부한다'
       answer: 1
       explanation: |
         기본 보간 방식(splines)은 점에 적힌 값으로 곡선을 고른다. 위치만 있으면 linear 로 이어서 위치는 이어지지만 점에서 속도가 계단처럼
@@ -149,12 +149,12 @@
         1000 Hz 의 한 주기는 1 ms 이므로 0.1 초 동안 0.1 ÷ 0.001 = 100 번 계산한다. 점마다 한 번만 쓰는 것이 아니라 매 주기 그 시각의 목표를
         보간해 쓰기 때문에 점 간격과 loop 주기의 비율만큼 계산한다. 10 번은 100 Hz, 1000 번은 1 초 동안의 횟수다.
     - question: |
-        면접관: "MoveIt 2 가 보낸 trajectory 의 점에 위치, 속도, 가속도가 모두 들어 있다면 joint_trajectory_controller 는 무엇을 이어 주나요?"
+        MoveIt 2 가 보낸 trajectory 의 점에 위치, 속도, 가속도가 모두 들어 있다면 joint_trajectory_controller 는 무엇을 이어 주는가?
       choices:
-        - '위치만 이어 준다'
-        - '위치와 속도까지만 이어 준다'
+        - '위치만 이어 준다. 속도와 가속도는 controller 가 매 주기 위치 차이로 새로 계산한다'
+        - '위치와 속도까지만 cubic 으로 이어 주고, 가속도는 점에서 바뀔 수 있다'
         - '위치, 속도, 가속도를 모두 이어 주는 quintic 으로 보간한다'
-        - '가속도를 적분해서 위치를 새로 계산하고 점의 위치는 무시한다'
+        - '가속도를 적분해 위치를 새로 계산하고, 점에 적힌 위치는 무시한다'
       answer: 2
       explanation: |
         점에 위치, 속도, 가속도가 모두 있으면 5차 다항식(quintic)으로 보간해 세 값이 모두 점에서 이어진다. 위치와 속도만 있으면 cubic 이라
@@ -165,36 +165,36 @@
   title: tolerance 와 성공 판정
   variants:
     - question: |
-        면접관: "joint_trajectory_controller 의 constraints 에서 관절마다 trajectory 와 goal tolerance 를 0 으로 두면 어떻게 되나요?"
+        joint_trajectory_controller 의 constraints 에서 관절마다 trajectory 와 goal tolerance 를 0 으로 두면 어떻게 되는가?
       choices:
         - '그 위치 검사를 하지 않아서 오차가 아무리 커도 abort 하지 않는다'
-        - '오차를 전혀 허용하지 않아서 조금만 벗어나도 바로 abort 한다'
-        - '기본값 0.01 rad 이 대신 적용된다'
-        - '0 은 허용되지 않아 controller 가 활성화되지 않는다'
+        - '오차를 전혀 허용하지 않는다는 뜻이라서, 조금만 벗어나도 바로 abort 한다'
+        - '0 은 값을 정하지 않았다는 뜻이라서, 기본값 0.01 rad 이 대신 적용된다'
+        - 'tolerance 0 은 허용되지 않는 값이라서 controller 가 활성화되지 않는다'
       answer: 0
       explanation: |
         joint_trajectory_controller 에서 tolerance 0 은 "검사하지 않음" 이다. 그래서 기본값 그대로 쓰면 팔이 장애물에 걸려 계획에서 크게 벗어나도
         abort 하지 않는다. 0 을 "오차 0 만 허용" 으로 읽는 것이 흔한 오해다. 0.01 은 stopped_velocity_tolerance 의 기본값이며 위치 tolerance 를
         대신하지 않는다. 0 이어도 controller 는 정상적으로 활성화된다.
     - question: |
-        면접관: "trajectory tolerance 를 0.05 rad 로 둔 관절이 실행 중에 목표보다 0.07 rad 뒤처졌습니다. joint_trajectory_controller 는 어떻게 하나요?"
+        trajectory tolerance 를 0.05 rad 로 둔 관절이 실행 중에 목표보다 0.07 rad 뒤처졌다. joint_trajectory_controller 는 어떻게 하는가?
       choices:
-        - '오차를 줄이려고 다음 점을 건너뛰고 마지막 점으로 바로 간다'
-        - 'trajectory 를 끝까지 실행한 뒤 마지막에만 실패를 알린다'
+        - '뒤처진 만큼을 따라잡으려고 다음 점을 건너뛰고 마지막 점으로 바로 간다'
+        - 'trajectory 를 끝까지 실행한 뒤 마지막 점에서만 GOAL_TOLERANCE_VIOLATED 로 실패를 알린다'
         - '그 자리에서 정지하고 action 을 PATH_TOLERANCE_VIOLATED 로 abort 한다'
-        - '경고만 내고 계속 실행한다'
+        - 'trajectory tolerance 는 경고용이라서 log 에 경고만 내고 그대로 계속 실행한다'
       answer: 2
       explanation: |
         움직이는 동안 trajectory tolerance 를 넘으면 joint_trajectory_controller 는 현재 위치를 유지하도록 멈추고 action 결과를
         PATH_TOLERANCE_VIOLATED(error code −4)로 보낸다. 끝까지 실행하거나 점을 건너뛰지 않으며, tolerance 를 설정한 이상 경고만 내고 계속
         움직이지도 않는다. 마지막 점 이후의 goal tolerance 위반은 GOAL_TOLERANCE_VIOLATED(−5)다.
     - question: |
-        면접관: "goal tolerance 는 0.02 rad 로 정했는데 goal_time 은 기본값 0 입니다. 관절이 마지막 점에서 0.05 rad 떨어진 채 멈추면 어떻게 되나요?"
+        goal tolerance 는 0.02 rad 로 정했는데 goal_time 은 기본값 0 이다. 관절이 마지막 점에서 0.05 rad 떨어진 채 멈추면 어떻게 되는가?
       choices:
-        - '곧바로 SUCCESSFUL 을 돌려준다'
-        - '0.5 초를 기다린 뒤 GOAL_TOLERANCE_VIOLATED 로 끝낸다'
-        - 'PATH_TOLERANCE_VIOLATED 로 끝낸다'
-        - 'goal_time 0 은 시간 제한이 없다는 뜻이라 goal 안에 들어올 때까지 끝없이 기다린다'
+        - '마지막 점의 시각이 지났으므로 곧바로 SUCCESSFUL 을 돌려주고 action 을 끝낸다'
+        - '기본 대기 시간 0.5 초를 기다린 뒤 GOAL_TOLERANCE_VIOLATED 로 끝낸다'
+        - '0.05 rad 이 goal tolerance 를 넘었으므로 PATH_TOLERANCE_VIOLATED 로 끝낸다'
+        - 'goal_time 0 은 제한 없음이라는 뜻이라서, goal 안에 들어올 때까지 끝없이 기다린다'
       answer: 3
       explanation: |
         goal_time 은 마지막 점의 시각 뒤로 goal tolerance 안에 들어오기를 기다리는 시간이고, 0 이면 제한 없이 기다린다. 그래서 0.05 rad 떨어진 채
@@ -205,12 +205,12 @@
   title: MoveIt 2 와 FollowJointTrajectory
   variants:
     - question: |
-        면접관: "MoveIt 2 가 계획한 trajectory 는 어떤 경로로 ros2_control 에 전달되나요?"
+        MoveIt 2 가 계획한 trajectory 는 어떤 경로로 ros2_control 에 전달되는가?
       choices:
-        - 'MoveIt 2 가 hardware interface 의 write 를 직접 부른다'
-        - 'MoveIt 2 가 /joint_states topic 에 목표 각도를 publish 한다'
-        - 'MoveIt 2 가 controller_manager 의 switch_controller service 에 trajectory 를 담아 보낸다'
-        - 'moveit_simple_controller_manager 가 FollowJointTrajectory action 의 client 가 되어 joint_trajectory_controller 에 goal 을 보낸다'
+        - 'MoveIt 2 가 controller 와 controller_manager 를 거치지 않고 hardware interface 의 write 를 직접 불러 각 점의 위치를 쓴다'
+        - 'MoveIt 2 가 /joint_states topic 에 목표 각도를 차례로 publish 하면, joint_trajectory_controller 가 그 topic 을 받아서 따라간다'
+        - 'MoveIt 2 가 controller_manager 의 switch_controller service 에 trajectory 를 담아 보내면, controller_manager 가 controller 에 넘긴다'
+        - 'moveit_simple_controller_manager 가 FollowJointTrajectory action 으로 joint_trajectory_controller 에 goal 을 보낸다'
       answer: 3
       explanation: |
         moveit_controllers.yaml 에 controller 이름, type FollowJointTrajectory, action_ns follow_joint_trajectory 를 적으면 MoveIt 2 는
@@ -228,12 +228,12 @@
         allowed_execution_duration_scaling 기본값 1.1 을 곱하고 allowed_goal_duration_margin 기본값 0.5 초를 더해 5 × 1.1 + 0.5 = 6 초다. 정확히
         5 초에 끊으면 조금만 늦어도 실패하므로 여유를 둔다. 5.5 초는 곱하기를 빼먹은 값이다. execution_duration_monitoring 은 기본으로 켜져 있다.
     - question: |
-        면접관: "MoveIt 2 가 'start point deviates from current robot state' 오류를 내며 trajectory 를 보내지 않았습니다. 무엇을 검사한 것인가요?"
+        MoveIt 2 가 'start point deviates from current robot state' 오류를 내며 trajectory 를 보내지 않았다. 무엇을 검사한 것인가?
       choices:
         - 'trajectory 의 첫 점과 현재 관절 각도의 차이가 allowed_start_tolerance(기본 0.01 rad)를 넘었다'
-        - 'joint_trajectory_controller 의 path tolerance 를 넘었다'
-        - '로봇이 실행 시간 한계를 넘었다'
-        - 'gripper 가 물체에 막혀 멈췄다'
+        - '실행하는 동안 관절이 계획에서 벗어나서 joint_trajectory_controller 의 path tolerance 를 넘었다'
+        - '실행 시간 감시가 trajectory 시간의 1.1 배에 0.5 초를 더한 한계를 넘었다고 판단했다'
+        - 'gripper 가 물체에 막혀 멈춰서 gripper action 이 실패를 돌려주었다'
       answer: 0
       explanation: |
         MoveIt 2 는 보내기 전에 trajectory 의 첫 점이 지금 관절 각도와 allowed_start_tolerance 안인지 확인한다. 계획하는 동안 팔이 움직였거나
@@ -244,36 +244,36 @@
   title: real-time loop
   variants:
     - question: |
-        면접관: "ros2_control 로 1 kHz 제어를 할 때 real-time kernel 을 권하는 이유는 무엇인가요?"
+        ros2_control 로 1 kHz 제어를 할 때 real-time kernel 을 권하는 이유는 무엇인가?
       choices:
-        - 'real-time kernel 이 계산 처리량을 크게 높여서 controller 를 더 많이 실행할 수 있다'
-        - 'real-time kernel 이 없으면 ros2_control 을 설치할 수 없다'
-        - '일반 kernel 은 제어 thread 를 ms 단위로 늦게 깨울 수 있어 주기를 놓치지만, real-time kernel 은 최악의 지연을 수십 ~ 수백 µs 로 줄인다'
-        - 'real-time kernel 을 쓰면 network 지연이 0 이 된다'
+        - 'real-time kernel 은 CPU 의 계산 처리량을 크게 높여서, 같은 주기 안에 controller 를 더 많이 실행할 수 있다'
+        - 'ros2_control 의 controller_manager 는 real-time kernel 이 있어야만 설치되고 실행된다'
+        - '일반 kernel 은 제어 thread 를 ms 단위로 늦게 깨울 수 있는데, real-time kernel 은 최악의 지연을 수십 ~ 수백 µs 로 줄인다'
+        - 'real-time kernel 을 쓰면 network 지연이 0 이 되어, 로봇과 주고받는 명령이 늦게 도착하지 않는다'
       answer: 2
       explanation: |
         제어에서는 평균 처리 속도보다 가장 늦은 경우의 지연(jitter)이 문제다. 한 측정에서 일반 kernel 의 최대 지연은 13,197 µs 로 1 kHz
         loop 의 13 주기에 해당했고, PREEMPT-RT kernel 은 110 µs 였다. real-time kernel 은 처리량을 높이는 것이 아니라 지연의 상한을 줄인다.
         ros2_control 은 일반 kernel 에서도 동작하고, network 지연은 kernel 만으로 없어지지 않는다.
     - question: |
-        면접관: "controller 의 update() 안에서 하면 안 되는 일로 가장 알맞은 것은?"
+        controller 의 update() 안에서 하면 안 되는 일로 가장 알맞은 것은?
       choices:
         - 'std::vector 를 새로 만들어 메모리를 할당하거나, 보통의 ROS publisher 로 publish 하는 일'
-        - 'state interface 의 값을 읽는 일'
-        - 'command interface 에 값을 쓰는 일'
-        - '미리 확보한 배열에 오차를 계산해 넣는 일'
+        - 'state interface 의 값을 읽는 일. 읽기는 read 단계의 몫이라서 update 에서 읽으면 jitter 가 생긴다'
+        - 'command interface 에 값을 쓰는 일. 쓰기는 write 단계에서만 할 수 있다'
+        - '미리 확보한 배열에 오차를 계산해 넣는 일. 배열 계산은 걸리는 시간이 일정하지 않다'
       answer: 0
       explanation: |
         update 는 real-time thread 에서 매 주기 불리므로 걸리는 시간이 예측 가능해야 한다. 메모리 할당과 보통의 publisher 는 시간이 일정하지 않아
         jitter 를 만들기 때문에, 메모리는 on_init 에서 미리 확보하고 publish 는 realtime_tools 의 RealtimePublisher 처럼 별도 thread 에 맡긴다.
         state 를 읽고 command 를 쓰는 일, 미리 확보한 배열을 계산하는 일은 update 가 해야 할 일이다.
     - question: |
-        면접관: "subscriber callback 이 받은 최신 명령을 real-time loop 의 controller 가 가져가게 하려면 무엇을 쓰나요?"
+        subscriber callback 이 받은 최신 명령을 real-time loop 의 controller 가 가져가게 하려면 무엇을 쓰는가?
       choices:
-        - 'std::mutex 로 감싸고 loop 에서 lock 이 풀릴 때까지 기다린다'
+        - 'std::mutex 로 감싸고, loop 에서 subscriber callback 이 lock 을 풀 때까지 기다렸다가 값을 읽는다'
         - 'realtime_tools 의 RealtimeThreadSafeBox 처럼 loop 가 lock 을 기다리지 않고 값을 가져가는 도구를 쓴다'
-        - 'loop 안에서 topic 을 직접 subscribe 해 message 가 올 때까지 기다린다'
-        - '전역 변수에 그냥 쓰고 읽는다'
+        - 'loop 안에서 topic 을 직접 subscribe 하고, 매 주기 다음 message 가 올 때까지 기다렸다가 그 값을 명령으로 쓴다'
+        - '두 thread 가 같은 전역 변수에 그냥 쓰고 읽는다. 값 하나라서 보호할 필요가 없다'
       answer: 1
       explanation: |
         loop 가 다른 thread 가 쥔 lock 을 기다리면 그 thread 가 끝날 때까지 주기가 밀린다. RealtimeThreadSafeBox 는 마지막 값만 필요할 때 loop 가
@@ -284,12 +284,12 @@
   title: mock hardware 와 simulator plugin
   variants:
     - question: |
-        면접관: "mock_components/GenericSystem 으로 MoveIt 2 실행이 잘 됐다면 실제 로봇에서도 잘 될까요?"
+        mock_components/GenericSystem 으로 MoveIt 2 실행이 잘 됐다면 실제 로봇에서도 잘 될까?
       choices:
-        - '그렇다. mock 은 실제 로봇의 동역학을 그대로 계산한다'
-        - '보장할 수 없다. mock 은 명령을 그대로 상태로 돌려줘서 tracking 오차가 늘 0 이고, tolerance·gain·지연 문제는 드러나지 않는다'
-        - '그렇다. tolerance 검사까지 똑같이 일어난다'
-        - 'mock 으로는 MoveIt 2 를 연결할 수 없다'
+        - '그렇다. mock 은 실제 로봇의 질량과 마찰을 넣은 동역학을 그대로 계산하므로 결과가 같다'
+        - '보장할 수 없다. mock 은 명령을 그대로 상태로 돌려줘서 오차가 늘 0 이라, tolerance·gain·지연 문제가 드러나지 않는다'
+        - '그렇다. mock 에서도 joint_trajectory_controller 의 tolerance 검사가 실제와 똑같이 일어난다'
+        - 'mock 으로는 MoveIt 2 를 연결할 수 없으므로, 실행이 됐다면 실제 hardware 에 연결된 것이다'
       answer: 1
       explanation: |
         GenericSystem 은 쓴 명령을 다음 read 에서 상태로 그대로 돌려주는 가짜 hardware 라서 오차가 0 이고 joint_trajectory_controller 의 tolerance
@@ -308,12 +308,12 @@
         걸리고, 100 Hz 의 10 주기가 100 ms 다. 10 ms 는 update_rate 가 1000 Hz 일 때다. 그래서 낮은 update_rate 의 simulation 에서는 팔이 명령보다
         눈에 띄게 늦게 따라온다.
     - question: |
-        면접관: "Gazebo 와 실제 로봇을 같은 ros2_control 설정으로 오갈 때, simulation 쪽 controller_manager 에서 꼭 맞춰야 하는 설정은?"
+        Gazebo 와 실제 로봇을 같은 ros2_control 설정으로 오갈 때, simulation 쪽 controller_manager 에서 꼭 맞춰야 하는 설정은?
       choices:
-        - 'thread_priority 를 99 로 올린다'
-        - 'controller 의 type 을 시뮬레이션 전용으로 바꾼다'
+        - 'thread_priority 를 99 로 올려 simulation 의 controller_manager 가 주기를 놓치지 않게 한다'
+        - 'controller 의 type 을 Gazebo 에서만 동작하는 시뮬레이션 전용 controller 로 바꾼다'
         - 'use_sim_time 을 true 로 두어 simulator 의 시계를 따르게 한다'
-        - 'update_rate 를 실제 로봇보다 10 배 높인다'
+        - 'simulation 이 느리므로 update_rate 를 실제 로봇보다 10 배 높여 시간을 맞춘다'
       answer: 2
       explanation: |
         simulator 는 자기 시계(/clock)로 시간을 진행하므로 controller_manager 와 controller 가 use_sim_time 으로 그 시계를 따라야 trajectory 의

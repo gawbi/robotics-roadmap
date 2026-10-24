@@ -5,25 +5,25 @@
   title: 직선 경로와 target velocity
   variants:
     - question: |
-        면접관: "flow matching 에서 noise $\epsilon$ 과 데이터 $x_1$ 을 $x_t = (1 - t)\,\epsilon + t\,x_1$ 로 섞습니다. 이 직선 위에서 점이
-        움직이는 속도는 어떻게 되나요?"
+        flow matching 에서 noise $\epsilon$ 과 데이터 $x_1$ 을 $x_t = (1 - t)\,\epsilon + t\,x_1$ 로 섞는다. 이 직선 위에서 점이
+        움직이는 속도는 어떻게 되는가?
       choices:
-        - '$t = 0$ 근처에서는 느리고 $t = 1$ 에 가까울수록 빨라진다'
+        - '$t = 0$ 근처에서는 느리고, 데이터에 가까워질수록 $t$ 만큼 빨라진다'
         - '$t$ 와 상관없이 $x_1 - \epsilon$ 으로 일정하다'
-        - '언제나 noise 와 같은 값 $\epsilon$ 이다'
-        - '$t$ 에 비례해 $t\,x_1$ 로 커진다'
+        - '출발점이 noise 라서, 속도도 언제나 noise 와 같은 값 $\epsilon$ 이다'
+        - '데이터 쪽 항이 $t\,x_1$ 이라, 속도도 $t$ 에 비례해 $t\,x_1$ 로 커진다'
       answer: 1
       explanation: |
         식을 $x_t = \epsilon + t\,(x_1 - \epsilon)$ 로 고쳐 쓰면 "처음 위치 + 속도 × 시간" 꼴이 되어, 속도가 $t$ 와 상관없는 $x_1 - \epsilon$
         이다. 이 값이 network 가 맞히는 target velocity 다. $t = 1$ 에 가까울수록 빨라진다는 보기는 속도에 $t$ 가 남지 않으므로 틀렸다.
         $\epsilon$ 은 출발 위치이지 속도가 아니다. $t\,x_1$ 은 섞은 점의 한 항일 뿐 속도가 아니다.
     - question: |
-        면접관: "데이터가 숫자 3 개짜리 vector 일 때, flow matching 의 noise 와 target velocity 는 어떤 모양인가요?"
+        데이터가 숫자 3 개짜리 vector 일 때, flow matching 의 noise 와 target velocity 는 어떤 모양인가?
       choices:
         - 'noise 는 숫자 하나를 뽑아 세 자리에 똑같이 쓰고, target velocity 도 숫자 하나다'
-        - 'noise 는 숫자 3 개지만 target velocity 는 세 자리를 더한 숫자 하나다'
+        - 'noise 는 숫자 3 개지만, target velocity 는 세 자리의 속도를 더한 숫자 하나다'
         - 'noise 는 숫자 3 개를 뽑고, target velocity 는 세 자리 중 가장 큰 값 하나다'
-        - 'noise 도 숫자 3 개를 따로 뽑고, target velocity 는 자리마다 데이터 − noise 를 계산한 숫자 3 개다'
+        - 'noise 도 숫자 3 개이고, target velocity 는 자리마다 데이터 − noise 인 숫자 3 개다'
       answer: 3
       explanation: |
         flow matching 은 vector 의 자리마다 따로 직선을 긋는다. noise 도 데이터와 같은 개수의 숫자를 따로 뽑고, target velocity 는 자리마다
@@ -31,13 +31,13 @@
         속도도 숫자 하나로 줄여 버린다. 세 자리를 더한 숫자 하나로 쓰는 보기는 자리마다 다른 속도를 하나로 뭉갠다. 가장 큰 값 하나만
         남기는 보기는 나머지 두 자리의 속도를 버린다.
     - question: |
-        면접관: "flow matching 의 섞는 식 $x_t = (1 - t)\,\epsilon + t\,x_1$ 은 DDPM 의 $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$
-        과 무엇이 다른가요?"
+        flow matching 의 섞는 식 $x_t = (1 - t)\,\epsilon + t\,x_1$ 은 DDPM 의 $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$
+        과 무엇이 다른가?
       choices:
-        - 'flow matching 은 두 계수의 합이 1 이라 섞은 점들이 한 직선 위에 놓이고, DDPM 은 두 계수의 제곱의 합이 1 이라 분산을 지킨다'
-        - '두 식 모두 계수의 합이 1 이라 같은 경로를 만든다'
-        - 'flow matching 은 noise 를 쓰지 않고 데이터만 섞는다'
-        - 'DDPM 은 시각으로 0 과 1 사이 실수를 쓰고, flow matching 은 정수 step 번호를 쓴다'
+        - 'flow matching 은 계수의 합이 1 이라 점들이 한 직선에 놓이고, DDPM 은 제곱의 합이 1 이라 분산을 지킨다'
+        - '두 식 모두 두 계수의 합이 1 이 되게 섞으므로, noise 에서 데이터까지 같은 경로를 만든다'
+        - 'flow matching 은 noise 를 섞지 않고 데이터만 $t$ 배로 줄였다 늘리며, DDPM 만 noise 를 섞는다'
+        - 'DDPM 은 시각으로 0 과 1 사이 실수를 쓰고, flow matching 은 1 ~ 1000 의 정수 step 번호를 쓴다'
       answer: 0
       explanation: |
         flow matching 은 $1 - t$ 와 $t$ 의 합이 1 이라 $t$ 를 바꿔 가며 찍은 점이 noise 와 데이터를 잇는 직선 위에 놓인다. DDPM 은 두 계수의
@@ -48,35 +48,35 @@
   title: conditional flow matching loss
   variants:
     - question: |
-        면접관: "conditional flow matching 의 학습 한 step 을 설명해 보세요."
+        conditional flow matching 의 학습 한 step 은 어떤 순서로 이루어지는가?
       choices:
-        - 'noise 에서 출발해 $t = 0$ 부터 1 까지 차례로 걸어간 경로 전체를 정답과 비교한다'
-        - 'network 가 섞인 noise $\epsilon$ 자체를 맞히게 한다'
-        - '데이터 $x_1$ 과 noise $\epsilon$, 시각 $t$ 를 뽑아 $x_t$ 를 바로 만들고, network 출력과 $x_1 - \epsilon$ 의 차이를 제곱해 줄인다'
-        - '데이터 없이 noise 만 뽑아 network 출력의 크기를 줄인다'
+        - 'noise 에서 출발해 $t = 0$ 부터 1 까지 차례로 Euler step 을 밟은 경로 전체를 정답 경로와 비교한다'
+        - '$x_t$ 를 만든 뒤, network 가 그 안에 섞인 noise $\epsilon$ 자체를 맞히도록 출력과 $\epsilon$ 의 차이를 제곱해 줄인다'
+        - '$x_1$, $\epsilon$, $t$ 를 뽑아 $x_t$ 를 만들고, 출력과 $x_1 - \epsilon$ 의 차이를 제곱해 줄인다'
+        - '데이터 없이 noise 만 뽑아 network 에 넣고, 출력 속도의 크기가 작아지도록 줄인다'
       answer: 2
       explanation: |
         학습 한 step 은 데이터에서 $x_1$ 을 꺼내고 $\epsilon$ 과 $t$ 를 뽑아 섞는 식으로 $x_t$ 를 바로 만든 뒤, network 가 낸 속도와 target
         velocity $x_1 - \epsilon$ 의 차이를 제곱한 loss 를 줄인다. 처음부터 차례로 걸어갈 필요는 없다. 섞인 noise 를 맞히는 것은 DDPM 의
         정답이다. 정답 속도를 계산하려면 데이터가 꼭 필요하다.
     - question: |
-        면접관: "flow matching 의 network 에 위치 $x_t$ 뿐 아니라 시각 $t$ 도 넣는 이유는 무엇인가요?"
+        flow matching 의 network 에 위치 $x_t$ 뿐 아니라 시각 $t$ 도 넣는 이유는 무엇인가?
       choices:
         - '같은 위치라도 남은 시간에 따라 맞는 속도가 달라서, 위치만으로는 정답을 정할 수 없기 때문이다'
-        - '$t$ 를 넣으면 network 의 parameter 수가 줄어들기 때문이다'
-        - '$t$ 가 loss 의 가중치로만 쓰이고 출력에는 영향을 주지 않기 때문이다'
-        - '$t$ 를 넣어야 sampling 중에 새 noise 를 더할 수 있기 때문이다'
+        - '$t$ 를 입력으로 하나 더 넣으면 network 의 parameter 수가 줄어 학습이 빨라지기 때문이다'
+        - '$t$ 는 loss 의 가중치로만 쓰여서, 출력은 그대로 두고 시각마다 loss 의 크기만 바꾸기 때문이다'
+        - '$t$ 를 넣어야 sampling 중에 그 시각에 맞는 크기의 새 noise 를 더할 수 있기 때문이다'
       answer: 0
       explanation: |
         target velocity 는 남은 거리를 남은 시간 $1 - t$ 로 나눈 값으로도 쓸 수 있어서, 같은 위치라도 $t$ 가 다르면 맞는 속도가 다르다.
         그래서 network 는 $t$ 를 함께 봐야 한다. 입력을 하나 더 넣는다고 parameter 가 줄지 않는다. $t$ 는 loss 가중치가 아니라 network 의
         출력을 바꾸는 입력이다. flow matching 의 sampling 은 새 noise 를 더하지 않는다.
     - question: |
-        면접관: "이 loss 에 'conditional' 이라는 이름이 붙은 이유는 무엇인가요?"
+        이 loss 에 'conditional' 이라는 이름이 붙은 이유는 무엇인가?
       choices:
         - '관측이나 지시문 같은 조건 입력을 network 에 넣어야만 쓸 수 있는 loss 이기 때문이다'
-        - '학습 데이터가 특정 조건을 만족할 때만 loss 를 계산하기 때문이다'
-        - 'loss 값이 0 보다 클 때만 gradient 를 계산하기 때문이다'
+        - '학습 데이터 가운데 특정 조건을 만족하는 sample 에서만 loss 를 계산하기 때문이다'
+        - 'loss 값이 0 보다 클 때만 gradient 를 계산하고, 0 이면 그 예를 건너뛰기 때문이다'
         - '정답 속도 $x_1 - \epsilon$ 이 noise 와 데이터 쌍 하나를 조건으로 정해야 계산되기 때문이다'
       answer: 3
       explanation: |
@@ -89,36 +89,36 @@
   title: Euler 법과 경로의 곧음
   variants:
     - question: |
-        면접관: "flow matching 의 sampling 에서 Euler 법은 무엇을 하나요?"
+        flow matching 의 sampling 에서 Euler 법은 무엇을 하는가?
       choices:
-        - '데이터에서 가장 가까운 sample 을 찾아 그대로 낸다'
-        - '매 step 새 noise 를 뽑아 지금 값에 더한다'
-        - 'network 를 한 번만 써서 noise 를 바로 데이터로 바꾼다'
-        - '지금 자리의 속도를 network 로 구해 $\Delta t$ 동안 그 속도로 직진하기를 정한 횟수만큼 되풀이한다'
+        - '데이터에서 지금 값과 가장 가까운 sample 을 찾아, 그 sample 쪽으로 한 번에 옮긴다'
+        - 'step 마다 새 noise 를 뽑아 지금 값에 더하고, network 가 맞힌 noise 를 걷어 낸다'
+        - 'network 를 한 번만 써서 noise 를 바로 데이터로 바꾸고, step 수는 정할 수 없다'
+        - '지금 자리의 속도를 network 로 구해 $\Delta t$ 동안 직진하기를 정한 횟수만큼 되풀이한다'
       answer: 3
       explanation: |
         Euler 법은 $x \leftarrow x + \Delta t \times v_\theta(x, t)$ 를 $n$ 번 되풀이하는 계산이라 step 하나에 network 를 한 번 쓴다. 데이터에서
         가까운 값을 찾는 계산이 아니다. 새 noise 를 더하는 것은 DDPM 의 reverse step 이다. step 수는 정할 수 있고, 한 번만 쓰는 것은
         $n = 1$ 인 특수한 경우일 뿐이다.
     - question: |
-        면접관: "Euler 법의 오차는 무엇에 따라 커지나요?"
+        Euler 법의 오차는 무엇에 따라 커지는가?
       choices:
-        - 'network 의 parameter 수가 많을수록 커진다'
-        - 'step 하나 동안 속도가 많이 바뀔수록 커진다'
-        - '출발한 noise 의 절댓값이 클수록 커진다'
-        - '데이터의 평균이 0 에서 멀수록 커진다'
+        - 'network 의 parameter 수가 많을수록 계산이 복잡해져 커진다'
+        - 'step 하나를 가는 동안 속도가 많이 바뀔수록 커진다'
+        - '출발한 noise 의 절댓값이 클수록 데이터까지 멀어 커진다'
+        - '데이터의 평균이 0 에서 멀수록 noise 와 차이가 벌어져 커진다'
       answer: 1
       explanation: |
         Euler 법은 step 을 시작할 때의 속도로 끝까지 직진하므로, step 도중에 속도가 바뀌는 만큼 실제 경로에서 벗어난다. 그래서 경로가
         곧을수록 오차가 작다. network 크기는 속도를 얼마나 잘 맞히느냐에 영향을 줄 뿐 Euler 법의 오차와는 다른 문제다. 출발한 noise 의
         절댓값이 커도 속도가 일정하면 오차는 없다. 데이터의 평균이 0 에서 멀어도 경로가 곧으면 오차는 없다.
     - question: |
-        면접관: "속도가 일정한 직선 경로를 Euler 법으로 따라가면, step 1 번과 step 100 번의 결과는 어떻게 다른가요?"
+        속도가 일정한 직선 경로를 Euler 법으로 따라가면, step 1 번과 step 100 번의 결과는 어떻게 다른가?
       choices:
-        - 'step 100 번이 언제나 더 정확하다'
-        - 'step 1 번은 출발점에서 움직이지 못한다'
+        - 'step 100 번이 한 step 의 변화가 작아 언제나 더 정확하다'
+        - 'step 1 번은 network 를 한 번만 써서 출발점에서 거의 움직이지 못한다'
         - '결과는 같고, step 100 번은 network 를 99 번 더 쓸 뿐이다'
-        - 'step 100 번은 오차가 쌓여 오히려 덜 정확하다'
+        - 'step 100 번은 step 마다 생긴 작은 오차가 쌓여 오히려 덜 정확하다'
       answer: 2
       explanation: |
         속도가 바뀌지 않으면 step 을 시작할 때의 속도로 직진해도 실제 경로를 그대로 따라가므로, step 수와 상관없이 같은 끝점에 닿는다.
@@ -129,12 +129,12 @@
   title: 엇갈리는 직선과 평균 속도
   variants:
     - question: |
-        면접관: "데이터가 두 무리로 나뉘어 있으면, noise 와 데이터를 무작위로 짝지은 직선들이 엇갈립니다. 같은 $(x_t, t)$ 를 지나는 쌍의
-        정답 속도가 $+4$ 와 $-4$ 로 반반이면, 차이의 제곱으로 학습한 network 는 그 자리에서 무엇을 내나요?"
+        데이터가 두 무리로 나뉘어 있으면, noise 와 데이터를 무작위로 짝지은 직선들이 엇갈린다. 같은 $(x_t, t)$ 를 지나는 쌍의
+        정답 속도가 $+4$ 와 $-4$ 로 반반이면, 차이의 제곱으로 학습한 network 는 그 자리에서 무엇을 내는가?
       choices:
-        - '두 정답의 평균인 0'
-        - '$+4$ 와 $-4$ 중 하나를 무작위로'
-        - '두 정답의 절댓값인 4'
+        - '두 정답의 평균인 0 을 낸다'
+        - '$+4$ 와 $-4$ 중 하나를 그때그때 무작위로 낸다'
+        - '두 정답의 절댓값인 4 를 낸다'
         - '학습이 수렴하지 않아 출력이 정해지지 않는다'
       answer: 0
       explanation: |
@@ -142,24 +142,24 @@
         차이의 제곱으로 학습하면 정답들의 평균을 낸다. network 의 출력은 입력이 같으면 하나로 정해져서 무작위로 고르지 않는다. 4 를 내면
         평균 loss 가 32 로, 0 을 낼 때의 16 보다 크다. loss 가 0 이 되지 않을 뿐 학습은 평균 0 으로 수렴한다.
     - question: |
-        면접관: "flow matching 은 학습의 정답이 모두 직선인데, 데이터가 여러 무리일 때 학습된 생성 경로는 어떤 모양인가요?"
+        flow matching 은 학습의 정답이 모두 직선인데, 데이터가 여러 무리일 때 학습된 생성 경로는 어떤 모양인가?
       choices:
-        - '학습의 정답과 똑같이 모두 직선이다'
-        - '서로 자주 엇갈리며 지그재그로 움직인다'
-        - '처음에는 데이터 전체의 평균 쪽으로 모였다가 어느 무리로 갈지 정해지면 방향을 틀어, 서로 엇갈리지 않고 휜다'
-        - '모든 경로가 데이터의 평균 한 점으로 모인다'
+        - '학습의 정답이 모두 직선이므로, 생성 경로도 똑같이 모두 직선이다'
+        - '엇갈리는 직선을 그대로 따라가므로, 경로끼리 자주 엇갈리며 지그재그로 움직인다'
+        - '처음엔 평균 쪽으로 모였다가 갈 무리가 정해지면 방향을 틀어, 엇갈리지 않고 휜다'
+        - '엇갈리는 자리마다 평균을 내므로, 모든 경로가 데이터의 평균 한 점으로 모인다'
       answer: 2
       explanation: |
         엇갈리는 자리마다 network 가 정답 속도의 평균을 내므로 학습된 경로는 휜다. 한 자리에서 network 가 내는 속도는 하나뿐이라서 두
         경로가 같은 자리에 오면 그 뒤로 같은 길을 가고, 그래서 경로끼리 엇갈리지 않는다. 데이터가 하나뿐일 때만 모두 직선이다. 경로가 엇갈리지
         않으니 지그재그도 아니다. 충분히 잘게 따라가면 각 경로는 평균이 아니라 한 무리에 닿는다.
     - question: |
-        면접관: "network 가 noise 와 데이터의 짝을 모르는데도 flow matching 으로 데이터 분포를 만들 수 있는 이유는 무엇인가요?"
+        network 가 noise 와 데이터의 짝을 모르는데도 flow matching 으로 데이터 분포를 만들 수 있는 이유는 무엇인가?
       choices:
-        - 'sampling 할 때 학습 데이터에서 짝을 찾아 정답 속도를 다시 계산하기 때문이다'
-        - '쌍마다의 속도를 가능성으로 무게를 두어 평균한 marginal velocity field 를 배우고, 이 field 를 따라가면 noise 분포가 데이터 분포로 옮겨지기 때문이다'
-        - 'noise 를 데이터 개수만큼만 뽑아 하나씩 짝지어 두기 때문이다'
-        - 'network 가 데이터를 그대로 외워 두었다가 출력하기 때문이다'
+        - 'sampling 할 때 학습 데이터에서 짝을 찾아, 그 짝으로 정답 속도를 다시 계산하기 때문이다'
+        - 'marginal velocity field 를 배우고, 이 field 를 따라가면 noise 분포가 데이터 분포로 옮겨지기 때문이다'
+        - 'noise 를 데이터 개수만큼만 뽑아, 학습 전에 데이터와 하나씩 짝지어 고정해 두기 때문이다'
+        - 'network 가 학습 데이터를 그대로 외워 두었다가, noise 를 받으면 가장 가까운 데이터 하나를 꺼내기 때문이다'
       answer: 1
       explanation: |
         conditional flow matching loss 로 학습하면 network 는 그 자리를 지나는 쌍들의 정답 속도를 평균한 marginal velocity field 를 배운다.
@@ -170,24 +170,24 @@
   title: step 수와 sample 품질
   variants:
     - question: |
-        면접관: "데이터의 봉우리가 둘인데 flow matching sampling 을 Euler step 1 번으로 하면 어떤 sample 이 나오나요?"
+        데이터의 봉우리가 둘인데 flow matching sampling 을 Euler step 1 번으로 하면 어떤 sample 이 나오는가?
       choices:
-        - '두 봉우리 중 하나에 정확히 닿는다'
-        - '출발한 noise 값이 그대로 나온다'
+        - '경로가 직선이므로, step 1 번으로도 두 봉우리 중 하나에 정확히 닿는다'
+        - '$t = 0$ 의 속도가 0 이라 움직이지 못하고, 출발한 noise 값이 그대로 나온다'
         - '출발점과 상관없이 두 봉우리의 평균 근처 값이 나와, 데이터에 없는 값이 된다'
-        - 'step 이 적을수록 sample 이 더 넓게 퍼져 데이터보다 다양해진다'
+        - 'step 이 적을수록 sample 이 더 넓게 퍼져, 데이터보다 다양한 값이 나온다'
       answer: 2
       explanation: |
         step 1 번은 $t = 0$ 의 속도로 끝까지 직진하는데, $t = 0$ 에서는 어느 봉우리로 갈지 전혀 모르므로 network 의 속도가 데이터 평균을
         향한다. 그래서 마지막 step 의 결과가 평균이 된다. 봉우리 하나를 고르려면 휘는 구간을 따라갈 step 이 필요하다. 1 step 도 속도만큼
         움직이므로 noise 가 그대로 남지 않는다. 적은 step 은 오히려 평균 쪽으로 몰린 sample 을 낸다.
     - question: |
-        면접관: "로봇 시연에서 같은 장면에 상자를 왼쪽으로 비켜 간 시연과 오른쪽으로 비켜 간 시연이 반반 있습니다. flow matching policy 의
-        sampling step 이 너무 적으면 어떤 행동이 나올 위험이 있나요?"
+        로봇 시연에서 같은 장면에 상자를 왼쪽으로 비켜 간 시연과 오른쪽으로 비켜 간 시연이 반반 있다. flow matching policy 의
+        sampling step 이 너무 적으면 어떤 행동이 나올 위험이 있는가?
       choices:
-        - '왼쪽 길만 고르는 행동'
-        - '시연보다 더 빠르게 움직이는 행동'
-        - '아무 action 도 내지 않는 행동'
+        - '시연에 있던 왼쪽 길 하나만 고르는 행동'
+        - '움직임을 적게 나눠 시연보다 빠르게 움직이는 행동'
+        - 'step 이 모자라 아무 action 도 내지 않는 행동'
         - '두 길의 평균인 상자 정면으로 향하는 행동'
       answer: 3
       explanation: |
@@ -196,12 +196,12 @@
         바꿀 뿐, 시연보다 빠르게 움직이게 하지는 않는다. step 이 적어도 Euler step 은 속도만큼 움직이므로 action 이 아예 나오지 않는 일은
         없다.
     - question: |
-        면접관: "flow matching 의 sampling step 수를 정할 때 고려하는 것으로 가장 알맞은 것은?"
+        flow matching 의 sampling step 수를 정할 때 고려하는 것으로 가장 알맞은 것은?
       choices:
-        - '정답이 갈리는 구간을 따라갈 만큼 step 을 쓰되, step 마다 network 를 한 번 쓰므로 계산 시간이 제어 주기 안에 들어오게 한다'
-        - '학습 데이터의 개수와 같게 둔다'
-        - 'step 수는 결과에 영향이 없으므로 언제나 1 로 둔다'
-        - '학습 때 뽑은 시각 $t$ 의 개수와 반드시 같아야 한다'
+        - '갈리는 구간을 따라갈 만큼 쓰되, network 계산 시간이 제어 주기 안에 들어오게 한다'
+        - '학습 데이터 개수와 같게 두어, step 마다 데이터 하나씩을 거쳐 가게 한다'
+        - '경로가 직선이라 step 수는 결과에 영향이 없으므로, 계산 시간을 아끼려고 언제나 1 로 둔다'
+        - '학습 때 뽑은 시각 $t$ 의 개수와 같게 두어, network 가 본 시각만 쓰게 한다'
       answer: 0
       explanation: |
         경로가 휘는 구간이 짧아도 그 구간을 따라갈 step 은 필요하고, step 을 늘린 만큼 network 계산 시간이 늘어난다. 로봇에서는 다음
@@ -212,12 +212,12 @@
   title: diffusion 과의 비교
   variants:
     - question: |
-        면접관: "같은 noise 에서 출발해 sampling 을 두 번 하면, flow matching 과 DDPM 의 결과는 각각 어떤가요?"
+        같은 noise 에서 출발해 sampling 을 두 번 하면, flow matching 과 DDPM 의 결과는 각각 어떠한가?
       choices:
-        - '두 방법 모두 매번 다른 sample 이 나온다'
-        - 'flow matching 은 새 noise 를 더하지 않아 같은 sample 이 나오고, DDPM 은 reverse step 마다 새 noise 를 뽑아 달라질 수 있다'
-        - 'flow matching 은 매번 다르고, DDPM 은 언제나 같다'
-        - '두 방법 모두 언제나 같은 sample 이 나온다'
+        - '두 방법 모두 network 가 확률 분포를 배우므로, 같은 noise 에서도 매번 다른 sample 이 나온다'
+        - 'flow matching 은 새 noise 를 더하지 않아 같고, DDPM 은 새 noise 를 더해 달라질 수 있다'
+        - 'flow matching 은 매번 다르고, DDPM 은 출발 noise 가 같으면 reverse step 이 정해져 언제나 같다'
+        - 'Euler 법과 reverse step 모두 정해진 계산이라, 두 방법 모두 언제나 같은 sample 이 나온다'
       answer: 1
       explanation: |
         flow matching 의 Euler sampling 은 속도대로 직진할 뿐 새 noise 를 더하지 않아서 출발점이 정해지면 경로가 하나로 정해진다. DDPM 의
@@ -225,12 +225,12 @@
         이 같은 출발점에서 같은 sample 을 낸다는 것을 놓쳤다. flow matching 이 매번 다르고 DDPM 이 같다는 보기는 두 성질을 뒤집었다. 두
         방법 모두 같다는 보기는 DDPM 이 더하는 새 noise 를 빠뜨렸다.
     - question: |
-        면접관: "flow matching 이 DDPM 보다 적은 sampling step 으로 데이터에 닿는 이유는 무엇인가요?"
+        flow matching 이 DDPM 보다 적은 sampling step 으로 데이터에 닿는 이유는 무엇인가?
       choices:
-        - '경로가 곧아 step 도중 속도가 덜 바뀌고, Euler step 은 작은 step 가정 없이 속도대로 직진하는 계산이기 때문이다'
-        - 'flow matching 의 network 가 DDPM 의 network 보다 항상 크기 때문이다'
-        - 'flow matching 은 학습 데이터를 더 많이 쓰기 때문이다'
-        - 'flow matching 은 sample 의 다양성을 포기하고 평균만 내기 때문이다'
+        - '경로가 곧아 step 도중 속도가 덜 바뀌고, Euler step 은 작은 step 가정이 필요 없기 때문이다'
+        - '같은 문제에서 flow matching 의 network 가 DDPM 보다 커서 속도를 더 잘 맞히기 때문이다'
+        - 'flow matching 은 같은 시간에 학습 데이터를 더 많이 보아 더 잘 학습되기 때문이다'
+        - 'flow matching 은 sample 의 다양성을 포기하고 데이터의 평균만 내기 때문이다'
       answer: 0
       explanation: |
         같은 network 구조로도 차이가 난다. noise 에서 데이터로 가는 경로가 곧을수록 Euler 법의 오차가 작고, DDPM 의 reverse step 식은 한
@@ -238,13 +238,13 @@
         flow matching 이 학습 데이터를 더 쓰는 것도 아니고, 같은 데이터에서도 경로의 모양이 다르다. 충분한 step 의 flow matching 은 평균이
         아니라 여러 봉우리에 고루 닿는다.
     - question: |
-        면접관: "Diffusion Policy 는 DDPM 100 단계로 학습하고 실제 로봇에서는 DDIM 으로 10 단계만 밟습니다. π0 는 flow matching 으로 10 step 을
-        밟습니다. 두 방식의 차이로 옳은 것은?"
+        Diffusion Policy 는 DDPM 100 단계로 학습하고 실제 로봇에서는 DDIM 으로 10 단계만 밟고, π0 는 flow matching 으로 10 step 을
+        밟는다. 두 방식의 차이로 옳은 것은?
       choices:
-        - '두 방식 모두 학습한 단계를 그대로 밟는다'
-        - 'π0 는 DDIM 으로 단계를 건너뛰고, Diffusion Policy 는 Euler 법을 쓴다'
-        - 'Diffusion Policy 는 action chunk 를 만들지 않는다'
-        - 'Diffusion Policy 는 많은 단계로 학습한 network 를 별도 계산으로 건너뛰고, π0 는 처음부터 직선 경로의 속도를 배워 같은 Euler 계산으로 적은 step 을 밟는다'
+        - '두 방식 모두 학습한 단계 수를 그대로 밟고, 두 방식의 차이는 network 크기뿐이다'
+        - 'π0 는 DDIM 으로 단계를 건너뛰고, Diffusion Policy 는 Euler 법으로 10 step 을 밟는다'
+        - 'Diffusion Policy 는 action 을 한 시점씩 만들어서, 여러 시점을 묶은 chunk 를 만들지 않는다'
+        - 'Diffusion Policy 는 학습한 단계를 별도 계산으로 건너뛰고, π0 는 속도를 배워 Euler 10 step 을 밟는다'
       answer: 3
       explanation: |
         DDPM 의 reverse step 은 작은 step 을 가정해서, 단계를 줄이려면 DDIM 같은 계산으로 바꿔야 했다. flow matching 은 학습 때부터 속도를
@@ -255,12 +255,12 @@
   title: π0 의 action expert
   variants:
     - question: |
-        면접관: "π0 는 action chunk 하나를 만들 때 Euler step 을 10 번 밟습니다. 이미지와 지시문을 읽는 큰 VLM 은 몇 번 계산하나요?"
+        π0 는 action chunk 하나를 만들 때 Euler step 을 10 번 밟는다. 이미지와 지시문을 읽는 큰 VLM 은 몇 번 계산하는가?
       choices:
-        - 'step 마다 한 번씩 10 번 계산한다'
-        - '처음과 마지막 step 에서 두 번 계산한다'
-        - 'action 50 개마다 한 번씩 50 번 계산한다'
-        - '관측이 바뀌지 않으므로 chunk 하나에 한 번만 계산하고, 그 결과를 저장해 두고 step 마다 작은 action expert 만 다시 계산한다'
+        - '관측과 noise 가 섞인 action 이 함께 바뀌므로, step 마다 한 번씩 10 번 계산한다'
+        - '처음 step 에서 관측을 읽고, 마지막 step 에서 결과를 확인하느라 두 번 계산한다'
+        - 'action 50 개를 하나씩 만드느라, action 마다 한 번씩 모두 50 번 계산한다'
+        - '관측이 그대로라 한 번만 계산해 두고, step 마다 action expert 만 다시 계산한다'
       answer: 3
       explanation: |
         10 번의 step 동안 바뀌는 것은 noise 가 섞인 action 과 $\tau$ 뿐이고 관측은 그대로라서, VLM 의 계산은 한 번만 하고 그 결과를 저장해
@@ -268,8 +268,8 @@
         계산하면 같은 계산을 되풀이할 뿐이다. 처음과 마지막 step 에서만 VLM 을 계산한다는 규칙은 없다. action 50 개는 하나씩이 아니라
         chunk 하나로 한꺼번에 만들므로 VLM 을 50 번 계산하지 않는다.
     - question: |
-        면접관: "π0 의 flow matching 에서 시연 action chunk 를 $A_t$, noise 를 $\epsilon$, 시각을 $\tau$ 라 하면, 학습에 쓰는 섞은 점과 정답 속도는
-        무엇인가요? $\tau = 0$ 이 noise 쪽입니다."
+        π0 의 flow matching 에서 시연 action chunk 를 $A_t$, noise 를 $\epsilon$, 시각을 $\tau$ 라 하면, 학습에 쓰는 섞은 점과 정답 속도는
+        무엇인가? $\tau = 0$ 이 noise 쪽이다.
       choices:
         - '섞은 점은 $\tau\,\epsilon + (1 - \tau)\,A_t$ 이고 정답 속도는 $A_t - \epsilon$ 이다'
         - '섞은 점은 $\tau\,A_t + (1 - \tau)\,\epsilon$ 이고 정답 속도는 $\epsilon$ 이다'
@@ -281,12 +281,12 @@
         속도다. 첫 보기의 섞은 점은 $\tau = 0$ 이 데이터라서 조건과 맞지 않는다. 정답 속도를 $\epsilon$ 으로 둔 보기는 noise 자체를 맞히는
         DDPM 의 정답이다. 마지막 보기는 $\tau$ 가 없어 직선 경로가 아니다.
     - question: |
-        면접관: "π0 는 학습할 때 flow matching 의 시각 $\tau$ 를 0 과 1 사이에서 고르게 뽑지 않습니다. 어떻게 뽑고, 그 이유는 무엇인가요?"
+        π0 는 학습할 때 flow matching 의 시각 $\tau$ 를 0 과 1 사이에서 고르게 뽑지 않는다. 어떻게 뽑으며, 그 이유는 무엇인가?
       choices:
-        - '$\tau = 1$ 근처만 뽑는다. 데이터에 가까운 자리가 가장 어렵기 때문이다'
-        - 'noise 가 많은 쪽($\tau$ 가 작은 쪽)을 더 자주 뽑는다. 관측이 정답 행동을 많이 좁혀서 noise 가 많은 자리에서 방향을 잡는 일이 어렵기 때문이다'
-        - '$\tau = 0.5$ 하나만 뽑는다. 계산이 가장 빠르기 때문이다'
-        - '정수 1 ~ 1000 중에서 뽑는다. DDPM 과 같은 network 를 쓰기 때문이다'
+        - '$\tau = 1$ 근처만 뽑는다. 데이터에 가까운 자리는 고칠 양이 작고 세밀해서 가장 어렵기 때문이다'
+        - 'noise 쪽($\tau$ 가 작은 쪽)을 더 자주 뽑는다. 관측에 맞는 평균 행동을 맞히기 어렵기 때문이다'
+        - '$\tau = 0.5$ 하나만 뽑는다. 한 시각만 학습하면 계산이 가장 빠르기 때문이다'
+        - '정수 1 ~ 1000 중에서 뽑는다. DDPM 으로 학습한 network 를 그대로 쓰기 때문이다'
       answer: 1
       explanation: |
         π0 는 noise 쪽을 강조하는 beta 분포 $\text{Beta}\big(\tfrac{s - \tau}{s}; 1.5, 1\big)$, $s = 0.999$ 에서 $\tau$ 를 뽑는다. 논문은 관측이
@@ -297,8 +297,8 @@
   title: 시각의 방향과 정답 속도의 부호
   variants:
     - question: |
-        면접관: "GR00T N1 논문은 섞는 식을 $A_t^\tau = \tau A_t + (1 - \tau)\epsilon$ 으로 두고, $\tau = 0$ 의 noise 에서 출발해
-        $A^{\tau + 1/K} = A^\tau + \tfrac{1}{K} V_\theta$ 로 Euler step 을 밟습니다. 이와 맞으려면 network 가 맞힐 정답 속도는 무엇이어야 하나요?"
+        GR00T N1 논문은 섞는 식을 $A_t^\tau = \tau A_t + (1 - \tau)\epsilon$ 으로 두고, $\tau = 0$ 의 noise 에서 출발해
+        $A^{\tau + 1/K} = A^\tau + \tfrac{1}{K} V_\theta$ 로 Euler step 을 밟는다. 이와 맞으려면 network 가 맞힐 정답 속도는 무엇이어야 하는가?
       choices:
         - '$A_t - \epsilon$'
         - '$\epsilon - A_t$'
@@ -310,13 +310,13 @@
         섞은 점이 변하는 양도 $A_t - \epsilon$ 이다. 논문의 식 (1) 은 $\epsilon - A_t$ 로 적었지만, 그 부호로는 같은 Euler 식이 시연에서
         멀어진다. $\epsilon$ 은 noise 자체를 맞히는 DDPM 의 정답이다. $A_t + \epsilon$ 은 섞는 식에서 나오지 않는 값이다.
     - question: |
-        면접관: "openpi 의 π0 코드는 시각 변수 time 이 1 일 때 noise 이고 0 일 때 데이터이며, 정답 속도를 noise − actions 로 둡니다. 10 step
-        으로 sampling 할 때 어떻게 해야 데이터에 닿나요?"
+        openpi 의 π0 코드는 시각 변수 time 이 1 일 때 noise 이고 0 일 때 데이터이며, 정답 속도를 noise − actions 로 둔다. 10 step
+        으로 sampling 할 때 어떻게 해야 데이터에 닿는가?
       choices:
-        - 'time 을 0 에서 시작해 step 마다 0.1 씩 늘리며 속도를 더한다'
-        - 'time 을 1 에서 시작해 step 마다 0.1 씩 줄이고, 속도에 음수인 step 길이 −0.1 을 곱해 더한다'
-        - 'time 을 1 에 고정하고 속도를 10 번 더한다'
-        - '속도의 부호와 상관없이 time 을 늘리기만 하면 된다'
+        - 'time 을 0 에서 시작해 step 마다 0.1 씩 늘리며, 논문처럼 속도에 0.1 을 곱해 더한다'
+        - 'time 을 1 에서 시작해 0.1 씩 줄이고, 속도에 음수 step 길이 −0.1 을 곱해 더한다'
+        - 'time 을 1 에 고정해 noise 자리에 두고, 속도에 0.1 을 곱해 10 번 더한다'
+        - 'time 을 1 에서 0.1 씩 줄이되, 속도에는 양수인 0.1 을 곱해 더한다'
       answer: 1
       explanation: |
         noise 가 time = 1 쪽이므로 1 에서 출발해 0 으로 가야 한다. 이때 속도 noise − actions 에 음수 step 길이를 곱해 더하면 actions − noise
@@ -324,15 +324,15 @@
         시작하면 데이터 쪽에서 출발하게 되어 순서가 맞지 않는다. time 을 고정하면 network 가 매 step 같은 시각만 본다. 부호를 무시하면
         데이터에서 멀어진다.
     - question: |
-        면접관: "새 flow matching 코드를 읽을 때 가장 먼저 확인해야 할 것으로 알맞은 것은?"
+        새 flow matching 코드를 읽을 때 가장 먼저 확인해야 할 것으로 알맞은 것은?
       choices:
-        - 'network 의 층 수가 논문과 같은지'
-        - 'GPU 의 종류'
-        - '시각 변수가 0 과 1 중 어느 쪽에서 noise 인지, 그리고 정답 속도가 데이터 − noise 와 noise − 데이터 중 어느 것인지'
-        - 'loss 를 평균하는지 합하는지'
+        - 'network 의 층 수와 weight 개수가 논문에 적힌 값과 같은지'
+        - '어느 GPU 로 학습했는지와, 그 GPU 에서 한 step 이 몇 ms 걸리는지'
+        - '시각 변수가 0 과 1 중 어느 쪽에서 noise 인지와, 정답 속도의 부호'
+        - '여러 예의 loss 를 평균하는지, 아니면 모두 합하는지'
       answer: 2
       explanation: |
         flow matching 은 자료마다 $t = 0$ 을 noise 로 두기도 하고 $t = 1$ 을 noise 로 두기도 해서, 그 방향에 따라 정답 속도의 부호와 Euler
-        step 의 부호가 함께 정해진다. 하나만 어긋나도 sample 이 데이터에서 멀어진다. network 의 층 수는 sampling 이 어느 쪽으로 가는지와
-        관계없다. GPU 의 종류는 속도만 바꾸고 계산 결과의 방향은 바꾸지 않는다. loss 를 평균하는지 합하는지는 크기만 바꾸고 학습이 가는
+        step 의 부호가 함께 정해진다. 하나만 어긋나도 sample 이 데이터에서 멀어진다. network 의 층 수와 weight 개수는 sampling 이 어느 쪽으로
+        가는지와 관계없다. GPU 의 종류는 속도만 바꾸고 계산 결과의 방향은 바꾸지 않는다. loss 를 평균하는지 합하는지는 크기만 바꾸고 학습이 가는
         방향은 바꾸지 않는다.

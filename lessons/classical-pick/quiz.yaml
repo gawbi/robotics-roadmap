@@ -5,11 +5,11 @@
   title: module 의 입력과 출력
   variants:
     - question: |
-        면접관: "카메라로 물체를 찾아 집는 classical pick-and-place pipeline 에서 IK module 은 무엇을 받아 무엇을 내나요?"
+        카메라로 물체를 찾아 집는 classical pick-and-place pipeline 에서 IK module 은 무엇을 받아 무엇을 내는가?
       choices:
-        - '카메라 사진을 받아 물체 가운데의 pixel 을 낸다'
-        - '손이 거쳐 갈 자세(waypoint)의 손끝 pose 를 받아 자세마다 joint angle 을 낸다'
-        - 'joint angle 을 받아 시각별 목표 각도 목록을 낸다'
+        - '카메라 사진을 받아, 사진 속에서 찾은 물체 가운데의 pixel 좌표를 낸다'
+        - 'waypoint 의 손끝 pose 를 받아 자세마다 joint angle 을 낸다'
+        - 'joint angle 을 받아, 이동 시간에 맞춘 시각별 목표 각도 목록을 낸다'
         - 'pixel 과 depth 를 받아 로봇 base frame 의 3D 좌표를 낸다'
       answer: 1
       explanation: |
@@ -17,25 +17,24 @@
         waypoint 마다 joint angle 을 낸다. 사진에서 pixel 을 내는 것은 인식 module 이고, 시각별 목표 각도를 만드는 것은 경로 module 이며,
         pixel 과 depth 로 3D 좌표를 구하는 것은 3D 위치 module 이다.
     - question: |
-        면접관: "pick-and-place 를 여러 module 로 나누고 module 마다 입력과 출력을 정해 두면 무엇이 좋아지나요?"
+        pick-and-place 를 여러 module 로 나누고 module 마다 입력과 출력을 정해 두면 무엇이 좋아지는가?
       choices:
-        - '전체 계산이 빨라져서 더 짧은 주기로 실행할 수 있다'
-        - '사람이 정해야 할 숫자와 규칙이 없어진다'
-        - '앞 module 의 오차를 뒤 module 이 알아서 바로잡아 준다'
-        - '각 module 의 출력을 따로 확인할 수 있어서, 실패했을 때 어느 단계가 틀렸는지 찾을 수 있다'
+        - 'module 을 나누면 전체 계산이 빨라져서 1초에 더 여러 번 실행할 수 있다'
+        - '입력과 출력이 정해지면 사람이 정해야 할 숫자와 규칙이 없어진다'
+        - '앞 module 의 오차를 뒤 module 이 입력을 보고 알아서 바로잡아 준다'
+        - '각 module 의 출력을 따로 확인할 수 있어, 실패한 단계를 찾을 수 있다'
       answer: 3
       explanation: |
         module 마다 중간 값이 있어서 pixel 이 맞는지, 계산한 높이가 맞는지, IK 답이 joint limit 안인지를 하나씩 확인할 수 있어서 고장 난
         곳을 찾기 쉽다. 나눈다고 계산이 빨라지지는 않고, 오히려 모든 module 에 사람이 정한 숫자가 들어간다. 뒤 module 은 앞 module 의 오차를
         알 방법이 없어서 오차는 바로잡히지 않고 그대로 넘어가 더해진다.
     - question: |
-        면접관: "parallel gripper 로 물체를 쥐려고 손가락을 닫았는데 손가락 사이 간격이 0 까지 줄었습니다. 모듈 파이프라인에서 먼저 의심할 곳은
-        어디인가요?"
+        parallel gripper 로 물체를 쥐려고 손가락을 닫았는데 손가락 사이 간격이 0 까지 줄었다. 모듈 파이프라인에서 먼저 의심할 곳은 어디인가?
       choices:
-        - '물체 위치를 낸 인식·3D 위치 module 이나 카메라 calibration. 손끝이 물체 자리에 가지 못해 빈손으로 닫혔다'
-        - 'gripper 의 닫는 힘. 힘이 약해 물체가 손가락 사이에서 미끄러졌다'
-        - '경로 module 의 이동 시간. 시간이 길어서 손가락이 너무 많이 닫혔다'
-        - 'IK module. 답이 joint limit 밖이면 손가락이 끝까지 닫힌다'
+        - '인식·3D 위치 module 이나 calibration. 손끝이 물체 자리에 가지 못했다'
+        - 'gripper 의 닫는 힘. 힘이 약해 물체가 손가락 사이에서 미끄러져 빠져나갔다'
+        - '경로 module 의 이동 시간. 이동 시간이 길어서 그동안 손가락이 너무 많이 닫혔다'
+        - 'IK module. 답이 joint limit 밖이면 gripper 가 멈출 자리를 몰라 끝까지 닫힌다'
       answer: 0
       explanation: |
         간격이 0 이면 손가락 사이에 아무것도 없다는 뜻이라서, 손끝이 물체 자리에 가지 못한 것이다. 그 자리를 정한 인식·3D 위치 module 과
@@ -46,31 +45,31 @@
   title: 색 규칙, 인식기, yaw 주기
   variants:
     - question: |
-        면접관: "빨간 물체를 'R 값이 150 이상인 pixel' 로 고르면 그늘진 부분을 놓칩니다. 빨강의 몫 R ÷ (R + G + B) 이나 HSV 의 hue 로 고르면
-        나아지는 이유는 무엇인가요?"
+        빨간 물체를 'R 값이 150 이상인 pixel' 로 고르면 그늘진 부분을 놓친다. 빨강의 몫 R ÷ (R + G + B) 이나 HSV 의 hue 로 고르면 나아지는
+        이유는 무엇인가?
       choices:
-        - '비율은 계산이 빨라서 더 많은 pixel 을 검사할 수 있기 때문이다'
-        - '그늘에서는 R 만 줄고 G, B 는 그대로이기 때문이다'
-        - '조명이 어두워지면 R·G·B 가 거의 같은 비율로 함께 줄어서, 숫자는 작아져도 빨강이 차지하는 몫은 거의 그대로이기 때문이다'
-        - '비율로 고르면 문턱을 사람이 정할 필요가 없어지기 때문이다'
+        - '비율은 계산이 빨라서 같은 시간에 더 많은 pixel 을 검사할 수 있고 그늘도 놓치지 않기 때문이다'
+        - '그늘에서는 R 만 줄고 G, B 는 그대로라서 몫을 보면 그늘을 가려낼 수 있기 때문이다'
+        - '어두워지면 R·G·B 가 거의 같은 비율로 줄어, 빨강이 차지하는 몫은 거의 그대로이기 때문이다'
+        - '비율로 고르면 조명에 맞는 문턱이 저절로 정해져, 문턱을 사람이 정할 필요가 없기 때문이다'
       answer: 2
       explanation: |
         밝기가 반이 되면 R, G, B 가 모두 거의 반이 되므로 R 하나의 크기는 크게 바뀌지만 세 숫자 가운데 빨강의 몫은 그대로다. 그래서 색의
         종류(hue)로 고르면 조명에 덜 흔들린다. 그늘에서 R 만 준다는 것은 사실과 다르고, 계산 속도는 이 문제와 관계가 없다. 비율 규칙에도
         "몫이 얼마 이상" 이라는 문턱이 있고 그것도 사람이 정한다.
     - question: |
-        면접관: "YOLO-World 같은 open-vocabulary detector 에 'red cube' 라는 이름과 사진을 넣었습니다. 이 결과만으로 바로 grasp 를 계획할 수
-        없는 이유는 무엇인가요?"
+        YOLO-World 같은 open-vocabulary detector 에 'red cube' 라는 이름과 사진을 넣었다. 이 결과만으로 바로 grasp 를 계획할 수 없는 이유는
+        무엇인가?
       choices:
-        - 'detector 는 사진 속 bounding box 와 점수만 내서, 물체까지의 거리와 물체가 돌아간 각도는 따로 구해야 한다'
-        - 'detector 는 미리 학습한 단어 목록에 있는 물체만 찾을 수 있다'
+        - 'detector 는 bounding box 와 점수만 내서, 물체까지의 거리와 돌아간 각도는 따로 구해야 한다'
+        - 'detector 는 미리 학습한 단어 목록에 있는 물체만 찾을 수 있어 red cube 를 못 찾는다'
         - 'detector 는 물체의 3D 좌표를 내지만 camera frame 이 아니라 world frame 으로 낸다'
-        - 'detector 는 bounding box 대신 물체를 덮는 pixel 하나만 낸다'
+        - 'detector 는 bounding box 대신 물체를 덮는 pixel 하나만 내서 크기를 알 수 없다'
       answer: 0
       explanation: |
-        open-vocabulary detector 는 이름에 맞는 물체를 둘러싼 bounding box 와 점수를 낸다. box 는 사진 속 칸 번호라서 depth 가 있어야 3D
-        좌표가 된다. 또 box 는 늘 사진의 가로세로에 맞춘 직사각형이라서 box 만으로는 물체의 yaw 를 알 수 없다. 아무 이름이나 받을 수 있다는 것이 open-vocabulary
-        의 뜻이라 단어 목록에 묶인다는 보기는 틀렸고, 3D 좌표나 pixel 하나를 내는 것도 아니다.
+        open-vocabulary detector 는 이름에 맞는 물체를 둘러싼 bounding box 와 점수를 낸다. box 는 사진 속 칸 번호라서 depth 가 있어야 3D 좌표가
+        된다. 또 box 는 늘 사진의 가로세로에 맞춘 직사각형이라서 box 만으로는 물체의 yaw 를 알 수 없다. 아무 이름이나 받을 수 있다는 것이
+        open-vocabulary 의 뜻이라 단어 목록에 묶인다는 보기는 틀렸고, 3D 좌표나 pixel 하나를 내는 것도 아니다.
     - question: |
         정사각형 윗면을 가진 상자의 yaw 를 인식기가 88° 로 냈고 실제 yaw 는 2° 다. 위에서 본 모양만으로는 90° 돌린 상자를 가릴 수 없을 때
         실제 오차는?
@@ -88,36 +87,37 @@
   title: depth 와 back-projection
   variants:
     - question: |
-        면접관: "카메라 한 대로 찍은 사진에서 물체의 pixel 을 찾았는데, 왜 그것만으로는 로봇이 갈 3D 위치를 정할 수 없나요?"
+        카메라 한 대로 찍은 사진에서 물체의 pixel 을 찾았는데, 왜 그것만으로는 로봇이 갈 3D 위치를 정할 수 없는가?
       choices:
-        - 'pixel 좌표에는 lens distortion 이 섞여 있어서 쓸 수 없기 때문이다'
-        - '렌즈 중심에서 뻗은 한 직선 위의 점은 거리와 상관없이 모두 같은 pixel 에 찍혀서, depth 를 알아야 점이 하나로 정해지기 때문이다'
-        - 'pixel 좌표는 정수라서 m 단위로 바꿀 수 없기 때문이다'
-        - '카메라는 물체의 색만 재고 위치는 재지 않기 때문이다'
+        - 'pixel 좌표에는 lens distortion 이 섞여 있어서 어떤 경우에도 3D 위치 계산에 쓸 수 없기 때문이다'
+        - '렌즈 중심에서 뻗은 한 직선 위의 점은 모두 같은 pixel 에 찍혀, depth 를 알아야 하기 때문이다'
+        - 'pixel 좌표는 정수라서 m 단위의 연속된 3D 위치로 바로 바꿀 수 없기 때문이다'
+        - '카메라는 물체의 색만 재고, 사진 속 위치로는 방향도 알 수 없기 때문이다'
       answer: 1
       explanation: |
         pixel 하나는 렌즈 중심에서 그 칸으로 뻗은 ray 의 방향만 정한다. 그 ray 위의 1 m 점과 2 m 점은 같은 pixel 에 찍히므로, depth camera 로
         거리를 재거나 물체가 놓인 평면의 높이를 알아야 3D 점이 하나로 정해진다. lens distortion 은 calibration 으로 고칠 수 있고, pixel 이
         정수라는 것은 문제가 아니며, 카메라가 위치 정보를 전혀 주지 않는 것도 아니다(방향은 준다).
     - question: |
-        면접관: "back-projection 으로 물체 위치를 구할 때 depth 가 실제보다 2% 크게 재졌습니다. 어떤 값이 틀리나요?"
+        back-projection 으로 물체 위치를 구할 때 depth 가 실제보다 2% 크게 재졌다. 어떤 값이 틀리는가?
       choices:
-        - '카메라 앞쪽 거리(높이)만 틀리고 가로 위치는 그대로다'
-        - '가로 위치만 틀리고 앞쪽 거리는 그대로다'
-        - '앞쪽 거리와 함께 가로 위치도 2% 커진다. 가로 위치는 pixel 로 정한 방향에 depth 를 곱해 구하기 때문이다'
-        - 'depth 는 pixel 좌표를 바꾸지 않으므로 어떤 값도 틀리지 않는다'
+        - '카메라 앞쪽 거리(높이)만 틀리고, 가로 위치는 pixel 로 정해지므로 그대로다'
+        - '가로 위치만 2% 틀리고 앞쪽 거리는 그대로다'
+        - '앞쪽 거리와 함께 가로 위치도 2% 커진다. 가로 위치도 depth 를 곱해 구하기 때문이다'
+        - 'depth 는 pixel 좌표를 바꾸지 않으므로, pixel 에서 구한 위치는 어떤 값도 틀리지 않는다'
       answer: 2
       explanation: |
         back-projection 은 $X = (u - c_x)Z / f$ 처럼 pixel 에서 구한 방향에 depth $Z$ 를 곱한다. 그래서 $Z$ 가 2% 크면 $X$, $Y$ 도 2% 커져서
-        가로 위치까지 틀린다. 높이만 틀린다는 것은 흔한 오해이고, depth 가 결과에 영향을 주지 않는다는 보기는 식과 맞지 않는다.
+        가로 위치까지 틀린다. 앞쪽 거리는 depth 그 자체라서 그대로일 수 없다. 높이만 틀린다는 것은 흔한 오해이고, depth 가 결과에 영향을 주지
+        않는다는 보기는 식과 맞지 않는다.
     - question: |
-        면접관: "depth camera 없이, 물체가 늘 책상 위에 있다고 가정하고 pixel 의 ray 와 책상 높이 평면의 교점으로 위치를 구합니다. 누가 물체를
-        책 위에 올려 두면 어떻게 되나요?"
+        depth camera 없이, 물체가 늘 책상 위에 있다고 가정하고 pixel 의 ray 와 책상 높이 평면의 교점으로 위치를 구한다. 누가 물체를 책 위에 올려
+        두면 어떻게 되는가?
       choices:
-        - '실제 윗면보다 낮은 평면에서 ray 와 만나는 점을 물체로 착각해, 높이와 함께 가로 위치도 틀린다'
-        - 'ray 는 물체를 지나므로 가로 위치는 맞고 높이만 틀린다'
-        - '평면과 ray 가 만나지 않아 계산이 실패하고 경고가 뜬다'
-        - '책의 두께만큼 높이가 자동으로 보정된다'
+        - '더 낮은 평면에서 ray 와 만나는 점을 물체로 착각해, 높이와 함께 가로 위치도 틀린다'
+        - 'ray 는 물체를 지나므로 가로 위치는 맞고, 책의 두께만큼 높이만 틀린다'
+        - '물체가 가정한 평면 위에 없어 ray 와 평면이 만나지 않으므로 계산이 실패하고 경고가 뜬다'
+        - 'depth camera 가 없어도 사진 속 크기로 책의 두께만큼 높이가 자동으로 보정된다'
       answer: 0
       explanation: |
         물체가 높아지면 같은 물체가 다른 pixel 에 찍히고, pipeline 은 그 ray 를 가정한 낮은 평면까지 연장해 교점을 물체로 삼는다. 비스듬한
@@ -128,12 +128,12 @@
   title: top-down grasp 와 waypoint
   variants:
     - question: |
-        면접관: "물체를 집을 때 grasp pose 로 바로 가지 않고, 물체 위 몇 cm 의 pre-grasp 자세를 먼저 거치는 이유는 무엇인가요?"
+        물체를 집을 때 grasp pose 로 바로 가지 않고, 물체 위 몇 cm 의 pre-grasp 자세를 먼저 거치는 이유는 무엇인가?
       choices:
-        - 'pre-grasp 에서 카메라를 다시 calibration 하기 위해서다'
-        - 'IK 를 grasp pose 한 곳에서만 풀면 답이 없기 때문이다'
-        - '팔의 motor 를 식히기 위해 잠시 멈추는 자리다'
-        - '바로 가면 손이 비스듬히 다가가며 손가락으로 물체를 밀어낼 수 있어서, 물체 위에서 멈춘 뒤 접근 방향으로 곧게 내려가기 위해서다'
+        - 'pre-grasp 에서 멈춘 채 카메라를 다시 calibration 해 물체 위치를 고치기 위해서다'
+        - 'IK 를 grasp pose 한 곳에서만 풀면 답이 없어서, 위쪽 자세를 거쳐야 답이 나오기 때문이다'
+        - '팔의 motor 가 오래 움직여 뜨거워지므로 잠시 멈춰 식히는 자리다'
+        - '바로 가면 손가락이 비스듬히 다가가 물체를 밀 수 있어, 물체 위에서 곧게 내려가기 위해서다'
       answer: 3
       explanation: |
         pre-grasp 는 grasp 를 접근 방향 반대로 물린 자세다. 거기서 접근 방향으로 곧게 내려가면 손가락이 옆에서 물체를 치지 않는다. MoveIt Task
@@ -153,13 +153,13 @@
         여유를 합친 값이고, 3 cm 와 0.5 cm 는 계산과 맞지 않는다. 이 1 cm 가 인식·calibration·실행 오차를 모두 합쳐 넘으면
         안 되는 한도다.
     - question: |
-        면접관: "정사각형 윗면의 상자를 parallel gripper 로 쥘 때 손가락 방향 후보가 90° 간격으로 넷 나옵니다. 지금 손목 각도가 70° 이고 상자의
-        yaw 가 10° 라면 어느 후보를 고르는 게 좋나요?"
+        정사각형 윗면의 상자를 parallel gripper 로 쥘 때 손가락 방향 후보가 90° 간격으로 넷 나온다. 지금 손목 각도가 70° 이고 상자의 yaw 가 10°
+        라면 어느 후보를 고르는 것이 좋은가?
       choices:
-        - '10°. 상자의 yaw 와 정확히 같기 때문이다'
-        - '−80°. 음수 각도가 joint limit 에 더 안전하기 때문이다'
-        - '100°. joint limit 안에서 지금 손목 각도에 가장 가까워 손목을 가장 조금 돌리기 때문이다'
-        - '−170°. 후보 가운데 가장 작아서 계산이 단순하기 때문이다'
+        - '10°. 상자의 yaw 와 정확히 같아 가장 정확하게 쥘 수 있기 때문이다'
+        - '−80°. 음수 각도가 joint limit 에서 더 멀어 언제나 안전하기 때문이다'
+        - '100°. joint limit 안에서 지금 손목 각도와 가장 가깝기 때문이다'
+        - '−170°. 후보 가운데 가장 작은 값이라 계산이 단순하기 때문이다'
       answer: 2
       explanation: |
         후보 10°, 100°, −80°, −170° 와 지금 70° 의 차이는 60°, 30°, 150°, 240° 다. 어느 후보로 쥐어도 같은 grasp 이므로, joint limit 안에서
@@ -169,12 +169,12 @@
   title: IK 답과 도달 범위
   variants:
     - question: |
-        면접관: "같은 손끝 pose 에 IK 답이 elbow-up 과 elbow-down 두 개 나왔습니다. waypoint 마다 답을 어떻게 고르나요?"
+        같은 손끝 pose 에 IK 답이 elbow-up 과 elbow-down 두 개 나왔다. waypoint 마다 답을 어떻게 고르는가?
       choices:
-        - 'joint limit 안의 답 가운데 앞 waypoint 의 joint angle 에 가까운 답을 고른다. 다르게 고르면 waypoint 사이에서 팔이 크게 뒤집힌다'
-        - '항상 elbow-up 을 고른다. elbow-down 은 물리적으로 불가능하다'
-        - 'waypoint 마다 무작위로 고른다. 손끝 pose 는 어차피 같다'
-        - '두 답의 평균을 쓴다. 평균도 같은 손끝 pose 를 만든다'
+        - 'joint limit 안에서 앞 waypoint 의 자세에 가까운 답을 고른다'
+        - '항상 elbow-up 을 고른다. elbow-down 은 물리적으로 만들 수 없는 자세다'
+        - 'waypoint 마다 무작위로 고른다. 어느 답이든 손끝 pose 는 어차피 같다'
+        - '두 답의 joint angle 을 평균해 쓴다. 평균도 같은 손끝 pose 를 만든다'
       answer: 0
       explanation: |
         두 답 모두 손끝을 맞추지만, 이웃한 waypoint 에서 서로 다른 답을 고르면 그 사이를 잇는 동안 팔꿈치가 반대쪽으로 넘어가며 크게 움직인다.
@@ -183,22 +183,22 @@
     - question: |
         위팔 0.3 m, 아래팔 0.25 m 인 2 관절 팔이 있다. 어깨에서 손목 목표까지의 거리가 0.6 m 일 때 IK module 이 해야 할 일은?
       choices:
-        - '반복 IK 의 반복 횟수를 늘리면 답이 나온다'
-        - 'elbow-down 답을 고르면 닿는다'
-        - '손목 각도로 0.05 m 를 보충한다'
-        - '두 팔 길이의 합 0.55 m 보다 멀어 답이 없으므로 실패를 알리고, 목표나 waypoint 를 다시 정하게 한다'
+        - '반복 IK 의 반복 횟수를 늘려 더 오래 풀면 결국 0.6 m 에 닿는 답이 나온다'
+        - 'elbow-down 답을 고르면 팔꿈치가 펴지는 쪽이라 0.6 m 까지 닿는다'
+        - '팔이 0.05 m 모자라므로 손목 관절을 꺾어 그만큼 보충한다'
+        - '0.55 m 보다 멀어 닿을 수 없으니, 실패를 알리고 목표를 다시 정하게 한다'
       answer: 3
       explanation: |
         위팔과 아래팔을 일직선으로 펴도 어깨에서 손목까지 0.3 + 0.25 = 0.55 m 라서 0.6 m 는 닿을 수 없다. 반복 IK 의 반복 횟수를 늘려도 팔을 쭉 편
         자세 근처에서 멈출 뿐이고, elbow-down 에도 같은 길이 한계가 있다. 손목 관절은 손목 위치를 옮기지 못하므로 거리를 보충할 수 없다.
     - question: |
-        면접관: "MoveIt Task Constructor 의 ComputeIK stage 는 pose 하나에 구할 IK 답의 수(max_ik_solutions)가 기본 1 개인데, 튜토리얼은 grasp
-        에서 8 개를 구합니다. 여러 개를 구해 두면 무엇이 좋은가요?"
+        MoveIt Task Constructor 의 ComputeIK stage 는 pose 하나에 구할 IK 답의 수(max_ik_solutions)가 기본 1 개인데, 튜토리얼은 grasp 에서 8
+        개를 구한다. 여러 개를 구해 두면 무엇이 좋은가?
       choices:
-        - 'IK 계산이 8 배 빨라진다'
-        - '같은 grasp 에 닿는 팔 자세 후보가 늘어서, 그중 뒤 stage 의 경로와 이어지거나 충돌하지 않는 자세를 고를 수 있다'
-        - '여러 답을 평균해 더 정확한 joint angle 을 얻는다'
-        - '답이 여러 개면 joint limit 검사를 건너뛸 수 있다'
+        - '답을 여러 개 한꺼번에 구하므로 IK 계산이 8 배 빨라진다'
+        - '팔 자세 후보가 늘어, 뒤 stage 와 이어지고 충돌하지 않는 자세를 고를 수 있다'
+        - '여러 답을 평균해 하나로 합치므로 답 하나보다 더 정확한 joint angle 을 얻는다'
+        - '답이 여러 개면 그중 하나는 맞을 것이므로 joint limit 검사를 건너뛸 수 있다'
       answer: 1
       explanation: |
         한 손끝 pose 에 닿는 팔 자세는 여럿일 수 있고, 첫 답이 다음 경로와 이어지지 않거나 장애물에 부딪힐 수 있다. 서로 충분히 다른 답(튜토리얼은
@@ -209,36 +209,36 @@
   title: joint 보간, Cartesian path, planner
   variants:
     - question: |
-        면접관: "pre-grasp 와 grasp 의 손끝이 같은 수직선 위에 있습니다. 두 자세의 joint angle 을 부드럽게 보간해 움직이면 손끝은 어떻게 움직이나요?"
+        pre-grasp 와 grasp 의 손끝이 같은 수직선 위에 있다. 두 자세의 joint angle 을 부드럽게 보간해 움직이면 손끝은 어떻게 움직이는가?
       choices:
-        - '관절이 부드럽게 움직이므로 손끝도 수직선을 따라 곧게 내려간다'
-        - '손끝은 움직이지 않고 손목만 돈다'
-        - '손끝 위치는 joint angle 의 cos·sin 으로 정해져서, 두 끝은 맞아도 가운데에서 수직선을 벗어나 휘어진 길을 간다'
-        - '손끝이 정확히 반대 방향으로 갔다가 돌아온다'
+        - '관절이 일정한 진행률로 부드럽게 움직이므로 손끝도 수직선을 따라 곧게 내려간다'
+        - '두 자세의 손끝이 같은 수직선 위에 있으므로, 손끝은 움직이지 않고 손목만 돈다'
+        - '손끝 위치가 cos·sin 으로 정해져, 가운데에서 수직선을 벗어나 휜다'
+        - '관절마다 도는 양이 달라서 손끝이 처음에는 반대 방향으로 갔다가 돌아온다'
       answer: 2
       explanation: |
         joint space 보간은 관절마다 일정한 진행률로 움직이지만, 손끝 위치는 joint angle 의 비선형 함수(cos·sin)라서 곧은 선이 되지 않는다. 그래서
         물체 근처에서는 손끝이 cm 단위로 벗어나 손가락이 물체에 걸릴 수 있다. 관절이 부드러우면 손끝도 곧다는 것은 흔한 오해이고, 손끝이
         움직이지 않거나 반대로 가는 것도 아니다.
     - question: |
-        면접관: "물체에 다가가 쥐기 직전의 몇 cm 구간에서는 어떤 방식으로 경로를 만드나요?"
+        물체에 다가가 쥐기 직전의 몇 cm 구간에서는 어떤 방식으로 경로를 만드는가?
       choices:
-        - '손끝이 지날 곧은 선을 잘게 나누고 나눈 점마다 IK 를 풀어, 손끝을 직선으로 움직이는 Cartesian path 를 쓴다'
-        - '시작과 끝 joint angle 사이를 단순히 보간한다'
-        - 'sampling planner 로 무작위 경로를 찾고 그대로 쓴다'
-        - '경로 없이 목표 joint angle 을 controller 에 한 번에 보낸다'
+        - 'Cartesian path 를 쓴다. 곧은 선을 잘게 나눠 점마다 IK 를 푼다'
+        - '시작과 끝 joint angle 사이를 보간한다. 거리가 짧아 손끝이 거의 곧게 간다'
+        - 'sampling planner 로 충돌 없는 경로를 찾아 그대로 쓴다. 가장 안전한 방법이다'
+        - '경로 없이 목표 joint angle 을 controller 에 한 번에 보내 가장 짧게 끝낸다'
       answer: 0
       explanation: |
         물체 근처는 여유가 작아서 손끝이 접근 방향 직선을 지켜야 한다. Cartesian path 는 그 직선을 작은 간격(MoveIt Task Constructor 튜토리얼은
         0.01 m)으로 나눠 점마다 IK 를 푼다. joint 보간은 손끝이 휘고, sampling planner 의 경로는 직선을 보장하지 않으며, 목표를 한 번에 보내면
         팔이 튀고 손끝이 어디로 갈지 정해지지 않는다.
     - question: |
-        면접관: "책상 위에 다른 물건들이 있을 때, 지금 자세에서 pre-grasp 까지 팔을 옮기는 경로는 보통 무엇으로 찾나요?"
+        책상 위에 다른 물건들이 있을 때, 지금 자세에서 pre-grasp 까지 팔을 옮기는 경로는 보통 무엇으로 찾는가?
       choices:
-        - 'Cartesian path 로 손끝을 직선으로 옮긴다'
-        - '관절마다 minimum-jerk 다항식으로 잇는다'
-        - 'IK 를 한 번 풀어 그 joint angle 로 바로 보낸다'
-        - 'OMPL 같은 sampling 기반 motion planner 로 관절 공간에서 충돌 없는 경로를 찾는다'
+        - 'Cartesian path 로 손끝을 곧게 옮긴다. 직선이 가장 짧아 가장 빨리 닿는다'
+        - '관절마다 minimum-jerk 다항식으로 잇는다. 움직임이 가장 부드럽다'
+        - 'IK 를 한 번 풀어 그 joint angle 로 바로 보낸다. 계산이 가장 적어 빠르다'
+        - 'OMPL 같은 sampling 기반 planner 로 충돌 없는 경로를 찾는다'
       answer: 3
       explanation: |
         pre-grasp 까지는 거리가 길고 장애물을 피해야 해서, 관절 공간에서 충돌 검사를 하며 경로를 찾는 motion planner 를 쓴다. MoveIt Task
@@ -249,36 +249,36 @@
   title: MoveIt Task Constructor 의 stage
   variants:
     - question: |
-        면접관: "MoveIt Task Constructor 의 pick task 에서 approach object(MoveRelative) stage 는 어떤 종류이고, 무엇을 기준으로 계산하나요?"
+        MoveIt Task Constructor 의 pick task 에서 approach object(MoveRelative) stage 는 어떤 종류이고, 무엇을 기준으로 계산하는가?
       choices:
-        - 'generator 로, 이웃과 상관없이 pre-grasp 자세를 무작위로 만든다'
-        - 'propagator 로, 이웃 stage 가 낸 grasp 상태에서 접근 방향 반대로 물러난 자리까지의 Cartesian 경로를 계산해 반대쪽으로 넘긴다'
-        - 'connector 로, 지금 자세와 grasp 자세 사이를 OMPL 로 잇는다'
-        - 'wrapper 로, 안쪽 stage 의 결과마다 IK 를 푼다'
+        - 'generator 로, 이웃 stage 와 상관없이 pre-grasp 자세를 무작위로 만든다'
+        - 'propagator 로, 이웃 stage 의 grasp 상태에서 물러난 자리까지 경로를 계산한다'
+        - 'connector 로, 지금 자세와 grasp 자세 사이를 OMPL 로 찾은 경로로 잇는다'
+        - 'wrapper 로, 안쪽 stage 가 낸 결과마다 IK 를 풀어 joint angle 을 붙인다'
       answer: 1
       explanation: |
         MoveRelative 는 propagator 라서 한쪽 이웃의 결과를 받아 계산한다. pick task 에서는 grasp pose 를 만든 stage 의 결과에서 거꾸로 0.10 ~ 0.15 m
         물러난 자리까지를 구하고, 그 자리가 pre-grasp 가 된다. CurrentState·GenerateGraspPose 는 generator 이고, move to pick 같은
         Connect stage 는 connector 이며, ComputeIK 는 wrapper 다.
     - question: |
-        면접관: "MoveIt Task Constructor 는 실행 순서가 '지금 자세 → pre-grasp → grasp' 인데도 계산은 grasp pose 에서 시작해 앞뒤로 넓혀 갑니다. 왜
-        이렇게 하나요?"
+        MoveIt Task Constructor 는 실행 순서가 '지금 자세 → pre-grasp → grasp' 인데도 계산은 grasp pose 에서 시작해 앞뒤로 넓혀 간다. 왜 이렇게
+        하는가?
       choices:
-        - 'grasp pose 를 계산하는 데 시간이 가장 적게 들기 때문이다'
-        - '로봇이 실행할 때도 grasp 부터 거꾸로 움직이기 때문이다'
-        - 'pre-grasp 를 먼저 정하고 내려가는 길을 찾으면 그 길이 grasp 에 닿는다는 보장이 없어서, 쥘 수 있는 grasp 를 먼저 정하고 그에 맞는 접근과 이동을 붙인다'
-        - 'OMPL 이 grasp pose 에서만 시작할 수 있기 때문이다'
+        - 'grasp pose 는 계산 시간이 가장 적게 들어서, 빨리 끝나는 것부터 하기 때문이다'
+        - '로봇이 실행할 때도 grasp 부터 거꾸로 움직여 지금 자세로 돌아오기 때문이다'
+        - 'pre-grasp 부터 정하면 그 길이 grasp 에 닿는다는 보장이 없어, grasp 를 먼저 정하기 때문이다'
+        - 'OMPL 은 grasp pose 에서만 출발할 수 있어서 계산을 거기서 시작해야 하기 때문이다'
       answer: 2
       explanation: |
         pick 의 성패는 실제로 쥘 수 있는 grasp 와 그 IK 답이 있느냐에 달려 있다. 그래서 generator 가 grasp 후보를 만들고, propagator 가 그 grasp
         에서 접근 경로를 거꾸로 구하고, connector 가 지금 자세와 그 사이를 잇는다. 실행은 여전히 지금 자세부터 앞으로 하고, 계산 시간이나 OMPL 의
         제약이 이유는 아니다.
     - question: |
-        면접관: "MoveIt Task Constructor 튜토리얼은 손을 닫기 전에 hand 와 물체의 충돌을 허용하고, 닫은 뒤에는 물체를 hand 에 attach 합니다. 각각
-        왜 필요한가요?"
+        MoveIt Task Constructor 튜토리얼은 손을 닫기 전에 hand 와 물체의 충돌을 허용하고, 닫은 뒤에는 물체를 hand 에 attach 한다. 각각 왜
+        필요한가?
       choices:
-        - '쥐는 동안에는 손가락이 물체에 닿아야 해서 그 충돌을 허용하고, 쥔 뒤에는 물체가 손과 함께 움직이므로 이후 경로가 물체까지 포함해 충돌을 검사하게 한다'
-        - '둘 다 RViz 에 물체를 보이게 하는 표시 설정일 뿐이다'
+        - '쥘 때는 손가락이 물체에 닿아야 해서 충돌을 허용하고, 쥔 뒤에는 물체까지 충돌을 검사하게 한다'
+        - '둘 다 RViz 에서 물체가 손에 붙어 움직이는 모습을 보여 주려는 표시 설정일 뿐이다'
         - '충돌 허용은 계획을 빠르게 하려는 것이고, attach 는 gripper 의 닫는 힘을 정한다'
         - '충돌을 허용하면 물체가 planning scene 에서 지워지고, attach 하면 다시 생긴다'
       answer: 0
@@ -291,36 +291,36 @@
   title: 오차 누적과 두 방식의 비교
   variants:
     - question: |
-        면접관: "손끝 위치 여유가 10 mm 인 grasp 에서 인식 2 mm, calibration 3 mm, 실행 3 mm 의 오차가 있습니다. 성공을 보장하는지 어떻게 판단하나요?"
+        손끝 위치 여유가 10 mm 인 grasp 에서 인식 2 mm, calibration 3 mm, 실행 3 mm 의 오차가 있다. 성공을 보장하는지 어떻게 판단하는가?
       choices:
-        - '가장 큰 오차 3 mm 만 여유와 비교하면 된다'
-        - '세 오차의 평균 2.7 mm 를 여유와 비교한다'
+        - '가장 큰 오차 3 mm 가 결과를 정하므로 그것만 여유 10 mm 와 비교하면 된다'
+        - '세 오차의 평균 2.7 mm 를 여유와 비교한다. 오차는 대개 평균만큼 나타나기 때문이다'
         - '오차는 방향이 제각각이라 서로 지워지므로 신경 쓰지 않아도 된다'
-        - '모든 오차가 같은 방향으로 겹치는 가장 나쁜 경우의 합 8 mm 가 여유 10 mm 안에 드는지 본다'
+        - '같은 방향으로 겹친 가장 나쁜 경우의 합 8 mm 가 여유 10 mm 안에 드는지 본다'
       answer: 3
       explanation: |
         뒤 module 은 앞 module 의 오차를 모르므로 오차는 고쳐지지 않고 더해진다. 실패를 막으려면 같은 방향으로 겹치는 경우의 합을 여유와
         비교하는데, 이것이 error budget 이다. 가장 큰 하나나 평균만 보면 합이 여유를 넘는 경우를 놓친다. 오차가 일부 지워질 수는 있지만 그것을
         믿고 설계하면 가끔 실패한다.
     - question: |
-        면접관: "카메라 extrinsics 의 rotation 이 1° 틀렸습니다. 카메라에서 0.5 m 떨어진 물체와 1 m 떨어진 물체의 위치 오차는 어떻게 다른가요?"
+        카메라 extrinsics 의 rotation 이 1° 틀렸다. 카메라에서 0.5 m 떨어진 물체와 1 m 떨어진 물체의 위치 오차는 어떻게 다른가?
       choices:
-        - '둘 다 같다. rotation 오차는 거리와 상관없다'
-        - '1 m 물체의 오차가 약 두 배다. rotation 오차는 물체까지의 거리를 곱한 만큼 위치 오차가 된다(0.5 m 에서 약 8.7 mm)'
-        - '0.5 m 물체의 오차가 더 크다. 가까울수록 각도가 커 보이기 때문이다'
-        - '오차는 거리의 제곱에 비례해 1 m 에서 네 배가 된다'
+        - '둘 다 같다. rotation 오차는 각도라서 물체까지의 거리와 상관없다'
+        - '1 m 물체의 오차가 약 두 배다. 각도 오차에 거리를 곱한 만큼 어긋난다'
+        - '0.5 m 물체의 오차가 더 크다. 가까울수록 같은 1° 가 더 크게 보이기 때문이다'
+        - '오차는 거리의 제곱에 비례하므로 1 m 물체에서 네 배가 된다'
       answer: 1
       explanation: |
         회전이 θ 틀리면 거리 d 의 점은 d × tan θ 만큼 옆으로 옮겨 간다. 0.5 m 에서 0.5 × tan 1° ≈ 8.7 mm 이고, 1 m 에서는 그 두 배인 약 17 mm 다.
         거리와 상관없는 것은 translation 오차이고, 오차는 거리에 비례하지 제곱에 비례하지 않는다.
     - question: |
-        면접관: "같은 모양의 부품을 하루 수천 번 옮기는 공장 라인과, 매번 모양이 다른 옷을 개는 작업이 있습니다. 모듈 파이프라인과 end-to-end
-        policy 중 각각 어느 쪽이 맞나요?"
+        같은 모양의 부품을 하루 수천 번 옮기는 공장 라인과, 매번 모양이 다른 옷을 개는 작업이 있다. 모듈 파이프라인과 end-to-end policy 중 각각
+        어느 쪽이 맞는가?
       choices:
-        - '둘 다 end-to-end. 학습한 policy 가 항상 더 정확하다'
-        - '둘 다 모듈 파이프라인. 시연 데이터 없이 동작하기 때문이다'
-        - '공장 라인은 모듈 파이프라인, 옷 개기는 end-to-end. 물체와 환경이 정해진 반복 작업은 규칙과 calibration 으로 정확히 풀리고, 모양을 좌표 몇 개로 적을 수 없는 접촉 작업은 시연에서 배우는 편이 낫다'
-        - '공장 라인은 end-to-end, 옷 개기는 모듈 파이프라인. 반복 작업일수록 데이터가 많아 학습이 쉽기 때문이다'
+        - '둘 다 end-to-end. 학습한 policy 가 규칙보다 항상 더 정확하기 때문이다'
+        - '둘 다 모듈 파이프라인. 시연 데이터 없이 동작하므로 어디에나 쓸 수 있다'
+        - '공장 라인은 모듈 파이프라인이 맞고 옷 개기는 end-to-end 가 맞다. 옷 모양은 좌표 몇 개로 적을 수 없다'
+        - '공장 라인은 end-to-end 가 맞고 옷 개기는 모듈 파이프라인이 맞다. 반복 작업일수록 데이터가 많다'
       answer: 2
       explanation: |
         모듈 파이프라인은 물체와 환경이 정해져 있을 때 학습 데이터 없이 정확하고, 실패를 module 별로 진단할 수 있다. 옷처럼 모양이 매번 다르고

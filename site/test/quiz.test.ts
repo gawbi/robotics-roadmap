@@ -31,6 +31,35 @@ describe('quiz', () => {
     expect(parsed.length).toBeGreaterThan(0)
   })
 
+  // picking the longest (or shortest) choice must not beat knowing the answer
+  it.each(banks)('lessons/%s/quiz.yaml does not give the answer away by its length', (id) => {
+    const parsed = parseBank(readFileSync(new URL(`${id}/quiz.yaml`, lessonsDir), 'utf8'))
+    const variants = parsed.flatMap((t) => t.variants.map((v, j) => ({ name: `${t.topic}[${j}]`, ...v })))
+    const len = (s: string) => [...s.trim()].length
+    let longest = 0
+    let shortest = 0
+    const standouts: string[] = []
+    for (const v of variants) {
+      const answer = len(v.choices[v.answer])
+      const others = v.choices.filter((_, i) => i !== v.answer).map(len)
+      const longestOther = Math.max(...others)
+      if (others.every((n) => answer > n)) longest++
+      if (others.every((n) => answer < n)) shortest++
+      if (answer > longestOther * 1.2 && answer - longestOther > 5) standouts.push(`${v.name}: ${answer} vs ${longestOther}`)
+    }
+    expect(standouts, 'answers much longer than every other choice').toEqual([])
+    expect(longest, 'variants whose answer is the longest choice').toBeLessThanOrEqual(Math.floor(0.35 * variants.length))
+    expect(shortest, 'variants whose answer is the shortest choice').toBeLessThanOrEqual(Math.floor(0.35 * variants.length))
+  })
+
+  it.each(banks)('lessons/%s/quiz.yaml asks in the plain written style of an exam', (id) => {
+    const parsed = parseBank(readFileSync(new URL(`${id}/quiz.yaml`, lessonsDir), 'utf8'))
+    const polite = parsed.flatMap((t) => t.variants.map((v, j) => ({ name: `${t.topic}[${j}]`, text: v.question })))
+      .filter((q) => /(요[?.]|(?<!아)니다[?.]|세요|십시오)/.test(q.text))
+      .map((q) => q.name)
+    expect(polite, 'questions ending in polite speech').toEqual([])
+  })
+
   it('rejects a bank with a wrong answer index, choice count or a single variant', () => {
     const ok = '{ question: q, choices: [w, x, y, z], answer: 0, explanation: e }'
     expect(() => parseBank(`- { topic: a, title: A, variants: [${ok}, { question: q, choices: [w, x, y, z], answer: 4, explanation: e }] }`)).toThrow()

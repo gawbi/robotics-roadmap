@@ -5,42 +5,43 @@
   title: softmax 와 cross-entropy, 점수의 gradient
   variants:
     - question: |
-        면접관: "분류 network 를 softmax 와 cross-entropy loss $L = -\log p_y$ 로 학습합니다($p_y$ 는 정답 class 의 확률). loss 가 가장 크게 나오는 경우는 언제인가요?"
+        분류 network 를 softmax 와 cross-entropy loss $L = -\log p_y$ 로 학습한다($p_y$ 는 정답 class 의 확률). loss 가 가장 크게 나오는 경우는 언제인가?
       choices:
         - '정답 확률이 0.5 라서 network 가 두 class 에 확률을 반씩 줄 때'
         - '틀린 class 를 확신해서 정답 확률이 0 에 가까울 때'
-        - '정답을 확신해서 정답 확률이 1 에 가까울 때'
-        - '모든 class 의 확률이 똑같을 때'
+        - '정답을 확신해서 정답 확률이 1 에 가깝고 log 값도 커질 때'
+        - '모든 class 의 확률이 똑같아서 하나도 고르지 못할 때'
       answer: 1
       explanation: |
         $-\log p$ 는 $p = 1$ 에서 0 이고, $p$ 가 0 에 가까워질수록 끝없이 커진다. 그래서 틀린 class 를 확신해 정답 확률이 0 에 가까울 때
         loss 가 가장 크다. 정답 확률이 0.5 면 loss 는 $-\log 0.5 \approx 0.69$ 로 중간 정도다. 모든 class 의 확률이 같아도 정답 확률이 0 에
         가깝지는 않으므로 loss 가 가장 크지는 않다. 정답을 확신하면 loss 는 0 에 가깝다.
     - question: |
-        면접관: "softmax 와 cross-entropy 에서 logits 의 gradient 는 '확률 − 정답 one-hot' 입니다. gradient descent 한 step 이 점수를 어떻게 바꾸나요?"
+        softmax 와 cross-entropy 에서 logits 의 gradient 는 '확률 − 정답 one-hot' 이다. gradient descent 한 step 이 점수를 어떻게 바꾸는가?
       choices:
-        - '정답 점수만 올리고 오답 점수는 건드리지 않는다'
-        - '모든 점수를 같은 양만큼 올린다'
-        - '가장 큰 점수만 내리고 나머지는 그대로 둔다'
-        - '정답 점수는 올리고 오답 점수는 내리는데, 확률을 많이 가져간 오답일수록 많이 내린다'
+        - '정답 점수만 올리고, 오답 점수는 정답이 아니라서 gradient 가 0 이라 그대로 둔다'
+        - '모든 점수를 같은 양만큼 올려서 정답 확률을 함께 키운다'
+        - '가장 큰 점수만 내리고, 나머지 점수는 확률이 작아서 그대로 둔다'
+        - '정답 점수는 올리고, 오답 점수는 그 확률이 클수록 많이 내린다'
       answer: 3
       explanation: |
         정답 class 의 gradient 는 $p_y - 1$ 로 음수라서 gradient 의 반대 방향으로 고치면 점수가 올라간다. 오답 class 의 gradient 는 자기
         확률 $p_j$ 로 양수라서 점수가 내려가고, 내리는 크기가 그 확률에 비례하므로 정답을 가장 많이 방해한 오답이 가장 크게 내려간다. 오답
-        점수도 확률이 0 이 아니면 내려가므로 정답 점수만 바뀌지는 않는다. 모든 점수를 같은 양만큼 올리면 확률이 변하지 않아 loss 도 줄지
-        않는다. 가장 큰 점수만 내리는 것도 아니어서, 정답 점수가 가장 크더라도 그 점수는 올라간다.
+        점수도 gradient $p_j$ 가 0 이 아니라서 내려가므로 정답 점수만 바뀌지는 않는다. 모든 점수를 같은 양만큼 올리면 확률이 변하지 않아 loss
+        도 줄지 않는다. 가장 큰 점수만 내리는 것도 아니어서, 정답 점수가 가장 크더라도 그 점수는 올라가고 확률이 작은 오답도 조금은 내려간다.
     - question: |
-        면접관: "PyTorch 의 cross_entropy 는 왜 확률이 아니라 softmax 전의 logits 를 입력으로 받나요?"
+        PyTorch 의 cross_entropy 가 확률이 아니라 softmax 전의 logits 를 입력으로 받는 이유는 무엇인가?
       choices:
-        - '확률을 먼저 구하면 아주 작은 확률이 float32 에서 0 이 되어 log 가 inf 가 될 수 있어서, logits 에서 바로 안전하게 계산하려고'
-        - 'logits 가 확률보다 항상 정확해서 loss 값이 더 작게 나오기 때문에'
-        - 'softmax 는 학습에 쓰지 않고 실행할 때만 쓰기 때문에'
-        - 'logits 를 받으면 gradient 를 계산할 필요가 없기 때문에'
+        - '아주 작은 확률이 float32 에서 0 이 되면 log 가 inf 가 될 수 있어서'
+        - 'logits 로 계산하면 확률로 계산할 때보다 loss 값이 작게 나와 학습이 안정되기 때문에'
+        - 'softmax 는 학습에 쓰지 않고, 실행할 때 class 를 고를 때만 쓰기 때문에'
+        - 'logits 를 받으면 softmax 의 gradient 를 계산할 필요가 없어 backward 가 빨라지기 때문에'
       answer: 0
       explanation: |
         $e^{z}$ 는 점수가 89 를 넘으면 float32 의 범위를 넘고, 정답 확률이 $10^{-50}$ 처럼 작으면 0 으로 저장되어 $\log 0$ 이 inf 가 된다.
         logits 에서 가장 큰 점수를 빼고 $-\log p_y$ 를 바로 계산하면 이 문제가 생기지 않는다. logits 로 계산해도 loss 값 자체는 같아서 더
-        작게 나오지 않는다. softmax 는 실행할 때만이 아니라 학습 중에도 loss 안에서 계산된다. logits 를 받아도 gradient 는 그대로 계산한다.
+        작게 나오지 않는다. softmax 는 실행할 때만이 아니라 학습 중에도 loss 안에서 계산된다. logits 를 받아도 softmax 를 거치는 gradient 는
+        그대로 계산한다.
 
 - topic: minibatch
   title: mini-batch, step, epoch
@@ -57,12 +58,12 @@
         epoch 하나는 $40{,}000 \div 8 = 5{,}000$ step 이므로 50,000 step 은 $50{,}000 \div 5{,}000 = 10$ epoch, 데이터 전체를 10 번 쓴다.
         step 은 mini-batch 하나로 parameter 를 한 번 고치는 단위이고 epoch 는 데이터 전체를 한 번 다 쓰는 단위라서 둘은 같은 수가 아니다.
     - question: |
-        면접관: "mini-batch 하나로 구한 gradient 와 데이터 전체로 구한 gradient 는 어떤 관계인가요?"
+        mini-batch 하나로 구한 gradient 와 데이터 전체로 구한 gradient 는 어떤 관계인가?
       choices:
-        - '언제나 정확히 같다'
-        - '방향이 무작위라 학습에 도움이 되지 않는다'
-        - 'batch 크기에 비례해 작아질 뿐 방향은 언제나 같다'
-        - '전체 gradient 주위에서 흔들리지만, 여러 step 을 모으면 전체 gradient 를 따라가고 parameter 를 훨씬 자주 고칠 수 있다'
+        - '데이터 일부라도 평균을 냈으므로 언제나 전체 gradient 와 정확히 같다'
+        - '고른 sample 에 따라 방향이 무작위로 정해져서 학습에는 도움이 되지 않는다'
+        - 'sample 을 덜 더해서 batch 크기에 비례해 작아질 뿐, 방향은 언제나 같다'
+        - '흔들리지만, 여러 step 에 걸쳐 평균하면 전체 gradient 를 따라간다'
       answer: 3
       explanation: |
         mini-batch gradient 는 데이터 일부의 평균이라 epoch 하나에 걸쳐 평균하면 전체 gradient 가 되고, 같은 시간에 parameter 를 훨씬 자주
@@ -70,52 +71,53 @@
         평균으로는 전체 gradient 를 따라가므로 방향이 아무렇게나 정해지는 것도 아니다. 합이 아니라 평균이라 batch 크기에 비례해 작아지지
         않고, 방향도 step 마다 조금씩 달라진다.
     - question: |
-        면접관: "epoch 를 시작할 때마다 데이터 순서를 섞는(shuffle) 이유는 무엇인가요?"
+        epoch 를 시작할 때마다 데이터 순서를 섞는(shuffle) 이유는 무엇인가?
       choices:
-        - '섞어야 데이터 전체의 평균 gradient 가 바뀌어 더 좋은 답이 나오기 때문에'
-        - '섞지 않으면 비슷한 sample 만 모인 mini-batch 가 연달아 와서, parameter 가 한쪽으로 쏠렸다 돌아오기를 되풀이할 수 있어서'
-        - '섞으면 epoch 하나의 step 수가 줄어 학습이 빨라지기 때문에'
-        - 'validation set 과 train set 을 섞어 데이터를 늘리기 위해서'
+        - '섞어야 데이터 전체의 평균 gradient 가 바뀌어 더 낮은 loss 에 닿을 수 있기 때문에'
+        - '섞지 않으면 비슷한 sample 만 모인 mini-batch 가 연달아 와서 parameter 가 한쪽으로 쏠려서'
+        - '섞으면 겹치는 sample 이 걸러져 epoch 하나의 step 수가 줄고 학습이 빨라지기 때문에'
+        - 'validation set 과 train set 을 섞어 학습에 쓸 데이터를 늘리기 위해서'
       answer: 1
       explanation: |
         녹화 순서 그대로 묶으면 한 시연의 비슷한 frame 이나 같은 class 의 사진만 모인 mini-batch 가 연달아 와서 parameter 가 그쪽으로
         끌려갔다 돌아온다. 섞어도 데이터 전체의 평균 gradient 는 그대로다. epoch 하나의 step 수도 데이터 수를 batch 크기로 나눈 값이라
-        섞는다고 줄지 않는다. validation set 을 학습에 섞으면 성능을 잴 데이터가 사라지므로 섞지 않는다.
+        섞는다고 줄지 않고, 섞을 때 걸러지는 sample 도 없다. validation set 을 학습에 섞으면 성능을 잴 데이터가 사라지므로 섞지 않는다.
 
 - topic: momentum
   title: SGD 와 momentum
   variants:
     - question: |
-        면접관: "momentum($b \leftarrow \mu b + g$, $\theta \leftarrow \theta - \eta b$, $\mu = 0.9$, buffer 는 0 에서 시작)에서 gradient 가 매 step 같은 방향으로 들어오면 어떻게 되나요?"
+        momentum($b \leftarrow \mu b + g$, $\theta \leftarrow \theta - \eta b$, $\mu = 0.9$, buffer 는 0 에서 시작)에서 gradient 가 매 step 같은 방향으로 들어오면 어떻게 되는가?
       choices:
-        - 'SGD 와 똑같이 움직인다'
-        - 'buffer 가 점점 줄어 움직임이 느려진다'
-        - '첫 step 부터 SGD 의 10 배 거리를 움직인다'
-        - 'buffer 가 쌓여 한 step 에 움직이는 거리가 점점 커지고, SGD 의 10 배에 다가간다'
+        - 'gradient 가 매번 같으면 buffer 도 매번 같아서 SGD 와 똑같이 움직인다'
+        - 'buffer 에 0.9 를 곱할 때마다 줄어들어 움직임이 점점 느려진다'
+        - '지난 buffer 가 쌓이므로 첫 step 부터 SGD 의 10 배 거리를 움직인다'
+        - 'buffer 가 쌓여 한 step 거리가 점점 커지고, SGD 의 10 배에 다가간다'
       answer: 3
       explanation: |
         지난 buffer 의 90% 에 같은 방향 gradient 가 계속 더해지므로 buffer 가 커지고 한 step 의 거리도 커져서, SGD 의
         $1 \div (1 - 0.9) = 10$ 배에 다가간다. 첫 step 만 SGD 와 같고 그 뒤로는 SGD 보다 멀리 움직인다. buffer 가 0 에서 출발하므로 첫 step
-        부터 10 배를 움직이지는 않는다. buffer 가 커지지 못하는 것은 gradient 방향이 번갈아 바뀔 때다.
+        부터 10 배를 움직이지는 않는다. 0.9 를 곱해도 같은 방향 gradient 가 매번 더해지므로 buffer 는 줄지 않고, buffer 가 커지지 못하는 것은
+        gradient 방향이 번갈아 바뀔 때다.
     - question: |
-        면접관: "어떤 parameter 의 gradient 부호가 +, −, +, − 처럼 step 마다 번갈아 바뀝니다. momentum 을 쓰면 이 parameter 는 어떻게 움직이나요?"
+        어떤 parameter 의 gradient 부호가 +, −, +, − 처럼 step 마다 번갈아 바뀐다. momentum 을 쓰면 이 parameter 는 어떻게 움직이는가?
       choices:
-        - 'buffer 가 점점 커져 SGD 보다 크게 흔들린다'
+        - 'buffer 가 지난 gradient 를 계속 더해 커져서 SGD 보다 크게 흔들린다'
         - '반대 방향 gradient 가 지난 buffer 를 깎아 내서 빨라지지 않는다'
-        - 'buffer 가 0 에 고정되어 전혀 움직이지 않는다'
-        - 'SGD 의 10 배로 빨라진다'
+        - '+와 −가 정확히 지워져 buffer 가 0 에 머물러서 전혀 움직이지 않는다'
+        - 'momentum 은 방향과 상관없이 쌓이므로 SGD 의 10 배로 빨라진다'
       answer: 1
       explanation: |
         새 gradient 가 지난 buffer 와 반대 부호라서 더하면 서로 상쇄되어 buffer 의 크기가 gradient 하나 정도를 넘지 못한다. 그래서 buffer 가
         커져 SGD 보다 크게 흔들리는 일은 없다. buffer 가 0 에 고정되지도 않아서 parameter 는 조금씩 움직인다. 10 배로 빨라지는 것은 방향이
         꾸준할 때다.
     - question: |
-        면접관: "SGD 의 update $\theta \leftarrow \theta - \eta g$ 에서 g 를 데이터 전체가 아니라 무작위로 고른 mini-batch 로 구해도 학습이 되는 이유는?"
+        SGD 의 update $\theta \leftarrow \theta - \eta g$ 에서 g 를 데이터 전체가 아니라 무작위로 고른 mini-batch 로 구해도 학습이 되는 이유는?
       choices:
-        - 'mini-batch gradient 는 흔들려도 평균으로는 전체 gradient 와 같아서, 이런 update 를 되풀이하면 답에 다가갈 수 있기 때문이다'
-        - 'mini-batch 를 쓰면 gradient 가 정확해져 흔들림이 없어지기 때문이다'
-        - 'learning rate 가 자동으로 mini-batch 크기에 맞춰지기 때문이다'
-        - 'mini-batch 로 구한 gradient 는 언제나 loss 를 줄이는 방향이기 때문이다'
+        - '흔들려도 평균으로는 전체 gradient 와 같아서, update 를 되풀이하면 답에 다가가기 때문이다'
+        - '무작위로 고르면 gradient 의 흔들림이 지워져 전체 gradient 와 똑같아지기 때문이다'
+        - 'learning rate 가 mini-batch 크기에 맞춰 자동으로 작아져서 흔들림을 메워 주기 때문이다'
+        - 'mini-batch 로 구한 gradient 도 언제나 loss 를 줄이는 방향이라, 손해 보는 step 이 없기 때문이다'
       answer: 0
       explanation: |
         무작위로 고른 mini-batch 의 평균 gradient 는 전체 gradient 주위에서 흔들리지만 평균으로는 같다. Robbins 와 Monro 가 보였듯이
@@ -127,12 +129,12 @@
   title: Adam 의 step 크기와 기본값
   variants:
     - question: |
-        면접관: "loss 에 0.01 을 곱해 모든 gradient 가 100 분의 1 이 되었습니다. learning rate 를 그대로 두면 SGD 와 Adam 의 움직임은 어떻게 달라지나요?"
+        loss 에 0.01 을 곱해 모든 gradient 가 100 분의 1 이 되었다. learning rate 를 그대로 두면 SGD 와 Adam 의 움직임은 어떻게 달라지는가?
       choices:
-        - '둘 다 100 분의 1 로 느려진다'
-        - 'SGD 는 그대로이고 Adam 만 느려진다'
+        - '둘 다 100 분의 1 로 느려진다. 움직이는 거리가 gradient 에 비례한다'
+        - 'SGD 는 그대로이고, Adam 은 gradient 제곱을 쓰므로 Adam 만 느려진다'
         - 'SGD 는 100 분의 1 로 느려지고, Adam 은 거의 그대로다'
-        - '둘 다 그대로다'
+        - '둘 다 그대로다. learning rate 가 같으면 움직이는 거리도 같다'
       answer: 2
       explanation: |
         SGD 는 $\eta \times g$ 만큼 움직이므로 gradient 가 작아지면 그대로 작아진다. Adam 은 gradient 의 평균 $m$ 을 gradient 제곱 평균의
@@ -140,12 +142,12 @@
         step 에 대략 $\eta$ 씩 움직인다. 둘 다 느려진다는 보기는 Adam 이 gradient 를 자기 크기로 나눈다는 점을 놓쳤다. 둘 다 그대로라는
         보기는 SGD 가 gradient 에 비례해 움직인다는 점을 놓쳤다. SGD 는 그대로이고 Adam 만 느려진다는 보기는 두 optimizer 를 거꾸로 적었다.
     - question: |
-        면접관: "Adam 이 gradient 의 moving average $m$ 을 $1 - \beta_1^{t}$ 로 나누는 bias correction 을 하는 이유는 무엇인가요?"
+        Adam 이 gradient 의 moving average $m$ 을 $1 - \beta_1^{t}$ 로 나누는 bias correction 을 하는 이유는 무엇인가?
       choices:
-        - 'gradient 의 부호를 바로잡기 위해서'
-        - 'moving average 가 0 에서 출발해 처음 몇 step 동안 실제 평균보다 작게 치우치기 때문에'
-        - 'neuron 의 bias parameter 를 따로 고치기 위해서'
-        - '학습 후반에 step 을 더 키우기 위해서'
+        - 'gradient 의 부호가 step 마다 뒤집히는 것을 바로잡기 위해서'
+        - 'moving average 가 0 에서 출발해 처음 몇 step 동안 작게 치우치기 때문에'
+        - 'neuron 의 bias parameter 는 weight 와 따로 고쳐야 하기 때문에'
+        - '학습 후반에 줄어든 step 을 다시 키워 끝까지 학습을 이어 가기 위해서'
       answer: 1
       explanation: |
         $m$ 이 0 에서 출발하면 gradient 가 매번 2 여도 첫 값이 0.2 처럼 작게 나온다. $1 - \beta_1^{t}$ 로 나누면 이 치우침이 바로잡히고, $t$
@@ -153,10 +155,10 @@
         와는 관계없다. 양수인 $1 - \beta_1^{t}$ 로 나누므로 부호도 바꾸지 않는다. 후반에는 나누는 수가 1 에 가까워 step 을 키우는 효과가
         거의 없다.
     - question: |
-        면접관: "Adam 논문이 권장하고 PyTorch 가 기본값으로 쓰는 learning rate, β1, β2, ε 조합은 무엇인가요?"
+        Adam 논문이 권장하고 PyTorch 가 기본값으로 쓰는 learning rate, β1, β2, ε 조합은 무엇인가?
       choices:
         - '0.1, 0.5, 0.5, 0.1'
-        - '0.01, 0.99, 0.9, 10⁻⁴'
+        - '0.001, 0.999, 0.9, 10⁻⁸'
         - '0.0001, 0.9, 0.9, 0'
         - '0.001, 0.9, 0.999, 10⁻⁸'
       answer: 3
@@ -164,18 +166,18 @@
         Adam 논문의 Algorithm 1 은 learning rate 0.001, $\beta_1 = 0.9$, $\beta_2 = 0.999$, $\epsilon = 10^{-8}$ 을 기본값으로 적었고
         `torch.optim.Adam` 의 기본값도 같다. gradient 제곱의 평균 $v$ 는 $m$ 보다 오래된 값을 더 많이 남기도록 $\beta_2$ 가 $\beta_1$ 보다 1
         에 가깝다. 0.1, 0.5, 0.5, 0.1 은 $\beta$ 가 너무 작아 moving average 가 지난 값을 거의 남기지 않고, $\epsilon$ 도 지나치게 크다.
-        0.01, 0.99, 0.9, 10⁻⁴ 는 $\beta_1$ 과 $\beta_2$ 의 크기가 뒤바뀌었다. 0.0001, 0.9, 0.9, 0 은 $\epsilon$ 이 0 이라 분모가 0 이 될 수
+        0.001, 0.999, 0.9, 10⁻⁸ 은 $\beta_1$ 과 $\beta_2$ 가 뒤바뀌었다. 0.0001, 0.9, 0.9, 0 은 $\epsilon$ 이 0 이라 분모가 0 이 될 수
         있다. 로봇 policy 에서는 ACT 처럼 learning rate 를 이 기본값보다 훨씬 작게 바꿔 쓰기도 한다.
 
 - topic: training-loop
   title: training loop 와 autograd 의 자리
   variants:
     - question: |
-        면접관: "PyTorch 의 training loop 에서 parameter 값을 실제로 바꾸는 것은 무엇인가요?"
+        PyTorch 의 training loop 에서 parameter 값을 실제로 바꾸는 것은 무엇인가?
       choices:
-        - 'autograd 가 backward 를 하면서 바꾼다'
-        - 'loss 를 계산하는 함수가 바꾼다'
-        - 'forward 를 할 때 바뀐다'
+        - 'autograd 가 backward 를 하면서 gradient 를 구한 자리에서 바로 바꾼다'
+        - 'loss 함수가 loss 를 계산하면서 그 값을 줄이는 쪽으로 바꾼다'
+        - 'forward 를 할 때 입력에 맞춰 parameter 가 함께 바뀐다'
         - 'optimizer 가 저장된 gradient 를 읽어 자기 규칙대로 바꾼다'
       answer: 3
       explanation: |
@@ -183,12 +185,12 @@
         움직일지는 SGD·momentum·Adam 같은 optimizer 가 정해 parameter 를 바꾸므로, 같은 gradient 로도 optimizer 에 따라 움직임이 다르다.
         loss 함수는 loss 값을 계산할 뿐 parameter 를 고치지 않는다. forward 도 출력을 계산할 뿐 parameter 를 바꾸지 않는다.
     - question: |
-        면접관: "training loop 에서 step 마다 gradient 를 0 으로 지우지 않으면 어떻게 되나요?"
+        training loop 에서 step 마다 gradient 를 0 으로 지우지 않으면 어떻게 되는가?
       choices:
-        - '지난 step 의 gradient 가 이번 gradient 에 더해져 쌓이고, parameter 가 엉뚱하게 움직인다'
-        - 'gradient 가 0 이 되어 학습이 멈춘다'
-        - 'backward 가 새 gradient 로 덮어쓰므로 아무 차이가 없다'
-        - 'backward 가 오류를 내며 멈춘다'
+        - '지난 step 의 gradient 가 이번 gradient 에 더해져 쌓인다'
+        - 'backward 가 지난 gradient 를 빼 주어 gradient 가 0 이 되고 학습이 멈춘다'
+        - 'backward 가 매번 새 gradient 로 덮어쓰므로 지우지 않아도 차이가 없다'
+        - '이미 gradient 가 있는 tensor 에 backward 를 하면 오류가 나며 멈춘다'
       answer: 0
       explanation: |
         autograd 는 한 값이 여러 곳에 쓰일 때 길마다 구한 gradient 를 더해야 하므로, 구한 gradient 를 덮어쓰지 않고 저장된 값에 더한다.
@@ -196,7 +198,7 @@
         커지므로 학습이 멈추지 않는다. backward 가 덮어쓴다는 보기는 실제 동작과 반대다. 오류도 나지 않아서 틀린 값으로 학습이 그대로
         이어진다.
     - question: |
-        면접관: "training loop 한 step 의 순서로 맞는 것을 고르세요."
+        training loop 한 step 의 순서로 맞는 것은?
       choices:
         - 'mini-batch 꺼내기 → forward → backward → loss 계산 → gradient 지우기 → parameter 고치기'
         - 'mini-batch 꺼내기 → forward → loss 계산 → parameter 고치기 → gradient 지우기 → backward'
@@ -212,24 +214,25 @@
   title: 입력 normalization
   variants:
     - question: |
-        면접관: "관절 각도(radian, −3 ~ 3)와 집게 벌림(mm, 0 ~ 80)을 policy 입력으로 그대로 넣으면 어떤 문제가 생기나요?"
+        관절 각도(radian, −3 ~ 3)와 집게 벌림(mm, 0 ~ 80)을 policy 입력으로 그대로 넣으면 어떤 문제가 생기는가?
       choices:
-        - '단위가 달라도 network 가 알아서 맞추므로 문제가 없다'
-        - '입력 개수가 늘어 parameter 가 두 배가 된다'
-        - '값이 큰 집게 입력이 첫 층의 값을 크게 키우고 그 weight 의 gradient 도 커져서, learning rate 하나로 모든 weight 를 고르게 학습하기 어렵다'
-        - 'radian 값이 음수라서 ReLU 를 지나면 모두 0 이 된다'
+        - '단위가 달라도 첫 층의 weight 가 알아서 크기를 맞추므로 학습에는 문제가 없다'
+        - '입력의 범위가 넓으면 그만큼 neuron 이 더 필요해서 parameter 가 두 배가 된다'
+        - '집게 입력이 첫 층 값과 gradient 를 키워서 learning rate 하나로 고르게 학습하기 어렵다'
+        - 'radian 값은 음수가 될 수 있어서 ReLU 를 지나면 관절 입력이 모두 0 이 된다'
       answer: 2
       explanation: |
         weight 의 처음 크기는 입력이 1 안팎이라고 보고 정하므로 수십 단위의 입력은 첫 층의 값을 수십 배로 키운다. 또 weight 의 gradient 는
-        그 입력값에 비례해서 집게 쪽 gradient 가 관절 쪽보다 훨씬 크다. 그래서 평균과 표준편차로 크기를 맞춘다. parameter 수는 입력값의
+        그 입력값에 비례해서 집게 쪽 gradient 가 관절 쪽보다 훨씬 크고, learning rate 하나로는 두 weight 를 고르게 고칠 수 없어서 weight 가
+        알아서 맞춰지기를 기대하기 어렵다. 그래서 평균과 표준편차로 크기를 맞춘다. parameter 수는 입력값의
         크기와 상관없다. ReLU 는 입력이 아니라 Linear layer 를 지난 값에 적용하므로 radian 값이 음수라고 0 이 되지 않는다.
     - question: |
-        면접관: "학습 때 action 을 dataset 통계로 standardization 해서 학습한 policy 를 로봇에서 실행할 때 꼭 해야 하는 일은?"
+        학습 때 action 을 dataset 통계로 standardization 해서 학습한 policy 를 로봇에서 실행할 때 꼭 해야 하는 일은?
       choices:
         - 'policy 가 낸 action 을 같은 통계(평균·표준편차)로 되돌린 뒤 로봇에 보낸다'
         - '실행할 때 새로 들어온 관측의 평균과 표준편차를 다시 계산해 그것으로 normalization 한다'
         - 'policy 출력을 그대로 로봇에 보낸다. normalization 은 학습에만 필요하다'
-        - 'action 을 0 ~ 1 사이로 잘라서 보낸다'
+        - 'action 을 0 ~ 1 사이로 잘라서, 로봇이 낼 수 있는 범위를 넘지 않게 보낸다'
       answer: 0
       explanation: |
         policy 는 normalization 된 공간에서 학습했으므로 그 출력도 평균 0, 표준편차 1 근처의 값이다. 학습 때와 같은 통계로 되돌려야 실제
@@ -237,12 +240,12 @@
         policy 출력을 그대로 보내면 평균 0 근처의 값이 실제 각도로 쓰여 로봇이 엉뚱하게 움직인다. 0 ~ 1 로 자르는 것도 통계로 되돌리는
         계산이 아니라서 엉뚱한 각도가 된다.
     - question: |
-        면접관: "학습 중 loss 가 발산해서 normalization 통계를 열어 보니, 거의 움직이지 않는 관절 하나의 표준편차가 0.001 이었습니다. 이것이 문제가 되는 이유는?"
+        학습 중 loss 가 발산해서 normalization 통계를 열어 보니, 거의 움직이지 않는 관절 하나의 표준편차가 0.001 이었다. 이것이 문제가 되는 이유는?
       choices:
-        - '표준편차가 작으면 그 관절이 학습에서 무시되기 때문이다'
-        - '표준편차로 나누므로 0.001 만 움직여도 1 이 되어, 작은 noise 나 처음 보는 값이 normalization 뒤에 아주 큰 값이 되기 때문이다'
-        - '표준편차가 작으면 평균이 0 이 되어 계산이 멈추기 때문이다'
-        - '표준편차는 normalization 에 쓰이지 않으므로 문제가 아니다'
+        - '표준편차가 작으면 normalization 뒤 값이 0 에 가까워져 그 관절이 학습에서 무시되기 때문이다'
+        - '0.001 만 움직여도 1 이 되어, 작은 noise 나 처음 보는 값이 아주 큰 값으로 부풀기 때문이다'
+        - '표준편차가 작으면 평균도 0 이 되어 평균을 빼는 단계에서 계산이 멈추기 때문이다'
+        - '표준편차는 normalization 에 쓰이지 않고 평균만 빼므로 원인은 다른 곳에 있다'
       answer: 1
       explanation: |
         standardization 은 (값 − 평균) ÷ 표준편차 라서 표준편차가 아주 작으면 미세한 변화가 크게 부풀려진다. 학습 데이터 범위를 조금만
@@ -254,10 +257,10 @@
   title: validation, loss curve, early stopping
   variants:
     - question: |
-        면접관: "학습하는 동안 train loss 는 계속 줄었는데 validation loss 는 어느 epoch 까지 줄다가 다시 올라갔습니다. 어떤 parameter 를 쓰겠습니까?"
+        학습하는 동안 train loss 는 계속 줄었는데 validation loss 는 어느 epoch 까지 줄다가 다시 올라갔다. 어떤 parameter 를 써야 하는가?
       choices:
-        - 'train loss 가 가장 낮은 마지막 epoch 의 parameter'
-        - '학습을 시작하기 전의 parameter'
+        - 'train loss 가 가장 낮은 마지막 epoch 의 parameter. 가장 오래 학습했다'
+        - '학습을 시작하기 전의 parameter. 아직 아무것도 외우지 않았다'
         - 'train loss 와 validation loss 가 같아지는 epoch 의 parameter'
         - 'validation loss 가 가장 낮았던 epoch 의 parameter'
       answer: 3
@@ -267,24 +270,24 @@
         의 parameter 는 train set 에만 잘 맞는다. 학습 전 parameter 는 아무것도 배우지 않았다. 두 loss 가 같아지는 시점에는 특별한 뜻이
         없다.
     - question: |
-        면접관: "validation set 과 따로 test set 을 남겨 두는 이유는 무엇인가요?"
+        validation set 과 따로 test set 을 남겨 두는 이유는 무엇인가?
       choices:
-        - 'test set 이 더 커서 성능을 더 정밀하게 잴 수 있기 때문에'
-        - 'validation set 으로 설정을 여러 번 고르면 그 데이터에 맞춘 선택이 되어 성능이 실제보다 좋게 보이기 때문에'
-        - 'train set 이 모자랄 때 학습 데이터로 보태 쓰려고'
-        - 'validation set 은 loss 만, test set 은 accuracy 만 재기 때문에'
+        - 'test set 을 validation set 보다 크게 잡아 성능을 더 정밀하게 잴 수 있기 때문에'
+        - 'validation set 으로 설정을 여러 번 고르면 성능이 실제보다 좋게 보이기 때문에'
+        - 'train set 이 모자랄 때 학습 데이터로 보태 쓰려고 미리 떼어 두는 것이다'
+        - 'validation set 으로는 loss 를 재고, test set 으로는 accuracy 를 따로 재야 하기 때문에'
       answer: 1
       explanation: |
         learning rate 같은 설정을 validation 성능으로 여러 번 비교해 고르면 운 좋게 그 데이터에서 높게 나온 설정이 뽑혀 성능이 부풀려진다.
         아무 선택에도 쓰지 않은 test set 이 있어야 처음 보는 데이터에서의 성능을 제대로 알 수 있다. test set 이 validation set 보다 클
         필요는 없다. test set 을 학습 데이터로 보태 쓰면 처음 보는 데이터라는 목적이 사라진다. 두 묶음 모두 loss 와 accuracy 를 잴 수 있다.
     - question: |
-        면접관: "시연 데이터로 manipulation policy 를 학습했습니다. validation loss 가 가장 낮은 checkpoint 를 바로 로봇에 올리면 충분할까요?"
+        시연 데이터로 manipulation policy 를 학습했다. validation loss 가 가장 낮은 checkpoint 를 바로 로봇에 올리면 충분한가?
       choices:
-        - '충분하다. validation loss 가 낮을수록 성공률도 반드시 높다'
+        - '충분하다. validation loss 가 낮을수록 시연을 잘 따라 하므로 성공률도 반드시 높다'
         - '충분하다. 로봇 policy 에서는 validation loss 가 가장 낮은 시점이 언제나 학습 마지막이다'
-        - '충분하지 않다. validation loss 와 실제 성공률이 어긋날 수 있어서, 여러 checkpoint 를 시뮬레이션이나 실제 로봇에서 실행해 성공률로 확인해야 한다'
-        - '충분하지 않다. validation loss 는 로봇 policy 에서 계산할 수 없다'
+        - '충분하지 않다. validation loss 와 성공률이 어긋날 수 있어서 실행해 본 성공률로 확인해야 한다'
+        - '충분하지 않다. 시연은 정답이 하나가 아니라서 로봇 policy 의 validation loss 는 계산할 수 없다'
       answer: 2
       explanation: |
         시연을 얼마나 비슷하게 따라 하는지(loss)와 작업에 성공하는지는 다른 기준이다. robomimic 연구에서는 validation loss 가 가장 낮은
@@ -297,24 +300,24 @@
   title: 학습 중 GPU memory
   variants:
     - question: |
-        면접관: "parameter 가 10 억 개인 모델을 float32 와 Adam 으로 학습하면, activation 을 빼고 parameter 관련 값만으로 GPU memory 가 대략 얼마나 필요할까요?"
+        parameter 가 10 억 개인 모델을 float32 와 Adam 으로 학습하면, activation 을 빼고 parameter 관련 값만으로 GPU memory 가 대략 얼마나 필요할까?
       choices:
-        - '4 GB. parameter 만 저장하면 된다'
-        - '8 GB. parameter 와 gradient 만 저장한다'
-        - '16 GB. parameter, gradient, Adam 의 m 과 v 를 parameter 마다 하나씩 저장한다'
-        - '1 GB. parameter 하나에 1 byte 다'
+        - '4 GB. 학습할 때도 parameter 만 GPU 에 올려 두면 된다'
+        - '8 GB. parameter 와 gradient 만 있으면 Adam 이 그것으로 계산한다'
+        - '16 GB. parameter·gradient·m·v 네 숫자를 parameter 마다 저장한다'
+        - '1 GB. float32 숫자 하나는 1 byte 라서 10 억 byte 면 된다'
       answer: 2
       explanation: |
         float32 숫자 하나는 4 byte 이고, Adam 학습에서는 parameter 마다 parameter·gradient·$m$·$v$ 네 숫자를 저장하므로 16 byte, 10 억 개면
         16 GB 다. 4 GB 는 학습 없이 실행할 때처럼 parameter 만 저장한 값이다. 8 GB 는 parameter 와 gradient 만 센 값이라 Adam 의 $m$ 과 $v$
         가 빠졌다. float32 는 숫자 하나에 1 byte 가 아니라 4 byte 를 쓴다.
     - question: |
-        면접관: "학습 중 GPU memory 가 부족하다는 오류가 납니다. batch 크기 32 의 효과는 유지하면서 memory 를 줄이는 방법은?"
+        학습 중 GPU memory 가 부족하다는 오류가 난다. batch 크기 32 의 효과는 유지하면서 memory 를 줄이는 방법은?
       choices:
-        - 'batch 크기 8 로 네 번 backward 해 gradient 를 쌓고(loss 는 4 로 나눔) parameter 는 한 번만 고치는 gradient accumulation'
-        - 'learning rate 를 4 배로 키운다'
-        - 'epoch 수를 줄인다'
-        - 'optimizer 를 SGD 에서 Adam 으로 바꾼다'
+        - 'gradient accumulation. batch 8 로 네 번 backward 해 쌓은 뒤 parameter 를 한 번 고친다'
+        - 'learning rate 를 4 배로 키워, batch 32 로 한 번 고칠 만큼을 한 step 에 움직인다'
+        - 'epoch 수를 줄여서 학습하는 동안 GPU memory 에 쌓이는 양을 줄인다'
+        - 'optimizer 를 SGD 에서 Adam 으로 바꿔 더 적은 step 으로 학습을 끝낸다'
       answer: 0
       explanation: |
         activation memory 는 한 번에 올리는 sample 수에 비례하므로 8 장씩 나누면 줄어든다. autograd 가 gradient 를 더해 쌓으므로 네 번의
@@ -322,12 +325,12 @@
         수는 그대로라서 memory 가 줄지 않는다. epoch 수를 줄여도 step 하나에 쓰는 memory 는 같다. Adam 은 parameter 마다 $m$, $v$ 를 더
         저장해서 오히려 memory 를 더 쓴다.
     - question: |
-        면접관: "큰 VLA 를 parameter 전체로 fine-tuning 하는 것보다 LoRA 로 학습할 때 GPU memory 가 크게 주는 이유는?"
+        큰 VLA 를 parameter 전체로 fine-tuning 하는 것보다 LoRA 로 학습할 때 GPU memory 가 크게 주는 이유는?
       choices:
-        - 'LoRA 는 원래 weight 를 고정하고 덧붙인 작은 행렬만 학습해서, gradient 와 optimizer 값을 그 작은 행렬 몫만 저장하기 때문이다'
-        - 'LoRA 는 activation 을 저장하지 않기 때문이다'
-        - 'LoRA 는 원래 weight 를 지우고 작은 모델로 바꾸기 때문이다'
-        - 'LoRA 는 batch 크기를 자동으로 1 로 바꾸기 때문이다'
+        - '원래 weight 는 고정하고 작은 행렬만 학습해서, gradient 와 optimizer 값을 그 몫만 저장하기 때문이다'
+        - '원래 weight 를 고정하므로 backward 에 쓸 forward 의 activation 을 저장할 필요가 없어서다'
+        - '원래 weight 를 지우고, 덧붙인 작은 행렬로만 이루어진 모델로 바꾸기 때문이다'
+        - 'batch 크기를 자동으로 1 로 바꿔 한 번에 올리는 sample 을 줄이기 때문이다'
       answer: 0
       explanation: |
         full fine-tuning 은 모든 parameter 마다 gradient 와 Adam 의 $m$, $v$ 를 저장해야 한다. LoRA 는 원래 weight 는 그대로 두고 쓰기만

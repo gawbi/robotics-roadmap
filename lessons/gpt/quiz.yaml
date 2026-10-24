@@ -5,19 +5,19 @@
   title: text 안에 들어 있는 정답
   variants:
     - question: |
-        면접관: "GPT 같은 language model 은 사람이 정답(label)을 달지 않은 웹 text 로 학습합니다. 그런데도 학습이 가능한 이유가 무엇인가요?"
+        GPT 같은 language model 은 사람이 정답(label)을 달지 않은 웹 text 로 학습한다. 그런데도 학습이 가능한 이유는 무엇인가?
       choices:
         - '정답 없이 확률표의 모양만 맞히면 되므로 loss 계산에 정답이 쓰이지 않기 때문이다'
         - 'tokenizer 가 text 를 자를 때 token 마다 정답을 자동으로 붙여 주기 때문이다'
-        - '위치마다 정답이 text 안의 바로 다음 token 이라서, 입력 줄을 한 칸 밀기만 하면 정답 줄이 되기 때문이다'
-        - '처음 몇 만 문장에는 사람이 정답을 달고, 나머지는 모델이 스스로 정답을 만들기 때문이다'
+        - '위치마다 정답이 text 안의 바로 다음 token 이라서, 입력을 한 칸 밀면 정답 줄이 되기 때문이다'
+        - '처음 몇 만 문장에는 사람이 정답을 달아 주고, 나머지는 모델이 그것을 보고 스스로 정답을 만들기 때문이다'
       answer: 2
       explanation: |
         text 의 각 위치에서 실제로 다음에 온 token 이 그 위치의 정답이므로, 입력 줄을 왼쪽으로 한 칸 민 것이 정답 줄이 된다. 이렇게 데이터
         안에서 정답을 만드는 방식을 self-supervised learning 이라고 한다. loss 는 정답 token 의 확률로 매기므로 정답은 loss 계산에 분명히 쓰이고,
         사람이 만들 필요만 없다. tokenizer 는 text 를 token 으로 자르기만 하고 정답을 붙이지 않는다. 사람이 일부에 정답을 다는 단계도 없다.
     - question: |
-        면접관: "token 열 a b c d 로 다음 token 맞히기 학습 문제를 만들었습니다. 입력이 a b c, 정답이 b c d 일 때, 두 번째 위치가 푸는 문제는 무엇인가요?"
+        token 열 a b c d 로 다음 token 맞히기 학습 문제를 만들었다. 입력이 a b c, 정답이 b c d 일 때, 두 번째 위치가 푸는 문제는 무엇인가?
       choices:
         - 'a b 를 보고 c 를 맞힌다'
         - 'b 하나만 보고 c 를 맞힌다'
@@ -29,12 +29,12 @@
         맞힌다. 각 위치는 자기 token 하나가 아니라 앞부분 전체를 보므로 b 하나만 보는 답은 틀렸다. a b c 를 보고 b 를 맞히는 것은 이미 입력에
         들어 있는 token 을 다시 맞히는 일이라 다음 token 맞히기가 아니다. a b c d 를 모두 보면 정답 c 를 입력에서 베낄 수 있어 배울 것이 없어진다.
     - question: |
-        면접관: "다음 token 맞히기 학습에서 길이 T + 1 인 token 조각 하나를 자르면, 학습 문제는 몇 개가 나오나요?"
+        다음 token 맞히기 학습에서 길이 T + 1 인 token 조각 하나를 자르면, 학습 문제는 몇 개가 나오는가?
       choices:
-        - '조각 하나에 문제 하나가 나온다'
-        - 'T + 1 개가 나온다'
-        - '2T 개가 나온다'
-        - 'T 개가 나온다. 앞의 T 개가 입력, 한 칸 민 뒤의 T 개가 정답이고 위치마다 문제가 하나씩이다'
+        - '조각 하나에 문제 하나가 나온다. 조각 끝의 token 하나만 정답이기 때문이다'
+        - 'T + 1 개가 나온다. token 마다 그 token 을 맞히는 문제가 하나씩 생기기 때문이다'
+        - '2T 개가 나온다. 입력 T 개와 정답 T 개가 각각 문제가 되기 때문이다'
+        - 'T 개가 나온다. 앞의 T 개가 입력이고 한 칸 민 T 개가 정답이라 위치마다 문제가 하나씩이다'
       answer: 3
       explanation: |
         길이 T + 1 인 조각에서 앞의 T 개를 입력으로, 한 칸 민 뒤의 T 개를 정답으로 잡으면 위치마다 다음 token 맞히기 문제가 하나씩 생겨
@@ -45,12 +45,12 @@
   title: decoder 만 쌓은 구조
   variants:
     - question: |
-        면접관: "번역용 Transformer 의 decoder 에는 cross-attention 이 있는데, GPT 의 block 에는 없습니다. 왜 빠졌나요?"
+        번역용 Transformer 의 decoder 에는 cross-attention 이 있는데, GPT 의 block 에는 없다. 왜 빠졌는가?
       choices:
-        - 'cross-attention 은 계산이 너무 느려서 큰 모델에 쓸 수 없기 때문이다'
-        - 'language model 에는 encoder 가 읽을 별도의 입력이 없고 지금까지 쓴 text 만 입력이라서, encoder 도 encoder 를 보는 cross-attention 도 필요 없기 때문이다'
+        - 'cross-attention 은 계산이 너무 느려서 parameter 가 큰 모델에는 쓸 수 없기 때문이다'
+        - 'encoder 가 읽을 별도의 입력 없이 지금까지 쓴 text 만 입력이라, 참고할 encoder 출력이 없기 때문이다'
         - 'cross-attention 이 masked self-attention 과 계산이 똑같아 중복이기 때문이다'
-        - 'cross-attention 이 있으면 뒤쪽 token 을 보게 되어 causal mask 가 깨지기 때문이다'
+        - 'cross-attention 이 있으면 encoder 쪽에서 뒤쪽 token 을 보게 되어 causal mask 가 깨지기 때문이다'
       answer: 1
       explanation: |
         cross-attention 은 번역할 문장을 encoder 가 읽어 낸 결과를 decoder 가 참고하는 attention 이다. language model 은 앞에 쓴 text 만으로 다음
@@ -58,11 +58,11 @@
         뺐다. cross-attention 은 query 와 key·value 를 서로 다른 sequence 에서 만들어서, 자기 sequence 끼리 보는 self-attention 과 쓰임이 다르다.
         뒤쪽 token 을 막는 일은 causal mask 가 맡고 cross-attention 과는 관계가 없다.
     - question: |
-        면접관: "GPT-2 는 위치마다 한 행씩 학습하는 position embedding 표를 씁니다. 이 표의 행 수는 모델의 무엇을 정하나요?"
+        GPT-2 는 위치마다 한 행씩 학습하는 position embedding 표를 쓴다. 이 표의 행 수는 모델의 무엇을 정하는가?
       choices:
-        - 'vocabulary 에 들어 있는 token 의 개수'
-        - '쌓을 수 있는 block 의 최대 개수'
-        - 'token vector 하나의 차원'
+        - 'vocabulary 에 들어 있는 token 의 개수. 표의 행 하나가 token 하나를 맡는다'
+        - '쌓을 수 있는 block 의 최대 개수. block 마다 행 하나를 차지한다'
+        - 'token vector 하나의 차원. 행 하나가 차원 하나를 맡는다'
         - '모델이 한 번에 볼 수 있는 token 의 최대 개수인 context length'
       answer: 3
       explanation: |
@@ -70,11 +70,11 @@
         입력은 가장 최근 token 만 잘라 넣는다. vocabulary 크기를 정하는 것은 token embedding 표의 행 수다. token vector 의 차원은 두 표의 열
         수로 정해진다. block 수는 embedding 표와 관계없이 따로 정한다.
     - question: |
-        면접관: "GPT-2 는 LayerNorm 을 sub-layer 앞에 두는 Pre-LN 을 씁니다. 원래 Transformer 의 Post-LN 과 비교해 무엇이 좋아지나요?"
+        GPT-2 는 LayerNorm 을 sub-layer 앞에 두는 Pre-LN 을 쓴다. 원래 Transformer 의 Post-LN 과 비교해 무엇이 좋아지는가?
       choices:
-        - '첫 block 의 입력에서 마지막 block 의 출력까지 더하기만으로 이어진 residual 길이 남아, 층을 많이 쌓아도 gradient 가 앞 층까지 잘 전해진다'
-        - 'LayerNorm 이 하나도 필요 없어져 parameter 가 크게 준다'
-        - 'causal mask 없이도 뒤쪽 token 을 보지 않게 된다'
+        - '더하기만으로 이어진 residual 길이 끝까지 남아, 층을 많이 쌓아도 gradient 가 앞 층까지 잘 전해진다'
+        - 'LayerNorm 을 block 마다 하나씩만 두면 되어 parameter 가 크게 준다'
+        - 'LayerNorm 이 attention 앞에 오므로 causal mask 없이도 뒤쪽 token 을 보지 않게 된다'
         - '마지막 block 의 출력이 이미 정규화되어 있어 그 뒤에 LayerNorm 을 둘 필요가 없다'
       answer: 0
       explanation: |
@@ -87,12 +87,12 @@
   title: causal mask 와 teacher forcing
   variants:
     - question: |
-        면접관: "GPT 를 학습시킬 때 self-attention 에서 causal mask 를 빼면 어떤 일이 생기나요?"
+        GPT 를 학습시킬 때 self-attention 에서 causal mask 를 빼면 어떤 일이 생기는가?
       choices:
         - '각 위치가 자기보다 앞의 token 을 볼 수 없게 되어 학습이 되지 않는다'
-        - '계산만 조금 빨라지고 학습 결과는 똑같다'
-        - 'loss 가 처음부터 0 이 되어 parameter 가 전혀 고쳐지지 않는다'
-        - '각 위치가 바로 뒤에 들어 있는 정답을 베껴 학습 loss 는 쉽게 내려가지만, 실제로 글을 쓸 때는 베낄 다음 token 이 없어 제대로 맞히지 못한다'
+        - '계산만 조금 빨라지고 학습 결과는 똑같다. mask 는 속도를 위한 장치이기 때문이다'
+        - '정답이 입력에 그대로 보이므로 loss 가 처음부터 0 이 되어 parameter 가 고쳐지지 않는다'
+        - '뒤에 있는 정답을 베껴 학습 loss 는 쉽게 내려가지만, 생성할 때는 베낄 것이 없다'
       answer: 3
       explanation: |
         teacher forcing 으로 정답 줄을 입력에 한꺼번에 넣기 때문에, 위치 t 의 정답은 위치 t + 1 의 입력으로 들어와 있다. mask 가 없으면 모델은
@@ -100,10 +100,10 @@
         빼면 볼 수 있는 범위가 늘어날 뿐이고 앞쪽을 못 보게 되지는 않는다. 모델이 베끼는 법을 배우므로 학습 결과는 mask 가 있을 때와 같지 않다.
         loss 는 쉽게 내려가지만 정확히 0 이 되지는 않아서 parameter 도 계속 고쳐진다.
     - question: |
-        면접관: "causal mask 를 쓰는 GPT 는 길이 T 인 text 하나로 forward 를 한 번만 해도 학습 문제 T 개를 풉니다. 이게 가능한 이유는 무엇인가요?"
+        causal mask 를 쓰는 GPT 는 길이 T 인 text 하나로 forward 를 한 번만 해도 학습 문제 T 개를 푼다. 이것이 가능한 이유는 무엇인가?
       choices:
         - 'forward 한 번에 마지막 위치의 문제만 풀고, 나머지 위치는 loss 에 넣지 않기 때문이다'
-        - 'mask 때문에 위치 t 의 출력이 위치 1 부터 t 까지의 입력만으로 정해져, 앞부분을 t 개만 따로 넣었을 때의 결과와 같기 때문이다'
+        - 'mask 때문에 위치 t 의 출력이 위치 1 ~ t 의 입력만으로 정해져, 앞 t 개만 넣은 결과와 같기 때문이다'
         - '모델이 위치마다 forward 를 따로 하지만 GPU 가 이를 숨겨 주기 때문이다'
         - 'block 을 여러 개 쌓으면 뒤쪽 위치의 정보가 앞쪽으로 전달되어 서로 도와주기 때문이다'
       answer: 1
@@ -112,12 +112,12 @@
         그래서 정답 줄을 한꺼번에 넣고 위치마다 loss 를 계산하는 teacher forcing 이 가능하다. loss 는 모든 위치의 값을 평균하므로 마지막 위치만
         쓰지 않는다. forward 는 한 번이고, 위치마다 따로 하지 않는다. 뒤쪽 정보가 앞으로 흘러드는 일은 mask 가 막는다.
     - question: |
-        면접관: "학습 때는 forward 한 번에 모든 위치를 계산하는데, 글을 생성할 때는 token 을 하나씩 차례로 만들어야 합니다. 왜 그런가요?"
+        학습 때는 forward 한 번에 모든 위치를 계산하는데, 글을 생성할 때는 token 을 하나씩 차례로 만들어야 한다. 그 이유는 무엇인가?
       choices:
-        - '생성할 때는 causal mask 가 꺼지기 때문이다'
+        - '생성할 때는 causal mask 가 꺼져 모든 위치를 한꺼번에 계산할 수 없기 때문이다'
         - '생성할 때는 모델이 마지막 위치에서만 확률표를 낼 수 있기 때문이다'
-        - '다음 token 을 고르려면 앞에서 고른 token 이 입력에 들어 있어야 해서, 고른 token 을 입력 끝에 붙이고 다시 넣기를 되풀이해야 하기 때문이다'
-        - '학습 때도 사실은 위치마다 forward 를 따로 했기 때문이다'
+        - '다음 token 을 고르려면 앞에서 고른 token 이 입력 끝에 붙어 있어야 하기 때문이다'
+        - '학습 때도 사실은 위치마다 forward 를 따로 했고, GPU 가 그것을 동시에 처리했을 뿐이기 때문이다'
       answer: 2
       explanation: |
         학습 때는 정답 text 전체가 이미 있어서 모든 위치를 한꺼번에 넣을 수 있지만, 생성할 때는 다음 token 이 아직 정해지지 않았다. 그래서
@@ -129,11 +129,11 @@
   title: 위치마다 정답 확률로 매기는 loss
   variants:
     - question: |
-        면접관: "GPT 는 위치마다 정답 token 에 준 확률 p 로 loss −log p 를 매겨 평균합니다. 이 loss 의 성질로 맞는 것은?"
+        GPT 는 위치마다 정답 token 에 준 확률 p 로 loss −log p 를 매겨 평균한다. 이 loss 의 성질로 맞는 것은?
       choices:
         - '정답 확률이 1 에 가까울수록 0 에 가깝고, 0 에 가까울수록 끝없이 커진다'
-        - '정답 확률이 클수록 loss 도 커진다'
-        - 'loss 는 언제나 0 과 1 사이다'
+        - '정답 확률이 클수록 loss 도 커져서, 학습은 정답 확률을 낮추는 쪽으로 간다'
+        - 'loss 는 확률에 −log 를 씌운 값이라 언제나 0 과 1 사이에 있다'
         - '확률이 가장 큰 token 이 정답이기만 하면 loss 는 0 이다'
       answer: 0
       explanation: |
@@ -141,12 +141,12 @@
         끝없이 커진다. 정답 확률이 클수록 loss 가 커진다는 보기는 방향이 거꾸로다. p 가 약 0.37 보다 작으면 loss 가 1 을 넘으므로 loss 는 0 과
         1 사이에 머물지 않는다. 정답이 1 등이어도 확률이 1 이 아니면 loss 는 0 이 아니라서, 학습은 정답 확률을 1 쪽으로 계속 끌어올린다.
     - question: |
-        면접관: "vocabulary 가 V 개인 language model 을 처음 학습시키기 직전에 loss 를 재면 보통 얼마 근처가 나와야 하고, 그 이유는 무엇인가요?"
+        vocabulary 가 V 개인 language model 을 처음 학습시키기 직전에 loss 를 재면 보통 얼마 근처가 나와야 하고, 그 이유는 무엇인가?
       choices:
         - '0 근처다. 학습 전에도 대부분의 위치에서 정답을 맞히기 때문이다'
-        - '1 근처다. 확률의 합이 1 이기 때문이다'
-        - 'log V 근처다. parameter 가 작은 무작위 숫자라 logit 이 비슷해 모든 token 이 약 1/V 의 확률을 받고, −log(1/V) = log V 이기 때문이다'
-        - 'V 근처다. token 하나마다 loss 가 1 씩 더해지기 때문이다'
+        - '1 근처다. 확률의 합이 1 이라 정답 확률도 1 근처에서 시작하기 때문이다'
+        - 'log V 근처다. 모든 token 이 약 1/V 의 확률을 받기 때문이다'
+        - 'V 근처다. vocabulary 의 token 하나마다 loss 가 1 씩 더해져 모두 V 가 되기 때문이다'
       answer: 2
       explanation: |
         학습 전의 모델은 vocabulary 전체에 확률을 거의 고르게 나누므로 정답 확률이 약 1/V 이고, 첫 loss 는 log V 근처다. 첫 loss 가 이보다
@@ -154,12 +154,12 @@
         정답을 맞힐 이유는 없으므로 0 근처가 나오지 않는다. 확률의 합이 1 인 것은 정답 하나의 확률을 정하지 않으므로 loss 를 1 로 만들지
         않는다. loss 는 정답 확률의 −log 를 위치마다 평균한 값이라 token 하나마다 1 씩 쌓이지 않는다.
     - question: |
-        면접관: "같은 영어 text 에서 글자 단위 모델 A 는 token 하나당 loss 1.5, 글자 여러 개를 token 하나로 묶는 BPE 모델 B 는 token 하나당 loss 3.0 이 나왔습니다. 어떻게 비교해야 하나요?"
+        같은 영어 text 에서 글자 단위 모델 A 는 token 하나당 loss 1.5, 글자 여러 개를 token 하나로 묶는 BPE 모델 B 는 token 하나당 loss 3.0 이 나왔다. 두 모델은 어떻게 비교해야 하는가?
       choices:
-        - 'A 의 loss 가 절반이니 A 가 확실히 더 좋은 모델이다'
-        - 'B 는 token 하나로 글자 여러 개를 맞혀 문제 하나가 더 어려우므로, 같은 text 의 전체 loss 를 byte 수로 나눈 byte 하나당 loss 로 바꿔 비교한다'
+        - 'A 의 loss 가 절반이니, token 을 어떻게 잘랐든 A 가 확실히 더 좋은 모델이다'
+        - '같은 text 의 전체 loss 를 byte 수로 나눈 byte 하나당 loss 로 바꿔 비교한다'
         - 'loss 는 token 을 자르는 방법과 상관없으니 숫자를 그대로 비교하면 된다'
-        - 'B 의 loss 를 vocabulary 크기로 나누면 공정하게 비교된다'
+        - 'B 의 loss 를 vocabulary 크기로 나누면 token 하나의 선택지 차이가 보정되어 공정해진다'
       answer: 1
       explanation: |
         loss 는 token 하나당 평균이라서, token 하나에 담긴 글자 수가 다르면 문제 하나의 어려움부터 다르다. 같은 text 전체의 loss(token 수 ×
@@ -171,23 +171,23 @@
   title: warmup 과 cosine decay
   variants:
     - question: |
-        면접관: "GPT 를 처음부터 학습시킬 때 learning rate 를 처음 몇 천 step 동안 0 근처에서 서서히 올리는 warmup 을 둡니다. 왜 필요한가요?"
+        GPT 를 처음부터 학습시킬 때 learning rate 를 처음 몇 천 step 동안 0 근처에서 서서히 올리는 warmup 을 둔다. warmup 은 왜 필요한가?
       choices:
-        - '처음 보는 데이터는 쉬워서 조금만 배워도 되기 때문이다'
-        - '학습 초반에는 parameter 가 무작위라 loss 가 parameter 에 민감하고 Adam 의 moving average 도 아직 믿을 만하지 않아서, 큰 step 이 parameter 를 발산시킬 수 있기 때문이다'
-        - '작게 시작해야 학습이 끝날 때까지 learning rate 를 작게 유지할 수 있기 때문이다'
-        - 'GPU 가 계산에 익숙해질 시간이 필요하기 때문이다'
+        - '처음 보는 데이터에는 쉬운 문장이 많아서 초반에는 조금만 배워도 되기 때문이다'
+        - '초반에는 loss 가 parameter 에 민감해서, 큰 step 이 parameter 를 발산시킬 수 있기 때문이다'
+        - '작게 시작해야 학습이 끝날 때까지 learning rate 를 작게 유지해 안정시킬 수 있기 때문이다'
+        - 'GPU 가 계산에 익숙해지고 메모리를 다 채울 때까지 예열 시간이 필요하기 때문이다'
       answer: 1
       explanation: |
         학습 초반처럼 loss 가 가파른 곳에서 큰 learning rate 로 움직이면 parameter 가 부호를 바꾸며 점점 커지는 발산이 생길 수 있다. warmup 은
         초반에 step 을 작게 해 두었다가 안정된 뒤 큰 learning rate 를 쓰게 하는 장치라서, learning rate 를 계속 작게 두려는 것과는 반대다.
         처음 보는 데이터가 쉬워서 덜 배워도 된다는 근거는 없다. GPU 같은 하드웨어는 learning rate 와 관계가 없다.
     - question: |
-        면접관: "warmup 뒤에 cosine decay 로 learning rate 를 줄여 갑니다. 학습 후반에 learning rate 를 줄이면 무엇이 좋아지나요?"
+        warmup 뒤에 cosine decay 로 learning rate 를 줄여 간다. 학습 후반에 learning rate 를 줄이면 무엇이 좋아지는가?
       choices:
-        - 'loss 바닥 근처에서 parameter 는 mini-batch 마다 흔들리는 gradient 때문에 learning rate 크기만큼 오가는데, learning rate 를 줄이면 그 흔들림이 줄어 바닥에 더 가까이 머문다'
-        - '학습 후반에는 gradient 가 정확히 0 이 되어 learning rate 가 필요 없어진다'
-        - 'learning rate 를 줄일수록 모델이 새 데이터를 더 빨리 배운다'
+        - 'mini-batch 마다 흔들리는 gradient 로 바닥 근처를 오가는 parameter 의 폭이 줄어든다'
+        - '학습 후반에는 gradient 가 정확히 0 이 되므로 learning rate 를 줄여 계산을 아낀다'
+        - 'learning rate 를 줄일수록 모델이 후반에 들어온 새 데이터를 더 빨리 배운다'
         - 'learning rate 를 줄이면 overfitting 이 저절로 사라져 validation set 이 필요 없어진다'
       answer: 0
       explanation: |
@@ -196,12 +196,12 @@
         작으면 새 데이터를 배우는 속도는 오히려 느려진다. learning rate 를 줄여도 overfitting 은 생길 수 있어서, 여전히 validation loss 로
         확인해야 한다.
     - question: |
-        면접관: "warmup 과 cosine decay 를 이은 learning rate schedule 을 그래프로 그리면 어떤 모양인가요?"
+        warmup 과 cosine decay 를 이은 learning rate schedule 을 그래프로 그리면 어떤 모양인가?
       choices:
-        - '처음부터 최대값으로 시작해 일정한 기울기의 직선으로 줄어든다'
-        - '0 근처에서 출발해 학습이 끝날 때까지 계속 올라간다'
-        - '최대값과 최소값 사이를 cos 곡선처럼 여러 번 오르내린다'
-        - '0 근처에서 직선으로 최대값까지 올라간 뒤, 처음과 끝에서는 천천히 줄고 가운데서는 빠르게 줄어 최소값에 닿고, 그 뒤로는 최소값에 머문다'
+        - '처음부터 최대값으로 시작해, 일정한 기울기의 직선을 따라 최소값까지 줄어든다'
+        - '0 근처에서 출발해 학습이 끝날 때까지 cos 곡선을 따라 천천히 계속 올라간다'
+        - '최대값과 최소값 사이를 cos 곡선처럼 주기적으로 여러 번 오르내린다'
+        - '0 근처에서 직선으로 최대값까지 오른 뒤, 가운데가 가파른 곡선으로 줄어 최소값에 머문다'
       answer: 3
       explanation: |
         warmup 구간에서는 learning rate 가 지난 step 의 비율만큼 직선으로 올라 최대값에 닿는다. 그 뒤 cosine decay 는 cos 곡선의 반쪽(꼭대기에서
@@ -213,12 +213,12 @@
   title: greedy decoding·sampling·temperature·top-k
   variants:
     - question: |
-        면접관: "language model 로 긴 글을 쓸 때 매번 확률이 가장 큰 token 만 고르는 greedy decoding 을 쓰면 어떤 문제가 생기기 쉬운가요?"
+        language model 로 긴 글을 쓸 때 매번 확률이 가장 큰 token 만 고르는 greedy decoding 을 쓰면 어떤 문제가 생기기 쉬운가?
       choices:
-        - '같은 상황이 되풀이되면 같은 token 을 골라 같은 말을 반복하기 쉽고, 두 번째로 그럴듯한 token 은 한 번도 나오지 않는다'
+        - '같은 앞부분에서 늘 같은 token 을 골라, 같은 구절을 반복하는 데 빠지기 쉽다'
         - '같은 prompt 에서도 쓸 때마다 다른 글이 나와 결과를 재현할 수 없다'
-        - '확률이 가장 낮은 token 이 자주 끼어든다'
-        - '가장 큰 값을 찾는 계산이 sampling 보다 훨씬 무겁다'
+        - '확률이 가장 낮은 token 이 자주 끼어들어 문장이 엉뚱하게 흐른다'
+        - '가장 큰 값을 찾으려고 모든 token 을 정렬해야 해서 sampling 보다 훨씬 무겁다'
       answer: 0
       explanation: |
         greedy decoding 은 같은 앞부분에서 늘 같은 token 을 고르므로, 앞부분이 한 번 되풀이되면 같은 구절이 끝없이 반복될 수 있고 1 등이
@@ -226,11 +226,11 @@
         성질이다. 확률 낮은 token 이 끼어드는 것도 sampling 쪽 문제다. 가장 큰 값 하나를 찾는 계산은 random number 를 뽑는 sampling 보다 무겁지
         않다.
     - question: |
-        면접관: "sampling 전에 logit 을 temperature τ 로 나눕니다. τ 를 1 보다 작게 하면 어떻게 되나요?"
+        sampling 전에 logit 을 temperature τ 로 나눈다. τ 를 1 보다 작게 하면 어떻게 되는가?
       choices:
-        - '확률이 고르게 퍼져 확률이 낮은 token 이 더 자주 뽑힌다'
-        - 'logit 사이의 차이가 커져 확률이 가장 큰 token 쪽으로 더 몰리고, 생성되는 글이 덜 다양해진다'
-        - '가장 그럴듯한 token 의 순위가 뒤바뀐다'
+        - 'logit 이 작아지는 효과라 확률이 고르게 퍼지고, 확률이 낮은 token 이 더 자주 뽑힌다'
+        - 'logit 사이의 차이가 커져 1 등 token 쪽으로 확률이 더 몰리고, 글이 덜 다양해진다'
+        - '가장 그럴듯한 token 의 순위가 뒤바뀌어 2 등 token 이 1 등이 된다'
         - '모든 token 의 확률이 똑같은 비율로 줄어 합이 1 보다 작아진다'
       answer: 1
       explanation: |
@@ -238,11 +238,11 @@
         τ 를 0 에 가깝게 줄이면 greedy decoding 과 같아진다. 확률이 고르게 퍼지는 것은 τ 를 1 보다 크게 했을 때다. 같은 양수로 나누면 logit 의
         크기 순서는 그대로라서 순위가 바뀌지 않는다. softmax 를 거친 확률의 합은 τ 와 관계없이 언제나 1 이다.
     - question: |
-        면접관: "top-k sampling 은 무엇을 하고, k = 1 이면 어떻게 되나요?"
+        top-k sampling 은 무엇을 하고, k = 1 이면 어떻게 되는가?
       choices:
-        - '상위 k 개 밖의 token 도 확률이 조금 줄어들 뿐 여전히 뽑힐 수 있고, k = 1 이면 확률대로 뽑는 sampling 과 같다'
-        - 'logit 을 k 로 나누는 방법이라서 k = 1 이면 아무 변화가 없다'
-        - '상위 k 개 밖의 logit 을 −∞ 로 막아 확률이 낮은 token 이 아예 뽑히지 않게 하고, k = 1 이면 1 등만 남아 greedy decoding 과 같다'
+        - '상위 k 개 밖의 token 도 확률이 조금 줄 뿐 뽑힐 수 있고, k = 1 이면 보통 sampling 과 같다'
+        - 'logit 을 k 로 나누는 방법이라서, k = 1 이면 logit 이 그대로라 아무 변화가 없다'
+        - '상위 k 개 밖의 확률을 0 으로 막고, k = 1 이면 1 등만 남아 greedy decoding 과 같다'
         - '남은 k 개의 확률은 원래 값 그대로라서 합이 1 보다 작아지고, k = 1 이면 아무것도 뽑히지 않을 수 있다'
       answer: 2
       explanation: |
@@ -254,34 +254,34 @@
   title: 모델 크기와 scaling
   variants:
     - question: |
-        면접관: "GPT 류 Transformer 에서 token vector 의 차원 d 를 두 배로 늘리면 block 하나의 parameter 수는 대략 몇 배가 되나요?"
+        GPT 류 Transformer 에서 token vector 의 차원 d 를 두 배로 늘리면 block 하나의 parameter 수는 대략 몇 배가 되는가?
       choices:
-        - '두 배가 된다. parameter 는 d 에 비례하기 때문이다'
-        - '그대로다. parameter 수는 block 수로만 정해지기 때문이다'
-        - '네 배가 된다. attention 의 행렬 4d² 개와 FFN 의 행렬 8d² 개를 더한 약 12d² 개라서 d² 에 비례하기 때문이다'
-        - '여덟 배가 된다. query·key·value 세 행렬이 모두 커지기 때문이다'
+        - '두 배가 된다. 행렬 하나의 parameter 수가 d 에 비례하기 때문이다'
+        - '그대로다. parameter 수는 block 수로만 정해지고 d 와는 관계없기 때문이다'
+        - '네 배가 된다. 행렬이 d × d 나 d × 4d 꼴이라 d² 에 비례하기 때문이다'
+        - '여덟 배가 된다. query·key·value 세 행렬이 모두 커져 d³ 에 비례하기 때문이다'
       answer: 2
       explanation: |
         block 하나의 행렬은 attention 의 d × d 행렬 넷(4d²)과 FFN 의 d × 4d, 4d × d 행렬(8d²)이라 약 12d² 개다. d² 에 비례하므로 d 를 두 배로
         하면 네 배가 된다. bias 와 LayerNorm 처럼 d 에 비례하는 숫자는 작은 몫이라 전체를 두 배로 만들지 않는다. block 수는 block 하나의
         크기와 따로 정하므로 block 하나의 parameter 수를 정하지 않는다. query·key·value 행렬이 커져도 각각 d² 에 비례할 뿐 d³ 이 되지는 않는다.
     - question: |
-        면접관: "Kaplan 등의 scaling law 에 따르면 데이터가 충분할 때 embedding 을 뺀 parameter 수가 두 배가 될 때마다 loss 는 어떻게 되나요?"
+        Kaplan 등의 scaling law 에 따르면 데이터가 충분할 때 embedding 을 뺀 parameter 수가 두 배가 될 때마다 loss 는 어떻게 되는가?
       choices:
-        - 'loss 가 절반이 된다'
-        - '어느 크기를 넘으면 loss 가 더 내려가지 않고 그대로다'
-        - 'loss 가 parameter 수에 정비례해 두 배가 된다'
-        - 'loss 가 일정한 비율(약 0.95 배)로 줄어드는 거듭제곱 꼴이라, log 눈금으로 그리면 곧은 선에 가깝다'
+        - 'loss 가 절반이 된다. loss 가 parameter 수에 반비례하기 때문이다'
+        - '어느 크기를 넘으면 loss 가 더 내려가지 않고 그대로 머문다'
+        - 'loss 가 parameter 수에 정비례해 두 배가 된다. 큰 모델일수록 overfitting 이 심하기 때문이다'
+        - 'loss 가 약 0.95 배로 줄어드는 거듭제곱 꼴이라, log 눈금에서 곧은 선에 가깝다'
       answer: 3
       explanation: |
         Kaplan 등은 loss 가 parameter 수 N 의 거듭제곱 (N_c / N)^0.076 꼴로 줄어든다고 보고했고, N 이 두 배가 될 때마다 loss 가 2^−0.076 ≈ 0.95
         배가 된다. 그래서 가로축을 log 눈금으로 그리면 곧은 선에 가깝다. loss 가 절반이 된다면 0.95 배보다 훨씬 빠르게 줄어야 한다. 보고된
         범위에서는 loss 가 어느 크기에서 멈추지 않고 계속 줄었다. 모델이 커질수록 loss 가 커진다는 것은 관찰과 반대다.
     - question: |
-        면접관: "parameter 가 약 70 억 개인 모델을 숫자 하나에 2 byte 인 bfloat16 으로 GPU 에 올리면 weight 만으로 메모리가 대략 얼마나 필요한가요?"
+        parameter 가 약 70 억 개인 모델을 숫자 하나에 2 byte 인 bfloat16 으로 GPU 에 올리면 weight 만으로 메모리가 대략 얼마나 필요한가?
       choices:
-        - '약 14 GB 다. parameter 수에 숫자 하나의 byte 수를 곱하기 때문이다'
-        - '약 7 GB 다. parameter 하나가 1 byte 이기 때문이다'
+        - '약 14 GB 다. parameter 수에 숫자 하나의 byte 수를 곱한다'
+        - '약 7 GB 다. bfloat16 도 parameter 하나를 1 byte 에 담기 때문이다'
         - '약 28 GB 다. bfloat16 도 숫자 하나에 4 byte 를 쓰기 때문이다'
         - '약 700 MB 다. 계산에 쓰이는 parameter 만 메모리에 올리기 때문이다'
       answer: 0
@@ -294,12 +294,12 @@
   title: language model 위에서 생성하는 action token
   variants:
     - question: |
-        면접관: "RT-2 나 OpenVLA 는 language model 의 vocabulary 로 로봇 행동을 냅니다. 연속된 행동 값을 어떻게 token 으로 바꾸나요?"
+        RT-2 나 OpenVLA 는 language model 의 vocabulary 로 로봇 행동을 낸다. 연속된 행동 값은 어떻게 token 으로 바꾸는가?
       choices:
-        - '행동 값의 실수를 문자열로 적어 BPE tokenizer 로 자른다'
-        - '행동 값을 그대로 logit 자리에 넣어 softmax 로 내보낸다'
-        - 'vocabulary 에 행동 값마다 새 token 을 끝없이 추가한다'
-        - '행동 값의 차원마다 범위를 256 개 구간(bin)으로 나누고, bin 하나를 vocabulary 의 token 하나에 짝지어 language model 이 그 token 을 고르게 한다'
+        - '행동 값의 실수를 "0.123" 같은 문자열로 적어, 글자처럼 BPE tokenizer 로 잘라 낸다'
+        - '행동 값을 logit 자리에 그대로 넣어, softmax 를 거친 값을 행동으로 내보낸다'
+        - 'vocabulary 에 행동 값마다 새 token 을 추가해, 나올 수 있는 값을 모두 token 으로 만든다'
+        - '차원마다 범위를 256 개 bin 으로 나누고, bin 하나를 token 하나에 짝짓는다'
       answer: 3
       explanation: |
         language model 은 vocabulary 의 token 하나를 고를 수만 있어서, 연속된 값을 바로 낼 수 없다. 그래서 차원마다 범위를 256 개 bin 으로
@@ -307,12 +307,12 @@
         실수를 문자열로 적어 자르면 값 하나가 token 여러 개로 갈려 행동 하나의 길이가 들쭉날쭉해진다. logit 은 token 마다 매기는 점수라서 행동
         값을 넣을 곳이 아니다. 연속된 값은 끝없이 많아서 값마다 token 을 만들 수 없다.
     - question: |
-        면접관: "OpenVLA 는 행동 하나를 action token 7 개로 냅니다. 행동 하나를 내는 데 forward 를 몇 번 하고, 그것이 로봇에 어떤 영향을 주나요?"
+        OpenVLA 는 행동 하나를 action token 7 개로 낸다. 행동 하나를 내는 데 forward 를 몇 번 하고, 그것이 로봇에 어떤 영향을 주는가?
       choices:
         - 'forward 를 한 번만 한다. 7 개 token 을 한꺼번에 내므로 속도 걱정이 없다'
-        - 'forward 를 7 번 한다. 앞 token 을 입력에 붙여야 다음 token 을 고를 수 있어서, 70 억 parameter 모델로는 1초에 내는 행동 수가 제한된다'
+        - 'forward 를 7 번 한다. 앞 token 을 붙여야 다음을 고를 수 있어, 1초에 내는 행동 수가 제한된다'
         - 'forward 를 7 번 하지만 각 forward 가 서로 독립이라 병렬로 돌려 한 번의 시간이면 된다'
-        - 'forward 를 256 번 한다. bin 마다 확률을 따로 계산하기 때문이다'
+        - 'forward 를 256 번 한다. bin 마다 확률을 따로 계산하므로 7 개 token 보다 훨씬 오래 걸린다'
       answer: 1
       explanation: |
         action token 도 autoregressive 하게 생성하므로, 앞에서 고른 token 을 입력 끝에 붙여야 다음 token 을 고를 수 있다. 그래서 token 7 개에
@@ -320,12 +320,12 @@
         뒤 token 이 앞 token 에 의존하므로 7 번의 forward 를 서로 독립인 병렬 계산으로 돌릴 수도 없다. bin 256 개의 확률은 forward 한 번의
         확률표에 함께 들어 있어서 256 번 계산할 필요가 없다.
     - question: |
-        면접관: "OpenVLA 를 학습시킬 때 loss 는 어떻게 계산하나요?"
+        OpenVLA 를 학습시킬 때 loss 는 어떻게 계산하는가?
       choices:
-        - '로봇 행동 값과 예측 값의 차이를 제곱해 평균하는 MSE 를 쓴다'
+        - '로봇 행동 값과 예측 값의 차이를 제곱해 평균하는 MSE 를 쓴다. 행동이 연속 값이기 때문이다'
         - '이미지 token 과 지시문 token 까지 포함한 모든 위치의 다음 token 을 맞히는 loss 를 똑같이 더한다'
-        - '이미지와 지시문 뒤에 시연 행동의 action token 을 정답으로 붙이고, action token 위치에서만 다음 token 맞히기 cross-entropy 를 계산한다'
-        - '정답 없이 로봇이 성공했는지만 보고 보상으로 학습한다'
+        - '시연의 action token 을 정답으로 붙이고, action token 위치에서만 cross-entropy 를 계산한다'
+        - '정답 없이 로봇이 과제에 성공했는지만 보고, 그 보상으로 parameter 를 고친다'
       answer: 2
       explanation: |
         OpenVLA 는 language model 학습과 같은 다음 token 맞히기 목표를 쓰고, 논문에 따르면 cross-entropy 를 action token 위치에서만 계산한다.

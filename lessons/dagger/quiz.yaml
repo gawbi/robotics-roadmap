@@ -5,37 +5,37 @@
   title: 시연을 늘려도 비어 있는 상태
   variants:
     - question: |
-        면접관: "behavior cloning policy 가 실수한 뒤 들어가는 상태에서 자꾸 실패해서, 같은 expert 의 시연을 열 배로 더 모았습니다.
-        그런데 그 상태의 데이터는 거의 늘지 않았어요. 왜 그럴까요?"
+        behavior cloning policy 가 실수한 뒤 들어가는 상태에서 자꾸 실패해서, 같은 expert 의 시연을 열 배로 더 모았다.
+        그런데 그 상태의 데이터는 거의 늘지 않았다. 그 이유는 무엇인가?
       choices:
-        - 'expert 는 애초에 그런 상태로 가지 않아서, 시연을 늘리는 것은 expert 가 가는 상태의 분포에서 더 뽑는 것일 뿐이기 때문이다'
-        - '시연이 많아지면 overfitting 이 생겨 드문 상태의 데이터가 학습에서 무시되기 때문이다'
-        - '센서 noise 때문에 드문 상태의 관측이 기록되지 않기 때문이다'
-        - '데이터가 많아지면 저장 공간이 부족해 오래된 기록부터 지워지기 때문이다'
+        - 'expert 는 애초에 그런 상태로 가지 않아서, 시연을 늘려도 expert 가 가는 상태만 더 쌓이기 때문이다'
+        - '시연이 많아지면 overfitting 이 생겨, 드문 상태의 데이터가 흔한 상태에 묻혀 학습 도중 버려지기 때문이다'
+        - '센서 noise 가 커서 드문 상태의 관측이 흔한 상태의 관측으로 잘못 기록되기 때문이다'
+        - '데이터가 많아지면 저장 공간이 모자라 드물게 나온 기록부터 먼저 지워지기 때문이다'
       answer: 0
       explanation: |
         시연은 expert 가 운전할 때 지나가는 상태의 분포 $d_{\pi^*}$ 에서만 나온다. expert 는 실수하지 않으니 policy 가 실수한 뒤 들어가는
         상태에는 거의 가지 않고, 그래서 시연을 몇 배로 늘려도 그 상태는 0 에 가깝게 남는다. overfitting 은 데이터가 어디서 오는지와
-        관계없는 학습 단계의 문제라서 그 상태의 기록이 아예 생기지 않는 이유가 되지 못한다. 센서 noise 는 값을 흔들 뿐 상태를 지우지 않는다. 저장 공간은 이 현상과 관계없다.
+        관계없는 학습 단계의 문제라서 그 상태의 기록이 아예 생기지 않는 이유가 되지 못한다. 센서 noise 는 값을 조금 흔들 뿐 상태를 다른 상태로 바꾸거나 지우지 않는다. 저장 공간은 이 현상과 관계없다.
     - question: |
-        면접관: "'behavior cloning 의 compounding error 는 시연을 충분히 많이 모으면 사라진다' 는 주장을 어떻게 보세요?"
+        'behavior cloning 의 compounding error 는 시연을 충분히 많이 모으면 사라진다' 는 주장은 옳은가?
       choices:
-        - '옳다. 시연이 충분히 많으면 어떤 상태든 언젠가는 기록된다'
-        - '옳다. 시연이 많으면 policy 의 한 step 오차가 정확히 0 이 된다'
-        - '틀리다. 시연을 늘리면 expert 가 가는 상태의 데이터만 늘고, policy 가 실수 뒤 들어가는 상태는 계속 비어 있다'
-        - '틀리다. 시연이 많을수록 policy 가 expert 를 덜 닮게 된다'
+        - '옳다. 시연이 충분히 많으면 드문 상태도 언젠가는 기록되어 빈 곳이 모두 채워진다'
+        - '옳다. 시연이 많으면 policy 의 한 step 오차가 정확히 0 이 되어 실수가 생기지 않는다'
+        - '틀리다. 시연을 늘려도 policy 가 실수 뒤 들어가는 상태는 계속 비어 있다'
+        - '틀리다. 시연이 너무 많으면 policy 가 overfitting 되어 오히려 expert 를 덜 닮는다'
       answer: 2
       explanation: |
         compounding error 는 작은 오차가 policy 를 시연에 없던 상태로 옮기고, 그곳에서 배운 적이 없어 오차가 더 커지는 현상이다. 그런 상태는
         expert 가 가지 않는 곳이라 시연을 늘려도 채워지지 않는다. "언젠가는 기록된다" 가 틀린 것은 expert 가 가지 않는 상태가 시연을 아무리
-        늘려도 기록되지 않기 때문이다. 시연이 많아도 한 step 오차가 정확히 0 이 되지는 않는다. 시연이 많다고 policy 가 expert 를 덜 닮지도 않는다.
+        늘려도 기록되지 않기 때문이다. 시연이 많아도 한 step 오차가 정확히 0 이 되지는 않는다. 시연이 많을수록 overfitting 은 오히려 줄어서 policy 가 expert 를 덜 닮게 되지도 않는다.
     - question: |
-        면접관: "policy 가 실수한 뒤에만 들어가는 상태에 정답 데이터를 채우려면 어떻게 해야 하나요?"
+        policy 가 실수한 뒤에만 들어가는 상태에 정답 데이터를 채우려면 어떻게 해야 하는가?
       choices:
-        - 'expert 에게 더 조심해서 운전하게 하고 그 시연을 더 모은다'
-        - '그 상태에서 policy 가 낸 action 을 그대로 정답으로 저장한다'
-        - '무작위 action 으로 움직인 기록을 데이터에 더한다'
-        - '학습한 policy 가 직접 움직여 그 상태로 들어가게 하고, 지나간 상태마다 expert 에게 정답 action 을 묻는다'
+        - 'expert 에게 더 조심해서 운전하게 하고, 그 시연을 지금보다 열 배로 더 모은다'
+        - '그 상태에서 policy 가 낸 action 을 그대로 정답으로 붙여 데이터 양을 늘린다'
+        - '무작위 action 으로 로봇을 움직여 여러 상태를 두루 지나가게 하고, 그 기록을 데이터에 그대로 더한다'
+        - 'policy 가 직접 움직여 그 상태로 들어가게 하고, 지나간 상태마다 expert 에게 정답을 묻는다'
       answer: 3
       explanation: |
         그 상태로 가는 것은 실수하는 policy 쪽이므로 policy 가 직접 움직여야 그 상태가 기록되고, 정답은 expert 에게 물어 붙인다. 이것이
@@ -46,7 +46,7 @@
   title: 지나간 상태에 붙이는 expert 의 정답
   variants:
     - question: |
-        면접관: "DAgger 에서 policy 가 움직이며 지나간 상태에 저장하는 정답 action 은 무엇인가요?"
+        DAgger 에서 policy 가 움직이며 지나간 상태에 저장하는 정답 action 은 무엇인가?
       choices:
         - '그 상태에서 policy 가 실제로 실행한 action'
         - '그 상태에서 expert 가 움직였다면 냈을 action'
@@ -58,13 +58,13 @@
         policy 가 실행한 action 은 로봇을 움직이는 데만 쓰이고, 정답으로 저장하면 배울 것이 없다. 두 action 의 평균은 아무도 의도하지 않은
         값이다. 다음 step 의 action 은 다른 상태에 대한 답이라 이 상태의 정답이 아니다.
     - question: |
-        면접관: "DAgger 를 구현하면서 정답 자리에 expert 의 action 대신 policy 가 실제로 실행한 action 을 저장했습니다. 데이터 양은
-        늘었는데 무슨 일이 생길까요?"
+        DAgger 를 구현하면서 정답 자리에 expert 의 action 대신 policy 가 실제로 실행한 action 을 저장했다. 데이터 양은
+        늘었는데 어떤 일이 생길까?
       choices:
-        - '데이터가 많아져 rollout 이 조금씩 좋아진다'
-        - '정답이 policy 의 출력과 일치해 DAgger 보다 빨리 좋아진다'
-        - '이전에 배운 다른 상태의 정답을 잊어 크게 나빠진다'
-        - 'policy 가 자기가 이미 내던 값을 다시 배울 뿐이라 새로 아는 것이 없고, 같은 곳에서 계속 실패한다'
+        - '학습 데이터의 양이 늘어난 만큼 일반화가 좋아져 rollout 이 조금씩 좋아진다'
+        - '정답과 policy 출력의 차이가 처음부터 0 이라 loss 가 빨리 줄고, DAgger 보다 빨리 좋아진다'
+        - '새로 넣은 정답이 이전 정답과 충돌해서, 다른 상태에서 배운 내용까지 잊어 크게 나빠진다'
+        - '이미 내던 값을 다시 배울 뿐이라 새로 아는 것이 없고, 같은 곳에서 계속 실패한다'
       answer: 3
       explanation: |
         policy 의 action 을 정답으로 저장하면 policy 는 그 상태에서 이미 내던 값을 다시 배운다. 그 상태에서 어떻게 돌아와야 하는지 새로
@@ -72,8 +72,8 @@
         출력과 같으면 처음부터 고칠 것이 없을 뿐, 정답이 더 정확해진 것이 아니다. 기존 데이터는 그대로 남아 있어서 다른 상태의 정답을 잊지도
         않는다.
     - question: |
-        면접관: "차가 왼쪽으로 많이 밀려난 상태에서 policy 는 핸들을 오른쪽으로 2° 만 꺾었고, expert 라면 같은 상태에서 오른쪽으로 8° 를
-        꺾었을 겁니다. DAgger 가 이 상태에 저장할 정답은 무엇인가요?"
+        차가 왼쪽으로 많이 밀려난 상태에서 policy 는 핸들을 오른쪽으로 2° 만 꺾었고, expert 라면 같은 상태에서 오른쪽으로 8° 를
+        꺾었을 것이다. DAgger 가 이 상태에 저장할 정답은 무엇인가?
       choices:
         - '오른쪽 8°'
         - '오른쪽 2°'
@@ -89,11 +89,11 @@
   title: 데이터를 모아 합치는 반복
   variants:
     - question: |
-        면접관: "DAgger 의 iteration 하나를 순서대로 설명해 보세요."
+        DAgger 의 iteration 하나를 순서대로 적은 것으로 맞는 것은?
       choices:
         - 'expert 가 운전 → 지나간 상태 기록 → policy 의 action 을 정답으로 붙임 → 이번 데이터만으로 학습'
-        - 'policy 로 학습 → expert 가 운전 → 두 action 의 평균을 정답으로 붙임 → 데이터 저장'
-        - '지금의 policy 로 운전 → 지나간 상태 기록 → 각 상태에 expert 의 action 을 정답으로 붙임 → 지금까지 모은 데이터 전체로 다시 학습'
+        - '지금의 policy 로 학습 → expert 가 운전 → 두 action 의 평균을 정답으로 붙임 → 모은 데이터에 저장'
+        - '지금의 policy 로 운전 → 지나간 상태 기록 → 상태마다 expert 의 action 을 정답으로 붙임 → 모은 데이터 전체로 학습'
         - '지금의 policy 로 운전 → 실패한 순간만 기록 → expert 가 그 장면을 다시 운전 → 새 시연만으로 다시 학습'
       answer: 2
       explanation: |
@@ -101,12 +101,12 @@
         첫 보기는 expert 가 운전해서 policy 가 가는 상태가 모이지 않고, policy 의 action 을 정답으로 쓴다. 둘째 보기는 평균을 정답으로 써서
         누구의 action 도 아닌 값을 배운다. 넷째 보기는 실패한 순간 외의 지나간 상태를 버리고 이전 데이터도 버린다.
     - question: |
-        면접관: "DAgger 의 각 iteration 에서 이번에 새로 모은 데이터만으로 policy 를 다시 학습하면 어떤 문제가 생기나요?"
+        DAgger 의 각 iteration 에서 이번에 새로 모은 데이터만으로 policy 를 다시 학습하면 어떤 문제가 생기는가?
       choices:
-        - '이전 iteration 에서 받은 다른 상태의 정답을 잊어, policy 가 그 상태로 다시 밀려났을 때 대처하지 못할 수 있다'
-        - '데이터가 적어 학습이 빨리 끝나므로 문제가 없다'
-        - 'expert 의 정답이 policy 의 action 으로 바뀐다'
-        - 'policy 가 시연의 상태만 기억해 rollout 이 expert 와 똑같아진다'
+        - '이전 iteration 에서 받은 정답을 잊어, 그 상태로 다시 밀려나면 대처하지 못할 수 있다'
+        - '데이터가 적어 학습이 빨리 끝나고, 최근 상태에 집중하므로 오히려 더 빨리 좋아진다'
+        - '새 데이터에는 policy 가 운전한 상태만 있어서, 저장되는 정답이 policy 의 action 으로 바뀐다'
+        - 'policy 가 시연의 상태만 기억하게 되어, rollout 이 expert 의 시연과 똑같아진다'
       answer: 0
       explanation: |
         한 iteration 의 데이터는 그때의 policy 가 간 상태만 담는다. 그것만으로 학습하면 이전에 정답을 받았던 상태를 잊고, 다음 policy 가
@@ -114,12 +114,12 @@
         그대로다. 새 데이터만 쓴다고 정답이 policy 의 action 으로 바뀌지는 않는다. 새 데이터만 쓰면 시연까지 버리게 되므로 policy 가 시연의
         상태만 기억하게 되지도 않는다.
     - question: |
-        면접관: "DAgger 의 첫 iteration 은 아직 학습한 policy 가 없을 때 시작합니다. 첫 iteration 은 어떻게 진행하나요?"
+        DAgger 의 첫 iteration 은 아직 학습한 policy 가 없을 때 시작한다. 첫 iteration 은 어떻게 진행하는가?
       choices:
-        - '무작위 policy 로 운전해 상태를 모으고 expert 의 정답을 붙인다'
-        - 'expert 가 직접 운전하고 그 기록에 expert 자신의 action 을 붙이므로, behavior cloning 의 시연과 같다'
-        - '첫 iteration 은 학습 없이 건너뛰고 두 번째 iteration 부터 시작한다'
-        - 'expert 와 policy 가 한 step 씩 번갈아 운전한다'
+        - '무작위 policy 로 운전해 다양한 상태를 모은 뒤, 그 상태마다 expert 의 정답을 하나씩 붙인다'
+        - 'expert 가 직접 운전하고 자신의 action 을 붙이므로 behavior cloning 의 시연과 같다'
+        - '운전할 policy 가 없으니 첫 iteration 은 건너뛰고, 두 번째 iteration 부터 시작한다'
+        - 'expert 와 아직 학습하지 않은 policy 가 한 step 씩 번갈아 운전하며 상태를 모은다'
       answer: 1
       explanation: |
         첫 iteration 은 $\beta_1 = 1$ 로 expert 만 운전하므로 그 데이터는 behavior cloning 의 시연과 같고, 이것으로 학습한 policy 가 두 번째
@@ -130,13 +130,13 @@
   title: 자기가 간 상태에서 잰 오차
   variants:
     - question: |
-        면접관: "DAgger iteration 이 지나는 동안 시연에서 떼어 둔 validation set 의 loss 는 거의 그대로였는데, rollout 에서는 자꾸
-        실패하던 policy 가 끝까지 성공하게 됐습니다. 이 결과를 어떻게 해석하나요?"
+        DAgger iteration 이 지나는 동안 시연에서 떼어 둔 validation set 의 loss 는 거의 그대로였는데, rollout 에서는 자꾸
+        실패하던 policy 가 끝까지 성공하게 됐다. 이 결과는 어떻게 해석해야 하는가?
       choices:
-        - 'validation loss 가 그대로이니 DAgger 는 아무것도 고치지 못했고 성공은 우연이다'
-        - 'rollout 이 좋아졌으므로 validation loss 계산에 오류가 있다'
-        - 'validation loss 가 그대로인 것은 learning rate 가 너무 작기 때문이다'
-        - 'validation set 에는 expert 가 간 상태만 있어서, policy 가 새로 고친 낯선 상태의 오차가 validation loss 에 드러나지 않는다'
+        - 'validation loss 가 그대로이니 DAgger 는 아무것도 고치지 못했고, rollout 의 성공은 우연이다'
+        - '두 지표는 늘 함께 움직여야 하므로, rollout 이 좋아졌다면 validation loss 계산에 오류가 있다'
+        - 'learning rate 가 너무 작아 validation loss 가 내려가지 못했고, rollout 의 성공은 그와 별개다'
+        - 'validation set 은 expert 가 간 상태뿐이라, policy 가 새로 고친 낯선 상태의 오차가 드러나지 않는다'
       answer: 3
       explanation: |
         validation set 은 시연의 일부라 expert 가 간 상태에서만 오차를 잰다. 그곳은 처음부터 policy 가 잘 맞히던 곳이라 값이 변하지 않는다.
@@ -144,12 +144,12 @@
         우연으로 볼 수 없다. 두 지표는 서로 다른 상태에서 재므로 따로 움직일 수 있고, 그것만으로 계산 오류라고 볼 수 없다. learning rate 를
         바꿔도 validation set 에는 여전히 낯선 상태가 없다.
     - question: |
-        면접관: "policy 가 실제로 움직일 때의 성능을 잘 반영하도록 오차를 재려면 어떤 상태에서 재야 하나요?"
+        policy 가 실제로 움직일 때의 성능을 잘 반영하도록 오차를 재려면 어떤 상태에서 재야 하는가?
       choices:
-        - 'expert 의 시연에서 무작위로 고른 상태'
+        - 'expert 의 시연에서 무작위로 고른 상태에서, 그 상태의 expert 정답과 비교해'
         - 'policy 가 직접 움직이며 지나간 상태에서, 그 상태의 expert 정답과 비교해'
-        - '가장 자주 나오는 상태 하나'
-        - '학습에 쓴 상태 전부'
+        - '데이터에 가장 자주 나오는 상태 하나만 골라, 여러 번 재서 평균한다'
+        - '학습에 쓴 상태 전부에서 재서, 데이터가 많은 만큼 정확하게 잰다'
       answer: 1
       explanation: |
         실제로 움직일 때 policy 가 만나는 것은 자기가 데려간 상태들이므로, 그 상태에서 expert 의 정답과 비교해야 실제 성능이 드러난다. DAgger
@@ -157,12 +157,12 @@
         가장 흔한 상태 하나만 보면 policy 가 실수 뒤 들어가는 상태를 보지 못한다. 학습에 쓴 상태는 이미 맞히도록 학습한 곳이라 실력을
         과대평가한다.
     - question: |
-        면접관: "DAgger 는 distribution shift 를 어떤 방식으로 줄이나요?"
+        DAgger 는 distribution shift 를 어떤 방식으로 줄이는가?
       choices:
         - 'rollout 을 시연 범위 안으로만 제한해 실행할 때의 분포를 학습 분포에 맞춘다'
-        - 'policy 의 출력을 expert 의 출력과 같게 강제로 고정한다'
+        - 'policy 의 출력을 expert 의 출력과 같게 강제로 고정해 두 분포가 갈라지지 않게 한다'
         - '학습 데이터의 분포를 policy 가 실제로 움직일 때 만나는 상태의 분포 쪽으로 옮긴다'
-        - '입력 값을 정규화해 두 분포의 평균을 0 으로 맞춘다'
+        - '입력 값을 정규화해 expert 와 policy 가 보는 두 분포의 평균을 0 으로 맞춘다'
       answer: 2
       explanation: |
         DAgger 는 policy 들이 실제로 간 상태와 그 상태의 expert 정답을 데이터에 계속 더해서, 학습 데이터가 expert 의 분포뿐 아니라 policy 가
@@ -173,13 +173,13 @@
   title: DAgger 가 줄이지 못하는 오차
   variants:
     - question: |
-        면접관: "DAgger 의 iteration 을 여러 번 반복한 policy 가 과제를 끝까지 해내게 됐지만, 익숙한 상태에서도 매 step 조금씩은 계속 틀립니다.
-        DAgger 가 줄이는 오차와 줄이지 못하는 오차를 나눠 보세요."
+        DAgger 의 iteration 을 여러 번 반복한 policy 가 과제를 끝까지 해내게 됐지만, 익숙한 상태에서도 매 step 조금씩은 계속 틀린다.
+        DAgger 가 줄이는 오차와 줄이지 못하는 오차는 각각 무엇인가?
       choices:
-        - '낯선 상태에서 오차가 불어나는 부분을 줄이고, 익숙한 상태에서도 남는 한 step 의 오차는 그대로 둔다'
-        - '익숙한 상태의 작은 오차를 줄이고, 낯선 상태의 큰 오차는 남긴다'
-        - '모든 오차를 없애므로 남은 오차는 측정 실수다'
-        - '아무 오차도 줄이지 않고 데이터 양만 늘린다'
+        - '낯선 상태에서 오차가 불어나는 부분은 줄이지만, 익숙한 상태의 한 step 오차는 남는다'
+        - '익숙한 상태의 작은 오차는 줄이지만, 낯선 상태의 큰 오차는 데이터가 모자라 그대로 남는다'
+        - '모든 상태에 expert 의 정답을 붙이므로 오차를 모두 없애고, 남은 오차는 측정 실수다'
+        - '아무 오차도 줄이지 않고, 데이터 양이 늘어난 덕분에 과제를 끝까지 해냈을 뿐이다'
       answer: 0
       explanation: |
         DAgger 는 policy 가 실제로 가는 낯선 상태에 정답을 채워, 그곳에서 오차가 커지며 쌓이는 부분을 줄인다. 이미 아는 상태에서도 남는 작은
@@ -187,25 +187,25 @@
         없애지는 않으므로 남은 오차를 측정 실수로 볼 수 없다. DAgger 는 데이터가 놓이는 위치를 바꿔 낯선 상태의 오차를 줄이므로, 아무것도
         줄이지 않는다는 보기도 틀리다.
     - question: |
-        면접관: "DAgger 로 iteration 마다 policy 를 하나씩 얻었습니다. 실제로 쓸 policy 는 어떻게 고르나요?"
+        DAgger 로 iteration 마다 policy 를 하나씩 얻었다. 실제로 쓸 policy 는 어떻게 고르는가?
       choices:
-        - '마지막 iteration 의 policy 가 늘 가장 좋으므로 그것을 쓴다'
-        - '첫 iteration 의 policy 가 expert 와 가장 가까우므로 그것을 쓴다'
-        - 'iteration 별 policy 를 평가해 가장 좋은 것을 고른다. 이론은 그 가운데 좋은 policy 가 있다고 보장할 뿐 마지막이 가장 좋다고 보장하지 않는다'
-        - '모든 policy 의 action 을 평균해 내는 policy 를 쓴다'
+        - '데이터를 가장 많이 보고 학습했으니 마지막 iteration 의 policy 가 늘 가장 좋다'
+        - '첫 iteration 의 policy 는 expert 의 시연만 배워 expert 와 가장 가까우므로 그것을 쓴다'
+        - 'iteration 별 policy 를 평가해 가장 좋은 것을 고른다. 마지막이 가장 좋다는 보장은 없다'
+        - '모든 policy 의 action 을 평균하면 각자의 실수가 상쇄되므로, 그 평균을 내는 policy 를 쓴다'
       answer: 2
       explanation: |
         DAgger 의 이론은 iteration 별 policy 들 가운데 좋은 것이 적어도 하나 있다고 보장할 뿐이라서, 논문의 알고리즘도 마지막 줄에서
         validation 으로 가장 좋은 policy 를 돌려준다. 마지막 policy 가 가장 좋다는 보장은 없다. 첫 iteration 의 policy 는 behavior cloning 과 같아 낯선 상태에
         약하다. 여러 policy 의 action 을 평균하면 아무도 학습하지 않은 행동이 나올 수 있다.
     - question: |
-        면접관: "익숙한 상태에서도 한 step 오차가 꽤 큰 서툰 policy 에 DAgger 를 적용했더니, 실패하는 시점이 늦춰지기는 했지만 여전히
-        끝까지 가지 못합니다. 더 개선하려면 무엇이 필요할까요?"
+        익숙한 상태에서도 한 step 오차가 꽤 큰 서툰 policy 에 DAgger 를 적용했더니, 실패하는 시점이 늦춰지기는 했지만 여전히
+        끝까지 가지 못한다. 더 개선하려면 무엇이 필요한가?
       choices:
-        - 'iteration 을 계속 반복하면 한 step 의 오차도 결국 0 이 된다'
+        - 'iteration 을 계속 반복하면 정답이 쌓여 한 step 의 오차도 결국 0 이 된다'
         - '더 좋은 모델이나 더 정확한 학습으로 한 step 의 오차 자체를 줄인다'
-        - 'expert 의 시연을 같은 방식으로 더 모은다'
-        - '저장하는 정답을 policy 가 실행한 action 으로 바꾼다'
+        - 'expert 의 시연을 같은 방식으로 더 모아, 실패하는 상태의 데이터를 채운다'
+        - '저장하는 정답을 policy 가 실행한 action 으로 바꿔 데이터를 더 늘린다'
       answer: 1
       explanation: |
         DAgger 가 줄이는 것은 낯선 상태에서 오차가 불어나는 부분이고, 아는 상태에서 매 step 남는 오차는 그대로다. 그 오차가 크면 조금씩
@@ -216,8 +216,8 @@
   title: 확률 β 로 섞는 운전
   variants:
     - question: |
-        면접관: "DAgger 의 섞은 운전 $\pi_i = \beta_i\,\pi^* + (1-\beta_i)\,\hat\pi_i$ 는 무슨 뜻인가요? ($\pi^*$ 는 expert, $\hat\pi_i$ 는
-        iteration $i$ 에서 학습한 policy 다)"
+        DAgger 의 섞은 운전 $\pi_i = \beta_i\,\pi^* + (1-\beta_i)\,\hat\pi_i$ 는 무슨 뜻인가? ($\pi^*$ 는 expert, $\hat\pi_i$ 는
+        iteration $i$ 에서 학습한 policy 다)
       choices:
         - 'step 마다 확률 $\beta_i$ 로는 expert 가 운전대를 잡고, 나머지 확률로는 학습한 policy 가 운전대를 잡는다'
         - '매 step expert 의 action 과 policy 의 action 을 $\beta_i$ 비율로 가중 평균한 값을 실행한다'
@@ -229,7 +229,7 @@
         을 그대로 실행한다. 두 action 을 가중 평균한 값을 실행하는 step 은 없다. 앞뒤로 나눠 운전하는 규칙도 없고, 운전자는 step 마다 따로
         고른다. $\beta_i$ 는 learning rate 가 아니라 expert 가 운전대를 잡을 확률이다.
     - question: |
-        면접관: "$\beta = 0.5$ 로 expert 와 policy 를 섞어 데이터를 모읍니다. policy 가 운전대를 잡은 step 에서 저장하는 정답은 무엇인가요?"
+        $\beta = 0.5$ 로 expert 와 policy 를 섞어 데이터를 모은다. policy 가 운전대를 잡은 step 에서 저장하는 정답은 무엇인가?
       choices:
         - '그 step 에 policy 가 실행한 action'
         - 'expert 와 policy 의 action 을 반씩 섞은 값'
@@ -241,12 +241,12 @@
         step 은 둘이 달라서 그 차이가 policy 가 배울 내용이다. policy 의 action 을 저장하면 새로 배울 것이 없다. 반씩 섞은 값은 누구의 action
         도 아니다. policy 가 간 상태는 DAgger 가 모으려는 데이터라서 버리지 않는다.
     - question: |
-        면접관: "β schedule 로 $\beta_i = \mathbb{1}[i = 1]$ 을 많이 씁니다. 이 schedule 은 어떻게 동작하고, 왜 늘 최선은 아닐까요?"
+        β schedule 로 $\beta_i = \mathbb{1}[i = 1]$ 을 많이 쓴다. 이 schedule 은 어떻게 동작하고, 왜 늘 최선은 아닌가?
       choices:
-        - 'iteration 마다 expert 의 몫을 절반씩 줄이며, 처음부터 policy 가 운전하지 않아 데이터가 적다'
-        - 'iteration 1 만 expert 가 운전하고 그 뒤로는 policy 만 운전한다. parameter 가 필요 없지만, 서툰 초기 policy 가 쓸모없는 상태에 오래 머물면 expert 를 조금 섞는 쪽이 나을 수 있다'
-        - '모든 iteration 에서 expert 만 운전해 behavior cloning 과 같아진다'
-        - 'iteration 1 에서 policy 만 운전하고 그 뒤로는 expert 만 운전한다'
+        - 'iteration 마다 expert 의 몫을 절반씩 줄인다. 초반에 policy 가 덜 운전해서 policy 가 실제로 가는 상태가 늦게 모인다'
+        - 'iteration 1 만 expert 가 운전하고 그 뒤로는 policy 만 운전한다. 초기 policy 가 한 곳에 오래 머물면 expert 를 섞는 편이 나을 수 있다'
+        - '모든 iteration 에서 expert 만 운전한다. 그래서 behavior cloning 과 같아져 policy 가 실제로 가는 상태가 하나도 모이지 않는다'
+        - 'iteration 1 은 policy 만 운전하고 그 뒤로는 expert 만 운전한다. 처음 policy 가 서툴러 첫 데이터의 질이 나쁘다'
       answer: 1
       explanation: |
         $\mathbb{1}[i = 1]$ 은 괄호 안이 맞을 때만 1 이라 iteration 1 만 expert 가 운전하고(behavior cloning 의 시연과 같다) 그 뒤로는 policy
@@ -259,8 +259,8 @@
   title: 실수가 쌓이는 정도, T² 와 T
   variants:
     - question: |
-        면접관: "episode 길이를 $T$ 라 할 때 틀린 step 수의 상한은 behavior cloning 이 $T^2\epsilon$ 꼴이고 DAgger 가 $uT\epsilon_N$ 꼴입니다.
-        다른 값은 그대로 두고 episode 를 두 배로 늘리면 두 상한은 각각 어떻게 되나요?"
+        episode 길이를 $T$ 라 할 때 틀린 step 수의 상한은 behavior cloning 이 $T^2\epsilon$ 꼴이고 DAgger 가 $uT\epsilon_N$ 꼴이다.
+        다른 값은 그대로 두고 episode 를 두 배로 늘리면 두 상한은 각각 어떻게 되는가?
       choices:
         - '둘 다 두 배가 된다'
         - '둘 다 네 배가 된다'
@@ -272,12 +272,12 @@
         가 커진다. 둘 다 두 배라는 보기는 behavior cloning 의 $T$ 가 제곱이라는 점을 놓쳤다. 둘 다 네 배라는 보기는 DAgger 의 $T$ 가
         일차라는 점을 놓쳤다. DAgger 의 상한에도 $T$ 가 들어 있어 그대로일 수 없다.
     - question: |
-        면접관: "behavior cloning 의 상한은 $T^2$ 에, DAgger 의 상한은 $T$ 에 비례합니다. 이 차이는 근본적으로 어디서 나오나요?"
+        behavior cloning 의 상한은 $T^2$ 에, DAgger 의 상한은 $T$ 에 비례한다. 이 차이는 근본적으로 어디서 나오는가?
       choices:
-        - 'DAgger 는 더 큰 neural network 를 쓰기 때문이다'
-        - 'DAgger 는 episode 를 짧게 잘라서 학습하기 때문이다'
-        - 'behavior cloning 의 $\epsilon$ 은 expert 가 간 상태에서 잰 오차라 낯선 상태에서 커지는 오차를 담지 못하고, DAgger 의 $\epsilon_N$ 은 policy 들이 직접 간 상태에서 잰 오차이기 때문이다'
-        - 'behavior cloning 은 MSE 를 쓰고 DAgger 는 다른 loss 를 쓰기 때문이다'
+        - 'DAgger 는 iteration 마다 데이터가 늘어 더 큰 neural network 를 쓸 수 있고, 그만큼 한 번의 실수도 덜 쌓이기 때문이다'
+        - 'DAgger 는 episode 를 짧게 잘라 학습해서, 실수 한 번이 영향을 주는 뒤쪽 step 수가 줄기 때문이다'
+        - '오차를 behavior cloning 은 expert 가 간 상태에서 재고, DAgger 는 policy 들이 직접 간 상태에서 재기 때문이다'
+        - 'behavior cloning 은 MSE 를 쓰고, DAgger 는 큰 실수에 더 큰 벌점을 주는 다른 loss 를 쓰기 때문이다'
       answer: 2
       explanation: |
         behavior cloning 은 시연에서 잰 오차 $\epsilon$ 이 작아도, 한 번 틀려 낯선 상태로 들어가면 그곳에서 오차가 따로 커질 수 있다. 그래서
@@ -285,12 +285,12 @@
         값이라 낯선 상태의 오차가 이미 들어 있고, 실수 한 번의 피해 $u$ 를 곱해 $uT\epsilon_N$ 이 된다. 상한은 network 크기와 관계없다.
         DAgger 가 episode 를 짧게 자르는 장치는 없다. 두 방법 모두 같은 supervised loss 를 쓸 수 있어서 loss 종류로도 설명되지 않는다.
     - question: |
-        면접관: "'DAgger 의 상한이 $T$ 에 비례하니 DAgger policy 는 언제나 몇 번밖에 틀리지 않는다' 는 해석을 어떻게 보세요?"
+        'DAgger 의 상한이 $T$ 에 비례하니 DAgger policy 는 언제나 몇 번밖에 틀리지 않는다' 는 해석은 옳은가?
       choices:
-        - '옳다. DAgger 는 한 step 의 오차를 0 으로 만든다'
-        - '옳다. 상한은 $T$ 와 관계없는 상수다'
-        - '틀리다. DAgger 의 상한은 behavior cloning 보다 늘 크다'
-        - '틀리다. 상한의 $\epsilon_N$ 은 policy 가 간 상태에서 잰 오차라 모델이 그 상태들을 잘 못 맞히면 커지고, 실수에서 회복하기 어려운 문제라면 $u$ 도 크다'
+        - '옳다. DAgger 는 낯선 상태에도 정답을 채우므로 한 step 의 오차를 0 으로 만든다'
+        - '옳다. 상한은 $T$ 와 관계없는 상수라서 episode 가 길어져도 틀린 횟수가 늘지 않는다'
+        - '틀리다. DAgger 는 데이터가 넓게 퍼져 있어서 상한이 behavior cloning 의 상한보다 늘 크다'
+        - '틀리다. 모델이 policy 가 간 상태를 잘 못 맞히면 $\epsilon_N$ 이 크고, 회복이 어려우면 $u$ 도 크다'
       answer: 3
       explanation: |
         $uT\epsilon_N$ 의 $\epsilon_N$ 은 policy 들이 실제로 간 상태에서 잰 오차라서 모델이 그 상태들을 잘 맞히지 못하면 커진다. $u$ 는 실수 한
@@ -302,7 +302,7 @@
   title: 사람 expert 와 개입 기반 수집
   variants:
     - question: |
-        면접관: "사람을 expert 로 두고 실물 로봇에 DAgger 를 그대로 적용할 때의 어려움으로 맞지 않는 것은?"
+        사람을 expert 로 두고 실물 로봇에 DAgger 를 그대로 적용할 때의 어려움으로 맞지 않는 것은?
       choices:
         - 'policy 가 운전하는 동안 사람은 자기 답이 실행되는 모습을 보지 못한 채 정답을 말해야 해서 정답의 질이 떨어지기 쉽다'
         - '사람의 정답은 policy 의 action 과 늘 같아서 데이터에 새 정보가 없다'
@@ -314,7 +314,7 @@
         실제 어려움이다. HG-DAgger 논문은 사람이 feedback 없이 정답을 말하거나 운전 권한이 자주 바뀌면 정답의 질이 떨어진다고 지적했다.
         서툰 policy 가 실물을 움직이는 일은 위험하다. 제어 주기마다 묻다 보면 정답 수가 수만 개에 이른다.
     - question: |
-        면접관: "HG-DAgger 는 DAgger 와 무엇이 다르고, 정답은 어느 구간에서 기록하나요?"
+        HG-DAgger 는 DAgger 와 무엇이 다르고, 정답은 어느 구간에서 기록하는가?
       choices:
         - '사람이 지켜보다 위험하다고 판단할 때만 넘겨받아 안전한 곳으로 되돌리고, 사람이 운전대를 쥔 구간의 조작만 정답으로 기록한다'
         - 'step 마다 동전을 던져 사람과 policy 가 번갈아 운전하고, 모든 step 에 사람의 정답을 기록한다'
@@ -326,13 +326,13 @@
         보며 운전한 구간만 정답으로 기록한다. 그래서 정답의 질이 좋고, policy 가 데려간 위험한 상태 근처의 데이터가 모인다. 동전으로 번갈아 운전하는 것은
         $\beta$ 로 섞는 DAgger 다. 사람이 처음부터 끝까지 운전하면 behavior cloning 의 시연과 같다. policy 의 action 은 정답이 될 수 없다.
     - question: |
-        면접관: "LeRobot 의 개입 수집에서 사람이 일시정지를 누르면, 넘겨받기 전에 모터가 달린 leader 팔이 먼저 로봇 팔과 같은 자세로
-        움직여 맞춥니다. 이 단계는 왜 필요한가요?"
+        LeRobot 의 개입 수집에서 사람이 일시정지를 누르면, 넘겨받기 전에 모터가 달린 leader 팔이 먼저 로봇 팔과 같은 자세로
+        움직여 맞춘다. 이 단계는 왜 필요한가?
       choices:
-        - 'leader 팔의 모터를 calibration 하기 위해서다'
-        - '일시정지한 동안의 자세를 정답으로 기록하기 위해서다'
-        - 'teleoperation 에서는 로봇 팔이 leader 팔의 자세를 따라가므로, 넘겨받는 순간 두 팔의 자세가 달라 로봇 팔이 갑자기 크게 움직이는 일을 막기 위해서다'
-        - 'policy 에게 다시 넘길 때 처음 자세로 돌아가기 위해서다'
+        - '넘겨받을 때마다 leader 팔 모터의 각도 기준점을 다시 맞추는 calibration 이 필요해서다'
+        - '일시정지한 동안 로봇 팔의 자세를 사람의 정답 action 으로 함께 기록하기 위해서다'
+        - '로봇 팔은 leader 팔 자세를 따라가서, 자세가 다르면 넘겨받는 순간 갑자기 크게 움직이기 때문이다'
+        - 'policy 에게 다시 넘길 때 로봇 팔이 episode 를 시작한 처음 자세로 돌아가게 하기 위해서다'
       answer: 2
       explanation: |
         teleoperation 에서는 로봇 팔(follower)이 leader 팔의 자세를 따라간다. 넘겨받을 때 leader 팔이 다른 자세에 있으면 로봇 팔이 그 자세로

@@ -5,36 +5,36 @@
   title: 확률로 고르는 policy
   variants:
     - question: |
-        면접관: "policy gradient 는 Q 값이 가장 큰 action 을 고르는 argmax policy 대신 action 마다 확률을 내는 policy 를 씁니다. 왜 그런가요?"
+        policy gradient 는 Q 값이 가장 큰 action 을 고르는 argmax policy 대신 action 마다 확률을 내는 policy 를 쓴다. 그 이유는 무엇인가?
       choices:
-        - 'argmax 는 parameter 를 조금 바꾸면 선택이 계단처럼 통째로 바뀌어 gradient 가 거의 모든 곳에서 0 이고, 확률 policy 는 확률이 매끄럽게 바뀌어 gradient 로 고칠 수 있기 때문이다'
-        - 'argmax policy 는 계산이 너무 느려서 실시간 로봇에 쓸 수 없기 때문이다'
-        - '확률 policy 는 언제나 argmax policy 보다 큰 reward 를 받기 때문이다'
-        - 'argmax policy 는 action 이 두 개일 때만 쓸 수 있기 때문이다'
+        - 'argmax 는 parameter 를 조금 바꾸면 선택이 계단처럼 바뀌어 gradient 가 거의 0 이지만, 확률 policy 는 매끄럽게 바뀌기 때문이다'
+        - 'argmax 는 매 step 모든 action 의 Q 를 비교해야 해서, 로봇이 1초에 여러 번 action 을 정하기에는 계산이 너무 느리기 때문이다'
+        - '확률 policy 는 여러 action 을 섞어 고르므로, 같은 state 에서 언제나 argmax policy 보다 큰 기대 reward 를 받기 때문이다'
+        - 'argmax 는 두 action 의 Q 를 비교하는 규칙이라서, action 이 셋 이상인 문제에는 쓸 수 없기 때문이다'
       answer: 0
       explanation: |
         argmax 는 값이 문턱을 넘는 순간 고를 확률이 0 에서 1 로 뛰고 그 밖에서는 전혀 변하지 않아서, gradient 로는 parameter 를 어느 쪽으로 고칠지
         알 수 없다. softmax 같은 확률 policy 는 parameter 를 조금 바꾸면 확률도 조금 바뀌어 gradient 를 계산할 수 있다.
         계산 속도는 argmax 를 피하는 이유가 아니다. 확률 policy 가 늘 더 큰 reward 를 받는다는 보장은 없다. argmax 는 action 이 몇 개든 쓸 수 있다.
     - question: |
-        면접관: "softmax policy 로 학습할 때는 ε-greedy 같은 무작위 선택을 따로 넣지 않는 경우가 많습니다. 그래도 exploration 이 되는 이유는 무엇인가요?"
+        softmax policy 로 학습할 때는 ε-greedy 같은 무작위 선택을 따로 넣지 않는 경우가 많다. 그래도 exploration 이 되는 이유는 무엇인가?
       choices:
-        - 'reward 에 noise 를 더해 학습하기 때문이다'
-        - 'learning rate 가 작아서 policy 가 천천히 바뀌기 때문이다'
-        - 'policy 가 action 을 확률로 뽑으므로, 확률이 작은 action 도 가끔 골라 결과를 확인하기 때문이다'
-        - 'episode 마다 parameter 를 무작위 값으로 다시 초기화하기 때문이다'
+        - 'reward 에 작은 noise 를 더해 학습하므로, 같은 action 도 매번 다른 평가를 받아 여러 action 을 고르게 되기 때문이다'
+        - 'learning rate 가 작아 policy 가 천천히 바뀌므로, 그동안 여러 action 을 차례로 골라 보게 되기 때문이다'
+        - 'policy 가 action 을 확률로 뽑아서, 확률이 작은 action 도 가끔 골라 결과를 확인하기 때문이다'
+        - 'episode 마다 parameter 를 무작위 값으로 다시 초기화해서, 매번 다른 action 을 먼저 골라 보기 때문이다'
       answer: 2
       explanation: |
         stochastic policy 는 난수로 action 을 뽑아서 가장 좋아 보이는 action 만 고르지 않는다. 확률이 남아 있는 action 은 가끔 골라지므로 exploration
         이 policy 안에 들어 있다. reward 에 noise 를 더하는 것은 exploration 방법이 아니다. learning rate 는 고치는 크기를 정할 뿐 덜 확실한 action 을
         골라 보게 하지 않는다. parameter 를 다시 초기화하면 배운 것이 사라진다.
     - question: |
-        면접관: "보행 로봇 policy 처럼 관절 목표 각도가 연속된 숫자인 action 에서 argmax policy 를 쓰기 어려운 이유는 무엇인가요?"
+        보행 로봇 policy 처럼 관절 목표 각도가 연속된 숫자인 action 에서 argmax policy 를 쓰기 어려운 이유는 무엇인가?
       choices:
-        - '연속된 action 에는 reward 를 줄 수 없기 때문이다'
-        - '관절 각도는 음수가 될 수 있어서 softmax 와 맞지 않기 때문이다'
-        - '연속 action 에서는 policy 가 state 를 볼 수 없기 때문이다'
-        - '값이 끝없이 많아 모든 action 의 Q 를 계산해 가장 큰 것을 고를 수 없고, 그래서 Gaussian 처럼 action 을 뽑는 분포를 policy 로 둔다'
+        - '연속된 action 은 값이 조금만 달라도 결과가 달라서, 끝없이 많은 action 마다 reward 를 따로 정해 줄 수 없기 때문이다'
+        - '관절 각도는 음수가 될 수 있는데, softmax 로 만든 확률은 늘 양수라서 음수 각도를 나타낼 수 없기 때문이다'
+        - '연속 action 에서는 policy 가 state 를 입력으로 받지 못해서, 상황에 맞는 각도를 고를 수 없기 때문이다'
+        - '값이 끝없이 많아 모든 action 의 Q 를 비교할 수 없어서, Gaussian 처럼 action 을 뽑는 분포를 policy 로 둔다'
       answer: 3
       explanation: |
         argmax 는 모든 후보의 값을 비교해야 하는데 연속된 숫자는 후보가 끝없이 많다. 그래서 network 가 Gaussian 의 평균을 내고 그 분포에서 action 을
@@ -45,36 +45,36 @@
   title: log-derivative trick
   variants:
     - question: |
-        면접관: "policy gradient 에서 $\nabla_\theta \ln \pi_\theta(a \mid s)$ 는 무엇을 뜻하나요?"
+        policy gradient 에서 $\nabla_\theta \ln \pi_\theta(a \mid s)$ 는 무엇을 뜻하는가?
       choices:
-        - 'action a 를 골랐을 때 받을 reward 의 기댓값이다'
-        - 'action a 를 고를 확률이 올라가는 쪽으로 parameter 를 움직이는 방향이고, 그 action 의 확률이 작을수록 크기가 크다'
-        - 'action a 의 확률을 0 으로 만드는 방향이다'
-        - 'state s 의 value 를 parameter 로 미분한 값이다'
+        - 'action a 를 골랐을 때 받을 reward 의 기댓값이라서, 이 값이 클수록 a 의 확률을 크게 올린다'
+        - 'action a 를 고를 확률이 올라가는 쪽으로 parameter 를 움직이는 방향이고, 확률이 작을수록 크다'
+        - 'action a 의 확률을 0 으로 낮추는 방향이라서, reward 가 음수일 때 이 방향으로 parameter 를 움직인다'
+        - 'state s 의 value 를 parameter 로 미분한 값이라서, state 가 좋아지는 쪽을 가리킨다'
       answer: 1
       explanation: |
         log-probability 의 gradient 는 그 action 을 더 자주 고르게 하는 방향을 가리키고, 두 action softmax 에서는 $1 - \pi$ 처럼 확률이 작을수록 크다.
         reward 의 기댓값은 이 값에 곱하는 weight 이지 이 값 자체가 아니다. 확률을 0 으로 만드는 방향은 이 값의 반대쪽이다. value 의 gradient 는 critic
         을 학습할 때 쓰는 다른 값이다.
     - question: |
-        면접관: "log-derivative trick 이 policy gradient 에서 하는 일은 무엇인가요?"
+        log-derivative trick 이 policy gradient 에서 하는 일은 무엇인가?
       choices:
-        - 'loss 를 log 로 바꿔 숫자가 너무 커지지 않게 막는다'
-        - 'reward 를 log 로 바꿔 음수 reward 를 없앤다'
-        - 'learning rate 를 자동으로 정한다'
-        - '$\nabla \pi = \pi \nabla \ln \pi$ 로 gradient 안의 확률을 밖으로 꺼내, reward 기댓값의 gradient 를 policy 로 뽑은 sample 의 평균으로 추정할 수 있는 기댓값 꼴로 바꾼다'
+        - 'loss 에 log 를 씌워 숫자를 작게 만들어서, gradient 가 너무 커져 학습이 망가지는 일을 막는다'
+        - 'reward 에 log 를 씌워 큰 reward 와 작은 reward 의 차이를 줄여서, 운 좋은 sample 하나에 덜 휘둘리게 한다'
+        - 'gradient 의 크기를 보고 learning rate 를 자동으로 정해서, step 마다 알맞은 크기로 parameter 를 고친다'
+        - '$\nabla \pi = \pi \nabla \ln \pi$ 로 확률을 밖으로 꺼내, sample 평균으로 추정할 수 있는 기댓값 꼴로 바꾼다'
       answer: 3
       explanation: |
         $\nabla_\theta \pi = \pi \nabla_\theta \ln \pi$ 를 쓰면 $\nabla J = \sum_a \pi(a)\, q(a) \nabla \ln \pi(a)$ 가 되어 "확률 × 값" 의 합인 기댓값 꼴이
         된다. 그래서 action 을 뽑아 받은 reward 로 추정할 수 있다. loss 의 크기를 줄이는 장치가 아니다. reward 에는 log 를 씌우지 않는다. learning rate
         와는 관계없다.
     - question: |
-        면접관: "REINFORCE 는 environment 의 transition 확률을 모르고도 gradient 를 계산합니다. 어떻게 가능한가요?"
+        REINFORCE 는 environment 의 transition 확률을 모르고도 gradient 를 계산한다. 이것이 어떻게 가능한가?
       choices:
-        - 'trajectory 확률에 log 를 씌우면 곱이 합이 되고, transition 확률 항은 policy parameter 와 상관없어 미분하면 0 이 되므로 policy 의 log-probability 만 남는다'
-        - 'transition 확률을 neural network 로 따로 학습해 대신 쓰기 때문이다'
-        - 'environment 가 deterministic 하다고 가정하기 때문이다'
-        - 'transition 확률을 모두 1 로 두고 계산하기 때문이다'
+        - 'log 를 씌우면 곱이 합이 되고, transition 확률 항은 policy parameter 와 상관없어 미분하면 0 이 되기 때문이다'
+        - 'transition 확률을 neural network 로 따로 학습해서, 진짜 확률 대신 그 network 의 출력을 넣어 계산하기 때문이다'
+        - 'environment 가 deterministic 하다고 가정해서, 같은 action 을 하면 늘 같은 다음 state 로 간다고 보기 때문이다'
+        - 'transition 확률을 모두 1 로 두고 계산해도, 모든 trajectory 에 같은 값이 곱해져 결과가 같기 때문이다'
       answer: 0
       explanation: |
         trajectory 확률은 policy 확률과 transition 확률의 곱이고, log 를 씌우면 항마다 더해진다. transition 확률은 policy parameter 를 바꿔도 그대로라서
@@ -85,36 +85,36 @@
   title: REINFORCE 의 update
   variants:
     - question: |
-        면접관: "baseline 없는 REINFORCE 에서 reward 가 모두 0 이상이면, 평균보다 나쁜 action 을 골랐을 때 그 action 의 확률은 어떻게 되나요?"
+        baseline 없는 REINFORCE 에서 reward 가 모두 0 이상이면, 평균보다 나쁜 action 을 골랐을 때 그 action 의 확률은 어떻게 되는가?
       choices:
-        - '평균보다 나쁘므로 확률이 내려간다'
-        - '확률이 0 이 된다'
-        - 'reward 가 양수이면 확률이 오르고 0 이면 그대로라서 내려가지 않고, 좋은 action 이 더 많이 오를 뿐이다'
-        - 'reward 와 상관없이 그대로다'
+        - '평균보다 나쁜 action 은 기대보다 적은 reward 를 받았으므로, 그 action 의 확률이 내려간다'
+        - '나쁜 action 을 고른 step 의 gradient 가 그 action 의 확률을 한 번에 0 으로 만든다'
+        - 'reward 가 양수면 오르고 0 이면 그대로라서 내려가지 않고, 좋은 action 이 더 많이 오를 뿐이다'
+        - 'baseline 이 없으면 update 가 reward 의 크기를 반영하지 않아서, 그 action 의 확률은 그대로다'
       answer: 2
       explanation: |
         update 는 $\eta\, r\, \nabla \ln \pi(a)$ 라서 $r > 0$ 이면 고른 action 의 확률이 언제나 오른다. 좋은 action 이 더 큰 reward 로 더 많이 오르므로
         평균적으로는 맞는 방향이지만 한 번 한 번은 흔들린다. 확률이 내려가려면 reward 에서 baseline 을 빼 음수가 되어야 한다. 한 번의 update 로 확률이
         0 이 되지는 않는다. reward 가 update 크기를 정하므로 그대로일 수 없다.
     - question: |
-        면접관: "PyTorch 로 REINFORCE 를 구현할 때 loss 를 보통 어떻게 둡니까?"
+        PyTorch 로 REINFORCE 를 구현할 때 loss 는 보통 어떻게 두는가?
       choices:
-        - '$L = -\,r \ln \pi_\theta(a)$ 로 두고 줄인다. gradient descent 가 이 loss 를 줄이면 $\theta$ 에 $\eta\, r\, \nabla \ln \pi$ 가 더해져 REINFORCE 와 같다'
-        - '$L = r \ln \pi_\theta(a)$ 로 두고 줄인다'
-        - '$L = (r - \pi_\theta(a))^2$ 로 두고 줄인다'
-        - '$L = -\,r$ 로 두고 줄인다'
+        - '$L = -\,r \ln \pi_\theta(a)$ 로 두고 줄인다. 그러면 $\theta$ 에 $\eta\, r\, \nabla \ln \pi$ 가 더해진다'
+        - '$L = r \ln \pi_\theta(a)$ 로 두고 줄인다. reward 가 큰 action 일수록 loss 가 커서 그 action 을 세게 배운다'
+        - '$L = (r - \pi_\theta(a))^2$ 로 두고 줄인다. reward 가 큰 action 일수록 확률이 그 reward 를 따라 커진다'
+        - '$L = -\,r$ 로 두고 줄인다. 이 loss 를 줄이는 일이 곧 reward 를 키우는 일이라서 policy 가 좋아진다'
       answer: 0
       explanation: |
         optimizer 는 loss 를 줄이므로 키우려는 $r \ln \pi$ 에 마이너스를 붙인다. 고른 action 을 정답 label 로 둔 cross-entropy 에 reward 를 곱한 꼴이다.
         부호가 없는 $r \ln \pi$ 를 줄이면 좋은 action 의 확률을 내리게 된다. reward 와 확률의 오차 제곱은 policy gradient 와 관계없는 regression 이다.
         $-r$ 은 $\theta$ 와 상관없는 수라서 gradient 가 0 이다.
     - question: |
-        면접관: "REINFORCE 는 한 번 update 한 뒤 모은 sample 을 버리고 새로 모읍니다. 이유는 무엇인가요?"
+        REINFORCE 는 한 번 update 한 뒤 모은 sample 을 버리고 새로 모은다. 이유는 무엇인가?
       choices:
-        - 'GPU memory 가 부족하기 때문이다'
-        - 'gradient 식이 지금 policy 로 뽑은 action 에 대한 기댓값이라서, 바뀐 policy 에 옛 policy 의 sample 을 그대로 쓰면 action 비율이 달라 추정이 틀어지기 때문이다'
-        - '같은 sample 을 두 번 쓰면 reward 가 두 배로 계산되기 때문이다'
-        - 'sample 을 다시 쓰면 variance 가 0 이 되어 학습이 멈추기 때문이다'
+        - 'sample 을 모두 쌓아 두면 GPU memory 가 모자라서, 한 번 쓴 sample 은 바로 지워야 하기 때문이다'
+        - 'gradient 식이 지금 policy 로 뽑은 action 의 기댓값이라서, 옛 policy 의 sample 을 쓰면 추정이 틀어지기 때문이다'
+        - '같은 sample 을 두 번 쓰면 그 episode 의 reward 가 두 번 더해져서, return 이 실제보다 부풀기 때문이다'
+        - 'sample 을 다시 쓰면 gradient 의 variance 가 0 이 되어, 고칠 방향이 사라지고 학습이 멈추기 때문이다'
       answer: 1
       explanation: |
         $\nabla J = \mathbb E_{a \sim \pi_\theta}[\cdots]$ 는 지금의 $\pi_\theta$ 가 action 을 고르는 비율로 평균해야 맞다. policy 가 바뀌면 옛 데이터의
@@ -125,23 +125,23 @@
   title: reward-to-go
   variants:
     - question: |
-        면접관: "episode 에서 step t 의 log-probability gradient 에 episode 전체의 return 대신 그 뒤의 reward 만 더한 reward-to-go 를 곱하는 이유는 무엇인가요?"
+        episode 에서 step t 의 log-probability gradient 에 episode 전체의 return 대신 그 뒤의 reward 만 더한 reward-to-go 를 곱하는 이유는 무엇인가?
       choices:
-        - 'episode 전체의 return 은 계산할 수 없기 때문이다'
-        - 'reward-to-go 를 쓰면 gradient 의 기댓값이 더 커져 학습이 빨라지기 때문이다'
-        - 'discount factor 를 쓰려면 reward-to-go 가 필요하기 때문이다'
-        - 'step t 의 action 은 그 전에 받은 reward 를 바꿀 수 없어서, 지난 reward 를 빼도 기댓값은 그대로이고 상관없는 흔들림만 줄어들기 때문이다'
+        - 'episode 가 끝나도 앞쪽 step 에서는 뒤에 받을 reward 를 알 수 없어서, 전체 return 을 계산할 수 없기 때문이다'
+        - '지난 reward 를 빼면 gradient 의 기댓값이 더 커져서, 같은 sample 수로도 학습이 빨라지기 때문이다'
+        - 'discount factor 는 앞으로 받을 reward 에만 곱할 수 있어서, discount 를 쓰려면 reward-to-go 가 필요하기 때문이다'
+        - 'step t 의 action 은 그 전에 받은 reward 를 바꿀 수 없어서, 빼도 기댓값은 같고 흔들림만 줄기 때문이다'
       answer: 3
       explanation: |
         이미 받은 reward 는 step t 의 action 과 상관없는 수라서 기댓값에 기여하지 않고 variance 만 키운다. 그래서 빼도 gradient 의 기댓값은 같다.
         episode 가 끝나면 전체 return 도 계산할 수 있다. 기댓값은 커지지 않고 그대로다. discount factor 는 전체 return 에도 쓸 수 있다.
     - question: |
-        면접관: "CartPole 처럼 막대가 서 있는 동안 step 마다 reward 1 을 받는 문제에서 reward-to-go 를 weight 로 쓰면, 오래 버틴 episode 의 앞쪽 action 은 어떻게 되나요?"
+        CartPole 처럼 막대가 서 있는 동안 step 마다 reward 1 을 받는 문제에서 reward-to-go 를 weight 로 쓰면, 오래 버틴 episode 의 앞쪽 action 은 어떻게 되는가?
       choices:
-        - 'reward 가 매 step 같으니 모든 action 이 같은 weight 를 받는다'
-        - '뒤에 남은 reward 가 많아 weight 가 커서 확률이 많이 오른다'
-        - '앞쪽 action 은 weight 가 0 이라 바뀌지 않는다'
-        - '앞쪽 action 일수록 weight 가 작아 확률이 조금만 오른다'
+        - 'reward 가 매 step 같은 1 이므로, 앞쪽이든 뒤쪽이든 모든 action 이 같은 weight 를 받는다'
+        - '뒤에 남은 reward 가 많아 weight 가 커서, 그 action 들의 확률이 많이 오른다'
+        - '앞쪽 action 은 막대가 쓰러진 순간과 멀어서 weight 가 0 이 되고, 확률이 바뀌지 않는다'
+        - '앞쪽 action 은 뒤의 reward 에 discount 가 여러 번 곱해져 weight 가 작고, 확률이 조금만 오른다'
       answer: 1
       explanation: |
         reward-to-go 는 그 step 뒤에 받는 reward 의 합이라서, 오래 버틴 episode 의 앞쪽 step 일수록 더할 reward 가 많다. 그래서 그 action 들의 확률이
@@ -163,36 +163,36 @@
   title: baseline
   variants:
     - question: |
-        면접관: "REINFORCE 에서 reward 에서 baseline 을 빼면 gradient 추정은 어떻게 달라지나요?"
+        REINFORCE 에서 reward 에서 baseline 을 빼면 gradient 추정은 어떻게 달라지는가?
       choices:
-        - '기댓값은 그대로이고 variance 가 줄어든다. action 과 상관없는 baseline 은 기댓값이 0 인 항만 더하기 때문이다'
-        - '기댓값이 baseline 만큼 작아져 학습 방향이 바뀐다'
-        - 'variance 는 그대로이고 기댓값만 커진다'
-        - 'baseline 을 빼면 on-policy 가 아니어도 학습할 수 있다'
+        - '기댓값은 그대로이고 variance 가 줄어든다. action 과 상관없는 값은 기댓값이 0 인 항만 더하기 때문이다'
+        - '기댓값이 baseline 만큼 작아져서, 평균보다 조금 나은 action 의 확률도 내려가도록 학습 방향이 바뀐다'
+        - 'variance 는 그대로이고, 평균보다 나은 action 의 weight 가 커져 gradient 의 기댓값만 커진다'
+        - 'baseline 을 빼면 옛 policy 로 모은 sample 도 쓸 수 있어서, on-policy 조건 없이 학습할 수 있다'
       answer: 0
       explanation: |
         $\mathbb E_{a \sim \pi}[\nabla \ln \pi(a)] = \nabla \sum_a \pi(a) = \nabla 1 = 0$ 이라서 baseline 을 곱해 빼도 기댓값은 바뀌지 않는다. 대신 추정값이
         평균 근처로 모여 variance 가 줄어든다. 학습 방향을 정하는 기댓값은 바뀌지 않는다. 기댓값이 커지는 것이 아니라 variance 가 줄어드는 것이다. baseline
         은 sample 이 지금 policy 에서 와야 한다는 조건을 없애지 않는다.
     - question: |
-        면접관: "baseline 을 action 마다 다르게, 예를 들어 각 action 의 실제 기댓값으로 두면 어떤 문제가 생기나요?"
+        baseline 을 action 마다 다르게, 예를 들어 각 action 의 실제 기댓값으로 두면 어떤 문제가 생기는가?
       choices:
-        - 'variance 가 오히려 커질 뿐 기댓값은 그대로다'
-        - '계산량이 action 수만큼 늘어나는 문제만 있다'
-        - 'baseline 을 기댓값 밖으로 꺼낼 수 없어서 gradient 의 기댓값이 바뀌고, action 사이의 우열 정보가 지워질 수 있다'
-        - '아무 문제가 없고 오히려 이상적인 baseline 이다'
+        - 'gradient 의 기댓값은 그대로이지만, action 마다 다른 값을 빼느라 variance 가 오히려 커지는 문제가 생긴다'
+        - 'gradient 는 그대로 맞지만, baseline 을 action 수만큼 따로 계산해야 해서 계산량이 늘어난다'
+        - 'baseline 을 합 밖으로 꺼낼 수 없어 gradient 의 기댓값이 바뀌고, action 사이의 우열이 지워질 수 있다'
+        - '각 action 의 실제 기댓값을 빼면 운에서 온 흔들림만 남아서, 문제가 없는 이상적인 baseline 이 된다'
       answer: 2
       explanation: |
         baseline 이 기댓값을 바꾸지 않는 증명은 $b$ 가 모든 action 에 같아 합 밖으로 꺼낼 수 있을 때만 성립한다. action 마다 그 action 의 기댓값을 빼면
         좋은 action 과 나쁜 action 의 차이가 사라져 gradient 가 0 이 될 수 있다. 기댓값이 그대로라는 말은 이 경우 틀렸다. 문제는 계산량이 아니라
         gradient 가 틀어지는 것이다. 그래서 이상적인 baseline 이 될 수 없다.
     - question: |
-        면접관: "CartPole 처럼 reward 가 늘 양수인 문제에서 baseline 없는 REINFORCE 가 나쁜 action 쪽으로 굳어 버리는 일이 생깁니다. 이유는 무엇인가요?"
+        CartPole 처럼 reward 가 늘 양수인 문제에서 baseline 없는 REINFORCE 가 나쁜 action 쪽으로 굳어 버리는 일이 생긴다. 이유는 무엇인가?
       choices:
-        - 'reward 가 양수이면 gradient 의 기댓값이 음수가 되기 때문이다'
-        - 'reward 가 양수이면 log-probability 를 계산할 수 없기 때문이다'
-        - 'discount factor 가 1 보다 작기 때문이다'
-        - '어떤 action 을 골라도 weight 가 큰 양수라 고른 action 의 확률이 크게 오르고, 초반에 나쁜 action 을 연달아 고르면 그 action 을 더 자주 골라 같은 일이 되풀이되기 때문이다'
+        - 'reward 가 모두 양수이면 gradient 의 기댓값이 음수가 되어, 평균적으로 좋은 action 의 확률이 내려가기 때문이다'
+        - 'reward 가 양수이면 log-probability 의 부호가 뒤집혀서, 고른 action 의 확률을 엉뚱한 쪽으로 고치기 때문이다'
+        - 'discount factor 가 1 보다 작아서 뒤에 받은 reward 가 줄어들고, 좋은 action 의 효과가 묻히기 때문이다'
+        - 'weight 가 늘 큰 양수라서, 초반에 나쁜 action 을 연달아 고르면 그 확률이 올라 더 자주 골라지기 때문이다'
       answer: 3
       explanation: |
         baseline 이 없으면 weight 가 늘 큰 양수라서 고른 action 쪽으로 확률을 세게 끌어당긴다. 운이 나빠 나쁜 action 을 연달아 고르면 그 action 의
@@ -203,36 +203,36 @@
   title: advantage 와 value baseline
   variants:
     - question: |
-        면접관: "advantage $A(s, a) = Q(s, a) - V(s)$ 가 양수라는 것은 무슨 뜻인가요?"
+        advantage $A(s, a) = Q(s, a) - V(s)$ 가 양수라는 것은 무슨 뜻인가?
       choices:
-        - 'state s 의 value 가 양수라는 뜻이다'
-        - 'state s 에서 action a 를 하면 그 state 에서 policy 대로 할 때의 평균보다 return 이 크다는 뜻이고, 그래서 a 의 확률을 올린다'
-        - 'action a 의 reward 가 즉시 양수라는 뜻이다'
-        - 'policy 가 이미 최적이라는 뜻이다'
+        - 'state s 의 value 가 양수라서, 이 state 에서는 어떤 action 을 해도 이득이라는 뜻이다'
+        - 'state s 에서 a 를 하면 policy 대로 할 때의 평균보다 return 이 커서, a 의 확률을 올린다는 뜻이다'
+        - 'action a 를 하자마자 받는 reward 가 양수라서, 그 한 step 만 보면 이득이라는 뜻이다'
+        - 'policy 가 이미 최적이라서 a 보다 나은 action 이 없으므로, 이 state 에서는 더 고칠 필요가 없다는 뜻이다'
       answer: 1
       explanation: |
         $Q(s, a)$ 는 a 를 먼저 했을 때의 return 기댓값이고 $V(s)$ 는 그 state 의 평균이다. 차이가 양수이면 a 가 평균보다 나은 action 이다. value 가
         양수인지는 advantage 의 부호와 관계없다. 바로 받는 reward 가 아니라 앞으로의 return 을 비교한 값이다. 최적 policy 에서는 고르는 action 의
         advantage 가 0 이 된다.
     - question: |
-        면접관: "여러 state 를 거치는 문제에서 숫자 하나짜리 baseline 대신 state 별 value $V(s)$ 를 baseline 으로 쓰는 이유는 무엇인가요?"
+        여러 state 를 거치는 문제에서 숫자 하나짜리 baseline 대신 state 별 value $V(s)$ 를 baseline 으로 쓰는 이유는 무엇인가?
       choices:
-        - '$V(s)$ 를 쓰면 gradient 의 기댓값이 진짜 gradient 보다 커지기 때문이다'
-        - 'value 를 쓰면 policy network 가 필요 없어지기 때문이다'
-        - 'state 마다 baseline 이 다르면 on-policy 조건이 사라지기 때문이다'
-        - 'state 마다 앞으로 받을 return 이 크게 달라서, 그 state 의 평균을 빼야 이 state 에서 평균보다 얼마나 나았는지를 볼 수 있고 variance 가 줄기 때문이다'
+        - '$V(s)$ 를 쓰면 좋은 state 의 weight 가 커져서, gradient 의 기댓값이 진짜 gradient 보다 커지기 때문이다'
+        - 'value 로 state 의 좋은 정도를 알 수 있으므로, policy network 없이 value 가 큰 쪽으로 가면 되기 때문이다'
+        - 'state 마다 baseline 이 다르면 옛 policy 의 sample 도 쓸 수 있어서, on-policy 조건이 사라지기 때문이다'
+        - 'state 마다 앞으로 받을 return 이 크게 달라서, 그 state 의 평균을 빼야 variance 가 줄기 때문이다'
       answer: 3
       explanation: |
         막대가 똑바로 선 state 와 쓰러지기 직전 state 는 return 의 크기가 전혀 달라서 하나의 숫자로는 둘 다 맞출 수 없다. $V(s)$ 는 state 에 따라
         다르지만 action 과는 상관없어 기댓값을 바꾸지 않는다. 기댓값은 커지지 않고 그대로다. policy network 는 여전히 action 을 고르는 데 필요하다.
         sample 이 지금 policy 에서 와야 한다는 조건은 그대로다.
     - question: |
-        면접관: "value network $V_\phi(s)$ 는 보통 어떻게 학습하나요?"
+        value network $V_\phi(s)$ 는 보통 어떻게 학습하는가?
       choices:
-        - '실제로 받은 return(또는 한 step 뒤의 target)을 정답으로 두고, 예측과의 차이의 제곱을 줄이는 regression 으로 학습한다'
-        - 'policy 의 log-probability 를 키우는 쪽으로 학습한다'
-        - 'reward 가 가장 큰 action 을 고르도록 cross-entropy 로 학습한다'
-        - '학습하지 않고 처음 정한 값을 그대로 쓴다'
+        - '실제로 받은 return(또는 한 step 뒤의 target)을 정답으로 두고, 오차 제곱을 줄이는 regression 으로 학습한다'
+        - 'actor 와 같은 loss 를 써서, 고른 action 의 log-probability 를 키우는 쪽으로 함께 학습한다'
+        - 'state 마다 reward 가 가장 큰 action 을 정답 label 로 두고, cross-entropy 로 그 action 을 분류하도록 학습한다'
+        - '학습하지 않고, 처음에 정한 reward 의 평균을 모든 state 의 value 로 그대로 쓴다'
       answer: 0
       explanation: |
         value network 는 state 를 받아 숫자 하나를 내는 regression 모델이라서, 받은 $G_t$ 나 $r + \gamma V(s')$ 를 정답으로 MSE 를 줄인다. log-probability
@@ -243,36 +243,36 @@
   title: actor-critic 과 bias·variance
   variants:
     - question: |
-        면접관: "actor-critic 이 advantage 를 $r_{t+1} + \gamma V(s_{t+1}) - V(s_t)$ 로 추정하면 REINFORCE 의 $G_t$ 와 비교해 무엇이 달라지나요?"
+        actor-critic 이 advantage 를 $r_{t+1} + \gamma V(s_{t+1}) - V(s_t)$ 로 추정하면 REINFORCE 의 $G_t$ 와 비교해 무엇이 달라지는가?
       choices:
-        - 'bias 와 variance 가 모두 줄어든다'
-        - 'bias 와 variance 가 모두 커진다'
+        - 'reward 하나만 쓰고 나머지는 학습된 critic 이 채워서, 운도 덜 섞이고 bias 와 variance 가 모두 줄어든다'
+        - 'critic 의 추정이 매번 달라 흔들림이 더해져서, bias 와 variance 가 모두 커진다'
         - 'reward 하나와 critic 의 추정만 써서 variance 는 줄지만, critic 이 틀린 만큼 bias 가 생긴다'
-        - '차이가 없고 계산만 빨라진다'
+        - '두 값은 기댓값도 같고 흔들림도 같아서, episode 끝까지 기다리지 않는 만큼 계산만 빨라진다'
       answer: 2
       explanation: |
         $G_t$ 에는 episode 끝까지 모든 step 의 운이 섞여 variance 가 크지만 실제로 받은 reward 의 합이라 bias 가 없다. 한 step 추정은 운이 섞이는 step 이
         하나라 variance 가 작은 대신, $V(s_{t+1})$ 이 틀리면 평균해도 사라지지 않는 bias 가 생긴다. 두 값이 함께 줄어드는 공짜 개선은 아니다. variance 는
         커지지 않고 줄어든다. 계산 시점만이 아니라 추정의 성질이 달라진다.
     - question: |
-        면접관: "actor-critic 이 REINFORCE 와 달리 episode 가 끝나기 전에도 매 step policy 를 고칠 수 있는 이유는 무엇인가요?"
+        actor-critic 이 REINFORCE 와 달리 episode 가 끝나기 전에도 매 step policy 를 고칠 수 있는 이유는 무엇인가?
       choices:
-        - 'advantage 를 reward 하나와 critic 이 추정한 다음 state 의 value 로 계산해서, episode 끝까지의 return 을 기다릴 필요가 없기 때문이다'
-        - 'actor-critic 은 reward 를 쓰지 않기 때문이다'
-        - 'actor-critic 은 off-policy 방법이라 옛 데이터만 쓰기 때문이다'
-        - 'critic 이 environment 의 transition 확률을 계산해 주기 때문이다'
+        - 'reward 하나와 critic 이 추정한 다음 state 의 value 로 advantage 를 계산해서, return 을 기다릴 필요가 없기 때문이다'
+        - 'actor-critic 은 reward 를 쓰지 않고 critic 이 낸 value 만으로 advantage 를 계산해서, reward 를 기다릴 필요가 없기 때문이다'
+        - 'actor-critic 은 off-policy 방법이라서, 지난 episode 에서 모아 둔 데이터로 매 step 고칠 수 있기 때문이다'
+        - 'critic 이 environment 의 transition 확률을 계산하므로, 다음 state 를 미리 알 수 있기 때문이다'
       answer: 0
       explanation: |
         $G_t$ 를 구하려면 episode 가 끝나야 하지만, $r_{t+1} + \gamma V(s_{t+1})$ 은 한 step 뒤에 바로 계산된다. 이렇게 추정한 값으로 다른 추정의 정답을
         만드는 것을 bootstrap 이라고 한다. actor-critic 도 reward 를 쓴다. 기본 actor-critic 은 지금 policy 로 모은 데이터를 쓰는 on-policy 방법이다.
         critic 은 state 의 value 를 추정할 뿐 transition 확률을 내지 않는다.
     - question: |
-        면접관: "학습 초반에 critic 이 어떤 state 의 value 를 실제보다 크게 잘못 추정하면, 그 state 로 이어지는 action 에는 무슨 일이 생기나요?"
+        학습 초반에 critic 이 어떤 state 의 value 를 실제보다 크게 잘못 추정하면, 그 state 로 이어지는 action 에는 무슨 일이 생기는가?
       choices:
-        - '아무 영향이 없다. critic 의 오차는 평균하면 사라진다'
-        - 'advantage 가 실제보다 크게 계산되어 그 action 의 확률이 지나치게 오른다'
-        - 'advantage 가 실제보다 작게 계산되어 그 action 의 확률이 내려간다'
-        - 'policy 의 learning rate 가 자동으로 줄어든다'
+        - 'critic 의 오차는 state 마다 방향이 제각각이라서, 여러 번 평균하면 사라져 영향이 없다'
+        - 'advantage 가 실제보다 크게 계산되어, 그 action 의 확률이 지나치게 오른다'
+        - 'advantage 에서 그 value 를 빼므로 실제보다 작게 계산되어, 그 action 의 확률이 내려간다'
+        - 'critic 이 틀린 동안에는 policy 의 learning rate 가 자동으로 줄어, 잘못된 update 가 작아진다'
       answer: 1
       explanation: |
         advantage 의 $\gamma V(s_{t+1})$ 항이 커지므로 그 state 로 가는 action 은 매번 실제보다 높은 평가를 받는다. 운이 아니라 critic 의 값에서 온 오차라
@@ -283,12 +283,12 @@
   title: 연속 action 의 Gaussian policy
   variants:
     - question: |
-        면접관: "legged_gym·rsl_rl 의 보행 policy 에서 actor MLP 의 출력 12 개는 학습 중에 어떻게 쓰이나요?"
+        legged_gym·rsl_rl 의 보행 policy 에서 actor MLP 의 출력 12 개는 학습 중에 어떻게 쓰이는가?
       choices:
-        - '관절 12 개의 torque 를 그대로 motor 에 보낸다'
-        - '관절 12 개 각각의 action 을 고를 확률이다'
-        - '관절 12 개의 standard deviation 이다'
-        - '관절마다 Gaussian 의 평균이 되고, 따로 둔 standard deviation parameter 로 그 Gaussian 에서 action 을 뽑는다'
+        - '관절 12 개의 torque 라서, policy 가 낸 값을 그대로 motor 에 보내 다리를 움직인다'
+        - '관절 12 개 각각에 대해 그 action 을 고를 확률이라서, softmax 를 거쳐 합이 1 이 된다'
+        - '관절 12 개의 standard deviation 이라서, state 마다 exploration 의 크기를 정한다'
+        - '관절마다 Gaussian 의 평균이 되고, 따로 둔 standard deviation 으로 action 을 뽑는다'
       answer: 3
       explanation: |
         rsl_rl 의 ActorCritic 은 MLP 출력을 평균으로, 관절마다 하나씩 둔 parameter 를 standard deviation 으로 하는 Gaussian 에서 action 을 뽑는다.
@@ -296,23 +296,23 @@
         simulation 에서는 LSTM actuator network 가 계산한다. 연속 action 은 action 마다 확률을 하나씩
         적을 수 없다. standard deviation 은 출력이 아니라 state 와 상관없는 별도 parameter 다.
     - question: |
-        면접관: "Gaussian policy 에서 $\nabla_\mu \ln p(a) = (a - \mu)/\sigma^2$ 입니다. advantage 가 양수인 action 이 평균보다 컸다면 update 는 평균을 어떻게 바꾸나요?"
+        Gaussian policy 에서 $\nabla_\mu \ln p(a) = (a - \mu)/\sigma^2$ 이다. advantage 가 양수인 action 이 평균보다 컸다면 update 는 평균을 어떻게 바꾸는가?
       choices:
-        - '평균을 줄여 그 action 에서 멀어지게 한다'
+        - '평균을 줄여 그 action 에서 멀어지게 해서, 다음에는 덜 극단적인 action 을 고르게 한다'
         - '평균을 늘려 뽑힌 action 쪽으로 다가가게 한다'
-        - '평균은 그대로 두고 standard deviation 만 키운다'
-        - 'advantage 의 부호와 상관없이 평균을 0 으로 당긴다'
+        - '평균은 그대로 두고, 좋은 action 이 평균에서 멀었으므로 standard deviation 만 키운다'
+        - 'advantage 의 부호와 상관없이, 큰 action 을 막으려고 평균을 0 쪽으로 당긴다'
       answer: 1
       explanation: |
         $a > \mu$ 이면 $(a - \mu)/\sigma^2$ 가 양수이고, 양수 advantage 를 곱해 더하므로 평균이 커져 좋은 결과를 낸 action 쪽으로 움직인다. 평균을
         줄이는 것은 advantage 가 음수일 때다. 평균의 gradient 가 0 이 아니므로 평균이 그대로일 수 없다. 이 update 에는 평균을 0 으로 당기는 항이 없다.
     - question: |
-        면접관: "학습이 끝난 Gaussian 보행 policy 를 실제 로봇에서 실행할 때 action 은 보통 어떻게 정하나요?"
+        학습이 끝난 Gaussian 보행 policy 를 실제 로봇에서 실행할 때 action 은 보통 어떻게 정하는가?
       choices:
-        - '학습 때와 같은 standard deviation 으로 계속 뽑는다'
-        - 'standard deviation 을 두 배로 키워 뽑는다'
+        - '학습 때와 같은 standard deviation 으로 계속 뽑아서, 학습 때 본 동작 범위를 그대로 따른다'
+        - 'standard deviation 을 두 배로 키워 뽑아서, 실제 로봇의 낯선 상황에도 대비한다'
         - 'Gaussian 에서 뽑지 않고 network 가 낸 평균을 그대로 action 으로 쓴다'
-        - '여러 번 뽑아 가장 큰 값을 쓴다'
+        - '여러 번 뽑아 그중 가장 큰 값을 써서, 관절을 충분히 움직이게 한다'
       answer: 2
       explanation: |
         standard deviation 은 학습 중 exploration 을 위한 것이라, rsl_rl 의 act_inference 처럼 실행할 때는 평균만 쓴다. 학습 때의 noise 를 그대로 두면

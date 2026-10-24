@@ -5,12 +5,12 @@
   title: humanoid 데이터와 data pyramid
   variants:
     - question: |
-        면접관: "직접 조종한 humanoid 데이터가 수십 시간뿐일 때, GR00T N1 은 학습 데이터를 어떻게 구성했나요?"
+        직접 조종한 humanoid 데이터가 수십 시간뿐일 때, GR00T N1 은 학습 데이터를 어떻게 구성했는가?
       choices:
-        - '조종 데이터만으로 학습하고, 다른 출처의 데이터는 몸이 달라 섞지 않는다'
-        - '인터넷·사람 영상, simulation 과 생성 영상, 실물 로봇 데이터를 양과 실제 로봇의 몸에 얼마나 가까운지에 따라 층으로 나눠 한 모델로 함께 학습한다'
-        - '사람 영상만으로 pretraining 하고, 실물 로봇 데이터는 평가에만 쓴다'
-        - 'simulation 데이터만으로 학습한 뒤 domain randomization 으로 실물에 옮긴다'
+        - '조종 데이터만으로 학습한다. 다른 출처의 데이터는 몸이 달라 섞으면 오히려 성능이 떨어진다'
+        - '인터넷·사람 영상, simulation·생성 영상, 실물 데이터를 층으로 나눠 한 모델로 함께 학습한다'
+        - '사람 영상만으로 pretraining 하고, 양이 적은 실물 로봇 데이터는 성능 평가에만 아껴 쓴다'
+        - 'simulation 데이터만으로 학습한 뒤, domain randomization 으로 실물 로봇에 옮긴다'
       answer: 1
       explanation: |
         GR00T N1 은 양이 많지만 몸이 다른 인터넷·사람 영상을 바닥에, GPU 시간으로 늘릴 수 있는 simulation 과 생성 영상을 가운데에, 적지만 몸이
@@ -19,12 +19,12 @@
         사람 영상만으로는 실제 로봇의 몸에 맞는 움직임을 배우지 못하고, GR00T N1 은 실물 데이터를 pretraining 과 post-training 에 모두 쓴다.
         simulation 은 가운데 층의 일부일 뿐이고, GR00T N1 은 simulation 만으로 학습하지 않는다.
     - question: |
-        면접관: "여러 연구실의 로봇 데이터를 모아도 하나의 큰 dataset 처럼 바로 쓰기 어려운 이유는 무엇인가요?"
+        여러 연구실의 로봇 데이터를 모아도 하나의 큰 dataset 처럼 바로 쓰기 어려운 이유는 무엇인가?
       choices:
-        - '로봇 데이터는 모두 비공개라서 모을 수 없기 때문이다'
-        - '로봇 데이터에는 카메라 사진이 없고 관절 값만 있기 때문이다'
-        - '로봇마다 관절 수·센서·제어 방식이 달라 상태와 action 의 형식이 서로 맞지 않기 때문이다'
-        - '로봇 데이터의 양이 인터넷 사진보다 많아 저장할 수 없기 때문이다'
+        - '로봇 데이터는 연구실마다 비공개라서, 공개된 데이터를 모을 방법이 없기 때문이다'
+        - '로봇 데이터에는 카메라 사진이 없고 관절 값만 있어서, 장면을 알 수 없기 때문이다'
+        - '로봇마다 관절 수·센서·제어 방식이 달라 상태와 action 형식이 맞지 않기 때문이다'
+        - '로봇 데이터의 양이 인터넷 사진보다 많아서, 한 번에 저장하고 읽을 수 없기 때문이다'
       answer: 2
       explanation: |
         GR00T N1 논문은 로봇마다 몸의 구조, 센서, 관절 수, 제어 방식이 달라 데이터가 서로 이어지지 않는 상태를 "data islands" 라고 불렀다.
@@ -32,12 +32,12 @@
         로봇 데이터에는 보통 카메라 사진이 함께 기록된다.
         로봇 데이터의 양은 인터넷 사진보다 훨씬 적다.
     - question: |
-        면접관: "data pyramid 의 바닥 층인 사람의 1 인칭 영상이 로봇 학습에 주는 것과 모자란 점을 말해 보세요."
+        data pyramid 의 바닥 층인 사람의 1 인칭 영상이 로봇 학습에 주는 것과 모자란 점은 무엇인가?
       choices:
         - '물체를 잡고 옮기는 다양한 장면을 주지만, 로봇의 action 이 적혀 있지 않다'
-        - '그 로봇의 정확한 관절 값을 주지만, 영상의 화질이 낮다'
-        - 'simulation 의 정확한 물리 법칙을 주지만, 양이 적다'
-        - '주는 것은 없고, 사람과 로봇의 몸이 다르다는 문제만 있다'
+        - '그 로봇에 맞는 정확한 관절 값을 주지만, 머리에 단 카메라라서 영상의 화질이 낮다'
+        - 'simulation 처럼 정확한 물리 법칙을 따르는 기록을 주지만, 양이 적다'
+        - '주는 것은 없다. 사람과 로봇의 몸이 달라서, 섞으면 로봇의 움직임만 흐려진다'
       answer: 0
       explanation: |
         사람 영상은 양이 많고 물체를 다루는 다양한 장면을 담지만 관절 값 같은 로봇의 action 이 없어서, GR00T N1 은 latent action 을 붙여 학습한다.
@@ -49,12 +49,12 @@
   title: System 2 와 System 1
   variants:
     - question: |
-        면접관: "GR00T N1 의 System 2 와 System 1 은 각각 무엇이고, 왜 주기가 다른가요?"
+        GR00T N1 의 System 2 와 System 1 은 각각 무엇이고, 왜 주기가 다른가?
       choices:
-        - 'System 2 는 action 을 만드는 작은 network 이고 System 1 은 VLM 이라서, 작은 쪽이 느리게 계산한다'
-        - '두 부분 모두 VLM 이고, 카메라 수에 따라 주기가 달라진다'
-        - 'System 2 는 계획을 글로 쓰고 System 1 은 그 글을 관절 값으로 번역하는 규칙 기반 controller 다'
-        - 'System 2 는 사진과 지시문을 읽는 큰 VLM 이라 드물게 계산하고, System 1 은 action 덩어리를 만드는 diffusion transformer 라 자주 계산한다'
+        - 'System 2 는 action 을 만드는 작은 network 이고 System 1 은 VLM 이라서, 작은 쪽이 드물게 계산한다'
+        - '두 부분 모두 VLM 이고, 붙은 카메라 수가 달라서 1초에 계산하는 횟수가 달라진다'
+        - 'System 2 는 계획을 글로 쓰고, System 1 은 그 글을 관절 값으로 옮기는 규칙 기반 controller 다'
+        - 'System 2 는 큰 VLM 이라 드물게 계산하고, System 1 은 diffusion transformer 라 자주 계산한다'
       answer: 3
       explanation: |
         GR00T N1 의 System 2 는 Eagle-2 VLM 이고 논문에 따르면 L40 에서 10 Hz 로 계산하며, System 1 은 flow matching diffusion transformer 이고 120 Hz 로 action 을 낸다.
@@ -62,12 +62,12 @@
         System 1 은 VLM 이 아니라 diffusion transformer 다.
         System 2 는 글을 쓰지 않고 숫자 묶음 φ 를 넘기며, System 1 도 학습한 network 다.
     - question: |
-        면접관: "GR00T N1 의 System 2 와 System 1 은 따로 학습한 두 모델인가요?"
+        GR00T N1 의 System 2 와 System 1 은 따로 학습한 두 모델인가?
       choices:
-        - '아니다. 둘을 이어 함께 학습하고, action loss 의 gradient 가 VLM 쪽의 image encoder 까지 전해진다'
-        - '그렇다. VLM 을 먼저 다 학습한 뒤 diffusion transformer 만 따로 학습한다'
-        - '그렇다. 두 부분은 서로 다른 dataset 으로만 학습한다'
-        - '아니다. 두 부분이 같은 weight 를 공유하는 하나의 network 다'
+        - '아니다. 둘을 이어 함께 학습하고, action loss 의 gradient 가 image encoder 까지 전해진다'
+        - '그렇다. VLM 을 먼저 다 학습해 얼린 뒤, diffusion transformer 만 로봇 데이터로 따로 학습한다'
+        - '그렇다. VLM 은 인터넷 데이터로만, diffusion transformer 는 로봇 데이터로만 학습한다'
+        - '아니다. 두 부분이 같은 weight 를 공유하는 하나의 network 라서 따로 학습할 것이 없다'
       answer: 0
       explanation: |
         논문은 두 부분을 하나로 이어 end-to-end 로 함께 학습한다고 적었고, 공개 설정은 언어 모델의 weight 만 얼리고 image encoder 는 함께 학습한다.
@@ -75,7 +75,7 @@
         두 부분은 같은 로봇 데이터의 같은 loss 로 함께 학습한다.
         두 부분은 weight 를 공유하지 않는 서로 다른 network 이고 cross-attention 으로 이어진다.
     - question: |
-        면접관: "GR00T N1 은 VLM 언어 모델의 마지막 층 대신 12 번째 층 출력을 씁니다. 이렇게 해서 얻은 것은 무엇인가요?"
+        GR00T N1 은 VLM 언어 모델의 마지막 층 대신 12 번째 층 출력을 쓴다. 이렇게 해서 얻은 것은 무엇인가?
       choices:
         - '마지막 층의 출력은 글자로만 되어 있어서 숫자로 된 중간 층 출력이 필요했다'
         - 'diffusion transformer 의 층 수가 12 개라서 층 수를 맞추려고 그렇게 했다'
@@ -92,12 +92,12 @@
   title: cross-attention 연결
   variants:
     - question: |
-        면접관: "GR00T N1 의 diffusion transformer 는 VLM 출력을 어떻게 읽나요?"
+        GR00T N1 의 diffusion transformer 는 VLM 출력을 어떻게 읽는가?
       choices:
-        - 'VLM 이 지시문을 글로 다시 써 주면 그 글을 tokenizer 로 읽는다'
-        - 'VLM 과 action token 을 한 줄로 이어 층마다 같은 self-attention 에 넣는다'
-        - 'cross-attention 으로 읽는다. query 는 action·상태 token 에서 만들고 key·value 는 VLM 출력에서 만든다'
-        - 'VLM 출력은 쓰지 않고 로봇 상태만 보고 action 을 만든다'
+        - 'VLM 이 지시문을 글로 다시 써 주면, 그 글을 tokenizer 로 잘라 token 으로 읽는다'
+        - 'VLM 출력과 action token 을 한 줄로 이어 붙여서, 층마다 같은 self-attention 계산에 함께 넣는다'
+        - 'cross-attention 으로 읽는다. action 쪽 token 이 query 이고 VLM 출력이 key·value 다'
+        - 'VLM 출력은 쓰지 않고, 로봇의 지금 관절 상태만 보고 다음 action 덩어리를 만든다'
       answer: 2
       explanation: |
         GR00T N1 의 diffusion transformer 는 cross-attention block 과 self-attention block 을 번갈아 쌓고, cross-attention 에서 VLM 출력 φ 를 key·value 로 읽는다.
@@ -105,12 +105,12 @@
         token 을 한 줄로 이어 층마다 같은 self-attention 에 넣는 것은 π0 의 방식이다.
         VLM 출력을 쓰지 않으면 사진과 지시문을 action 에 반영할 수 없다.
     - question: |
-        면접관: "π0 처럼 VLM 과 action 부분을 같은 self-attention 층에서 만나게 하는 방식과 비교해, GR00T N1 의 cross-attention 연결에는 어떤 이점이 있나요?"
+        π0 처럼 VLM 과 action 부분을 같은 self-attention 층에서 만나게 하는 방식과 비교해, GR00T N1 의 cross-attention 연결에는 어떤 이점이 있는가?
       choices:
-        - 'VLM 출력을 읽지 않아도 되어 계산이 사라진다'
-        - 'VLM 과 action 모델의 층 수나 구조를 서로 맞출 필요가 없어, VLM 을 다른 모델로 바꿔 끼우기 쉽다'
-        - 'attention 계산 없이 MLP 만으로 VLM 출력을 읽을 수 있다'
-        - 'VLM 이 action token 을 볼 수 있어 지시문 이해가 좋아진다'
+        - 'VLM 출력을 읽는 단계가 없어져서, action 을 만들 때 VLM 계산이 통째로 사라진다'
+        - '층 수나 구조를 서로 맞출 필요가 없어서, VLM 을 다른 모델로 바꿔 끼우기 쉽다'
+        - 'attention 계산 없이 MLP 만으로 VLM 출력을 읽을 수 있어 계산이 가벼워진다'
+        - 'VLM 이 action token 을 볼 수 있게 되어, 지시문을 이해하는 성능이 좋아진다'
       answer: 1
       explanation: |
         π0 는 두 부분이 층마다 같은 attention 계산 안에서 만나므로 층 수가 같아야 한다. GR00T N1 은 VLM 출력 하나를 cross-attention 으로 읽어 두 구조를 맞출 필요가 없고, 실제로 N1.6·N1.7 은 VLM 을 바꿨다.
@@ -118,12 +118,12 @@
         cross-attention 도 attention 계산이라 MLP 만으로 읽는 것이 아니다.
         GR00T N1 의 VLM 쪽은 action token 을 볼 연결이 없다.
     - question: |
-        면접관: "GR00T N1 의 diffusion transformer 는 denoising 시각 τ 를 어디에 넣나요?"
+        GR00T N1 의 diffusion transformer 는 denoising 시각 τ 를 어디에 넣는가?
       choices:
-        - 'VLM 의 입력 문장에 τ 를 글자로 적어 넣는다'
-        - '마지막 action decoder 에만 넣는다'
-        - 'τ 는 학습할 때만 쓰고 action 을 만들 때는 넣지 않는다'
-        - 'action encoder 가 noise 섞인 action 과 함께 받고, 층마다 adaptive layer norm 의 곱하는 수와 더하는 수를 τ 로 만든다'
+        - 'VLM 의 입력 문장에 τ 를 글자로 적어 넣어, 사진·지시문과 함께 읽게 한다'
+        - '마지막 action decoder 에만 넣는다. 속도를 내보내는 마지막 층만 τ 를 알면 충분하다'
+        - 'τ 는 학습할 때 noise 를 섞는 데만 쓰고, action 을 만들 때는 넣지 않는다'
+        - 'action encoder 에 넣고, 층마다 adaptive layer norm 으로 다시 넣는다'
       answer: 3
       explanation: |
         GR00T N1 은 π0 처럼 action encoder 에 τ 를 넣고, DiT 처럼 층마다 adaptive layer norm 으로 τ 를 다시 넣어 모든 층이 noise 를 얼마나 걷어 낸 단계인지 알게 한다.
@@ -135,12 +135,12 @@
   title: 로봇별 encoder 와 decoder
   variants:
     - question: |
-        면접관: "관절 수가 다른 여러 로봇을 GR00T N1 한 모델로 학습할 때, 상태와 action 의 길이 차이는 어떻게 처리하나요?"
+        관절 수가 다른 여러 로봇을 GR00T N1 한 모델로 학습할 때, 상태와 action 의 길이 차이는 어떻게 처리하는가?
       choices:
-        - '로봇마다 작은 MLP encoder·decoder 를 따로 두어 그 로봇의 숫자를 공통 길이의 token 으로 바꾸고, 출력은 다시 그 로봇의 숫자로 되돌린다'
-        - '모든 로봇의 숫자를 평균 내어 길이 하나로 줄인다'
-        - '관절 수가 가장 적은 로봇에 맞춰 나머지 로봇의 관절을 잘라 낸다'
-        - '로봇마다 VLM 과 diffusion transformer 를 통째로 따로 학습한다'
+        - '로봇마다 작은 MLP encoder·decoder 를 따로 두어 공통 길이의 token 으로 바꾸고 되돌린다'
+        - '모든 로봇의 관절 숫자를 평균 내어, 로봇마다 같은 길이 하나로 줄여서 넣는다'
+        - '관절 수가 가장 적은 로봇에 맞춰, 나머지 로봇의 남는 관절 값은 잘라 내고 학습한다'
+        - '로봇마다 VLM 과 diffusion transformer 를 통째로 따로 두어서, 로봇별로 처음부터 학습한다'
       answer: 0
       explanation: |
         GR00T N1 은 state encoder, action encoder, action decoder 를 로봇(embodiment)마다 따로 두고, 가운데의 VLM 과 diffusion transformer 는 모든 로봇이 함께 쓴다.
@@ -148,12 +148,12 @@
         관절을 잘라 내면 그 관절을 제어할 수 없다.
         로봇마다 따로 있는 것은 입력과 출력 쪽의 작은 MLP 뿐이다.
     - question: |
-        면접관: "GR00T N1 공개 구현도 상태를 정해진 칸 수에 맞춰 0 으로 채웁니다. 그러면 π0 의 0 채우기와 무엇이 다른가요?"
+        GR00T N1 공개 구현도 상태를 정해진 칸 수에 맞춰 0 으로 채운다. 그러면 π0 의 0 채우기와 무엇이 다른가?
       choices:
-        - 'GR00T N1 은 0 대신 무작위 숫자로 채운다'
-        - '차이가 없다. 두 모델 모두 모든 로봇에 같은 weight 를 곱한다'
-        - 'GR00T N1 은 0 을 채운 칸을 diffusion transformer 가 직접 읽게 한다'
-        - 'GR00T N1 은 로봇 번호마다 따로 둔 weight 를 골라 곱해서, 같은 칸 번호의 뜻이 로봇마다 달라도 그 로봇에 맞춘 weight 가 받는다'
+        - 'GR00T N1 은 0 대신 무작위 숫자로 채워서, 채운 칸이 실제 값처럼 보이지 않게 한다'
+        - '차이가 없다. 두 모델 모두 0 을 채운 뒤 모든 로봇에 같은 weight 를 곱한다'
+        - 'GR00T N1 은 0 을 채운 칸을 encoder 없이 diffusion transformer 가 직접 읽게 한다'
+        - 'embodiment id 로 고른 로봇별 weight 를 곱해서, 같은 칸이라도 로봇마다 다르게 읽는다'
       answer: 3
       explanation: |
         GR00T N1 공개 구현은 상태를 64 칸까지 0 으로 채우고 action 을 32 칸까지 0 으로 채운 뒤 embodiment id 로 고른 weight 묶음을 곱한다. π0 는 18 칸으로 채운 숫자에 모든 로봇이 같은 weight 를 쓴다.
@@ -161,12 +161,12 @@
         weight 를 로봇마다 따로 두는 점이 두 방식의 차이다.
         0 을 채운 숫자는 로봇별 encoder 를 지나 공통 길이의 token 이 된 뒤에 diffusion transformer 에 들어간다.
     - question: |
-        면접관: "GR00T N1 에서 로봇마다 encoder 와 decoder 가 따로 있다면, 로봇마다 모델을 따로 학습하는 것과 같은가요?"
+        GR00T N1 에서 로봇마다 encoder 와 decoder 가 따로 있다면, 로봇마다 모델을 따로 학습하는 것과 같은가?
       choices:
-        - '같다. 로봇마다 parameter 가 전부 다르므로 데이터를 나눠 학습한다'
-        - '다르다. 따로 있는 것은 작은 MLP 뿐이고, parameter 대부분인 VLM 과 diffusion transformer 는 모든 로봇의 데이터로 함께 학습한다'
-        - '같다. encoder 가 다르면 diffusion transformer 도 로봇마다 복사해야 한다'
-        - '다르다. encoder 와 decoder 는 학습하지 않고 고정된 변환 행렬을 쓴다'
+        - '같다. 로봇마다 parameter 가 전부 달라서, 로봇별로 데이터를 나눠 따로 학습한다'
+        - '다르다. 따로 있는 것은 작은 MLP 뿐이고, 큰 부분은 모든 로봇의 데이터로 함께 학습한다'
+        - '같다. encoder 가 다르면 그 뒤의 diffusion transformer 도 로봇마다 복사해 둬야 한다'
+        - '다르다. encoder 와 decoder 는 학습하지 않는 고정 변환이고, 나머지만 학습한다'
       answer: 1
       explanation: |
         로봇마다 다른 부분은 입력과 출력 쪽의 작은 MLP 이고, 가운데의 큰 network 는 모든 로봇 데이터로 함께 학습해서 한 로봇에서 배운 것이 다른 로봇에 도움이 된다.
@@ -178,7 +178,7 @@
   title: flow matching 과 Euler step
   variants:
     - question: |
-        면접관: "섞은 점을 $A^\tau = \tau A + (1 - \tau)\epsilon$ 으로 두고 $\tau = 0$ 의 noise 에서 Euler step 으로 속도를 더해 가는 flow matching 에서, network 가 맞혀야 할 정답 속도는 무엇인가요? $A$ 는 시연 action 이고, $\epsilon$ 은 noise 입니다."
+        섞은 점을 $A^\tau = \tau A + (1 - \tau)\epsilon$ 으로 두고 $\tau = 0$ 의 noise 에서 Euler step 으로 속도를 더해 가는 flow matching 에서, network 가 맞혀야 할 정답 속도는 무엇인가? $A$ 는 시연 action 이고, $\epsilon$ 은 noise 다.
       choices:
         - '$\epsilon - A$'
         - '$\epsilon$'
@@ -191,7 +191,7 @@
         noise 자체를 맞히는 것은 DDPM 의 noise 예측이고 이 섞는 식의 속도가 아니다.
         시연 값 자체는 속도가 아니라 도착점이다.
     - question: |
-        면접관: "GR00T N1 은 action 덩어리를 몇 번의 Euler step 으로 만들고, step 수를 줄이면 무엇이 좋아지나요?"
+        GR00T N1 은 action 덩어리를 몇 번의 Euler step 으로 만들고, step 수를 줄이면 무엇이 좋아지는가?
       choices:
         - '4 step 이고, 덩어리 하나를 만드는 시간이 짧아진다'
         - '1,000 step 이고, step 이 많을수록 action 이 정확해진다'
@@ -204,11 +204,11 @@
         정답이 여럿으로 갈리는 장면에서는 1 step 이 평균 쪽으로 끌릴 수 있어 언제나 한 번에 닿는 것은 아니다.
         덩어리 길이(16)와 step 수(4)는 서로 다른 숫자다.
     - question: |
-        면접관: "GR00T N1 과 π0 의 action 생성 방식을 비교하면 어떤 점이 같고 어떤 점이 다른가요?"
+        GR00T N1 과 π0 의 action 생성 방식을 비교하면 어떤 점이 같고 어떤 점이 다른가?
       choices:
-        - '둘 다 action 을 token 으로 바꿔 하나씩 낸다'
-        - 'π0 는 flow matching 이고 GR00T N1 은 DDPM 의 noise 예측이다'
-        - '식은 다르지만 덩어리 길이와 step 수는 같다'
+        - '둘 다 action 을 token 으로 바꿔 언어 모델처럼 하나씩 낸다'
+        - 'π0 는 flow matching 이고 GR00T N1 은 DDPM 의 noise 예측이라, 정답으로 맞히는 값이 다르다'
+        - '식은 서로 다르지만, 덩어리 길이와 Euler step 수는 같다'
         - '둘 다 flow matching 으로 덩어리를 만들고, 덩어리 길이와 Euler step 수가 다르다'
       answer: 3
       explanation: |
@@ -221,12 +221,12 @@
   title: 덩어리 실행과 추론 시간
   variants:
     - question: |
-        면접관: "action 덩어리의 앞부분만 실행하고 다시 추론할 때, 실행하는 action 수를 너무 줄이면 어떤 문제가 생기나요? 실행하는 동안 다음 덩어리를 계산한다고 합시다."
+        action 덩어리의 앞부분만 실행하고 다시 추론할 때, 실행하는 action 수를 너무 줄이면 어떤 문제가 생기는가? 실행하는 동안 다음 덩어리를 계산한다고 하자.
       choices:
-        - '덩어리 안의 action 들이 서로 이어지지 않게 된다'
-        - '실행 시간이 추론 시간보다 짧아져, 다음 덩어리가 나올 때까지 로봇이 기다리게 된다'
-        - 'VLM 의 parameter 가 늘어난다'
-        - '제어 주기가 저절로 두 배가 된다'
+        - '덩어리 안의 action 들이 서로 이어지지 않아, 실행하는 움직임이 끊겨 보인다'
+        - '실행 시간이 추론 시간보다 짧아져, 다음 덩어리가 나올 때까지 로봇이 기다린다'
+        - '다시 추론하는 횟수만큼 VLM 의 parameter 가 늘어나 메모리가 모자라게 된다'
+        - '로봇의 제어 주기가 저절로 두 배가 되어, 모터에 명령이 너무 자주 들어간다'
       answer: 1
       explanation: |
         실행하는 action 수 × action 하나의 시간이 덩어리 하나의 추론 시간보다 짧으면 다음 덩어리가 제때 준비되지 않아 로봇이 멈춘다.
@@ -234,12 +234,12 @@
         실행 개수는 모델의 parameter 수를 바꾸지 않는다.
         제어 주기는 로봇이 정하는 값이고 실행 개수로 바뀌지 않는다.
     - question: |
-        면접관: "같은 GR00T 모델을 desktop GPU 에서 Jetson 같은 로봇 탑재 컴퓨터로 옮기면 덩어리 하나의 추론 시간이 두 배 넘게 깁니다. 실행 설정에서 먼저 확인할 것은 무엇인가요?"
+        같은 GR00T 모델을 desktop GPU 에서 Jetson 같은 로봇 탑재 컴퓨터로 옮기면 덩어리 하나의 추론 시간이 두 배 넘게 길어진다. 실행 설정에서 먼저 확인할 것은 무엇인가?
       choices:
-        - '덩어리 길이를 1 로 줄여 추론을 자주 하게 만든다'
-        - 'Euler step 수를 늘려 action 을 더 정확하게 만든다'
-        - '카메라를 더 달아 입력을 늘린다'
-        - '덩어리마다 실행하는 action 수 × action 하나의 시간이 새 추론 시간보다 긴지 확인하고, 모자라면 실행 개수를 늘린다'
+        - '덩어리 길이를 1 로 줄여, 느려진 만큼 추론을 더 자주 해서 반응을 빠르게 만든다'
+        - 'Euler step 수를 늘려서, 느려진 대신 action 을 더 정확하게 만든다'
+        - '카메라를 더 달아 입력을 늘려서, 추론 한 번에 더 많은 정보를 담는다'
+        - '실행하는 action 수 × action 하나의 시간이 새 추론 시간보다 긴지 확인한다'
       answer: 3
       explanation: |
         추론이 느려지면 실행하는 동안 다음 덩어리가 끝나지 않을 수 있으므로, 실행 시간이 추론 시간보다 긴지부터 따진다.
@@ -247,7 +247,7 @@
         step 수를 늘리면 추론 시간이 더 길어진다.
         카메라를 늘리면 VLM 이 읽을 token 이 늘어 추론이 더 느려진다.
     - question: |
-        면접관: "30 Hz 로봇에서 action 16 개짜리 덩어리 중 8 개를 실행합니다. 덩어리 하나를 만드는 데 100 ms 가 걸리고 실행하는 동안 다음 덩어리를 계산한다면, 로봇은 끊김 없이 움직일 수 있나요?"
+        30 Hz 로봇에서 action 16 개짜리 덩어리 중 8 개를 실행한다. 덩어리 하나를 만드는 데 100 ms 가 걸리고 실행하는 동안 다음 덩어리를 계산한다면, 로봇은 끊김 없이 움직일 수 있는가?
       choices:
         - '움직일 수 있다. 8 개를 실행하는 약 267 ms 가 100 ms 보다 길다'
         - '움직일 수 없다. 8 개를 실행하는 시간은 8 ms 라서 100 ms 보다 짧다'
@@ -264,12 +264,12 @@
   title: action 이 없는 영상의 학습
   variants:
     - question: |
-        면접관: "GR00T N1 은 관절 값이 적혀 있지 않은 사람 영상을 어떻게 flow matching 학습에 쓰나요?"
+        GR00T N1 은 관절 값이 적혀 있지 않은 사람 영상을 어떻게 flow matching 학습에 쓰는가?
       choices:
-        - '사람 영상의 관절 각도를 손으로 하나씩 적어 넣는다'
-        - '사람 영상은 VLM 의 사진 이해에만 쓰고 action 학습에는 쓰지 않는다'
-        - '영상의 각 장면을 그대로 action 으로 쓴다'
-        - '두 장면 사이의 움직임을 VQ-VAE encoder 로 요약한 latent action 을 정답으로 쓰고, "LAPA" 라는 몸 하나로 다룬다'
+        - '사람 영상의 관절 각도를 사람이 장면마다 하나씩 적어 넣어 정답으로 쓴다'
+        - '사람 영상은 VLM 의 사진 이해에만 쓰고, flow matching 학습에는 넣지 않는다'
+        - '영상의 다음 장면 사진을 그대로 action 정답으로 두고, 그 사진을 맞히게 한다'
+        - '두 장면 사이의 움직임을 VQ-VAE 로 요약한 latent action 을 정답으로 쓴다'
       answer: 3
       explanation: |
         latent action 은 지금 장면과 H step 뒤의 장면을 보고 둘 사이의 움직임을 숫자로 요약한 것이고, GR00T N1 은 이것을 flow matching 의 정답으로 쓰며 자기 encoder·decoder 를 따로 둔다.
@@ -277,12 +277,12 @@
         GR00T N1 은 사람 영상을 latent action 정답과 함께 action 학습에 쓴다.
         장면 자체는 사진이지 action 이 아니다.
     - question: |
-        면접관: "latent action 과 inverse dynamics model 로 붙인 pseudo-action 은 무엇이 다른가요?"
+        latent action 과 inverse dynamics model 로 붙인 pseudo-action 은 무엇이 다른가?
       choices:
-        - '둘 다 그 로봇의 관절 값 형식이고, 만드는 시간만 다르다'
-        - 'latent action 은 로봇 데이터가 있어야 학습하고, IDM 은 영상만으로 학습한다'
-        - 'latent action 은 영상만으로 학습하는 움직임 요약이고, IDM 은 장면과 action 이 함께 있는 로봇 데이터로 학습해 그 로봇의 action 형식으로 낸다'
-        - 'latent action 은 simulation 에서만 쓰고, IDM 은 사람 영상에서만 쓴다'
+        - '둘 다 그 로봇의 관절 값 형식으로 나오고, 영상 한 편에 붙이는 데 드는 시간만 다르다'
+        - 'latent action 은 로봇 데이터가 있어야 학습하고, IDM 은 영상만 있으면 학습할 수 있다'
+        - 'latent action 은 영상만으로 배우고, IDM 은 로봇 데이터로 배워 그 로봇의 action 을 낸다'
+        - 'latent action 은 simulation 영상에만 붙이고, IDM 은 사람 영상에만 붙여 action 을 만든다'
       answer: 2
       explanation: |
         latent action 은 VQ-VAE 가 영상의 두 장면만 보고 학습한 움직임 요약이라 어느 로봇의 관절 값도 아니다. IDM 은 실물 로봇 데이터의 장면-action 쌍으로 학습해 그 로봇의 action 을 맞힌다.
@@ -290,12 +290,12 @@
         둘째 보기는 두 방법에 필요한 데이터를 서로 바꿔 말했다.
         GR00T N1 은 latent action 을 사람·생성·로봇 영상에 붙이고, IDM 은 사람 손을 본 적이 없어서 사람 영상이 아니라 생성한 로봇 영상에 쓴다.
     - question: |
-        면접관: "GR00T N1 이 영상 생성 모델로 만든 neural trajectory 는 어떻게 만들고, 학습 데이터가 되려면 무엇이 더 필요한가요?"
+        GR00T N1 이 영상 생성 모델로 만든 neural trajectory 는 어떻게 만들고, 학습 데이터가 되려면 무엇이 더 필요한가?
       choices:
-        - 'simulation 의 물리 엔진으로 만들고, 그대로 action 이 함께 나온다'
-        - '조종 데이터로 fine-tuning 한 image-to-video 모델에 첫 장면과 새 지시문을 넣어 만들고, 영상에는 action 이 없어 latent action 이나 IDM pseudo-action 을 붙여야 한다'
-        - '인터넷에서 로봇 영상을 내려받아 만들고, 별도 처리 없이 쓴다'
-        - '사람이 로봇을 조종하며 찍고, 영상 생성 모델로 화질만 높인다'
+        - 'simulation 의 물리 엔진으로 만들어서, 영상과 함께 관절 action 도 그대로 기록된다'
+        - '영상 생성 모델로 만들고, action 이 없어 latent action 이나 IDM 으로 붙여야 한다'
+        - '인터넷에서 로봇 영상을 내려받아 만들고, 이미 action 이 적혀 있어 별도 처리 없이 쓴다'
+        - '사람이 로봇을 조종하며 찍은 영상을 영상 생성 모델에 넣어 화질만 높여 만든다'
       answer: 1
       explanation: |
         neural trajectory 는 GR-1 조종 데이터로 fine-tuning 한 영상 모델이 실제로 찍지 않은 지시문의 영상을 만든 것이라 action 이 없다. 그래서 multimodal LLM 으로 거른 뒤 latent action 과 IDM pseudo-action 을 붙인다.
@@ -307,7 +307,7 @@
   title: pretraining 의 효과와 post-training
   variants:
     - question: |
-        면접관: "GR00T N1 같은 pretrained 모델의 이점이 가장 크게 보이는 것은 post-training 데이터가 어떤 경우인가요?"
+        GR00T N1 같은 pretrained 모델의 이점이 가장 크게 보이는 것은 post-training 데이터가 어떤 경우인가?
       choices:
         - '작업마다 시연이 적을 때다. 처음부터 학습한 모델보다 적은 데이터로 높은 성공률을 낸다'
         - '작업마다 시연이 아주 많을 때다. 데이터가 많을수록 pretraining 의 효과가 계속 커진다'
@@ -320,7 +320,7 @@
         시연이 있을 때도 효과가 크고, 오히려 적은 시연에서 가장 뚜렷하다.
         데이터가 적을 때와 많을 때 효과의 크기가 다르다.
     - question: |
-        면접관: "오른손만 쓰는 시연으로 post-training 한 뒤, pretraining 만 마친 모델이 하던 '왼손으로 집어 오른손에 건네기' 를 못 하게 됐습니다. 왜 그런가요?"
+        오른손만 쓰는 시연으로 post-training 한 뒤, pretraining 만 마친 모델이 하던 '왼손으로 집어 오른손에 건네기' 를 못 하게 됐다. 그 이유는 무엇인가?
       choices:
         - 'post-training 이 VLM 의 언어 모델 weight 를 지워 지시문을 이해하지 못하게 됐기 때문이다'
         - '좁은 데이터로 더 학습하면 그 데이터의 행동은 매끄러워지지만, 데이터에 없는 행동은 잊을 수 있기 때문이다'
@@ -333,12 +333,12 @@
         encoder 는 로봇 하나에 하나씩이고 손마다 따로 있지 않으며, 학습 중에 삭제되지도 않는다.
         post-training 은 Euler step 수를 바꾸지 않는다.
     - question: |
-        면접관: "GR00T N1 을 GPU 한 장으로 post-training 하려 합니다. 논문의 설정을 따르면 어떤 부분을 얼려 두나요?"
+        GR00T N1 을 GPU 한 장으로 post-training 하려 한다. 논문의 설정을 따르면 어떤 부분을 얼려 두는가?
       choices:
-        - 'diffusion transformer 를 얼리고 VLM 의 언어 모델만 학습한다'
-        - '모든 부분을 학습해야 해서 GPU 한 장으로는 할 수 없다'
-        - 'VLM 의 언어 모델을 얼리고, 로봇별 encoder·decoder 와 diffusion transformer 를 학습한다. image encoder 까지 학습하면 batch size 를 크게 줄여야 한다'
-        - '로봇별 encoder·decoder 를 얼리고 나머지를 학습한다'
+        - 'diffusion transformer 를 얼리고, VLM 의 언어 모델만 지시문 데이터로 학습한다'
+        - '얼릴 수 있는 부분이 없어서 모두 학습해야 하므로, GPU 한 장으로는 할 수 없다'
+        - '언어 모델을 얼리고, 로봇별 encoder·decoder 와 diffusion transformer 를 학습한다'
+        - '로봇별 encoder·decoder 를 얼리고, VLM 전체와 diffusion transformer 를 함께 학습한다'
       answer: 2
       explanation: |
         논문에서는 pretraining 과 post-training 모두 언어 모델을 얼리고 나머지를 학습했다. A6000 한 장에서 encoder·decoder 와 diffusion transformer 만 학습하면 batch size 를 200 까지 쓸 수 있었고, image encoder 까지 학습하면 16 까지 쓸 수 있었다.
