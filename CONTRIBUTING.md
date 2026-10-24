@@ -89,6 +89,13 @@
 띄우면 `site/quiz-server.ts` 가 퀴즈 답안을 채점해 `progress/<강의>.json` 에 쌓는다. 채점은 dev server 에서만
 돌아서 `npm run build` 결과물로는 지도와 강의를 읽을 수만 있고 퀴즈는 풀 수 없다.
 
+dev server 는 시작할 때 `site/update-server.ts` 로 원본 리포를 `upstream` remote 에 받아 와(없으면 remote 를 더한다) fork 가 몇 커밋
+뒤처졌는지 확인하고, 화면이 업데이트할지 물은 뒤 `git merge upstream/main` 으로 합친다. 상태 변화는 Vite 의 WebSocket 으로 화면에
+보낸다. 원본 리포 자체에서 띄우면 확인하지 않는다.
+
+dev server 는 기본으로 localhost 에서만 받는다. 다른 기기(같은 네트워크나 Tailscale)에서 지도를 열려면 git 이 무시하는
+`site/dev-server.local.json` 에 `{ "host": true, "allowedHosts": ["내-컴퓨터-이름", ".ts.net"] }` 처럼 적는다.
+
 지도는 시작 강의를 가운데 두고, [`lessons/branches.yaml`](lessons/branches.yaml) 의 `hub`(공통 기초) 강의를 그 둘레의 동심원에
 놓는다. `hub.rings` 가 안쪽부터 동심원 하나에 놓을 강의를 정하는데, 비슷한 부류끼리 한 원에 모은다(수학·ROS 2, 좌표 변환·제어·카메라). branch 전체는 `branches` 로, 트리 두 개 이상이 쓰는 강의는 `lessons` 로 하나씩 넣고, hub 강의의 선수 강의는 같은
 원이나 그 안쪽에 있어야 한다. 강의는 원 위에서 자기가 이어지는 트리 쪽을 향하고, 같은 원 위의 선수 관계는 원을 따라 잇는다. hub
