@@ -1,5 +1,5 @@
 import { parse } from 'yaml'
-import { CONFIG } from '../config'
+import { CONFIG } from '../config.ts'
 
 // Shared by the panel (browser) and the dev server (node), so it imports nothing browser-only.
 

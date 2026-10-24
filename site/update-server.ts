@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import type { ServerResponse } from 'node:http'
 import type { Plugin, ViteDevServer } from 'vite'
-import { CONFIG } from './src/config'
+import { CONFIG } from './src/config.ts'
 
 /** Where the fork stands against the original repository, as the page shows it. */
 export type UpdateState =

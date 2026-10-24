@@ -3,9 +3,10 @@ import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import { quizServer } from './quiz-server'
-import { updateServer } from './update-server'
-import { CONFIG } from './src/config'
+// the config and the files it imports name their .ts extension, as Node's own TypeScript loading requires
+import { quizServer } from './quiz-server.ts'
+import { updateServer } from './update-server.ts'
+import { CONFIG } from './src/config.ts'
 
 const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---\r?\n?/
 

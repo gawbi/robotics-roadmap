@@ -2,8 +2,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import path from 'node:path'
 import type { Plugin } from 'vite'
-import { CONFIG } from './src/config'
-import { grade, parseBank, parseResult, type Attempt, type Pick } from './src/curriculum/quiz'
+import { CONFIG } from './src/config.ts'
+import { grade, parseBank, parseResult, type Attempt, type Pick } from './src/curriculum/quiz.ts'
 
 const LESSON_ID = /^[a-z0-9-]+$/
 
