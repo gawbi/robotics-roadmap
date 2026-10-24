@@ -1,5 +1,5 @@
 import { RefreshCw } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { UpdateState } from '../../update-server'
 import { CONFIG } from '../config'
 
@@ -21,15 +21,19 @@ export function UpdateBanner() {
     return () => import.meta.hot?.off(U.event, setState)
   }, [])
 
+  const previous = useRef<UpdateState['status'] | null>(null)
   useEffect(() => {
-    // lessons and the site changed under the page; reload so it shows them
-    if (state?.status === 'updated') window.location.reload()
+    // lessons and the site changed under the page; reload so it shows them. Only on the change itself: the server keeps
+    // saying 'updated' afterwards, and reloading on that would reload forever
+    if (state?.status === 'updated' && previous.current === 'updating') window.location.reload()
+    previous.current = state?.status ?? null
   }, [state])
 
-  if (!state || !['behind', 'updating', 'restart', 'failed'].includes(state.status)) return null
+  if (!state || !['behind', 'updating', 'install', 'failed'].includes(state.status)) return null
   if (later && state.status === 'behind') return null
 
   const merge = () => {
+    setState({ status: 'updating', behind: 'behind' in state ? state.behind : 0 })
     fetch(U.endpoint, { method: 'POST' })
       .then((r) => r.json())
       .then(setState)
@@ -53,9 +57,9 @@ export function UpdateBanner() {
         </>
       )}
       {state.status === 'updating' && <span>업데이트를 받는 중입니다…</span>}
-      {state.status === 'restart' && (
+      {state.status === 'install' && (
         <span>
-          업데이트를 받았습니다. 터미널에서 서버를 끄고 <code>npm install</code> 뒤 <code>npm run dev</code> 로 다시 실행해 주세요.
+          업데이트에 새 패키지가 들어 있습니다. 터미널에서 서버를 끄고 <code>npm install</code> 뒤 <code>npm run dev</code> 로 다시 실행해 주세요.
         </span>
       )}
       {state.status === 'failed' && (

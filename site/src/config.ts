@@ -47,7 +47,9 @@ export const CONFIG = {
     event: 'roadmap:update', // Vite WebSocket event that carries every change of state to the page
     fetchTimeoutMs: 20_000,
     gitTimeoutMs: 10_000,
-    restartFiles: ['site/package.json', 'site/package-lock.json', 'site/vite.config.ts', 'site/quiz-server.ts', 'site/update-server.ts'],
+    // Vite restarts by itself when its config or server code changes, but new or upgraded dependencies need npm install
+    packageFile: 'site/package.json', // its dependencies must be in the node_modules next to it, at the versions in lockFile
+    lockFile: 'site/package-lock.json',
   },
 
   // layered map from ELK: prerequisites above, the lessons they open below
