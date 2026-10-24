@@ -28,7 +28,7 @@
 
   <line x1="20" y1="190" x2="700" y2="190" stroke="#1e293b"/>
   <text x="20" y="218" fill="#a78bfa" font-size="14">end-to-end policy</text>
-  <text x="700" y="218" fill="#94a3b8" font-size="12" text-anchor="end">필요한 것: 시연 데이터 (보통 수십~수백 번)</text>
+  <text x="700" y="218" fill="#94a3b8" font-size="12" text-anchor="end">필요한 것: 시연 데이터</text>
   <rect x="20" y="240" width="110" height="34" rx="6" fill="#111a2e" stroke="#94a3b8"/><text x="75" y="262" fill="#e2e8f0" font-size="12" text-anchor="middle">사진</text>
   <rect x="20" y="282" width="110" height="34" rx="6" fill="#111a2e" stroke="#94a3b8"/><text x="75" y="304" fill="#e2e8f0" font-size="12" text-anchor="middle">지금 관절 각도</text>
   <line x1="132" y1="257" x2="236" y2="272" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>

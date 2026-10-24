@@ -5,19 +5,19 @@
   title: simulation step 과 상태
   variants:
     - question: |
-        physics engine 이 상태(state)로 위치뿐 아니라 속도까지 기억해야 하는 이유는?
+        면접관: "physics engine 이 상태(state)로 위치뿐 아니라 속도까지 저장해야 하는 이유는 무엇인가요?"
       choices:
         - '화면에 로봇을 그릴 때 속도가 필요하기 때문이다'
-        - '같은 위치라도 속도가 다르면 다음 step 의 위치가 달라서, 위치만으로는 다음 칸을 계산할 수 없기 때문이다'
-        - '속도는 모델 파일에 적힌 값이라 늘 함께 읽기 때문이다'
+        - '같은 위치라도 속도가 다르면 다음 step 의 위치가 달라서, 위치만으로는 다음 step 을 계산할 수 없기 때문이다'
+        - '속도는 모델 파일에 적힌 값이라 위치와 함께 읽어야 하기 때문이다'
         - '속도가 없으면 gravity 를 계산할 수 없기 때문이다'
       answer: 1
       explanation: |
-        step 계산은 지금 속도에 가속도를 더해 새 속도를 만들고, 그 새 속도로 위치를 옮긴다. 같은 높이에 있어도 멈춘 상자와 떨어지는
-        중인 상자는 다음 위치가 다르므로 속도가 상태에 꼭 들어가야 한다. 속도는 매 step 바뀌는 값이라 바뀌지 않는 모델 파일에 적혀
-        있지 않고, gravity 는 질량만으로 계산되며, 그림을 그리는 데는 위치만 있으면 된다.
+        step 계산은 지금 속도에 가속도 × timestep 을 더해 새 속도를 만들고, 그 새 속도로 위치를 옮긴다. 같은 높이에 있어도 멈춘 물체와
+        떨어지는 중인 물체는 다음 위치가 다르므로 상태에는 속도가 꼭 들어가야 한다. 속도는 매 step 바뀌는 값이라 바뀌지 않는 모델
+        파일에는 없다. gravity 는 질량만으로 계산되고, 그림을 그리는 데는 위치만 있으면 된다.
     - question: |
-        simulator 가 gravity 로 속도와 위치를 고치는 계산만 하고 접촉 계산을 빼면, 공중에서 놓은 상자는 어떻게 되나?
+        면접관: "gravity 로 속도와 위치를 고치는 계산만 하고 접촉 계산을 빼면, 공중에서 놓은 상자는 어떻게 되나요?"
       choices:
         - '바닥에 닿는 순간 멈춘다'
         - '바닥에 닿으면 튀어 오른다'
@@ -25,67 +25,67 @@
         - '바닥을 뚫고 계속 아래로 내려간다'
       answer: 3
       explanation: |
-        속도와 위치를 고치는 식에는 바닥이라는 것이 없으므로 상자는 gravity 를 따라 계속 가속하며 바닥 아래로 지나간다. 바닥에서
-        멈추거나 튀어 오르려면 두 물체가 닿았는지 검사하고 서로 미는 힘을 계산하는 접촉 계산이 있어야 한다. gravity 는 계산하고 있으니
-        제자리에 떠 있을 수도 없다.
+        속도와 위치를 고치는 식에는 바닥이 없어서 상자는 gravity 를 따라 계속 가속하며 바닥 아래로 지나간다. 바닥에서 멈추거나
+        튀어 오르려면 두 물체가 닿았는지 검사하고 서로 미는 힘을 계산하는 접촉 계산이 있어야 한다. gravity 는 계산하고 있으므로 제자리에
+        떠 있을 수도 없다.
     - question: |
-        physics engine 이 매 step forward kinematics 를 다시 계산하는 이유는?
+        면접관: "physics engine 이 매 step forward kinematics 를 다시 계산하는 이유는 무엇인가요?"
       choices:
         - '새 joint angle 에서 부품이 공간의 어디에 있는지 알아야 접촉을 검사하고 화면에 그릴 수 있기 때문이다'
         - '목표 손끝 위치에서 joint angle 을 거꾸로 구해야 하기 때문이다'
         - '모델 파일의 질량을 매 step 새로 읽어야 하기 때문이다'
-        - 'timestep 을 자동으로 정하기 위해서다'
+        - 'timestep 을 매 step 자동으로 정하기 위해서다'
       answer: 0
       explanation: |
         forward kinematics 는 joint angle 로 각 부품의 공간 위치를 구하는 계산이다. step 마다 각도가 바뀌므로 부품의 자리를 다시 구해야
-        부품끼리나 바닥과 닿았는지 검사하고 장면을 그릴 수 있다. 손끝 위치에서 joint angle 을 구하는 것은 inverse kinematics 이고, 질량과
-        timestep 은 모델 파일에 적힌 바뀌지 않는 값이다.
+        부품끼리 또는 바닥과 닿았는지 검사하고 장면을 그릴 수 있다. 손끝 위치에서 joint angle 을 구하는 것은 inverse kinematics 이고, 질량과
+        timestep 은 모델에 적힌 바뀌지 않는 값이다.
 
 - topic: multi-joint
-  title: 여러 joint 의 mass matrix 와 bias force
+  title: mass matrix 와 bias force
   variants:
     - question: |
-        두 joint 팔에서 팔꿈치를 굽히면 같은 어깨 torque 로 어깨가 더 빨리 가속한다. 그 이유는?
+        면접관: "두 joint 팔에서 팔꿈치 motor 는 아무 torque 도 내지 않는데 어깨에만 torque 를 주면 팔꿈치도 움직입니다. equation of motion 에서 이 현상을 만드는 것은 무엇인가요?"
       choices:
-        - '팔꿈치 motor 가 어깨를 함께 밀어 주기 때문이다'
-        - '팔을 굽히면 gravity torque 가 사라지기 때문이다'
-        - '손끝 쪽 질량이 어깨 축에 가까워져 어깨에 대한 inertia 가 작아지기 때문이다'
-        - '팔을 굽히면 팔 전체의 질량이 줄기 때문이다'
-      answer: 2
-      explanation: |
-        inertia 는 질량 × (축까지 거리)² 를 더한 값이라, 팔을 굽혀 손끝 질량이 어깨 축에 가까워지면 어깨의 inertia 가 작아지고 같은
-        torque 로 더 크게 가속한다. 피겨 스케이팅 선수가 팔을 몸에 붙이면 빨리 도는 것과 같다. 질량은 자세와 상관없이 그대로이고,
-        팔꿈치 motor 의 도움이나 gravity 의 사라짐과는 관계없다.
-    - question: |
-        팔꿈치 motor 가 아무 torque 도 내지 않는데 어깨에만 torque 를 주면 팔꿈치도 꺾인다. equation of motion 에서 이 현상을 담당하는 것은?
-      choices:
-        - 'mass matrix 의 대각선 밖 숫자'
         - 'mass matrix 의 대각선 숫자'
         - 'joint 의 마찰 항'
+        - 'mass matrix 의 대각선 밖 숫자'
         - 'timestep $\Delta t$'
+      answer: 2
+      explanation: |
+        mass matrix 의 대각선 칸은 joint 하나가 자기 자신을 돌리는 inertia 이고, 대각선 밖 칸은 한 joint 의 가속이 다른 joint 에 주는 영향이다.
+        대각선 밖 숫자가 0 이 아니면 두 joint 의 식이 얽혀서 어깨 torque 가 팔꿈치도 움직인다. 대각선 숫자만 있으면 joint 마다 따로 움직였을
+        것이다. 마찰은 움직임을 늦출 뿐이고, timestep 은 계산 간격이라 이 물리 현상과 관계없다.
+    - question: |
+        면접관: "두 joint 팔에서 팔꿈치를 굽히면 같은 어깨 torque 로 어깨가 더 빨리 가속합니다. 왜 그런가요?"
+      choices:
+        - '손끝 쪽 질량이 어깨 축에 가까워져 어깨가 느끼는 inertia 가 작아지기 때문이다'
+        - '팔꿈치 motor 가 어깨를 함께 밀어 주기 때문이다'
+        - '팔을 굽히면 gravity torque 가 사라지기 때문이다'
+        - '팔을 굽히면 팔 전체의 질량이 줄기 때문이다'
       answer: 0
       explanation: |
-        mass matrix 의 대각선 칸은 joint 하나가 자기 자신을 돌리는 inertia 이고, 대각선 밖 칸은 한 joint 의 가속이 다른 joint 에 주는
-        영향이다. 대각선 밖 숫자가 0 이 아니면 두 joint 의 식이 얽혀서 어깨 torque 가 팔꿈치도 움직인다. 마찰은 움직임을 늦출 뿐이고,
-        timestep 은 계산의 시간 간격이라 이 물리 현상과 관계없다.
+        inertia 는 질량 × (축까지 거리)² 를 더한 값이라서 팔을 굽혀 손끝 질량이 어깨 축에 가까워지면 어깨의 inertia 가 작아지고, 같은
+        torque 로 더 크게 가속한다. 그래서 physics engine 은 mass matrix 를 자세마다 다시 계산한다. 팔을 굽혀도 질량은 그대로이고, 이 효과는
+        팔꿈치 motor 의 도움이나 gravity 의 변화와도 관계없다.
     - question: |
-        "joint 마다 pendulum 식을 하나씩 따로 풀면 여러 joint 팔도 계산할 수 있다" 는 생각이 틀린 이유는?
+        면접관: "physics engine 이 매 step 계산하는 bias force $c(q, \dot q)$ 를 controller 의 torque 에 더하면 무엇이 좋아지나요?"
       choices:
-        - 'pendulum 식에는 gravity 항이 없기 때문이다'
-        - 'joint 가 여럿이면 gravity 가 작용하지 않기 때문이다'
-        - 'joint 가 여럿이면 torque 의 단위가 달라지기 때문이다'
-        - '돌리기 어려운 정도와 gravity torque 가 다른 joint 의 각도에 따라 바뀌고, 한 joint 의 가속이 다른 joint 에 영향을 주기 때문이다'
+        - 'P gain 을 키운 것과 같아서 처짐이 조금 줄어든다'
+        - 'simulation 의 gravity 를 꺼서 팔이 처지지 않는다'
+        - 'D 항이 0 이 되어 진동이 사라진다'
+        - 'gravity 와 속도에 따른 torque 를 미리 상쇄해서, PD 는 목표와의 차이만 고치면 되고 멈춘 뒤의 처짐이 사라진다'
       answer: 3
       explanation: |
-        여러 joint 팔에서는 mass matrix $M(q)$ 와 bias force $c(q, \dot q)$ 가 모든 joint 의 각도와 속도에 따라 바뀌고, 대각선 밖 숫자로
-        joint 들이 서로 얽힌다. 그래서 joint 를 따로 계산하면 틀린 답이 나오고, engine 은 매 step 전체 식을 함께 푼다. pendulum 식에도
-        gravity 항이 있고, joint 수와 상관없이 gravity 는 작용하며 torque 의 단위도 그대로다.
+        bias force 는 gravity torque 와 속도에서 생기는 torque 를 joint 마다 합친 값이다. 이 값을 미리 더하는 gravity compensation 을 하면
+        P 항이 gravity 를 혼자 버틸 필요가 없어 멈춘 뒤 남던 처짐이 0 이 된다. P gain 을 키우면 처짐이 줄기만 하고 0 이 되지는 않는다. gravity
+        를 끄면 실제 로봇과 맞지 않는 simulation 이 되고, bias force 를 더하는 것은 D 항과 관계없다.
 
 - topic: model-file
-  title: 모델 파일이 담는 것
+  title: MJCF 모델 파일
   variants:
     - question: |
-        forward kinematics 만 할 때는 없어도 되지만 physics simulation 에는 꼭 필요한 모델 파일 정보는?
+        면접관: "forward kinematics 만 할 때는 없어도 되지만 physics simulation 에는 꼭 필요한 모델 정보는 무엇인가요?"
       choices:
         - 'joint 의 자리와 도는 축'
         - '부품의 질량과 inertia'
@@ -97,86 +97,127 @@
         mass matrix 와 gravity torque 를 만들어야 하므로 질량과 inertia 가 필요하다. 나머지 보기는 forward kinematics 에도 이미 쓰이는
         정보다.
     - question: |
-        MJCF 모델 파일의 geom 이 하는 일로 옳은 것은?
+        면접관: "MuJoCo 에서 hinge joint 6 개짜리 팔 옆에 free joint 로 상자 하나를 두면, 위치를 적는 숫자(nq)와 속도를 적는 숫자(nv)는 몇 개인가요?"
       choices:
-        - 'joint 를 돌리는 torque 를 낸다'
-        - 'simulation 의 timestep 을 정한다'
-        - '접촉 검사에 쓰이고, 질량을 따로 적지 않으면 부피와 밀도로 질량을 정하는 데도 쓰인다'
-        - 'body 사이의 연결과 도는 축을 정한다'
+        - 'nq 12, nv 12'
+        - 'nq 12, nv 13'
+        - 'nq 13, nv 12'
+        - 'nq 7, nv 6'
       answer: 2
       explanation: |
-        geom 은 body 의 모양이라, 매 step 두 geom 이 겹쳤는지 검사해 접촉을 찾는 데 쓰이고 질량을 적지 않으면 부피 × 밀도로 질량을
-        정한다. torque 는 actuator 가 내고, 연결과 축은 body 와 joint 가 정하며, timestep 은 따로 적는 simulation 설정이다.
+        hinge 하나는 위치 1 개와 속도 1 개라 팔은 nq 와 nv 가 6 개씩이다. free joint 상자는 방향을 quaternion(숫자 4 개)으로 적어서 위치가
+        자리 3 개와 방향 4 개로 7 개이고, 속도는 옮겨 가는 속도 3 개와 각속도 3 개로 6 개다. 합치면 nq 는 6 + 7 = 13 이고 nv 는 6 + 6 = 12 다.
+        두 개수가 같다는 보기는 quaternion 을 놓쳤고, nv 가 더 많다는 보기는 둘을 뒤바꿨다. 7 과 6 은 상자 하나만 센 값이다.
     - question: |
-        질량과 길이가 같은 두 팔이 있다. 하나는 질량이 끝에 몰려 있고, 하나는 길이 방향으로 고르게 퍼져 있다. 같은 torque 를 주면?
+        면접관: "MuJoCo 에서 컵 모양 mesh 를 그대로 충돌용 geom 으로 쓰면 물체가 컵 안에 들어가지 않습니다. 왜 그런가요?"
       choices:
-        - '질량과 길이가 같으니 각가속도도 같다'
-        - '고르게 퍼진 팔이 inertia 가 커서 더 천천히 가속한다'
-        - '끝에 몰린 팔은 gravity torque 가 더 작다'
-        - '끝에 몰린 팔이 inertia 가 커서 더 천천히 가속한다'
-      answer: 3
+        - 'MuJoCo 는 mesh 를 감싸는 convex hull 로 접촉을 계산해서 컵의 오목한 안쪽이 메워진 것처럼 닿기 때문이다'
+        - 'mesh geom 은 접촉 계산에 아예 쓰이지 않기 때문이다'
+        - '컵의 질량이 너무 커서 물체를 밀어내기 때문이다'
+        - 'timestep 이 너무 작아서 물체가 컵 벽을 지나가지 못하기 때문이다'
+      answer: 0
       explanation: |
-        inertia 는 질량이 축에서 멀리 있을수록 커지므로, 질량이 끝에 몰린 팔이 고르게 퍼진 팔보다 inertia 가 크고 같은 torque 에서 덜
-        가속한다. 무게중심도 끝에 몰린 팔이 축에서 멀어서 gravity torque 가 더 크다. 그래서 모델 파일에 질량이 어떻게 퍼졌는지를 실물과
-        다르게 적으면, 질량이 같아도 simulation 의 움직임이 실물과 달라진다.
+        MuJoCo 는 mesh 로 접촉을 계산할 때 안쪽으로 파인 곳이 없는 가장 작은 껍질(convex hull)로 바꾼다. 그래서 컵 안쪽이나 손가락 사이 홈처럼
+        오목한 곳은 막혀 있는 것처럼 닿고, 실제 모양대로 닿게 하려면 볼록한 조각 여러 개로 나눠 적는다. mesh 도 접촉 계산에 쓰이고, 질량은
+        닿는 모양을 바꾸지 않는다. timestep 이 작으면 오히려 접촉을 더 정확히 계산한다.
 
-- topic: contact-friction
-  title: 접촉과 마찰의 한계
+- topic: soft-contact
+  title: soft contact 와 solref
   variants:
     - question: |
-        바닥에 놓인 상자를 마찰 힘의 한계 $\mu \times (\text{normal force})$ 보다 약한 힘으로 옆에서 민다. 이때 마찰 힘은?
+        면접관: "MuJoCo 가 접촉을 soft contact 로 계산한다는 것은 무슨 뜻인가요?"
+      choices:
+        - '접촉한 물체가 고무처럼 크게 찌그러지는 모양까지 계산한다는 뜻이다'
+        - '물체끼리 조금도 겹치지 않도록 매 step 위치를 되돌린다는 뜻이다'
+        - '접촉 힘은 계산하지 않고 마찰만 계산한다는 뜻이다'
+        - '아주 조금 겹치는 penetration 을 허용하고, 겹친 깊이에 따라 커지는 힘으로 밀어낸다는 뜻이다'
+      answer: 3
+      explanation: |
+        step 단위로 끊어 계산하면 물체가 이미 조금 겹친 뒤에야 닿았다는 것을 알게 된다. MuJoCo 는 이 작은 겹침을 허용하고 용수철과 damper
+        처럼 겹친 깊이와 속도에 따라 커지는 힘으로 밀어내서 계산을 안정적으로 만든다. body 는 휘지 않는 rigid body 로 계산하므로 찌그러지는
+        모양은 다루지 않고, 겹침을 0 으로 강제하지도 않는다. 마찰의 한계도 normal force 에서 나오므로 접촉 힘을 빼고는 마찰을 계산할 수 없다.
+    - question: |
+        면접관: "MuJoCo geom 의 solref 기본값 '0.02 1' 에서 첫 숫자 0.02 를 0.01 로 줄이면 접촉은 어떻게 바뀌나요?"
+      choices:
+        - '접촉이 더 물러져서 물체가 바닥에 더 깊이 파고든다'
+        - '겹침을 더 빨리 되돌리는 단단한 접촉이 되어 정지 침투가 줄어든다'
+        - '마찰 계수가 절반이 된다'
+        - 'simulation 의 timestep 이 0.01 초로 바뀐다'
+      answer: 1
+      explanation: |
+        solref 의 첫 숫자는 겹침을 얼마나 빨리 되돌리려 하는지를 나타내는 time constant 이고 둘째 숫자는 damping ratio 다. time constant 가
+        작을수록 단단한 접촉이 되어 침투가 줄고, 클수록 무른 접촉이 된다. 마찰 계수는 friction 속성이 정하고, timestep 은 option 의 별도
+        설정이다.
+    - question: |
+        면접관: "MuJoCo 에서 기본 solref 로 1 kg 상자와 10 g 상자를 바닥에 놓으면 정지 침투는 어떻게 되나요?"
+      choices:
+        - '10 g 상자는 100 분의 1 만큼만 파고든다'
+        - '10 g 상자는 너무 가벼워 바닥에 닿지 않는다'
+        - '거의 같다. solref 의 time constant 형식은 질량에 맞춰 단단함을 정해서 같은 시간 안에 겹침을 되돌리기 때문이다'
+        - '10 g 상자는 침투가 커져 바닥을 뚫는다'
+      answer: 2
+      explanation: |
+        양수로 적는 solref 는 단단함을 N/m 로 정하지 않고 time constant 와 damping ratio 로 정하므로, 질량이 달라도 겹침을 되돌리는 시간이
+        같고 정지 침투도 질량과 거의 상관없다. 고정된 N/m 용수철이라면 침투가 질량에 비례하겠지만 MuJoCo 의 기본 형식은 그렇지 않다. 가벼운
+        물체도 gravity 로 바닥에 닿고, 같은 설정에서 침투가 커지지 않는다.
+
+- topic: friction-grasp
+  title: 마찰과 grasp
+  variants:
+    - question: |
+        면접관: "바닥에 놓인 상자를 마찰 힘의 한계 μ × (normal force) 보다 약한 힘으로 옆에서 밀면 마찰 힘은 얼마인가요?"
       choices:
         - '미는 힘과 크기가 같고 방향이 반대라서 상자는 움직이지 않는다'
-        - '늘 $\mu \times (\text{normal force})$ 다'
+        - '늘 μ × (normal force) 다'
         - '0 이다. 마찰은 미끄러질 때만 생긴다'
         - '미는 힘보다 커서 상자가 미는 쪽으로 되밀려 온다'
       answer: 0
       explanation: |
-        $\mu \times (\text{normal force})$ 는 마찰 힘이 낼 수 있는 한계이고, 미끄러지지 않는 동안의 마찰 힘은 미는 힘만큼만 생겨 서로
-        상쇄된다. 마찰 힘이 늘 한계값이라면 약하게 민 상자가 거꾸로 밀려 와야 하는데 그런 일은 없다. 미끄러지기 전에도 마찰이 없다면
-        아주 약한 힘에도 상자가 움직였을 것이다.
+        μ × (normal force) 는 마찰 힘이 낼 수 있는 한계이고, 미끄러지지 않는 동안의 마찰 힘은 미는 힘만큼만 생겨 서로 상쇄된다. 마찰 힘이
+        늘 한계값이라면 약하게 민 상자가 거꾸로 밀려 와야 하는데 그런 일은 없다. 미끄러지기 전에 마찰이 없다면 아주 약한 힘에도 상자가
+        움직였을 것이다.
     - question: |
-        gripper 의 두 손가락이 같은 힘으로 물체를 양옆에서 눌러 들고 있다. 물체가 손가락 사이로 미끄러져 떨어질 가능성이 커지는 경우는?
+        면접관: "두 손가락 gripper 가 같은 힘으로 물체를 양옆에서 눌러 들고 있습니다. 물체가 미끄러져 떨어질 가능성이 커지는 경우는 언제인가요?"
       choices:
         - '물체가 더 가벼워질 때'
-        - '손가락과 물체 사이의 마찰 계수 $\mu$ 가 작아질 때'
         - '손가락이 누르는 힘이 커질 때'
-        - '마찰 계수 $\mu$ 가 커질 때'
-      answer: 1
-      explanation: |
-        손가락이 위로 받쳐 줄 수 있는 마찰은 $\mu \times (\text{누르는 힘})$ 까지이고, 이것이 물체의 무게보다 작으면 미끄러진다. $\mu$ 가
-        작아지면 한계가 낮아져 떨어지기 쉽다. 물체가 가벼워지거나, 누르는 힘이나 $\mu$ 가 커지면 오히려 더 잘 버틴다. 그래서
-        simulation 의 $\mu$ 가 실물보다 크면 simulation 에서 되던 집기가 실물에서 실패할 수 있다.
-    - question: |
-        MuJoCo 가 접촉을 soft contact 로 계산한다는 것은 무슨 뜻인가?
-      choices:
-        - '접촉한 물체가 고무처럼 크게 찌그러지는 모양까지 계산한다는 뜻이다'
-        - '물체끼리 조금도 겹치지 않도록 매 step 위치를 되돌린다는 뜻이다'
-        - '아주 조금 겹치는 penetration 을 허용하고, 겹친 깊이에 따라 커지는 힘으로 밀어낸다는 뜻이다'
-        - '접촉 힘은 계산하지 않고 마찰만 계산한다는 뜻이다'
+        - '손가락과 물체 사이의 마찰 계수 μ 가 작아질 때'
+        - '마찰 계수 μ 가 커질 때'
       answer: 2
       explanation: |
-        step 단위로 끊어 계산하면 물체가 이미 조금 겹친 뒤에야 닿았다는 것을 알게 된다. MuJoCo 는 이 작은 겹침을 허용하고 단단한
-        용수철처럼 겹친 깊이에 따라 커지는 힘(과 damping)으로 밀어내 계산을 안정적으로 만든다. body 는 휘지 않는 rigid body 로 계산하므로
-        크게 찌그러지는 모양은 다루지 않고, 마찰의 한계도 normal force 에서 나오므로 접촉 힘을 빼고는 계산할 수 없다.
+        두 손가락이 위로 받쳐 줄 수 있는 마찰은 2 × μ × (누르는 힘) 까지이고, 이것이 물체의 무게보다 작으면 미끄러진다. μ 가 작아지면
+        한계가 낮아져 떨어지기 쉽다. 물체가 가벼워지거나, 누르는 힘이나 μ 가 커지면 오히려 더 잘 버틴다. 그래서 simulation 의 μ 가 실물보다
+        크면 simulation 에서 되던 집기가 실물에서 실패할 수 있다.
+    - question: |
+        면접관: "MuJoCo 에서 마찰 한계 안쪽으로 물체를 쥐고 있는데도 물체가 손가락 사이로 천천히 미끄러집니다. 문서가 권하는 대처는 무엇인가요?"
+      choices:
+        - 'timestep 을 크게 늘린다'
+        - '물체의 질량을 0 으로 둔다'
+        - 'condim 을 1 로 낮춰 마찰을 끈다'
+        - 'cone 을 elliptic 으로 바꾸고 impratio 를 1 보다 크게 하거나, noslip_iterations 를 켠다'
+      answer: 3
+      explanation: |
+        soft contact 는 마찰 한계 안쪽에서도 속도가 정확히 0 인 상태를 보장하지 않아 천천히 미끄러질 수 있다(slow slippage). 문서는 elliptic
+        cone 에서 impratio 를 키워 마찰을 normal force 보다 단단하게 만들거나 noslip_iterations 로 NoSlip solver 를 켜라고 권한다. timestep 을
+        늘리면 오히려 불안정해지기 쉽고, 질량을 0 으로 두는 것은 물리적으로 맞지 않는다. condim 1 은 마찰이 없는 접촉이라 더 미끄러진다.
 
 - topic: timestep-stability
   title: timestep 과 발산
   variants:
     - question: |
-        멀쩡하던 simulation 에서 timestep 만 키웠더니 물체가 갑자기 하늘로 튀어 올랐다. 가장 그럴듯한 원인은?
+        면접관: "멀쩡하던 simulation 에서 timestep 만 키웠더니 물체가 갑자기 하늘로 튀어 올랐습니다. 가장 그럴듯한 원인은 무엇인가요?"
       choices:
         - '모델 파일의 질량이 바뀌었다'
         - 'timestep 이 커지면 gravity 가 세진다'
         - '단단한 물체는 물리 법칙상 원래 튀어 오른다'
-        - '한 step 동안 힘을 고정한 채 너무 오래 밀어서, 되돌리려던 힘이 반대쪽으로 더 멀리 보내는 수치 발산이 생겼다'
+        - '한 step 동안 같은 힘으로 너무 오래 밀어 물체가 원래 자리를 지나치고, 그 자리의 더 큰 힘이 반대쪽으로 더 멀리 보내는 수치 발산이 생겼다'
       answer: 3
       explanation: |
-        step 계산은 한 step 동안 힘을 그대로 둔다. timestep 이 너무 크면 용수철 같은 접촉 힘이 물체를 원래 자리 너머로 더 멀리 보내고,
-        이것이 step 마다 커져 발산한다. 이 결과는 물리 법칙이 아니라 계산이 만든 것이다. timestep 은 질량이나 gravity 를 바꾸지 않으므로,
-        물체가 튀면 먼저 timestep 과 접촉의 단단함을 의심한다.
+        step 계산은 한 step 동안 힘을 그대로 둔다. timestep 이 너무 크면 용수철 같은 접촉 힘이 물체를 원래 자리 너머로 더 멀리 보내고, 이것이
+        step 마다 커져 발산한다. 물리 현상이 아니라 계산 방식 때문에 생기는 일이다. timestep 은 질량이나 gravity 를 바꾸지 않으므로, 물체가
+        튀면 먼저 timestep 과 접촉의 단단함을 의심한다.
     - question: |
-        semi-implicit Euler 의 안정 조건 $\Delta t < 2\sqrt{m / k}$ 로 볼 때, 더 작은 timestep 이 필요한 장면은? ($k$ 는 접촉의 단단함, $m$ 은 질량)
+        면접관: "semi-implicit Euler 로 단단함 k, 질량 m 인 용수철을 계산할 때 발산하지 않는 timestep 의 조건이 Δt < 2√(m/k) 라면, 더 작은 timestep 이 필요한 장면은 어떤 것인가요?"
       choices:
         - '접촉이 단단하고 부품이 가벼운 장면'
         - '접촉이 말랑하고 부품이 무거운 장면'
@@ -184,49 +225,50 @@
         - '어떤 장면이든 필요한 timestep 은 같다'
       answer: 0
       explanation: |
-        경계 $2\sqrt{m / k}$ 는 $k$ 가 클수록, $m$ 이 작을수록 작아진다. 그래서 단단한 접촉과 가벼운 부품이 있는 장면일수록 timestep 을
-        작게 잡아야 발산하지 않는다. 말랑하고 무거운 장면은 반대로 큰 timestep 도 견디고, 경계는 장면의 숫자에 따라 달라진다.
+        경계 2√(m/k) 는 k 가 클수록, m 이 작을수록 작아진다. 그래서 단단한 접촉과 가벼운 부품이 있는 장면일수록 timestep 을 작게 잡아야
+        발산하지 않는다. 말랑하고 무거운 장면은 반대로 큰 timestep 도 견디고, 경계는 장면의 숫자에 따라 달라진다.
     - question: |
-        timestep 을 절반으로 줄일 때 생기는 변화로 옳은 것은?
+        면접관: "MuJoCo 문서가 solref 의 time constant 를 timestep 의 2 배 이상으로 두라고 하는 이유는 무엇인가요?"
       choices:
-        - '안정성도 계산 시간도 그대로다'
-        - '발산 위험이 커지고 계산 시간은 절반이 된다'
-        - '발산 위험이 줄고 더 정확해지지만, 같은 시간을 계산하는 step 수와 계산 시간이 두 배가 된다'
-        - '계산 시간은 그대로이고 정확도만 높아진다'
-      answer: 2
+        - 'time constant 가 작으면 마찰 계수가 커지기 때문이다'
+        - 'time constant 가 timestep 에 비해 너무 작으면 접촉이 integrator 가 감당할 수 없을 만큼 단단해져 발산할 수 있기 때문이다'
+        - 'time constant 가 크면 접촉을 아예 검사하지 않기 때문이다'
+        - 'time constant 와 timestep 은 같은 값이어야 계산이 맞기 때문이다'
+      answer: 1
       explanation: |
-        timestep 이 작을수록 안정적이고 정확하지만, 같은 시간을 계산하려면 step 이 두 배 필요해 계산 시간도 두 배가 된다. 안정성과 계산
-        시간이 서로 맞바뀌는 trade-off 다. 계산 시간이 그대로인 채 정확해지거나, timestep 을 줄였는데 발산 위험이 커지는 일은 없다.
+        time constant 가 작을수록 접촉은 빨리 진동하는 단단한 용수철이 되고, 진동이 timestep 에 비해 빠르면 Δt < 2/ω 꼴의 안정 조건을 넘어
+        발산한다. 그래서 문서는 time constant 를 timestep 의 2 배 이상으로 두라고 하고 내부에서도 이를 강제한다. time constant 는 마찰 계수와
+        관계없고, 크면 접촉이 물러질 뿐 검사를 건너뛰지 않는다. 둘이 같아야 하는 것이 아니라 지켜야 할 최소 비율이 있을 뿐이다.
 
 - topic: actuator
   title: torque 제어와 position 제어
   variants:
     - question: |
-        MuJoCo 의 position actuator 에 대한 설명으로 옳은 것은?
+        면접관: "MuJoCo 의 position actuator 에 목표 각도를 명령하면 joint 는 어떻게 움직이나요?"
       choices:
         - '명령값을 넣는 순간 joint 가 그 각도로 옮겨 간다'
-        - '명령값은 목표 각도이고, engine 이 PD 식으로 torque 를 계산해 joint 가 equation of motion 을 따라 다가간다'
-        - '명령값이 곧 joint 에 걸리는 torque 다'
-        - 'gravity 를 무시하고 목표 각도로 움직인다'
+        - 'engine 이 kp × (명령값 − 각도) − kv × 각속도 로 torque 를 계산하고, joint 는 equation of motion 을 따라 가속하고 감속하며 다가간다'
+        - '명령값이 그대로 joint 에 걸리는 torque 가 된다'
+        - 'gravity 를 무시하고 목표 각도까지 일정한 속도로 움직인다'
       answer: 1
       explanation: |
-        position actuator 는 목표 각도를 받아 engine 안에서 $k_p\,(\text{명령값} - q) - k_v\,\dot q$ 로 torque 를 계산한다. joint 는 이
-        torque 로 equation of motion 을 따라 가속하고 감속하며 다가가므로 시간이 걸리고, gravity 도 그대로 받아 지나치거나 못 미칠 수
-        있다. 명령값이 곧 torque 인 것은 torque 제어(motor)다.
+        position actuator 는 목표 각도를 받아 engine 안에서 PD 식으로 torque 를 계산한다. joint 는 이 torque 로 equation of motion 을 따라
+        움직이므로 시간이 걸리고, gravity 도 그대로 받아 지나치거나 못 미칠 수 있다. 명령값이 그대로 torque 가 되는 것은 torque 제어(motor
+        actuator)이고, 순간 이동하거나 gravity 를 무시하는 actuator 는 없다.
     - question: |
-        torque 제어 actuator(MuJoCo 의 motor)로 joint 를 목표 각도에 보내려면 사용자가 해야 하는 일은?
+        면접관: "MuJoCo 의 motor actuator(torque 제어)로 joint 를 목표 각도에 보내려면 사용자가 무엇을 해야 하나요?"
       choices:
         - '목표 각도만 넣으면 engine 이 나머지를 한다'
-        - '모델 파일에 gain $k_p$, $k_v$ 를 적어 두기만 하면 된다'
+        - '모델 파일에 kp, kv 를 적어 두기만 하면 된다'
         - 'timestep 을 controller 주기와 같게 맞추기만 하면 된다'
         - 'PD 같은 controller 를 바깥에서 짜서 torque 를 계산해 명령값으로 넣는다'
       answer: 3
       explanation: |
-        torque 제어에서는 명령값이 그대로 torque 가 되므로, 목표와의 차이로 torque 를 정하는 PD 같은 controller 를 사용자가 바깥에서
-        돌려야 한다. 목표 각도만 넣거나 모델 파일의 $k_p$, $k_v$ 로 engine 이 PD 를 대신 돌리는 것은 position actuator 다. timestep 은
-        계산 간격일 뿐 controller 를 대신하지 않는다.
+        motor actuator 는 명령값을 그대로 torque 로 내므로, 목표와의 차이로 torque 를 정하는 controller 를 사용자가 바깥에서 짜야 한다. 목표
+        각도만 넣거나 모델 파일의 kp, kv 로 engine 이 PD 를 대신 계산하게 하는 것은 position actuator 다. timestep 은 계산 간격일 뿐
+        controller 를 대신하지 않는다.
     - question: |
-        P gain 이 아주 크고 torque 한계가 작은 position actuator 로 joint 를 먼 목표로 보낼 때의 움직임은?
+        면접관: "P gain 이 아주 크고 torque 한계(forcerange)가 작은 position actuator 로 joint 를 먼 목표로 보내면 어떻게 움직이나요?"
       choices:
         - '오차가 클수록 torque 도 끝없이 커져 아주 빠르게 도착한다'
         - '먼 목표로는 torque 가 한계에 걸려 아예 움직이지 않는다'
@@ -234,56 +276,14 @@
         - 'gain 이 크면 torque 한계가 자동으로 늘어난다'
       answer: 2
       explanation: |
-        $k_p$ 가 크면 아주 작은 오차에서도 계산한 torque 가 한계를 넘어 잘린다. 그래서 목표 바로 근처를 빼면 오차가 크든 작든 최대
-        torque 로 목표 쪽을 민다. torque 는 한계 위로 커지지 않고, 한계에 걸려도 그 한계만큼은 계속 밀어 움직이며, gain 과 한계는 따로
-        정하는 값이다.
-
-- topic: gravity-compensation
-  title: gravity compensation 과 처짐
-  variants:
-    - question: |
-        PD 만으로 팔을 목표 자세에 붙잡으면 팔이 멈춘 뒤에도 목표보다 조금 처진 채 남는다. 그 이유는?
-      choices:
-        - '멈추면 D 항이 0 이라 P 항 혼자 gravity 를 버텨야 하고, P 항이 그 torque 를 내려면 오차가 남아 있어야 하기 때문이다'
-        - 'D 항이 팔을 gravity 쪽으로 더 끌어내리기 때문이다'
-        - 'timestep 이 커서 생기는 발산 때문이다'
-        - 'PD 는 원래 목표에 도달하지 않도록 만든 controller 이기 때문이다'
-      answer: 0
-      explanation: |
-        D 항은 각속도에 비례하므로 멈추면 0 이 된다. 그러면 gravity torque 를 P 항 혼자 내야 하는데, P 항은 오차에 비례하므로 오차가
-        0 이면 아무 힘도 못 낸다. 그래서 gravity torque ÷ P gain 정도의 오차가 남는 steady-state error 가 생긴다. 발산은 값이 끝없이
-        커지는 현상이라 일정하게 처진 상태와 다르다.
-    - question: |
-        gravity compensation 에 대한 설명으로 옳은 것은?
-      choices:
-        - 'P gain 을 크게 올려 처짐을 줄이는 방법이다'
-        - 'simulation 에서 gravity 를 꺼서 처짐을 없애는 방법이다'
-        - 'D gain 을 0 으로 만들어 처짐을 없애는 방법이다'
-        - 'engine 이 매 step 계산한 bias force 를 torque 에 미리 더해, PD 는 목표와의 차이만 고치게 하는 방법이다'
-      answer: 3
-      explanation: |
-        physics engine 은 매 step gravity 와 속도에 따른 torque 인 bias force $c(q, \dot q)$ 를 계산해 두므로, 이 값을 controller 의
-        torque 에 더하면 gravity 를 미리 버텨 처짐이 사라진다. P gain 을 올리면 처짐이 줄 뿐 0 이 되지 않는다. gravity 를 끄면 실제 로봇과
-        맞지 않는 simulation 이 되고, D gain 은 멈춘 뒤 처짐과 관계없다.
-    - question: |
-        PD 만 쓰는 팔에서 P gain 을 키우면 gravity 때문에 멈춘 뒤 남는 처짐은 어떻게 되나?
-      choices:
-        - '변하지 않는다. 처짐은 gain 과 관계없다'
-        - '줄어든다. 같은 gravity torque 를 더 작은 오차로 낼 수 있기 때문이다'
-        - '커진다. P 항이 세질수록 팔을 아래로 당기기 때문이다'
-        - '정확히 0 이 된다'
-      answer: 1
-      explanation: |
-        P 항은 P gain × 오차라서, P gain 이 크면 같은 gravity torque 를 더 작은 오차로 낼 수 있어 처짐이 줄어든다. 처짐은 대략 gravity
-        torque ÷ P gain 이므로 gain 을 키워도 0 이 되지는 않고, 0 으로 만들려면 gravity compensation 이 필요하다. P 항은 목표 쪽으로
-        미는 힘이라 팔을 아래로 당기지 않는다.
+        P gain 이 크면 아주 작은 오차에서도 계산한 torque 가 한계를 넘어 잘린다. 그래서 목표 바로 근처를 빼면 오차가 크든 작든 최대 torque 로
+        목표 쪽을 민다. torque 는 한계 위로 커지지 않지만 한계에 걸려도 그만큼은 계속 밀어서 joint 는 움직인다. gain 과 한계는 따로 정하는 값이다.
 
 - topic: sim-to-real
-  title: simulation 과 현실의 차이
+  title: sim-to-real gap
   variants:
     - question: |
-        domain randomization 으로 집기 policy 를 학습하면서 마찰 계수를 실물보다 높은 좁은 범위에서만 뽑았다. 실제 물체가 그보다 훨씬
-        미끄럽다면 예상되는 결과는?
+        면접관: "domain randomization 으로 집기 policy 를 학습하면서 마찰 계수를 실물보다 높은 좁은 범위에서만 뽑았습니다. 실제 물체가 그보다 훨씬 미끄럽다면 어떻게 될까요?"
       choices:
         - '무작위로 학습했으므로 어떤 마찰 계수에서도 통한다'
         - '범위가 좁을수록 실물에서 더 잘 통한다'
@@ -291,11 +291,11 @@
         - 'domain randomization 은 마찰과 관계없고 질량만 바꾸므로 영향이 없다'
       answer: 2
       explanation: |
-        domain randomization 은 뽑은 범위 안의 값에서 통하는 동작을 배우게 하므로, 실제 값이 그 범위 밖이면 효과가 없다. 범위에 실제
-        값이 들어가도록 넓히거나, 실제 마찰을 재서 모델에 반영해야 한다. 범위를 무작정 좁히면 실물을 놓치기 쉽고, 무작위로 바꾸는
-        숫자에는 질량뿐 아니라 마찰도 들어간다.
+        domain randomization 은 뽑은 범위 안의 값에서 통하는 동작을 배우게 하므로 실제 값이 그 범위 밖이면 효과가 없다. 범위에 실제 값이
+        들어가도록 넓히거나, 실제 마찰을 재서 모델에 반영해야 한다. 범위를 좁히면 실물을 놓치기 쉽고, 무작위로 바꾸는 숫자에는 질량뿐
+        아니라 마찰·damping·actuator gain 도 들어간다.
     - question: |
-        system identification 과 domain randomization 의 차이로 옳은 것은?
+        면접관: "system identification 과 domain randomization 은 어떻게 다른가요?"
       choices:
         - 'system identification 은 실물을 재서 모델 숫자를 고치고, domain randomization 은 숫자를 범위 안에서 무작위로 바꿔 어느 값에서나 통하는 policy 를 학습한다'
         - '둘 다 실제 로봇 위에서 policy 를 다시 학습하는 방법이다'
@@ -303,18 +303,17 @@
         - 'domain randomization 은 timestep 을 무작위로 바꿔 발산을 막는 방법이다'
       answer: 0
       explanation: |
-        system identification 은 부품 무게를 달고 마찰과 반응 시간을 재는 식으로 모델을 실물에 맞춘다. domain randomization 은 정확한 값을
-        모르더라도 질량·마찰 같은 숫자를 학습마다 다시 뽑아, 그 범위 어디에서나 통하는 policy 를 얻는다. 두 방법 모두 simulation 쪽을
-        손보는 방법이고, 세 번째 보기는 둘을 뒤바꿨으며, timestep 의 발산과는 관계없다.
+        system identification 은 부품 무게를 달고 마찰과 damping 을 재는 식으로 모델을 실물에 맞춘다. domain randomization 은 정확한 값을
+        모르더라도 질량·마찰 같은 숫자를 episode 마다 다시 뽑아 그 범위 어디에서나 통하는 policy 를 얻는다. 두 방법 모두 simulation 쪽을
+        손보는 방법이다. 셋째 보기는 둘을 뒤바꿨고, domain randomization 은 timestep 의 발산과 관계없다. 실제 연구는 둘을 함께 써서 보정한 값을 중심으로 무작위화한다.
     - question: |
-        sim-to-real gap 의 원인 가운데 "모델 숫자의 오차" 가 아니라 "모델에 아예 없는 현상" 에 해당하는 것은?
+        면접관: "sim-to-real gap 의 원인 가운데 '모델 숫자의 오차' 가 아니라 '모델에 아예 없는 현상' 에 해당하는 것은 무엇인가요?"
       choices:
         - '모델 파일의 부품 질량이 실물보다 가볍게 적혀 있다'
-        - '명령이 실제 motor 에 늦게 닿는 지연과 센서 noise'
+        - '명령이 실제 motor 에 늦게 닿는 지연과 기어의 backlash'
         - '모델의 마찰 계수가 실물과 다르다'
         - '모델의 팔 길이가 실물과 조금 다르다'
       answer: 1
       explanation: |
-        질량, 마찰 계수, 길이는 모델 파일에 적힌 숫자가 실물과 다른 경우라 system identification 으로 고칠 수 있다. 명령의 지연이나 센서
-        noise 는 모델에 그런 항목이 아예 없으면 simulation 에서 한 번도 겪지 않는 현상이다. 그래서 지연과 noise 를 simulation 에 일부러
-        넣어 학습 중에 미리 겪게 한다.
+        질량, 마찰 계수, 길이는 모델 파일에 적힌 숫자가 실물과 다른 경우라 측정해서 고칠 수 있다. 명령의 지연이나 기어 틈은 모델에 그런
+        항목이 없으면 simulation 에서 한 번도 겪지 않는 현상이라서, 지연과 backlash 를 simulation 에 일부러 넣어 학습 중에 미리 겪게 한다.

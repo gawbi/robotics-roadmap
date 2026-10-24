@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MoveIt Task Constructor 튜토리얼의 pick-and-place task. current 다음 open hand, move to pick(Connect, OMPL), pick object 안의 approach object(Cartesian 0.10 ~ 0.15 m), grasp pose IK(GenerateGraspPose, π/12 간격, IK 해 최대 8 개), close hand, attach object, lift object(0.1 ~ 0.3 m), move to place, place object 안의 place pose IK, open hand, detach object, retreat, 마지막 return home 순서다. generator 가 낸 grasp pose 에서 propagator 가 앞뒤로 계산을 넓히고 connector 가 그 사이를 OMPL 로 잇는다</title>
+  <rect x="1" y="1" width="798" height="678" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="400.0" y="30" fill="#e2e8f0" font-size="15" text-anchor="middle">MoveIt Task Constructor 튜토리얼의 stage 와 이 강의의 module</text>
+  <text x="32" y="62" fill="#94a3b8" font-size="12">stage 이름</text>
+  <text x="290" y="62" fill="#94a3b8" font-size="12">stage 종류</text>
+  <text x="455" y="62" fill="#94a3b8" font-size="12">planner · 값</text>
+  <text x="690" y="62" fill="#94a3b8" font-size="12">module</text>
+  <line x1="24" y1="70" x2="776" y2="70" stroke="#1e293b"/>
+  <circle cx="36" cy="88" r="4" fill="#34d399"/>
+  <text x="46" y="92" fill="#e2e8f0" font-size="13">current</text>
+  <text x="290" y="92" fill="#34d399" font-size="12">CurrentState</text>
+  <text x="455" y="92" fill="#94a3b8" font-size="12">지금 로봇 자세와 scene</text>
+  <text x="690" y="92" fill="#e2e8f0" font-size="12"></text>
+  <circle cx="36" cy="117" r="4" fill="#38bdf8"/>
+  <text x="46" y="121" fill="#e2e8f0" font-size="13">open hand</text>
+  <text x="290" y="121" fill="#38bdf8" font-size="12">MoveTo</text>
+  <text x="455" y="121" fill="#94a3b8" font-size="12">joint interpolation → &quot;open&quot;</text>
+  <text x="690" y="121" fill="#e2e8f0" font-size="12">⑥ 실행</text>
+  <circle cx="36" cy="146" r="4" fill="#f59e0b"/>
+  <text x="46" y="150" fill="#e2e8f0" font-size="13">move to pick</text>
+  <text x="290" y="150" fill="#f59e0b" font-size="12">Connect</text>
+  <text x="455" y="150" fill="#94a3b8" font-size="12">OMPL, timeout 5 s</text>
+  <text x="690" y="150" fill="#e2e8f0" font-size="12">⑤ 경로</text>
+  <rect x="24" y="161" width="752" height="25" rx="6" fill="#111a2e" stroke="#1e293b"/>
+  <text x="32" y="179" fill="#e2e8f0" font-size="13" font-weight="600">pick object</text>
+  <text x="290" y="179" fill="#94a3b8" font-size="12">SerialContainer</text>
+  <circle cx="54" cy="204" r="4" fill="#38bdf8"/>
+  <text x="64" y="208" fill="#e2e8f0" font-size="13">approach object</text>
+  <text x="290" y="208" fill="#38bdf8" font-size="12">MoveRelative</text>
+  <text x="455" y="208" fill="#94a3b8" font-size="12">Cartesian, hand z 로 0.10 ~ 0.15 m</text>
+  <text x="690" y="208" fill="#e2e8f0" font-size="12">③ approach</text>
+  <circle cx="54" cy="233" r="4" fill="#f87171"/>
+  <text x="64" y="237" fill="#e2e8f0" font-size="13">grasp pose IK</text>
+  <text x="290" y="237" fill="#f87171" font-size="12">ComputeIK</text>
+  <text x="455" y="237" fill="#94a3b8" font-size="12">IK 해 최대 8 개</text>
+  <text x="690" y="237" fill="#e2e8f0" font-size="12">④ IK</text>
+  <text x="54" y="266" fill="#64748b" font-size="12">└</text>
+  <circle cx="72" cy="262" r="4" fill="#34d399"/>
+  <text x="82" y="266" fill="#e2e8f0" font-size="13">generate grasp pose</text>
+  <text x="290" y="266" fill="#34d399" font-size="12">GenerateGraspPose</text>
+  <text x="455" y="266" fill="#94a3b8" font-size="12">물체 축 둘레 π/12 간격</text>
+  <text x="690" y="266" fill="#e2e8f0" font-size="12">③ grasp pose</text>
+  <circle cx="54" cy="291" r="4" fill="#a78bfa"/>
+  <text x="64" y="295" fill="#e2e8f0" font-size="13">allow collision (hand,object)</text>
+  <text x="290" y="295" fill="#a78bfa" font-size="12">ModifyPlanningScene</text>
+  <text x="455" y="295" fill="#94a3b8" font-size="12">손가락과 물체의 접촉 허용</text>
+  <text x="690" y="295" fill="#e2e8f0" font-size="12">⑥ 실행</text>
+  <circle cx="54" cy="320" r="4" fill="#38bdf8"/>
+  <text x="64" y="324" fill="#e2e8f0" font-size="13">close hand</text>
+  <text x="290" y="324" fill="#38bdf8" font-size="12">MoveTo</text>
+  <text x="455" y="324" fill="#94a3b8" font-size="12">joint interpolation → &quot;close&quot;</text>
+  <text x="690" y="324" fill="#e2e8f0" font-size="12">⑥ 실행</text>
+  <circle cx="54" cy="349" r="4" fill="#a78bfa"/>
+  <text x="64" y="353" fill="#e2e8f0" font-size="13">attach object</text>
+  <text x="290" y="353" fill="#a78bfa" font-size="12">ModifyPlanningScene</text>
+  <text x="455" y="353" fill="#94a3b8" font-size="12">물체를 hand 에 붙임</text>
+  <text x="690" y="353" fill="#e2e8f0" font-size="12">⑥ 실행</text>
+  <circle cx="54" cy="378" r="4" fill="#38bdf8"/>
+  <text x="64" y="382" fill="#e2e8f0" font-size="13">lift object</text>
+  <text x="290" y="382" fill="#38bdf8" font-size="12">MoveRelative</text>
+  <text x="455" y="382" fill="#94a3b8" font-size="12">Cartesian, world z 로 0.1 ~ 0.3 m</text>
+  <text x="690" y="382" fill="#e2e8f0" font-size="12">③ lift</text>
+  <circle cx="36" cy="407" r="4" fill="#f59e0b"/>
+  <text x="46" y="411" fill="#e2e8f0" font-size="13">move to place</text>
+  <text x="290" y="411" fill="#f59e0b" font-size="12">Connect</text>
+  <text x="455" y="411" fill="#94a3b8" font-size="12">OMPL + joint interpolation</text>
+  <text x="690" y="411" fill="#e2e8f0" font-size="12">⑤ 경로</text>
+  <rect x="24" y="422" width="752" height="25" rx="6" fill="#111a2e" stroke="#1e293b"/>
+  <text x="32" y="440" fill="#e2e8f0" font-size="13" font-weight="600">place object</text>
+  <text x="290" y="440" fill="#94a3b8" font-size="12">SerialContainer</text>
+  <circle cx="54" cy="465" r="4" fill="#f87171"/>
+  <text x="64" y="469" fill="#e2e8f0" font-size="13">place pose IK</text>
+  <text x="290" y="469" fill="#f87171" font-size="12">ComputeIK</text>
+  <text x="455" y="469" fill="#94a3b8" font-size="12">IK 해 최대 2 개</text>
+  <text x="690" y="469" fill="#e2e8f0" font-size="12">③ place, ④ IK</text>
+  <circle cx="54" cy="494" r="4" fill="#a78bfa"/>
+  <text x="64" y="498" fill="#e2e8f0" font-size="13">open hand · forbid collision · detach</text>
+  <text x="290" y="498" fill="#a78bfa" font-size="12">MoveTo, ModifyPlanningScene</text>
+  <text x="455" y="498" fill="#94a3b8" font-size="12">손을 열고 물체를 떼어 냄</text>
+  <text x="690" y="498" fill="#e2e8f0" font-size="12">⑥ 실행</text>
+  <circle cx="54" cy="523" r="4" fill="#38bdf8"/>
+  <text x="64" y="527" fill="#e2e8f0" font-size="13">retreat</text>
+  <text x="290" y="527" fill="#38bdf8" font-size="12">MoveRelative</text>
+  <text x="455" y="527" fill="#94a3b8" font-size="12">Cartesian, world −x 로 0.1 ~ 0.3 m</text>
+  <text x="690" y="527" fill="#e2e8f0" font-size="12">③ retreat</text>
+  <circle cx="36" cy="552" r="4" fill="#38bdf8"/>
+  <text x="46" y="556" fill="#e2e8f0" font-size="13">return home</text>
+  <text x="290" y="556" fill="#38bdf8" font-size="12">MoveTo</text>
+  <text x="455" y="556" fill="#94a3b8" font-size="12">joint interpolation → &quot;ready&quot;</text>
+  <text x="690" y="556" fill="#e2e8f0" font-size="12"></text>
+  <circle cx="36" cy="595" r="4" fill="#34d399"/>
+  <text x="46" y="599" fill="#94a3b8" font-size="12">generator: 이웃과 상관없이 상태를 만든다</text>
+  <circle cx="416" cy="595" r="4" fill="#38bdf8"/>
+  <text x="426" y="599" fill="#94a3b8" font-size="12">propagator: 한쪽 결과를 받아 반대쪽으로 넘긴다</text>
+  <circle cx="36" cy="617" r="4" fill="#f59e0b"/>
+  <text x="46" y="621" fill="#94a3b8" font-size="12">connector: 앞뒤 결과 사이를 잇는다</text>
+  <circle cx="416" cy="617" r="4" fill="#f87171"/>
+  <text x="426" y="621" fill="#94a3b8" font-size="12">wrapper: 안쪽 stage 의 결과마다 IK 를 푼다</text>
+  <circle cx="36" cy="639" r="4" fill="#a78bfa"/>
+  <text x="46" y="643" fill="#94a3b8" font-size="12">planning scene 수정</text>
+</svg>

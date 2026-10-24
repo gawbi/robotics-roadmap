@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>D435 예의 stereo depth 오차. f = 424, baseline 50 mm, disparity 오차 0.08 pixel 이면 depth 오차가 1 m 에서 약 4 mm, 2 m 에서 약 15 mm, 4 m 에서 약 60 mm 로 거리의 제곱에 비례해 커진다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="50" width="440" height="220" fill="#0e1628" stroke="#1e293b"/>
+  <line x1="70" y1="270" x2="510" y2="270" stroke="#475569" stroke-width="1.5"/>
+  <line x1="70" y1="50" x2="70" y2="270" stroke="#475569" stroke-width="1.5"/>
+  <text x="70.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="170.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="270.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="370.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="470.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="63.0" y="274.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="63.0" y="211.1" fill="#64748b" font-size="12" text-anchor="end">20</text>
+  <line x1="70" y1="207.1" x2="510" y2="207.1" stroke="#1e293b" stroke-width="1"/>
+  <text x="63.0" y="148.3" fill="#64748b" font-size="12" text-anchor="end">40</text>
+  <line x1="70" y1="144.3" x2="510" y2="144.3" stroke="#1e293b" stroke-width="1"/>
+  <text x="63.0" y="85.4" fill="#64748b" font-size="12" text-anchor="end">60</text>
+  <line x1="70" y1="81.4" x2="510" y2="81.4" stroke="#1e293b" stroke-width="1"/>
+  <text x="510.0" y="304.0" fill="#94a3b8" font-size="13" text-anchor="end">거리 Z (m)</text>
+  <text x="70.0" y="36.0" fill="#94a3b8" font-size="13" text-anchor="start">depth 오차 (mm)</text>
+  <polyline points="90.0,269.5 93.5,269.3 97.0,269.1 100.5,268.9 104.0,268.6 107.5,268.3 111.0,268.0 114.5,267.7 118.0,267.3 121.5,266.9 125.0,266.4 128.5,265.9 132.0,265.4 135.5,264.9 139.0,264.4 142.5,263.8 146.0,263.1 149.5,262.5 153.0,261.8 156.5,261.1 160.0,260.4 163.5,259.6 167.0,258.8 170.5,258.0 174.0,257.2 177.5,256.3 181.0,255.4 184.5,254.5 188.0,253.5 191.5,252.5 195.0,251.5 198.5,250.4 202.0,249.3 205.5,248.2 209.0,247.1 212.5,245.9 216.0,244.7 219.5,243.5 223.0,242.2 226.5,241.0 230.0,239.6 233.5,238.3 237.0,236.9 240.5,235.5 244.0,234.1 247.5,232.6 251.0,231.1 254.5,229.6 258.0,228.1 261.5,226.5 265.0,224.9 268.5,223.3 272.0,221.6 275.5,219.9 279.0,218.2 282.5,216.4 286.0,214.7 289.5,212.9 293.0,211.0 296.5,209.2 300.0,207.3 303.5,205.3 307.0,203.4 310.5,201.4 314.0,199.4 317.5,197.4 321.0,195.3 324.5,193.2 328.0,191.1 331.5,188.9 335.0,186.7 338.5,184.5 342.0,182.3 345.5,180.0 349.0,177.7 352.5,175.4 356.0,173.0 359.5,170.6 363.0,168.2 366.5,165.7 370.0,163.3 373.5,160.8 377.0,158.2 380.5,155.7 384.0,153.1 387.5,150.4 391.0,147.8 394.5,145.1 398.0,142.4 401.5,139.7 405.0,136.9 408.5,134.1 412.0,131.3 415.5,128.4 419.0,125.5 422.5,122.6 426.0,119.7 429.5,116.7 433.0,113.7 436.5,110.7 440.0,107.6 443.5,104.6 447.0,101.4 450.5,98.3 454.0,95.1 457.5,91.9 461.0,88.7 464.5,85.4 468.0,82.1 471.5,78.8 475.0,75.5 478.5,72.1 482.0,68.7 485.5,65.3 489.0,61.8 492.5,58.3 496.0,54.8 499.5,51.2" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="170.0" cy="258.1" r="5" fill="#f59e0b"/>
+  <text x="160.0" y="248.1" fill="#e2e8f0" font-size="12" text-anchor="end">1 m: 약 4 mm</text>
+  <circle cx="270.0" cy="222.6" r="5" fill="#f59e0b"/>
+  <text x="280.0" y="240.6" fill="#e2e8f0" font-size="12" text-anchor="start">2 m: 약 15 mm</text>
+  <circle cx="470.0" cy="80.2" r="5" fill="#f59e0b"/>
+  <text x="460.0" y="84.2" fill="#e2e8f0" font-size="12" text-anchor="end">4 m: 약 60 mm</text>
+  <text x="528.0" y="80.0" fill="#94a3b8" font-size="13" text-anchor="start">D435 의 예</text>
+  <text x="528.0" y="104.0" fill="#e2e8f0" font-size="12" text-anchor="start">f = 424 pixel</text>
+  <text x="528.0" y="124.0" fill="#64748b" font-size="12" text-anchor="start">(848 pixel, HFOV 90°)</text>
+  <text x="528.0" y="148.0" fill="#e2e8f0" font-size="12" text-anchor="start">baseline b = 50 mm</text>
+  <text x="528.0" y="172.0" fill="#e2e8f0" font-size="12" text-anchor="start">disparity 오차 0.08</text>
+  <text x="528.0" y="206.0" fill="#f59e0b" font-size="12" text-anchor="start">ΔZ ≈ Z² × 0.08</text>
+  <text x="568.0" y="224.0" fill="#f59e0b" font-size="12" text-anchor="start">÷ (f × b)</text>
+  <text x="528.0" y="254.0" fill="#38bdf8" font-size="12" text-anchor="start">거리 2 배 → 오차 4 배</text>
+</svg>

@@ -5,60 +5,58 @@
   title: forward kinematics 의 입력과 출력
   variants:
     - question: |
-        로봇 팔이 forward kinematics(FK) 계산을 해야 하는 이유로 맞는 것은?
+        면접관: "로봇 팔은 encoder 로 관절 각도를 늘 아는데, forward kinematics 를 따로 계산해야 하는 이유가 뭔가요?"
       choices:
-        - '모터 센서로는 joint angle 을 알 수 없어서 손끝 위치로 거꾸로 추정해야 하기 때문이다'
-        - '로봇이 직접 아는 것은 joint angle 뿐인데, 일은 "컵이 어디 있다" 처럼 손끝 위치로 주어지기 때문이다'
-        - 'FK 는 목표 위치에 손끝을 두는 joint angle 을 구하는 계산이기 때문이다'
-        - '모터가 낼 힘을 정하려면 FK 가 있어야 하기 때문이다'
+        - 'encoder 는 각도를 정확히 재지 못해서 손끝 위치로 각도를 거꾸로 추정해야 하기 때문이다'
+        - '목표는 "컵이 base 에서 어디 있다" 처럼 손끝이 갈 위치로 주어지는데, 로봇이 직접 아는 것은 관절 각도뿐이기 때문이다'
+        - 'forward kinematics 는 목표 위치에 손끝을 두는 관절 각도를 구하는 계산이기 때문이다'
+        - 'motor 에 넣을 torque 를 정하려면 forward kinematics 만 있으면 되기 때문이다'
       answer: 1
       explanation: |
-        로봇은 모터 센서로 joint angle 을 늘 알지만 손끝이 어디 있는지는 바로 모른다. 그래서 joint angle 을 손끝 pose 로 바꾸는 FK 가
-        있어야 손끝과 목표 사이의 거리를 판단할 수 있다. joint angle 은 센서가 직접 알려 주므로 추정할 필요가 없고, 목표 위치에서
-        joint angle 을 구하는 것은 FK 가 아니라 inverse kinematics(IK)다. FK 는 힘을 따지지 않고 위치만 다룬다.
+        로봇은 encoder 로 joint angle 을 알지만 손끝이 base 에서 어디 있는지는 바로 모른다. 목표는 손끝 위치로 주어지므로 joint angle 을 손끝
+        pose 로 바꾸는 FK 가 있어야 둘 사이의 거리를 잴 수 있다. encoder 값은 FK 의 입력이지 추정할 대상이 아니다. 목표 위치에서 joint angle 을
+        구하는 것은 inverse kinematics 이고, torque 는 힘을 다루는 dynamics 와 제어의 문제라 FK 만으로 정해지지 않는다.
     - question: |
-        다음 질문 중 forward kinematics 로 답하는 것은?
+        면접관: "다음 중 forward kinematics 로 답하는 질문은 무엇인가요?"
       choices:
-        - '컵을 집으려면 joint angle 을 각각 몇 도로 해야 하나?'
-        - '손끝을 빨리 움직이려면 모터에 힘을 얼마나 줘야 하나?'
-        - '손끝을 목표까지 옮기는 가장 짧은 길은 무엇인가?'
-        - '지금 joint angle 에서 손끝은 어디에 있고 어느 쪽을 향하나?'
+        - '컵을 집으려면 관절 각도를 각각 몇 도로 해야 하는가'
+        - '손끝을 빨리 움직이려면 motor 에 torque 를 얼마나 줘야 하는가'
+        - '손끝을 목표까지 장애물 없이 옮기는 경로는 무엇인가'
+        - '지금 관절 각도에서 손끝은 어디에 있고 어느 쪽을 향하는가'
       answer: 3
       explanation: |
-        FK 는 joint angle 을 입력으로 받아 손끝의 위치와 방향을 내는 계산이다. 손끝 목표에서 joint angle 을 구하는 질문은
-        반대 방향인 IK 다. 힘을 묻는 보기는 kinematics 가 다루지 않는 영역이고, 가장 짧은 길을 찾는 것은 경로 계획 문제다.
+        FK 는 joint angle 을 받아 손끝의 위치와 방향을 묶은 pose 를 내는 계산이다. 손끝 목표에서 joint angle 을 구하는 질문은 반대 방향인 inverse
+        kinematics 다. torque 를 묻는 질문은 힘을 다루는 dynamics 의 영역이고, 장애물을 피하는 경로를 찾는 것은 motion planning 이다.
     - question: |
-        FK 와 inverse kinematics(IK)의 답 개수를 바르게 비교한 것은?
+        면접관: "forward kinematics 와 inverse kinematics 의 답 개수를 비교해 보세요."
       choices:
-        - 'FK 는 joint angle 을 정하면 손끝이 하나로 정해지지만, IK 는 같은 손끝을 만드는 자세가 여럿이거나 하나도 없을 수 있다'
+        - 'FK 에서는 관절 각도를 정하면 손끝 pose 가 하나로 정해지지만, IK 에서는 같은 손끝을 만드는 자세가 여럿이거나 하나도 없을 수 있다'
         - '둘 다 언제나 답이 정확히 하나다'
         - 'FK 는 답이 여럿일 수 있고 IK 는 언제나 하나다'
         - '둘 다 답이 여럿일 수 있어서 따로 하나를 골라야 한다'
       answer: 0
       explanation: |
-        joint angle 이 정해지면 각 link 의 방향과 위치가 차례로 정해지므로 FK 의 손끝은 하나뿐이다. 거꾸로 같은 손끝 위치는 팔꿈치를
-        아래로 꺾은 자세와 위로 꺾은 자세처럼 여러 자세로 만들 수 있고, 팔이 닿지 않는 먼 곳이면 답이 없다. 그래서 답이 여럿이거나
-        없는 쪽은 IK 이고, FK 에는 고를 필요가 없다.
+        joint angle 이 정해지면 각 link 의 방향과 위치가 차례로 정해지므로 FK 의 답은 하나뿐이다. 거꾸로 같은 손끝 위치는 팔꿈치를 위로 꺾은
+        자세와 아래로 꺾은 자세처럼 여러 자세로 만들 수 있고, 팔이 닿지 않는 먼 곳이면 답이 없다. 그래서 답이 여럿이거나 없는 쪽은 IK 이고 FK
+        에서는 고를 일이 없다.
 
 - topic: relative-angle
   title: 상대 각도로 쌓이는 link 방향
   variants:
     - question: |
-        관절 두 개짜리 평면 팔에서 joint 2 의 각도 $\theta_2$ 는 바닥이 아니라 link 1 이 뻗은 방향을 기준으로 잰다. 그 이유로 맞는
-        것은?
+        면접관: "평면 2 관절 팔에서 joint 2 의 각도는 바닥이 아니라 link 1 이 뻗은 방향을 기준으로 잽니다. 왜 그렇게 정해지나요?"
       choices:
         - '바닥 기준으로 재면 각도 숫자가 너무 커지기 때문이다'
-        - '관례일 뿐이고 바닥 기준으로 재도 손끝 위치는 같다'
-        - 'joint 2 의 모터는 link 1 끝에 붙어 함께 움직이므로, link 2 가 link 1 에 대해 꺾인 각도만 알 수 있기 때문이다'
-        - '$\theta_2$ 는 언제나 $\theta_1$ 과 같은 값이라 따로 잴 필요가 없기 때문이다'
+        - '관례일 뿐이고, 바닥 기준으로 재도 손끝 위치는 같게 나온다'
+        - 'joint 2 의 motor 는 link 1 끝에 실려 함께 움직이므로, 그 encoder 는 link 2 가 link 1 에서 꺾인 각도만 잴 수 있기 때문이다'
+        - 'joint 2 의 각도가 언제나 joint 1 의 각도와 같기 때문이다'
       answer: 2
       explanation: |
-        joint 2 의 모터는 link 1 위에 실려 있어서 link 1 이 바닥에 대해 어떻게 놓였는지는 모르고, 자기가 link 2 를 얼마나 꺾었는지만
-        잰다. 그래서 $\theta_2$ 는 상대 각도이고 link 2 의 바닥 기준 방향은 $\theta_1 + \theta_2$ 다. 바닥 기준으로 읽으면 손끝이 다른
-        자리로 계산되므로 단순한 관례가 아니며, 숫자 크기나 $\theta_1$ 과의 관계와도 상관없다.
+        joint 2 의 motor 는 link 1 위에 실려 있어서, 그 encoder 로는 link 1 이 바닥에서 어떻게 놓였는지 알 수 없고 link 2 를 얼마나 꺾었는지만 잰다. 그래서
+        $\theta_2$ 는 상대 각도이고 link 2 의 바닥 기준 방향은 $\theta_1 + \theta_2$ 다. 바닥 기준으로 읽으면 손끝이 다른 자리로 계산되므로 단순한
+        관례가 아니다. 숫자의 크기와도 관계없고, 두 각도가 같을 이유도 없다.
     - question: |
-        관절 두 개짜리 평면 팔에서 $\theta_2$ 는 그대로 두고 $\theta_1$ 만 20° 더 돌렸다. link 2 가 바닥에서 보아 가리키는 방향은
-        어떻게 되는가?
+        면접관: "평면 2 관절 팔에서 $\theta_2$ 는 그대로 두고 $\theta_1$ 만 20° 더 돌리면, link 2 가 바닥에서 보아 가리키는 방향은 어떻게 되나요?"
       choices:
         - '20° 더 돈다'
         - '변하지 않는다. link 2 의 방향은 $\theta_2$ 로만 정해진다'
@@ -66,40 +64,39 @@
         - '20° 반대로 돈다'
       answer: 0
       explanation: |
-        link 2 의 바닥 기준 방향은 $\theta_1 + \theta_2$ 라서 $\theta_1$ 이 20° 늘면 link 2 도 20° 더 돈다. link 2 는 link 1 끝에 붙어
-        있으므로 link 1 이 돌면 함께 돈다. 사람이 팔꿈치 각도를 그대로 둔 채 어깨를 들면 아래팔도 같이 올라가는 것과 같다. 40° 는
-        20° 를 두 번 센 것이고, 반대로 돌 이유는 없다.
+        link 2 의 바닥 기준 방향은 $\theta_1 + \theta_2$ 라서 $\theta_1$ 이 20° 늘면 link 2 도 20° 더 돈다. link 2 는 link 1 끝에 붙어 있으므로
+        link 1 이 돌면 함께 돈다. $\theta_2$ 만으로 정해진다는 보기는 상대 각도를 바닥 기준 각도로 착각한 것이고, 40° 는 20° 를 두 번 센 것이며,
+        반대로 돌 이유는 없다.
     - question: |
-        어떤 학생이 관절 두 개짜리 평면 팔의 손끝을 계산하면서 link 2 가 바닥 기준으로 $\theta_2$ 방향을 가리킨다고 놓았다. 이 계산
-        결과에 대해 맞는 것은?
+        면접관: "평면 2 관절 팔의 손끝을 계산하면서 link 2 가 바닥 기준으로 $\theta_2$ 방향을 가리킨다고 놓았습니다. 이 계산은 언제 맞나요?"
       choices:
-        - '각도를 어느 기준으로 재든 결과는 같으므로 항상 맞다'
-        - '$\theta_2 = 0$ 일 때만 맞고 그 밖에는 틀린다'
-        - 'link 두 개의 길이가 같을 때만 맞는다'
-        - '$\theta_1 = 0$ 일 때만 맞고 그 밖에는 손끝이 틀린 자리로 계산된다'
+        - '각도를 어느 기준으로 재든 결과가 같으므로 항상 맞다'
+        - '$\theta_2 = 0$ 일 때만 맞는다'
+        - '두 link 의 길이가 같을 때만 맞는다'
+        - '$\theta_1 = 0$ 일 때만 맞고, 그 밖에는 손끝이 틀린 자리로 계산된다'
       answer: 3
       explanation: |
-        link 2 의 실제 방향은 $\theta_1 + \theta_2$ 인데 학생은 $\theta_2$ 를 썼으므로, 둘이 같아지는 $\theta_1 = 0$ 일 때만 맞는다.
-        $\theta_2 = 0$ 이면 실제 방향은 $\theta_1$ 인데 학생은 0° 로 놓으므로 $\theta_1$ 이 0 이 아닌 한 틀린다. link 길이는 방향을
-        정하는 데 관여하지 않아서, 길이가 같아도 이 실수는 고쳐지지 않는다.
+        link 2 의 실제 방향은 $\theta_1 + \theta_2$ 인데 이 계산은 $\theta_2$ 를 썼으므로, 둘이 같아지는 $\theta_1 = 0$ 일 때만 맞는다.
+        $\theta_2 = 0$ 이면 실제 방향은 $\theta_1$ 인데 계산은 0° 로 놓으므로 $\theta_1$ 이 0 이 아닌 한 틀린다. link 길이는 방향을 정하는 데
+        관여하지 않아서 길이가 같아도 이 실수는 고쳐지지 않는다.
 
 - topic: pose
   title: 같은 손끝을 만드는 여러 자세와 pose
   variants:
     - question: |
-        관절 두 개짜리 평면 팔에서 joint angle $(0°, 90°)$ 와 $(90°, -90°)$ 는 손끝 위치가 같다. 이 두 자세에 대해 맞는 것은?
+        면접관: "평면 2 관절 팔의 두 자세가 손끝 위치는 같습니다. 두 자세를 같은 상태로 봐도 되나요?"
       choices:
-        - 'joint angle 이 다르면 손끝 위치도 반드시 달라야 하므로 계산이 잘못된 것이다'
-        - '손끝 위치는 같아도 팔꿈치 자리와 집게가 향하는 방향은 다를 수 있다'
+        - '관절 각도가 다르면 손끝 위치도 반드시 달라야 하므로 계산이 잘못된 것이다'
+        - '손끝 위치가 같아도 팔꿈치 자리와 집게가 향하는 방향은 다를 수 있어서 같은 상태로 볼 수 없다'
         - '손끝 위치가 같으므로 물건을 잡는 데는 어느 자세든 똑같다'
-        - 'FK 가 한 입력에 답을 두 개 낸 경우다'
+        - 'FK 가 한 입력에 답을 두 개 낸 경우라서 둘 중 하나를 골라야 한다'
       answer: 1
       explanation: |
-        서로 다른 joint angle 이 같은 손끝 위치를 만들 수 있다. 한 자세는 팔꿈치가 아래쪽에, 다른 자세는 위쪽에 있고, 집게 방향도
-        $\theta_1 + \theta_2$ 로 90° 와 0° 로 다르다. 그래서 물건을 잡는 방향이 달라 같은 자세로 볼 수 없다. FK 는 입력 하나에 답 하나를
-        내는데, 여기서는 입력 두 개가 같은 위치를 낸 것이다.
+        서로 다른 joint angle 이 같은 손끝 위치를 만들 수 있다. 이때 팔꿈치는 한 자세에서 위에 있고 다른 자세에서는 아래에 있으며, 집게 방향
+        $\theta_1 + \theta_2$ 도 달라서 물건을 잡는 방향이 다르다. 위치가 같다고 잡는 방법까지 같지는 않다. 또 FK 는 입력 하나에 답 하나를
+        내고, 여기서는 서로 다른 입력 두 개가 같은 위치를 낸 것이다.
     - question: |
-        관절 두 개짜리 평면 팔에서 마지막 link 에 붙은 집게가 바닥 기준으로 향하는 방향은?
+        면접관: "평면 2 관절 팔에서 마지막 link 에 붙은 집게가 바닥 기준으로 향하는 방향은 무엇인가요?"
       choices:
         - '$\theta_2$'
         - '$\theta_1$'
@@ -107,218 +104,219 @@
         - '손끝에서 base 를 바라보는 방향'
       answer: 2
       explanation: |
-        집게는 link 2 에 붙어 함께 도므로 link 2 의 방향과 같고, link 2 의 바닥 기준 방향은 두 각도를 쌓은 $\theta_1 + \theta_2$ 다.
-        $\theta_2$ 만 쓰면 link 1 의 기울기를 빠뜨린 것이고, $\theta_1$ 만 쓰면 joint 2 의 꺾임을 빠뜨린 것이다. 손끝과 base 를 잇는
-        방향은 팔꿈치 자리에 따라 달라지며 집게 방향과는 다르다.
+        집게는 link 2 에 붙어 함께 돌므로 link 2 의 방향과 같고, link 2 의 바닥 기준 방향은 두 각도를 쌓은 $\theta_1 + \theta_2$ 다. $\theta_2$ 만
+        쓰면 link 1 의 기울기를 빠뜨린 것이고, $\theta_1$ 만 쓰면 joint 2 의 꺾임을 빠뜨린 것이다. 손끝과 base 를 잇는 방향은 팔꿈치 자리에
+        따라 달라지며 집게 방향과 다르다.
     - question: |
-        FK 의 결과를 "손끝의 위치" 가 아니라 "손끝의 pose" 라고 부르는 이유로 맞는 것은?
+        면접관: "FK 의 결과를 손끝의 '위치' 가 아니라 'pose' 라고 부르는 이유가 뭔가요? 3 차원 팔이면 숫자가 몇 개인가요?"
       choices:
-        - 'pose 는 위치와 방향을 함께 이르는 말이고, transform 을 곱하면 위치와 방향이 한꺼번에 나오기 때문이다'
-        - 'pose 는 joint angle 을 모아 둔 목록이기 때문이다'
-        - 'pose 는 손끝의 위치와 속도를 함께 이르는 말이기 때문이다'
-        - '3 차원에서는 위치를 pose 라고 부르기 때문이다'
+        - 'pose 는 위치와 방향을 함께 이르는 말이고, 3 차원에서는 위치 3 개와 방향 3 개로 숫자 6 개다'
+        - 'pose 는 관절 각도의 목록이고, 숫자 개수는 관절 수와 같다'
+        - 'pose 는 위치와 속도를 함께 이르는 말이고, 3 차원에서는 숫자 6 개다'
+        - '3 차원에서는 위치를 pose 라고 부를 뿐이고, 숫자는 3 개다'
       answer: 0
       explanation: |
-        물건을 잡으려면 손끝이 어디 있는지와 함께 어느 쪽을 향하는지도 알아야 하고, 이 둘을 묶은 것이 pose 다. 평면에서는 위치 2 개와
-        방향 1 개로 숫자 3 개, 3 차원에서는 위치 3 개와 방향 3 개로 6 개다. joint angle 목록은 FK 의 입력이지 출력이 아니고, 속도는
-        FK 가 다루지 않는다. 3 차원에서도 위치는 pose 의 일부일 뿐이다.
+        물건을 잡으려면 손끝이 어디 있는지와 함께 어느 쪽을 향하는지도 알아야 하고, 이 둘을 묶은 것이 pose 다. 평면에서는 위치 2 개와 방향
+        1 개로 3 개이고, 3 차원에서는 위치 3 개와 방향 3 개로 6 개다. 관절 각도 목록은 FK 의 입력이지 출력이 아니다. 속도는 FK 가 다루지 않고,
+        3 차원에서도 위치는 pose 의 일부일 뿐이다.
 
-- topic: transform-matrix
-  title: joint 하나의 transform 과 homogeneous transform
+- topic: transform-chain
+  title: joint transform 의 곱과 순서
   variants:
     - question: |
-        평면 팔의 joint 하나를 "link 를 따라 옮기는 $\mathrm{Tr}(L)$ 뒤에 joint angle 만큼 돌리는 $R(\theta)$" 로 적는다. 로봇이
-        움직이는 동안 값이 바뀌는 쪽은?
+        면접관: "joint 가 6 개인 3 차원 팔의 FK 를 계산하는 일반적인 방법을 설명해 보세요."
       choices:
-        - '$\mathrm{Tr}(L)$ 만 바뀐다'
-        - '둘 다 바뀌지 않는다'
-        - '둘 다 바뀐다'
-        - '$R(\theta)$ 만 바뀐다'
+        - '팔 모양마다 손끝 좌표의 식을 처음부터 새로 유도한다'
+        - '각 joint 의 회전만 곱하고 link 길이는 마지막에 한 번 더한다'
+        - '관절 각도를 모두 더한 각도로 손끝 하나를 한 번에 돌린다'
+        - 'joint 마다 "joint 자리까지 옮기고 그 축을 중심으로 각도만큼 돌리는" transform 을 만들어 base 부터 차례로 곱한다'
       answer: 3
       explanation: |
-        $\mathrm{Tr}(L)$ 은 link 의 길이로만 정해져 로봇을 만들 때 고정된다. $R(\theta)$ 는 joint angle 에 따라 달라지므로 모터가
-        돌 때마다 바뀐다. link 가 늘어나지 않는 한 $\mathrm{Tr}$ 은 그대로이고, joint 가 움직이는 로봇이라면 $R$ 이 바뀌지 않을 수
-        없다. 이 고정 부분과 움직이는 부분의 구분이 URDF 의 origin 과 joint angle 로 그대로 이어진다.
+        joint 하나를 homogeneous transform 하나로 적으면 회전과 이동이 한 행렬에 담겨, joint 가 몇 개든 base 부터 차례로 곱하기만 하면 손끝 pose
+        가 나온다. 로봇마다 식을 새로 유도할 필요가 없다. 회전만 곱하고 길이를 나중에 더하면 link 마다 돌아간 방향으로 길이가 놓이지 않아 틀린다.
+        각도를 모두 더하는 방법은 모든 축이 평행한 평면 팔의 방향에만 통한다.
     - question: |
-        FK 를 homogeneous transform 의 곱으로 계산하는 이유로 맞는 것은?
-      choices:
-        - 'homogeneous transform 은 회전만 담을 수 있어서 계산이 단순해지기 때문이다'
-        - '회전과 이동을 행렬 하나에 담아, joint 마다 행렬을 곱하기만 하면 손끝 pose 가 나오기 때문이다'
-        - '3 차원 팔에서만 쓰고 평면 팔에서는 쓸 수 없기 때문이다'
-        - '곱하는 순서와 상관없이 같은 답이 나와서 실수가 없기 때문이다'
-      answer: 1
-      explanation: |
-        좌표 끝에 1 을 붙이면 회전과 이동이 행렬 곱 하나로 합쳐진다. 그러면 joint 가 몇 개든 transform 을 base 부터 차례로 곱하는
-        한 가지 방법으로 손끝의 위치와 방향을 함께 얻는다. 이동도 담기 때문에 회전만 담는다는 말은 틀렸고, 평면 팔에서도 $3 \times 3$
-        행렬로 똑같이 쓴다. 곱하는 순서를 바꾸면 결과가 달라지므로 순서는 여전히 지켜야 한다.
-    - question: |
-        $T_{0h} = T_{01}\,T_{12}\,T_{2h}$ 를 왼쪽부터 곱해 나갈 때 중간에 나오는 $T_{01}$ 과 $T_{01}\,T_{12}$ 는 무엇인가?
-      choices:
-        - '아무 뜻이 없는 계산 중간값이다'
-        - '각 joint 의 joint angle 을 더한 값이다'
-        - 'base 에서 본 frame 1 과 frame 2 의 pose 로, 중간 link 의 위치와 방향이다'
-        - '손끝을 frame 1 과 frame 2 에서 본 좌표다'
-      answer: 2
-      explanation: |
-        아래첨자가 맞닿게 곱하면 $T_{01}\,T_{12} = T_{02}$ 처럼 base 에서 본 frame 2 의 pose 가 된다. 그래서 왼쪽부터 곱해 가면 손끝만이
-        아니라 팔꿈치 같은 중간 link 의 pose 도 차례로 얻고, 충돌 검사처럼 link 마다 위치가 필요할 때 이 값을 쓴다. joint angle 의 합은
-        방향 하나일 뿐 pose 가 아니다. 손끝을 frame 2 나 frame 1 에서 본 좌표는 오른쪽부터 곱해 갈 때 나오는 중간값이다.
-
-- topic: transform-order
-  title: transform 을 곱하는 순서
-  variants:
-    - question: |
-        평면에서 $R(30°)\,\mathrm{Tr}(1)$ 과 $\mathrm{Tr}(1)\,R(30°)$ 로 만든 frame 을 비교하면?
-      choices:
-        - '원점 위치와 축 방향이 모두 같다'
-        - '축 방향은 둘 다 30° 로 같지만 원점 위치가 다르다'
-        - '원점 위치는 같지만 축 방향이 다르다'
-        - '원점 위치와 축 방향이 모두 다르다'
-      answer: 1
-      explanation: |
-        $R(30°)\,\mathrm{Tr}(1)$ 은 먼저 축을 30° 돌린 뒤 돌아간 $x$ 축을 따라 1 을 가므로 원점이 비스듬한 자리에 간다.
-        $\mathrm{Tr}(1)\,R(30°)$ 는 먼저 오른쪽으로 1 을 간 뒤 그 자리에서 축만 돌리므로 원점이 $(1, 0)$ 에 머문다. 두 경우 모두 회전은
-        30° 한 번이라 축 방향은 같고, 이동하는 방향이 달라 원점만 다르다. transform 의 곱은 숫자 곱처럼 순서를 바꿔도 되는 것이 아니다.
-    - question: |
-        어떤 로봇의 URDF 파일에 joint 가 집게 쪽부터 base 쪽으로 거꾸로 적혀 있다. FK 를 계산할 때 joint transform 을 곱하는 순서는?
+        면접관: "어떤 URDF 파일에 joint 가 gripper 쪽부터 base 쪽으로 거꾸로 적혀 있습니다. FK 에서 joint transform 을 곱하는 순서는 어떻게 정하나요?"
       choices:
         - '파일에 적힌 순서대로 곱한다'
+        - '각 joint 의 parent 와 child 를 읽어 base 에서 손끝 쪽으로 이어지는 순서로 곱한다'
         - 'transform 의 곱은 순서와 상관없으므로 아무 순서로 곱해도 된다'
-        - 'joint angle 이 큰 joint 부터 곱한다'
-        - '각 joint 의 parent·child 를 읽어 base 에서 손끝 쪽으로 이어지는 순서로 곱한다'
-      answer: 3
-      explanation: |
-        transform 은 base 에서 손끝 쪽으로 link 가 이어진 순서대로 곱해야 맞는 pose 가 나오고, 순서를 바꾸면 손끝이 다른 곳으로
-        계산된다. 파일에 적힌 순서는 이 연결 순서와 다를 수 있어서, FK 는 joint 마다 적힌 parent·child 로 연결을 다시 세운 뒤 그 순서를
-        따른다. 각도 크기는 곱하는 순서와 아무 관계가 없다.
-    - question: |
-        지금까지 곱한 transform 의 오른쪽에 $\mathrm{Tr}(L)$ 을 하나 더 곱하면 frame 의 원점은 어떻게 움직이는가?
-      choices:
-        - '지금 frame 의 $x$ 축, 곧 앞에서 돌아간 방향으로 $L$ 만큼 간다'
-        - 'base 의 $x$ 축 방향으로 $L$ 만큼 간다'
-        - '원점은 그대로이고 축만 돈다'
-        - '원점이 base 에서 $L$ 배 멀어진다'
-      answer: 0
-      explanation: |
-        오른쪽에 곱한 transform 은 지금 frame 자신을 기준으로 한 움직임이라, $\mathrm{Tr}(L)$ 은 앞에서 돌아간 $x$ 축을 따라 $L$ 만큼
-        간다. 그래서 $R(\theta_1)$ 뒤에 $\mathrm{Tr}(L_1)$ 을 곱하면 link 1 을 따라 팔꿈치로 간다. base 의 $x$ 축으로 가는 것은 왼쪽에
-        곱했을 때이고, 원점은 그대로 축만 도는 것은 $R$ 을 곱했을 때다. 거리를 곱하는 계산은 이동이 아니다.
-
-- topic: urdf
-  title: URDF 에 적힌 것과 없는 것
-  variants:
-    - question: |
-        로봇의 URDF 파일에 적혀 있지 않은 것은?
-      choices:
-        - 'joint 마다 연결된 parent link 와 child link'
-        - 'parent link 에서 joint 자리까지의 위치(origin)'
-        - '지금 이 순간 joint 가 돌아가 있는 각도'
-        - 'joint 가 도는 축의 방향(axis)'
-      answer: 2
-      explanation: |
-        URDF 는 로봇이 어떻게 생겼는지, 곧 link 가 어떻게 이어지고 joint 가 어디에서 어느 축으로 도는지만 적는다. 지금의 joint angle 은
-        로봇이 움직이는 동안 매 순간 바뀌는 값이라 모터 센서가 알려 준다. 그래서 FK 는 URDF 의 parent·child·origin·axis 와 센서의
-        joint angle 을 합쳐서 계산한다.
-    - question: |
-        URDF 에서 어떤 회전 joint 의 한계가 `upper="1.57"` 로 적혀 있다. 이 값의 뜻으로 맞는 것은?
-      choices:
-        - '1.57° 라서 joint 가 거의 움직이지 못한다'
-        - '157° 를 100 으로 나눠 적은 값이다'
-        - 'joint 가 1.57 바퀴까지 돈다는 뜻이다'
-        - 'URDF 의 각도는 radian 이라서 약 90° 다'
-      answer: 3
-      explanation: |
-        URDF 는 각도를 radian 으로 적는다. radian 은 반지름 1 인 원에서 그 각도만큼의 원둘레 길이로 잰 각도라서, 반 바퀴 180° 가
-        $\pi \approx 3.14$, 90° 가 약 1.57 이다. 이 값을 도로 읽어 1.57° 로 보는 것이 흔한 실수다. radian 은 100 등분 단위도 아니고 바퀴
-        수도 아니다.
-    - question: |
-        URDF 에서 joint 의 type 이 prismatic 이면 joint 값 $q$ 는 무엇을 뜻하는가?
-      choices:
-        - '축 방향으로 미끄러지듯 이동한 거리로, 단위는 m 다'
-        - '축을 중심으로 돈 각도로, 단위는 radian 이다'
-        - '한계 없이 계속 도는 바퀴의 각도다'
-        - '움직이지 않는 joint 라서 $q$ 가 없다'
-      answer: 0
-      explanation: |
-        prismatic joint 는 서랍처럼 축 방향으로 미끄러지는 joint 라서 $q$ 는 이동 거리이고, motion transform 도 회전이 아니라 축 방향
-        이동이다. 축을 중심으로 범위 안에서 도는 것은 revolute, 한계 없이 계속 도는 것은 continuous 이고 둘 다 radian 을 쓴다. 움직이지
-        않고 두 link 를 붙여 두는 것은 fixed 다.
-
-- topic: many-joints
-  title: 관절이 늘어난 팔과 tree
-  variants:
-    - question: |
-        관절 두 개짜리 팔 끝에 joint 하나와 link 하나를 더 붙였다. FK 계산은 어떻게 바뀌는가?
-      choices:
-        - '공식을 처음부터 다시 유도해야 한다'
-        - '마지막 joint 의 transform 을 하나 더 곱하면 되고, 계산량은 joint 수에 비례해 조금 는다'
-        - '계산량이 joint 수의 제곱으로 늘어나 관절이 6 개를 넘으면 실시간 계산이 어렵다'
-        - '새로 붙인 joint 만 계산하면 되고 앞 joint 는 다시 계산하지 않아도 된다'
+        - '관절 각도가 큰 joint 부터 곱한다'
       answer: 1
       explanation: |
-        FK 는 joint 마다 transform 하나를 차례로 곱하는 계산이라 joint 가 하나 늘면 곱셈 하나가 는다. 그래서 공식을 새로 만들 필요가
-        없고, joint 6 개짜리 팔도 1 초에 수만 번 이상 계산할 수 있다. 다만 손끝의 pose 는 앞 joint 들의 각도에도 달려 있으므로 앞
-        joint 의 transform 을 빼고 계산할 수는 없다.
+        transform 은 base 에서 손끝 쪽으로 link 가 이어진 순서대로 곱해야 맞는 pose 가 나오고, 순서를 바꾸면 결과가 달라진다. 파일에 적힌 순서는
+        이 연결 순서와 다를 수 있어서, FK 는 joint 마다 적힌 parent 와 child 로 연결을 세운 뒤 그 순서를 따른다. 행렬 곱은 순서를 바꾸면 값이
+        달라지고, 각도의 크기는 곱하는 순서와 관계없다.
     - question: |
-        손목에서 두 손가락이 갈라지는 로봇에서 왼쪽 손가락 끝의 pose 를 구한다. 오른쪽 손가락 joint 의 transform 도 곱해야 하는가?
+        면접관: "base 에서 손끝까지 joint transform 을 왼쪽부터 곱해 나갈 때, 중간에 나오는 곱은 어디에 쓸 수 있나요?"
+      choices:
+        - '쓸 곳이 없는 계산 중간값이다'
+        - '각 joint 의 관절 각도를 모두 더한 값이라 각도 검사에 쓴다'
+        - 'base 에서 본 중간 link frame 의 pose 라서, link 마다 위치가 필요한 충돌 검사에 쓴다'
+        - '손끝을 중간 frame 에서 본 좌표라서 손끝 위치를 검산하는 데 쓴다'
+      answer: 2
+      explanation: |
+        아래첨자가 맞닿게 곱하면 $T_{01}T_{12} = T_{02}$ 처럼 base 에서 본 frame 2 의 pose 가 된다. 그래서 왼쪽부터 곱하면 손끝만이 아니라 팔꿈치
+        같은 중간 link 의 pose 도 차례로 얻고, 충돌 검사처럼 link 마다 위치가 필요할 때 이 값을 쓴다. 각도의 합은 방향 하나일 뿐 pose 가 아니다.
+        손끝을 중간 frame 에서 본 좌표는 점에 오른쪽부터 곱해 갈 때 나오는 값이다.
+
+- topic: urdf-joint
+  title: URDF 의 joint 와 FK 의 재료
+  variants:
+    - question: |
+        면접관: "URDF 의 joint 하나는 FK 에서 어떤 transform 이 되나요? 그중 로봇이 움직이는 동안 바뀌는 부분은 무엇인가요?"
+      choices:
+        - '`<origin>` 의 xyz·rpy 로 만든 고정 transform 뒤에 `<axis>` 를 중심으로 joint 값 q 만큼 움직이는 transform 을 곱한 것이고, 바뀌는 것은 q 에 따른 뒤쪽 transform 이다'
+        - '`<origin>` 이 joint 값에 따라 바뀌고 `<axis>` 는 고정이다'
+        - '`<axis>` 의 방향 vector 가 joint 값에 비례해 길어진다'
+        - '`<limit>` 범위의 가운데 값이 joint 의 transform 이 된다'
+      answer: 0
+      explanation: |
+        URDF 의 joint 는 $T^{\text{origin}}\,T^{\text{motion}}(q)$ 로 계산한다. origin 은 parent link frame 에서 joint 자리까지의 고정된 위치와
+        방향이라 로봇을 만들 때 정해지고, 움직이는 것은 axis 를 중심으로 q 만큼 돌리는(prismatic 이면 옮기는) 부분이다. origin 은 움직이는 동안
+        바뀌지 않는다. axis 는 방향만 나타내며 길이가 변하지 않고, limit 은 q 가 움직일 수 있는 범위일 뿐 transform 이 아니다.
+    - question: |
+        면접관: "URDF 의 회전 joint 에 `upper="1.57"` 이 적혀 있으면 무슨 뜻인가요?"
+      choices:
+        - '1.57° 까지만 돌 수 있어서 joint 가 거의 움직이지 못한다'
+        - '157° 를 100 으로 나눠 적은 값이다'
+        - 'joint 가 1.57 바퀴까지 돈다는 뜻이다'
+        - 'URDF 의 각도 단위는 radian 이라서 약 90° 까지 돈다는 뜻이다'
+      answer: 3
+      explanation: |
+        URDF 는 각도를 radian 으로 적는다. 반 바퀴 180° 가 $\pi \approx 3.14$ rad 이라 1.57 rad 은 약 90° 다. 이 값을 도로 읽어 1.57° 로 보는 것이
+        흔한 실수이고, radian 은 100 등분 단위도 바퀴 수도 아니다. 도 단위로 joint 값을 다루는 코드는 URDF 계산에 넘기기 전에 radian 으로 바꿔야 한다.
+    - question: |
+        면접관: "같은 로봇, 같은 URDF 인데 오전과 오후에 FK 로 계산한 손끝 위치가 달랐습니다. 차이는 어디서 왔다고 봐야 하나요?"
+      choices:
+        - 'URDF 파일이 실행 중에 스스로 바뀌었기 때문이다'
+        - 'encoder 로 읽은 관절 각도가 달랐기 때문이다. URDF 에는 로봇의 모양만 있고 관절 각도는 없다'
+        - 'URDF 에 적힌 관절 각도가 시간에 따라 갱신되었기 때문이다'
+        - 'FK 는 같은 입력에도 매번 다른 답을 낼 수 있기 때문이다'
+      answer: 1
+      explanation: |
+        FK 의 재료는 URDF 에 적힌 로봇의 모양과, 매 순간 encoder 로 읽는 joint angle 두 가지다. URDF 가 같으면 남은 차이는 joint angle 이다.
+        URDF 에는 link 의 연결과 joint 의 자리·축만 있고 지금의 각도는 적혀 있지 않다. 파일은 실행 중에 스스로 바뀌지 않고, FK 는 같은 입력에
+        늘 같은 답을 낸다.
+
+- topic: tree-tf2
+  title: kinematic tree 와 ROS 2 의 robot_state_publisher·tf2
+  variants:
+    - question: |
+        면접관: "손목에서 두 손가락이 갈라지는 gripper 에서 왼쪽 손가락 끝의 pose 를 구할 때, 오른쪽 손가락 joint 의 transform 도 곱해야 하나요?"
       choices:
         - '곱해야 한다. 로봇의 모든 joint 를 곱해야 pose 가 나온다'
-        - '곱해야 한다. 두 손가락은 서로 대칭이라 함께 계산한다'
-        - '곱하지 않는다. root 에서 왼쪽 손가락 끝까지 가는 길에 있는 joint 만 곱한다'
+        - '곱해야 한다. 두 손가락은 대칭이라 함께 계산한다'
+        - '곱하지 않는다. root 에서 왼쪽 손가락 끝까지 가는 길 위의 joint 만 곱한다'
         - '왼쪽 손가락 joint 를 빼고 오른쪽 손가락 joint 만 곱한다'
       answer: 2
       explanation: |
-        갈래가 있는 로봇은 tree 이고, 어떤 link 의 pose 는 root 에서 그 link 까지 내려가는 길에 있는 joint transform 만 곱해 구한다.
-        오른쪽 손가락 joint 는 그 길에 없으므로 곱하지 않는다. 손목까지는 두 손가락이 같은 길을 지나므로 손목까지의 transform 은 한 번
-        계산해 두 손가락에 함께 쓴다.
+        갈래가 있는 로봇은 kinematic tree 이고, 어떤 link 의 pose 는 root 에서 그 link 까지 가는 길 위의 joint transform 만 곱해 구한다. 오른쪽
+        손가락 joint 는 그 길에 없으므로 곱하지 않는다. 손목까지는 두 손가락이 같은 길을 지나므로 손목까지의 transform 은 한 번 계산해 함께 쓴다.
+        대칭이라고 함께 곱하면 다른 가지의 움직임이 섞여 틀린 pose 가 나온다.
     - question: |
-        tree 구조 로봇의 모든 link pose 를 한꺼번에 구할 때 root 에서 잎 쪽으로 내려가며 계산하는 이유로 맞는 것은?
+        면접관: "ROS 2 의 robot_state_publisher 는 정확히 무엇을 publish 하나요?"
       choices:
-        - '자식 link 의 pose 는 부모 link 의 pose 에 그 joint 의 transform 을 곱해 얻으므로 부모가 먼저 정해져 있어야 하기 때문이다'
-        - '잎 쪽 link 가 더 무거워서 나중에 계산해야 하기 때문이다'
-        - 'URDF 파일이 항상 root 부터 적혀 있기 때문이다'
-        - '어느 순서로 계산해도 되지만 관례상 root 부터 한다'
+        - 'URDF 와 /joint_states 로 joint 마다 parent → child transform 을 계산해 움직이는 joint 는 /tf 에 보내고, fixed joint 는 시작할 때 한 번 /tf_static 에 보낸다'
+        - 'base 에서 모든 link 까지의 transform 을 직접 곱해 link 마다 하나씩 보낸다'
+        - 'joint 의 각도를 encoder 에서 직접 읽어 /joint_states 로 보낸다'
+        - 'URDF 의 mesh 를 읽어 RViz 에 그릴 그림을 보낸다'
       answer: 0
       explanation: |
-        $T_{0,\text{child}} = T_{0,\text{parent}}\,T^{\text{origin}}\,T^{\text{motion}}(q)$ 라서 부모의 pose 를 모르면 자식의 pose 를 구할
-        수 없다. 그래서 순서는 관례가 아니라 계산의 의존 관계로 정해진다. link 의 무게는 FK 에 쓰지 않으며, URDF 파일은 joint 를 아무
-        순서로나 적을 수 있어서 거꾸로 적힌 경우도 있다.
-
-- topic: real-error
-  title: 계산과 실물의 오차
-  variants:
+        robot_state_publisher 는 joint 하나하나의 $T^{\text{origin}}\,T^{\text{motion}}(q)$ 를 parent → child transform 으로 보낸다. 값이 바뀌지
+        않는 fixed joint 는 시작할 때 /tf_static 에 한 번 보내고, 움직이는 joint 는 /joint_states 가 올 때마다 /tf 에 보낸다. base 에서 먼 link
+        까지 곱하는 일은 tf2 가 lookup 할 때 한다. 각도를 읽어 /joint_states 를 보내는 것은 hardware driver 의 몫이고, 그림은 RViz 가 tf 와 URDF 로
+        직접 그린다.
     - question: |
-        FK 계산을 정확히 했는데도 실제 로봇의 손끝이 계산한 자리에서 몇 mm 어긋났다. 원인으로 가장 알맞은 것은?
+        면접관: "RViz 에서 손목 아래 link 들만 transform 이 없다는 오류가 나고, 나머지 팔은 정상으로 보입니다. 먼저 의심할 곳은 어디인가요?"
       choices:
-        - 'cos·sin 을 컴퓨터가 정확히 계산하지 못하기 때문이다'
-        - 'FK 공식 자체가 대략적인 근사식이기 때문이다'
-        - '행렬을 여러 번 곱하면서 소수 오차가 mm 단위로 쌓이기 때문이다'
-        - '센서의 0 점, link 치수, 기어 틈, link 의 휘어짐 때문에 실물이 URDF·센서 숫자와 조금씩 다르기 때문이다'
+        - 'URDF 의 mesh 파일 경로'
+        - 'RViz 의 배경색과 조명 설정'
+        - 'tf2 buffer 의 보관 시간이 너무 길게 설정된 것'
+        - '/joint_states 에 손목 joint 의 각도가 빠져 있어 robot_state_publisher 가 그 joint 의 transform 을 보내지 못한 것'
       answer: 3
       explanation: |
-        FK 는 URDF 의 숫자와 센서가 준 joint angle 이 정확하다고 믿고 계산한다. 실물은 센서 0 점이 조금 어긋나 있거나, link 가 도면보다
-        조금 길거나, 기어에 틈이 있거나, 무게 때문에 살짝 휘어서 그 숫자와 다르다. FK 공식은 근사가 아니라 정확한 식이고, 컴퓨터의
-        cos·sin 과 행렬 곱의 소수 오차는 mm 보다 훨씬 작다.
+        tf2 는 root 에서 각 link 까지 가는 길의 transform 을 곱해 pose 를 구하므로, 길 중간의 joint 하나가 빠지면 그 아래 link 의 lookup 이 모두
+        실패한다. 움직이는 joint 의 transform 은 /joint_states 에 그 joint 의 각도가 있어야 만들어지므로 손목 joint 의 각도가 빠졌는지부터 본다.
+        mesh 경로가 틀리면 모양이 안 보일 뿐 transform 오류가 아니고, 화면 설정은 transform 과 관계없다. buffer 를 길게 두면 오래된 값까지 찾을 수
+        있을 뿐 transform 이 사라지지는 않는다.
+
+- topic: dh-poe
+  title: DH parameter 와 product of exponentials
+  variants:
     - question: |
-        base 쪽 joint 와 손목 쪽 joint 가 똑같이 1° 씩 틀렸다. 손끝을 더 크게 어긋나게 하는 쪽은?
+        면접관: "DH parameter 는 joint 하나를 숫자 4 개로 적는데 URDF 는 6 개를 씁니다. 이 차이는 어디서 오나요?"
       choices:
-        - '손목 쪽 joint 다. 손끝에 더 가깝기 때문이다'
-        - 'base 쪽 joint 다. 그 joint 에서 손끝까지의 거리가 더 멀어서 같은 각도 오차가 더 긴 호가 된다'
-        - '둘 다 1° 라서 똑같이 어긋난다'
-        - '각도 오차는 손끝 위치에 영향을 주지 않고 방향만 바꾼다'
+        - 'DH 는 정밀도가 낮아서 숫자 2 개를 버린 근사이기 때문이다'
+        - 'DH 는 joint 축을 z 축으로, 이웃한 두 축에 모두 직각인 선을 x 축으로 두는 규칙으로 frame 자리를 정해 숫자 2 개를 없애기 때문이다'
+        - 'URDF 는 질량과 관성을 함께 적기 때문이다'
+        - 'DH 는 회전 joint 만 다루고 URDF 는 이동 joint 까지 다루기 때문이다'
       answer: 1
       explanation: |
-        joint 가 $\theta$ radian 만큼 틀리면 손끝은 그 joint 를 중심으로 반지름 $r$ 인 원을 따라 약 $r \times \theta$ 만큼 어긋난다.
-        $r$ 은 joint 에서 손끝까지의 거리라서 base 쪽 joint 일수록 크고, 같은 1° 라도 손끝 오차가 커진다. 손끝에 가까운 joint 는 $r$ 이
-        작아 오차도 작다. 각도 오차는 방향과 함께 위치도 바꾼다.
+        URDF 의 origin 은 frame 을 아무 자리에 둘 수 있어서 xyz 셋과 rpy 셋, 6 개가 필요하다. DH 는 frame 을 놓는 규칙으로 자유도 2 개를 미리
+        정해 두어서 남은 4 개($a$, $\alpha$, $d$, $\theta$)로 같은 transform 을 정확히 적으므로 근사가 아니다. 질량과 관성은 joint origin 과 따로
+        적는 정보이고, DH 도 $d$ 를 변수로 두어 prismatic joint 를 적을 수 있다.
     - question: |
-        로봇 팔에서 calibration 이라고 부르는 작업으로 맞는 것은?
+        면접관: "제조사가 공개한 DH 표를 받아 FK 를 짰는데 손끝이 엉뚱한 곳에 나옵니다. 표의 숫자는 맞다면 무엇부터 확인해야 하나요?"
       choices:
-        - '모터 센서가 0 이라고 읽는 자리를 실제 joint 의 0 점에 맞추는 작업이다'
-        - 'URDF 의 각도 단위를 도에서 radian 으로 바꾸는 작업이다'
-        - 'joint 를 곱하는 순서를 정하는 작업이다'
-        - '모터의 힘 한계를 정하는 작업이다'
+        - '각도 단위를 radian 대신 도로 바꿨는지'
+        - 'link 길이가 cm 단위인지 m 단위인지 모를 때는 둘 다 곱해 보는지'
+        - '표가 원래 DH 규약인지 Craig 규약(modified DH)인지, 그리고 내 코드가 같은 규약의 곱하는 순서를 쓰는지'
+        - 'joint 수가 6 개를 넘으면 DH 로 FK 를 계산할 수 없다는 점'
+      answer: 2
+      explanation: |
+        DH 에는 네 동작을 곱하는 순서와 아래첨자가 다른 두 규약이 있다. UR 은 원래 규약을 쓰고 Franka 는 Craig 규약을 쓰는데, 한 규약의 표를 다른 규약의
+        식에 넣으면 다른 팔이 계산된다. 각도 단위는 radian 이 맞으므로 도로 바꾸면 오히려 틀린다. 단위가 모호하면 문서로 확인해야 하고, 7 축
+        팔인 FR3 도 DH 표로 FK 를 계산한다.
+    - question: |
+        면접관: "product of exponentials 방식의 FK 는 무엇을 미리 적어 두고 어떻게 계산하나요?"
+      choices:
+        - '모든 관절 각도가 0 인 자세에서 각 joint 축이 base frame 의 어디에 있는지와 손끝 pose 를 적어 두고, 손끝 쪽 joint 부터 그 축을 중심으로 각도만큼 돌린다'
+        - 'link 마다 frame 을 붙이고 joint 하나를 숫자 4 개로 적어 base 부터 곱한다'
+        - '관절 각도별 손끝 위치를 표로 저장해 두고 가장 가까운 값을 찾는다'
+        - 'joint 축을 매번 현재 자세에서 다시 구해 base 쪽 joint 부터 돌린다'
       answer: 0
       explanation: |
-        센서의 0 점이 실제 joint 의 0 점과 다르면 joint angle 이 늘 그만큼 틀려 FK 결과도 어긋난다. calibration 은 이 기준을 실물에 맞춰
-        오차를 줄이는 작업이다. 단위 변환과 곱하는 순서는 계산 규칙의 문제이고, 힘 한계는 FK 에서 다루지 않는 값이다.
+        PoE 는 zero configuration 의 joint 축과 손끝 pose 만 한 번 적고, 손끝 쪽 joint 부터 각 축을 중심으로 joint angle 만큼 돌린다. 손끝 쪽부터
+        돌리면 아직 움직이지 않은 앞쪽 joint 의 축이 적어 둔 자리 그대로라서 축을 다시 구할 필요가 없다. link 마다 frame 을 붙여 숫자 4 개로
+        적는 것은 DH 다. 표에서 가까운 값을 찾는 방식은 근사일 뿐 FK 계산이 아니다.
+
+- topic: real-error
+  title: 계산과 실물의 차이
+  variants:
+    - question: |
+        면접관: "FK 계산이 맞는데도 실제 로봇의 손끝이 계산한 자리에서 몇 mm 어긋납니다. 원인으로 무엇을 꼽겠어요?"
+      choices:
+        - '컴퓨터가 cos 과 sin 을 정확히 계산하지 못하기 때문이다'
+        - 'FK 식 자체가 대략적인 근사식이기 때문이다'
+        - '행렬을 여러 번 곱하면서 소수 오차가 mm 단위로 쌓이기 때문이다'
+        - 'encoder 의 0 점, link 치수, 기어 틈, 하중에 따른 휘어짐 때문에 실물이 URDF 와 encoder 의 숫자와 조금씩 다르기 때문이다'
+      answer: 3
+      explanation: |
+        FK 는 URDF 의 숫자와 encoder 가 준 joint angle 이 정확하다고 믿고 계산한다. 실물은 encoder 0 점이 조금 어긋나 있거나, link 가 도면보다
+        조금 길거나, 기어에 틈이 있거나, 하중으로 살짝 휘어서 그 숫자와 다르다. FK 식은 근사가 아니라 정확한 식이고, cos·sin 과 행렬 곱의 소수
+        오차는 mm 보다 훨씬 작다.
+    - question: |
+        면접관: "base 쪽 joint 와 손목 쪽 joint 가 똑같이 1° 씩 틀렸습니다. 손끝을 더 크게 어긋나게 하는 쪽은 어디인가요?"
+      choices:
+        - '손목 쪽 joint 다. 손끝에 더 가깝기 때문이다'
+        - 'base 쪽 joint 다. joint 에서 손끝까지 거리가 멀수록 같은 각도 오차가 더 긴 호가 되기 때문이다'
+        - '둘 다 1° 라서 똑같이 어긋난다'
+        - '각도 오차는 손끝의 방향만 바꾸고 위치는 바꾸지 않는다'
+      answer: 1
+      explanation: |
+        joint 가 $\Delta\theta$ radian 틀리면 손끝은 그 joint 를 중심으로 반지름 $r$ 인 원을 따라 약 $r\,\Delta\theta$ 만큼 어긋나고, $r$ 은 joint
+        에서 손끝까지의 거리다. base 쪽 joint 는 $r$ 이 커서 같은 1° 라도 손끝 오차가 크다. 손끝에 가까운 joint 는 $r$ 이 작아 오차도 작다. 손끝이
+        회전축 바로 위에 있는 경우가 아니면 각도 오차는 방향과 함께 위치도 바꾼다.
+    - question: |
+        면접관: "어떤 로봇 팔의 repeatability 가 ±0.03 mm 인데, 제조사는 kinematics calibration 을 반영하지 않으면 손끝 위치가 cm 단위로 틀릴 수 있다고 합니다. 두 말이 어떻게 둘 다 맞나요?"
+      choices:
+        - '둘 중 하나는 잘못된 사양이다'
+        - 'repeatability 는 무거운 물건을 들었을 때의 값이고, cm 오차는 빈 손일 때의 값이다'
+        - 'repeatability 는 같은 관절 각도로 다시 보냈을 때 같은 자리로 돌아오는 정도이고, cm 오차는 FK 가 그 자리를 계산할 때 쓰는 URDF 숫자가 실물과 달라 생기는 accuracy 의 문제다'
+        - 'cm 오차는 encoder 가 고장 났을 때만 생긴다'
+      answer: 2
+      explanation: |
+        repeatability 는 같은 명령을 되풀이했을 때 결과가 얼마나 모이는지이고, accuracy 는 계산한 자리와 실제 자리가 얼마나 맞는지다. 팔이 늘 같은
+        자리로 정밀하게 돌아와도 FK 가 쓰는 link 치수나 0 점이 실물과 다르면 그 자리를 base 에서 몇 m 라고 계산한 값이 틀린다. 그래서 공장
+        calibration 값을 URDF 에 반영한다. 하중이나 encoder 고장은 이 두 사양의 차이를 설명하지 않는다.

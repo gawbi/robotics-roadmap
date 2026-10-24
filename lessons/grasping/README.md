@@ -404,7 +404,7 @@ grasp 를 고르는 network 는 pipeline 의 한 단계일 뿐이라, 점수가 
 MoveIt 2 의 MoveIt Task Constructor 는 이 과정을 stage 로 나눠 둔다. `GenerateGraspPose` stage 는 물체 축을 중심으로 `angle_delta` 마다
 grasp pose 후보를 만든다. `angle_delta` 의 기본값은 0.1 rad 이고, 공식 예제는 이를 $\pi / 12$(15°)로 둬서 한 바퀴에 $2\pi \div (\pi / 12) = 24$
 개를 만든다. 이 stage 를 감싼 `ComputeIK` stage 가 후보마다 IK 를 풀고, IK 를 풀지 못한 후보는 버린다. 후보 하나당 구할 IK 해의 수
-`max_ik_solutions` 는 기본값이 1 이고 예제에서는 8 이다. 예제는 grasp 직전에 손을 0.10 ~ 0.15 m 다가가게 하고, 쥔 뒤에는 0.01 ~ 0.10 m
+`max_ik_solutions` 는 기본값이 1 이고 예제에서는 8 이다. 예제는 grasp 직전에 손을 0.10 ~ 0.15 m 다가가게 하고, 쥔 뒤에는 0.1 ~ 0.3 m
 들어 올린다.
 
 **확인 문제.** `GenerateGraspPose` 의 `angle_delta` 를 기본값 0.1 rad 로 두면 물체 축을 한 바퀴 도는 동안 후보가 대략 몇 개 생길까?

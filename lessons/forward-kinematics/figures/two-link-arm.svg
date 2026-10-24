@@ -40,9 +40,9 @@
   <text x="400.0" y="62.0" fill="#94a3b8" font-size="13" text-anchor="start">팔꿈치 = (cos 30°, sin 30°)</text>
   <text x="400.0" y="84.0" fill="#94a3b8" font-size="13" text-anchor="start">         = (0.866, 0.5)</text>
   <text x="400.0" y="124.0" fill="#e2e8f0" font-size="13" text-anchor="start">link 2 의 방향: θ₁ + θ₂ = 90°</text>
-  <text x="400.0" y="146.0" fill="#94a3b8" font-size="13" text-anchor="start">더할 칸 = (cos 90°, sin 90°)</text>
+  <text x="400.0" y="146.0" fill="#94a3b8" font-size="13" text-anchor="start">더할 이동량 = (cos 90°, sin 90°)</text>
   <text x="400.0" y="168.0" fill="#94a3b8" font-size="13" text-anchor="start">         = (0, 1)</text>
-  <text x="400.0" y="208.0" fill="#e2e8f0" font-size="13" text-anchor="start">손끝 = 팔꿈치 + 더할 칸</text>
+  <text x="400.0" y="208.0" fill="#e2e8f0" font-size="13" text-anchor="start">손끝 = 팔꿈치 + 더할 이동량</text>
   <text x="400.0" y="230.0" fill="#94a3b8" font-size="13" text-anchor="start">     = (0.866 + 0, 0.5 + 1)</text>
   <text x="400.0" y="252.0" fill="#f59e0b" font-size="14" text-anchor="start">     = (0.866, 1.5)</text>
 </svg>

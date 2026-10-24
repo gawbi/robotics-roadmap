@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ROS 2 에서 FK 가 계산되는 흐름. joint driver 가 /joint_states 로 각도를 보내면 robot_state_publisher 가 URDF 로 joint 마다 transform 을 계산해 움직이는 joint 6 개는 /tf 에, fixed joint 1 개는 /tf_static 에 보내고, tf2 가 그 transform 을 곱해 base_link 에서 본 gripper_frame_link 의 pose 를 돌려준다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="698" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16.0" y="40.0" width="140.0" height="74.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="86.0" y="68.0" fill="#e2e8f0" font-size="15" text-anchor="middle">joint driver</text>
+  <text x="86.0" y="88.0" fill="#94a3b8" font-size="12" text-anchor="middle">각도 센서 값을 읽어</text>
+  <text x="86.0" y="104.0" fill="#94a3b8" font-size="12" text-anchor="middle">rad 로 바꿈</text>
+  <line x1="158.0" y1="77.0" x2="262.0" y2="77.0" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#as)"/>
+  <text x="210.0" y="66.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/joint_states</text>
+  <text x="210.0" y="96.0" fill="#94a3b8" font-size="11" text-anchor="middle">이름 + 각도</text>
+  <rect x="264.0" y="32.0" width="230.0" height="90.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="379.0" y="58.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">robot_state_publisher</text>
+  <text x="379.0" y="80.0" fill="#94a3b8" font-size="12" text-anchor="middle">joint 마다</text>
+  <text x="379.0" y="98.0" fill="#f59e0b" font-size="12" text-anchor="middle">origin transform × motion(q)</text>
+  <text x="379.0" y="114.0" fill="#94a3b8" font-size="12" text-anchor="middle">를 계산</text>
+  <rect x="540.0" y="40.0" width="144.0" height="74.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="612.0" y="66.0" fill="#e2e8f0" font-size="15" text-anchor="middle">URDF</text>
+  <text x="612.0" y="86.0" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">robot_description</text>
+  <text x="612.0" y="103.0" fill="#94a3b8" font-size="11" text-anchor="middle">origin · axis · type</text>
+  <line x1="538.0" y1="77.0" x2="498.0" y2="77.0" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#av)"/>
+  <line x1="330.0" y1="124.0" x2="330.0" y2="206.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
+  <text x="320.0" y="150.0" fill="#34d399" font-size="13" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/tf</text>
+  <text x="320.0" y="168.0" fill="#94a3b8" font-size="11" text-anchor="end">움직이는 joint 6 개</text>
+  <text x="320.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="end">각도가 올 때마다 (기본 최대 20 Hz)</text>
+  <line x1="430.0" y1="124.0" x2="430.0" y2="206.0" stroke="#f87171" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="440.0" y="150.0" fill="#f87171" font-size="13" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/tf_static</text>
+  <text x="440.0" y="168.0" fill="#94a3b8" font-size="11" text-anchor="start">fixed joint 1 개</text>
+  <text x="440.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="start">시작할 때 한 번</text>
+  <rect x="250.0" y="208.0" width="260.0" height="60.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="380.0" y="233.0" fill="#e2e8f0" font-size="15" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">tf2 buffer</text>
+  <text x="380.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">parent → child transform 을 최근 10 초 보관</text>
+  <rect x="16.0" y="210.0" width="170.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="101.0" y="234.0" fill="#e2e8f0" font-size="13" text-anchor="middle">RViz · MoveIt · 내 node</text>
+  <text x="101.0" y="253.0" fill="#94a3b8" font-size="11" text-anchor="middle">frame 쌍을 물어봄</text>
+  <line x1="188.0" y1="238.0" x2="248.0" y2="238.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="380.0" y1="270.0" x2="380.0" y2="300.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <rect x="110.0" y="302.0" width="540.0" height="82.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380.0" y="326.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">lookupTransform(base_link, gripper_frame_link)</text>
+  <text x="380.0" y="348.0" fill="#e2e8f0" font-size="12" text-anchor="middle">root 에서 gripper_frame_link 까지 길 위의 joint transform 6 개를 차례로 곱함</text>
+  <text x="380.0" y="368.0" fill="#94a3b8" font-size="12" text-anchor="middle">모든 각도가 0 이면 집게 끝점 (0.391, 0, 0.226) m</text>
+</svg>

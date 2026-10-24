@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>link 길이 1 인 3 관절 팔의 세 자세가 같은 손끝 (1.366, 2.366) 에 닿는다. 같은 칸 세 개를 다른 순서로 더한 것이다</title>
+  <title>link 길이 1 인 3 관절 팔의 세 자세가 같은 손끝 (1.366, 2.366) 에 닿는다. 같은 vector 세 개를 다른 순서로 더했다</title>
   <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="30.0" y="30.0" width="330.0" height="330.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
@@ -51,7 +51,7 @@
   <line x1="385.0" y1="190.0" x2="415.0" y2="190.0" stroke="#a78bfa" stroke-width="5" stroke-dasharray="10 6" stroke-linecap="round"/>
   <text x="427.0" y="194.0" fill="#e2e8f0" font-size="14" text-anchor="start">(90°, −60°, 30°)</text>
   <text x="427.0" y="216.0" fill="#94a3b8" font-size="12" text-anchor="start">방향 90° → 30° → 60°</text>
-  <text x="385.0" y="280.0" fill="#e2e8f0" font-size="13" text-anchor="start">더하는 칸 세 개는 늘 같다</text>
+  <text x="385.0" y="280.0" fill="#e2e8f0" font-size="13" text-anchor="start">더하는 vector 세 개는 늘 같다</text>
   <text x="385.0" y="302.0" fill="#94a3b8" font-size="12" text-anchor="start">(0.866, 0.5), (0.5, 0.866), (0, 1)</text>
   <text x="385.0" y="334.0" fill="#e2e8f0" font-size="13" text-anchor="start">joint 3 개로 숫자 2 개를 맞추면</text>
   <text x="385.0" y="356.0" fill="#e2e8f0" font-size="13" text-anchor="start">답이 끝없이 많다</text>
