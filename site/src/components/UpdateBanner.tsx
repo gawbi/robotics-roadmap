@@ -11,7 +11,8 @@ export function UpdateBanner() {
   const [later, setLater] = useState(false)
 
   useEffect(() => {
-    // a built site has no dev server to ask, so the request fails and the banner stays hidden
+    // a built site has no dev server to ask, so the banner stays hidden
+    if (!import.meta.env.DEV) return
     fetch(U.endpoint)
       .then((r) => (r.ok ? r.json() : null))
       .then((s: UpdateState | null) => s && setState(s))
