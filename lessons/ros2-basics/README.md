@@ -246,19 +246,44 @@ subscriber 가 reliable 이면 연결되지 않는다.
 ## executor 와 timer
 
 node 가 message 를 받았을 때 실행하는 함수를 **callback** 이라고 한다. callback 의 내용은 node 를 만든 사람이 쓰지만, 언제 부를지는 ROS 2 가
-정한다. message 가 도착하거나 timer 의 시각이 되면 그 callback 이 실행을 기다리는 상태가 되고, **executor** 가 운영체제의 thread 를 써서
+정한다. message 가 도착하거나 timer 가 정한 시각이 되면 그 callback 이 실행을 기다리는 상태가 되고, **executor** 가 운영체제의 thread 를 써서
 기다리는 callback 을 부른다. thread 는 컴퓨터 안에서 동시에 진행되는 계산의 흐름 하나다. 가장 단순한 single-threaded executor 는 thread 하나로
 callback 을 하나씩 차례로 부르므로, 한 callback 이 실행되는 동안 다른 callback 은 모두 기다린다.
 
-**timer** 는 정해 둔 간격마다 callback 을 부른다. 100 Hz 로 계산하려는 controller node 라면 10 ms 간격의 timer 를 만드는데, callback 이
-간격보다 오래 걸리면 이 주기를 지킬 수 없다.
+**timer** 는 callback 을 부를 **예정 시각**을 정해 두는 일만 하고, callback 을 실제로 부르는 것은 executor 다. 그래서 executor 가 비어
+있으면 callback 이 예정 시각에 바로 실행되지만, 다른 callback 을 실행하는 중이면 그 callback 이 끝난 뒤에야 실행된다.
 
-![10 ms 간격 timer 의 callback 이 25 ms 걸릴 때. 예정 시각은 10, 20, 30 ms … 지만 실제 호출은 10, 35, 60, 85, 110 ms 로 25 ms 마다라서 100 Hz 대신 40 Hz 가 된다](figures/ros2-timer-overrun.svg)
+100 Hz 로 계산하려는 controller node 는 예정 시각을 10 ms 간격으로 잡는다. 그런데 callback 이 한 번에 25 ms 걸리면 아래 그림처럼 된다.
 
-10 ms 간격의 timer 에서 callback 이 한 번에 25 ms 걸린다고 하자. 10 ms 에 시작한 callback 은 35 ms 에 끝나는데, 그사이 20 ms 와 30 ms 의
-차례가 지나갔다. ROS 2 의 timer 는 밀린 차례를 몰아서 실행하지 않고 건너뛰므로, 35 ms 에 한 번 부른 뒤 다음 차례를 40 ms 로 잡는다. 그런데
-35 ms 에 시작한 callback 도 60 ms 에야 끝나서 40 ms 와 50 ms 의 차례가 또 지나간다. 결국 callback 은 끝나자마자 다시 불려 10, 35, 60, 85, 110 ms 에
-실행되고, 계산은 1초에 $1000 \div 25 = 40$ 번에 그친다.
+![10 ms 간격 timer 의 callback 이 25 ms 걸릴 때. 10 ms 예정분은 바로 실행되어 35 ms 까지 thread 를 쓰고, 20 ms 예정분은 15 ms 기다렸다가 35 ms 에, 40 ms 예정분은 20 ms 기다렸다가 60 ms 에 실행된다. 기다리는 동안 지난 30 ms 와 50 ms 예정 시각은 건너뛴다](figures/ros2-timer-overrun.svg)
+
+- **10 ms**: 예정 시각에 바로 실행되고, 35 ms 까지 thread 를 쓴다.
+- **20 ms**: 예정 시각이 됐지만 thread 가 바빠서 기다리다가, thread 가 비는 35 ms 에 실행된다. 35 ms 는 예정 시각이 아니라 20 ms 에 했어야
+  할 실행(20 ms 예정분)을 15 ms 늦게 한 시각이다.
+- **30 ms**: 기다리는 사이 이 예정 시각도 지났다. timer 는 밀린 예정분을 몰아서 실행하지 않고 건너뛰므로 30 ms 예정분은 실행되지 않는다.
+- **40 ms**: 35 ms 에 시작한 callback 이 60 ms 까지 실행 중이라 40 ms 예정분은 60 ms 에 실행되고, 그사이 지난 50 ms 는 건너뛴다.
+
+같은 일이 되풀이되어 callback 은 앞의 callback 이 끝나자마자 다시 실행된다. 실제 간격은 10 ms 가 아니라 callback 이 걸리는 25 ms 라서,
+계산은 1초에 100 번이 아니라 $1000 \div 25 = 40$ 번에 그친다.
+
+<details><summary><b>심화: rcl 이 다음 예정 시각을 정하는 방법</b></summary>
+
+rcl 의 timer 코드(`rcl_timer_call`)는 callback 을 부를 때마다 예정 시각을 간격만큼 옮기고, 옮긴 값이 지금 시각 이하면 지금 이후의 첫 예정
+시각으로 건너뛴다. 위 예를 끝까지 따라가면 아래와 같다.
+
+| 실제 실행 | 실행한 예정분 | 건너뛴 예정 시각 | 다음 예정 시각 |
+| --- | --- | --- | --- |
+| 10 ms | 10 ms | 없음 | 20 ms |
+| 35 ms | 20 ms | 30 ms | 40 ms |
+| 60 ms | 40 ms | 50, 60 ms | 70 ms |
+| 85 ms | 70 ms | 80 ms | 90 ms |
+| 110 ms | 90 ms | 100, 110 ms | 120 ms |
+
+60 ms 와 110 ms 는 실제 실행 시각이 예정 시각과 같지만, 그때 실행되는 것은 밀려 있던 40 ms·90 ms 예정분이라 60 ms·110 ms 예정 시각은
+건너뛴다. rcl 은 원래 예정 시각(`expected_call_time`)과 실제로 부른 시각(`actual_call_time`)을 함께 남기고, Jazzy 의 rclcpp 에서는 timer
+callback 이 두 값을 받아 몇 ms 늦었는지 확인할 수 있다.
+
+</details>
 
 controller 의 gain 을 10 ms 간격(100 Hz)에 맞춰 두었는데 실제 간격이 25 ms 로 늘어나면 문제가 생긴다. [PID Control](../pid-control/README.md)
 에서 본 것처럼 계산 간격이 바뀌면 같은 gain 이어도 I 항과 D 항의 크기가 달라지고, gain 이 크면 발산할 수도 있다. 같은 thread 를 쓰는 카메라
@@ -272,7 +297,7 @@ mutually exclusive callback group 에 넣은 callback 끼리는 동시에 실행
 
 <details><summary>답 보기</summary>
 
-50 Hz 의 간격은 $1000 \div 50 = 20$ ms 인데 callback 이 30 ms 걸리므로, 밀린 차례는 건너뛰고 callback 이 끝나자마자 다시 불린다. 30 ms 마다
+50 Hz 의 간격은 $1000 \div 50 = 20$ ms 인데 callback 이 30 ms 걸리므로, 밀린 예정 시각은 건너뛰고 callback 이 끝나자마자 다시 불린다. 30 ms 마다
 한 번이라 $1000 \div 30 \approx 33$ 번이다.
 
 </details>
@@ -412,7 +437,7 @@ domain 과 port 가 겹칠 수 있다. domain ID 의 상한도 같은 식에서 
   30 Hz 로 보내면 약 221 Mbit/s 다
 - QoS 는 publisher 와 subscriber 가 따로 정하고 요청이 제시보다 높으면 연결되지 않는데, 이때 프로그램은 오류 없이 실행되고 데이터만 오지 않는다. 센서 데이터는 옛 값의
   쓸모가 없으므로 best effort 와 작은 depth 를 쓴다
-- timer callback 이 간격보다 오래 걸리면 밀린 차례를 건너뛰어 주기가 늘어나므로, 1000 Hz 제어 loop 는 ros2_control 에 둔다. tf2 는 `map` →
+- timer callback 이 간격보다 오래 걸리면 밀린 예정 시각을 건너뛰어 주기가 늘어나므로, 1000 Hz 제어 loop 는 ros2_control 에 둔다. tf2 는 `map` →
   `odom` → `base_link` → 센서 frame 의 tree 를 시간과 함께 기록해 어떤 두 frame 사이든 좌표를 바꿔 준다
 
 tf2 tree 의 변 하나는 회전과 이동인데, 이 강의에서는 바닥 위 2 차원에서 90° 회전만 다뤘다. 다음 강의 [Rigid Transforms](../transforms/README.md)
@@ -434,5 +459,8 @@ tf2 tree 의 변 하나는 회전과 이동인데, 이 강의에서는 바닥 �
 - [REP-105: Coordinate Frames for Mobile Platforms](https://www.ros.org/reps/rep-0105.html) — `map`·`odom`·`base_link` 의 뜻과 각 변환을
   누가 publish 하는지. 단위와 축 방향은 [REP-103](https://www.ros.org/reps/rep-0103.html)
 - ROS 2 design, [Clock and Time](https://design.ros2.org/articles/clock_and_time.html) — `use_sim_time` 과 `/clock` 으로 시각을 바꾸는 구조
+- ROS 2 rcl, [`timer.c`](https://github.com/ros2/rcl/blob/jazzy/rcl/src/rcl/timer.c) — `rcl_timer_call` 이 예정 시각을 간격만큼 옮기고 지난
+  예정 시각을 건너뛰는 코드. rclcpp 의 [`timer.hpp`](https://github.com/ros2/rclcpp/blob/jazzy/rclcpp/include/rclcpp/timer.hpp) 는 두 시각을
+  `TimerInfo` 로 callback 에 넘긴다
 - ros2_control, [controller_manager](https://control.ros.org/jazzy/doc/ros2_control/controller_manager/doc/userdoc.html) — `update_rate`,
   thread 우선순위, real-time loop 설정

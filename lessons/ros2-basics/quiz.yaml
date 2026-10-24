@@ -203,13 +203,13 @@
     - question: |
         single-threaded executor 에서 10 ms 간격(100 Hz) timer 의 callback 이 매번 25 ms 걸린다. 실제로 어떻게 동작하는가?
       choices:
-        - '밀린 차례를 건너뛰고 끝나자마자 다시 불려 25 ms 마다 한 번(40 Hz) 실행되고, 그동안 다른 callback 은 기다린다'
+        - '밀린 예정 시각을 건너뛰고 끝나자마자 다시 불려 25 ms 마다 한 번(40 Hz) 실행되고, 그동안 다른 callback 은 기다린다'
         - '밀린 호출이 queue 에 쌓였다가 callback 이 끝날 때마다 몰아서 실행되어, 평균으로는 1초에 100 번을 맞춘다'
-        - 'executor 가 10 ms 가 지나면 callback 을 강제로 끊고 다음 차례를 시작해서, 1초에 100 번을 지킨다'
-        - 'callback 이 주기보다 오래 걸리면 timer 가 다음 차례를 지킬 수 없다는 오류를 내고, executor 가 node 를 종료시킨다'
+        - 'executor 가 10 ms 가 지나면 callback 을 강제로 끊고 다음 예정분을 시작해서, 1초에 100 번을 지킨다'
+        - 'callback 이 주기보다 오래 걸리면 timer 가 다음 예정 시각을 지킬 수 없다는 오류를 내고, executor 가 node 를 종료시킨다'
       answer: 0
       explanation: |
-        ROS 2 timer 는 다음 호출 시각을 주기만큼 미루되, 이미 지난 차례는 건너뛴다. 그래서 callback 은 끝나자마자 다시 불려 10, 35, 60 ms … 처럼 25 ms
+        ROS 2 timer 는 다음 예정 시각을 주기만큼 미루되, 이미 지난 예정 시각은 건너뛴다. 그래서 callback 은 끝나자마자 다시 불려 10, 35, 60 ms … 처럼 25 ms
         마다, 1초에 40 번 실행된다. thread 가 하나라 그동안 다른 callback 은 실행되지 못한다. 밀린 호출을 몰아서 실행하거나 callback 을 강제로 끊지
         않으며, 오류로 종료되지도 않는다.
     - question: |
