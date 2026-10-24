@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>사진 숫자 150,528 개를 줄이는 세 방법: 사전학습 encoder 512 개, mask feature 4 개, 작은 CNN 64 개</title>
+  <title>사진 숫자 150,528 개를 줄이는 세 방법: pretrained encoder 512 개, mask feature 4 개, 작은 CNN 64 개</title>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
   <rect x="1" y="1" width="598" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="110.0" width="120.0" height="64.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
@@ -7,7 +7,7 @@
   <text x="80.0" y="155.5" fill="#94a3b8" font-size="12" text-anchor="middle">150,528 개</text>
   <line x1="142.0" y1="142.0" x2="186.0" y2="62.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="190.0" y="30.0" width="250.0" height="64.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="315.0" y="57.0" fill="#e2e8f0" font-size="14" text-anchor="middle">사전학습 encoder</text>
+  <text x="315.0" y="57.0" fill="#e2e8f0" font-size="14" text-anchor="middle">pretrained encoder</text>
   <text x="315.0" y="78.0" fill="#94a3b8" font-size="12" text-anchor="middle">인터넷 사진으로 미리 학습</text>
   <line x1="442.0" y1="62.0" x2="474.0" y2="62.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="478.0" y="40.0" width="100.0" height="44.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>

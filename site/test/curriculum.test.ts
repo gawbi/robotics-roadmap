@@ -76,6 +76,22 @@ describe('curriculum', () => {
     }
   })
 
+  it('links into another lecture point at a heading it has', () => {
+    const slugsOf = new Map(
+      c.lessons.map((p) => {
+        const slugger = new GithubSlugger()
+        return [p.id, new Set([...p.body.matchAll(/^#{1,6} (.+)$/gm)].map((m) => slugger.slug(m[1])))] as const
+      }),
+    )
+    for (const p of c.lessons) {
+      for (const m of p.body.matchAll(/\]\(\.\.\/([a-z0-9-]+)\/README\.md#([^)]+)\)/g)) {
+        const target = slugsOf.get(m[1])
+        if (!target) continue // a missing lesson is reported by the lesson-link test
+        expect(target.has(decodeURIComponent(m[2])), `${p.path} links to missing section ${m[1]}#${m[2]}`).toBe(true)
+      }
+    }
+  })
+
   it('every progress file belongs to a lesson', () => {
     const dir = join(ROOT, '..', CONFIG.quiz.progressDir)
     if (!existsSync(dir)) return

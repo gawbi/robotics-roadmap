@@ -1,90 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
-  <title>Diffusion Policy 의 데이터 흐름: 이미지와 agent_pos 로 만든 관측 조건과 diffusion step embedding 을 이어 붙인 cond 가 FiLM 으로 1D U-Net 의 모든 block 에 들어가고, U-Net 은 noisy action sequence 에서 noise 를 예측한다</title>
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
-    </marker>
-    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
-    </marker>
-    <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
-    </marker>
-    <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
-    </marker>
-    <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
-    </marker>
-    <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
-    </marker>
-  </defs>
+  <title>Diffusion Policy 의 데이터 흐름. 사진 2 장이 처음부터 학습한 ResNet-18(GroupNorm)과 spatial softmax 를 거쳐 (2, 64) 가 되고 손끝 위치 2 개와 합쳐 관측 조건 132 개가 된다. 단계 번호 k 의 embedding 128 개와 이어 붙인 조건 vector 260 개가 FiLM 으로 1D U-Net 의 모든 block 에 들어가고, U-Net 은 noise 가 섞인 Aᵏ (16, 2) 를 받아 같은 모양의 noise 추정을 낸다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
   <rect x="1" y="1" width="598" height="438" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="30.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="start">관측 조건 (PushT, LeRobot 구현 기준)</text>
-  <rect x="30.0" y="46.0" width="130.0" height="54.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="95.0" y="68.5" fill="#e2e8f0" font-size="14" text-anchor="middle">이미지 2 frame</text>
-  <text x="95.0" y="87.5" fill="#94a3b8" font-size="13" text-anchor="middle">(2, 3, 96, 96)</text>
-  <line x1="162.0" y1="73.0" x2="186.0" y2="73.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="190.0" y="46.0" width="130.0" height="54.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="255.0" y="68.5" fill="#e2e8f0" font-size="14" text-anchor="middle">ResNet-18</text>
-  <text x="255.0" y="87.5" fill="#94a3b8" font-size="13" text-anchor="middle">GroupNorm</text>
-  <line x1="322.0" y1="73.0" x2="346.0" y2="73.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="350.0" y="46.0" width="110.0" height="54.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="405.0" y="68.5" fill="#e2e8f0" font-size="14" text-anchor="middle">SpatialSoftmax</text>
-  <text x="405.0" y="87.5" fill="#94a3b8" font-size="13" text-anchor="middle">keypoint 32 개</text>
-  <line x1="462.0" y1="73.0" x2="486.0" y2="73.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="490.0" y="46.0" width="80.0" height="54.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="30" y="34" fill="#94a3b8" font-size="13" text-anchor="start">관측 조건 (PushT, 논문과 lerobot/diffusion_pusht 설정)</text>
+  <rect x="30" y="46" width="130" height="54" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="95.0" y="69.0" fill="#e2e8f0" font-size="14" text-anchor="middle">사진 2 장</text>
+  <text x="95.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">(2, 3, 96, 96)</text>
+  <line x1="162" y1="73" x2="186" y2="73" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="190" y="46" width="130" height="54" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="255.0" y="69.0" fill="#e2e8f0" font-size="14" text-anchor="middle">ResNet-18</text>
+  <text x="255.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">GroupNorm, 처음부터</text>
+  <line x1="322" y1="73" x2="346" y2="73" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="350" y="46" width="110" height="54" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="405.0" y="69.0" fill="#e2e8f0" font-size="14" text-anchor="middle">spatial softmax</text>
+  <text x="405.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">keypoint 32 개</text>
+  <line x1="462" y1="73" x2="486" y2="73" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="490" y="46" width="80" height="54" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
   <text x="530.0" y="78.0" fill="#e2e8f0" font-size="14" text-anchor="middle">(2, 64)</text>
-  <rect x="30.0" y="118.0" width="130.0" height="46.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="95.0" y="136.5" fill="#e2e8f0" font-size="14" text-anchor="middle">agent_pos 2 frame</text>
-  <text x="95.0" y="155.5" fill="#94a3b8" font-size="13" text-anchor="middle">(2, 2)</text>
+  <rect x="30" y="118" width="130" height="46" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="95.0" y="137.0" fill="#e2e8f0" font-size="14" text-anchor="middle">손끝 위치 2 개</text>
+  <text x="95.0" y="156.0" fill="#94a3b8" font-size="13" text-anchor="middle">(2, 2)</text>
   <path d="M530,102 L530,190 M162,141 L520,141 L520,190" fill="none" stroke="#94a3b8" stroke-width="2"/>
-  <rect x="400.0" y="192.0" width="170.0" height="46.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="485.0" y="210.5" fill="#e2e8f0" font-size="14" text-anchor="middle">관측 조건 (132,)</text>
-  <text x="485.0" y="229.5" fill="#94a3b8" font-size="13" text-anchor="middle">(64 + 2) × 2 frame</text>
-  <rect x="30.0" y="192.0" width="130.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="95.0" y="210.5" fill="#e2e8f0" font-size="14" text-anchor="middle">diffusion step k</text>
-  <text x="95.0" y="229.5" fill="#94a3b8" font-size="13" text-anchor="middle">0 … 99</text>
-  <line x1="162.0" y1="215.0" x2="186.0" y2="215.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="190.0" y="192.0" width="170.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="275.0" y="210.5" fill="#e2e8f0" font-size="14" text-anchor="middle">sinusoidal + MLP</text>
-  <text x="275.0" y="229.5" fill="#94a3b8" font-size="13" text-anchor="middle">(128,)</text>
+  <rect x="400" y="192" width="170" height="46" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="485.0" y="211.0" fill="#e2e8f0" font-size="14" text-anchor="middle">관측 조건 (132,)</text>
+  <text x="485.0" y="230.0" fill="#94a3b8" font-size="13" text-anchor="middle">(64 + 2) × 2 step</text>
+  <rect x="30" y="192" width="130" height="46" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="95.0" y="211.0" fill="#e2e8f0" font-size="14" text-anchor="middle">단계 번호 k</text>
+  <text x="95.0" y="230.0" fill="#94a3b8" font-size="13" text-anchor="middle">0 ~ 99</text>
+  <line x1="162" y1="215" x2="186" y2="215" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="190" y="192" width="170" height="46" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="275.0" y="211.0" fill="#e2e8f0" font-size="14" text-anchor="middle">sinusoidal + MLP</text>
+  <text x="275.0" y="230.0" fill="#94a3b8" font-size="13" text-anchor="middle">(128,)</text>
   <path d="M275,240 L275,262 L485,262 L485,240" fill="none" stroke="#94a3b8" stroke-width="2"/>
-  <line x1="380.0" y1="262.0" x2="380.0" y2="278.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="260.0" y="282.0" width="240.0" height="34.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="380.0" y="304.0" fill="#e2e8f0" font-size="14" text-anchor="middle">cond (260,) = 128 + 132</text>
-  <rect x="30.0" y="352.0" width="92.0" height="44.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="76.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">Aᵏ</text>
-  <text x="76.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">(16, 2)</text>
-  <line x1="124.0" y1="374.0" x2="146.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="150.0" y="352.0" width="60.0" height="44.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="180.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">down</text>
-  <text x="180.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">T 16</text>
-  <line x1="380.0" y1="318.0" x2="180.0" y2="348.0" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc3)"/>
-  <line x1="212.0" y1="374.0" x2="218.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="222.0" y="352.0" width="60.0" height="44.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="252.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">down</text>
-  <text x="252.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">T 8</text>
-  <line x1="380.0" y1="318.0" x2="252.0" y2="348.0" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc3)"/>
-  <line x1="284.0" y1="374.0" x2="290.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="294.0" y="352.0" width="60.0" height="44.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="324.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">mid</text>
-  <text x="324.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">T 4</text>
-  <line x1="380.0" y1="318.0" x2="324.0" y2="348.0" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc3)"/>
-  <line x1="356.0" y1="374.0" x2="362.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="366.0" y="352.0" width="60.0" height="44.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="396.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">up</text>
-  <text x="396.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">T 8</text>
-  <line x1="380.0" y1="318.0" x2="396.0" y2="348.0" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc3)"/>
-  <line x1="428.0" y1="374.0" x2="434.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="438.0" y="352.0" width="60.0" height="44.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="468.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">up</text>
-  <text x="468.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">T 16</text>
-  <line x1="380.0" y1="318.0" x2="468.0" y2="348.0" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc3)"/>
-  <line x1="500.0" y1="374.0" x2="514.0" y2="374.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="518.0" y="352.0" width="52.0" height="44.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="544.0" y="369.5" fill="#e2e8f0" font-size="14" text-anchor="middle">ε̂</text>
-  <text x="544.0" y="388.5" fill="#94a3b8" font-size="13" text-anchor="middle">(16, 2)</text>
-  <text x="300.0" y="422.0" fill="#94a3b8" font-size="13" text-anchor="middle">1D U-Net: block 마다 cond 에서 만든 FiLM scale·bias 가 channel 을 조절한다</text>
+  <line x1="380" y1="262" x2="380" y2="278" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="260" y="282" width="240" height="34" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="380.0" y="304.0" fill="#e2e8f0" font-size="14" text-anchor="middle">조건 vector (260,) = 128 + 132</text>
+  <rect x="30" y="352" width="92" height="44" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="76.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">Aᵏ</text>
+  <text x="76.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">(16, 2)</text>
+  <line x1="124" y1="374" x2="146" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="150" y="352" width="60" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="180.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">down</text>
+  <text x="180.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">T 16</text>
+  <line x1="380" y1="318" x2="180" y2="348" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="212" y1="374" x2="218" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="222" y="352" width="60" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="252.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">down</text>
+  <text x="252.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">T 8</text>
+  <line x1="380" y1="318" x2="252" y2="348" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="284" y1="374" x2="290" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="294" y="352" width="60" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="324.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">mid</text>
+  <text x="324.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">T 4</text>
+  <line x1="380" y1="318" x2="324" y2="348" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="356" y1="374" x2="362" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="366" y="352" width="60" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="396.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">up</text>
+  <text x="396.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">T 8</text>
+  <line x1="380" y1="318" x2="396" y2="348" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="428" y1="374" x2="434" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="438" y="352" width="60" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <text x="468.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">up</text>
+  <text x="468.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">T 16</text>
+  <line x1="380" y1="318" x2="468" y2="348" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="500" y1="374" x2="514" y2="374" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
+  <rect x="518" y="352" width="52" height="44" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="544.0" y="370.0" fill="#e2e8f0" font-size="14" text-anchor="middle">ε̂</text>
+  <text x="544.0" y="389.0" fill="#94a3b8" font-size="13" text-anchor="middle">(16, 2)</text>
+  <text x="300" y="422" fill="#94a3b8" font-size="13" text-anchor="middle">1D U-Net: block 마다 조건 vector 로 만든 FiLM 의 γ·β 가 channel 을 조절한다</text>
 </svg>

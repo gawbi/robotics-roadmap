@@ -1,335 +1,356 @@
 # 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
 # answer 는 choices 의 0부터 센 번호다.
 
-- topic: forward-step
-  title: forward process 와 reverse process 의 역할
+- topic: forward-process
+  title: forward process 와 끝 상태
   variants:
     - question: |
-        diffusion model 에서 데이터에 noise 를 조금씩 더해 망가뜨리는 forward process 와, noise 를 걷어 내 데이터로 돌아오는
-        reverse process 가 있다. network 를 학습시켜야 하는 쪽과 그 이유로 옳은 것은?
+        면접관: "DDPM 의 forward process 는 학습이 필요한가요? 그리고 network 가 배우는 것은 무엇인가요?"
       choices:
-        - 'forward process 다. 데이터를 noise 로 바꾸는 규칙을 데이터마다 배워야 하기 때문이다'
-        - '둘 다다. 두 방향이 서로의 역함수라서 함께 학습해야 맞물린다'
-        - 'reverse process 다. noise 를 더하는 쪽은 정해진 계산이지만, noise 섞인 값에서 원래 값 쪽으로 돌아가는 법은 데이터를 보고 배워야 한다'
-        - '둘 다 아니다. 두 방향 모두 정해진 식이라 network 는 sample 의 품질을 평가하는 데만 쓴다'
-      answer: 2
-      explanation: |
-        forward process 는 정해진 계수로 noise 를 섞는 계산이라 배울 것이 없다. 반대로 noise 가 섞인 값을 보고 어디서 왔는지 되돌리는
-        일은 데이터의 모양을 알아야 하므로 network 가 배운다. forward 를 데이터마다 배운다는 보기는 순서가 뒤집혔고, 둘 다 학습한다거나
-        둘 다 정해진 식이라는 보기는 학습 대상이 reverse 하나라는 점을 놓쳤다.
-    - question: |
-        DDPM 이 새 sample 을 만들 때 출발점을 표준 정규분포 $\mathcal N(0, 1)$ 에서 뽑을 수 있는 이유로 옳은 것은?
-      choices:
-        - 'forward process 를 충분히 밟으면 원래 데이터가 무엇이었든 끝 상태가 언제나 $\mathcal N(0, 1)$ 이 되도록 설계했기 때문이다'
-        - '학습 데이터 자체가 원래 $\mathcal N(0, 1)$ 을 따르기 때문이다'
-        - 'network 가 학습하면서 끝 상태의 분포를 $\mathcal N(0, 1)$ 로 바꿔 놓기 때문이다'
-        - '출발점은 무엇이든 상관없고 $\mathcal N(0, 1)$ 은 관례일 뿐이다'
+        - '필요 없다. 정해진 계수로 noise 를 섞는 계산이고, network 는 noise 가 섞인 값에서 원래 쪽으로 되돌아가는 reverse process 를 배운다'
+        - '필요하다. 데이터마다 noise 를 섞는 방법이 달라서 network 가 forward process 를 배우고, reverse process 는 그 역계산으로 얻는다'
+        - '둘 다 학습한다. forward 와 reverse 가 서로 맞물리도록 두 network 를 함께 고친다'
+        - '둘 다 학습하지 않는다. 두 방향 모두 정해진 식이고 network 는 sample 의 품질을 평가하는 데만 쓴다'
       answer: 0
       explanation: |
-        생성할 때는 원래 데이터를 모르므로, 출발점의 분포가 데이터와 상관없이 미리 정해져 있어야 한다. 그래서 forward process 는 원래
-        값의 몫을 점점 줄이고 noise 로 채워 끝이 늘 $\mathcal N(0, 1)$ 이 되게 만든다. 데이터는 그림이나 행동이라 정규분포가 아니고,
-        끝 상태의 분포는 network 가 아니라 forward 의 식이 정한다. 출발점이 학습 때의 끝 상태와 다르면 network 가 본 적 없는 값에서 시작하게
-        되어 아무것이나 쓸 수는 없다.
+        forward process 는 $\beta_t$ 로 정한 계수대로 원래 값을 줄이고 noise 를 더하는 계산이라 배울 것이 없다. noise 가 섞인 값을 보고
+        어디서 왔는지 되돌리는 일은 데이터의 모양을 알아야 하므로 network 가 배운다. forward 를 배운다는 보기는 학습 대상이 뒤집혔다.
+        두 network 를 함께 고친다는 보기는 VAE 의 encoder·decoder 와 헷갈린 것이다. network 를 평가에만 쓴다는 보기는 reverse process 에
+        network 가 꼭 필요하다는 점을 놓쳤다.
     - question: |
-        VAE 는 latent 를 decoder 에 한 번 넣어 sample 을 만들고, DDPM 은 noise 에서 시작해 여러 step 에 걸쳐 noise 를 걷어 낸다. 이 차이에
-        대한 설명으로 옳은 것은?
+        면접관: "forward process 의 한 step 은 noise 를 더하기 전에 직전 값에 1 보다 작은 수 $\sqrt{1 - \beta_t}$ 를 곱합니다. 이 곱하기를
+        빼고 noise 만 계속 더하면 어떤 문제가 생기나요?"
       choices:
-        - 'DDPM 은 step 마다 다른 network 를 써서 VAE 보다 parameter 가 훨씬 많다'
-        - 'VAE 는 noise 를 쓰지 않고, DDPM 만 확률을 쓰는 생성 모델이다'
-        - 'DDPM 은 step 을 많이 밟을수록 빠르고, VAE 는 한 번에 만들어서 느리다'
-        - 'DDPM 은 한 step 에 조금만 바꾸면 되므로 각 step 의 문제가 쉬워지지만, sample 하나에 network 를 여러 번 써서 느리다'
-      answer: 3
-      explanation: |
-        아주 조금 망가진 값에서 조금 덜 망가진 값을 맞히는 일은 그림 전체를 한 번에 만드는 일보다 쉽다. 대신 step 마다 network 를 한 번씩
-        써야 해서 sample 하나를 만드는 시간이 길다. DDPM 은 같은 network 하나에 step 번호를 넣어 모든 step 을 맡기고, VAE 도 latent 를
-        정규분포에서 뽑는 확률 모델이다. step 이 많을수록 빠르다는 보기는 속도 관계를 거꾸로 말했다.
-
-- topic: variance-keep
-  title: 분산을 1 로 지키는 계수
-  variants:
-    - question: |
-        forward 한 step $x_t = \sqrt{1 - \beta_t}\,x_{t-1} + \sqrt{\beta_t}\,\epsilon$ 에서 직전 값에 $\sqrt{1 - \beta_t}$ 를 곱해 줄이는
-        이유로 옳은 것은?
-      choices:
-        - '값을 줄여야 network 가 계산할 숫자가 작아져 학습이 빨라지기 때문이다'
-        - '줄이지 않고 noise 만 더하면 원래 값이 그대로 남고 퍼진 폭은 끝없이 커져서, 끝 상태가 $\mathcal N(0, 1)$ 이 되지 않기 때문이다'
-        - '줄이는 계수가 있어야 forward process 를 거꾸로 계산할 수 있기 때문이다'
-        - 'noise 가 너무 크면 데이터를 덮으므로 noise 를 상대적으로 작게 보이게 하려는 것이다'
+        - 'noise 가 너무 빨리 사라져서 끝 상태가 원래 데이터와 거의 같아진다'
+        - '원래 값이 줄지 않아 끝 상태의 가운데가 데이터마다 다르고 분산도 끝없이 커져서, 생성할 때 출발점을 정해진 분포에서 뽑을 수 없다'
+        - 'network 의 출력 크기가 step 마다 달라질 뿐 sampling 에는 아무 영향이 없다'
+        - '분산이 step 마다 줄어 끝 상태가 한 점으로 모인다'
       answer: 1
       explanation: |
-        noise 를 더하기만 하면 원래 값은 줄지 않아 끝 상태의 가운데가 데이터마다 다르고, 분산은 step 마다 쌓여 계속 커진다. 직전 값을
-        줄여 원래 값의 몫을 0 쪽으로 보내고, 줄인 만큼의 분산을 noise 로 채워야 끝이 $\mathcal N(0, 1)$ 로 모인다. 계산 속도나 역계산
-        가능 여부와는 상관이 없고, 줄이는 목적은 noise 를 작게 보이게 하는 것이 아니라 원래 값을 지워 가는 것이다.
+        생성할 때는 원래 데이터를 모르므로 forward process 의 끝은 데이터와 상관없이 $\mathcal N(0, 1)$ 이어야 한다. 곱하기를 빼면 원래
+        값이 그대로 남아 끝 상태의 가운데가 데이터에 따라 달라지고, 독립인 noise 의 분산이 계속 쌓여 퍼진 폭도 끝없이 커진다. noise 가
+        사라진다는 보기는 원래 값이 남고 noise 가 쌓이는 실제 결과와 반대다. 분산이 준다는 보기는 더하기만 하면 분산이 커진다는 사실과
+        어긋난다. 출발점 분포가 틀어지므로 sampling 에 영향이 없다는 보기도 틀렸다.
     - question: |
-        분산이 1 인 값에 어떤 수 $a$ 를 곱하고, 따로 뽑은 $\mathcal N(0, 1)$ noise 에 $b$ 를 곱해 더한다. 결과의 분산이 계속 1 로
-        유지되려면 $a$ 와 $b$ 가 어떤 관계여야 할까?
+        면접관: "DDPM 에서 $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$ 이라는 식이 학습에 주는 이점은 무엇인가요?
+        ($\bar\alpha_t$ 는 step 1 부터 $t$ 까지의 $1 - \beta$ 를 모두 곱한 값, $\epsilon$ 은 표준 정규분포에서 뽑은 noise 다)"
       choices:
-        - '$a + b = 1$'
-        - '$a = b$'
-        - '$a \times b = 1$'
-        - '$a^2 + b^2 = 1$'
+        - 'network 의 parameter 수를 $T$ 분의 1 로 줄여 준다'
+        - 'sampling 할 때 network 를 한 번만 쓰고 sample 을 만들 수 있게 해 준다'
+        - 'noise 를 쓰지 않고도 $x_t$ 를 만들 수 있게 해 준다'
+        - 'step 을 차례로 밟지 않고 noise 하나로 어느 step 의 학습 예든 바로 만들 수 있어서, 무작위로 고른 step 하나만 학습할 수 있다'
       answer: 3
       explanation: |
-        수에 $a$ 를 곱하면 분산은 $a^2$ 배가 되고, 서로 독립인 두 값을 더하면 분산끼리 더해진다. 그래서 결과의 분산은 $a^2 + b^2$ 이고,
-        이 값이 1 이어야 분산이 지켜진다. $a + b = 1$ 은 계수를 제곱하지 않은 흔한 실수이고, $a = b$ 나 $a \times b = 1$ 은 분산의 성질과
-        관계가 없다.
-    - question: |
-        forward process 의 한 step 규칙을 "직전 값은 그대로 두고 noise 만 더한다" 로 바꾸면 어떤 일이 생길까?
-      choices:
-        - 'step 을 많이 밟아도 원래 값이 남아 끝 상태가 데이터마다 달라지고, 퍼진 폭은 끝없이 커져서 생성의 출발점을 정할 수 없다'
-        - '끝 상태가 더 빨리 $\mathcal N(0, 1)$ 에 닿아 step 을 줄일 수 있다'
-        - '분산은 그대로 1 이고 가운데만 0 에서 벗어난다'
-        - '아무 차이가 없다. 분산을 지키는 것은 계산의 편의일 뿐이다'
-      answer: 0
-      explanation: |
-        줄이지 않으면 원래 값이 끝까지 남아 끝 상태의 가운데가 $x_0$ 에 따라 다르다. noise 의 분산도 step 마다 쌓여 커지므로 끝 상태가
-        한 가지 분포로 모이지 않고, 생성할 때 출발점을 어디서 뽑아야 할지 알 수 없다. 더 빨리 $\mathcal N(0, 1)$ 에 닿거나 분산이 1 로
-        유지되는 일은 일어나지 않으며, 분산 유지는 생성의 출발점을 보장하는 핵심 성질이라 단순한 편의가 아니다.
+        이 식은 forward step 을 $t$ 번 밟은 결과와 분포가 같아서, $t = 700$ 을 골라도 700 번 계산할 필요 없이 $x_{700}$ 을 한 번에 만든다.
+        그래서 학습마다 $t$ 를 무작위로 하나 골라 그 step 만 학습한다. parameter 수를 줄인다는 보기는 틀렸는데, 이 식은 학습 예를 만드는
+        방법일 뿐 network 의 크기와는 관계없다. sampling 에서 network 를 한 번만 쓴다는 보기도 틀렸고, sampling 은 여전히 reverse step 을
+        여러 번 밟는다. 식 안에 $\epsilon$ 이 있으므로 noise 없이 만든다는 보기도 틀렸다.
 
-- topic: schedule
+- topic: noise-schedule
   title: noise schedule 과 step 의 크기
   variants:
     - question: |
-        DDPM 이 step 수 $T$ 를 1000 정도로 크게 잡고, step 마다 더하는 noise 의 분산 $\beta_t$ 를 아주 작게 두는 주된 이유는?
+        면접관: "DDPM 원 논문은 $T = 1000$ 에 $\beta_t$ 를 0.0001 ~ 0.02 처럼 작게 잡았습니다. step 을 5 개로 줄이고 $\beta_t$ 를 크게
+        잡으면 왜 안 되나요?"
       choices:
-        - '한 step 의 변화가 작으면 $x_t$ 를 보고 맞혀야 할 직전 값이 근처의 봉우리 하나로 몰려, 모든 reverse step 이 쉬운 문제가 되기 때문이다'
-        - 'step 이 많을수록 sampling 이 빨라지기 때문이다'
-        - '$\beta_t$ 가 크면 분산이 1 로 유지되지 않기 때문이다'
-        - '학습할 때 forward step 을 1000 번 차례로 밟아야 정답 noise 를 만들 수 있기 때문이다'
+        - '한 step 의 변화가 크면 $x_t$ 를 보고 맞혀야 할 직전 값이 여러 무리로 갈라져, 종 모양 하나를 가정한 reverse step 이 맞지 않는다'
+        - 'step 이 적으면 forward process 의 끝이 $\mathcal N(0, 1)$ 보다 넓게 퍼지기 때문이다'
+        - '$\beta_t$ 가 크면 학습할 때 정답 noise 의 크기가 커져 loss 가 발산하기 때문이다'
+        - 'GPU 메모리가 step 수에 반비례해서 step 이 적으면 메모리가 부족하기 때문이다'
       answer: 0
       explanation: |
-        한 step 에서 값이 크게 바뀌면 같은 $x_t$ 에 이를 수 있는 직전 값이 여러 무리로 흩어져, 봉우리 하나짜리 종 모양으로 맞히기 어렵다.
-        step 을 작게 나누면 직전 값이 $x_t$ 근처에 좁게 몰려 가운데와 폭만 맞히면 된다. step 이 많으면 sampling 은 오히려 느려지고,
-        분산은 계수 설계 덕분에 $\beta_t$ 크기와 상관없이 1 로 지켜진다. 학습은 한 번에 건너뛰는 식을 써서 forward 를 차례로 밟지 않는다.
+        reverse step 은 $x_{t-1}$ 이 $x_t$ 근처의 봉우리 하나로 몰려 있다고 보고 그 가운데와 폭을 맞힌다. step 이 크면 데이터가 갈라져
+        있을 때 직전 값도 여러 무리로 갈라지고, 종 모양 하나로 맞히면 데이터에 없는 평균에 놓인다. 끝이 넓게 퍼진다는 보기는 틀렸는데,
+        계수의 제곱 합이 1 이라 분산은 1 을 넘지 않는다. loss 가 발산한다는 보기도 틀렸고, 정답 noise 는 $\beta_t$ 와 상관없이 늘 표준
+        정규분포에서 뽑는다. sampling 은 step 을 하나씩 밟으므로 GPU 메모리는 step 수와 관계없다.
     - question: |
-        "step 이 많을수록 reverse 가 쉬워지니 $T$ 를 한없이 늘리면 된다" 는 주장의 문제점은?
+        면접관: "cosine schedule 이 linear schedule 보다 낫다고 한 이유는 무엇인가요?"
       choices:
-        - '$T$ 를 늘리면 끝 상태가 $\mathcal N(0, 1)$ 에서 멀어진다'
-        - '$T$ 를 늘리면 학습할 때 step 을 모두 밟아야 해서 학습이 불가능해진다'
-        - 'sampling 은 step 마다 network 를 한 번씩 쓰므로 $T$ 에 비례해 sample 하나를 만드는 시간이 늘어난다'
-        - '$T$ 를 늘리면 각 step 의 정답 noise 크기가 작아져 network 가 맞히기 어려워진다'
+        - 'cosine schedule 은 마지막 step 에서도 원래 값을 절반쯤 남겨서 sampling 출발점이 데이터에 가까워진다'
+        - 'cosine schedule 을 쓰면 network 를 noise 대신 원래 값을 맞히도록 학습할 수 있다'
+        - 'linear schedule 은 원래 값을 너무 일찍 지워 뒤쪽 step 들이 거의 순수한 noise 만 다루는데, cosine 은 원래 값을 더 천천히 지운다'
+        - 'cosine schedule 은 step 수를 1000 에서 10 으로 줄여 준다'
       answer: 2
       explanation: |
-        sampling 은 $T$ 번의 reverse step 을 차례로 밟고 step 마다 network 를 쓰므로, $T$ 를 열 배로 늘리면 시간도 열 배가 된다. 그래서
-        한 step 의 변화가 충분히 작으면서 시간도 감당할 만한 $T$ 를 고른다. $T$ 가 커지면 끝 상태는 오히려 $\mathcal N(0, 1)$ 에 더
-        가까워지고, 학습은 $t$ 하나를 골라 한 번에 $x_t$ 를 만든다. network 가 맞히는 noise 는 어느 step 이든 $\mathcal N(0, 1)$ 에서 뽑은
-        값이라 크기가 같다.
+        Nichol 과 Dhariwal 은 linear schedule 의 마지막 4 분의 1 이 거의 noise 만 남아 sample 품질에 별 기여를 하지 않는다고 보고, 원래
+        값의 몫 $\bar\alpha_t$ 가 cos 곡선을 따라 천천히 줄도록 바꿨다. cosine 도 끝에서는 원래 값이 거의 0 이 되어야 출발점이 정규분포와
+        맞으므로 절반을 남긴다는 보기는 틀렸다. 원래 값을 맞히게 해 준다는 보기도 틀렸는데, 무엇을 맞힐지는 schedule 과 따로 정한다.
+        step 수를 10 으로 줄인다는 보기는 DDIM 같은 sampler 가 하는 일과 헷갈린 것이다.
     - question: |
-        linear schedule 은 원래 데이터를 비교적 일찍 지워 뒤쪽 step 대부분이 거의 noise 만 다룬다. cosine schedule 은 원래 값의 몫을 더
-        천천히 줄인다. 이 둘의 차이에 대한 설명으로 옳은 것은?
+        면접관: "noise schedule 에서 $T$ 를 1000 에서 10000 으로 늘리면 무엇이 달라지나요?"
       choices:
-        - 'cosine schedule 은 끝 상태가 $\mathcal N(0, 1)$ 이 아니라서 다른 출발점이 필요하다'
-        - '둘은 같은 step 에서 원래 값이 얼마나 남아 있는지가 다르고, cosine 쪽이 더 많은 step 을 의미 있는 복원에 쓰게 한다'
-        - 'cosine schedule 은 step 마다 noise 를 빼는 방식이다'
-        - '두 schedule 은 network 구조가 달라서 같은 network 로는 학습할 수 없다'
-      answer: 1
-      explanation: |
-        schedule 은 step 마다 더할 noise 의 양을 정한 표일 뿐이라, 바꾸면 같은 $t$ 에서 원래 값이 남은 몫이 달라진다. cosine 은 원래 값을
-        천천히 지워 거의 noise 뿐인 step 을 줄인다. 두 schedule 모두 끝에서는 원래 값이 사라져 $\mathcal N(0, 1)$ 에 닿고, 둘 다 noise 를
-        더하는 방식이다. schedule 은 계수만 바꾸므로 같은 network 구조로 학습할 수 있다.
-
-- topic: closed-form
-  title: 한 번에 건너뛰는 식과 원래 값의 복원
-  variants:
-    - question: |
-        forward process 는 $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$ 처럼 원래 값 $x_0$ 에서 $x_t$ 를 한 번에
-        만드는 식으로도 쓸 수 있다. 이 식이 학습에서 쓸모 있는 이유로 옳은 것은?
-      choices:
-        - 'sampling 할 때 $x_T$ 에서 $x_0$ 로 한 번에 돌아갈 수 있게 해 준다'
-        - 'network 없이도 새 데이터를 만들 수 있게 해 준다'
-        - '$\bar\alpha_t$ 를 학습해서 schedule 을 자동으로 정하게 해 준다'
-        - '무작위로 고른 $t$ 의 $x_t$ 를 step 을 차례로 밟지 않고 바로 만들어, 학습 예 하나를 싸게 만들 수 있다'
+        - 'sample 하나를 만드는 시간은 그대로이고 품질만 좋아진다'
+        - '학습 예 하나를 만드는 데 forward step 을 10000 번 밟아야 해서 학습이 열 배 느려진다'
+        - 'network 의 출력 크기가 열 배 커진다'
+        - '한 step 의 변화는 더 작아지지만, sampling 이 step 마다 network 를 쓰므로 sample 하나를 만드는 시간이 열 배쯤 늘어난다'
       answer: 3
       explanation: |
-        $t = 700$ 을 골랐다고 forward step 을 700 번 밟을 필요 없이, 식 하나로 $x_{700}$ 을 만들고 그 자리에서 noise 를 맞히게 한다. 이
-        식은 $x_0$ 를 알아야 쓸 수 있으므로, $x_0$ 를 모르는 sampling 에서 한 번에 돌아가는 데 쓰거나 network 없이 데이터를 만드는 데 쓸
-        수는 없다. $\bar\alpha_t$ 는 schedule 에서 계산되는 고정값이지 학습하는 값이 아니다.
-    - question: |
-        $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$ 에서 $\bar\alpha_t$ 는 $t$ 가 커질수록 어떻게 변하고, 무엇을
-        뜻할까?
-      choices:
-        - '1 에서 0 쪽으로 줄어들며, $x_t$ 에 원래 값이 얼마나 남아 있는지를 나타낸다'
-        - '0 에서 1 쪽으로 커지며, 더해진 noise 의 양을 나타낸다'
-        - '모든 $t$ 에서 같은 값이며, 분산을 1 로 지키는 상수다'
-        - '$t$ 에 따라 커졌다 작아졌다 하며, network 의 학습 속도를 나타낸다'
-      answer: 0
-      explanation: |
-        $\bar\alpha_t$ 는 $1 - \beta$ 들을 $t$ 번째까지 곱한 값이라 1 보다 작은 수를 계속 곱하며 0 쪽으로 줄어든다. $x_0$ 에 곱하는
-        $\sqrt{\bar\alpha_t}$ 가 원래 값이 남은 몫이고, noise 의 몫은 $\sqrt{1 - \bar\alpha_t}$ 쪽이다. 그래서 커지는 쪽은 noise 의 몫이며,
-        $\bar\alpha_t$ 는 step 마다 달라지고 학습 속도와는 관계가 없다.
-    - question: |
-        $x_t$ 와 거기에 섞인 noise $\epsilon$ 을 정확히 안다면 원래 값 $x_0$ 에 대해 무엇을 할 수 있을까?
-      choices:
-        - '아무것도 할 수 없다. noise 가 섞이면 정보가 사라지기 때문이다'
-        - '$x_t$ 에서 noise 의 몫을 빼고 원래 값의 계수로 나눠 $x_0$ 를 정확히 되찾을 수 있다'
-        - '$x_0$ 의 부호만 알 수 있고 크기는 알 수 없다'
-        - '$t$ 가 작을 때만 되찾을 수 있고, $t$ 가 크면 불가능하다'
-      answer: 1
-      explanation: |
-        $x_t$ 는 $x_0$ 와 $\epsilon$ 을 정해진 계수로 섞은 값이라, 섞인 $\epsilon$ 을 알면 식을 거꾸로 풀어
-        $x_0 = (x_t - \sqrt{1 - \bar\alpha_t}\,\epsilon) / \sqrt{\bar\alpha_t}$ 로 정확히 되찾는다. 그래서 network 가 noise 를 맞히게 하면 원래 값도 계산된다.
-        섞인 noise 를 모를 때 정보가 가려지는 것이지 사라지는 것은 아니고, 계수가 0 이 아닌 한 $t$ 의 크기와 상관없이 같은 계산이 된다.
+        step 이 많을수록 한 step 이 쉬워지지만 DDPM 의 sampling 은 $T$ 번 network 를 쓰므로 시간이 $T$ 에 비례한다. sampling 시간이 그대로라는
+        보기는 network 를 쓰는 횟수를 놓쳤다. 학습이 열 배 느려진다는 보기도 틀렸는데, 학습은 한 번에 건너뛰는 식으로 $x_t$ 를 바로 만들기
+        때문에 $T$ 가 커져도 학습 예 하나의 비용은 거의 같다. 출력 크기가 커진다는 보기는 틀렸고, 출력 크기는 데이터 모양으로 정해진다.
 
-- topic: noise-loss
-  title: noise 를 맞히는 network 와 loss
+- topic: epsilon-prediction
+  title: noise 를 맞히는 network
   variants:
     - question: |
-        DDPM 의 network $\epsilon_\theta(x_t, t)$ 가 noise 섞인 값 $x_t$ 와 함께 step 번호 $t$ 를 입력으로 받는 이유는?
+        면접관: "DDPM 의 network 는 깨끗한 데이터 대신 섞인 noise $\epsilon$ 을 맞히도록 학습합니다. 이 선택의 이점으로 맞는 것은?"
       choices:
-        - '$t$ 가 있어야 network 의 출력 크기를 정할 수 있기 때문이다'
-        - '$t$ 를 받아야 sampling 이 몇 번 남았는지 셀 수 있기 때문이다'
-        - '같은 $x_t$ 라도 몇 번째 step 인지에 따라 섞인 noise 의 양이 달라, 맞혀야 할 noise 가 다르기 때문이다'
-        - '$t$ 는 학습에만 쓰이고 sampling 에서는 넣지 않는다'
+        - 'noise 를 맞히면 sampling 에서 network 를 한 번만 쓰면 된다'
+        - '정답 noise 는 학습 예를 만들 때 직접 뽑은 값이라 사람이 달 필요가 없고, 어느 step 이든 표준 정규분포에서 뽑아 크기가 같다'
+        - 'noise 를 맞히면 loss 가 0 까지 내려가는 것이 보장된다'
+        - 'noise 는 데이터보다 차원이 작아서 network 를 작게 만들 수 있다'
+      answer: 1
+      explanation: |
+        $x_t$ 를 만들 때 $\epsilon$ 을 직접 뽑았으니 정답을 따로 달 필요가 없고, $t$ 가 1 이든 1000 이든 같은 분포라 한 network 가 모든
+        step 을 맡아도 출력 크기를 맞추기 쉽다. noise 를 알면 $x_0 = (x_t - \sqrt{1 - \bar\alpha_t}\,\epsilon) \div \sqrt{\bar\alpha_t}$ 로 원래
+        값도 계산된다. sampling 에서 network 를 한 번만 쓴다는 보기는 틀렸고, sampling 은 여전히 여러 step 을 밟는다. loss 가 0 까지 내려간다는
+        보기도 틀렸는데, 같은 입력에 정답이 여럿이면 loss 는 0 이 될 수 없다. noise 는 데이터와 모양이 같으므로 차원이 작다는 보기도 틀렸다.
+    - question: |
+        면접관: "noise 를 맞히는 network $\epsilon_\theta(x_t, t)$ 에 step 번호 $t$ 를 함께 넣는 이유는 무엇인가요?"
+      choices:
+        - '$t$ 를 넣지 않으면 network 의 출력 모양이 입력과 달라지기 때문이다'
+        - '$t$ 는 학습률을 step 마다 조절하는 데만 쓰인다'
+        - '같은 $x_t$ 라도 몇 step 째인지에 따라 원래 값과 noise 가 섞인 비율이 달라서, 맞혀야 할 noise 가 다르기 때문이다'
+        - '$t$ 가 있어야 sampling 에서 새 noise 를 뽑을 수 있기 때문이다'
       answer: 2
       explanation: |
-        $t$ 가 크면 $x_t$ 의 대부분이 noise 이고 $t$ 가 작으면 원래 값과 거의 같으므로, 같은 숫자를 받아도 섞인 noise 가 다르다. 그래서
-        network 가 어느 단계의 문제를 푸는지 알도록 $t$ 를 함께 준다. 출력 크기는 늘 $x_t$ 와 같아 $t$ 와 무관하고, step 을 세는 일은
-        sampling 반복문이 한다. sampling 에서도 step 마다 $t$ 를 넣어야 한다.
+        $x_t$ 는 원래 값에 $\sqrt{\bar\alpha_t}$, noise 에 $\sqrt{1 - \bar\alpha_t}$ 를 곱해 섞은 값이라, 같은 숫자를 받아도 $t$ 가 크면 대부분이
+        noise 이고 $t$ 가 작으면 대부분이 원래 값이다. 그래서 $t$ 를 함께 알아야 정답 noise 를 맞힐 수 있다. 출력 모양이 달라진다는
+        보기는 틀렸고, 출력 모양은 입력 $x_t$ 로 정해진다. $t$ 는 학습률을 조절하는 값이 아니다. sampling 의 새 noise 는 $t$ 없이도
+        표준 정규분포에서 뽑는다.
     - question: |
-        DDPM 이 network 에게 깨끗한 값 $x_0$ 대신 섞인 noise $\epsilon$ 을 맞히게 하는 이유로 옳지 않은 것은?
+        면접관: "학습할 때는 정답 noise $\epsilon$ 을 알고 있습니다. 그럼 생성할 때도 그 $\epsilon$ 을 쓰면 network 없이 데이터를 만들 수 있지
+        않나요?"
       choices:
-        - 'noise 를 정답으로 쓰면 loss 가 언제나 0 까지 내려갈 수 있다'
-        - 'noise 를 알면 원래 값과 직전 step 의 값이 계산으로 나온다'
-        - '정답 noise 는 학습 예를 만들 때 직접 뽑은 값이라 사람이 정답을 달 필요가 없다'
-        - '어느 step 이든 정답 noise 가 $\mathcal N(0, 1)$ 에서 뽑은 값이라 크기가 비슷하다'
+        - '아니다. 학습의 $\epsilon$ 은 원래 데이터에 noise 를 섞으면서 뽑은 값인데, 생성할 때는 원래 데이터 없이 순수한 noise 에서 출발해 섞인 noise 를 알려 줄 것이 network 뿐이다'
+        - '맞다. 학습 때 뽑은 $\epsilon$ 을 저장해 두면 network 없이 원래 데이터를 되찾을 수 있다'
+        - '맞다. 다만 $\epsilon$ 을 새로 뽑으면 같은 데이터가 다시 나온다'
+        - '아니다. $\epsilon$ 은 학습 중에만 쓰는 hyperparameter 라서 생성에는 의미가 없다'
       answer: 0
       explanation: |
-        같은 $x_t$ 가 서로 다른 원래 값에서 올 수 있으면 정답 noise 도 여러 개라서, network 가 무엇을 내든 일부와는 어긋나 loss 가 0 이
-        될 수 없다. 나머지 세 보기는 모두 noise 를 정답으로 고르는 실제 이유다. noise 로 원래 값이 계산되고, 정답은 직접 뽑아 공짜로
-        정확하며, step 마다 정답의 크기가 같아 한 network 가 모든 step 을 맡기 쉽다.
-    - question: |
-        학습할 때 정답 noise $\epsilon$ 을 알고 있었다. 새 데이터를 만들 때도 그 $\epsilon$ 을 쓰면 network 가 필요 없을 것 같지만 그럴 수
-        없다. 이유는?
-      choices:
-        - '학습에 쓴 $\epsilon$ 은 저장하지 않고 버리기 때문이다'
-        - '$\epsilon$ 의 분산이 sampling 할 때는 달라지기 때문이다'
-        - '학습한 $\epsilon$ 을 쓰면 학습 데이터를 그대로 복사하게 되어 새 sample 이 아니기 때문이다'
-        - '학습 때의 $\epsilon$ 은 원래 데이터에 noise 를 섞으며 뽑은 값인데, 생성할 때는 원래 데이터가 없어 섞인 noise 를 알려 줄 것이 network 뿐이기 때문이다'
-      answer: 3
-      explanation: |
-        정답 noise 는 $x_0$ 를 직접 망가뜨리면서 생긴 값이라 $x_0$ 가 있을 때만 존재한다. 생성은 순수한 noise 에서 출발하므로 섞인
-        noise 를 아는 것이 없고, network 의 추정만 쓸 수 있다. 저장 여부나 분산 변화가 원인이 아니며, 복사를 걱정하기 이전에 그 값은
-        새 sample 의 출발점과 아무 관계가 없다.
+        생성할 때는 $x_0$ 가 없고, 지금 값에 어떤 noise 가 섞였는지 어림하는 것이 network 의 일이다. $\epsilon$ 을 저장해 두면 된다는 보기는
+        틀렸는데, 학습의 $\epsilon$ 은 특정 $x_0$ 와 짝지어진 값이라 그 $\epsilon$ 으로 되돌리면 학습 데이터를 다시 꺼낼 뿐 새 sample 이
+        아니다. 새로 뽑으면 같은 데이터가 나온다는 보기도 틀렸고, 새로 뽑은 $\epsilon$ 은 어떤 데이터와도 짝이 없다. $\epsilon$ 은
+        hyperparameter 가 아니라 무작위로 뽑는 값이다.
 
-- topic: training-step
-  title: 학습과 sampling 의 차이
+- topic: training-loss
+  title: 학습 순서와 loss
   variants:
     - question: |
-        DDPM 의 학습 한 번은 어떻게 이루어질까?
+        면접관: "DDPM 학습 한 번의 순서를 설명해 보세요."
       choices:
-        - '$x_T$ 에서 출발해 $t = T$ 부터 1 까지 모든 step 을 밟으며 매 step 의 loss 를 더한다'
-        - '데이터 하나에 무작위로 고른 $t$ 하나의 noise 를 섞고, 그 자리에서만 섞인 noise 를 맞히게 한다'
-        - 'forward step 을 $t$ 번 차례로 밟아 $x_t$ 를 만든 뒤 $x_{t-1}$ 을 맞히게 한다'
-        - 'network 가 만든 sample 과 실제 데이터를 비교해 차이를 줄인다'
+        - '$x_T$ 를 정규분포에서 뽑고 $T$ 부터 1 까지 reverse step 을 모두 밟은 뒤, 마지막 결과와 데이터의 차이로 loss 를 구한다'
+        - '데이터 $x_0$ 에 forward step 을 1 부터 $T$ 까지 차례로 밟으며 step 마다 loss 를 더한다'
+        - '데이터 $x_0$ 와 무작위 step $t$, noise $\epsilon$ 을 뽑아 $x_t$ 를 한 번에 만들고, network 가 맞힌 noise 와 $\epsilon$ 의 차이를 제곱해 loss 로 쓴다'
+        - '데이터를 encoder 에 넣어 latent 를 얻고 decoder 로 되살린 결과와 데이터의 차이를 loss 로 쓴다'
+      answer: 2
+      explanation: |
+        Ho 등의 Algorithm 1 은 $x_0$, $t$, $\epsilon$ 을 뽑아 $x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\epsilon$ 을 만들고
+        $\lVert \epsilon - \epsilon_\theta(x_t, t) \rVert^2$ 을 줄인다. reverse step 을 모두 밟고 마지막 결과로 loss 를 구한다는 보기는
+        sampling 과 헷갈린 것이다. forward step 을 차례로 밟는다는 보기도 틀렸고, 한 번에 건너뛰는 식이 있어 차례로 밟을 필요가 없다.
+        encoder 와 decoder 로 되살리는 것은 VAE 의 학습이다.
+    - question: |
+        면접관: "데이터가 서로 떨어진 두 무리로 이루어져 있을 때, DDPM 의 noise 예측 loss 가 학습을 아무리 오래 해도 0 이 되지 않는 이유는
+        무엇인가요?"
+      choices:
+        - 'network 가 너무 작아서 noise 를 정확히 표현하지 못하기 때문이다'
+        - 'learning rate 가 0 이 아니라서 weight 가 끝까지 흔들리기 때문이다'
+        - '정답 noise 를 학습 예마다 새로 뽑으므로 loss 를 계산할 수 없기 때문이다'
+        - '큰 $t$ 에서는 같은 $x_t$ 가 두 무리 중 어느 쪽에서도 올 수 있어 정답 noise 가 여럿이고, network 가 무엇을 내든 그중 하나와는 어긋나기 때문이다'
+      answer: 3
+      explanation: |
+        $x_t$ 는 noise 가 섞인 값이라, noise 가 클 때는 같은 값이 서로 다른 원래 값에서 나올 수 있고 그때마다 정답 noise 도 다르다.
+        network 는 그 정답들의 평균에 가까운 값을 낼 수밖에 없으니 loss 에 줄일 수 없는 몫이 남는다. network 가 작아서라는 보기는 틀렸고,
+        network 를 키워도 이 몫은 사라지지 않는다. learning rate 를 탓하는 보기도 틀렸는데, learning rate 를 줄여도 남는 몫은 그대로다.
+        정답 noise 는 뽑은 값이라 loss 는 언제나 계산되므로 계산할 수 없다는 보기도 틀렸다.
+    - question: |
+        면접관: "DDPM 학습에서 step $t$ 를 1 부터 $T$ 까지 고르게 무작위로 뽑는 이유는 무엇인가요?"
+      choices:
+        - '하나의 network 가 sampling 에서 만날 모든 step 의 noise 를 맞혀야 하므로, 학습 동안 모든 step 을 고르게 연습시키기 위해서다'
+        - '작은 $t$ 만 쓰면 loss 가 너무 작아져 gradient 가 사라지기 때문에, 큰 $t$ 를 섞어 loss 를 키우려는 것이다'
+        - '$t$ 를 순서대로 뽑으면 GPU 에서 batch 를 만들 수 없기 때문이다'
+        - '무작위로 뽑아야 forward process 의 끝이 정규분포가 되기 때문이다'
+      answer: 0
+      explanation: |
+        sampling 은 $T$ 부터 1 까지 모든 step 에서 같은 network 를 쓰므로, 학습에서 어느 step 이 빠지면 그 step 에서 noise 를 잘못 맞힌다.
+        고르게 뽑으면 오래 학습하는 동안 모든 step 이 비슷한 횟수로 학습된다. loss 의 크기를 키우려는 것이라는 보기는 틀렸고, 고르게 뽑는
+        목적은 빠지는 step 을 없애는 것이다. batch 를 만들 수 없다는 보기도 틀렸는데, batch 구성은 $t$ 를 뽑는 방식과 관계없다. forward
+        process 의 끝 분포는 schedule 로 정해지므로 끝 분포를 이유로 든 보기도 틀렸다.
+
+- topic: reverse-sampling
+  title: reverse step 과 새 noise
+  variants:
+    - question: |
+        면접관: "DDPM sampling 의 reverse step 은 network 가 맞힌 noise 를 빼고 나서 표준 정규분포에서 새로 뽑은 noise 를 조금 더합니다. 이 새
+        noise 를 빼면 어떻게 되나요?"
+      choices:
+        - '결과가 더 정확해져서 데이터와 같은 분포가 나온다'
+        - 'sample 이 매 step 가장 그럴듯한 가운데만 따라가서, 데이터보다 좁게 몰린 분포가 나온다'
+        - 'sampling 이 발산해 값이 무한히 커진다'
+        - '아무 변화가 없다. 새 noise 는 평균이 0 이라 결과에 영향을 주지 않는다'
       answer: 1
       explanation: |
-        학습은 $x_0$ 하나와 $t$ 하나, noise 하나를 뽑아 한 번에 $x_t$ 를 만들고 그 한 step 의 noise 만 맞힌다. 오래 학습하는 동안 $t$ 가
-        고르게 뽑혀 모든 step 을 연습한다. 모든 step 을 차례로 밟는 것은 sampling 쪽 일이고, $x_t$ 는 한 번에 건너뛰는 식으로 만들며,
-        완성된 sample 을 데이터와 비교하는 방식은 쓰지 않는다.
+        reverse step 의 괄호 안 계산은 $x_{t-1}$ 이 있을 법한 범위의 가운데를 낸다. 같은 $x_t$ 에 이를 수 있는 $x_{t-1}$ 은 그 근처에 퍼져
+        있으므로 새 noise 로 그 범위에서 하나를 뽑아야 데이터의 퍼진 모양이 살아난다. 빼면 가운데만 따라가 sample 이 봉우리 안쪽에 좁게
+        몰린다. 더 정확해진다는 보기는 퍼진 정도가 줄어드는 효과를 놓쳤다. 값이 발산한다는 보기도 틀렸고, 가운데만 따라가도 값은
+        데이터 근처에 머문다. 평균이 0 이라 영향이 없다는 보기는 새 noise 가 매 step 퍼진 정도를 더한다는 점을 놓쳤다.
     - question: |
-        학습과 sampling 에서 network 를 쓰는 횟수에 대한 설명으로 옳은 것은? ($T$ 는 전체 step 수)
-      choices:
-        - '둘 다 한 번이다'
-        - '학습은 예 하나에 $T$ 번, sampling 은 sample 하나에 한 번이다'
-        - '둘 다 $T$ 번이다'
-        - '학습은 예 하나에 한 번, sampling 은 sample 하나에 $T$ 번이다'
-      answer: 3
-      explanation: |
-        학습은 $t$ 하나를 골라 그 자리에서만 noise 를 맞히므로 예 하나에 network 를 한 번 쓴다. sampling 은 $x_T$ 부터 $x_0$ 까지 모든
-        reverse step 을 밟아 step 마다 network 를 쓰므로 $T$ 번이다. 다른 보기는 이 두 횟수를 섞거나 뒤집었다.
-    - question: |
-        학습할 때는 $t$ 하나만 보는데도 sampling 에서 $T$ 개의 step 을 모두 잘 밟을 수 있는 이유는?
-      choices:
-        - '학습하는 동안 $t$ 가 1 부터 $T$ 까지 고르게 뽑혀, 한 network 가 어느 step 에서든 noise 를 맞히는 법을 배웠기 때문이다'
-        - 'sampling 할 때 network 가 step 마다 추가로 학습하기 때문이다'
-        - 'step 마다 별도의 network 를 학습해 두기 때문이다'
-        - 'sampling 은 마지막 step 만 network 를 쓰고 나머지는 정해진 식으로 계산하기 때문이다'
-      answer: 0
-      explanation: |
-        예 하나는 한 step 만 보지만 예를 아주 많이 보는 동안 모든 $t$ 가 뽑혀, $t$ 를 입력으로 받는 한 network 가 모든 step 을 맡게 된다.
-        sampling 중에는 weight 를 고치지 않고, step 마다 따로 network 를 두지도 않는다. sampling 의 모든 reverse step 은 network 의 noise
-        추정을 쓴다.
-
-- topic: reverse-step
-  title: reverse step 과 새로 더하는 noise
-  variants:
-    - question: |
-        DDPM 의 reverse step 은 network 가 맞힌 noise 를 이용해 직전 값의 가운데를 계산한 뒤, 끝에 새 noise $\sigma_t z$ 를 더한다. 새 noise
-        를 빼고 가운데 값만 따라가면 어떻게 될까?
-      choices:
-        - 'sample 이 실제 데이터보다 좁게 몰려, 데이터가 퍼진 모양을 살리지 못한다'
-        - 'sample 이 더 정확해져 데이터와 완전히 같아진다'
-        - '아무 차이가 없다. 새 noise 는 계산을 안정시키는 장치일 뿐이다'
-        - 'sample 이 데이터보다 넓게 퍼진다'
-      answer: 0
-      explanation: |
-        같은 $x_t$ 에 이를 수 있는 직전 값은 가운데 근처에 퍼져 있으므로, 가운데에 새 noise 를 더해 그 범위에서 하나를 뽑아야 한다.
-        가운데만 따라가면 매 step 평균 쪽만 골라 sample 이 데이터보다 좁게 안쪽으로 몰린다. 그래서 더 정확해지거나 차이가 없는 것이
-        아니고, 넓게 퍼지는 쪽도 아니다.
-    - question: |
-        DDPM 의 sampling 에서 마지막 step($t = 1$)에만 새 noise $\sigma_t z$ 를 더하지 않는 이유는?
+        면접관: "DDPM sampling 의 마지막 step($t = 1$)에서 새 noise 를 더하지 않는 이유는 무엇인가요?"
       choices:
         - '마지막 step 에서는 network 를 쓰지 않기 때문이다'
-        - '마지막 step 에서는 $\sigma_t$ 가 자동으로 음수가 되기 때문이다'
-        - '마지막 결과가 최종 sample 이라, 여기에 noise 를 더하면 깨끗하게 만든 값을 다시 흐트러뜨릴 뿐이기 때문이다'
-        - '첫 step 에서 더한 noise 와 상쇄시키기 위해서다'
+        - '마지막 step 의 $\beta_1$ 이 0 이라 noise 의 크기가 저절로 0 이 되기 때문이다'
+        - '그 결과가 최종 sample 이라, noise 를 더하면 깨끗하게 만든 값을 다시 흐트러뜨릴 뿐이기 때문이다'
+        - '마지막 step 에 noise 를 더하면 sample 이 학습 데이터를 그대로 복사하게 되기 때문이다'
       answer: 2
       explanation: |
-        중간 step 의 새 noise 는 다음 step 들이 다시 다듬을 여지가 있지만, 마지막 step 의 결과는 바로 내보내는 sample 이다. 여기에 noise 를
-        더하면 걷어 낸 noise 를 도로 섞는 셈이다. 마지막 step 에서도 network 는 쓰이고, $\sigma_t$ 는 표준편차라 음수가 되지 않으며,
-        step 사이에 noise 를 상쇄하는 장치는 없다.
+        중간 step 의 새 noise 는 다음 step 이 다시 걷어 낼 것을 전제로 범위에서 하나를 뽑는 장치다. 마지막 step 뒤에는 걷어 낼 step 이 없어서
+        더하면 sample 에 noise 가 그대로 남는다. network 를 쓰지 않는다는 보기는 틀렸고, 마지막
+        step 에서도 network 는 쓴다. $\beta_1$ 이 0 이라는 보기도 틀렸는데, $\beta_1$ 은 작지만 0 이 아니다. noise 를 더한다고 학습 데이터를
+        복사하지는 않는다.
     - question: |
-        DDPM 의 network 는 $x_0$ 부터 $x_t$ 까지 쌓인 noise 전체를 맞힌다. reverse step 에서 이 추정을 $x_t$ 에서 통째로 빼지 않고 그중
-        이번 step 의 몫만 빼는 이유는?
+        면접관: "$T = 1000$ 으로 학습한 DDPM 으로 sample 100 개를 만들면 network 를 몇 번 계산해야 하나요? 다른 sampler 는 쓰지 않습니다."
       choices:
-        - '통째로 빼면 계산량이 너무 많아지기 때문이다'
-        - 'reverse step 은 $x_t$ 에서 바로 앞 단계 $x_{t-1}$ 로 한 칸만 돌아가는 것이라, 이번 step 에 더해진 noise 만 걷어 내야 하기 때문이다'
-        - 'network 의 추정은 늘 실제 noise 보다 크게 나오기 때문이다'
-        - '쌓인 noise 전체는 sampling 할 때 알 수 없기 때문이다'
-      answer: 1
-      explanation: |
-        한 step 의 reverse 는 직전 상태로 돌아가는 계산이므로, 쌓인 noise 가운데 이번 step 이 보탠 몫만 빼고 줄였던 계수로 나눠 되돌린다.
-        나머지 noise 는 이후 step 들이 차례로 걷어 낸다. 계산량 차이나 network 의 편향 때문이 아니고, 쌓인 noise 전체의 추정은 network
-        가 sampling 중에도 내 준다.
-
-- topic: multimodal
-  title: 봉우리가 여럿인 분포와 로봇 행동
-  variants:
-    - question: |
-        상자를 왼쪽으로 비켜 간 시연과 오른쪽으로 비켜 간 시연이 반반 섞여 있다. MSE 로 action 하나를 맞히게 학습한 policy 와 DDPM 으로
-        action 을 sampling 하는 policy 는 각각 어떤 행동을 내기 쉬울까?
-      choices:
-        - '둘 다 왼쪽과 오른쪽 중 하나를 고른다'
-        - '둘 다 가운데 길을 낸다'
-        - 'MSE policy 는 왼쪽이나 오른쪽 하나를 고르고, DDPM policy 는 가운데 길을 낸다'
-        - 'MSE policy 는 두 시연의 평균인 가운데 길을 내 상자에 부딪히고, DDPM policy 는 sampling 마다 왼쪽이나 오른쪽 길 하나를 낸다'
+        - '100 번. sample 하나에 network 를 한 번 쓴다'
+        - '1000 번. 100 개를 한 batch 로 묶으면 sample 수와 관계없이 같다'
+        - '10 번. 1000 을 100 으로 나눈 만큼만 계산한다'
+        - '100,000 번. sample 하나에 reverse step 이 1000 번이고 step 마다 network 를 한 번 쓴다'
       answer: 3
       explanation: |
-        MSE 를 가장 작게 하는 출력은 정답들의 평균이라, 정답이 둘로 갈라지면 그 사이 가운데 길이 나온다. DDPM 은 작은 step 을 여러 번
-        밟으며 새 noise 와 network 의 추정이 조금씩 한쪽을 고르게 하므로 시연에 있던 길 하나에 닿는다. 그래서 두 policy 가 같은
-        행동을 내지 않고, 역할을 뒤집은 보기도 틀렸다.
+        DDPM sampling 은 $T$ 부터 1 까지 모든 step 을 밟으며 step 마다 network 를 쓰므로 sample 하나에 1000 번, 100 개면 $100 \times 1000$ 번이다.
+        100 번이라는 보기는 sample 하나에 network 를 한 번 쓰는 VAE 의 decoder 와 헷갈린 것이다. 1000 번이라는 보기도 틀렸는데, batch 로
+        묶으면 걸리는 시간은 줄일 수 있지만 계산의 양은 같다. 10 번이라는 보기는 틀렸고, $T$ 를 sample 수로 나눌 근거는 없다.
+
+- topic: ddim
+  title: DDIM 과 step 수
+  variants:
     - question: |
-        DDPM 의 network 도 차이의 제곱으로 학습하므로 각 step 에서 평균을 추정한다. 그런데도 최종 sample 이 봉우리 사이로 잘 가지 않는
-        이유는?
+        면접관: "DDIM 은 DDPM 과 무엇이 같고 무엇이 다른가요?"
       choices:
-        - 'DDPM 은 평균을 내지 않도록 특별한 loss 를 쓰기 때문이다'
-        - '평균은 각 step 의 작은 이동에만 쓰이고, 어느 봉우리로 갈지는 여러 step 의 새 noise 와 추정이 조금씩 정하기 때문이다'
-        - 'DDPM 은 sampling 이 끝난 뒤 봉우리 사이의 sample 을 걸러 내기 때문이다'
-        - 'DDPM 의 network 는 데이터의 봉우리 위치를 외워 두고 그 위치만 출력하기 때문이다'
-      answer: 1
+        - '학습 loss 와 network 는 그대로 쓰고, sampling 식만 바꿔 step 을 건너뛰면서 새 noise 없이 결정적으로 sample 을 만든다'
+        - 'network 는 그대로 두고 학습 loss 를 바꿔, noise 대신 원래 데이터를 맞히도록 다시 학습한다'
+        - 'forward process 의 schedule 을 바꿔 $T$ 를 10 으로 줄인 뒤 처음부터 다시 학습한다'
+        - 'DDPM sampling 을 그대로 쓰되 여러 sample 을 한 batch 로 묶어 GPU 에서 동시에 계산한다'
+      answer: 0
       explanation: |
-        한 step 의 변화가 작으면 직전 값의 범위는 $x_t$ 근처의 봉우리 하나라서, 그 가운데를 평균으로 맞히는 것이 정확한 답이다. 봉우리의
-        선택은 한 번에 일어나지 않고 경로가 새 noise 로 흔들리다 한쪽으로 기울면서 정해진다. loss 는 평범한 제곱 차이이고, 걸러 내는
-        후처리는 없으며, network 는 봉우리 위치가 아니라 섞인 noise 를 낸다.
+        DDIM 은 DDPM 과 같은 학습 목표를 갖는 다른 생성 과정을 정의해서, 이미 학습한 noise 예측 network 를 그대로 쓴다. 매 step 에서
+        $\hat x_0$ 를 어림하고 같은 noise 추정으로 더 작은 step 의 값을 계산하므로 step 을 건너뛸 수 있고, $\eta = 0$ 이면 새 noise 를 더하지
+        않는다. 학습 loss 를 바꿔 다시 학습한다는 보기는 틀렸고, DDIM 은 이미 학습한 network 를 그대로 쓴다. schedule 을 바꿔 $T = 10$ 으로 다시
+        학습한다는 보기도 틀렸는데, 학습 schedule 은 그대로 두고 sampling 만 바꾼다. batch 로 묶는 것은 계산 양을 줄이지 않는다.
     - question: |
-        Diffusion Policy 는 DDPM 으로 로봇의 action 덩어리를 만든다. 이미지를 만드는 DDPM 과 비교한 설명으로 옳은 것은?
+        면접관: "DDIM 으로 sampling step 수를 계속 줄여 결국 한 번에 noise 에서 데이터로 건너뛰면, 데이터가 떨어진 두 무리일 때 결과는
+        어떻게 되나요?"
       choices:
-        - 'action 은 숫자가 적어서 noise 를 섞지 않고 network 가 바로 action 을 낸다'
-        - '학습 방식이 완전히 달라서, 시연 전체를 한 번에 따라 그리도록 학습한다'
-        - 'noise 섞인 action 덩어리와 step 번호에 더해 카메라 이미지와 로봇 상태를 조건으로 함께 받아 섞인 noise 를 맞힌다'
-        - '관측을 받지 않으므로 장면이 바뀌어도 같은 분포의 action 을 낸다'
+        - '두 무리 중 하나가 무작위로 정확히 나온다'
+        - '출발 noise 를 그대로 출력한다'
+        - 'network 가 맞힌 noise 로 어림한 원래 값이 그대로 나오는데, 이 값은 두 무리를 가능성으로 섞은 평균이라 데이터에 없는 값일 수 있다'
+        - 'sampling 이 발산해 값이 무한히 커진다'
       answer: 2
       explanation: |
-        Diffusion Policy 는 이미지 대신 action 덩어리를 $x_0$ 로 삼고, 학습은 noise 를 섞고 섞인 noise 를 맞히는 같은 방식이다. 다른 점은
-        지금 장면의 관측을 조건으로 함께 받는다는 것이라, 장면이 다르면 다른 action 이 나온다. noise 를 섞지 않는다거나 학습 방식이
-        완전히 다르다는 보기는 틀렸고, 관측을 받지 않는다면 장면에 맞는 행동을 낼 수 없다.
+        한 번에 건너뛰면 첫 step 의 $\hat x_0$ 가 그대로 sample 이 된다. noise 가 큰 step 에서는 어느 무리에서 왔는지 알기 어려워
+        network 가 정답들의 평균에 가까운 값을 내므로, 결과는 두 무리 사이에 놓일 수 있다. 여러 step 으로 나눠야 무리를 고를 기회가 생긴다.
+        무작위로 정확한 무리가 나온다는 보기는 이 평균 효과를 놓쳤다. 출발 noise 를 그대로 낸다는 보기도 틀렸고, 결과는 network 가 어림한
+        $\hat x_0$ 다. 값이 발산한다는 보기는 틀렸는데, $\hat x_0$ 는 두 무리 사이의 유한한 값이다.
+    - question: |
+        면접관: "Diffusion Policy 는 100 step schedule 로 학습하고 실제 로봇에서는 DDIM 으로 10 step 만 밟았습니다. 그 이유로 가장 알맞은 것은?"
+      choices:
+        - '10 step 이 100 step 보다 sample 품질이 항상 더 좋기 때문이다'
+        - 'sampling 은 step 마다 network 를 한 번 쓰므로, step 을 줄여야 로봇이 기다리는 시간을 제어 주기에 맞출 수 있기 때문이다'
+        - '로봇 action 은 그림보다 차원이 커서 step 이 많으면 GPU 메모리가 부족하기 때문이다'
+        - 'DDIM 은 학습 데이터가 적을 때만 쓸 수 있기 때문이다'
+      answer: 1
+      explanation: |
+        sampling 시간은 network 를 쓰는 횟수에 비례해서, 100 step 을 다 밟으면 action 을 만드는 데 열 배 오래 걸린다. 논문 본문에 따르면 DDIM 10 step
+        으로 RTX 3080 에서 0.1 초가 걸렸다. 품질이 항상 더 좋다는 보기는 틀렸고, step 을 줄이면 품질이 같거나 조금 떨어진다. GPU 메모리를
+        이유로 든 보기도 틀렸는데, PushT 의 action chunk 는 숫자 32 개로 그림보다 훨씬 작다. DDIM 은 데이터 양과 관계없이 쓸 수 있다.
+
+- topic: multimodal
+  title: 봉우리가 여럿인 데이터
+  variants:
+    - question: |
+        면접관: "DDPM 의 network 도 MSE 로 학습해서 평균을 냅니다. 그런데도 봉우리가 둘인 데이터에서 sample 이 봉우리 사이에 거의 놓이지
+        않는 이유는 무엇인가요?"
+      choices:
+        - 'DDPM 은 평균을 내지 않도록 별도의 classification loss 를 함께 쓰기 때문이다'
+        - '출발 noise 의 부호가 어느 봉우리로 갈지를 처음부터 정하기 때문이다'
+        - 'DDPM 은 학습 데이터를 외워서 그대로 꺼내기 때문이다'
+        - '평균은 각 step 의 작은 이동에만 쓰이고, 어느 봉우리로 갈지는 여러 step 에 걸쳐 새 noise 와 network 의 추정이 조금씩 정하기 때문이다'
+      answer: 3
+      explanation: |
+        noise 가 큰 step 에서 network 의 추정은 봉우리 사이로 끌리지만 그 값은 최종 sample 이 아니라 다음 step 의 출발점이다. step 을 밟을수록
+        $x_t$ 가 어느 쪽인지 드러나 추정이 한 봉우리의 값과 같아진다. classification loss 를 함께 쓴다는 보기는 틀렸고, DDPM 의
+        loss 는 noise 의 제곱 오차 하나뿐이다. 출발 noise 의 부호가 정한다는 보기도 틀렸는데, 중간 step 의 새 noise 에 따라 다른 봉우리로
+        갈 수 있다. 외워서 꺼낸다는 보기도 틀렸고, DDPM 은 학습 데이터에 없던 sample 도 만든다.
+    - question: |
+        면접관: "VAE 로 봉우리가 여러 개 떨어져 있는 데이터를 학습하면 sample 이 봉우리 사이로 번지는 경우가 많습니다. 그 이유로 맞는 것은?"
+      choices:
+        - 'decoder 는 latent 가 조금 바뀌면 출력도 조금만 바뀌는 함수라서, 이어진 정규분포의 latent 를 떨어진 봉우리로 옮기면 그 사이를 지나는 latent 가 반드시 생기기 때문이다'
+        - 'VAE 의 latent 가 데이터보다 차원이 크기 때문이다'
+        - 'VAE 는 sampling 할 때 latent 를 쓰지 않기 때문이다'
+        - 'VAE 의 KL 항이 sample 을 봉우리 중심으로 끌어당기기 때문이다'
+      answer: 0
+      explanation: |
+        decoder 는 weight 를 곱하고 더하는 계산이라 출력이 한 값에서 다른 값으로 건너뛰지 못한다. 그래서 $\mathcal N(0, I)$ 에서 뽑은 latent
+        일부는 두 봉우리 사이로 가는 출력을 낸다. latent 의 차원이 크다는 보기는 틀렸고, 보통 latent 는 데이터보다 차원이 작다. latent 를 쓰지 않는다는 보기도
+        틀렸는데, VAE 의 sampling 은 latent 를 뽑아 decoder 에 넣는 방식이다. KL 항은 latent 를 prior 쪽으로 당기는 항이지 출력을 봉우리 중심으로 모으는 항이 아니다.
+    - question: |
+        면접관: "데이터가 $+2$ 와 $-2$ 반반일 때, noise 가 아주 큰 step 에서 noise 를 정확히 맞히는 network 가 어림하는 원래 값은 어느
+        근처인가요?"
+      choices:
+        - '$+2$. network 는 언제나 더 큰 쪽을 고른다'
+        - '0 근처. noise 가 커서 어느 쪽에서 왔는지 거의 알 수 없으니, 두 값을 비슷한 가능성으로 섞은 평균에 가깝다'
+        - '$x_t$ 와 같은 값. noise 가 크면 원래 값을 어림하지 않는다'
+        - '$\pm 2$ 중 출발 noise 와 부호가 같은 값을 정확히 낸다'
+      answer: 1
+      explanation: |
+        MSE 로 학습한 network 는 같은 입력에 대한 정답들을 가능성으로 섞은 평균을 낸다. noise 가 크면 $+2$ 에서 온 $x_t$ 와 $-2$ 에서 온
+        $x_t$ 의 분포가 크게 겹쳐 가능성이 반반에 가까우므로 추정은 0 근처다. noise 가 작아질수록 한쪽 가능성이 커져 추정이 $\pm 2$ 로
+        다가간다. 언제나 큰 쪽을 고른다는 보기는 틀렸고, network 에는 그런 규칙이 없다. $x_t$ 와 같은 값을 낸다는 보기도 틀렸는데, network 는 어느
+        step 에서든 원래 값을 어림한다. 출발 noise 와 부호가 같은 값을 정확히 낸다는 보기는 noise 가 클 때 어느 쪽인지 거의 알 수 없다는 점을
+        놓쳤다.
+
+- topic: diffusion-policy
+  title: Diffusion Policy 의 action 생성
+  variants:
+    - question: |
+        면접관: "상자를 왼쪽과 오른쪽으로 비켜 간 시연이 반반 섞인 데이터로 policy 를 학습했습니다. MSE 로 action 을 직접 맞히는 policy 와
+        Diffusion Policy 의 행동 차이를 설명해 보세요."
+      choices:
+        - '둘 다 가운데 길을 낸다. 학습 loss 가 모두 제곱 오차이기 때문이다'
+        - 'MSE policy 는 왼쪽 길만 내고, Diffusion Policy 는 오른쪽 길만 낸다'
+        - 'MSE policy 는 두 시연의 평균인 가운데 길로 상자에 부딪히고, Diffusion Policy 는 sampling 할 때마다 왼쪽이나 오른쪽 길 하나를 낸다'
+        - 'MSE policy 는 실행마다 두 길을 번갈아 내고, Diffusion Policy 는 가운데 길을 낸다'
+      answer: 2
+      explanation: |
+        MSE policy 는 같은 관측에 대한 정답들의 평균을 출력하므로 정답이 둘로 갈라지면 데이터에 없던 가운데 길을 낸다. Diffusion Policy 도
+        noise 를 제곱 오차로 학습하지만 그 평균은 denoising step 안에서만 쓰여, sample 은 시연에 있던 길 하나에 놓인다. 둘 다 가운데
+        길을 낸다는 보기는 이 차이를 놓쳤다. MSE policy 는 왼쪽 길만 내고 Diffusion Policy 는 오른쪽 길만 낸다는 보기도 틀렸다. MSE policy 는
+        가운데 길을 내고, Diffusion Policy 는 sampling 할 때마다 두 길 중 하나를 낸다. MSE policy 가 두 길을 번갈아 낸다는 보기는 틀렸는데, MSE policy 는
+        같은 관측에 늘 같은 출력을 낸다.
+    - question: |
+        면접관: "Diffusion Policy 에서 DDPM 의 데이터 $x_0$ 와 조건은 각각 무엇인가요?"
+      choices:
+        - '$x_0$ 는 카메라 이미지이고, 조건은 시연에서 꺼낸 action 이다'
+        - '$x_0$ 는 앞으로 여러 step 동안의 action 을 묶은 action chunk 이고, 최근 관측(이미지와 로봇 상태)을 조건으로 함께 넣는다'
+        - '$x_0$ 는 로봇의 다음 관측이고, 조건은 지금 action 이다'
+        - '$x_0$ 는 action 하나이고, 조건은 사용하지 않는다'
+      answer: 1
+      explanation: |
+        Diffusion Policy 는 그림 대신 action chunk 를 만들고, noise 를 맞히는 network 가 noise 가 섞인 chunk 와 step 번호에 더해 최근 관측을
+        받는다. 그래서 같은 noise 에서 출발해도 장면이 다르면 다른 action 이 나온다. $x_0$ 가 카메라 이미지라는 보기는 틀렸고,
+        Diffusion Policy 는 이미지를 만드는 모델이 아니다. $x_0$ 가 다음 관측이라는 보기도 틀렸는데, 다음 관측을 예측하는 모델도 아니다.
+        $x_0$ 가 조건 없는 action 하나라는 보기도 틀렸고, PushT 에서는 action 16 개를 한꺼번에 만들며 조건 없이는 장면에 맞는 action 을
+        고를 수 없다.
+    - question: |
+        면접관: "LeRobot 의 Diffusion Policy 설정에서 `num_train_timesteps: 100`, `noise_scheduler_type: DDPM` 이고 `num_inference_steps`
+        를 비워 두었습니다. 추론할 때 network 를 몇 번 쓰고, 논문의 실물 로봇처럼 줄이려면 무엇을 바꿔야 하나요?"
+      choices:
+        - '10 번 쓴다. 비워 두면 DDIM 10 step 이 기본이다'
+        - '1 번 쓴다. 학습이 끝난 policy 는 action 을 한 번에 낸다'
+        - '100 번 쓴다. 줄이려면 `num_train_timesteps` 를 10 으로 바꿔 다시 학습해야 한다'
+        - '100 번 쓴다. `noise_scheduler_type` 을 DDIM 으로, `num_inference_steps` 를 10 으로 바꾸면 다시 학습하지 않고 10 번으로 줄일 수 있다'
+      answer: 3
+      explanation: |
+        `num_inference_steps` 를 비우면 학습 step 수와 같은 100 step 을 DDPM 식으로 밟는다. DDIM 은 같은 network 를 그대로 쓰므로 scheduler 와
+        inference step 수만 바꾸면 된다. 비워 두면 DDIM 10 step 이 기본이라는 보기는
+        틀렸고, 기본은 DDPM 100 step 이다. network 를 1 번 쓴다는 보기도 틀렸는데, Diffusion Policy 는 action 을 한 번에 내지 않는다.
+        `num_train_timesteps` 를 10 으로 바꿔 다시 학습한다는 보기도 틀렸고, DDIM 으로 바꾸면 다시 학습할 필요가 없다.

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>집게가 큐브를 쥐는 예. follower 집게는 큐브에 막혀 20° 에서 멈추고 leader 는 15° 까지 닫혀 있다. action 이 leader 의 15° 면 두 각도의 차이 5° 에 비례한 힘으로 큐브를 쥐고, action 이 follower 의 20° 면 차이가 0 이라 쥐는 힘도 0 이다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="658" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="20" width="300" height="290" rx="10" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="170" y="46" fill="#34d399" font-size="15" text-anchor="middle">action = leader 의 각도</text>
+  <rect x="140" y="110" width="60" height="60" rx="4" fill="#2a1416" stroke="#f87171" stroke-width="1.5"/>
+  <text x="170" y="145" fill="#f87171" font-size="13" text-anchor="middle">큐브</text>
+  <rect x="120" y="92" width="20" height="96" rx="3" fill="#0f2a3a" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="200" y="92" width="20" height="96" rx="3" fill="#0f2a3a" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="134" y="86" width="20" height="108" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="186" y="86" width="20" height="108" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="92" y1="140" x2="116" y2="140" stroke="#34d399" stroke-width="2.2" marker-end="url(#arrow-green)"/>
+  <line x1="248" y1="140" x2="224" y2="140" stroke="#34d399" stroke-width="2.2" marker-end="url(#arrow-green)"/>
+  <text x="170" y="220" fill="#f59e0b" font-size="13" text-anchor="middle">목표(점선, leader) 15°</text>
+  <text x="170" y="242" fill="#38bdf8" font-size="13" text-anchor="middle">follower(실선) 20°: 큐브에 막힘</text>
+  <text x="170" y="264" fill="#e2e8f0" font-size="13" text-anchor="middle">두 각도의 차이 5°</text>
+  <text x="170" y="292" fill="#34d399" font-size="14" text-anchor="middle">차이 5° 에 비례한 힘으로 쥔다</text>
+  <rect x="340" y="20" width="300" height="290" rx="10" fill="none" stroke="#f87171" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="490" y="46" fill="#f87171" font-size="15" text-anchor="middle">action = follower 의 각도</text>
+  <rect x="460" y="110" width="60" height="60" rx="4" fill="#2a1416" stroke="#f87171" stroke-width="1.5"/>
+  <text x="490" y="145" fill="#f87171" font-size="13" text-anchor="middle">큐브</text>
+  <rect x="440" y="92" width="20" height="96" rx="3" fill="#0f2a3a" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="520" y="92" width="20" height="96" rx="3" fill="#0f2a3a" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="440" y="86" width="20" height="108" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="520" y="86" width="20" height="108" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="490" y="220" fill="#f59e0b" font-size="13" text-anchor="middle">목표(점선) 20°</text>
+  <text x="490" y="242" fill="#38bdf8" font-size="13" text-anchor="middle">follower(실선) 20°</text>
+  <text x="490" y="264" fill="#e2e8f0" font-size="13" text-anchor="middle">두 각도의 차이 0°</text>
+  <text x="490" y="292" fill="#f87171" font-size="14" text-anchor="middle">쥐는 힘 0: 큐브를 놓칠 수 있다</text>
+</svg>

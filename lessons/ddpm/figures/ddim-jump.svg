@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>데이터가 −2 와 +2 인 T = 5 예에서 x₅ = 0.60 으로 시작한 세 sampling. DDPM 은 network 를 5 번 써서 0.89, 1.08, 1.65, 1.97 을 거쳐 2.00 에 닿고, DDIM 은 t = 2 를 거치는 두 번의 건너뛰기로 0.97 을 지나 2.00 에 닿는다. 한 번에 t = 0 으로 건너뛰면 두 봉우리의 평균인 1.00 에서 끝난다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="698" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70.0" y="40.0" width="450.0" height="230.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="235.7" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <text x="62.0" y="159.0" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <text x="62.0" y="82.3" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
+  <line x1="70.0" y1="78.3" x2="520.0" y2="78.3" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="6 5"/>
+  <text x="528.0" y="82.3" fill="#94a3b8" font-size="12" text-anchor="start">데이터 +2</text>
+  <line x1="70.0" y1="231.7" x2="520.0" y2="231.7" stroke="#1e293b" stroke-width="1"/>
+  <text x="520.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 0</text>
+  <text x="430.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 1</text>
+  <text x="340.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 2</text>
+  <text x="250.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 3</text>
+  <text x="160.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 4</text>
+  <text x="70.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 5</text>
+  <text x="295.0" y="312.0" fill="#94a3b8" font-size="13" text-anchor="middle">step t (5 에서 0 으로 진행)</text>
+  <text x="70.0" y="28.0" fill="#94a3b8" font-size="13" text-anchor="start">x_t</text>
+  <polyline points="70.0,185.7 160.0,163.4 250.0,148.9 340.0,105.2 430.0,80.6 520.0,78.3" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="70.0" cy="185.7" r="3.5" fill="#a78bfa"/>
+  <circle cx="160.0" cy="163.4" r="3.5" fill="#a78bfa"/>
+  <circle cx="250.0" cy="148.9" r="3.5" fill="#a78bfa"/>
+  <circle cx="340.0" cy="105.2" r="3.5" fill="#a78bfa"/>
+  <circle cx="430.0" cy="80.6" r="3.5" fill="#a78bfa"/>
+  <circle cx="520.0" cy="78.3" r="3.5" fill="#a78bfa"/>
+  <line x1="70.0" y1="185.7" x2="514.0" y2="155.0" stroke="#f87171" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow-red)"/>
+  <circle cx="520.0" cy="155.0" r="4.5" fill="#f87171"/>
+  <text x="530.0" y="159.0" fill="#f87171" font-size="13" text-anchor="start">1.00</text>
+  <polyline points="70.0,185.7 340.0,157.3 520.0,78.3" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="70.0" cy="185.7" r="5" fill="#34d399"/>
+  <circle cx="340.0" cy="157.3" r="5" fill="#34d399"/>
+  <circle cx="520.0" cy="78.3" r="5" fill="#34d399"/>
+  <text x="344.0" y="179.3" fill="#34d399" font-size="13" text-anchor="middle">0.97</text>
+  <text x="70.0" y="207.7" fill="#e2e8f0" font-size="13" text-anchor="middle">0.60</text>
+  <text x="512.0" y="66.3" fill="#34d399" font-size="13" text-anchor="end">2.00</text>
+  <line x1="548.0" y1="130.0" x2="570.0" y2="130.0" stroke="#a78bfa" stroke-width="3"/>
+  <text x="576.0" y="134.0" fill="#e2e8f0" font-size="12" text-anchor="start">DDPM 5 step</text>
+  <text x="576.0" y="150.0" fill="#94a3b8" font-size="11" text-anchor="start">network 5 번</text>
+  <line x1="548.0" y1="180.0" x2="570.0" y2="180.0" stroke="#34d399" stroke-width="3"/>
+  <text x="576.0" y="184.0" fill="#e2e8f0" font-size="12" text-anchor="start">DDIM 5 → 2 → 0</text>
+  <text x="576.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="start">network 2 번</text>
+  <line x1="548.0" y1="230.0" x2="570.0" y2="230.0" stroke="#f87171" stroke-width="3" stroke-dasharray="5 4"/>
+  <text x="576.0" y="234.0" fill="#e2e8f0" font-size="12" text-anchor="start">DDIM 5 → 0</text>
+  <text x="576.0" y="250.0" fill="#94a3b8" font-size="11" text-anchor="start">network 1 번</text>
+  <text x="576.0" y="266.0" fill="#94a3b8" font-size="11" text-anchor="start">두 봉우리의 평균</text>
+</svg>
