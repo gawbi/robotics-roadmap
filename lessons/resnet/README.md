@@ -579,7 +579,7 @@ weight 를 가져다 새 일에 쓰는 것을 **transfer learning** 이라고 �
 
 11,181,642 는 backbone 11,176,512 개와 head $512 \times 10 + 10 = 5{,}130$ 개를 더한 값이다. freeze 는 학습이 빠르지만, ImageNet 의
 feature 가 그 일에 맞지 않으면 head 만 학습해서는 그 차이를 바로잡을 수 없다. Diffusion Policy 논문의 저자들은 시뮬레이션 과제 robomimic
-Square(사각 고리를 막대에 끼우는 과제)에서 ImageNet-21k 로 사전학습한 ResNet-18 encoder 를 세 방식으로 비교했다.
+Square(사각 고리를 막대에 끼우는 과제)에서 ImageNet-21k 로 pretraining 한 ResNet-18 encoder 를 세 방식으로 비교했다.
 
 | encoder 학습 방식 | 성공률 |
 | --- | --- |
@@ -587,7 +587,7 @@ Square(사각 고리를 막대에 끼우는 과제)에서 ImageNet-21k 로 사�
 | pretrained, freeze | 0.58 |
 | pretrained, fine-tuning (policy 보다 10 배 작은 learning rate) | 0.92 |
 
-freeze 한 encoder 만 성공률이 크게 떨어졌는데, 저자들은 이 policy 에 필요한 사진 요약이 흔한 사전학습으로 얻는 요약과 다르기
+freeze 한 encoder 만 성공률이 크게 떨어졌는데, 저자들은 이 policy 에 필요한 사진 요약이 흔한 pretraining 으로 얻는 요약과 다르기
 때문이라고 해석했다. ACT 는 pretrained ResNet-18 을 fine-tuning 하는데, 원 구현과 LeRobot 모두 backbone 의 learning rate 를 policy 의
 나머지 부분과 같은 1e-5 로 둔다.
 
