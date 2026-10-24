@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>4 V 에서 14 cm 이어야 할 측정이 24 cm 로 잘못 찍히면 MSE 가 가장 작은 직선이 y = 3x + 2 에서 y = 6x − 3 으로 바뀐다</title>
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="40" width="330" height="230" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70.0" y1="270.0" x2="400.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="70.0" y1="40.0" x2="70.0" y2="270.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="70.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="136.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="202.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="268.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="334.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="400.0" y="287.0" fill="#64748b" font-size="12" text-anchor="middle">5</text>
+  <text x="63.0" y="274.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="63.0" y="197.3" fill="#64748b" font-size="12" text-anchor="end">10</text>
+  <text x="63.0" y="120.7" fill="#64748b" font-size="12" text-anchor="end">20</text>
+  <text x="63.0" y="44.0" fill="#64748b" font-size="12" text-anchor="end">30</text>
+  <text x="400.0" y="304.0" fill="#94a3b8" font-size="13" text-anchor="end">전압 x (V)</text>
+  <text x="70.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">거리 y (cm)</text>
+  <polyline points="103.0,243.2 108.4,241.3 113.8,239.4 119.2,237.5 124.6,235.7 129.9,233.8 135.3,231.9 140.7,230.0 146.1,228.1 151.5,226.3 156.9,224.4 162.3,222.5 167.7,220.6 173.0,218.8 178.4,216.9 183.8,215.0 189.2,213.1 194.6,211.2 200.0,209.4 205.4,207.5 210.8,205.6 216.1,203.7 221.5,201.9 226.9,200.0 232.3,198.1 237.7,196.2 243.1,194.4 248.5,192.5 253.9,190.6 259.2,188.7 264.6,186.8 270.0,185.0 275.4,183.1 280.8,181.2 286.2,179.3 291.6,177.5 297.0,175.6 302.3,173.7 307.7,171.8 313.1,169.9 318.5,168.1 323.9,166.2 329.3,164.3 334.7,162.4 340.1,160.6 345.4,158.7 350.8,156.8 356.2,154.9 361.6,153.0 367.0,151.2" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <polyline points="103.0,270.0 108.4,266.2 113.8,262.5 119.2,258.7 124.6,255.0 129.9,251.2 135.3,247.5 140.7,243.7 146.1,240.0 151.5,236.2 156.9,232.4 162.3,228.7 167.7,224.9 173.0,221.2 178.4,217.4 183.8,213.7 189.2,209.9 194.6,206.2 200.0,202.4 205.4,198.7 210.8,194.9 216.1,191.1 221.5,187.4 226.9,183.6 232.3,179.9 237.7,176.1 243.1,172.4 248.5,168.6 253.9,164.9 259.2,161.1 264.6,157.3 270.0,153.6 275.4,149.8 280.8,146.1 286.2,142.3 291.6,138.6 297.0,134.8 302.3,131.1 307.7,127.3 313.1,123.6 318.5,119.8 323.9,116.0 329.3,112.3 334.7,108.5 340.1,104.8 345.4,101.0 350.8,97.3 356.2,93.5 361.6,89.8 367.0,86.0" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <circle cx="136.0" cy="231.7" r="6" fill="#f59e0b"/>
+  <circle cx="202.0" cy="208.7" r="6" fill="#f59e0b"/>
+  <circle cx="268.0" cy="185.7" r="6" fill="#f59e0b"/>
+  <circle cx="334.0" cy="162.7" r="6" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="334.0" cy="86.0" r="6" fill="#f87171"/>
+  <line x1="334.0" y1="154.7" x2="334.0" y2="95.0" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="324.0" y="90.0" fill="#f87171" font-size="12" text-anchor="end">잘못 찍힌 24</text>
+  <text x="346.0" y="180.7" fill="#f59e0b" font-size="12" text-anchor="start">원래 14</text>
+  <line x1="425.0" y1="80.0" x2="451.0" y2="80.0" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="459.0" y="84.0" fill="#e2e8f0" font-size="12" text-anchor="start">정상 데이터의 직선</text>
+  <text x="459.0" y="102.0" fill="#34d399" font-size="12" text-anchor="start">y = 3x + 2</text>
+  <line x1="425.0" y1="135.0" x2="451.0" y2="135.0" stroke="#f87171" stroke-width="2.5"/>
+  <text x="459.0" y="139.0" fill="#e2e8f0" font-size="12" text-anchor="start">24 가 섞인 직선</text>
+  <text x="459.0" y="157.0" fill="#f87171" font-size="12" text-anchor="start">y = 6x − 3</text>
+  <text x="425.0" y="200.0" fill="#94a3b8" font-size="12" text-anchor="start">24 의 오차 10 은</text>
+  <text x="425.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="start">제곱하면 100 이라</text>
+  <text x="425.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="start">직선이 그 점 쪽으로</text>
+  <text x="425.0" y="254.0" fill="#94a3b8" font-size="12" text-anchor="start">크게 끌려간다</text>
+</svg>

@@ -5,20 +5,20 @@
   title: step function 과 sigmoid 의 기울기
   variants:
     - question: |
-        activation function 으로 step function(입력이 0 을 넘으면 1, 아니면 0)을 쓴 network 를 gradient descent 로
-        학습시키기 어려운 이유는?
+        면접관: "activation function 으로 step function(입력이 0 을 넘으면 1, 아니면 0)을 쓴 network 를 gradient descent 로 학습시키기 어려운
+        이유는 무엇인가요?"
       choices:
-        - '거의 모든 곳에서 기울기가 0 이라, weight 를 조금 바꿔도 출력이 변하지 않아 고칠 방향이 나오지 않기 때문에'
-        - '출력이 0 과 1 두 값뿐이라 계산이 너무 느리기 때문에'
-        - '음수 입력을 받을 수 없기 때문에'
-        - '기울기가 너무 커서 weight 가 한 번에 멀리 튀기 때문에'
+        - '거의 모든 곳에서 기울기가 0 이라, weight 를 조금 바꿔도 출력이 변하지 않아 고칠 방향이 나오지 않기 때문이다'
+        - '출력이 0 과 1 두 값뿐이라 계산이 너무 느리기 때문이다'
+        - '음수 입력을 받을 수 없기 때문이다'
+        - '기울기가 너무 커서 weight 가 한 번에 멀리 튀기 때문이다'
       answer: 0
       explanation: |
-        gradient descent 는 "숫자를 조금 바꾸면 loss 가 어느 쪽으로 변하는가" 를 보고 움직이는데, step function 은 0 을
-        넘는 순간 말고는 평평해서 그 비율이 0 이다. 그래서 gradient 가 0 이 되어 weight 가 움직이지 않는다. 계산은 오히려
-        단순하고, 음수 입력도 받으며(출력이 0 일 뿐), 기울기는 크기는커녕 거의 모든 곳에서 0 이다.
+        gradient descent 는 숫자를 조금 바꿨을 때 loss 가 어느 쪽으로 변하는지를 보고 움직이는데, step function 은 0 을 넘는 순간을 빼면
+        평평해서 그 비율이 0 이다. 그래서 gradient 가 0 이 되어 weight 가 움직이지 않는다. 출력이 두 값뿐이면 계산은 오히려 단순하다. 음수
+        입력도 받을 수 있고, 그때 출력이 0 일 뿐이다. 기울기는 큰 것이 아니라 거의 모든 곳에서 0 이다.
     - question: |
-        sigmoid neuron 의 출력이 이미 0.99 처럼 1 에 바짝 붙어 있다. 이 neuron 앞쪽 weight 를 고칠 때 일어나는 일은?
+        면접관: "sigmoid neuron 의 출력이 이미 0.99 처럼 1 에 바짝 붙어 있습니다. 이 neuron 으로 들어오는 weight 를 학습할 때 어떤 일이 생기나요?"
       choices:
         - '출력이 1 에 가까우니 기울기도 1 에 가까워 빠르게 배운다'
         - '기울기가 정확히 0 이 되어 그 뒤로는 영원히 움직이지 않는다'
@@ -26,255 +26,178 @@
         - '기울기가 아주 작아서 gradient 도 작아지고 학습이 느려진다'
       answer: 3
       explanation: |
-        sigmoid 의 기울기는 $\sigma(z)(1 - \sigma(z))$ 라서 출력이 0.5 일 때 가장 크고, 0 이나 1 에 붙을수록 작아진다.
-        출력이 0.99 면 기울기가 $0.99 \times 0.01$ 정도로 작아 gradient 가 거의 전해지지 않는다. 그래도 정확히 0 은 아니라
-        아주 느리게라도 움직이고, 두 곱셈 인자가 모두 양수라 기울기가 음수가 될 수도 없다.
+        sigmoid 의 기울기는 $\sigma(z)(1 - \sigma(z))$ 라서 출력이 0.5 일 때 가장 큰 0.25 이고, 0 이나 1 에 붙을수록 작아진다. 출력이 0.99 면
+        기울기가 $0.99 \times 0.01 \approx 0.01$ 로 작아 gradient 가 거의 전해지지 않는다. 출력이 1 에 가깝다고 기울기가 1 에 가까운 것은
+        아니다. 기울기가 정확히 0 은 아니라서 아주 느리게라도 움직인다. 두 곱셈 인자가 모두 양수라 기울기가 음수가 될 수도 없다.
     - question: |
-        sigmoid 를 한 번 지날 때마다 gradient 에 곱해지는 기울기는 많아야 0.25 다. sigmoid 층을 여러 개 쌓으면 입력에
-        가까운 층에서는 어떤 일이 생기는가?
+        면접관: "backward 에서 sigmoid 의 기울기를 구할 때 forward 의 어떤 값을 다시 쓰나요?"
       choices:
-        - 'gradient 가 층마다 4 배씩 커져 발산한다'
-        - '층 수와 상관없이 gradient 크기는 같다'
-        - 'gradient 가 층마다 4 분의 1 이하로 줄어, 입력에 가까운 층은 거의 배우지 못한다'
-        - '입력에 가까운 층이 gradient 를 가장 많이 받아 가장 빨리 배운다'
+        - '입력 $z$ 를 다시 sigmoid 에 넣어 계산해야 하므로 forward 값은 쓰지 않는다'
+        - 'loss 값을 다시 쓴다'
+        - 'forward 에서 구한 출력 $\sigma(z)$ 를 다시 써서 $\sigma(z)(1 - \sigma(z))$ 로 곱셈 한 번에 구한다'
+        - '앞 layer 의 weight 를 다시 쓴다'
       answer: 2
       explanation: |
-        chain rule 에 따라 입력 쪽 gradient 는 지나온 칸의 기울기를 모두 곱한 값이고, sigmoid 칸마다 0.25 이하가 곱해진다.
-        다섯 층이면 $0.25^5 \approx 0.001$ 배 이하라 입력에 가까운 층은 거의 움직이지 않는다. 곱해지는 수가 1 보다 작으니
-        커지거나 그대로일 수 없고, 입력 쪽은 가장 많이 곱해져 오히려 가장 작은 gradient 를 받는다.
+        sigmoid 의 derivative 는 출력만으로 $\sigma(z)(1 - \sigma(z))$ 로 쓸 수 있어서, forward 에서 구한 출력을 저장해 두면 backward 에서 곱셈
+        한 번으로 기울기가 나온다. PyTorch 의 `SigmoidBackward0` 도 출력을 저장한다. $z$ 를 sigmoid 에 다시 넣어 계산할 수도 있지만 이미 구한
+        출력을 쓰는 편이 계산이 적다. loss 값은 sigmoid 의 기울기와 관계없다. 앞 layer 의 weight 도 sigmoid 자신의 기울기에는 들어가지 않는다.
 
 - topic: local-derivative
-  title: 덧셈·곱셈의 local derivative
+  title: local derivative 와 backward
   variants:
     - question: |
-        덧셈 $d = p + c$ 의 local derivative(연산 하나의 출력이 자기 입력에 대해 변하는 비율)에 대한 설명으로 맞는 것은?
+        면접관: "곱셈 $p = a \times b$ 의 backward 에서 $a$ 와 $b$ 가 받는 gradient 는 어떻게 구하나요? $p$ 의 gradient 를 $g$ 라고 합시다."
       choices:
-        - '값이 큰 입력 쪽의 local derivative 가 더 크다'
-        - '두 입력 모두 1 이라서, $d$ 의 gradient 가 $p$ 와 $c$ 에 그대로 전해진다'
-        - '출력 쪽 gradient 를 두 입력에 절반씩 나눠 준다'
-        - '각 입력의 local derivative 는 다른 입력의 값이다'
+        - '$a$ 와 $b$ 모두 $g$ 를 그대로 받는다'
+        - '$a$ 는 $g \times b$ 를 받고 $b$ 는 $g \times a$ 를 받는다. 곱셈의 local derivative 는 다른 입력의 값이기 때문이다'
+        - '$g$ 를 둘에 절반씩 나눠 준다'
+        - '$a$ 는 $g \times a$ 를 받고 $b$ 는 $g \times b$ 를 받는다'
       answer: 1
       explanation: |
-        $p$ 를 0.01 늘리면 $d$ 도 정확히 0.01 늘고, $c$ 도 마찬가지라 두 입력 모두 비율이 1 이다. 그래서 backward 에서
-        $d$ 의 gradient 가 두 입력에 그대로 복사된다. 입력 값의 크기는 비율에 영향을 주지 않고, 절반으로 나누지도 않는다.
-        "다른 입력의 값" 이 local derivative 가 되는 것은 곱셈이다.
+        곱셈에서 한 입력이 1 늘면 출력은 다른 입력만큼 변하므로, $a$ 의 local derivative 는 $b$ 이고 $b$ 의 local derivative 는 $a$ 다. 여기에
+        출력 쪽 gradient $g$ 를 곱한다. $g$ 를 그대로 받는 것은 덧셈의 경우다. $g$ 를 절반씩 나누는 규칙은 없다. 자기 값을 곱하는 것은 두
+        입력을 거꾸로 짝지은 실수다.
     - question: |
-        곱셈 $p = x \times y$ 에서 $x = 5$, $y = -4$ 다. $x$ 에 대한 local derivative $\frac{\partial p}{\partial x}$ 는?
+        면접관: "곱셈 $p = a \times b$ 에서 forward 때 $a = 0$ 이었습니다. backward 에서 $b$ 가 받는 gradient 는 어떻게 되나요?"
       choices:
-        - '$5$'
-        - '$1$'
-        - '$-4$'
-        - '$-20$'
-      answer: 2
-      explanation: |
-        $x$ 가 1 늘면 $p$ 는 다른 입력 $y$ 만큼 변하므로 $\frac{\partial p}{\partial x} = y = -4$ 다. $5$ 는 자기 자신의 값을
-        고른 것으로 $\frac{\partial p}{\partial y}$ 에 해당하고, $1$ 은 덧셈의 local derivative 다. $-20$ 은 forward 로
-        계산한 출력 $p$ 의 값이지 비율이 아니다.
-    - question: |
-        곱셈 $p = a \times b$ 에서 $a = 0$ 이다. backward 에서 $b$ 가 받는 gradient 는?
-      choices:
-        - '0 이다. $a$ 가 0 이면 $b$ 를 바꿔도 $p$ 가 변하지 않기 때문이다'
         - '$p$ 의 gradient 가 그대로 전해진다'
         - '항상 1 이다'
+        - '0 이다. $a$ 가 0 이면 $b$ 를 바꿔도 $p$ 가 변하지 않기 때문이다'
         - '$b$ 자신의 값과 같다'
-      answer: 0
-      explanation: |
-        곱셈에서 $b$ 의 local derivative 는 다른 입력 $a$ 라서, $b$ 의 gradient 는 $p$ 의 gradient 에 $a = 0$ 을 곱한 0 이다.
-        실제로 $0 \times b$ 는 $b$ 가 무엇이든 0 이니 $b$ 를 바꿀 이유가 없다. gradient 가 그대로 전해지거나 1 인 것은
-        덧셈이고, 자기 값이 아니라 다른 입력의 값을 곱한다.
-
-- topic: chain-rule
-  title: chain rule 과 backward
-  variants:
-    - question: |
-        값 $a$ 가 $p$, $d$ 를 차례로 거쳐 $L$ 에 영향을 준다($a \to p \to d \to L$). chain rule 에 따르면
-        $\frac{\partial L}{\partial a}$ 는?
-      choices:
-        - '칸마다의 local derivative 를 모두 더한 값'
-        - '가장 큰 칸의 local derivative'
-        - '칸마다의 local derivative 를 모두 곱한 값'
-        - '마지막 칸 $d \to L$ 의 local derivative'
       answer: 2
       explanation: |
-        $a$ 를 조금 바꾸면 $p$ 가 그 몇 배로 변하고, 그 변화가 다시 $d$ 에서 몇 배, $L$ 에서 몇 배가 되므로 비율이 사슬처럼
-        곱해진다. 더하는 것은 한 값이 여러 길로 $L$ 에 닿을 때 길끼리 합칠 때의 규칙이다. 한 칸만 보면 나머지 칸에서
-        커지거나 줄어드는 효과가 빠진다.
+        곱셈에서 $b$ 의 local derivative 는 다른 입력 $a$ 라서, $b$ 의 gradient 는 $p$ 의 gradient 에 $a = 0$ 을 곱한 0 이다. 실제로
+        $0 \times b$ 는 $b$ 가 무엇이든 0 이니 $b$ 를 바꿀 이유가 없다. $p$ 의 gradient 가 그대로 전해지는 것은 덧셈의 규칙이다. 항상 1 인 것도
+        덧셈의 local derivative 다. $b$ 자신의 값을 곱하는 것은 두 입력을 거꾸로 짝지은 실수다.
     - question: |
-        $y$ 가 $x$ 의 3 배로 변하고($\frac{\partial y}{\partial x} = 3$), $L$ 이 $y$ 의 5 배로 변한다
-        ($\frac{\partial L}{\partial y} = 5$). $\frac{\partial L}{\partial x}$ 는?
+        면접관: "계산 $L = (a \times b + c) \times f$ 에서 $\frac{\partial L}{\partial a} = 6$, $\frac{\partial L}{\partial c} = -2$ 가 나왔고,
+        값은 $a = 2$, $c = 10$ 입니다. 어떻게 해석해야 하나요?"
       choices:
-        - '$8$'
-        - '$15$'
-        - '$5$'
-        - '$\frac{3}{5}$'
-      answer: 1
-      explanation: |
-        $x$ 를 조금 늘리면 $y$ 가 그 3 배 늘고, $y$ 가 늘어난 양의 5 배만큼 $L$ 이 늘어서 $3 \times 5 = 15$ 배다. 8 은 두 비율을
-        더한 값이고, 5 는 마지막 칸만 본 값이다. 비율을 나누는 규칙은 없다.
-    - question: |
-        backward 에서 값마다 $L$ 까지의 길을 처음부터 따로 곱하지 않고, 출력 쪽에서부터 한 칸씩 거꾸로 오는 이유는?
-      choices:
-        - '바로 뒤 값에서 이미 구한 gradient 에 local derivative 하나만 곱하면 되어, 같은 곱셈을 되풀이하지 않기 때문이다'
-        - '처음부터 따로 곱하면 답이 달라지기 때문이다'
-        - 'chain rule 은 두 칸까지만 성립하기 때문이다'
-        - 'backward 는 곱셈 없이 덧셈만으로 gradient 를 구하기 때문이다'
+        - '$a$ 를 조금 늘리면 $L$ 이 그 6 배만큼 늘고, $c$ 를 조금 늘리면 $L$ 이 그 2 배만큼 줄어서, $L$ 은 $a$ 에 더 민감하다'
+        - '$c$ 가 더 큰 값이므로 $L$ 에 더 큰 영향을 준다'
+        - 'gradient 는 값이 클수록 커져야 하므로 계산이 잘못됐다'
+        - '$c$ 의 gradient 가 음수이므로 $c$ 는 $L$ 에 영향을 주지 않는다'
       answer: 0
       explanation: |
-        여러 값의 길은 출력 쪽에서 상당 부분이 겹치므로, 겹치는 부분의 곱을 한 번 구해 두고 다시 쓰면 계산이 크게 준다.
-        길을 따로 곱해도 답은 같고 단지 느릴 뿐이다. chain rule 은 칸이 몇 개든 성립하고, backward 도 칸마다 곱셈을 한다.
+        gradient 는 값의 크기가 아니라 그 값을 조금 바꿨을 때 $L$ 이 몇 배로 반응하는지를 나타낸다. gradient 의 크기가 6 인 $a$ 가 2 인 $c$
+        보다 세 배 민감하고, 부호를 보면 늘릴 때 $L$ 이 느는지 주는지 알 수 있다. $c$ 가 더 큰 값이라고 $L$ 에 더 큰 영향을 주는 것은 아니다.
+        gradient 는 값의 크기를 따라 커지지 않으므로 계산이 잘못된 것도 아니다. 음수 gradient 는 영향이 없다는 뜻이 아니라 늘리면 $L$ 이 준다는
+        뜻이다.
 
 - topic: fan-out
   title: 여러 곳에 쓰인 값의 gradient
   variants:
     - question: |
-        값 $a$ 가 두 연산의 입력으로 쓰여 서로 다른 두 길로 $L$ 에 닿는다. backward 에서 $a$ 의 gradient 는 어떻게 구하는가?
+        면접관: "값 $a$ 가 두 연산의 입력으로 쓰여 서로 다른 두 길로 loss 에 닿습니다. backward 에서 $a$ 의 gradient 는 어떻게 구하나요?"
       choices:
         - '나중에 들어온 길의 gradient 로 덮어쓴다'
         - '두 길의 gradient 를 곱한다'
-        - '두 길 중 크기가 큰 쪽만 쓴다'
         - '길마다 chain rule 로 구한 gradient 를 더한다'
-      answer: 3
-      explanation: |
-        $a$ 를 조금 늘리면 두 길로 동시에 $L$ 이 변하므로, 전체 변화는 두 길의 변화를 합친 것이다. 덮어쓰거나 한쪽만 쓰면
-        다른 길의 영향이 빠져 gradient 가 틀린다. 곱하는 것은 한 길 안에서 칸을 이어 갈 때(chain rule)의 규칙이다.
-    - question: |
-        automatic differentiation 도구가 backward 에서 구한 gradient 를 저장된 값에 덮어쓰지 않고 언제나 더해 쌓는 이유는?
-      choices:
-        - '한 값이 여러 곳에 쓰이면 길마다의 gradient 를 모두 더해야 올바른 gradient 가 되기 때문이다'
-        - '메모리를 아끼기 위해서다'
-        - '지난 학습 step 의 gradient 를 momentum 처럼 이어 쓰기 위해서다'
-        - '덮어쓰면 계산이 느려지기 때문이다'
-      answer: 0
-      explanation: |
-        backward 중에는 한 값으로 gradient 가 여러 길에서 따로 들어오고, 그 합이 진짜 gradient 다. 그래서 도구는 들어오는
-        대로 더한다. 메모리나 속도와는 상관이 없고, 지난 step 의 gradient 가 남아 더해지는 것은 오히려 막아야 하는
-        부작용이라 매 step 0 으로 지운다.
-    - question: |
-        $L = a + a$ 에서 $\frac{\partial L}{\partial a}$ 는?
-      choices:
-        - '$1$'
-        - '$0$'
-        - '$2$'
-        - '$2a$'
+        - '두 길 중 크기가 큰 쪽만 쓴다'
       answer: 2
       explanation: |
-        $a$ 가 덧셈의 두 입력 자리에 모두 쓰였고, 덧셈의 local derivative 는 자리마다 1 이라 두 길의 합은 $1 + 1 = 2$ 다.
-        실제로 $a$ 를 0.01 늘리면 $L$ 은 0.02 는다. 1 은 한 길만 센 값이고, $2a$ 는 $a \times a$ 의 gradient 다.
+        $a$ 를 조금 늘리면 두 길로 동시에 loss 가 변하므로, 전체 변화는 두 길의 변화를 합친 것이다. 나중 gradient 로 덮어쓰면 먼저 들어온 길의
+        영향이 빠진다. 곱하는 것은 한 길 안에서 단계를 이어 갈 때(chain rule)의 규칙이다. 큰 쪽만 써도 작은 쪽 길의 영향이 빠져 gradient 가
+        틀린다.
+    - question: |
+        면접관: "PyTorch 가 backward 에서 구한 gradient 를 `.grad` 에 덮어쓰지 않고 늘 더해 쌓는 이유는 무엇인가요?"
+      choices:
+        - '메모리를 아끼기 위해서다'
+        - '한 값이 여러 곳에 쓰이면 길별 gradient 를 모두 더해야 올바른 gradient 가 되기 때문이다'
+        - '지난 학습 step 의 gradient 를 momentum 처럼 이어 쓰기 위해서다'
+        - '덮어쓰면 계산이 느려지기 때문이다'
+      answer: 1
+      explanation: |
+        backward 중에는 한 값으로 gradient 가 여러 길에서 따로 들어오고, 그 합이 진짜 gradient 라서 들어오는 대로 더한다. 메모리를 아끼는 것과는
+        상관이 없다. 지난 step 의 gradient 가 남아 더해지는 것은 오히려 막아야 하는 부작용이라, 학습 loop 는 매 step `.grad` 를 0 으로 지운다.
+        덮어쓰기와 더하기의 속도 차이도 이유가 아니다.
+    - question: |
+        면접관: "$L = a \times a$ 를 computational graph 로 그리면 같은 $a$ 가 곱셈의 두 입력에 다 들어갑니다. $a = 3$ 일 때 backward 가 내는
+        $\frac{\partial L}{\partial a}$ 는 얼마이고, 그 이유는 무엇인가요?"
+      choices:
+        - '3 이다. 곱셈의 local derivative 는 다른 입력이기 때문이다'
+        - '9 다. forward 값과 같기 때문이다'
+        - '1 이다. $a$ 가 하나뿐이기 때문이다'
+        - '6 이다. 두 입력에서 각각 다른 입력 3 이 들어와 $3 + 3$ 으로 더해지기 때문이다'
+      answer: 3
+      explanation: |
+        $a$ 는 곱셈의 첫째 입력과 둘째 입력에 모두 쓰였고, 입력마다 local derivative 가 다른 입력 3 이라 두 길의 합은 $3 + 3 = 6$ 이다.
+        $a^2$ 의 derivative $2a$ 에 3 을 넣은 값과 같다. 3 은 한 입력만 센 값이다. 9 는 gradient 가 아니라 forward 의 결과 $L$ 이다. $a$ 가
+        하나뿐이어도 두 입력에 쓰였으니 1 이 아니다.
 
 - topic: reverse-mode
   title: backward 의 순서와 reverse-mode
   variants:
     - question: |
-        backward 를 forward 의 계산 순서(topological order)를 뒤집은 순서로 처리하는 이유는?
+        면접관: "backward 를 forward 의 계산 순서(topological order)를 뒤집은 순서로 처리하는 이유는 무엇인가요?"
       choices:
-        - 'forward 와 같은 순서로 하면 계산이 느려지기 때문에'
+        - 'forward 와 같은 순서로 하면 계산이 느려지기 때문이다'
         - '어떤 값을 처리할 차례에, 그 값이 쓰인 모든 곳에서 오는 gradient 가 이미 다 모여 있게 하려고'
         - '입력 쪽 gradient 가 더 중요해서 나중에 신중히 계산하려고'
-        - '순서는 결과와 상관없고 관례일 뿐이라서'
+        - '순서는 결과와 상관없고 관례일 뿐이다'
       answer: 1
       explanation: |
-        값의 gradient 를 다음 칸으로 넘기려면 그 값을 입력으로 쓴 곳들의 gradient 가 먼저 다 들어와 있어야 한다. 그런 곳들은
-        forward 순서에서 그 값보다 뒤에 있으니 순서를 뒤집으면 모두 앞에 온다. 순서를 어기면 아직 0 인 gradient 를 넘겨
-        결과가 틀리므로 관례가 아니라 필수이고, 속도나 중요도의 문제가 아니다.
+        값의 gradient 를 입력 쪽으로 넘기려면 그 값을 입력으로 쓴 곳들의 gradient 가 먼저 다 들어와 있어야 한다. 그런 곳들은 forward 순서에서
+        그 값보다 뒤에 있으니 순서를 뒤집으면 모두 앞에 온다. forward 와 같은 순서로 하면 느려지는 것이 아니라 결과가 틀린다. 입력 쪽 gradient
+        가 더 중요해서 그런 것도 아니다. 순서를 어기면 아직 0 인 gradient 를 넘기므로 관례가 아니라 꼭 지켜야 하는 규칙이다.
     - question: |
-        parameter 가 1억 개이고 loss 는 숫자 하나인 network 의 gradient 를 구할 때 reverse-mode 가 유리한 이유는?
+        면접관: "parameter 가 수천만 개이고 loss 는 숫자 하나인 network 의 gradient 를 구할 때 reverse-mode 가 유리한 이유는 무엇인가요?"
       choices:
         - 'parameter 를 하나씩 조금 바꿔 forward 를 다시 하므로 가장 정확하기 때문이다'
         - 'graph 를 기록하지 않아 메모리를 쓰지 않기 때문이다'
-        - 'backward 를 1억 번 하지만 한 번 한 번이 아주 빠르기 때문이다'
+        - 'backward 를 parameter 수만큼 하지만 한 번 한 번이 아주 빠르기 때문이다'
         - '출력 하나에서 거꾸로 한 번 훑으면 parameter 가 몇 개든 모든 gradient 가 한꺼번에 나오기 때문이다'
       answer: 3
       explanation: |
-        reverse-mode 는 loss 에서 출발하므로 forward 한 번과 backward 한 번이면 1억 개의 gradient 가 다 나온다. 하나씩
-        바꿔 재는 방식은 forward 를 2억 번 해야 하고, reverse-mode 는 오히려 graph 를 기록해 두어야 backward 를 할 수 있다.
-        backward 는 1억 번이 아니라 한 번이다.
+        reverse-mode 는 loss 에서 출발하므로 forward 한 번과 backward 한 번이면 모든 gradient 가 나온다. 하나씩 바꿔 재는 것은 central difference
+        이고, parameter 수의 두 배만큼 forward 를 해야 한다. reverse-mode 는 오히려 graph 와 중간 값을 기록해 두어야 backward 를 할 수 있다.
+        backward 는 parameter 수와 상관없이 한 번뿐이다.
     - question: |
-        automatic differentiation 이 하는 일로 맞는 것은?
+        면접관: "reverse-mode automatic differentiation 의 대가로 흔히 꼽는 것은 무엇인가요?"
       choices:
-        - '사람이 식 전체를 미분한 공식을 미리 넣어 줘야 gradient 를 구한다'
-        - 'forward 중에 graph 를 기록하고, 연산마다 정해진 local derivative 규칙을 적용해 gradient 를 자동으로 구한다'
-        - '숫자를 하나씩 조금 바꿔 forward 를 여러 번 해서 비율을 잰다'
-        - 'gradient 를 보고 parameter 를 고쳐 loss 를 줄인다'
-      answer: 1
-      explanation: |
-        덧셈·곱셈·sigmoid 처럼 규칙을 아는 연산으로만 이루어져 있으면, 기록한 graph 를 거꾸로 훑으며 규칙을 적용하는 것만으로
-        아무리 큰 식의 gradient 도 나온다. 그래서 식 전체의 공식이 필요 없다. 숫자를 바꿔 재는 것은 central difference 이고,
-        parameter 를 고치는 것은 gradient descent(optimizer)의 일이다.
-
-- topic: neuron-gradient
-  title: gradient 의 부호·크기와 update
-  variants:
-    - question: |
-        어떤 weight $w$ 의 gradient $\frac{\partial L}{\partial w}$ 가 $-0.25$ 다. gradient descent 는 $w$ 를 어느 쪽으로 고치는가?
-      choices:
-        - '늘린다. gradient 가 음수면 $w$ 를 늘릴 때 loss 가 줄기 때문이다'
-        - '줄인다. gradient 가 음수면 $w$ 도 줄여야 하기 때문이다'
-        - '그대로 둔다. gradient 가 1 보다 작으면 무시하기 때문이다'
-        - '0 으로 만든다. gradient 가 음수면 $w$ 가 틀렸다는 뜻이기 때문이다'
+        - 'backward 에 쓸 forward 의 중간 값을 저장해야 해서, 메모리가 많게는 연산 수에 비례해 늘어난다'
+        - 'parameter 가 늘수록 backward 횟수가 늘어난다'
+        - '덧셈과 곱셈으로 된 식만 미분할 수 있고 sigmoid 는 다룰 수 없다'
+        - 'gradient 가 근사값이라 central difference 보다 부정확하다'
       answer: 0
       explanation: |
-        gradient 가 $-0.25$ 라는 것은 $w$ 를 조금 늘리면 loss 가 그 0.25 배만큼 준다는 뜻이다. gradient descent 는 gradient 의
-        반대 방향으로 움직이므로 $w$ 를 늘린다. 부호를 그대로 따르면 loss 가 커지고, gradient 가 작아도 무시하지 않으며,
-        $w$ 를 0 으로 만드는 규칙은 없다.
-    - question: |
-        sigmoid neuron $z = w_1 x_1 + w_2 x_2 + b$ 에 $x_2 = 0$ 인 sample 이 들어왔다. 이 sample 에서 $w_2$ 의 gradient 는?
-      choices:
-        - '$z$ 의 gradient 와 같다'
-        - '세 parameter 중 가장 크다'
-        - '항상 음수다'
-        - '0 이라서, 이 sample 로는 $w_2$ 를 고치지 않는다'
-      answer: 3
-      explanation: |
-        $w_2$ 의 gradient 는 $z$ 의 gradient 에 곱셈의 local derivative 인 다른 입력 $x_2$ 를 곱한 값이라 0 이다. $x_2 = 0$ 이면
-        $w_2$ 를 바꿔도 $z$ 가 변하지 않으니 고칠 이유가 없다. $z$ 의 gradient 와 같아지는 것은 local derivative 가 1 인
-        bias 쪽이고, 부호는 오차의 방향에 따라 정해진다.
-    - question: |
-        어떤 계산에서 $c = 10$ 의 gradient $\frac{\partial L}{\partial c}$ 는 $-2$ 이고, $a = 2$ 의 gradient
-        $\frac{\partial L}{\partial a}$ 는 $6$ 이다. 맞는 해석은?
-      choices:
-        - '$c$ 가 더 큰 값이므로 $L$ 에 더 큰 영향을 준다'
-        - '$a$ 를 조금 바꿀 때 $L$ 이 $c$ 를 바꿀 때보다 더 민감하게 변한다'
-        - 'gradient 는 값이 클수록 커지므로 계산이 잘못됐다'
-        - '$c$ 의 gradient 가 음수이므로 $c$ 는 $L$ 에 영향을 주지 않는다'
-      answer: 1
-      explanation: |
-        gradient 는 값의 크기가 아니라 "그 값을 조금 바꿨을 때 $L$ 이 몇 배로 반응하는가" 를 나타낸다. 크기가 6 인 $a$ 쪽이
-        2 인 $c$ 쪽보다 세 배 민감하다. 값이 크다고 gradient 가 커지는 것은 아니고, 음수 gradient 는 영향이 없다는 뜻이 아니라
-        $c$ 를 늘리면 $L$ 이 준다는 뜻이다.
+        곱셈의 local derivative 에는 다른 입력이 필요하고 sigmoid 의 local derivative 에는 출력이 필요하다. 그래서 backward 를 하려면 forward 의
+        중간 값을 남겨 둬야 하고, 그 양은 많게는 연산 수에 비례해 는다. backward 횟수는 parameter 수와 상관없이 한 번이다. local derivative
+        규칙을 아는 연산이면 sigmoid 도 다룬다. reverse-mode 의 gradient 는 근사가 아니라 규칙으로 계산한 값이라, 오히려 central difference 로
+        이를 검사한다.
 
 - topic: hidden-gradient
   title: hidden neuron 으로 전해지는 gradient
   variants:
     - question: |
-        학습 데이터에는 출력의 정답만 있고 hidden neuron 의 정답은 없다. backpropagation 은 hidden neuron 의 weight 를
-        어떻게 고치는가?
+        면접관: "학습 데이터에는 출력의 정답만 있고 hidden neuron 의 정답은 없습니다. backpropagation 은 hidden neuron 의 weight 를 어떻게
+        고치나요?"
       choices:
         - 'backpropagation 이 hidden neuron 마다 정답 값을 만들어 준다'
         - '출력 layer 만 학습하고 hidden layer 는 처음 값 그대로 둔다'
-        - 'loss 에서 거꾸로 전해진 "이 hidden 출력을 키우면 loss 가 얼마나 변하는가" 라는 gradient 로 고친다'
+        - 'loss 에서 거꾸로 전해진 gradient(hidden 출력을 키울 때 loss 가 변하는 비율)로 고친다'
         - 'hidden neuron 의 출력을 입력과 비교해 perceptron 학습 규칙으로 고친다'
       answer: 2
       explanation: |
-        출력의 loss 에서 출발한 gradient 가 출력 weight 를 곱하며 hidden 출력까지 전해지고, 이것이 고칠 방향과 크기를 알려
-        준다(credit assignment 의 답). 이때 전해지는 것은 정답이 아니라 비율이라, hidden neuron 이 무엇을 계산하게 될지는
-        학습 결과로 정해진다. hidden layer 도 학습해야 XOR 같은 문제를 풀 수 있고, perceptron 규칙은 그 unit 의 정답이 있어야
-        쓸 수 있다.
+        loss 에서 출발한 gradient 가 출력 weight 를 곱하며 hidden 출력까지 전해지고, 이 값으로 고칠 방향과 크기가 정해지는데 이것이 credit
+        assignment 문제의 답이다. 이때 전해지는 것은 정답이 아니라 비율이라, hidden neuron 이 무엇을 계산하게 될지는 학습 결과로 정해진다.
+        hidden layer 도 학습해야 XOR 같은 문제를 풀 수 있다. perceptron 규칙은 그 unit 의 정답이 있어야 쓸 수 있다.
     - question: |
-        출력이 $z = v h + \cdots$ 로 hidden 출력 $h$ 에 weight $v = -1$ 을 곱해 만들어진다. $z$ 의 gradient 가 $-0.2$ 일 때
-        $h$ 의 gradient 에 대한 설명으로 맞는 것은?
+        면접관: "출력 neuron 의 weighted sum 이 $z = v h + \cdots$ 처럼 hidden 출력 $h$ 에 weight $v = -1$ 을 곱해 만들어집니다. $z$ 의
+        gradient 가 $-0.2$ 일 때 $h$ 의 gradient 에 대한 설명으로 맞는 것은?"
       choices:
-        - '양수다. $h$ 를 키우면 loss 가 커진다'
-        - '음수다. $h$ 를 키우면 loss 가 준다'
+        - '양수 0.2 다. $h$ 를 키우면 loss 가 커진다'
+        - '음수 $-0.2$ 다. $h$ 를 키우면 loss 가 준다'
         - '0 이다. $h$ 에는 정답이 없기 때문이다'
-        - '$z$ 의 gradient 와 같은 $-0.2$ 다'
+        - '$-1$ 이다. weight 가 그대로 gradient 가 된다'
       answer: 0
       explanation: |
-        $h$ 의 gradient 는 $z$ 의 gradient 에 곱셈의 local derivative 인 $v$ 를 곱한 $(-0.2) \times (-1) = 0.2$ 로 양수다.
-        $v$ 가 음수라 $h$ 가 커지면 $z$ 가 작아지는데, $z$ 의 gradient 가 음수(키워야 loss 가 줆)이니 $h$ 를 키우면 loss 가
-        커진다. 정답이 없어도 gradient 는 전해지고, $v$ 를 곱하지 않으면 부호가 틀린다.
+        $h$ 의 gradient 는 $z$ 의 gradient 에 곱셈의 local derivative 인 $v$ 를 곱한 $(-0.2) \times (-1) = 0.2$ 로 양수다. $v$ 가 음수라 $h$ 가
+        커지면 $z$ 가 작아지는데, $z$ 의 gradient 가 음수라 $z$ 가 작아지면 loss 가 커진다. 그래서 $h$ 를 키우면 loss 가 커진다. $-0.2$ 는 $v$
+        를 곱하지 않아 부호가 틀린 값이다. 정답이 없어도 gradient 는 전해지므로 0 이 아니다. weight 자체는 gradient 가 아니다.
     - question: |
-        hidden neuron 두 개가 있다. 하나는 출력에 큰 weight 로, 다른 하나는 작은 weight 로 연결되어 있고 나머지 조건은 같다.
-        backward 에서 받는 gradient 는?
+        면접관: "hidden neuron 두 개가 있습니다. 하나는 출력에 큰 weight 로, 다른 하나는 작은 weight 로 연결되어 있고 나머지 조건은 같습니다.
+        backward 에서 어느 쪽이 더 큰 gradient 를 받나요?"
       choices:
         - '연결 weight 와 상관없이 두 neuron 이 같은 gradient 를 받는다'
         - '작은 weight 로 연결된 neuron 이 더 큰 gradient 를 받는다'
@@ -282,47 +205,129 @@
         - '큰 weight 로 연결된 neuron 이 더 큰 gradient 를 받는다'
       answer: 3
       explanation: |
-        hidden 출력의 gradient 는 출력 쪽 gradient 에 그 neuron 의 출력 weight 를 곱한 값이라, weight 가 클수록 크다. 출력에
-        크게 기여하는 neuron 일수록 출력이 틀린 데 대한 책임을 더 많이 나눠 받는 셈이다. 그래서 weight 와 무관하다는 보기나
-        반대로 작은 쪽이 크다는 보기는 틀린다.
+        hidden 출력의 gradient 는 출력 쪽 gradient 에 그 neuron 의 출력 weight 를 곱한 값이라, weight 가 클수록 크다. 출력에 크게 기여하는
+        neuron 일수록 출력이 틀린 책임을 더 많이 나눠 받는다. 연결 weight 가 다르면 받는 gradient 도 달라서 두 neuron 이 같은 gradient 를 받지
+        않는다. 작은 weight 쪽은 오히려 작은 gradient 를 받는다. hidden 출력의 gradient 에는 그 neuron 의 출력 값이 아니라 출력 weight 가
+        곱해진다.
+
+- topic: vanishing-gradient
+  title: vanishing gradient
+  variants:
+    - question: |
+        면접관: "sigmoid 를 activation function 으로 쓴 층을 여러 개 쌓으면 입력에 가까운 층이 잘 학습되지 않는 이유는 무엇인가요?"
+      choices:
+        - 'backward 에서 sigmoid 를 지날 때마다 0.25 이하의 기울기가 곱해져, 입력 쪽으로 갈수록 gradient 가 급격히 작아지기 때문이다'
+        - '입력에 가까운 층은 정답과 멀어서 loss 를 계산할 수 없기 때문이다'
+        - 'sigmoid 는 음수를 0 으로 만들어 gradient 를 끊기 때문이다'
+        - '층이 많으면 forward 출력이 커져 overflow 가 나기 때문이다'
+      answer: 0
+      explanation: |
+        입력 쪽 gradient 는 지나온 연산의 기울기를 모두 곱한 값이고, sigmoid 를 지날 때마다 많아야 0.25 가 곱해진다. 다섯 층이면
+        $0.25^5 \approx 0.001$ 배 이하라 입력에 가까운 층이 거의 움직이지 않는데, 이 현상이 vanishing gradient 다. loss 는 출력에서 한 번
+        계산해 gradient 로 전하면 된다. 음수를 0 으로 만드는 것은 sigmoid 가 아니라 ReLU 다. sigmoid 출력은 0 과 1 사이라 커지지 않는다.
+    - question: |
+        면접관: "sigmoid 층 세 개를 거친 gradient 는, sigmoid 기울기의 곱만 따지면 가장 커도 처음의 몇 배인가요?"
+      choices:
+        - '0.75 배'
+        - '0.25 배'
+        - '약 0.016 배'
+        - '1 배'
+      answer: 2
+      explanation: |
+        sigmoid 의 기울기는 가장 커도 0.25 라서 세 층을 지나면 $0.25 \times 0.25 \times 0.25 = 0.015625$, 약 0.016 배다. 0.75 는 0.25 를 세 번
+        더한 값이다. 0.25 는 한 층만 센 값이다. 기울기가 1 보다 작으니 1 배로 남을 수 없다.
+    - question: |
+        면접관: "요즘 network 가 vanishing gradient 를 줄이려고 쓰는 방법으로 맞는 것은?"
+      choices:
+        - 'learning rate 를 0 으로 둔다'
+        - '입력이 양수일 때 기울기가 1 인 ReLU 를 쓰고, 입력을 출력에 그대로 더하는 연결로 gradient 가 지나갈 길을 만든다'
+        - 'sigmoid 를 더 많이 쌓아 기울기를 키운다'
+        - 'backward 를 forward 와 같은 순서로 처리한다'
+      answer: 1
+      explanation: |
+        ReLU 는 입력이 양수이면 기울기가 1 이라 층마다 곱해지는 activation 기울기가 줄지 않는다. 입력을 출력에 더하는 연결(ResNet 의 residual
+        connection)은 gradient 가 층을 건너뛰어 전해질 길을 만든다. learning rate 를 0 으로 두면 학습이 멈춘다. sigmoid 를 더 쌓으면 0.25
+        이하가 더 많이 곱해진다. backward 순서를 바꾸면 결과가 틀린다.
 
 - topic: symmetry
   title: 처음 숫자를 서로 다르게 두는 이유
   variants:
     - question: |
-        hidden neuron 두 개의 weight 와 bias 를 똑같은 값에서 출발시켜 학습하면 어떻게 되는가?
+        면접관: "hidden neuron 두 개의 weight 와 bias, 그리고 두 neuron 에서 출력으로 가는 weight 까지 똑같은 값에서 출발시켜 학습하면 어떻게
+        되나요?"
       choices:
         - '학습하는 동안 저절로 서로 다른 값으로 갈라진다'
-        - '늘 같은 gradient 를 받아 끝까지 같은 값으로 남아, neuron 하나와 다를 바 없다'
         - '두 neuron 이 서로 도와 학습이 더 안정적이다'
         - '한 neuron 만 학습되고 다른 하나는 멈춘다'
-      answer: 1
+        - '늘 같은 gradient 를 받아 끝까지 같은 값으로 남아, neuron 하나와 다를 바 없다'
+      answer: 3
       explanation: |
-        두 neuron 이 같은 값이면 forward 출력이 같고, 출력 weight 도 같으니 backward 에서 받는 gradient 도 같다. 같은 양만큼
-        고쳐지니 다음 step 에도 같고, 이 일이 끝까지 되풀이된다. 갈라지게 만드는 차이가 처음부터 없으므로 저절로 갈라지지
-        않고, 둘 중 하나만 멈출 이유도 없다.
+        두 neuron 이 같은 값이면 forward 출력이 같고, 출력 weight 도 같으니 backward 에서 받는 gradient 도 같다. 같은 양만큼 고쳐지니 다음
+        step 에도 같고, 이 일이 끝까지 되풀이된다. 갈라지게 만드는 차이가 처음부터 없으므로 저절로 갈라지지 않는다. 같은 일을 하는 neuron 이
+        둘이라 학습이 안정되는 것도 아니고, neuron 하나와 같은 일밖에 못 한다. 두 neuron 이 늘 같은 gradient 를 받으니 하나만 멈출 이유도 없다.
     - question: |
-        hidden neuron 들이 같은 값에서 출발하면 끝까지 같은 neuron 으로 남는다. 이 문제를 피하려고 실제로 parameter 를
-        출발시키는 방법은?
+        면접관: "hidden neuron 들이 같은 값에서 출발하면 끝까지 같은 neuron 으로 남습니다. 이 문제를 피하려고 실제로 parameter 를 어떻게
+        출발시키나요?"
       choices:
         - '모두 0 으로 둔다'
-        - '모두 1 로 둔다'
         - '서로 다른 작은 random 값으로 둔다'
+        - '모두 1 로 둔다'
         - '모든 neuron 에 같은 큰 값을 둔다'
-      answer: 2
+      answer: 1
       explanation: |
-        random 값을 뽑으면 neuron 마다 출발점이 달라 서로 다른 gradient 를 받고 서로 다른 역할을 맡을 수 있다. 모두 0 이나
-        모두 1 처럼 같은 값을 두면 neuron 들이 똑같이 움직이는 문제가 그대로 남고, 0 에서는 gradient 가 모두 0 이 되기도 한다. 같은 큰 값은
-        대칭 문제에 더해 sigmoid 를 1 에 붙여 기울기까지 작게 만든다.
+        random 값을 뽑으면 neuron 마다 출발점이 달라 서로 다른 gradient 를 받고 서로 다른 역할을 맡을 수 있다. PyTorch 의 `nn.Linear` 도 기본으로
+        $-1/\sqrt{\text{입력 수}}$ 와 $+1/\sqrt{\text{입력 수}}$ 사이에서 고르게 뽑는다. 모두 0 으로 두면 neuron 들이 똑같이 움직인다. 모두 1 로
+        두어도 마찬가지다. 모든 neuron 에 같은 큰 값을 두면 대칭 문제에 더해 sigmoid 출력이 1 에 붙어 기울기까지 작아진다.
     - question: |
-        hidden neuron 4 개의 weight 와 bias 를 모두 같은 값으로 출발시켜 학습했다. 학습이 끝난 뒤 hidden layer 가 긋는
-        서로 다른 경계 직선은 몇 개인가?
+        면접관: "hidden neuron 4 개의 weight 와 bias 를 모두 같은 값으로 출발시켜 학습했습니다. 학습이 끝난 뒤 hidden layer 가 긋는 서로 다른
+        경계 직선은 몇 개인가요?"
       choices:
         - '4 개'
         - '2 개'
-        - '0 개'
         - '1 개'
+        - '0 개'
+      answer: 2
+      explanation: |
+        네 neuron 이 늘 같은 gradient 를 받아 끝까지 같은 값으로 남으므로, 모두 같은 직선 하나를 긋는다. 그래서 neuron 을 4 개 두어도 효과는
+        1 개와 같고, 직선 두 개가 필요한 XOR 도 풀지 못한다. 4 개가 되려면 네 neuron 이 서로 달라져야 하는데 그럴 수 없다. 2 개도 같은 이유로
+        틀린다. 직선이 아예 없어지는 것은 아니라서 0 개도 틀린다.
+
+- topic: pytorch-autograd
+  title: PyTorch autograd
+  variants:
+    - question: |
+        면접관: "PyTorch 에서 `loss.backward()` 를 부를 수 있으려면 forward 때 autograd 가 무엇을 해 두어야 하나요?"
+      choices:
+        - 'loss 식 전체를 미분한 공식을 미리 만들어 둔다'
+        - 'parameter 마다 조금씩 바꾼 forward 결과를 저장해 둔다'
+        - '아무것도 하지 않고, backward 때 forward 를 처음부터 다시 계산한다'
+        - '연산마다 backward 규칙을 담은 grad_fn 을 이어 graph 로 기록하고, local derivative 에 필요한 중간 값을 저장해 둔다'
       answer: 3
       explanation: |
-        네 neuron 이 늘 같은 gradient 를 받아 끝까지 같은 값으로 남으므로, 모두 같은 직선 하나를 긋는다. 그래서 neuron 을
-        4 개 두어도 효과는 1 개와 같고, 직선 두 개가 필요한 XOR 도 풀지 못한다. 직선이 아예 없어지는 것은 아니라 0 개도 틀린다.
+        autograd 는 연산을 할 때마다 결과 tensor 에 `MulBackward0` 같은 grad_fn 을 붙여 graph 를 만들고, 곱셈의 두 입력이나 sigmoid 의 출력처럼
+        backward 에 필요한 값을 저장한다. backward 는 이 graph 를 거꾸로 따라간다. 연산마다 규칙이 있으니 식 전체를 미분한 공식은 필요 없다.
+        parameter 마다 조금씩 바꿔 재는 것은 central difference 다. backward 는 forward 를 다시 계산하지 않고 저장한 값을 쓴다.
+    - question: |
+        면접관: "학습 loop 에서 gradient 를 0 으로 지우지 않고 `loss.backward()` 를 매 step 부르면 어떻게 되나요?"
+      choices:
+        - '아무 문제 없다. backward 가 `.grad` 를 새 값으로 바꾼다'
+        - '`.grad` 에 이전 step 의 gradient 가 계속 더해져, 실제 gradient 와 다른 값으로 update 한다'
+        - '두 번째 backward 부터는 gradient 가 0 이 된다'
+        - 'PyTorch 가 자동으로 평균을 내 주므로 학습이 더 안정적이다'
+      answer: 1
+      explanation: |
+        `.grad` 는 한 값이 여러 곳에 쓰였을 때 길별 gradient 를 더하려고 늘 더해 쌓는다. 그래서 step 사이에 지우지 않으면 지난 step 의
+        gradient 가 남아 새 gradient 에 더해진다. 같은 식을 두 step 계산하면 gradient 가 두 배가 된다. backward 는 `.grad` 를 새 값으로 바꾸지
+        않으므로 문제가 생긴다. 두 번째 backward 부터 0 이 되는 일은 없다. PyTorch 가 평균을 내 주지도 않는다.
+    - question: |
+        면접관: "학습이 끝난 policy 로 로봇을 움직일 때 추론 코드를 `torch.no_grad()` 로 감싸는 이유는 무엇인가요?"
+      choices:
+        - 'backward 를 하지 않으니 graph 와 backward 용 중간 값을 기록하지 않아 메모리와 계산을 아낀다'
+        - 'policy 의 출력이 더 정확해진다'
+        - 'parameter 를 고정해 학습 중에도 바뀌지 않게 한다'
+        - 'GPU 대신 CPU 에서 실행하게 한다'
+      answer: 0
+      explanation: |
+        no-grad mode 안의 계산은 backward graph 에 기록되지 않아서, 쓰지 않을 grad_fn 과 저장 값을 만들지 않는다. LeRobot 의 ACT 구현도 행동을
+        고르는 `select_action` 을 `@torch.no_grad()` 로 감싼다. no-grad mode 에서도 출력 값 자체는 같다. 학습할 때 parameter 를 고정하는 것은
+        `requires_grad_(False)` 다. 어느 장치에서 실행할지와는 관계없다.

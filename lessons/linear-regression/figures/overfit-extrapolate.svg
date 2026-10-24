@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>train 점 네 개에서 직선 3x + 2 의 loss 는 0.25, 네 점을 모두 지나는 곡선 0.5x² + 0.5x + 4.5 는 0 이다. 처음 보는 5 V 에서 잰 17.5 cm 를 직선은 17, 곡선은 19.5 로 예측해 오차가 0.5 와 2.0 이다</title>
+  <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="70" y="40" width="330" height="240" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70.0" y1="280.0" x2="400.0" y2="280.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="70.0" y1="40.0" x2="70.0" y2="280.0" stroke="#475569" stroke-width="1.5"/>
+  <text x="70.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <text x="125.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="180.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <text x="235.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <text x="290.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="345.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">5</text>
+  <text x="400.0" y="297.0" fill="#64748b" font-size="12" text-anchor="middle">6</text>
+  <text x="63.0" y="284.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="63.0" y="244.0" fill="#64748b" font-size="12" text-anchor="end">4</text>
+  <text x="63.0" y="204.0" fill="#64748b" font-size="12" text-anchor="end">8</text>
+  <text x="63.0" y="164.0" fill="#64748b" font-size="12" text-anchor="end">12</text>
+  <text x="63.0" y="124.0" fill="#64748b" font-size="12" text-anchor="end">16</text>
+  <text x="63.0" y="84.0" fill="#64748b" font-size="12" text-anchor="end">20</text>
+  <text x="63.0" y="44.0" fill="#64748b" font-size="12" text-anchor="end">24</text>
+  <text x="400.0" y="314.0" fill="#94a3b8" font-size="13" text-anchor="end">전압 x (V)</text>
+  <text x="70.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">거리 y (cm)</text>
+  <rect x="103.0" y="40" width="209.0" height="240" fill="#38bdf8" fill-opacity="0.06"/>
+  <text x="207.5" y="56.0" fill="#94a3b8" font-size="12" text-anchor="middle">train 점이 있는 범위 (1 ~ 4 V)</text>
+  <polyline points="103.0,242.0 106.2,240.3 109.4,238.5 112.6,236.8 115.8,235.0 119.0,233.3 122.2,231.5 125.4,229.8 128.6,228.0 131.8,226.3 135.0,224.5 138.2,222.8 141.4,221.0 144.6,219.3 147.8,217.5 151.0,215.8 154.2,214.1 157.4,212.3 160.6,210.6 163.8,208.8 167.1,207.1 170.3,205.3 173.5,203.6 176.7,201.8 179.9,200.1 183.1,198.3 186.3,196.6 189.5,194.8 192.7,193.1 195.9,191.3 199.1,189.6 202.3,187.8 205.5,186.1 208.7,184.4 211.9,182.6 215.1,180.9 218.3,179.1 221.5,177.4 224.7,175.6 227.9,173.9 231.1,172.1 234.3,170.4 237.5,168.6 240.7,166.9 243.9,165.1 247.1,163.4 250.3,161.6 253.5,159.9 256.7,158.2 259.9,156.4 263.1,154.7 266.3,152.9 269.5,151.2 272.7,149.4 275.9,147.7 279.1,145.9 282.3,144.2 285.5,142.4 288.7,140.7 291.9,138.9 295.2,137.2 298.4,135.4 301.6,133.7 304.8,131.9 308.0,130.2 311.2,128.5 314.4,126.7 317.6,125.0 320.8,123.2 324.0,121.5 327.2,119.7 330.4,118.0 333.6,116.2 336.8,114.5 340.0,112.7 343.2,111.0 346.4,109.2 349.6,107.5 352.8,105.7 356.0,104.0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <polyline points="103.0,230.2 106.2,229.5 109.4,228.9 112.6,228.1 115.8,227.4 119.0,226.6 122.2,225.7 125.4,224.9 128.6,224.0 131.8,223.1 135.0,222.1 138.2,221.1 141.4,220.1 144.6,219.0 147.8,217.9 151.0,216.8 154.2,215.6 157.4,214.4 160.6,213.2 163.8,211.9 167.1,210.6 170.3,209.3 173.5,207.9 176.7,206.5 179.9,205.1 183.1,203.6 186.3,202.1 189.5,200.5 192.7,199.0 195.9,197.4 199.1,195.7 202.3,194.1 205.5,192.3 208.7,190.6 211.9,188.8 215.1,187.0 218.3,185.2 221.5,183.3 224.7,181.4 227.9,179.4 231.1,177.5 234.3,175.4 237.5,173.4 240.7,171.3 243.9,169.2 247.1,167.0 250.3,164.9 253.5,162.6 256.7,160.4 259.9,158.1 263.1,155.8 266.3,153.4 269.5,151.1 272.7,148.6 275.9,146.2 279.1,143.7 282.3,141.2 285.5,138.6 288.7,136.0 291.9,133.4 295.2,130.7 298.4,128.0 301.6,125.3 304.8,122.6 308.0,119.8 311.2,116.9 314.4,114.1 317.6,111.2 320.8,108.3 324.0,105.3 327.2,102.3 330.4,99.3 333.6,96.2 336.8,93.1 340.0,90.0 343.2,86.8 346.4,83.6 349.6,80.4 352.8,77.1 356.0,73.8" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+  <circle cx="125.0" cy="225.0" r="6" fill="#f59e0b"/>
+  <circle cx="180.0" cy="205.0" r="6" fill="#f59e0b"/>
+  <circle cx="235.0" cy="175.0" r="6" fill="#f59e0b"/>
+  <circle cx="290.0" cy="135.0" r="6" fill="#f59e0b"/>
+  <circle cx="345.0" cy="105.0" r="7" fill="#34d399"/>
+  <circle cx="345.0" cy="110.0" r="4" fill="#38bdf8"/>
+  <circle cx="345.0" cy="85.0" r="4" fill="#a78bfa"/>
+  <text x="357.0" y="109.0" fill="#34d399" font-size="12" text-anchor="start">test 17.5</text>
+  <text x="357.0" y="89.0" fill="#a78bfa" font-size="12" text-anchor="start">19.5</text>
+  <text x="357.0" y="130.0" fill="#38bdf8" font-size="12" text-anchor="start">17</text>
+  <circle cx="431.0" cy="70.0" r="6" fill="#f59e0b"/>
+  <text x="445.0" y="74.0" fill="#e2e8f0" font-size="12" text-anchor="start">train 점 4 개</text>
+  <circle cx="431.0" cy="96.0" r="6" fill="#34d399"/>
+  <text x="445.0" y="100.0" fill="#e2e8f0" font-size="12" text-anchor="start">test 점 (5, 17.5)</text>
+  <line x1="425.0" y1="132.0" x2="449.0" y2="132.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="457.0" y="136.0" fill="#e2e8f0" font-size="12" text-anchor="start">직선 3x + 2</text>
+  <text x="457.0" y="154.0" fill="#38bdf8" font-size="12" text-anchor="start">train 0.25 · test 0.25</text>
+  <line x1="425.0" y1="186.0" x2="449.0" y2="186.0" stroke="#a78bfa" stroke-width="2.5"/>
+  <text x="457.0" y="190.0" fill="#e2e8f0" font-size="12" text-anchor="start">곡선 0.5x² + 0.5x + 4.5</text>
+  <text x="457.0" y="208.0" fill="#a78bfa" font-size="12" text-anchor="start">train 0 · test 4</text>
+  <text x="425.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="start">loss 는 오차 제곱의 평균</text>
+</svg>
