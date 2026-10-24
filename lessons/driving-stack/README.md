@@ -396,13 +396,6 @@ UniAD 는 camera 영상만으로 위에서 내려다본 feature(BEV, bird's-eye 
 - SAE level 은 DDT 와 fallback 을 사람과 system 이 어떻게 나누는지를 정하고, ODD 는 기능이 동작하도록 설계된 조건을 정한다. UniAD 같은
   end-to-end 방식은 module 사이의 정보 손실을 줄이지만 지연과 검증이 과제로 남는다
 
-**면접에서 "자율주행 software stack 을 설명해 보세요" 라고 물으면.** "localization 이 HD map 위의 pose 를 추정하고, perception 이 주변
-객체를 detection·tracking 하고, prediction 이 객체별 미래 trajectory 를 여러 개 냅니다. planning 은 route 를 정하는 mission planning, 차로
-변경·정지를 결정하는 behavior planning, 가속도·jerk 제약 안에서 trajectory 를 만드는 motion planning 으로 나뉘고, control 이 MPC 로 steering
-을, PID 로 가속도를 정합니다. Autoware 에서는 NDT scan matching 결과를 EKF 로 IMU 와 합쳐 50 Hz 로 내고, planning 은 10 Hz, control 은 30 ms
-주기입니다. 설계에서는 ODD 로 요구 사항을 정하고, sensing 부터 actuation 까지의 latency 를 tail latency 기준으로 관리하는 것이 중요합니다.
-UniAD 같은 end-to-end 방식은 module 사이의 정보 손실을 줄이지만, 추론 지연과 open-loop 평가의 한계가 남아 있습니다."
-
 UniAD 는 사람이 운전한 기록을 정답으로 삼아 network 를 학습한다. 사람의 시연을 정답 삼아 policy 를 학습하는 이 방법을 behavior cloning
 이라고 하는데, 1989 년의 ALVINN 이 이미 카메라 영상과 거리 센서 값만으로 차의 핸들 방향을 냈다. 이 방법과, 학습한 policy 가 시연에 없던
 상황에서 점점 어긋나는 이유는 robot learning 트리의 [Behavior Cloning](../behavior-cloning/README.md) 에서 다룬다.

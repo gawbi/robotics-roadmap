@@ -428,13 +428,6 @@ move_group 의 planner 로 바로 쓸 수 있다. 계획 시간이 수십 ms 로
 - MoveIt 2 는 planning scene 위에서 request adapter → OMPL(기본 RRTConnect, 5 초) → time parameterization → 경로 재검사를 거쳐 trajectory 를
   만들고, FollowJointTrajectory action 으로 controller 에 보낸다
 
-**면접에서 "로봇팔의 motion planning 은 어떻게 동작하나요" 라고 물으면.** "관절 각도 묶음을 점 하나로 보는 configuration space 에서 충돌 없는
-영역만 지나 시작 자세와 목표 자세를 잇는 문제입니다. 6 ~ 7 관절이면 C-space 를 grid 로 나눌 수 없어서 PRM 이나 RRT 같은 sampling-based
-planner 가 자세를 무작위로 뽑고 collision checker 에 충돌 여부만 묻습니다. MoveIt 2 의 기본은 OMPL 의 RRT-Connect 로, 시작과 목표에서 tree 를
-하나씩 키워 만나면 경로가 됩니다. 이 방법들은 probabilistically complete 하지만 경로가 최적이 아니라서 shortcutting 과 smoothing 으로 다듬고,
-최적이 필요하면 RRT* 를 씁니다. 그 뒤 time parameterization 으로 속도·가속도 한계를 지키는 trajectory 를 만들어 FollowJointTrajectory 로
-controller 에 보냅니다. 실무에서는 collision mesh 단순화, padding, self-collision matrix, edge 검사 간격이 성공률과 속도를 크게 좌우합니다."
-
 planner 가 만든 trajectory 는 아직 숫자의 목록일 뿐이다. 이 목록이 FollowJointTrajectory action 을 거쳐 실제 motor 의 position·velocity·effort
 명령이 되는 과정은 [ros2_control](../ros2-control/README.md) 에서 다루고, 목표 자세를 어디로 정할지, 물체를 어떤 자세로 잡을지는
 [Grasp Planning](../grasping/README.md) 에서 다룬다.

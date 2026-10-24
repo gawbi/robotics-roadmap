@@ -415,13 +415,6 @@ domain 과 port 가 겹칠 수 있다. domain ID 의 상한도 같은 식에서 
 - timer callback 이 간격보다 오래 걸리면 밀린 차례를 건너뛰어 주기가 늘어나므로, 1000 Hz 제어 loop 는 ros2_control 에 둔다. tf2 는 `map` →
   `odom` → `base_link` → 센서 frame 의 tree 를 시간과 함께 기록해 어떤 두 frame 사이든 좌표를 바꿔 준다
 
-**면접에서 "ROS 2 의 통신 구조를 설명해 보세요" 라고 물으면.** "ROS 2 는 기능별 node 가 DDS 위에서 중앙 서버 없이 서로를 찾아 통신하는
-middleware 입니다. 센서처럼 계속 흐르는 데이터는 publish/subscribe 인 topic 으로, 짧은 요청은 request/response 인 service 로, Nav2 의
-NavigateToPose 처럼 오래 걸리고 feedback 과 cancel 이 필요한 일은 action 으로 주고받습니다. topic 마다 QoS 를 정하는데, 센서 데이터는 최신 값이
-중요해서 best effort 와 작은 depth 를 쓰고, publisher 가 best effort 인데 subscriber 가 reliable 을 요구하면 연결이 아예 맺어지지 않으니
-`ros2 topic info -v` 로 확인합니다. 좌표는 tf2 가 REP-105 의 map, odom, base_link tree 로 관리하고, 1 kHz 급 관절 제어는 executor 의 timer 가
-아니라 ros2_control 의 real-time loop 에서 합니다."
-
 tf2 tree 의 변 하나는 회전과 이동인데, 이 강의에서는 바닥 위 2 차원에서 90° 회전만 다뤘다. 다음 강의 [Rigid Transforms](../transforms/README.md)
 에서는 3 차원 회전을 rotation matrix, homogeneous transform, tf2 가 실제로 쓰는 quaternion 으로 다룬다. `odom` → `base_link` 와 `map` → `odom`
 을 계산하는 위치 추정은 [Kalman Filter](../kalman-filter/README.md) 에서 `robot_localization` 과 함께 다룬다.

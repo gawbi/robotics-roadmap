@@ -381,12 +381,6 @@ extrinsic 이 1° 만 틀려도 사람의 점이 배경의 점수를 받아 오�
 - detector 성능은 IoU(KITTI, 차 0.7)나 중심 거리(nuScenes)로 맞혔는지 가려 AP 로 잰다. tracking 은 Kalman filter 예측과 Hungarian algorithm
   짝짓기로 번호와 속도를 붙인다. camera fusion 은 투영한 pixel 정보를 점에 붙이므로 calibration 과 시각 동기가 정확해야 한다
 
-**면접에서 "LiDAR 로 주변 물체를 찾는 과정을 설명해 보세요" 라고 물으면.** "motion distortion 을 보정하고 voxel downsampling 한 뒤, RANSAC
-이나 scan 기반 ground filter 로 땅 점을 지우고 Euclidean clustering 과 L-shape fitting 으로 oriented box 를 씌웁니다. class 가 필요하면
-PointPillars 처럼 point cloud 를 BEV pillar 로 encoding 해 2D CNN 으로 3D box 를 내는 detector 를 쓰고, KITTI 의 3D IoU 기준 AP 나 nuScenes 의
-mAP·NDS 로 평가합니다. detection 은 frame 마다 독립이라 constant velocity Kalman filter 와 Hungarian algorithm association 으로 ID 와 속도를
-붙입니다. 카메라와 합칠 때는 extrinsic 과 시각 동기가 맞아야 projection 이 의미가 있습니다."
-
 물체 목록만으로는 차를 움직일 수 없고, 차의 위치를 아는 localization, 물체가 어디로 갈지 내다보는 prediction, 경로와 속도를 정하는 planning 과
 control 이 함께 있어야 한다. 다음 강의에서는 이 모듈들을 한 차량 위에서 잇는 자율주행 stack 과 Autoware 의 구조를 다룬다.
 

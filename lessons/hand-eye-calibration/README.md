@@ -424,14 +424,6 @@ transform 을 읽는다. ArUco 를 찾는 node 든 optical tracker 든 marker po
   가 정해지고, translation 만 하는 움직임으로는 $t_X$ 를 구할 수 없다. 회전을 크게 하고 target 을 가까이 두고 자세를 10 ~ 15 개 모으는 것이
   solver 선택보다 중요하다
 
-**면접에서 "hand-eye calibration 을 설명해 보세요" 라고 물으면.** "카메라로 잰 물체 위치를 로봇 좌표로 옮기려면 gripper 와 카메라 사이, 또는 base
-와 카메라 사이의 고정 transform X 가 필요한데, 이걸 로봇을 움직여 구하는 것이 hand-eye calibration 입니다. 고정된 target 을 여러 자세에서
-찍은 뒤 두 자세 사이 gripper 의 움직임 A 를 FK 로 구하고 카메라의 움직임 B 를 PnP 로 구하면 AX = XB 가 됩니다. 이 식에는 target 의 위치가
-들어 있지 않아서 target 을 어디에 놓았는지 몰라도 됩니다. rotation 은 회전 축의 짝으로 구하기 때문에 축이 평행하지 않은 움직임이 최소 두 개, 자세로는 세 개 이상 필요합니다. translation
-만 하는 움직임으로는 X 의 translation 을 구할 수 없습니다. 실제로는 각 축으로 크게 돌린 자세를 10 ~ 15 개 모아 OpenCV calibrateHandEye 의 Tsai, Park, Daniilidis
-같은 solver 로 풀고, 자세마다 계산한 target 위치의 퍼짐과 touch test 로 검증합니다. ROS 2 에서는 MoveIt Calibration 이나 easy_handeye2 로
-결과를 static tf 로 올립니다."
-
 이제 카메라로 찾은 물체의 위치를 base frame 에서 mm 단위로 믿을 수 있게 되었다. 다음 강의 [Grasp Planning](../grasping/README.md) 에서는 그 물체를
 어떤 자세와 너비로 잡아야 미끄러지지 않는지를 friction cone 과 force closure 부터 Dex-Net 같은 학습 기반 grasp 까지 다룬다.
 

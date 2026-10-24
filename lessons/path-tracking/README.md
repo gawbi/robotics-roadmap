@@ -415,13 +415,6 @@ $56 \times 0.05 = 2.8$ 초라서 $1.0 \times 2.8 = 2.8$ m 를 내다본다. loca
 - pure pursuit 는 $L$ 앞의 점으로 곡률 $2y/L^2$ 의 원호를 고르고($L = 1$, $y = 0.25$ 면 0.5 /m), $L$ 이 짧으면 지연에 흔들리고 길면 모퉁이를
   가로지른다. Stanley 는 앞바퀴에서 잰 오차로 명령을 정하고, MPC 는 horizon 동안의 비용이 가장 작은 명령을 고른다
 
-**면접에서 "Pure pursuit 와 MPC 의 차이를 설명해 보세요" 라고 물으면.** "pure pursuit 는 경로 위 lookahead 거리 L 앞의 점을 골라 그 점을
-지나는 원호의 곡률 2y/L² 을 명령으로 쓰는 기하학적 tracker 입니다. L 앞의 옆 오차에 gain 2/L² 을 곱한 P 제어라서, L 이 짧으면
-정확하지만 지연에 진동하고 길면 안정하지만 모퉁이를 가로지릅니다. MPC 는 motion model 로 몇 초 앞까지의 궤적을 예측해 tracking
-error 와 명령 크기를 합친 비용을 속도·가속도 제약 아래 최소화하고, 첫 명령만 보낸 뒤 다음 주기에 다시 풉니다. 제약과 장애물을 직접 다룰 수
-있지만 계산이 많고 모델과 weight 를 맞춰야 합니다. Nav2 에서는 Regulated Pure Pursuit 가 pure pursuit 계열이고, MPPI 가 sampling 기반
-MPC 입니다."
-
 지금까지 본 controller 는 로봇이 자기 위치를 정확히 알고 장애물이 costmap 에 이미 그려져 있다고 가정했는데, 자율주행 차에서는 위치를 아는
 일과 장애물을 찾는 일이 각각 별도 module 의 몫이다. 다음 강의에서는 센서에서 localization, perception, prediction, planning 을 거쳐
 control 까지 이어지는 자율주행 stack 과, 각 단계의 지연이 시속 수십 km 로 달리는 차에서 몇 m 가 되는지를 다룬다.

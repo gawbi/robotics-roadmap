@@ -383,13 +383,6 @@ kidnapped robot 처럼 particle 이 모두 틀린 자리에 모여 있으면 res
 - Nav2 의 AMCL 은 KLD sampling 으로 particle 을 500 ~ 2000 개 사이에서 고르고, 0.25 m 나 0.2 rad 움직일 때마다 한 cycle 을 수행하며, 처음 위치는
   RViz 의 2D Pose Estimate 로 받는다
 
-**면접에서 "particle filter 와 AMCL 을 설명해 보세요" 라고 물으면.** "particle filter 는 belief 를 가중치가 붙은 sample 집합으로 나타내는 recursive
-Bayes filter 입니다. motion model 에서 noise 를 섞어 particle 을 옮기는 예측, measurement likelihood 로 가중치를 매기는 보정, 가중치에 비례해
-다시 뽑는 resampling 을 반복합니다. Gaussian 가정이 없어서 대칭인 복도나 global localization 처럼 봉우리가 여럿인 분포를 다룰 수 있고, 대신 상태
-차원이 커지면 필요한 particle 이 급격히 늘어납니다. Nav2 의 AMCL 은 LiDAR beam 끝점과 지도 장애물의 거리로 likelihood field 점수를 매기고, KLD
-sampling 으로 particle 이 퍼진 정도에 맞춰 개수를 바꾸며, 결과를 map 에서 odom 으로 가는 tf 로 내보내 odometry drift 를 고칩니다. 초기 위치는
-보통 RViz 로 주고, kidnapped robot 에 대비하려면 recovery alpha 로 무작위 particle 을 넣습니다."
-
 AMCL 은 `map_server` 가 내는 지도가 있어야 particle 에 점수를 매길 수 있다. 그 지도는 누군가 로봇을 몰고 다니며 만들어야 하는데, 지도를 그리려면
 매 순간의 위치를 알아야 하고 위치를 알려면 지도가 있어야 한다. 다음 강의에서는 이 둘을 동시에 추정하는 LiDAR SLAM 과, 그렇게 만든 지도를
 저장해 AMCL 에 넘기는 과정을 다룬다.

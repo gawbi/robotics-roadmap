@@ -212,11 +212,6 @@ filter 의 식이 맞아도 센서 데이터가 잘못 들어가면 추정이 �
 - 로봇의 움직임은 회전 때문에 직선 관계가 아니라서, 추정값 근처에서 직선으로 근사하는 EKF 나 점 몇 개로 통과시켜 보는 UKF 를 쓴다.
   `robot_localization` 은 바퀴·IMU·GPS 를 EKF 로 합친다
 
-**면접에서 "Kalman filter 를 설명해 보세요" 라고 물으면.** "Kalman filter 는 상태를 평균과 공분산을 가진 Gaussian 으로 보고, motion model 로 예측하는 단계와 측정으로 보정하는
-단계를 반복하는 recursive estimator 입니다. Kalman gain 은 예측의 불확실성과 측정 noise 의 상대적 크기로 정해지는 가중치라서, 센서가 정확할수록
-측정 쪽으로, 모델이 정확할수록 예측 쪽으로 갑니다. 선형·Gaussian 가정에서 최적이고, 로봇은 회전 때문에 비선형이라 Jacobian 으로 선형화하는 EKF 나
-sigma point 를 쓰는 UKF 를 씁니다. ROS 의 robot_localization 이 바퀴 odometry, IMU, GPS 를 EKF 로 fusion 하는 대표적인 예입니다."
-
 Kalman filter 는 위치에 대한 믿음이 늘 종 하나의 모양이라고 가정한다. 똑같이 생긴 복도가 두 개 있는 건물에서 로봇이 길을 잃으면 "왼쪽
 복도 아니면 오른쪽 복도" 처럼 봉우리가 두 개인 믿음이 필요한데, 종 하나로는 이것을 나타낼 수 없다. 다음 강의에서는 점 수천 개로 어떤 모양의
 믿음이든 나타내는 particle filter 를 다룬다.

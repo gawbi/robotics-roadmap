@@ -464,12 +464,6 @@ singular 면 오류 없이 답이 나오지만, 앞의 calibration 표처럼 입
 - inverse 는 변환을 되돌려 $A\mathbf{x} = \mathbf{b}$ 를 풀게 해 준다. 평면을 직선으로 누르는 행렬은 determinant 가 0 이라 inverse 가 없고,
   쭉 편 팔의 Jacobian 이나 같은 자리에서 잰 calibration 표식이 이런 행렬을 만든다
 
-**면접에서 "행렬과 vector 의 곱이 로봇에서 무슨 뜻이고, 역행렬이 없으면 어떤 문제가 생기나요?" 라고 물으면.** "행렬은 vector 를 다른
-vector 로 바꾸는 linear transformation 이고, 각 열은 basis vector 가 옮겨 가는 곳입니다. 로봇에서는 회전 행렬로 센서 frame 의 점을 base
-frame 으로, Jacobian 으로 관절 속도를 손끝 속도로 바꾸고, neural network 층도 행렬 곱입니다. 행렬 곱은 변환의 합성이라 순서를 바꾸면 결과가
-달라집니다. determinant 가 0 이면 공간이 낮은 dimension 으로 눌려 정보가 사라지므로 역행렬이 없고, 쭉 편 팔의 Jacobian 이 그 예입니다.
-그 근처에서는 작은 오차가 크게 증폭되어서 역행렬을 직접 구하지 않고 수치적으로 안정한 solver 를 씁니다."
-
 이 강의는 고정된 행렬 하나가 vector 를 어떻게 바꾸는지만 다뤘다. 관절을 조금 돌릴 때 손끝이 얼마나 움직이는지처럼 값이 변하는 비율을
 구하려면 미분이 필요한데, 미분은 [Derivatives & Gradients](../derivatives/README.md) 에서 다룬다. 회전과 이동을 행렬 하나로 묶는
 homogeneous transform 은 [Rigid Transforms](../transforms/README.md) 에서 다루고, 식이 모르는 값보다 많을 때 오차가 가장 작은 답을 행렬

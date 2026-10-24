@@ -392,12 +392,6 @@ policy 는 $1 / 20 = 0.05$ 초마다, PID 는 $1 / 500 = 0.002$ 초마다 계산
   고칠 오차가 거의 남지 않는다
 - 학습한 policy 는 10 ~ 50 Hz 로 목표 각도를 내고, 그 아래에서 수백 ~ 수천 Hz 로 계산하는 PID 가 motor 를 움직인다
 
-**면접에서 "PID 의 세 항을 설명해 보세요" 라고 물으면.** "PID 는 목표와 현재 값의 오차로 제어 입력을 정하는 feedback controller 입니다. P 는 현재
-오차에 비례해 목표 쪽으로 밀고, D 는 오차의 변화율에 맞서 overshoot 와 진동을 줄이고, I 는 누적 오차로 gravity 같은 외란 때문에 남는 steady-state
-error 를 없앱니다. 실제 구현에서는 actuator 포화 때의 windup 을 막는 anti-windup, setpoint 가 튈 때의 derivative kick 을 막으려 D 항을 측정값으로
-계산하는 것, 그리고 gain 에 맞는 충분히 빠르고 일정한 제어 주기가 중요합니다. 로봇 팔에서는 gravity compensation 같은 feedforward 를 같이 쓰고,
-학습 기반 로봇에서도 policy 는 10 ~ 50 Hz 로 관절 목표를 내고 servo 안의 PID 가 1 kHz 안팎으로 그 목표를 추종합니다."
-
 PID 는 관절 하나가 목표 각도 하나를 따라가는 계산이다. 팔로 물체를 집으려면 먼저 손끝을 물체 위치에 두려면 관절마다 몇 도가 되어야 하는지를
 구해야 하고, 다음 강의 [Inverse Kinematics](../inverse-kinematics/README.md) 에서 그 계산을 다룬다.
 

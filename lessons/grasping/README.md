@@ -447,13 +447,6 @@ ClearGrasp 논문은 투명한 물체가 일반 3D 센서에서 그 뒤에 있�
   label 을 만들어 GQ-CNN 을 학습했고, Contact-GraspNet·AnyGrasp 는 clutter 에서 6-DoF grasp 를 바로 낸다
 - 후보 → 점수 → IK → 충돌 검사 → pre-grasp → 닫기 → 확인으로 실행하고, 실패는 투명한 물체·얇은 부분·depth noise 에서 많이 생긴다
 
-**면접에서 "로봇이 처음 보는 물체를 어떻게 집는지 설명해 보세요" 라고 물으면.** "depth image 에서 grasp 후보를 만들어 성공 가능성으로 점수를
-매기고, IK 로 닿는지와 충돌이 없는지 검사해 통과한 후보 중 최고 점수를 실행합니다. parallel-jaw gripper 의 grasp 는 위치, 방향, 폭의 숫자
-7 개입니다. 점수의 물리적 바탕은 마찰입니다. 접촉력이 반각 arctan μ 의 friction cone 안에 있어야 하므로 두 접촉을 잇는 선이 양쪽 원뿔 안에 드는
-antipodal grasp 를 찾고, 외부 wrench 를 얼마나 버티는지는 Ferrari-Canny 의 ε 으로 잽니다. 실제로는 모양과 μ 를 정확히 모르니 Dex-Net
-처럼 오차를 넣은 analytic 점수로 만든 데이터로 CNN 을 학습하거나, Contact-GraspNet·AnyGrasp 같은 6-DoF grasp network 를 씁니다. grip force 는
-2μF 가 m(g+a) 에 안전율을 곱한 값 이상이 되게 정하고 무게중심 가까이를 쥡니다. 실패는 투명하거나 얇은 물체의 depth 오류에서 많이 납니다."
-
 camera frame 에서 고른 grasp 를 로봇이 실행하려면 카메라가 로봇 base 에서 어디에 어떤 방향으로 달려 있는지 알아야 하고, 그 변환의 회전이 1° 만 틀려도
 0.5 m 앞의 grasp 가 $0.5 \times \tan 1° \approx 8.7$ mm 어긋난다. 이 변환을 재는 방법은 [Hand-Eye Calibration](../hand-eye-calibration/README.md) 에서 다룬다. pre-grasp
 까지 다른 물체를 피해 가는 경로를 찾는 방법은 [Motion Planning](../motion-planning/README.md) 에서 다룬다.

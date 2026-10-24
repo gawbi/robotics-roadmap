@@ -386,14 +386,6 @@ $T = 1 \div (0.1 \times 250) = 0.04$ 초, 40 ms 다. gain 0.5 이면 $1 \div (0.
 - 제어 loop 는 real-time kernel, `SCHED_FIFO` 우선순위, 메모리 고정으로 jitter 를 줄인다
 - mock_components·gz_ros2_control·mujoco_ros2_control 은 `<plugin>` 한 줄로 바꿔 끼우지만, mock 은 오차가 늘 0 이라 연결 확인에만 쓴다
 
-**면접에서 "MoveIt 에서 계획한 trajectory 가 motor 까지 어떻게 가는지 설명해 보세요" 라고 물으면.** "MoveIt 2 는 0.1 초 간격의 관절 점 목록을
-FollowJointTrajectory action 으로 ros2_control 의 joint_trajectory_controller 에 보냅니다. 그 전에 시작점이 현재 자세와 0.01 rad 안인지 확인하고,
-실행 시간이 예상의 1.1 배에 0.5 초를 더한 값을 넘으면 cancel 합니다. controller_manager 는 별도의 real-time thread 에서 정해진 주기마다
-hardware interface 의 read 로 관절 상태를 받고, JTC 가 그 시각의 목표를 spline 으로 보간해 position command interface 에 쓰면 write 가 로봇에
-보냅니다. JTC 는 매 주기 path·goal tolerance 를 검사해 넘으면 정지하고 abort 하는데 기본값이 0 이라 꼭 설정해야 합니다. hardware interface 는
-URDF 의 ros2_control tag 에 적은 plugin 으로 정해져서 같은 설정을 mock, Gazebo, 실제 로봇에서 그대로 쓰고, 실제 로봇에서는 real-time kernel 로
-jitter 를 줄입니다."
-
 이 강의의 팔은 위치 명령을 따라가기만 해서, 물체에 닿으면 위치 오차를 줄이려고 힘을 motor 의 한계까지 키운다. 접촉한 뒤 손끝의 힘을 조절하는 방법은
 [Force & Impedance Control](../impedance-control/README.md) 에서 effort command interface 와 함께 다루고, MoveIt 2 가 장애물을 피하는 경로를
 찾아 이 강의의 controller 에 넘기기까지의 과정은 [Motion Planning](../motion-planning/README.md) 에서 다룬다.

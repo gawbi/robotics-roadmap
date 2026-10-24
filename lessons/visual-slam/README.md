@@ -369,12 +369,6 @@ $500 \times 1.05 \times 0.02 \approx 10.5$ pixel 이다. FAST 가 보는 원의 
 - 카메라 한 대로는 0.5 m 움직이며 2 m 앞을 본 경우와 1 m 움직이며 4 m 앞을 본 경우가 똑같이 찍혀 scale 을 알 수 없다. IMU 의 m/s²
   측정이 scale 을 정하고(ORB-SLAM3 는 2 초에 5 %), 사진이 번지거나 feature 가 사라진 몇 초 동안 pose 를 이어 간다
 
-**면접에서 "Visual SLAM 과 VIO 가 어떻게 동작하는지 설명해 보세요" 라고 물으면.** "Visual SLAM 은 ORB 같은 feature 를 매칭하고, 두 keyframe
-의 시선으로 map point 를 triangulation 해 지도를 만듭니다. 새 프레임은 2D-3D 대응으로 PnP 를 풀어 pose 를 구하고, keyframe 에서는 local
-bundle adjustment 로 pose 와 map point 를 함께 최적화합니다. drift 는 DBoW2 같은 place recognition 으로 loop
-를 찾아 고칩니다. monocular 는 scale 이 관측되지 않는데, IMU 를 tightly coupled 로 합친 VIO 는 가속도로 metric scale 과 roll·pitch 를
-관측하고 빠른 움직임에서도 추적을 이어 갑니다."
-
 Visual SLAM 은 로봇이 지도 위 어디 있는지 알려 주지만 어느 길로 갈지는 정하지 않고, 듬성듬성한 map point 는 그대로 장애물 지도가
 되지도 않는다. 다음 강의 [Path Planning](../path-planning/README.md) 에서는 지도를 장애물
 비용 지도(costmap)로 바꾸고 그 위에서 경로를 찾는 방법을 다룬다.

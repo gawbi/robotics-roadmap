@@ -436,12 +436,6 @@ $\epsilon = -0.5$ 일 때 $2.00 - 0.01 = 1.99$ m 를 내면 된다. Gazebo 같�
 - Bayes rule 은 prior 와 likelihood 로 posterior 를 구한다. 적중률 90%, 오경보 5% 인 문 감지기를 문이 10% 인 복도에 두면 문일 확률이 감지 한 번 뒤
   0.67, 두 번 뒤 0.97 이다. 기댓값은 "결과 × 확률" 의 합이고, sampling 은 분포에서 값을 뽑는 일이다
 
-**면접에서 "센서 noise 를 확률로 어떻게 다루나요?" 라고 물으면.** "센서 값을 평균과 표준편차를 가진 확률분포, 보통 Gaussian 으로 모델링합니다.
-Gaussian 이면 ±3σ 안에 99.7% 가 들어가니 안전 여유를 bias 와 3σ 로 정하고, 독립 측정 N 개를 평균하면 표준편차가 √N 분의 1 로 줄지만
-systematic bias 는 줄지 않아 calibration 으로 제거합니다. 위치처럼 여러 차원이면 공분산 행렬로 방향마다 다른 불확실성과 상관관계를 표현하고,
-ROS 의 NavSatFix·Odometry 메시지도 이 행렬을 함께 보냅니다. 새 측정이 들어오면 Bayes rule 로 prior 를 posterior 로 갱신하는데, 이 믿음을
-Gaussian 으로 나타내면 Kalman filter 가 되고 sample 로 나타내면 particle filter 가 됩니다."
-
 이 강의에서는 측정을 Bayes rule 로 한 번씩 합쳤다. 로봇이 움직이는 동안 움직임으로 위치를 예측하고 센서로 보정하기를 1초에 수십 번 되풀이하면서
 Gaussian 의 평균과 분산을 함께 고쳐 가는 방법을 다음 강의 [Kalman Filter](../kalman-filter/README.md) 에서 다룬다.
 

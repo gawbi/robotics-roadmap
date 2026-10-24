@@ -426,12 +426,6 @@ transpose 다.
 - chain rule 은 단계마다의 변화율을 곱한다. gradient 는 값 하나를 여러 변수로 미분해 묶은 vector 로, 값이 가장 빨리 커지는 방향을 가리킨다.
   Jacobian 은 여러 결과를 여러 변수로 미분한 행렬로, 관절의 작은 움직임이 손끝을 얼마나 옮기는지 알려 준다
 
-**면접에서 "encoder 로 관절 속도를 구할 때 주의할 점은 무엇인가요" 라고 물으면.** "encoder 는 위치만 주기 때문에 속도는 finite difference 로
-구하는데, quantization 같은 측정 오차가 $\Delta t$ 로 나뉘어 커집니다. 예를 들어 4096 count encoder 를 1 kHz 로 미분하면 한 count 가 약
-88 °/s 의 spike 가 됩니다. 그래서 여러 sample 에 걸쳐 차분하거나 low-pass filter 로 noise 를 줄입니다. 다만 걸치는 구간이 길수록 delay 가
-커지므로, 제어 loop 가 견딜 수 있는 지연에 맞춰 길이를 정합니다. 가속도는 두 번 미분하면 noise 가 한 번 더 커지므로 가능하면 IMU 같은
-센서로 직접 잽니다. 반대로 속도를 적분해 위치를 구할 때는 bias 가 시간에 비례해 쌓이는 drift 를 다른 센서로 보정합니다."
-
 이 강의에서 gradient 를 따라 한 step 내려간 계산을 수천 번 되풀이하면 데이터를 가장 잘 설명하는 직선이나 neural network 의 weight 를 찾을
 수 있다. 다음 강의 [Linear Regression](../linear-regression/README.md) 에서는 측정 데이터에 직선을 맞추며 loss 의 gradient 를 구하고,
 learning rate 에 따라 gradient descent 가 수렴하거나 발산하는 과정을 다룬다.

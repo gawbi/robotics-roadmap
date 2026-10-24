@@ -401,13 +401,6 @@ odometry 를 요구한다며, 처음 쓰는 사람에게는 AMCL 을 권한다.
 - scan matching(ICP, correlative)은 벽의 모양으로 odometry 를 고치고, pose graph 의 loop closure 는 돌아온 곳을 알아차려 남은 어긋남을
   모든 edge 에 분산에 비례해 나눈다. ROS 2 에서는 `slam_toolbox` 로 그리고 `map_saver_cli` 로 pgm·yaml 을 저장해 AMCL 에 넘긴다
 
-**면접에서 "LiDAR SLAM 이 어떻게 동작하는지 설명해 보세요" 라고 물으면.** "SLAM 은 지도와 로봇 자세를 동시에 추정하는 문제입니다. 2D LiDAR
-SLAM 은 보통 front-end 와 back-end 로 나뉩니다. front-end 는 odometry 를 initial guess 로 새 scan 을 이전 scan 이나 submap 에 scan matching
-해서 상대 이동을 구하고, 그 위치로 occupancy grid 를 log-odds 로 갱신합니다. 이렇게 해도 오차가 누적되므로 back-end 는 자세를 node, 상대
-이동을 edge 로 둔 pose graph 를 만들고, 예전에 온 곳을 인식하면 loop closure edge 를 추가한 뒤 nonlinear least squares 로 전체 경로를
-최적화해 누적 오차를 분산시킵니다. ROS 2 에서는 Karto 기반의 slam_toolbox 가 Nav2 의 기본 선택이고, 만든 지도는 map_saver 로 저장해 AMCL
-localization 에 씁니다. 잘못된 loop closure 는 지도 전체를 휘게 하므로 matching score 문턱과 robust loss 로 걸러 냅니다."
-
 카메라만 단 로봇은 LiDAR 처럼 벽까지의 거리를 바로 잴 수 없어서 사진 여러 장에서 같은 점을 찾아 triangulation 으로 거리를 구하는데,
 경로와 지도를 함께 최적화하는 방식은 LiDAR SLAM 과 같다. 다음 강의에서는 카메라로 하는 Visual SLAM 과 카메라에 IMU 를 더한 VIO 를 다룬다. 여기서 저장한 지도는 Nav2 가 길을 찾을 때 쓰는 costmap 의 바탕이 되고, 그 지도 위에서 경로를 계획하는
 방법은 Path Planning 에서 다룬다.

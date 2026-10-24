@@ -410,14 +410,6 @@ reward 를 얻었다. franka_ros2 예제의
   effective mass 다. admittance control 은 F/T sensor 로 잰 힘으로 position 명령을 만들고, hybrid control 은 축마다 위치와 힘 가운데 하나를 고른다
 - torque residual 이 문턱(libfranka 예제는 10 ~ 20 N·m)을 넘으면 충돌로 보고, 학습한 policy 는 impedance controller 위에서 목표와 stiffness 를 낸다
 
-**면접에서 "impedance control 과 admittance control 의 차이를 설명해 보세요" 라고 물으면.** "둘 다 손끝이 정해 둔 질량·damping·stiffness 처럼
-움직이게 하는 방법이지만 측정과 명령의 방향이 반대입니다. impedance control 은 encoder 로 잰 위치와 속도의 오차로 $F = K(x_d - x) + D(\dot x_d -
-\dot x)$ 를 계산하고 $\tau = J^\top F$ 에 gravity 를 더해 joint torque 를 명령합니다. Franka 처럼 1 kHz torque interface 가 있는 팔에 맞고
-접촉이 많은 작업에 잘 맞지만, 아주 큰 stiffness 는 지연과 noise 때문에 불안정해집니다. admittance control 은 손목 F/T sensor 로 잰 힘으로 가상
-dynamics 를 풀어 position 명령을 만들기 때문에 torque 를 직접 줄 수 없는 산업용 팔에서 씁니다. 자유 공간의 위치 정확도는 좋지만, 단단한 환경에
-닿으면 작은 변위가 큰 힘이 되어 진동하기 쉬우므로 damping 과 제어 주기를 맞춰야 합니다. 힘을 정확히 정해야 하는 축이 있으면 hybrid force/position control 로 그
-축만 force 제어합니다."
-
 이 강의의 controller 는 Franka 에서 1 ms 마다 각 joint 의 `effort` command interface 로 torque 를 보냈다. [ros2_control](../ros2-control/README.md)
 강의에서는 controller 가 이런 command interface 와 state interface 를 hardware 에서 받아 쓰는 구조와, controller_manager 가 실시간 loop 안에서 controller
 를 부르는 방식을 다룬다.

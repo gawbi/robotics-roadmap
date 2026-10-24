@@ -382,12 +382,6 @@ $1 \div 0.3 \approx 3.3$ 번이 상한이라서, 더 빠른 planner 로 바꾸�
 - global planner 는 지도 전체에서 1초마다 경로를 다시 계산하고, controller 는 로봇 둘레 3 m × 3 m local costmap 을 보며 1초에 20 번 속도 명령을
   낸다. 자동차형 로봇은 $(x, y, \theta)$ 를 탐색하는 Smac Hybrid-A* 로 회전 반경을 지키는 경로를 만든다
 
-**면접에서 "A* 와 Dijkstra 의 차이와, 모바일 로봇이 경로를 계획하는 방식을 설명해 보세요" 라고 물으면.** "둘 다 grid 를 graph 로 보고 비용이
-가장 작은 node 부터 확장하는 최단 경로 탐색입니다. Dijkstra 는 누적 비용 g 만 보고, A* 는 g 에 목표까지의 추정 비용 h 를 더한 f 로 순서를
-정합니다. h 가 실제 비용을 넘지 않으면 A* 도 최단 경로를 보장하면서 확장하는 node 가 훨씬 적습니다. 실제 로봇에서는 inflation layer 로 장애물을
-robot radius 만큼 부풀리고 거리에 따라 cost 를 준 costmap 위에서 계획해, 충돌하지 않고 통로 가운데로 가는 경로를 얻습니다. Nav2 에서는 behavior
-tree 가 1 Hz 로 global planner 를 다시 부르고 controller 가 20 Hz 로 경로를 따라가며, 자동차형 로봇에는 회전 반경을 지키는 Hybrid-A* 를 씁니다."
-
 planner 가 내놓는 경로는 지도 위 좌표를 이은 점들의 목록이라서, 이것을 두 바퀴의 속도로 바꾸는 일이 남는다. 다음 강의에서는 controller server
 가 경로를 1초에 20 번 속도 명령으로 바꾸는 path tracking 을 다룬다. 경로 위 앞쪽의 한 점을 겨냥해 곡률을 계산하는 pure pursuit 와, 앞으로 몇
 초를 예측해 가장 좋은 명령을 고르는 MPC 가 그 예다.

@@ -401,13 +401,6 @@ $T = 1 \div 0.5 + 0.5 \div 1 = 2.5$ s 다. scaling 전의 $1 \div 1 + 1 \div 2 =
 - 관절이 여럿이면 가장 느린 관절이 시간을 정하고 나머지를 거기에 맞춰야 path 가 유지된다. TOTG 와 TOPP-RA 는 꺾인 path 를 한계 안에서 가장
   빨리 지나는 $s(t)$ 를 phase plane 에서 찾고, MoveIt 2 는 TOTG 에 scaling factor(Setup Assistant 기본 0.1)를 곱한 한계를 쓴다
 
-**면접에서 "planner 가 낸 경로를 로봇이 실행할 수 있는 trajectory 로 바꾸는 과정을 설명해 보세요" 라고 물으면.** "planner 의 출력은 시간이
-없는 joint 공간의 waypoint 목록인 path 이고, 여기에 path 위 위치를 시간의 함수로 정하는 time parameterization 을 해서 trajectory 를 만듭니다.
-단일 관절이면 속도·가속도 한계를 꽉 채우는 사다리꼴 profile 이 가장 빠르고, 진동을 줄이려면 jerk 를 제한한 S-curve 를 씁니다. 여러 관절은
-가장 느린 관절에 맞춰 동기화해야 path 가 바뀌지 않습니다. waypoint 가 많은 path 에는 TOTG 나 TOPP-RA 로 모든 관절의 한계를 동시에 지키는
-가장 빠른 path 속도를 phase plane 에서 구하는데, TOTG 는 꺾인 waypoint 를 허용 오차 안의 원호로 깎아 멈추지 않고 지나게 합니다. MoveIt 2 는
-TOTG 를 기본으로 쓰고 velocity·acceleration scaling factor 로 한계를 낮추며, jerk 제한이 필요하면 Ruckig smoothing 을 뒤에 붙입니다."
-
 이 강의는 path 가 이미 주어졌다고 보고 시간만 붙였다. 장애물을 피하는 path 를 joint 공간에서 찾는 방법은 [Motion Planning](../motion-planning/README.md)
 에서 다루고, 완성된 trajectory 를 controller 가 1초에 수백 번 motor 명령으로 바꾸는 과정은 [ros2_control](../ros2-control/README.md) 에서 다룬다.
 
