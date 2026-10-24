@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>friction cone. μ = 0.5 이면 접촉점의 normal 에서 arctan 0.5 = 26.6° 안쪽의 원뿔이 friction cone 이다. normal 에서 20° 기운 힘은 원뿔 안이라 마찰이 버티고, 35° 기운 힘은 원뿔 밖이라 미끄러진다. μ 가 0.2, 0.3, 0.5, 1.0 이면 반각은 11.3°, 16.7°, 26.6°, 45° 다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="698" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="40" y1="250" x2="360" y2="250" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="40" y="250" width="320" height="30" fill="#1e293b"/>
+  <text x="330.0" y="270.0" fill="#64748b" font-size="11" text-anchor="end">물체 표면</text>
+  <polygon points="200.0,250.0 285.0,80.1 115.0,80.1" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="200.0" y1="250.0" x2="200.0" y2="50.0" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4"/>
+  <text x="208.0" y="64.0" fill="#94a3b8" font-size="12" text-anchor="start">normal</text>
+  <path d="M200,180 A70,70 0 0,0 168.7,187.4" fill="none" stroke="#34d399" stroke-width="1.6"/>
+  <text x="160.0" y="172.0" fill="#34d399" font-size="12" text-anchor="end">26.6°</text>
+  <line x1="200.0" y1="250.0" x2="251.3" y2="109.0" stroke="#38bdf8" stroke-width="2.6" marker-end="url(#as)"/>
+  <text x="287.3" y="95.0" fill="#38bdf8" font-size="12" text-anchor="start">20°: 원뿔 안</text>
+  <text x="287.3" y="112.0" fill="#38bdf8" font-size="12" text-anchor="start">버틴다</text>
+  <line x1="200.0" y1="250.0" x2="280.3" y2="135.3" stroke="#f87171" stroke-width="2.6" marker-end="url(#ar)"/>
+  <text x="290.3" y="139.3" fill="#f87171" font-size="12" text-anchor="start">35°: 원뿔 밖</text>
+  <text x="290.3" y="156.3" fill="#f87171" font-size="12" text-anchor="start">미끄러진다</text>
+  <circle cx="200" cy="250" r="4" fill="#f59e0b"/>
+  <text x="200.0" y="270.0" fill="#f59e0b" font-size="12" text-anchor="middle">접촉점</text>
+  <text x="200.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">μ = 0.5 의 friction cone</text>
+  <line x1="400.0" y1="50.0" x2="400.0" y2="300.0" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="560.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">μ 와 원뿔의 반각 arctan μ</text>
+  <text x="450.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="start">μ</text>
+  <text x="540.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="start">반각</text>
+  <text x="620.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="start">모양</text>
+  <text x="450.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.2</text>
+  <text x="540.0" y="122.0" fill="#e2e8f0" font-size="13" text-anchor="start">11.3°</text>
+  <polygon points="650.0,144.0 659.0,98.9 641.0,98.9" fill="#34d399" fill-opacity="0.18" stroke="#34d399" stroke-width="1.4" stroke-linejoin="round"/>
+  <text x="450.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.3</text>
+  <text x="540.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="start">16.7°</text>
+  <polygon points="650.0,194.0 663.2,149.9 636.8,149.9" fill="#34d399" fill-opacity="0.18" stroke="#34d399" stroke-width="1.4" stroke-linejoin="round"/>
+  <text x="450.0" y="222.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.5</text>
+  <text x="540.0" y="222.0" fill="#e2e8f0" font-size="13" text-anchor="start">26.6°</text>
+  <polygon points="650.0,244.0 670.6,202.9 629.4,202.9" fill="#34d399" fill-opacity="0.18" stroke="#34d399" stroke-width="1.4" stroke-linejoin="round"/>
+  <text x="450.0" y="272.0" fill="#e2e8f0" font-size="13" text-anchor="start">1.0</text>
+  <text x="540.0" y="272.0" fill="#e2e8f0" font-size="13" text-anchor="start">45.0°</text>
+  <polygon points="650.0,294.0 682.5,261.5 617.5,261.5" fill="#34d399" fill-opacity="0.18" stroke="#34d399" stroke-width="1.4" stroke-linejoin="round"/>
+</svg>

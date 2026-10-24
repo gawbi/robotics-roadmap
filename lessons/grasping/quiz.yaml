@@ -1,0 +1,312 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: grasp-representation
+  title: grasp 표현
+  variants:
+    - question: |
+        면접관: "parallel-jaw gripper 의 grasp 하나를 숫자로 적으려면 무엇을 정해야 하나요?"
+      choices:
+        - '두 손가락 사이 중심의 위치 3 개, gripper 의 방향 3 개, 손가락 사이 폭 1 개로 모두 7 개다'
+        - '물체 중심의 위치 3 개만 정하면 방향과 폭은 gripper 가 알아서 맞춘다'
+        - '각 관절의 각도만 정하면 되고, 손의 위치와 방향은 따로 정할 필요가 없다'
+        - '손가락 두 개의 끝 위치 6 개만 정하면 되고, 방향은 정할 수 없다'
+      answer: 0
+      explanation: |
+        grasp 는 두 손가락 끝 사이의 중심 t(3 개), 다가가는 방향 a 와 닫히는 방향 b 로 정해지는 rotation(3 개), 손가락 사이 폭 w(1 개)로 숫자
+        7 개다. 위치와 방향을 합쳐 6-DoF grasp 라고 부르고 폭까지 세어 7-DoF 라고도 한다. 물체 중심만으로는 어느 방향에서 쥘지 정해지지 않고,
+        관절 각도는 grasp 를 고른 뒤 IK 로 구하는 값이다. 손가락 끝 두 점은 위치만 정할 뿐 손이 다가가는 방향을 정하지 못한다.
+    - question: |
+        면접관: "Dex-Net 2.0 처럼 grasp 를 depth image 위의 pixel, 각도, depth 숫자 4 개로 적는 planar grasp 의 한계는 무엇인가요?"
+      choices:
+        - '숫자가 적어 학습이 더 어려워지고 계산 시간이 길어진다'
+        - '물체의 위치를 정할 수 없어 grasp 마다 사람이 위치를 알려 줘야 한다'
+        - '다가가는 방향이 수직 아래로 고정되어, 선반 안의 물체처럼 옆에서 쥐어야 하는 경우를 표현하지 못한다'
+        - 'depth image 를 쓰므로 색이 다른 물체를 구분하지 못해 grasp 자체를 만들 수 없다'
+      answer: 2
+      explanation: |
+        planar grasp 는 pixel 과 depth 로 위치 3 개를 정하고, 각도로 수직축을 도는 rotation 1 개를 정하며, 다가가는 방향은 수직 아래로
+        고정한다. 그래서 숫자가 적어 학습은 쉬워지지만 옆이나 비스듬히 쥐어야 하는 물체는 표현하지 못한다. 숫자가 적으면 학습은 오히려
+        쉬워지고, 위치는 pixel 과 depth 로 정해진다. 색 구분은 grasp 표현과 관계없다.
+    - question: |
+        면접관: "grasp network 의 출력이 approach vector a 와 closing vector b 라고 할 때, 이 둘로 무엇이 정해지나요?"
+      choices:
+        - 'gripper 가 물체를 누르는 힘의 크기'
+        - '물체의 무게중심 위치'
+        - '손가락 사이의 폭과 grasp 성공 확률'
+        - 'a 와 b 에 모두 직각인 셋째 축까지 정해져 gripper 의 rotation 전체'
+      answer: 3
+      explanation: |
+        a 는 손이 다가가는 방향이고 b 는 두 손가락이 닫히는 방향인데, 둘은 서로 직각이다. 둘을 정하면 둘에 직각인 셋째 축도 따라 나오므로
+        gripper 의 rotation 이 하나로 정해진다. 힘의 크기와 무게중심은 방향 vector 로 정해지지 않고, 폭과 성공 확률은 network 가 따로 내는 값이다.
+
+- topic: friction-cone
+  title: friction cone
+  variants:
+    - question: |
+        면접관: "마찰 계수 μ 인 접촉에서 friction cone 은 무엇을 뜻하나요?"
+      choices:
+        - '손가락이 낼 수 있는 힘의 최대 크기를 μ 배로 제한하는 구'
+        - '미끄러지지 않고 낼 수 있는 힘의 방향이 normal 에서 반각 arctan μ 안에 모두 드는 원뿔'
+        - '접촉점 주변에서 마찰이 생기는 넓이를 나타내는 원'
+        - '물체가 미끄러질 때 움직이는 방향의 범위'
+      answer: 1
+      explanation: |
+        미끄러지지 않는 조건 T ≤ μN 을 힘이 normal 에서 기운 각도 θ 로 바꾸면 tan θ ≤ μ, θ ≤ arctan μ 가 된다. 그래서 허용되는 힘의 방향이
+        normal 을 축으로 반각 arctan μ 인 원뿔을 이룬다. 원뿔은 크기가 아니라 방향을 제한하고, 접촉 넓이나 미끄러지는 방향과는 다른 개념이다.
+    - question: |
+        μ = 0.5 인 접촉에서 손가락 힘이 표면의 normal 에서 35° 기울어 있다. 어떻게 될까? (tan 35° ≈ 0.70)
+      choices:
+        - '35° 는 45° 보다 작으므로 버틴다'
+        - '힘을 두 배로 키우면 마찰도 두 배가 되어 버틴다'
+        - 'normal 성분이 있으므로 기운 각도와 관계없이 버틴다'
+        - 'tan 35° ≈ 0.70 이 0.5 보다 커서 friction cone(반각 26.6°) 밖이라 미끄러진다'
+      answer: 3
+      explanation: |
+        friction cone 의 반각은 arctan 0.5 = 26.6° 이고, 35° 기운 힘은 tan 35° ≈ 0.70 > 0.5 라서 원뿔 밖이다. 45° 는 μ = 1 일 때의 반각이다. 힘을
+        키워도 방향이 그대로면 normal 성분과 접선 성분이 같은 비율로 커져 각도가 바뀌지 않으므로 여전히 미끄러진다.
+    - question: |
+        면접관: "μ 가 0.5 에서 0.2 로 줄면 friction cone 은 어떻게 바뀌나요?"
+      choices:
+        - '반각이 26.6° 에서 11.3° 로 좁아져, 손가락 힘이 normal 에 더 가까워야 미끄러지지 않는다'
+        - '반각이 넓어져 더 비스듬히 눌러도 버틴다'
+        - '원뿔 모양은 그대로이고 손가락이 낼 수 있는 힘의 크기만 줄어든다'
+        - '원뿔이 normal 반대쪽으로 뒤집힌다'
+      answer: 0
+      explanation: |
+        반각은 arctan μ 라서 μ = 0.5 면 26.6°, μ = 0.2 면 11.3° 다. 원뿔이 좁아지므로 손가락 힘 방향이 normal 에서 조금만 기울어도 미끄러진다.
+        μ 가 줄면 원뿔은 넓어지지 않고 좁아지며, 원뿔이 정하는 것은 힘의 크기가 아니라 방향이다.
+
+- topic: antipodal
+  title: antipodal grasp
+  variants:
+    - question: |
+        면접관: "antipodal grasp 의 조건을 설명해 보세요."
+      choices:
+        - '두 손가락이 물체의 무게중심을 정확히 지나는 선 위에 있어야 한다'
+        - '두 손가락이 물체의 가장 넓은 폭을 쥐어야 한다'
+        - '두 접촉점을 잇는 선이 양쪽 접촉점의 friction cone 안에 들어야 한다'
+        - '두 손가락의 힘이 같기만 하면 접촉 위치와 관계없이 성립한다'
+      answer: 2
+      explanation: |
+        두 손가락의 힘만으로 물체가 가만히 있으려면 두 힘이 크기가 같고 반대 방향이며 두 접촉점을 잇는 선 위에 있어야 한다. 그래서 그 선의
+        방향이 양쪽 friction cone 안에 들어야 하고, 이를 antipodal grasp 라고 한다. 무게중심을 지나는 것은 torque 를 줄이는 데 좋지만 antipodal 의
+        조건은 아니며, 폭이 가장 넓은 곳이나 힘의 크기만으로는 미끄러짐 여부가 정해지지 않는다.
+    - question: |
+        반지름 3 cm 원기둥을 중심에서 1.5 cm 벗어난 선을 따라 μ = 0.5 인 손가락으로 쥔다. 무슨 일이 생길까? (arcsin 0.5 = 30°, arctan 0.5 ≈ 26.6°)
+      choices:
+        - '선과 normal 의 각도가 30° 로 반각 26.6° 를 넘어, 닫으면 물체가 밀려 나간다'
+        - '원기둥은 어디를 쥐어도 normal 이 선과 나란해서 집힌다'
+        - '각도는 30° 지만 손가락을 더 세게 누르면 집힌다'
+        - '중심에서 벗어날수록 접촉이 넓어져 더 잘 집힌다'
+      answer: 0
+      explanation: |
+        둥근 물체의 normal 은 중심을 향하므로, 중심에서 1.5 cm 벗어난 선과 normal 의 각도는 arcsin(1.5 ÷ 3) = 30° 다. 이 각도가 friction cone 의
+        반각 26.6° 를 넘어 손가락이 닫히면 물체가 선에서 먼 쪽으로 밀려 나간다. 원기둥은 중심을 지나는 선에서만 normal 과 나란하고, 세게 눌러도
+        각도는 그대로라 결과가 같다.
+    - question: |
+        면접관: "GraspNet-1Billion 은 grasp 마다 μ 를 1.0 에서 0.1 까지 낮추며 antipodal 이 깨지는 값을 찾아 점수를 매겼습니다. 왜 낮은 μ 에서도 버티는 grasp 에 높은 점수를 주나요?"
+      choices:
+        - '낮은 μ 의 grasp 일수록 gripper 를 더 약하게 닫아도 되기 때문이다'
+        - '낮은 μ 에서도 antipodal 이면 두 접촉을 잇는 선이 normal 과 거의 나란해서, 마찰을 덜 믿어도 되고 오차에도 잘 버티기 때문이다'
+        - '낮은 μ 에서 버티는 grasp 는 물체가 가벼운 경우뿐이라 들기 쉽기 때문이다'
+        - '낮은 μ 에서 계산하면 계산 시간이 짧아지기 때문이다'
+      answer: 1
+      explanation: |
+        friction cone 의 반각은 arctan μ 라서 μ 가 낮을수록 원뿔이 좁다. 좁은 원뿔 안에도 선이 들어간다는 것은 선과 normal 의 각도가 작다는
+        뜻이고, 그런 grasp 는 실제 μ 가 예상보다 낮거나 위치가 조금 틀려도 미끄러지지 않는다. 실제 로봇 검증에서도 점수 1 인 grasp 는 평균
+        96% 성공했다. grip force, 물체 무게, 계산 시간과는 관계없다.
+
+- topic: force-closure
+  title: force closure
+  variants:
+    - question: |
+        면접관: "force closure grasp 의 정의는 무엇인가요?"
+      choices:
+        - '손가락이 물체를 완전히 감싸서 마찰 없이도 물체가 움직일 수 없는 grasp'
+        - '두 손가락이 같은 크기의 힘으로 누르는 grasp'
+        - '물체의 무게를 버틸 수 있는 grasp'
+        - '손가락 위치를 바꾸지 않고 접촉력만 friction cone 안에서 조절해 어떤 방향의 외부 force 와 torque 든 상쇄할 수 있는 grasp'
+      answer: 3
+      explanation: |
+        force closure 는 어떤 외부 wrench(force 3 개와 torque 3 개)가 오더라도 손가락 위치를 그대로 두고 접촉력만 조절해 버틸 수 있는 grasp 다.
+        마찰 없이 모양만으로 가두는 것은 form closure 로 다른 개념이다. 같은 힘으로 누르는 것이나 gravity 한 방향만 버티는 것은 force closure 의
+        일부 조건일 뿐이다.
+    - question: |
+        면접관: "3차원 물체를 point contact 두 개로 antipodal 하게 쥐었습니다. force closure 라고 할 수 있나요?"
+      choices:
+        - '그렇다. antipodal 이면 3차원에서도 항상 force closure 다'
+        - '아니다. 두 접촉점을 잇는 축을 도는 torque 는 두 힘이 모두 그 축을 지나서 만들 수 없으므로 버티지 못한다'
+        - '그렇다. 손가락을 충분히 세게 누르면 어떤 torque 든 버틴다'
+        - '아니다. 3차원에서는 friction cone 이 정의되지 않기 때문이다'
+      answer: 1
+      explanation: |
+        point contact 의 힘은 접촉점을 지나므로 두 힘 모두 두 접촉점을 잇는 축을 지나고, 그 축을 도는 torque 를 만들지 못한다. 그래서 이 축을
+        도는 외부 torque 를 버티지 못해 force closure 가 아니다. 실제 gripper 는 고무 패드의 torsional friction(soft finger contact)이나 셋 이상의
+        손가락으로 보완한다. 세게 눌러도 축을 도는 torque 는 생기지 않고, friction cone 은 3차원에서도 정의된다.
+    - question: |
+        면접관: "wrench 공간에서 force closure 를 판단하는 방법은 무엇인가요?"
+      choices:
+        - '모든 primitive wrench 의 크기가 같은지 확인한다'
+        - 'primitive wrench 가 모두 같은 방향을 가리키는지 확인한다'
+        - 'friction cone 모서리 방향 힘의 wrench(primitive wrench)들의 convex hull 이 원점을 안쪽에 품는지 확인한다'
+        - '접촉점이 셋 이상인지만 확인한다'
+      answer: 2
+      explanation: |
+        손가락이 낼 수 있는 wrench 는 primitive wrench 를 양수 비율로 섞은 것이다. 이들의 convex hull 이 원점을 안쪽에 품으면 모든 방향의
+        wrench 를 낼 수 있어 force closure 다. 모두 같은 방향을 가리키면 오히려 반대 방향을 못 내고, 크기가 같은지나 접촉 개수만으로는 판단할 수 없다.
+
+- topic: grip-force
+  title: grip force
+  variants:
+    - question: |
+        면접관: "parallel-jaw gripper 로 물체를 들 때 grip force 는 어떻게 정하나요?"
+      choices:
+        - '두 손가락의 마찰 2μF 가, 무게와 가속에 드는 힘을 합한 m(g + a) 에 안전율 S 를 곱한 값 이상이 되게 정한다'
+        - '물체 무게 mg 와 같은 크기로 누르면 된다'
+        - 'gripper 가 낼 수 있는 최대 힘으로 늘 누른다'
+        - 'μ 가 클수록 더 세게 눌러야 하므로 F = μ m g 로 정한다'
+      answer: 0
+      explanation: |
+        미끄러지지 않으려면 두 손가락의 마찰 한계 2μF 가 물체를 아래로 끄는 m(g + a) 보다 커야 하고, μ 의 불확실성과 비상 정지 같은 큰 감속에
+        대비해 안전율을 곱한다. 무게와 같은 힘으로 누르는 것은 마찰 계수를 빼먹은 것이고, 최대 힘은 물렁한 물체를 망가뜨릴 수 있다. μ 가 크면
+        필요한 힘은 오히려 줄어든다.
+    - question: |
+        0.5 kg 물체를 5 m/s² 로 들어 올린다. μ = 0.5, 안전율 2 이면 손가락 하나가 눌러야 하는 최소 힘은? (g = 9.81 m/s²)
+      choices:
+        - '약 4.9 N'
+        - '약 7.4 N'
+        - '약 29.6 N'
+        - '약 14.8 N'
+      answer: 3
+      explanation: |
+        F = m(g + a) × S ÷ (2μ) = 0.5 × 14.81 × 2 ÷ 1 ≈ 14.8 N 이다. 4.9 N 은 가속과 안전율을 모두 뺀 값이고, 7.4 N 은 안전율을 뺀 값(또는
+        μ = 1 인 경우)이며, 29.6 N 은 손가락이 둘이라는 2 를 빼먹고 계산한 값이다.
+    - question: |
+        면접관: "물체를 무게중심에서 멀리 떨어진 곳에서 쥐었더니, 미끄러져 떨어지지는 않는데 손가락 사이에서 돌아갑니다. 왜 그런가요?"
+      choices:
+        - 'grip force 가 무게보다 작아서 아래로 미끄러졌기 때문이다'
+        - '무게중심에서 떨어진 거리만큼 gravity 가 grasp 축을 도는 torque 를 만드는데, 이 torque 는 패드의 torsional friction 만 버티고 그 한계가 작기 때문이다'
+        - 'antipodal 조건이 깨져서 손가락 힘이 friction cone 밖으로 나갔기 때문이다'
+        - '무게중심에서 멀수록 μ 가 작아지기 때문이다'
+      answer: 1
+      explanation: |
+        무게중심이 grasp 축에서 d 만큼 떨어지면 gravity 가 m g d 의 torque 를 만든다. point contact 는 이 축을 도는 torque 를 막지 못하고, 패드
+        접촉면 안의 torsional friction 만 버틴다. 둥근 패드 전체에 압력이 고르게 퍼진다고 가정하면 그 한계는 패드 하나에 (2/3)μFR 로 작아서
+        물체가 돈다. 아래로 떨어지지
+        않았으니 마찰 2μF 는 충분하고, antipodal 이나 μ 의 변화와는 관계없다. 그래서 무게중심 가까이를 쥔다.
+
+- topic: epsilon-quality
+  title: Ferrari-Canny ε
+  variants:
+    - question: |
+        면접관: "Ferrari-Canny metric 의 ε 은 무엇을 재나요?"
+      choices:
+        - 'grasp 를 실행했을 때 물체가 들리는 높이'
+        - '두 접촉점 사이의 거리'
+        - '손가락 힘을 1 로 제한했을 때 낼 수 있는 wrench 집합 안에 원점 중심으로 넣을 수 있는 가장 큰 공의 반지름으로, 가장 약한 방향에서 버티는 외부 wrench 의 크기'
+        - '물체의 무게를 grip force 로 나눈 값'
+      answer: 2
+      explanation: |
+        ε 은 primitive wrench 의 convex hull 에서 원점에 가장 가까운 면까지의 거리다. 손가락 힘 1 당 가장 약한 방향에서 버틸 수 있는 외부 wrench
+        의 크기라서 클수록 좋은 grasp 다. 접촉점 거리나 무게 대비 힘은 ε 의 정의가 아니고, 들리는 높이와는 관계없다.
+    - question: |
+        면접관: "어떤 grasp 의 ε 이 0 으로 계산되었습니다. 무엇을 뜻하나요?"
+      choices:
+        - '가장 좋은 grasp 라서 오차가 0 이다'
+        - '원점이 wrench convex hull 의 안쪽에 있지 않아 force closure 가 아니다'
+        - '손가락 힘이 0 이어도 물체를 들 수 있다'
+        - '마찰 계수가 0 이라는 뜻이다'
+      answer: 1
+      explanation: |
+        ε 은 원점에서 convex hull 의 가장 가까운 면까지의 거리라서, 0 이면 원점이 hull 의 안쪽에 있지 않다. 어떤 방향의 외부 wrench 는 낼 수 없으므로
+        force closure 가 아니다. ε 은 클수록 좋은 값이고, μ 가 0 이 아니어도 접촉 배치가 나쁘면 0 이 된다.
+    - question: |
+        면접관: "Dex-Net 이 ε 대신 robust epsilon quality 를 label 로 쓴 이유는 무엇인가요?"
+      choices:
+        - 'ε 은 계산이 불가능해서 대신 사람이 grasp 를 평가했기 때문이다'
+        - 'robust 버전은 gripper 의 최대 힘을 함께 재기 때문이다'
+        - 'ε 은 suction gripper 에만 쓸 수 있기 때문이다'
+        - '실제로는 물체 pose, gripper pose, μ 에 오차가 있으므로, 이들을 무작위로 흔들어 구한 ε 의 기댓값이 실제 성공에 더 가깝기 때문이다'
+      answer: 3
+      explanation: |
+        ε 은 물체 모양, 접촉점, μ 를 정확히 안다고 가정한다. 실제 카메라와 로봇에는 몇 mm 의 오차가 있고 μ 도 모르므로, Dex-Net 은 이 값들을
+        흔들며 ε 의 기댓값을 구해 오차에도 버티는 grasp 를 골랐다. ε 은 계산할 수 있고 parallel-jaw 에도 쓰며, robust 버전이 최대 힘을 재는 것은 아니다.
+
+- topic: data-driven
+  title: 학습 기반 grasp 계획
+  variants:
+    - question: |
+        면접관: "Dex-Net 2.0 의 GQ-CNN 은 무엇을 입력받아 무엇을 내나요?"
+      choices:
+        - 'RGB 사진 한 장을 받아 관절 각도를 바로 낸다'
+        - '후보 grasp 의 중심과 축에 맞춰 자르고 돌린 depth image 조각과 gripper depth 를 받아 그 grasp 의 성공 확률을 낸다'
+        - '물체 이름을 받아 database 에서 미리 계산한 grasp 를 꺼낸다'
+        - 'point cloud 를 받아 물체의 3D mesh 를 복원한다'
+      answer: 1
+      explanation: |
+        GQ-CNN 은 후보마다 depth image 를 grasp 중심에 맞춰 자르고 grasp 축 방향으로 돌린 조각과 gripper depth 를 받아 성공 확률을 낸다. 후보에
+        모두 점수를 매긴 뒤 도달·충돌 조건을 통과한 최고 점수 후보를 실행한다. 관절 각도는 IK 로 구하고, database 에서 grasp 를 꺼내는 것은
+        registration 기반 방법이며, GQ-CNN 은 mesh 를 복원하지 않는다.
+    - question: |
+        면접관: "Dex-Net 2.0 은 학습 데이터 670 만 개를 어떻게 만들었나요?"
+      choices:
+        - 'mesh 1,500 개로 장면을 만들고, grasp 마다 오차를 넣은 analytic 품질(robust ε)을 계산해 label 로 붙이고 depth image 를 렌더링했다'
+        - '여러 대의 로봇으로 몇 달 동안 실제로 집어 보며 성공 여부를 기록했다'
+        - '사람이 사진마다 좋은 grasp 위치를 직접 그려 넣었다'
+        - '인터넷의 사진을 모아 자동으로 분류했다'
+      answer: 0
+      explanation: |
+        Dex-Net 2.0 은 mesh 1,500 개를 책상 위에 무작위로 놓고 antipodal grasp 마다 robust epsilon quality 를 계산해 0.002 를 넘으면 성공으로
+        표시했다. 장면의 depth image 를 렌더링하고 noise 를 넣어 grasp 와 짝지었다. 실제 로봇으로 몇 달 모으는 방식이나 사람의 label 은 비용이 커서
+        피한 방법이고, 인터넷 사진에는 depth 와 grasp label 이 없다.
+    - question: |
+        면접관: "Contact-GraspNet 은 6-DoF grasp 를 어떻게 표현해서 학습을 쉽게 했나요?"
+      choices:
+        - 'grasp 를 위에서 내려가는 planar grasp 로 바꿔 숫자 4 개만 냈다'
+        - '물체마다 class 를 먼저 인식하고 class 별로 grasp 를 저장했다'
+        - '관측한 point cloud 의 점 하나를 접촉점으로 삼고, 점마다 점수·approach·baseline 방향·폭만 내서 점 하나당 4 자유도로 줄였다'
+        - 'grasp 의 rotation 행렬 9 개 숫자를 그대로 regression 했다'
+      answer: 2
+      explanation: |
+        Contact-GraspNet 은 point cloud 의 점을 손가락이 닿을 접촉점 c 로 삼고, 점마다 점수와 방향 a·b, 폭 w 를 낸다. gripper 위치는 t = c +
+        (w ÷ 2) b + d a 로 계산하므로 점 위에서 4 자유도만 맞히면 된다. planar grasp 로 줄이지 않고 6-DoF 를 유지했고 class 를 인식하지도
+        않으며, rotation 행렬을 그대로 regression 하는 방식도 아니다.
+
+- topic: pipeline-failures
+  title: 실행 pipeline 과 실패 원인
+  variants:
+    - question: |
+        면접관: "grasp network 가 낸 최고 점수 grasp 를 바로 실행하지 않고 거치는 단계는 무엇인가요?"
+      choices:
+        - '점수가 가장 낮은 grasp 부터 실행해 실패를 줄인다'
+        - '모든 후보를 동시에 실행해 하나라도 성공하길 기다린다'
+        - '추가 검사 없이 실행하고 실패하면 network 를 다시 학습한다'
+        - 'camera frame 의 grasp 를 robot base frame 으로 옮겨 IK 로 닿는지, 손과 팔이 충돌하지 않는지 검사하고, 통과한 후보를 pre-grasp 를 거쳐 실행한다'
+      answer: 3
+      explanation: |
+        점수가 높아도 팔이 그 pose 에 닿지 않거나 다가가는 길에 부딪히면 쓸 수 없다. 그래서 base frame 으로 옮긴 뒤 점수 순서대로 IK 와 충돌을
+        검사하고, 통과한 후보를 approach 반대 방향으로 물러난 pre-grasp 에서 다가가 실행한다. 나머지 보기는 실제 pipeline 의 동작이 아니다.
+    - question: |
+        면접관: "투명한 컵을 grasp network 로 집으려는데 자주 실패합니다. 가장 먼저 의심할 원인은 무엇인가요?"
+      choices:
+        - 'gripper 의 grip force 가 너무 커서'
+        - '컵이 너무 가벼워서 IK 가 풀리지 않아서'
+        - 'depth 카메라가 투명한 표면 대신 뒤의 배경을 재거나 값이 비어, network 가 틀린 모양을 보고 grasp 를 고르기 때문'
+        - '투명한 물체는 friction cone 이 정의되지 않아서'
+      answer: 2
+      explanation: |
+        투명한 물체는 일반 depth 센서에서 뒤에 있는 면의 noise 섞인 모양으로 보이거나 값이 빈다. grasp network 는 depth 를 보고 grasp 를 고르므로
+        모양이 틀리면 grasp 도 틀린다. ClearGrasp 같은 depth 보정이나 여러 각도 촬영으로 대응한다. 무게와 IK 는 관계없고, friction cone 은 재질과
+        관계없이 정의된다.
+    - question: |
+        면접관: "논문에서 성공률 90% 인 grasp network 를 우리 로봇에 붙이면 성공률이 어떻게 될까요?"
+      choices:
+        - '논문의 성공률은 그 논문의 물체·카메라·gripper·패드에서 잰 값이라, calibration 오차나 패드의 μ 가 다르면 크게 달라질 수 있다'
+        - '같은 network 를 쓰므로 반드시 90% 가 나온다'
+        - 'network 가 클수록 하드웨어와 관계없이 성공률이 오른다'
+        - '실제 로봇은 simulation 보다 늘 정확하므로 90% 보다 높아진다'
+      answer: 0
+      explanation: |
+        성공률은 실험 조건에 묶인 값이다. AnyGrasp 의 실험에서도 물체 종류에 따라 81.5% 에서 100% 까지 달랐다. 카메라와 로봇 사이의 calibration 이
+        몇 mm 틀리거나 손가락 패드의 μ 가 다르면 같은 network 로도 결과가 달라진다. 하드웨어와 무관하게 같은 값이 나오거나 오르는 것은 아니다.

@@ -5,22 +5,24 @@
 </p>
 
 <p align="center">
-  <b>강의 50개</b> · <b>branch 14개</b> · <b>약 133시간</b> · <b>코드 없이 숫자와 그림으로</b>
+  <b>강의 56개</b> · <b>branch 16개</b> · <b>약 145시간</b> · <b>코드 없이 숫자와 그림으로</b>
 </p>
 
 로보틱스 분야에 취업하려는 사람을 위한 독학 커리큘럼이다. vector·미분·확률과 ROS 2 같은 공통 기초에서 출발해 로봇 학습(VLA),
 manipulation, mobile robot·자율주행 세 직무 방향으로 나아가며, 강의마다 개념을 실제 로봇에 쓰는 법과 면접에서 설명하는 법까지
-다루고 면접 질문 형식의 퀴즈로 확인한다. 강의 50개가 선수 관계로 이어져 있고, 이 관계를 가운데에서 세 방향으로 뻗는 지도로 보여
+다루고 면접 질문 형식의 퀴즈로 확인한다. 강의 56개가 선수 관계로 이어져 있고, 이 관계를 가운데에서 세 방향으로 뻗는 지도로 보여
 준다. 코드를 짤 일은 없고, 강의는 처음 배우는 사람 기준으로 숫자 예시부터 한 단계씩 설명한다.
 
 ## 화면 구성
 
 ### 커리큘럼 지도
 
-![커리큘럼 지도. 가운데 Vectors & Matrices 둘레에 Derivatives·Probability·ROS 2 가 모여 있고, 아래로는 Linear Regression 에서 Foundations 줄기가 내려가며 갈라지는 로봇 학습 트리, 왼쪽 위로는 Transforms 에서 MuJoCo 까지 이어지는 manipulation 트리, 오른쪽 위로는 Kalman Filter 에서 SLAM 을 거쳐 path planning·LiDAR perception·자율주행 stack 으로 갈라지는 mobile robot 트리가 뻗는다. 왼쪽 위에는 지금 시작할 수 있는 강의 목록, 왼쪽 아래에는 범례가 있다](docs/map.png)
+![커리큘럼 지도. 가운데 Vectors & Matrices 둘레의 동심원 두 겹에 Derivatives·Probability·ROS 2 와 Transforms·PID·Camera Geometry 가 놓여 있고, 바깥 원에서 점선으로 나뉜 세 구역이 뻗는다. 아래 보라색 구역은 Linear Regression 에서 Foundations 줄기가 내려가며 갈라지는 Robot Learning 트리, 왼쪽 위 청록색 구역은 Forward Kinematics 에서 MuJoCo·Motion Planning·Grasp Planning 으로 이어지는 Manipulation 트리, 오른쪽 위 호박색 구역은 Kalman Filter 에서 SLAM 을 거쳐 path planning·LiDAR perception·자율주행 stack 으로 갈라지는 Mobile Robotics · Autonomous Driving 트리다. 왼쪽 위에는 지금 시작할 수 있는 강의 목록, 왼쪽 아래에는 범례가 있다](docs/map.png)
 
-원 하나가 강의 하나이고, 색은 branch, 모양은 진행 상태(완료·진행 중·시작 가능·선수 강의 남음)를 나타낸다. 가운데에는 모든
-방향의 공통 기초가 모여 있고, 아래는 로봇 학습, 왼쪽 위는 manipulation, 오른쪽 위는 mobile robot·자율주행 트리다. 선은 선수
+원 하나가 강의 하나이고, 색은 branch, 모양은 진행 상태(완료·진행 중·시작 가능·선수 강의 남음)를 나타낸다. 가운데 동심원에는
+세 트리가 함께 쓰는 공통 기초가 부류별로 놓이고(안쪽부터 수학·ROS 2, 좌표 변환·PID·카메라), 가장 바깥 테두리에서 아래로는
+로봇 학습, 왼쪽 위로는 manipulation, 오른쪽 위로는 mobile robot·자율주행 트리가 뻗고, 세 트리의 구역은 점선으로 나뉘어 구역마다
+이름이 적혀 있다. 지도를 멀리서 볼 때는 이름표가 조금 커져 글씨가 읽힌다. 선은 선수
 강의에서 이어지는 강의로 트리 바깥쪽을 향해 흐르고, 다른 트리의 강의를 선수로 둘 때는 흐린 선으로 잇는다. 왼쪽 위 목록은 선수 강의를 모두 마쳐 지금 시작할 수 있는 강의이고, 위쪽 막대는 완료한
 강의 수와 시간이다.
 
@@ -103,7 +105,9 @@ fork 에서는 `progress/` 만 커밋한다. `lessons/` 나 `site/` 를 직접 �
 | Imitation Learning | behavior cloning, DAgger, teleoperation 데이터, RT-1, Diffusion Policy, ACT, 실물 로봇 |
 | Generative Models | VAE, DDPM, flow matching |
 | Reinforcement Learning | bandit·MDP, DQN·SAC, policy gradient, PPO, sim-to-real 보행 |
-| Manipulation | 좌표 변환, kinematics, PID, MuJoCo, 카메라, pick-and-place |
+| Kinematics & Control | 좌표 변환, forward·inverse kinematics, PID, MuJoCo, force·impedance control, ros2_control |
+| Motion Planning | trajectory generation(사다리꼴·S-curve·TOTG), RRT·OMPL·MoveIt 2 motion planning |
+| Perception & Grasping | 카메라 geometry, hand-eye calibration, pick-and-place, grasp planning(friction cone·Dex-Net) |
 | State Estimation | Kalman filter, particle filter, LiDAR SLAM, visual SLAM·VIO |
 | Navigation | costmap·A*·Nav2 path planning, pure pursuit·MPC path tracking |
 | Autonomous Driving | LiDAR perception, 자율주행 stack(Autoware) |

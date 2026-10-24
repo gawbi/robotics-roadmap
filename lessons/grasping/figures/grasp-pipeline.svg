@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>grasp 계획에서 실행까지. depth image 에서 grasp 후보를 만들어 점수로 정렬하고, IK 로 팔이 닿는지와 손과 팔이 다른 물체에 부딪히지 않는지를 검사한 뒤, approach 반대 방향으로 0.1 m 물러난 pre-grasp 에서 내려가 손가락을 닫고 들어 올려 확인한다. 통과하지 못한 후보는 버리고 다음 후보를 본다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="798" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="64.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="105.0" y="94.0" fill="#38bdf8" font-size="13" text-anchor="middle" font-weight="600">depth / point cloud</text>
+  <text x="105.0" y="118.0" fill="#94a3b8" font-size="11" text-anchor="middle">카메라 한 장</text>
+  <rect x="215.0" y="64.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="300.0" y="94.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">grasp 후보</text>
+  <text x="300.0" y="118.0" fill="#94a3b8" font-size="11" text-anchor="middle">sampling 이나 network</text>
+  <rect x="410.0" y="64.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="495.0" y="94.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">점수 정렬</text>
+  <text x="495.0" y="118.0" fill="#94a3b8" font-size="11" text-anchor="middle">GQ-CNN, ε, AnyGrasp 점수</text>
+  <rect x="605.0" y="64.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="690.0" y="94.0" fill="#a78bfa" font-size="13" text-anchor="middle" font-weight="600">IK 도달 검사</text>
+  <text x="690.0" y="118.0" fill="#94a3b8" font-size="11" text-anchor="middle">joint limit 안의 해가 있나</text>
+  <rect x="20.0" y="200.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="105.0" y="230.0" fill="#a78bfa" font-size="13" text-anchor="middle" font-weight="600">충돌 검사</text>
+  <text x="105.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">손·팔이 다른 물체에 닿나</text>
+  <rect x="215.0" y="200.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="300.0" y="230.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">pre-grasp</text>
+  <text x="300.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">approach 반대로 0.1 m 뒤</text>
+  <rect x="410.0" y="200.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="495.0" y="230.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">접근·닫기</text>
+  <text x="495.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">a 방향으로 내려가 닫음</text>
+  <rect x="605.0" y="200.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="690.0" y="230.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">들기·확인</text>
+  <text x="690.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">손가락 간격·무게 확인</text>
+  <line x1="190.0" y1="101.0" x2="213.0" y2="101.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="190.0" y1="237.0" x2="213.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="385.0" y1="101.0" x2="408.0" y2="101.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="385.0" y1="237.0" x2="408.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="580.0" y1="101.0" x2="603.0" y2="101.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="580.0" y1="237.0" x2="603.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <path d="M690.0,138 L690.0,170 L105.0,170 L105.0,198" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="696.0" y="160.0" fill="#94a3b8" font-size="11" text-anchor="middle"></text>
+  <text x="400.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">grasp 계획에서 실행까지</text>
+  <text x="400.0" y="300.0" fill="#64748b" font-size="11.5" text-anchor="middle">통과 못 한 후보는 버리고 다음 점수의 후보를 본다. 모두 탈락하면 다시 찍거나 물체를 밀어 흩뜨린다</text>
+</svg>

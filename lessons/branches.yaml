@@ -1,19 +1,32 @@
 # The curriculum map: the basics at the centre, one tree per job track (robot learning, manipulation, mobile robots and
 # autonomous driving) growing out of them, and the branches inside the trees.
 
-# hub: branches whose lessons sit together at the centre as the basics every tree starts from.
-hub: [math, ros2]
+# hub: the basics every tree starts from, on rings around the start at the centre, innermost first. A ring holds
+# lessons of one kind: whole branches, and single lessons of tree branches that two or more trees build on. A hub
+# lesson's prerequisites sit on its own ring or inside it; the trees start from the outermost ring.
+hub:
+  rings:
+    - branches: [math, ros2]
+    - lessons: [transforms, pid-control, camera-geometry]
 
+# title: the name written in the tree's area of the map, which lines from the hub mark off from the other trees.
+# color: the faint tint of that area.
 # angle: the direction a tree grows from the centre, degrees clockwise from up (0 up, 90 right, 180 down).
 # branches: the tree's branches, laid side by side in this order, clockwise around the centre.
 trees:
   - id: learning
+    title: Robot Learning
+    color: "#a78bfa"
     angle: 180
     branches: [language, vision, generative, core, vla, frontier, imitation, rl]
   - id: manipulation
+    title: Manipulation
+    color: "#2dd4bf"
     angle: 300
-    branches: [robotics]
+    branches: [grasping, kinematics, motion]
   - id: mobile
+    title: Mobile Robotics · Autonomous Driving
+    color: "#fbbf24"
     angle: 60
     branches: [estimation, navigation, driving]
 
@@ -61,10 +74,20 @@ branches:
     summary: 시연 없이 보상만으로 배우는 길. tabular RL 에서 PPO·SAC, sim-to-real 보행까지
     color: "#a3e635"
 
-  - id: robotics
-    title: Manipulation
-    summary: 좌표 변환·kinematics·제어·simulation·카메라. 로봇팔이 목표 자세까지 정확히 움직이는 바탕
+  - id: kinematics
+    title: Kinematics & Control
+    summary: 좌표 변환·kinematics·관절 제어·simulation·ros2_control. 로봇팔이 목표 자세까지 정확히 움직이는 바탕
     color: "#2dd4bf"
+
+  - id: motion
+    title: Motion Planning
+    summary: 속도·가속도 한계를 지키는 trajectory 와 장애물을 피하는 팔의 경로. RRT·OMPL·MoveIt 2
+    color: "#818cf8"
+
+  - id: grasping
+    title: Perception & Grasping
+    summary: 카메라로 물체 위치를 로봇 좌표로 옮기고, 미끄러지지 않게 잡을 자세를 고르는 방법
+    color: "#fb7185"
 
   - id: estimation
     title: State Estimation

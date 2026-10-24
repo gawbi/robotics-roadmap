@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 345" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>자세 수집 조건과 오차의 simulation. 자세를 3, 5, 10, 15, 20 개로 늘리면 translation 오차가 3.57 mm 에서 0.75 mm 로 줄고, 기울이는 범위를 ±5° 에서 ±45° 로 넓히면 6.83 mm 에서 0.77 mm 로 준다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="343" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="70.0" y1="250.0" x2="328.0" y2="250.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="70.0" y1="250.0" x2="70.0" y2="60.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="195.0" y="46.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">자세 수</text>
+  <line x1="104.1" y1="250" x2="104.1" y2="254" stroke="#94a3b8"/>
+  <text x="104.1" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <line x1="126.8" y1="250" x2="126.8" y2="254" stroke="#94a3b8"/>
+  <text x="126.8" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="183.6" y1="250" x2="183.6" y2="254" stroke="#94a3b8"/>
+  <text x="183.6" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">10</text>
+  <line x1="240.5" y1="250" x2="240.5" y2="254" stroke="#94a3b8"/>
+  <text x="240.5" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">15</text>
+  <line x1="297.3" y1="250" x2="297.3" y2="254" stroke="#94a3b8"/>
+  <text x="297.3" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">20</text>
+  <line x1="66" y1="250.0" x2="70" y2="250.0" stroke="#94a3b8"/>
+  <text x="62.0" y="254.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+  <line x1="66" y1="205.0" x2="70" y2="205.0" stroke="#94a3b8"/>
+  <text x="62.0" y="209.0" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <line x1="66" y1="160.0" x2="70" y2="160.0" stroke="#94a3b8"/>
+  <text x="62.0" y="164.0" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <line x1="66" y1="115.0" x2="70" y2="115.0" stroke="#94a3b8"/>
+  <text x="62.0" y="119.0" fill="#64748b" font-size="11" text-anchor="end">6</text>
+  <line x1="66" y1="70.0" x2="70" y2="70.0" stroke="#94a3b8"/>
+  <text x="62.0" y="74.0" fill="#64748b" font-size="11" text-anchor="end">8</text>
+  <text x="320.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="end">자세 수 (±30° 로 기울임)</text>
+  <text x="66.0" y="54.0" fill="#94a3b8" font-size="11" text-anchor="start">translation 오차 (mm)</text>
+  <polyline points="104.1,169.7 126.8,208.6 183.6,223.4 240.5,230.2 297.3,233.1" fill="none" stroke="#38bdf8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="104.1" cy="169.7" r="4" fill="#38bdf8"/>
+  <text x="110.1" y="161.7" fill="#38bdf8" font-size="11" text-anchor="start">3.57</text>
+  <circle cx="126.8" cy="208.6" r="4" fill="#38bdf8"/>
+  <text x="132.8" y="200.6" fill="#38bdf8" font-size="11" text-anchor="start">1.84</text>
+  <circle cx="183.6" cy="223.4" r="4" fill="#38bdf8"/>
+  <text x="189.6" y="215.4" fill="#38bdf8" font-size="11" text-anchor="start">1.18</text>
+  <circle cx="240.5" cy="230.2" r="4" fill="#38bdf8"/>
+  <text x="246.5" y="222.2" fill="#38bdf8" font-size="11" text-anchor="start">0.88</text>
+  <circle cx="297.3" cy="233.1" r="4" fill="#38bdf8"/>
+  <text x="303.3" y="225.1" fill="#38bdf8" font-size="11" text-anchor="start">0.75</text>
+  <line x1="430.0" y1="250.0" x2="688.0" y2="250.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="430.0" y1="250.0" x2="430.0" y2="60.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="555.0" y="46.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">회전 범위</text>
+  <line x1="456.0" y1="250" x2="456.0" y2="254" stroke="#94a3b8"/>
+  <text x="456.0" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">5</text>
+  <line x1="482.1" y1="250" x2="482.1" y2="254" stroke="#94a3b8"/>
+  <text x="482.1" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">10</text>
+  <line x1="534.2" y1="250" x2="534.2" y2="254" stroke="#94a3b8"/>
+  <text x="534.2" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">20</text>
+  <line x1="586.2" y1="250" x2="586.2" y2="254" stroke="#94a3b8"/>
+  <text x="586.2" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">30</text>
+  <line x1="664.4" y1="250" x2="664.4" y2="254" stroke="#94a3b8"/>
+  <text x="664.4" y="268.0" fill="#64748b" font-size="11" text-anchor="middle">45</text>
+  <line x1="426" y1="250.0" x2="430" y2="250.0" stroke="#94a3b8"/>
+  <text x="422.0" y="254.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+  <line x1="426" y1="205.0" x2="430" y2="205.0" stroke="#94a3b8"/>
+  <text x="422.0" y="209.0" fill="#64748b" font-size="11" text-anchor="end">2</text>
+  <line x1="426" y1="160.0" x2="430" y2="160.0" stroke="#94a3b8"/>
+  <text x="422.0" y="164.0" fill="#64748b" font-size="11" text-anchor="end">4</text>
+  <line x1="426" y1="115.0" x2="430" y2="115.0" stroke="#94a3b8"/>
+  <text x="422.0" y="119.0" fill="#64748b" font-size="11" text-anchor="end">6</text>
+  <line x1="426" y1="70.0" x2="430" y2="70.0" stroke="#94a3b8"/>
+  <text x="422.0" y="74.0" fill="#64748b" font-size="11" text-anchor="end">8</text>
+  <text x="680.0" y="286.0" fill="#94a3b8" font-size="11" text-anchor="end">기울이는 범위 ±s° (자세 10 개)</text>
+  <text x="426.0" y="54.0" fill="#94a3b8" font-size="11" text-anchor="start">translation 오차 (mm)</text>
+  <polyline points="456.0,96.3 482.1,173.9 534.2,211.3 586.2,223.7 664.4,232.7" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="456.0" cy="96.3" r="4" fill="#f59e0b"/>
+  <text x="462.0" y="88.3" fill="#f59e0b" font-size="11" text-anchor="start">6.83</text>
+  <circle cx="482.1" cy="173.9" r="4" fill="#f59e0b"/>
+  <text x="488.1" y="165.9" fill="#f59e0b" font-size="11" text-anchor="start">3.38</text>
+  <circle cx="534.2" cy="211.3" r="4" fill="#f59e0b"/>
+  <text x="540.2" y="203.3" fill="#f59e0b" font-size="11" text-anchor="start">1.72</text>
+  <circle cx="586.2" cy="223.7" r="4" fill="#f59e0b"/>
+  <text x="592.2" y="215.7" fill="#f59e0b" font-size="11" text-anchor="start">1.17</text>
+  <circle cx="664.4" cy="232.7" r="4" fill="#f59e0b"/>
+  <text x="670.4" y="224.7" fill="#f59e0b" font-size="11" text-anchor="start">0.77</text>
+  <text x="464.0" y="118.3" fill="#f87171" font-size="11" text-anchor="start">Tsai 는 계산 실패</text>
+  <text x="360.0" y="322.0" fill="#94a3b8" font-size="11" text-anchor="middle">Park 방법, 시행 300 번의 중앙값. 카메라 pose 오차 0.1°·0.5 mm, 로봇 pose 오차 0.01°·0.1 mm 를 가정</text>
+</svg>

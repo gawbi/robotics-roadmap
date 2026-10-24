@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>rotation 오차가 거리만큼 커지는 lever arm. 1° 틀린 X 로 0.5 m 앞 물체를 계산하면 0.5 × tan 1° ≈ 8.7 mm 옆이 나온다. 같은 1° 는 50 mm 받침대 끝에서 0.87 mm 다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="258" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <g transform="translate(80,130)"><rect x="-22" y="-14" width="30" height="28" rx="4" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.8"/><rect x="8" y="-7" width="8" height="14" fill="#38bdf8"/></g>
+  <line x1="96.0" y1="130.0" x2="630.0" y2="130.0" stroke="#34d399" stroke-width="2.2" marker-end="url(#ag)"/>
+  <line x1="96.0" y1="130.0" x2="627.1" y2="74.2" stroke="#f87171" stroke-width="2.2" marker-end="url(#ar)"/>
+  <circle cx="630.0" cy="130" r="6" fill="#34d399"/>
+  <circle cx="627.1" cy="74.2" r="6" fill="none" stroke="#f87171" stroke-width="2.4"/>
+  <line x1="652.0" y1="130.0" x2="652.0" y2="74.2" stroke="#f59e0b" stroke-width="2"/>
+  <text x="660.0" y="106.1" fill="#f59e0b" font-size="14" text-anchor="start" font-weight="600">8.7 mm</text>
+  <path d="M220,130 A124,124 0 0,0 219.3,117.0" fill="none" stroke="#a78bfa" stroke-width="2"/>
+  <text x="230.0" y="120.0" fill="#a78bfa" font-size="13" text-anchor="start">1°</text>
+  <text x="380.0" y="156.0" fill="#34d399" font-size="13" text-anchor="middle">0.5 m</text>
+  <text x="624.0" y="154.0" fill="#34d399" font-size="12" text-anchor="end">실제 물체</text>
+  <text x="621.1" y="62.2" fill="#f87171" font-size="12" text-anchor="end">계산한 위치</text>
+  <text x="360.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="middle">X 의 rotation 이 1° 틀리면 0.5 m 앞 물체는 0.5 × tan 1° ≈ 0.0087 m 옆으로 계산된다</text>
+  <text x="360.0" y="222.0" fill="#94a3b8" font-size="12" text-anchor="middle">같은 1° 라도 카메라 받침대 50 mm 끝에서는 50 × tan 1° ≈ 0.87 mm 만 어긋난다</text>
+  <text x="360.0" y="242.0" fill="#64748b" font-size="11" text-anchor="middle">(그림의 각도는 보기 좋게 6 배 키움)</text>
+</svg>

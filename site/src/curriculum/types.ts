@@ -10,16 +10,33 @@ export interface Branch {
 /** One tree of the map: a group of branches that grows from the starting lesson in one direction. */
 export interface Tree {
   id: string
+  /** the name written in the tree's area of the map */
+  title: string
+  /** the faint tint of the tree's area */
+  color: string
   /** direction the tree grows from the centre of the map, degrees clockwise from up */
   angle: number
   /** its branches, laid side by side in this order, clockwise around the centre */
   branches: string[]
 }
 
+/** One ring of the hub: lessons of one kind. */
+export interface HubRing {
+  /** branches whose lessons all sit on this ring */
+  branches: string[]
+  /** single lessons of tree branches that sit on this ring */
+  lessons: string[]
+}
+
+/** The basics at the centre of the map that every tree starts from. */
+export interface Hub {
+  /** innermost first */
+  rings: HubRing[]
+}
+
 /** lessons/branches.yaml */
 export interface MapSpec {
-  /** branches whose lessons sit together at the centre */
-  hub: string[]
+  hub: Hub
   trees: Tree[]
   branches: Branch[]
 }
@@ -46,7 +63,8 @@ export interface Lesson {
 }
 
 export interface Curriculum {
-  hub: string[]
+  /** hub lesson id -> its ring, 1 for the innermost; the start sits at the centre, ring 0 */
+  hub: Map<string, number>
   trees: Tree[]
   branches: Branch[]
   lessons: Lesson[]

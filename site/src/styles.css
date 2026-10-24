@@ -15,7 +15,7 @@
   --danger: #f87171;
   --success: #4ade80;
   --node-fill: #0b1222;
-  --edge-locked: #2b3854;
+  --edge-locked: #44597f;
   --radius: 12px;
   --font-sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -445,16 +445,28 @@ code {
   cursor: grabbing;
 }
 
+.hg-ring {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 22%, transparent);
+  stroke-width: 1.2;
+}
+
+.hg-ring.is-rim {
+  stroke: color-mix(in srgb, var(--accent) 55%, transparent);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 45%, transparent));
+}
+
 .hg-edge {
   fill: none;
   stroke: var(--edge-locked);
-  stroke-width: 1.6;
+  stroke-width: 2;
   stroke-linecap: round;
   transition: opacity 200ms var(--ease), stroke-width 200ms var(--ease);
 }
 
 .hg-edge.is-open {
-  stroke-opacity: 0.55;
+  stroke-opacity: 0.8;
   stroke-dasharray: 5 5;
 }
 
@@ -592,8 +604,28 @@ code {
   fill: var(--text-dim);
 }
 
-.holygraph[data-far] .hg-node.is-locked:not(.is-selected):not(:hover) .hg-label {
-  opacity: 0;
+.hg-divider {
+  stroke: color-mix(in srgb, var(--accent) 30%, transparent);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+}
+
+
+.hg-sector {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+/* zoomed out, labels grow around their lesson so they stay readable */
+.hg-label,
+.hg-start {
+  transform: scale(var(--label-grow, 1));
 }
 
 /* ---------- lesson panel ---------- */

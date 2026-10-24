@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Dex-Net 2.0 의 grasp 계획. depth image 한 장의 edge 에서 antipodal 후보를 최대 1000 개 뽑고, 후보마다 grasp 중심과 축에 맞춰 자르고 돌린 depth crop 과 gripper depth z 를 약 1,800 만 parameter 의 GQ-CNN 에 넣어 성공 확률 Q 를 구한 뒤, 도달과 충돌 검사를 통과한 최고 점수 후보를 실행한다. GQ-CNN 은 mesh 1,500 개로 만든 합성 데이터 670 만 쌍으로 학습했다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="778" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16.0" y="70.0" width="140.0" height="92.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="86.0" y="104.0" fill="#38bdf8" font-size="13" text-anchor="middle" font-weight="600">depth image</text>
+  <text x="86.0" y="128.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">카메라 한 장</text>
+  <rect x="166.0" y="70.0" width="140.0" height="92.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="236.0" y="104.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">antipodal 후보</text>
+  <text x="236.0" y="128.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">depth edge 의 짝</text>
+  <text x="236.0" y="146.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">최대 1000 개</text>
+  <rect x="316.0" y="70.0" width="140.0" height="92.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="386.0" y="104.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">후보별 crop</text>
+  <text x="386.0" y="128.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">grasp 중심·축에 맞춰</text>
+  <text x="386.0" y="146.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">자르고 돌린 depth</text>
+  <rect x="466.0" y="70.0" width="140.0" height="92.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="536.0" y="104.0" fill="#a78bfa" font-size="13" text-anchor="middle" font-weight="600">GQ-CNN</text>
+  <text x="536.0" y="128.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">약 1,800 만 parameter</text>
+  <rect x="616.0" y="70.0" width="140.0" height="92.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="686.0" y="104.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">실행</text>
+  <text x="686.0" y="128.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">도달·충돌 검사를 통과한</text>
+  <text x="686.0" y="146.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">최고 점수 후보</text>
+  <line x1="156.0" y1="116.0" x2="164.0" y2="116.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="306.0" y1="116.0" x2="314.0" y2="116.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="456.0" y1="116.0" x2="464.0" y2="116.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="606.0" y1="116.0" x2="614.0" y2="116.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="536.0" y="186.0" fill="#a78bfa" font-size="11" text-anchor="middle">+ gripper depth z</text>
+  <text x="536.0" y="204.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">→ 성공 확률 Q</text>
+  <text x="390.0" y="40.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">Dex-Net 2.0 의 grasp 계획</text>
+  <rect x="16.0" y="226.0" width="748.0" height="56.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="390.0" y="248.0" fill="#e2e8f0" font-size="12" text-anchor="middle">학습 데이터: mesh 1,500 개에서 만든 합성 depth image·grasp 670 만 쌍</text>
+  <text x="390.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">label = 위치·마찰 오차를 넣어 구한 robust ε 이 0.002 를 넘으면 성공 (양성 21.2%)</text>
+</svg>

@@ -45,6 +45,15 @@ describe('curriculum', () => {
     for (const p of c.lessons) expect(existsSync(join(ROOT, p.id, 'quiz.yaml')), `${p.id}/quiz.yaml`).toBe(true)
   })
 
+  it('holds no control characters, which a script writing "\\times" as "\\t" leaves in a formula', () => {
+    for (const p of c.lessons) {
+      for (const file of ['README.md', 'quiz.yaml']) {
+        const bad = readFileSync(join(ROOT, p.id, file), 'utf8').match(/[\x00-\x08\x0b-\x1f]/)
+        expect(bad, `${p.id}/${file} has control character U+${bad?.[0].charCodeAt(0).toString(16).padStart(4, '0')}`).toBeNull()
+      }
+    }
+  })
+
   it('writes ranges with spaced tildes, since GitHub strikes through text between two tight ones', () => {
     // code, math and URLs keep their own tildes
     const protectedSpans = /```[\s\S]*?```|`[^`\n]*`|\$\$[\s\S]*?\$\$|\$[^$\n]*\$|\]\([^)\s]*\)|https?:\/\/\S+/g
@@ -113,7 +122,7 @@ describe('curriculum', () => {
   it('grows every tree out of the centre in its own direction, prerequisites first', async () => {
     const layout = await computeLayout(c)
     for (const p of c.lessons) {
-      if (p.requires.length === 0 || c.hub.includes(p.branch)) continue
+      if (p.requires.length === 0 || c.hub.has(p.id)) continue
       const n = layout.nodes.get(p.id)!
       expect(n.tree, p.id).toBe(c.trees.find((t) => t.branches.includes(p.branch))!.id)
       expect(reach(n), p.id).toBeGreaterThan(0)
@@ -128,6 +137,31 @@ describe('curriculum', () => {
     const layout = await computeLayout(c)
     const xs = [...layout.nodes.values()].filter((n) => n.core).map((n) => n.x)
     expect(Math.max(...xs) - Math.min(...xs)).toBeLessThan(1)
+  })
+
+  it('names every tree inside its own area, off the hub', async () => {
+    const layout = await computeLayout(c)
+    expect(layout.sectors.map((r) => r.tree).sort()).toEqual(c.trees.map((t) => t.id).sort())
+    expect(layout.dividers).toHaveLength(c.trees.length)
+    for (const r of layout.sectors) {
+      for (const [dx, dy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) {
+        const [x, y] = [r.x + (dx * r.width) / 2, r.y + (dy * r.height) / 2]
+        const deg = (((Math.atan2(x, -y) * 180) / Math.PI - r.start) % 360 + 360) % 360
+        expect(deg, `${r.tree} name corner`).toBeLessThan(r.end - r.start)
+      }
+      expect(Math.hypot(Math.max(Math.abs(r.x) - r.width / 2, 0), Math.max(Math.abs(r.y) - r.height / 2, 0)), r.tree).toBeGreaterThan(layout.rim)
+    }
+  })
+
+  it('sets every hub lesson on its ring, and every tree outside the rim', async () => {
+    const layout = await computeLayout(c)
+    const outer = layout.rim
+    for (const n of layout.nodes.values()) {
+      const r = Math.hypot(n.x, n.y)
+      const ring = c.hub.get(n.id)
+      if (ring === undefined) expect(r, n.id).toBeGreaterThan(outer)
+      else if (ring > 0) expect(r, n.id).toBeCloseTo(layout.rings[ring - 1], 0)
+    }
   })
 
   it('routes every edge inside a tree around the lessons it does not connect', async () => {

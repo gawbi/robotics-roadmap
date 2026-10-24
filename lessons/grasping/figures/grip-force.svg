@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>grip force. 왼쪽은 0.5 kg 물체를 5 m/s² 로 들어 올릴 때로, 두 손가락의 마찰 2μF 가 무게와 가속에 필요한 힘 7.4 N 에 안전율 2 를 곱한 값을 넘어야 해서 μ = 0.5 면 F 가 14.8 N 이상이다. 오른쪽은 무게중심에서 5 cm 벗어나 쥔 경우로, gravity torque 0.245 N·m 가 패드 두 개의 torsional friction 0.049 N·m 보다 커서 물체가 돈다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="738" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="135" y="125" width="90" height="120" rx="4" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="180.0" y="189.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5 kg</text>
+  <rect x="119" y="135" width="16" height="70" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <rect x="225" y="135" width="16" height="70" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <line x1="55.0" y1="170.0" x2="113.0" y2="170.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#aa)"/>
+  <text x="52.0" y="159.0" fill="#f59e0b" font-size="14" text-anchor="start" font-weight="600">F</text>
+  <line x1="305.0" y1="170.0" x2="247.0" y2="170.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#aa)"/>
+  <text x="308.0" y="159.0" fill="#f59e0b" font-size="14" text-anchor="end" font-weight="600">F</text>
+  <line x1="140.0" y1="205.0" x2="140.0" y2="145.0" stroke="#34d399" stroke-width="2.4" marker-end="url(#ag)"/>
+  <text x="146.0" y="135.0" fill="#34d399" font-size="13" text-anchor="start">μF</text>
+  <line x1="220.0" y1="205.0" x2="220.0" y2="145.0" stroke="#34d399" stroke-width="2.4" marker-end="url(#ag)"/>
+  <text x="214.0" y="135.0" fill="#34d399" font-size="13" text-anchor="end">μF</text>
+  <line x1="180.0" y1="247.0" x2="180.0" y2="297.0" stroke="#f87171" stroke-width="2.4" marker-end="url(#ar)"/>
+  <text x="192.0" y="285.0" fill="#f87171" font-size="12" text-anchor="start">m(g + a) = 7.4 N</text>
+  <text x="180.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">들어 올릴 때의 grip force</text>
+  <text x="180.0" y="60.0" fill="#e2e8f0" font-size="13" text-anchor="middle">2μF ≥ m(g + a) × S</text>
+  <text x="180.0" y="316.0" fill="#38bdf8" font-size="12" text-anchor="middle">μ = 0.5, a = 5 m/s², S = 2 → F ≥ 14.8 N</text>
+  <line x1="370.0" y1="50.0" x2="370.0" y2="320.0" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="555.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">무게중심에서 벗어난 grasp</text>
+  <rect x="420" y="150" width="260" height="44" rx="4" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <rect x="461" y="126" width="18" height="92" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6" fill-opacity="0.85"/>
+  <text x="470.0" y="118.0" fill="#e2e8f0" font-size="11" text-anchor="middle">손가락 패드</text>
+  <circle cx="570" cy="172" r="5" fill="#f87171"/>
+  <text x="570.0" y="142.0" fill="#f87171" font-size="11" text-anchor="middle">무게중심</text>
+  <line x1="470.0" y1="230.0" x2="570.0" y2="230.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#am)"/>
+  <line x1="570.0" y1="230.0" x2="470.0" y2="230.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#am)"/>
+  <text x="520.0" y="248.0" fill="#94a3b8" font-size="12" text-anchor="middle">5 cm</text>
+  <line x1="570.0" y1="177.0" x2="570.0" y2="221.0" stroke="#f87171" stroke-width="2.4" marker-end="url(#ar)"/>
+  <path d="M510,144 A42,42 0 0,1 514,196" fill="none" stroke="#a78bfa" stroke-width="2" marker-end="url(#av)"/>
+  <text x="555.0" y="270.0" fill="#f87171" font-size="12" text-anchor="middle">gravity torque 0.5 × 9.81 × 0.05 = 0.245 N·m</text>
+  <text x="555.0" y="292.0" fill="#a78bfa" font-size="12" text-anchor="middle">패드 두 개의 torsional friction 0.049 N·m (F = 14.8 N)</text>
+  <text x="555.0" y="314.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">버티지 못해 물체가 패드 사이에서 돈다</text>
+</svg>

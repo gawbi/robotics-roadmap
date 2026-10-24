@@ -1,7 +1,7 @@
 ---
 id: pid-control
 title: PID Control
-branch: robotics
+branch: kinematics
 requires: [derivatives]
 hours: 2
 summary: 목표와의 오차를 보고 힘을 고치는 feedback 제어. P·I·D 세 항, 계산 주기와 gain, gravity 와 feedforward, minimum-jerk 목표, 학습한 policy 아래의 저수준 controller

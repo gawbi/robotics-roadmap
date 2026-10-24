@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MoveIt 2 에서 motor 까지. MoveIt 2 가 0.1 초 간격의 점 41 개로 된 4 초짜리 trajectory 를 FollowJointTrajectory action 으로 보내면, joint_trajectory_controller 가 500 Hz 로 점 사이를 보간해 2000 번 명령을 쓰고, hardware interface 가 그 명령을 로봇에 보낸다. joint_state_broadcaster 는 관절 상태를 /joint_states 로 내보낸다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="818" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="40.0" y="30.0" width="300.0" height="70.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="190.0" y="58.0" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">MoveIt 2 (move_group)</text>
+  <text x="190.0" y="80.0" fill="#e2e8f0" font-size="12" text-anchor="middle">4 초 trajectory · 0.1 초 간격 점 41 개</text>
+  <line x1="190.0" y1="102.0" x2="190.0" y2="158.0" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#aa)"/>
+  <text x="200.0" y="124.0" fill="#f59e0b" font-size="12" text-anchor="start">FollowJointTrajectory action</text>
+  <text x="200.0" y="142.0" fill="#94a3b8" font-size="11" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">/arm_controller/follow_joint_trajectory</text>
+  <rect x="25.0" y="160.0" width="770.0" height="200.0" rx="12" fill="#0d1a1a" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="410.0" y="182.0" fill="#34d399" font-size="12.5" text-anchor="middle">ros2_control_node · controller_manager · update_rate 500 Hz (2 ms 마다 read → update → write)</text>
+  <rect x="40.0" y="200.0" width="300.0" height="70.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="190.0" y="226.0" fill="#e2e8f0" font-size="13.5" text-anchor="middle" font-weight="600">joint_trajectory_controller</text>
+  <text x="190.0" y="248.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">점 사이 0.1 초를 50 번 보간 · 오차 검사</text>
+  <rect x="480.0" y="200.0" width="300.0" height="70.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="630.0" y="226.0" fill="#e2e8f0" font-size="13.5" text-anchor="middle" font-weight="600">joint_state_broadcaster</text>
+  <text x="630.0" y="248.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">관절 상태를 읽어 topic 으로</text>
+  <rect x="40.0" y="290.0" width="740.0" height="52.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="410.0" y="314.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">hardware interface (SystemInterface plugin)</text>
+  <text x="410.0" y="333.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">command interface: joint/position  ·  state interface: joint/position, joint/velocity</text>
+  <line x1="190.0" y1="272.0" x2="190.0" y2="288.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
+  <text x="198.0" y="284.0" fill="#34d399" font-size="10.5" text-anchor="start">write</text>
+  <line x1="630.0" y1="288.0" x2="630.0" y2="272.0" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#as)"/>
+  <text x="638.0" y="284.0" fill="#38bdf8" font-size="10.5" text-anchor="start">read</text>
+  <line x1="300.0" y1="362.0" x2="300.0" y2="398.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="330.0" y1="398.0" x2="330.0" y2="362.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="290.0" y="384.0" fill="#94a3b8" font-size="11" text-anchor="end">위치 명령</text>
+  <text x="340.0" y="384.0" fill="#94a3b8" font-size="11" text-anchor="start">각도 · 속도</text>
+  <rect x="160.0" y="400.0" width="320.0" height="50.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="320.0" y="422.0" fill="#e2e8f0" font-size="13" text-anchor="middle">로봇 controller · motor · encoder</text>
+  <text x="320.0" y="440.0" fill="#a78bfa" font-size="11.5" text-anchor="middle">2000 번의 명령 (4 초 × 500 Hz)</text>
+  <line x1="705.0" y1="198.0" x2="705.0" y2="115.0" stroke="#38bdf8" stroke-width="1.6" marker-end="url(#as)"/>
+  <line x1="705.0" y1="115.0" x2="345.0" y2="65.0" stroke="#38bdf8" stroke-width="1.6" marker-end="url(#as)"/>
+  <text x="712.0" y="150.0" fill="#38bdf8" font-size="11.5" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">/joint_states</text>
+</svg>

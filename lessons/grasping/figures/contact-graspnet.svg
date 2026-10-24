@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Contact-GraspNet 의 grasp 표현. point cloud 의 점 하나를 접촉점 c 로 삼고, network 가 점마다 점수 s, approach 방향 a, baseline 방향 b, 폭 w 를 낸다. gripper 위치는 t = c + (w ÷ 2) b + d a 로 정해져 6-DoF 와 폭을 점 하나당 4 자유도로 줄인다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="698" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <polyline points="60.0,250.0 73.0,241.5 86.0,233.1 99.0,225.1 112.0,217.6 125.0,210.7 138.0,204.7 151.0,199.5 164.0,195.4 177.0,192.4 190.0,190.6 203.0,190.0 216.0,190.6 229.0,192.4 242.0,195.4 255.0,199.5 268.0,204.7 281.0,210.7 294.0,217.6 307.0,225.1 320.0,233.1 333.0,241.5 346.0,250.0" fill="none" fill-opacity="1.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="5 4" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="250.0" r="3" fill="#64748b"/>
+  <circle cx="73.0" cy="241.5" r="3" fill="#64748b"/>
+  <circle cx="86.0" cy="233.1" r="3" fill="#64748b"/>
+  <circle cx="99.0" cy="225.1" r="3" fill="#64748b"/>
+  <circle cx="112.0" cy="217.6" r="3" fill="#64748b"/>
+  <circle cx="125.0" cy="210.7" r="3" fill="#64748b"/>
+  <circle cx="138.0" cy="204.7" r="3" fill="#64748b"/>
+  <circle cx="151.0" cy="199.5" r="3" fill="#64748b"/>
+  <circle cx="164.0" cy="195.4" r="3" fill="#64748b"/>
+  <circle cx="177.0" cy="192.4" r="3" fill="#64748b"/>
+  <circle cx="190.0" cy="190.6" r="3" fill="#64748b"/>
+  <circle cx="203.0" cy="190.0" r="3" fill="#64748b"/>
+  <circle cx="216.0" cy="190.6" r="3" fill="#64748b"/>
+  <circle cx="229.0" cy="192.4" r="3" fill="#64748b"/>
+  <circle cx="242.0" cy="195.4" r="3" fill="#64748b"/>
+  <circle cx="255.0" cy="199.5" r="3" fill="#64748b"/>
+  <circle cx="268.0" cy="204.7" r="3" fill="#64748b"/>
+  <circle cx="281.0" cy="210.7" r="3" fill="#64748b"/>
+  <circle cx="294.0" cy="217.6" r="3" fill="#64748b"/>
+  <circle cx="307.0" cy="225.1" r="3" fill="#64748b"/>
+  <circle cx="320.0" cy="233.1" r="3" fill="#64748b"/>
+  <circle cx="333.0" cy="241.5" r="3" fill="#64748b"/>
+  <circle cx="346.0" cy="250.0" r="3" fill="#64748b"/>
+  <circle cx="125.0" cy="210.7" r="6" fill="#f59e0b"/>
+  <text x="115.0" y="232.7" fill="#f59e0b" font-size="12" text-anchor="end">contact c</text>
+  <line x1="125.0" y1="210.7" x2="125.0" y2="120.7" stroke="#e2e8f0" stroke-width="5"/>
+  <line x1="281.0" y1="210.7" x2="281.0" y2="120.7" stroke="#e2e8f0" stroke-width="5"/>
+  <line x1="125.0" y1="120.7" x2="281.0" y2="120.7" stroke="#e2e8f0" stroke-width="5"/>
+  <line x1="203.0" y1="120.7" x2="203.0" y2="80.7" stroke="#e2e8f0" stroke-width="5"/>
+  <line x1="125.0" y1="210.7" x2="281.0" y2="210.7" stroke="#a78bfa" stroke-width="2.2" marker-end="url(#av)"/>
+  <text x="207.0" y="232.7" fill="#a78bfa" font-size="12" text-anchor="start">b (baseline)</text>
+  <circle cx="203.0" cy="120.7" r="5" fill="#34d399"/>
+  <text x="215.0" y="108.7" fill="#34d399" font-size="12" text-anchor="start">t (gripper 기준점)</text>
+  <line x1="203.0" y1="90.7" x2="203.0" y2="150.7" stroke="#38bdf8" stroke-width="2.2" marker-end="url(#as)"/>
+  <text x="195.0" y="84.7" fill="#38bdf8" font-size="12" text-anchor="end">a (approach)</text>
+  <text x="200.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">관측한 점 하나를 접촉점으로 삼는 표현</text>
+  <text x="289.0" y="214.7" fill="#a78bfa" font-size="13" text-anchor="start" font-weight="600">w</text>
+  <line x1="420.0" y1="50.0" x2="420.0" y2="310.0" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="440.0" y="74.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">점마다 network 가 내는 값</text>
+  <text x="440.0" y="102.0" fill="#f59e0b" font-size="12" text-anchor="start">점수 s (이 점이 좋은 접촉인가)</text>
+  <text x="440.0" y="126.0" fill="#38bdf8" font-size="12" text-anchor="start">approach a, baseline b (방향 3 자유도)</text>
+  <text x="440.0" y="150.0" fill="#a78bfa" font-size="12" text-anchor="start">폭 w (10 개 구간 중 하나)</text>
+  <text x="440.0" y="192.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">gripper 위치</text>
+  <text x="440.0" y="220.0" fill="#34d399" font-size="13" text-anchor="start">t = c + (w ÷ 2) b + d a</text>
+  <text x="440.0" y="244.0" fill="#64748b" font-size="11" text-anchor="start">d: baseline 에서 gripper 기준점까지의</text>
+  <text x="440.0" y="260.0" fill="#64748b" font-size="11" text-anchor="start">고정 거리</text>
+  <text x="440.0" y="296.0" fill="#e2e8f0" font-size="12" text-anchor="start">6-DoF + 폭을 점 하나당 4 자유도로 줄인다</text>
+</svg>

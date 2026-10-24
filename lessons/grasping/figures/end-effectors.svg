@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>세 가지 end-effector. parallel-jaw gripper 는 접촉 두 곳을 양쪽에서 눌러 마찰로 버티고(Robotiq 2F-85 는 폭 85 mm, 20 ~ 235 N), suction gripper 는 한 면을 밀폐해 압력 차이로 당기며(지름 30 mm 컵에 60 kPa 이면 42.4 N), multi-finger hand 는 손가락 넷에 관절이 넷씩 달려 물체를 감싸 쥔다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="738" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="16.0" y="20.0" width="228.0" height="284.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="130.0" y="46.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">parallel-jaw gripper</text>
+  <rect x="256.0" y="20.0" width="228.0" height="284.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="370.0" y="46.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">suction gripper</text>
+  <rect x="496.0" y="20.0" width="228.0" height="284.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="610.0" y="46.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">multi-finger hand</text>
+  <rect x="100.0" y="150" width="60" height="60" rx="4" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <rect x="66.0" y="88.0" width="128.0" height="22" rx="5" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <rect x="116.0" y="58.0" width="28" height="30" rx="4" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <rect x="86.0" y="110.0" width="14" height="80" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <rect x="160.0" y="110.0" width="14" height="80" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <line x1="60.0" y1="175.0" x2="82.0" y2="175.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#aa)"/>
+  <line x1="200.0" y1="175.0" x2="178.0" y2="175.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#aa)"/>
+  <text x="130.0" y="240.0" fill="#94a3b8" font-size="12" text-anchor="middle">접촉 두 곳을 양쪽에서 누르고</text>
+  <text x="130.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">마찰로 무게를 버틴다</text>
+  <text x="130.0" y="284.0" fill="#38bdf8" font-size="12" text-anchor="middle">2F-85: 폭 85 mm, 20 ~ 235 N</text>
+  <rect x="320.0" y="170" width="100" height="44" rx="4" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <rect x="362.0" y="88" width="16" height="56" rx="3" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <polygon points="362.0,144.0 344.0,170.0 396.0,170.0 378.0,144.0" fill="#111a2e" fill-opacity="1.0" stroke="#e2e8f0" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="370.0" y1="160.0" x2="370.0" y2="96.0" stroke="#a78bfa" stroke-width="2.0" marker-end="url(#av)"/>
+  <text x="386.0" y="110.0" fill="#a78bfa" font-size="12" text-anchor="start">공기를 뺌</text>
+  <line x1="344.0" y1="170" x2="396.0" y2="170" stroke="#34d399" stroke-width="3"/>
+  <text x="404.0" y="176.0" fill="#34d399" font-size="12" text-anchor="start">seal</text>
+  <text x="370.0" y="240.0" fill="#94a3b8" font-size="12" text-anchor="middle">한 면을 밀폐하고</text>
+  <text x="370.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">압력 차이로 당긴다</text>
+  <text x="370.0" y="284.0" fill="#38bdf8" font-size="12" text-anchor="middle">지름 30 mm, 60 kPa → 42.4 N</text>
+  <rect x="566.0" y="170" width="88" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
+  <polyline points="580.0,170.0 580.0,150.0 580.0,128.0 580.0,100.0" fill="none" fill-opacity="1.0" stroke="#e2e8f0" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="580.0" cy="170.0" r="4" fill="#f59e0b"/>
+  <circle cx="580.0" cy="150.0" r="4" fill="#f59e0b"/>
+  <circle cx="580.0" cy="128.0" r="4" fill="#f59e0b"/>
+  <circle cx="580.0" cy="100.0" r="4" fill="#f59e0b"/>
+  <polyline points="600.0,170.0 600.0,150.0 600.0,128.0 600.0,96.0" fill="none" fill-opacity="1.0" stroke="#e2e8f0" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="600.0" cy="170.0" r="4" fill="#f59e0b"/>
+  <circle cx="600.0" cy="150.0" r="4" fill="#f59e0b"/>
+  <circle cx="600.0" cy="128.0" r="4" fill="#f59e0b"/>
+  <circle cx="600.0" cy="96.0" r="4" fill="#f59e0b"/>
+  <polyline points="620.0,170.0 620.0,150.0 620.0,128.0 620.0,100.0" fill="none" fill-opacity="1.0" stroke="#e2e8f0" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="620.0" cy="170.0" r="4" fill="#f59e0b"/>
+  <circle cx="620.0" cy="150.0" r="4" fill="#f59e0b"/>
+  <circle cx="620.0" cy="128.0" r="4" fill="#f59e0b"/>
+  <circle cx="620.0" cy="100.0" r="4" fill="#f59e0b"/>
+  <polyline points="654.0,196.0 670.0,180.0 678.0,160.0 674.0,140.0" fill="none" fill-opacity="1.0" stroke="#e2e8f0" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="654.0" cy="196.0" r="4" fill="#f59e0b"/>
+  <circle cx="670.0" cy="180.0" r="4" fill="#f59e0b"/>
+  <circle cx="678.0" cy="160.0" r="4" fill="#f59e0b"/>
+  <circle cx="674.0" cy="140.0" r="4" fill="#f59e0b"/>
+  <text x="610.0" y="240.0" fill="#94a3b8" font-size="12" text-anchor="middle">손가락 넷에 관절이 넷씩, 16 관절</text>
+  <text x="610.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">물체를 감싸거나 손 안에서 돌린다</text>
+  <text x="610.0" y="284.0" fill="#38bdf8" font-size="12" text-anchor="middle">자세의 수가 많아 계획이 어렵다</text>
+</svg>

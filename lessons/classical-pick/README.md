@@ -1,7 +1,7 @@
 ---
 id: classical-pick
 title: Classical Pick & Place
-branch: robotics
+branch: grasping
 requires: [mujoco-sim, camera-geometry]
 hours: 3
 summary: 인식·3D 위치·잡기 자세·IK·경로·실행을 사람이 짠 규칙으로 이어 물체를 옮기는 모듈 파이프라인과, end-to-end 학습과 비교한 장단점

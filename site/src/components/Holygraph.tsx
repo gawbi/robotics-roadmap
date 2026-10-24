@@ -123,7 +123,8 @@ export function Holygraph({
       .scaleExtent([CONFIG.zoom.min, CONFIG.zoom.max])
       .on('zoom', (e) => {
         viewportRef.current!.setAttribute('transform', e.transform.toString())
-        svgRef.current!.toggleAttribute('data-far', e.transform.k < CONFIG.zoom.labelMinScale)
+        const grow = Math.min(Math.max(CONFIG.zoom.labelMinPx / (CONFIG.layout.labelFontSize * e.transform.k), 1), CONFIG.zoom.labelMaxGrow)
+        svgRef.current!.style.setProperty('--label-grow', grow.toFixed(3))
       })
     zoomRef.current = z
     svg.call(z).on('dblclick.zoom', null)
@@ -178,8 +179,58 @@ export function Holygraph({
         >
           <path d="M0,1 L9,5 L0,9 Z" fill={coreColor} />
         </marker>
+        {/* each tree's tint is strongest at the rim and fades out toward the edge of the map */}
+        {c.trees.map((t) => (
+          <radialGradient key={t.id} id={`hg-area-${t.id}`} gradientUnits="userSpaceOnUse" cx={0} cy={0} r={layout.reach}>
+            <stop offset={layout.rim / layout.reach} stopColor={t.color} stopOpacity={0.09} />
+            <stop offset={1} stopColor={t.color} stopOpacity={0} />
+          </radialGradient>
+        ))}
+        <radialGradient id="hg-hub" gradientUnits="userSpaceOnUse" cx={0} cy={0} r={layout.rim}>
+          <stop offset={0} stopColor="var(--accent)" stopOpacity={0.1} />
+          <stop offset={1} stopColor="var(--accent)" stopOpacity={0.02} />
+        </radialGradient>
       </defs>
       <g ref={viewportRef}>
+        <g className="hg-rings" aria-hidden="true">
+          {layout.sectors.map((r) => {
+            const at = (radius: number, deg: number) => {
+              const a = (deg * Math.PI) / 180
+              return `${(radius * Math.sin(a)).toFixed(1)},${(-radius * Math.cos(a)).toFixed(1)}`
+            }
+            // the tint runs far past the map so its outer edge never shows
+            const [inner, outer] = [layout.rim, layout.reach * 4]
+            const large = r.end - r.start > 180 ? 1 : 0
+            return (
+              <path
+                key={r.tree}
+                className="hg-area"
+                fill={`url(#hg-area-${r.tree})`}
+                d={`M${at(inner, r.start)}L${at(outer, r.start)}A${outer},${outer} 0 ${large} 1 ${at(outer, r.end)}L${at(inner, r.end)}A${inner},${inner} 0 ${large} 0 ${at(inner, r.start)}Z`}
+              />
+            )
+          })}
+          {layout.dividers.map((d, i) => (
+            <line key={i} x1={d.from.x} y1={d.from.y} x2={d.to.x} y2={d.to.y} className="hg-divider" />
+          ))}
+          <circle r={layout.rim} className="hg-hub" fill="url(#hg-hub)" />
+          {layout.rings.map((r) => (
+            <circle key={r} r={r} className={`hg-ring ${r === layout.rim ? 'is-rim' : ''}`} />
+          ))}
+        </g>
+        <g className="hg-sectors" aria-hidden="true">
+          {layout.sectors.map((r) => (
+            <g key={r.tree} transform={`translate(${r.x},${r.y})`}>
+              <text className="hg-sector" textAnchor="middle" dominantBaseline="central" fill={c.trees.find((t) => t.id === r.tree)!.color}>
+                {r.lines.map((line, i) => (
+                  <tspan key={i} x={0} y={(i - (r.lines.length - 1) / 2) * CONFIG.sector.lineHeight}>
+                    {line}
+                  </tspan>
+                ))}
+              </text>
+            </g>
+          ))}
+        </g>
         <g className="hg-edges" aria-hidden="true">
           {layout.edges.map((e) => {
             const from = states.get(e.from)!

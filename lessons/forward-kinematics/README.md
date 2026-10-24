@@ -1,7 +1,7 @@
 ---
 id: forward-kinematics
 title: Forward Kinematics
-branch: robotics
+branch: kinematics
 requires: [transforms]
 hours: 3
 summary: 관절 각도에서 손끝 위치를 구하는 forward kinematics 와 로봇의 모양을 적는 URDF

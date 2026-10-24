@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>URDF 의 ros2_control tag. hardware 의 plugin 한 줄만 바꾸면 같은 관절과 interface 정의로 실제 로봇 driver, mock_components/GenericSystem, Gazebo 의 GazeboSimSystem, MuJoCo 의 MujocoSystemInterface 를 고를 수 있다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="818" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="25.0" y="25.0" width="420.0" height="330.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="45.0" y="52.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;ros2_control name="Arm" type="system"&gt;</text>
+  <text x="63.0" y="74.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;hardware&gt;</text>
+  <text x="81.0" y="96.0" fill="#f59e0b" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;plugin&gt; ? &lt;/plugin&gt;</text>
+  <text x="81.0" y="118.0" fill="#94a3b8" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;param name="robot_ip"&gt;…&lt;/param&gt;</text>
+  <text x="63.0" y="140.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;/hardware&gt;</text>
+  <text x="63.0" y="162.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;joint name="joint1"&gt;</text>
+  <text x="81.0" y="184.0" fill="#34d399" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;command_interface name="position"&gt;</text>
+  <text x="99.0" y="206.0" fill="#94a3b8" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;param name="min"&gt;-3.14&lt;/param&gt;</text>
+  <text x="99.0" y="228.0" fill="#94a3b8" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;param name="max"&gt;3.14&lt;/param&gt;</text>
+  <text x="81.0" y="250.0" fill="#34d399" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;/command_interface&gt;</text>
+  <text x="81.0" y="272.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;state_interface name="position"/&gt;</text>
+  <text x="81.0" y="294.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;state_interface name="velocity"/&gt;</text>
+  <text x="63.0" y="316.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;/joint&gt;</text>
+  <text x="45.0" y="338.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">&lt;/ros2_control&gt;</text>
+  <rect x="500.0" y="40.0" width="300.0" height="62.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="515.0" y="64.0" fill="#a78bfa" font-size="13" text-anchor="start" font-weight="600">실제 로봇</text>
+  <text x="515.0" y="86.0" fill="#e2e8f0" font-size="10.5" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">ur_robot_driver/URPositionHardwareInterface</text>
+  <line x1="498.0" y1="71.0" x2="330.0" y2="96.0" stroke="#a78bfa" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <rect x="500.0" y="118.0" width="300.0" height="62.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="515.0" y="142.0" fill="#38bdf8" font-size="13" text-anchor="start" font-weight="600">mock</text>
+  <text x="515.0" y="164.0" fill="#e2e8f0" font-size="10.5" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">mock_components/GenericSystem</text>
+  <line x1="498.0" y1="149.0" x2="330.0" y2="96.0" stroke="#38bdf8" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <rect x="500.0" y="196.0" width="300.0" height="62.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="515.0" y="220.0" fill="#34d399" font-size="13" text-anchor="start" font-weight="600">Gazebo</text>
+  <text x="515.0" y="242.0" fill="#e2e8f0" font-size="10.5" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">gz_ros2_control/GazeboSimSystem</text>
+  <line x1="498.0" y1="227.0" x2="330.0" y2="96.0" stroke="#34d399" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <rect x="500.0" y="274.0" width="300.0" height="62.0" rx="8" fill="#111a2e" stroke="#f472b6" stroke-width="1.5"/>
+  <text x="515.0" y="298.0" fill="#f472b6" font-size="13" text-anchor="start" font-weight="600">MuJoCo</text>
+  <text x="515.0" y="320.0" fill="#e2e8f0" font-size="10.5" text-anchor="start" font-family="'JetBrains Mono', Menlo, Consolas, monospace">mujoco_ros2_control/MujocoSystemInterface</text>
+  <line x1="498.0" y1="305.0" x2="330.0" y2="96.0" stroke="#f472b6" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="650.0" y="360.0" fill="#94a3b8" font-size="12" text-anchor="middle">plugin 한 줄만 바뀌고 controller 설정은 그대로</text>
+</svg>

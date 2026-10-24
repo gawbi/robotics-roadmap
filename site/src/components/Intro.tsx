@@ -36,8 +36,8 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
       </p>
       <ol className="intro-steps">
         <li>
-          <strong>가운데 원에서 출발</strong>
-          <span>아래는 robot learning, 왼쪽 위는 manipulation, 오른쪽 위는 mobile robot·자율주행 트리입니다. 지원하는 직무의 트리를 따라 바깥으로 읽어 나갑니다.</span>
+          <strong>가운데 동심원에서 출발</strong>
+          <span>세 트리가 함께 쓰는 수학·ROS 2·좌표 변환·제어 기초가 가운데 동심원에 있습니다. 그 바깥으로 아래는 robot learning, 왼쪽 위는 manipulation, 오른쪽 위는 mobile robot·자율주행 트리가 뻗고, 지원하는 직무의 트리를 따라 읽어 나갑니다.</span>
         </li>
         <li>
           <strong>원을 눌러 강의 읽기</strong>

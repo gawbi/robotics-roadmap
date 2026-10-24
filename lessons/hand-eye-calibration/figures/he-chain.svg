@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>eye-in-hand 의 transform 사슬. base 에서 gripper 까지는 FK 로, camera 에서 calibration target 까지는 marker pose 로 알지만, gripper 에서 camera 까지의 X 는 모른다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="84" y="300" width="52" height="16" rx="3" fill="#1e293b" stroke="#94a3b8"/>
+  <polyline points="110.0,300.0 161.3,159.0 297.2,222.4 300.4,258.3" fill="none" stroke="#94a3b8" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="110.0,300.0 161.3,159.0 297.2,222.4 300.4,258.3" fill="none" stroke="#0b1220" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="110.0" cy="300.0" r="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="161.3" cy="159.0" r="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="297.2" cy="222.4" r="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
+  <polyline points="291.4,259.1 292.8,275.0" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="309.4,257.5 310.7,273.5" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="290.4,259.2 310.3,257.4" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <g transform="translate(314.9,240.8) rotate(85.0)"><rect x="-11" y="-8" width="22" height="16" rx="3" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.8"/><rect x="11" y="-4" width="5" height="8" fill="#38bdf8"/></g>
+  <line x1="40" y1="316" x2="680" y2="316" stroke="#334155" stroke-width="2"/>
+  <rect x="465.0" y="306.0" width="110" height="7" fill="#e2e8f0"/>
+  <rect x="469.0" y="307.0" width="13.8" height="5" fill="#0b1220"/>
+  <rect x="496.5" y="307.0" width="13.8" height="5" fill="#0b1220"/>
+  <rect x="524.0" y="307.0" width="13.8" height="5" fill="#0b1220"/>
+  <rect x="551.5" y="307.0" width="13.8" height="5" fill="#0b1220"/>
+  <text x="520.0" y="344.0" fill="#94a3b8" font-size="12" text-anchor="middle">calibration target (책상에 고정)</text>
+  <line x1="110.0" y1="308.0" x2="140.0" y2="308.0" stroke="#f87171" stroke-width="2.2"/>
+  <line x1="110.0" y1="308.0" x2="110.0" y2="278.0" stroke="#34d399" stroke-width="2.2"/>
+  <circle cx="110.0" cy="308.0" r="3" fill="#e2e8f0"/>
+  <text x="110.0" y="345.0" fill="#e2e8f0" font-size="12" text-anchor="middle">base</text>
+  <text x="302.4" y="304.3" fill="#e2e8f0" font-size="12" text-anchor="middle">gripper</text>
+  <text x="334.9" y="248.8" fill="#38bdf8" font-size="12" text-anchor="start">camera</text>
+  <path d="M132,296 Q220,302 286.3867962932635,278.30185527452153" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#am)"/>
+  <text x="180.0" y="345.0" fill="#94a3b8" font-size="12" text-anchor="start">T_base,grip (FK 로 계산)</text>
+  <path d="M306.3867962932635,252.30185527452153 Q330.3867962932635,206.30185527452153 326.9139884302194,228.7690092814727" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#aa)"/>
+  <text x="344.9" y="194.8" fill="#f59e0b" font-size="14" text-anchor="start" font-weight="600">X = T_grip,cam</text>
+  <text x="344.9" y="212.8" fill="#f59e0b" font-size="11" text-anchor="start">모르는 값</text>
+  <path d="M318.9139884302194,256.7690092814727 Q354.9139884302194,304 460,298" fill="none" stroke="#38bdf8" stroke-width="2" marker-end="url(#as)"/>
+  <text x="510.0" y="246.0" fill="#38bdf8" font-size="13" text-anchor="start">T_cam,target</text>
+  <text x="510.0" y="264.0" fill="#64748b" font-size="11" text-anchor="start">marker pose (PnP)</text>
+  <text x="360.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">T_base,target = T_base,grip · X · T_cam,target</text>
+</svg>

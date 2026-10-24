@@ -1,7 +1,7 @@
 ---
 id: mujoco-sim
 title: MuJoCo Simulation
-branch: robotics
+branch: kinematics
 requires: [inverse-kinematics, pid-control]
 hours: 3
 summary: 물리 simulator 가 step 마다 하는 계산과 모델 파일·접촉·마찰·timestep·actuator, 그리고 simulation 과 현실의 차이

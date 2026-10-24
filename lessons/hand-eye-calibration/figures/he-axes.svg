@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>회전 축의 짝. gripper 가 x 축과 y 축으로 30° 씩 돈 두 움직임을 camera 는 (0, −1, 0) 축과 (1, 0, 0) 축의 30° 회전으로 본다. 축의 짝 a = R_X b 두 개가 R_X 를 정한다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="360.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">같은 각도, 다른 좌표로 적힌 회전 축</text>
+  <line x1="150.0" y1="220.0" x2="220.0" y2="220.0" stroke="#64748b" stroke-width="2"/>
+  <line x1="150.0" y1="220.0" x2="181.5" y2="195.5" stroke="#64748b" stroke-width="2"/>
+  <line x1="150.0" y1="220.0" x2="150.0" y2="150.0" stroke="#64748b" stroke-width="2"/>
+  <text x="150.0" y="144.0" fill="#64748b" font-size="12" text-anchor="middle">z_g</text>
+  <line x1="150.0" y1="220.0" x2="262.0" y2="220.0" stroke="#f59e0b" stroke-width="3" marker-end="url(#aa)"/>
+  <text x="268.0" y="238.0" fill="#f59e0b" font-size="13" text-anchor="start">a₁ = (1, 0, 0)</text>
+  <line x1="150.0" y1="220.0" x2="206.7" y2="175.9" stroke="#34d399" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="212.7" y="171.9" fill="#34d399" font-size="13" text-anchor="start">a₂ = (0, 1, 0)</text>
+  <text x="150.0" y="300.0" fill="#e2e8f0" font-size="12" text-anchor="middle">gripper 의 회전 축 (FK 로 계산)</text>
+  <text x="150.0" y="320.0" fill="#94a3b8" font-size="12" text-anchor="middle">두 움직임 모두 30°</text>
+  <line x1="520.0" y1="220.0" x2="590.0" y2="220.0" stroke="#64748b" stroke-width="2"/>
+  <line x1="520.0" y1="220.0" x2="551.5" y2="195.5" stroke="#64748b" stroke-width="2"/>
+  <text x="559.5" y="189.5" fill="#64748b" font-size="12" text-anchor="start">y_c</text>
+  <line x1="520.0" y1="220.0" x2="520.0" y2="150.0" stroke="#64748b" stroke-width="2"/>
+  <text x="520.0" y="144.0" fill="#64748b" font-size="12" text-anchor="middle">z_c</text>
+  <line x1="520.0" y1="220.0" x2="466.4" y2="261.6" stroke="#f59e0b" stroke-width="3" marker-end="url(#aa)"/>
+  <text x="460.4" y="279.6" fill="#f59e0b" font-size="13" text-anchor="end">b₁ = (0, −1, 0)</text>
+  <line x1="520.0" y1="220.0" x2="632.0" y2="220.0" stroke="#34d399" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="638.0" y="238.0" fill="#34d399" font-size="13" text-anchor="start">b₂ = (1, 0, 0)</text>
+  <text x="560.0" y="300.0" fill="#e2e8f0" font-size="12" text-anchor="middle">camera 의 회전 축 (target pose 로 계산)</text>
+  <text x="560.0" y="320.0" fill="#94a3b8" font-size="12" text-anchor="middle">각도는 똑같이 30°</text>
+  <path d="M430,110 Q340,70 250,110" fill="none" stroke="#a78bfa" stroke-width="2.4" marker-end="url(#av)"/>
+  <text x="340.0" y="74.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="600">a = R_X b</text>
+  <text x="340.0" y="132.0" fill="#94a3b8" font-size="12" text-anchor="middle">축 두 쌍이 R_X 를 하나로 정한다</text>
+</svg>

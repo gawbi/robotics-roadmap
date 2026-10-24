@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MoveIt 2 가 trajectory 를 실행하는 순서. 시작점이 현재 관절 각도와 0.01 rad 안인지 확인하고, FollowJointTrajectory goal 을 보낸 뒤, joint_trajectory_controller 가 4 초 동안 실행해 result 를 돌려준다. MoveIt 2 는 4 × 1.1 + 0.5 = 4.9 초가 지나도 result 가 없으면 cancel 한다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="818" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="25.0" width="220.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="130.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">MoveIt 2</text>
+  <line x1="130.0" y1="67.0" x2="130.0" y2="380.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <rect x="300.0" y="25.0" width="220.0" height="40.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">joint_trajectory_controller</text>
+  <line x1="410.0" y1="67.0" x2="410.0" y2="380.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <rect x="580.0" y="25.0" width="220.0" height="40.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="690.0" y="50.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">hardware · 로봇</text>
+  <line x1="690.0" y1="67.0" x2="690.0" y2="380.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <rect x="30.0" y="82.0" width="200.0" height="44.0" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="130.0" y="100.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">시작점 − 현재 각도</text>
+  <text x="130.0" y="117.0" fill="#f59e0b" font-size="11.5" text-anchor="middle">≤ 0.01 rad 인지 확인</text>
+  <line x1="132.0" y1="145.0" x2="406.0" y2="145.0" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#aa)"/>
+  <text x="270.0" y="138.0" fill="#f59e0b" font-size="11.5" text-anchor="middle">goal (trajectory, tolerance)</text>
+  <line x1="408.0" y1="168.0" x2="134.0" y2="168.0" stroke="#34d399" stroke-width="1.6" marker-end="url(#ag)"/>
+  <text x="270.0" y="162.0" fill="#34d399" font-size="11" text-anchor="middle">accepted</text>
+  <rect x="400.0" y="182.0" width="20.0" height="150.0" rx="4" fill="#0d2a20" stroke="#34d399" stroke-width="1.5"/>
+  <line x1="422.0" y1="192.0" x2="686.0" y2="192.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="201.0" x2="422.0" y2="201.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="214.0" x2="686.0" y2="214.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="223.0" x2="422.0" y2="223.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="236.0" x2="686.0" y2="236.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="245.0" x2="422.0" y2="245.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="258.0" x2="686.0" y2="258.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="267.0" x2="422.0" y2="267.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="280.0" x2="686.0" y2="280.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="289.0" x2="422.0" y2="289.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="302.0" x2="686.0" y2="302.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="311.0" x2="422.0" y2="311.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <line x1="422.0" y1="324.0" x2="686.0" y2="324.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#am)"/>
+  <line x1="686.0" y1="333.0" x2="422.0" y2="333.0" stroke="#38bdf8" stroke-width="1" marker-end="url(#as)"/>
+  <text x="555.0" y="186.0" fill="#94a3b8" font-size="11" text-anchor="middle">2 ms 마다 write / read</text>
+  <text x="300.0" y="230.0" fill="#34d399" font-size="11.5" text-anchor="middle">4 초 동안 보간·검사</text>
+  <line x1="408.0" y1="345.0" x2="134.0" y2="345.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
+  <text x="270.0" y="339.0" fill="#34d399" font-size="11.5" text-anchor="middle">result: SUCCESSFUL (0)</text>
+  <rect x="30.0" y="182.0" width="200.0" height="70.0" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="130.0" y="202.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">실행 시간 감시</text>
+  <text x="130.0" y="222.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">4 × 1.1 + 0.5 = 4.9 초</text>
+  <text x="130.0" y="240.0" fill="#94a3b8" font-size="11" text-anchor="middle">넘으면 cancel</text>
+  <text x="410.0" y="400.0" fill="#94a3b8" font-size="12" text-anchor="middle">실행 중에는 joint_state_broadcaster 의 /joint_states 로 현재 각도를 받는다</text>
+</svg>

@@ -1,7 +1,7 @@
 ---
 id: camera-geometry
 title: Camera Geometry
-branch: robotics
+branch: grasping
 requires: [transforms]
 hours: 3
 summary: 3D 점이 pixel 에 찍히는 계산과 calibration·homography·marker pose, 카메라 한 대로 거리를 모르는 이유

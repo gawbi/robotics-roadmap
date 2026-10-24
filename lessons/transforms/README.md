@@ -1,7 +1,7 @@
 ---
 id: transforms
 title: Rigid Transforms
-branch: robotics
+branch: kinematics
 requires: [vectors-matrices]
 hours: 3
 summary: 점을 돌리고 옮기는 계산을 2D 의 작은 숫자로 익힌 뒤 3D 의 rotation matrix·homogeneous transform·quaternion 으로 넓힌다

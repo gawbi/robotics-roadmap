@@ -52,9 +52,31 @@ export interface Edge {
   bridge: boolean
 }
 
+/** A tree's area of the map: the wedge from angle `start` clockwise to `end`, and its name centred on x, y, broken
+ * into lines at " · ". */
+export interface Sector {
+  tree: string
+  lines: string[]
+  x: number
+  y: number
+  width: number
+  height: number
+  start: number
+  end: number
+}
+
 export interface Layout {
   nodes: Map<string, NodePos>
   edges: Edge[]
+  /** radii of the hub's rings around the start, innermost first */
+  rings: number[]
+  /** radius of the outermost ring, which the trees grow from */
+  rim: number
+  /** each tree's area and the lines from the rim that mark the areas off */
+  sectors: Sector[]
+  dividers: { from: Point; to: Point }[]
+  /** how far the dividers and the areas reach from the centre */
+  reach: number
   /** everything drawn, in graph coordinates */
   bounds: Box
 }
@@ -155,8 +177,8 @@ function treeCurve(stops: Point[], map: (p: Point) => Point): { path: string; po
  * start, so it still grows out of the centre. */
 export function treeCurriculum(c: Curriculum, t: Tree): { curriculum: Curriculum; hung: Set<string> } {
   const root = c.lessons.find((p) => p.requires.length === 0)!
-  const inTree = (id: string) => id === root.id || t.branches.includes(c.byId.get(id)!.branch)
-  const inHub = (id: string) => id === root.id || c.hub.includes(c.byId.get(id)!.branch)
+  const inTree = (id: string) => id === root.id || (!c.hub.has(id) && t.branches.includes(c.byId.get(id)!.branch))
+  const inHub = (id: string) => id === root.id || c.hub.has(id)
   const hung = new Set<string>()
   const lessons = c.lessons
     .filter((p) => inTree(p.id))
@@ -186,32 +208,61 @@ function turnedBox(box: Box, t: Tree): Box {
 }
 
 /**
- * The hub sits around the start at the centre. A hub lesson's ring is its longest prerequisite chain inside the hub, and
- * on its ring it faces the trees whose lessons it opens (the mean of their directions; up, between the upper trees, when
- * it opens none yet). Neighbours whose labels touch turn apart, and a ring too crowded for that moves outward.
+ * The hub sits around the start at the centre, on the rings branches.yaml gives. On its ring a lesson faces the trees it
+ * leads to: the sum of one step toward its tree for every tree lesson it opens, plus
+ * what each hub lesson it opens leads to. A lesson whose trees cancel out (or that leads nowhere yet) faces the way its
+ * prerequisites face, so a chain stays in one line, and the core chain all faces the way its first lesson does.
+ * Neighbours whose labels touch turn apart, keeping a chain on one ring in prerequisite order, and a ring too crowded
+ * for that moves outward.
  */
-function placeHub(c: Curriculum, boxOf: (id: string) => Box): Map<string, Point> {
+function placeHub(c: Curriculum, boxOf: (id: string) => Box): { at: Map<string, Point>; rings: number[] } {
   const root = c.lessons.find((p) => p.requires.length === 0)!
-  const members = c.lessons.filter((p) => p.id === root.id || c.hub.includes(p.branch))
+  const members = c.lessons.filter((p) => p.id === root.id || c.hub.has(p.id))
   const isMember = new Set(members.map((p) => p.id))
-  const ring = new Map<string, number>()
-  const ringOf = (id: string): number => {
-    if (!ring.has(id)) ring.set(id, id === root.id ? 0 : Math.max(0, ...c.byId.get(id)!.requires.filter((q) => isMember.has(q)).map((q) => ringOf(q) + 1)))
-    return ring.get(id)!
-  }
-  members.forEach((p) => ringOf(p.id))
+  const ring = new Map(members.map((p) => [p.id, p.id === root.id ? 0 : c.hub.get(p.id)!]))
   const treeAngle = new Map(c.trees.flatMap((t) => t.branches.map((b) => [b, t.angle] as const)))
-  const facing = (id: string) => {
-    const angles = (c.unlocks.get(id) ?? []).flatMap((u) => (treeAngle.has(c.byId.get(u)!.branch) ? [treeAngle.get(c.byId.get(u)!.branch)!] : []))
-    if (!angles.length) return 0
-    const x = angles.reduce((a, d) => a + Math.sin((d * Math.PI) / 180), 0)
-    const y = angles.reduce((a, d) => a + Math.cos((d * Math.PI) / 180), 0)
-    return ((Math.atan2(x, y) * 180) / Math.PI + 360) % 360
+  // the sum of the steps, and how many steps went into it
+  const pull = new Map<string, Point & { n: number }>()
+  const pullOf = (id: string): Point & { n: number } => {
+    if (!pull.has(id)) {
+      const sum = { x: 0, y: 0, n: 0 }
+      for (const u of c.unlocks.get(id) ?? []) {
+        const v = isMember.has(u) ? pullOf(u) : { ...turn({ x: 0, y: -1 }, treeAngle.get(c.byId.get(u)!.branch)!), n: 1 }
+        sum.x += v.x
+        sum.y += v.y
+        sum.n += v.n
+      }
+      pull.set(id, sum)
+    }
+    return pull.get(id)!
+  }
+  const faced = new Map<string, number>([[root.id, 0]])
+  const isCore = (id: string) => c.branches.find((b) => b.id === c.byId.get(id)!.branch)!.core
+  const coreHead = members.find((p) => isCore(p.id) && !p.requires.some((q) => isMember.has(q) && isCore(q)))
+  const facing = (id: string): number => {
+    if (coreHead && id !== coreHead.id && isCore(id)) return facing(coreHead.id)
+    if (!faced.has(id)) {
+      const v = pullOf(id)
+      const prereqs = c.byId.get(id)!.requires.filter((q) => isMember.has(q) && q !== root.id)
+      faced.set(
+        id,
+        Math.hypot(v.x, v.y) > L.hubPullAgreement * v.n || !prereqs.length
+          ? ((Math.atan2(v.x, -v.y) * 180) / Math.PI + 360) % 360
+          : facing(prereqs[0]),
+      )
+    }
+    return faced.get(id)!
   }
 
   const at = new Map<string, Point>([[root.id, { x: 0, y: 0 }]])
+  // the hub is packed tight, so its labels keep apart at the size they grow to when the map is zoomed out
+  const grown = (id: string): Box => {
+    const b = boxOf(id)
+    const k = CONFIG.zoom.labelMaxGrow
+    return { left: b.left * k, right: b.right * k, top: b.top * k, bottom: b.bottom * k }
+  }
   const touch = (a: string, b: string) => {
-    const [pa, pb, ba, bb] = [at.get(a)!, at.get(b)!, boxOf(a), boxOf(b)]
+    const [pa, pb, ba, bb] = [at.get(a)!, at.get(b)!, grown(a), grown(b)]
     const g = L.treeGap
     return (
       pa.x + ba.left < pb.x + bb.right + g &&
@@ -220,11 +271,20 @@ function placeHub(c: Curriculum, boxOf: (id: string) => Box): Map<string, Point>
       pb.y + bb.top < pa.y + ba.bottom + g
     )
   }
-  const rings = Math.max(0, ...ring.values())
-  for (let r = 1; r <= rings; r++) {
-    const ids = members.filter((p) => ring.get(p.id) === r).map((p) => p.id)
+  const rings: number[] = []
+  for (let r = 1; r <= Math.max(0, ...ring.values()); r++) {
+    // lessons facing the same way keep their prerequisites first, so a chain spreads along the ring in order
+    const depth = new Map<string, number>()
+    const depthOf = (id: string): number => {
+      if (!depth.has(id)) depth.set(id, Math.max(0, ...c.byId.get(id)!.requires.filter((q) => ring.get(q) === r).map((q) => depthOf(q) + 1)))
+      return depth.get(id)!
+    }
+    const ids = members
+      .filter((p) => ring.get(p.id) === r)
+      .map((p) => p.id)
+      .sort((a, b) => facing(a) - facing(b) || depthOf(a) - depthOf(b))
     const angle = new Map(ids.map((id) => [id, facing(id)]))
-    for (let radius = r * L.hubRing; ; radius += L.pushStep) {
+    for (let radius = (rings.at(-1) ?? 0) + L.hubRing; ; radius += L.pushStep) {
       const set = () => ids.forEach((id) => at.set(id, turn({ x: 0, y: -radius }, angle.get(id)!)))
       set()
       for (let round = 0; round < L.pushRounds; round++) {
@@ -243,10 +303,13 @@ function placeHub(c: Curriculum, boxOf: (id: string) => Box): Map<string, Point>
         if (!moved) break
       }
       const inner = members.filter((p) => ring.get(p.id)! < r).map((p) => p.id)
-      if (ids.every((a, i) => ids.slice(i + 1).every((b) => !touch(a, b)) && inner.every((b) => !touch(a, b)))) break
+      if (ids.every((a, i) => ids.slice(i + 1).every((b) => !touch(a, b)) && inner.every((b) => !touch(a, b)))) {
+        rings.push(radius)
+        break
+      }
     }
   }
-  return at
+  return { at, rings }
 }
 
 interface TreeDraft {
@@ -366,7 +429,7 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
   const isCore = (id: string) => core.has(c.byId.get(id)!.branch)
   const root = c.lessons.find((p) => p.requires.length === 0)!
   const treeOfBranch = new Map(c.trees.flatMap((t) => t.branches.map((b) => [b, t] as const)))
-  const treeOf = (id: string) => (id === root.id ? undefined : treeOfBranch.get(c.byId.get(id)!.branch)!)
+  const treeOf = (id: string) => (id === root.id || c.hub.has(id) ? undefined : treeOfBranch.get(c.byId.get(id)!.branch)!)
   const shapes = new Map(
     c.lessons.map((p) => {
       const size = nodeSize(p)
@@ -376,18 +439,16 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
       return [p.id, { size, label, labelAbove, box: boxFor(size, label, p.id === root.id, labelAbove) }]
     }),
   )
-  const hub = placeHub(c, (id) => shapes.get(id)!.box)
+  const { at: hub, rings } = placeHub(c, (id) => shapes.get(id)!.box)
   const drafts = await Promise.all(c.trees.map((t) => draftTree(c, t, (id) => shapes.get(id)!)))
   const draftOf = new Map(drafts.map((d) => [d.tree.id, d]))
   const inHub = (id: string) => hub.has(id)
 
-  // a tree moves away from the centre, along its own direction, by its offset; the hub stays put
-  const offset = new Map([['', 0], ...c.trees.map((t) => [t.id, 0] as const)])
+  // a tree moves away from the centre, along its own direction, by its offset; the hub stays put, and every tree starts
+  // outside the outermost ring
+  const outer = rings.at(-1) ?? 0
+  const offset = new Map([['', 0], ...c.trees.map((t) => [t.id, outer] as const)])
   const toScreen = (d: TreeDraft, p: Point) => turn({ x: p.x, y: p.y + offset.get(d.tree.id)! }, spin(d.tree))
-  const toFrame = (d: TreeDraft, p: Point) => {
-    const q = turn(p, -spin(d.tree))
-    return { x: q.x, y: q.y - offset.get(d.tree.id)! }
-  }
   const place = (id: string): Point => {
     const t = treeOf(id)
     if (!t) return hub.get(id)!
@@ -426,23 +487,14 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
 
   const edges: Edge[] = []
   const drawn = new Set<string>()
-  // inside the hub a prerequisite and the lesson it opens are close together, so the edge between them is a straight line
-  for (const p of c.lessons) {
-    if (!inHub(p.id)) continue
-    for (const q of p.requires) {
-      const [a, b] = [nodes.get(q)!, nodes.get(p.id)!]
-      const u = unit({ x: b.x - a.x, y: b.y - a.y })
-      const start = { x: a.x + u.x * a.size, y: a.y + u.y * a.size }
-      const end = { x: b.x - u.x * b.size, y: b.y - u.y * b.size }
-      edges.push({ from: q, to: p.id, trunk: false, bridge: false, path: `M${f(start)}L${f(end)}`, points: [start, end] })
-      drawn.add(`${q}>${p.id}`)
-    }
-  }
+  // lessons in the hub only sit on their rings: no edge joins two of them
   for (const d of drafts) {
     for (const { from, to, via } of d.chains) {
-      // in a tree the start stands for the whole hub: the edge comes from each hub lesson the lesson requires, which
-      // stays put while the tree moves, so its first stop is taken into the tree's frame from where it is drawn
+      // in a tree the start stands for the whole hub: the edge comes off the outermost ring, one for each hub lesson the
+      // lesson requires so each still lights with it. A lesson that also builds on lessons outside the hub is reached
+      // through them, so its edge from the ring is drawn faint like an edge from another tree
       const sources = from === root.id ? c.byId.get(to)!.requires.filter(inHub) : [from]
+      const aside = c.byId.get(to)!.requires.some((r) => !inHub(r))
       const b = d.at.get(to)!
       const rest = [
         ...via.flatMap((v) => {
@@ -455,10 +507,18 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
         { x: b.x, y: b.y - shapes.get(to)!.size },
       ]
       for (const q of sources) {
-        const a = d.at.has(q) && q !== root.id ? d.at.get(q)! : toFrame(d, place(q))
-        const first = { x: a.x, y: a.y + turnedBox(shapes.get(q)!.box, d.tree).bottom }
+        let first: Point
+        if (inHub(q)) {
+          // the point of the ring straight above the edge's next stop, in the tree's frame where the centre is at
+          // (0, -offset)
+          const x = Math.max(-L.hubExit * outer, Math.min(L.hubExit * outer, rest[0].x))
+          first = { x, y: Math.sqrt(outer * outer - x * x) - offset.get(d.tree.id)! }
+        } else {
+          const a = d.at.get(q)!
+          first = { x: a.x, y: a.y + turnedBox(shapes.get(q)!.box, d.tree).bottom }
+        }
         const trunk = isCore(q) && isCore(to)
-        edges.push({ from: q, to, trunk, bridge: false, ...treeCurve([first, ...rest], (p) => toScreen(d, p)) })
+        edges.push({ from: q, to, trunk, bridge: inHub(q) && aside, ...treeCurve([first, ...rest], (p) => toScreen(d, p)) })
         drawn.add(`${q}>${to}`)
       }
     }
@@ -469,7 +529,7 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
   const along = (t: Tree | undefined, fallback: Point) => (t ? turn({ x: 0, y: 1 }, spin(t)) : fallback)
   for (const p of c.lessons) {
     for (const q of p.requires) {
-      if (drawn.has(`${q}>${p.id}`)) continue
+      if (drawn.has(`${q}>${p.id}`) || (inHub(q) && inHub(p.id))) continue
       const [a, b] = [nodes.get(q)!, nodes.get(p.id)!]
       const toward = unit({ x: b.x - a.x, y: b.y - a.y })
       const [ua, ub] = [along(treeOf(q), toward), along(treeOf(p.id), toward)]
@@ -486,6 +546,70 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
     }
   }
 
+  // the lines between the trees' areas leave the rim through the middle of the gap between two neighbouring trees, as
+  // seen from the centre, and run out to the edge of the map
+  const deg = (p: Point) => (Math.atan2(p.x, -p.y) * 180) / Math.PI
+  const spread = (t: Tree) => {
+    const offs = [...nodes.values()]
+      .filter((n) => n.tree === t.id)
+      .flatMap((n) => [
+        { x: n.x + n.box.left, y: n.y + n.box.top },
+        { x: n.x + n.box.right, y: n.y + n.box.top },
+        { x: n.x + n.box.left, y: n.y + n.box.bottom },
+        { x: n.x + n.box.right, y: n.y + n.box.bottom },
+      ])
+      .map((p) => ((deg(p) - t.angle + 540) % 360) - 180)
+    return { min: Math.min(...offs), max: Math.max(...offs) }
+  }
+  const reach = Math.max(...[...nodes.values()].map((n) => Math.hypot(n.x, n.y) + Math.hypot(n.box.right - n.box.left, n.box.bottom - n.box.top)))
+  const around = [...c.trees].sort((a, b) => a.angle - b.angle)
+  // the line after each tree, clockwise
+  const after = new Map(
+    around.map((t, i) => {
+      const next = around[(i + 1) % around.length]
+      const from = t.angle + spread(t).max
+      const to = next.angle + spread(next).min
+      return [t.id, from + ((((to - from) % 360) + 360) % 360) / 2] as const
+    }),
+  )
+  const dividers = [...after.values()].map((a) => ({ from: turn({ x: 0, y: -outer }, a), to: turn({ x: 0, y: -reach }, a) }))
+
+  // each tree's area is the wedge between the line before it and the line after it; its name is written large and faint
+  // like a background, among the tree's lessons (at the middle of their distances from the centre), kept inside the
+  // wedge and off the hub
+  const sectors: Sector[] = []
+  const S = CONFIG.sector
+  for (const [i, t] of around.entries()) {
+    const start = after.get(around[(i + around.length - 1) % around.length].id)!
+    const end = after.get(t.id)!
+    const lo = ((start - t.angle + 540) % 360) - 180
+    const hi = ((end - t.angle + 540) % 360) - 180
+    const lines = t.title.split(' · ')
+    const width = Math.max(...lines.map((l) => l.length)) * S.charWidth
+    const height = lines.length * S.lineHeight
+    const fits = (x: number, y: number) => {
+      const [hw, hh] = [width / 2, height / 2]
+      for (const [dx, dy] of [[-hw, -hh], [hw, -hh], [-hw, hh], [hw, hh]]) {
+        const off = ((deg({ x: x + dx, y: y + dy }) - t.angle + 540) % 360) - 180
+        if (off < lo + S.angleGap || off > hi - S.angleGap) return false
+      }
+      return Math.hypot(Math.max(Math.abs(x) - hw, 0), Math.max(Math.abs(y) - hh, 0)) >= outer + S.gap
+    }
+    const dists = [...nodes.values()].filter((n) => n.tree === t.id).map((n) => Math.hypot(n.x, n.y)).sort((a, b) => a - b)
+    const anchor = turn({ x: 0, y: -(dists[Math.floor(dists.length / 2)] ?? outer * 2) }, t.angle)
+    let spot = anchor
+    search: for (let r = 0; r <= S.searchRadius; r += S.searchStep) {
+      for (let a = 0; a < 360; a += r ? Math.max(5, (S.searchStep / r) * (180 / Math.PI)) : 360) {
+        const p = { x: anchor.x + r * Math.sin((a * Math.PI) / 180), y: anchor.y - r * Math.cos((a * Math.PI) / 180) }
+        if (fits(p.x, p.y)) {
+          spot = p
+          break search
+        }
+      }
+    }
+    sectors.push({ tree: t.id, lines, ...spot, width, height, start, end: start + ((((end - start) % 360) + 360) % 360) })
+  }
+
   const xs: number[] = []
   const ys: number[] = []
   for (const n of nodes.values()) {
@@ -496,9 +620,16 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
     xs.push(pt.x)
     ys.push(pt.y)
   }
+  xs.push(-outer, outer)
+  ys.push(-outer, outer)
   return {
     nodes,
     edges,
+    rings,
+    rim: outer,
+    sectors,
+    dividers,
+    reach,
     bounds: { left: Math.min(...xs), right: Math.max(...xs), top: Math.min(...ys), bottom: Math.max(...ys) },
   }
 }

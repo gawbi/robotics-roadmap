@@ -1,7 +1,7 @@
 ---
 id: inverse-kinematics
 title: Inverse Kinematics
-branch: robotics
+branch: kinematics
 requires: [forward-kinematics]
 hours: 3
 summary: 손끝 목표 위치에서 joint angle 을 구하는 IK 를 2 관절 팔의 해석적 풀이와 Jacobian 반복법(transpose·pseudo-inverse·damped least squares)으로 손 계산한다

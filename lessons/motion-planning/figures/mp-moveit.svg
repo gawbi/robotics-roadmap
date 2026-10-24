@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MoveIt 2 의 move_group. 요청은 request adapter(작업 공간·시작 자세 확인), OMPL(기본 RRTConnect, 기본 5 초), response adapter(time parameterization, 경로 재검사)를 차례로 지나 trajectory 가 되고, 모든 단계가 planning scene 에 충돌을 묻는다. 결과는 FollowJointTrajectory action 으로 controller 에 간다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="778" height="428" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="390.0" y="28.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">MoveIt 2 의 move_group 이 한 번의 요청을 처리하는 흐름</text>
+  <rect x="20" y="60" width="150" height="70" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="95.0" y="88.0" fill="#e2e8f0" font-size="12" text-anchor="middle">MoveGroupInterface</text>
+  <text x="95.0" y="108.0" fill="#94a3b8" font-size="11" text-anchor="middle">RViz / 내 node</text>
+  <line x1="172.0" y1="95.0" x2="218.0" y2="95.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="195.0" y="85.0" fill="#64748b" font-size="10" text-anchor="middle">action</text>
+  <rect x="220" y="45" width="540" height="250" rx="10" fill="none" stroke="#475569" stroke-dasharray="5 4"/>
+  <text x="236.0" y="66.0" fill="#94a3b8" font-size="12" text-anchor="start" font-weight="600">move_group node</text>
+  <rect x="240" y="85" width="118" height="82" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="299.0" y="110.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">request adapters</text>
+  <text x="299.0" y="132.0" fill="#94a3b8" font-size="10" text-anchor="middle">작업 공간 범위 채우기</text>
+  <text x="299.0" y="150.0" fill="#94a3b8" font-size="10" text-anchor="middle">시작 자세 한계·충돌 확인</text>
+  <rect x="370" y="85" width="118" height="82" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="429.0" y="110.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">OMPL</text>
+  <text x="429.0" y="132.0" fill="#94a3b8" font-size="10" text-anchor="middle">RRTConnect (기본)</text>
+  <text x="429.0" y="150.0" fill="#94a3b8" font-size="10" text-anchor="middle">5 초 안에 경로 + 단순화</text>
+  <rect x="500" y="85" width="118" height="82" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="559.0" y="110.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">response adapters</text>
+  <text x="559.0" y="132.0" fill="#94a3b8" font-size="10" text-anchor="middle">time parameterization</text>
+  <text x="559.0" y="150.0" fill="#94a3b8" font-size="10" text-anchor="middle">경로 재검사</text>
+  <rect x="630" y="85" width="118" height="82" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="689.0" y="110.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">결과</text>
+  <text x="689.0" y="132.0" fill="#94a3b8" font-size="10" text-anchor="middle">trajectory</text>
+  <text x="689.0" y="150.0" fill="#94a3b8" font-size="10" text-anchor="middle">(시각 · 속도 · 가속도)</text>
+  <line x1="358.0" y1="126.0" x2="368.0" y2="126.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="488.0" y1="126.0" x2="498.0" y2="126.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="618.0" y1="126.0" x2="628.0" y2="126.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <rect x="300" y="200" width="220" height="74" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="410.0" y="224.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">planning scene</text>
+  <text x="410.0" y="244.0" fill="#94a3b8" font-size="10" text-anchor="middle">로봇 자세 · 물체 · octomap · ACM</text>
+  <text x="410.0" y="261.0" fill="#94a3b8" font-size="10" text-anchor="middle">충돌 검사(FCL)</text>
+  <line x1="410.0" y1="198.0" x2="425.0" y2="169.0" stroke="#a78bfa" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <line x1="500.0" y1="200.0" x2="540.0" y2="169.0" stroke="#a78bfa" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <text x="545.0" y="230.0" fill="#64748b" font-size="10" text-anchor="start">OMPL 과 adapter 가</text>
+  <text x="545.0" y="246.0" fill="#64748b" font-size="10" text-anchor="start">자세마다 충돌을 묻는다</text>
+  <rect x="20" y="200" width="150" height="74" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="95.0" y="224.0" fill="#e2e8f0" font-size="11" text-anchor="middle">/joint_states · TF</text>
+  <text x="95.0" y="244.0" fill="#e2e8f0" font-size="11" text-anchor="middle">/planning_scene</text>
+  <text x="95.0" y="262.0" fill="#94a3b8" font-size="10" text-anchor="middle">depth · point cloud</text>
+  <line x1="172.0" y1="237.0" x2="298.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="689.0" y1="169.0" x2="689.0" y2="330.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <rect x="560" y="332" width="200" height="60" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <text x="660.0" y="356.0" fill="#f87171" font-size="12" text-anchor="middle" font-weight="600">controller</text>
+  <text x="660.0" y="375.0" fill="#94a3b8" font-size="10" text-anchor="middle">FollowJointTrajectory action</text>
+  <line x1="558.0" y1="362.0" x2="452.0" y2="362.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <rect x="300" y="332" width="150" height="60" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="375.0" y="356.0" fill="#e2e8f0" font-size="12" text-anchor="middle">로봇 관절</text>
+  <text x="375.0" y="375.0" fill="#94a3b8" font-size="10" text-anchor="middle">ros2_control 등</text>
+  <text x="150.0" y="345.0" fill="#64748b" font-size="11" text-anchor="middle">path 는 OMPL 이, 시각·속도는</text>
+  <text x="150.0" y="362.0" fill="#64748b" font-size="11" text-anchor="middle">response adapter 가 붙인다</text>
+</svg>
