@@ -476,6 +476,12 @@ code {
   cursor: pointer;
 }
 
+.update-banner button.is-quiet {
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
 .update-banner button:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 2px;

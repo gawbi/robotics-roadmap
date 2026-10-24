@@ -8,6 +8,7 @@ const U = CONFIG.update
 /** Offers to merge the original repository's new commits into the fork; hidden when there is nothing to say. */
 export function UpdateBanner() {
   const [state, setState] = useState<UpdateState | null>(null)
+  const [later, setLater] = useState(false)
 
   useEffect(() => {
     // a built site has no dev server to ask, so the request fails and the banner stays hidden
@@ -25,6 +26,7 @@ export function UpdateBanner() {
   }, [state])
 
   if (!state || !['behind', 'updating', 'restart', 'failed'].includes(state.status)) return null
+  if (later && state.status === 'behind') return null
 
   const merge = () => {
     fetch(U.endpoint, { method: 'POST' })
@@ -37,10 +39,15 @@ export function UpdateBanner() {
     <div className={`update-banner is-${state.status}`} role="status">
       {state.status === 'behind' && (
         <>
-          <span>원본 리포에 새 업데이트가 있습니다 (커밋 {state.behind}개)</span>
+          <span>
+            원본 리포에 새 업데이트가 있습니다(커밋 {state.behind}개). 지금 업데이트할까요? 퀴즈 기록은 그대로 남습니다.
+          </span>
           <button type="button" onClick={merge}>
             <RefreshCw size={14} aria-hidden="true" />
             업데이트
+          </button>
+          <button type="button" className="is-quiet" onClick={() => setLater(true)}>
+            나중에
           </button>
         </>
       )}
