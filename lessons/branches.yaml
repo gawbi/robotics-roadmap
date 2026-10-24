@@ -15,7 +15,7 @@ trees:
     branches: [robotics]
   - id: mobile
     angle: 60
-    branches: [estimation]
+    branches: [estimation, navigation, driving]
 
 # Listed in legend order. core: true marks the foundations every other branch builds on (exactly one); the map draws
 # its chain as the trunk.
@@ -70,6 +70,16 @@ branches:
     title: State Estimation
     summary: 믿을 수 없는 움직임과 센서를 섞어 로봇이 자기 위치를 아는 방법. Kalman filter 에서 SLAM 까지
     color: "#f472b6"
+
+  - id: navigation
+    title: Navigation
+    summary: 지도 위에서 장애물을 피하는 경로를 찾고, 그 경로를 바퀴 명령으로 따라가는 방법. A* 에서 Nav2·MPC 까지
+    color: "#4ade80"
+
+  - id: driving
+    title: Autonomous Driving
+    summary: LiDAR 로 주변 물체를 찾고, 인지·예측·계획·제어를 한 차량 위에서 잇는 자율주행 stack
+    color: "#fbbf24"
 
   - id: vla
     title: VLA

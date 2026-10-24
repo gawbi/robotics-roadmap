@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Euclidean clustering 과 상자. 0.5 m 떨어진 사람 두 명은 tolerance 0.7 m 에서는 상자 하나로 합쳐지고 0.3 m 에서는 둘로 나뉜다. 30° 돌아간 4.5 × 1.8 m 차에 x·y 최솟값·최댓값으로 상자를 씌우면 4.8 × 3.8 m 로 부풀고, L-shape fitting 은 방향을 찾아 4.5 × 1.8 m 상자를 낸다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="758" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <circle cx="84.0" cy="267.3" r="3" fill="#38bdf8"/>
+  <circle cx="78.7" cy="262.9" r="3" fill="#38bdf8"/>
+  <circle cx="75.2" cy="256.8" r="3" fill="#38bdf8"/>
+  <circle cx="74.0" cy="250.0" r="3" fill="#38bdf8"/>
+  <circle cx="75.2" cy="243.2" r="3" fill="#38bdf8"/>
+  <circle cx="78.7" cy="237.1" r="3" fill="#38bdf8"/>
+  <circle cx="84.0" cy="232.7" r="3" fill="#38bdf8"/>
+  <circle cx="84.0" cy="192.7" r="3" fill="#38bdf8"/>
+  <circle cx="78.7" cy="188.2" r="3" fill="#38bdf8"/>
+  <circle cx="75.2" cy="182.2" r="3" fill="#38bdf8"/>
+  <circle cx="74.0" cy="175.4" r="3" fill="#38bdf8"/>
+  <circle cx="75.2" cy="168.5" r="3" fill="#38bdf8"/>
+  <circle cx="78.7" cy="162.5" r="3" fill="#38bdf8"/>
+  <circle cx="84.0" cy="158.0" r="3" fill="#38bdf8"/>
+  <rect x="70.0" y="151.4" width="36.0" height="122.6" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="86.0" y="298.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">tolerance 0.7 m</text>
+  <text x="86.0" y="316.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">상자 1개</text>
+  <circle cx="244.0" cy="267.3" r="3" fill="#38bdf8"/>
+  <circle cx="238.7" cy="262.9" r="3" fill="#38bdf8"/>
+  <circle cx="235.2" cy="256.8" r="3" fill="#38bdf8"/>
+  <circle cx="234.0" cy="250.0" r="3" fill="#38bdf8"/>
+  <circle cx="235.2" cy="243.2" r="3" fill="#38bdf8"/>
+  <circle cx="238.7" cy="237.1" r="3" fill="#38bdf8"/>
+  <circle cx="244.0" cy="232.7" r="3" fill="#38bdf8"/>
+  <circle cx="244.0" cy="192.7" r="3" fill="#38bdf8"/>
+  <circle cx="238.7" cy="188.2" r="3" fill="#38bdf8"/>
+  <circle cx="235.2" cy="182.2" r="3" fill="#38bdf8"/>
+  <circle cx="234.0" cy="175.4" r="3" fill="#38bdf8"/>
+  <circle cx="235.2" cy="168.5" r="3" fill="#38bdf8"/>
+  <circle cx="238.7" cy="162.5" r="3" fill="#38bdf8"/>
+  <circle cx="244.0" cy="158.0" r="3" fill="#38bdf8"/>
+  <rect x="230.0" y="226.0" width="36.0" height="48.0" rx="8" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="230.0" y="151.4" width="36.0" height="48.0" rx="8" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="246.0" y="298.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">tolerance 0.3 m</text>
+  <text x="246.0" y="316.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">상자 2개</text>
+  <line x1="274.0" y1="232.6" x2="274.0" y2="194.7" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#am)"/>
+  <line x1="274.0" y1="192.7" x2="274.0" y2="230.6" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#am)"/>
+  <text x="282.0" y="216.7" fill="#94a3b8" font-size="11" text-anchor="start">0.5 m</text>
+  <text x="170.0" y="40.0" fill="#e2e8f0" font-size="13" text-anchor="middle">사람 두 명 (위에서 본 모습)</text>
+  <text x="170.0" y="60.0" fill="#94a3b8" font-size="11" text-anchor="middle">센서는 왼쪽에 있다</text>
+  <rect x="424.1" y="113.8" width="191.9" height="152.4" fill="none" stroke="#f87171" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <polygon points="460.1,266.2 615.9,176.2 579.9,113.8 424.1,203.8" fill="none" stroke="#34d399" stroke-width="1.8"/>
+  <circle cx="460.1" cy="266.2" r="3" fill="#38bdf8"/>
+  <circle cx="454.1" cy="255.8" r="3" fill="#38bdf8"/>
+  <circle cx="448.1" cy="245.4" r="3" fill="#38bdf8"/>
+  <circle cx="442.1" cy="235.0" r="3" fill="#38bdf8"/>
+  <circle cx="436.1" cy="224.6" r="3" fill="#38bdf8"/>
+  <circle cx="430.1" cy="214.2" r="3" fill="#38bdf8"/>
+  <circle cx="424.1" cy="203.8" r="3" fill="#38bdf8"/>
+  <circle cx="473.0" cy="258.7" r="3" fill="#38bdf8"/>
+  <circle cx="486.0" cy="251.2" r="3" fill="#38bdf8"/>
+  <circle cx="499.0" cy="243.7" r="3" fill="#38bdf8"/>
+  <circle cx="512.0" cy="236.2" r="3" fill="#38bdf8"/>
+  <circle cx="525.0" cy="228.7" r="3" fill="#38bdf8"/>
+  <circle cx="538.0" cy="221.2" r="3" fill="#38bdf8"/>
+  <circle cx="551.0" cy="213.7" r="3" fill="#38bdf8"/>
+  <circle cx="564.0" cy="206.2" r="3" fill="#38bdf8"/>
+  <circle cx="577.0" cy="198.7" r="3" fill="#38bdf8"/>
+  <circle cx="590.0" cy="191.2" r="3" fill="#38bdf8"/>
+  <circle cx="603.0" cy="183.7" r="3" fill="#38bdf8"/>
+  <circle cx="615.9" cy="176.2" r="3" fill="#38bdf8"/>
+  <text x="520.0" y="40.0" fill="#e2e8f0" font-size="13" text-anchor="middle">차 한 대 (30° 돌아가 있음)</text>
+  <text x="520.0" y="300.0" fill="#f87171" font-size="12" text-anchor="middle">x·y 최솟값·최댓값 상자: 4.8 × 3.8 m = 18.3 m²</text>
+  <text x="520.0" y="320.0" fill="#34d399" font-size="12" text-anchor="middle">L-shape fitting 상자: 4.5 × 1.8 m = 8.1 m²</text>
+  <text x="412.0" y="236.0" fill="#38bdf8" font-size="11" text-anchor="end">센서(왼쪽 아래) 쪽 두 면만</text>
+  <text x="412.0" y="252.0" fill="#38bdf8" font-size="11" text-anchor="end">점이 찍혀 L 모양이 된다</text>
+</svg>

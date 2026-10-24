@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ratio test. 점 A 는 가장 가까운 후보가 20 bit, 두 번째가 60 bit 라 20 이 0.6 × 60 = 36 보다 작아서 짝으로 받는다. 반복 무늬 위의 점 B 는 40 bit 와 45 bit 라 40 이 0.6 × 45 = 27 보다 커서 버린다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="698" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="150.0" y1="95.0" x2="650.0" y2="95.0" stroke="#475569" stroke-width="1.8"/>
+  <line x1="150.0" y1="91" x2="150.0" y2="99" stroke="#475569"/>
+  <text x="150.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="250.0" y1="91" x2="250.0" y2="99" stroke="#475569"/>
+  <text x="250.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">20</text>
+  <line x1="350.0" y1="91" x2="350.0" y2="99" stroke="#475569"/>
+  <text x="350.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">40</text>
+  <line x1="450.0" y1="91" x2="450.0" y2="99" stroke="#475569"/>
+  <text x="450.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">60</text>
+  <line x1="550.0" y1="91" x2="550.0" y2="99" stroke="#475569"/>
+  <text x="550.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">80</text>
+  <line x1="650.0" y1="91" x2="650.0" y2="99" stroke="#475569"/>
+  <text x="650.0" y="117.0" fill="#64748b" font-size="11" text-anchor="middle">100</text>
+  <line x1="330.0" y1="61" x2="330.0" y2="101" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="330.0" y="55.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.6 × 60 = 36</text>
+  <circle cx="250.0" cy="95" r="7" fill="#34d399"/>
+  <text x="254.0" y="81.0" fill="#34d399" font-size="11" text-anchor="end" font-weight="600">1등 20</text>
+  <circle cx="450.0" cy="95" r="7" fill="#94a3b8"/>
+  <text x="446.0" y="81.0" fill="#94a3b8" font-size="11" text-anchor="start">2등 60</text>
+  <text x="20.0" y="89.0" fill="#e2e8f0" font-size="12" text-anchor="start">점 A (책상 모서리)</text>
+  <text x="20.0" y="107.0" fill="#34d399" font-size="12" text-anchor="start" font-weight="600">20 &lt; 36 → 받는다</text>
+  <line x1="150.0" y1="205.0" x2="650.0" y2="205.0" stroke="#475569" stroke-width="1.8"/>
+  <line x1="150.0" y1="201" x2="150.0" y2="209" stroke="#475569"/>
+  <text x="150.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
+  <line x1="250.0" y1="201" x2="250.0" y2="209" stroke="#475569"/>
+  <text x="250.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">20</text>
+  <line x1="350.0" y1="201" x2="350.0" y2="209" stroke="#475569"/>
+  <text x="350.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">40</text>
+  <line x1="450.0" y1="201" x2="450.0" y2="209" stroke="#475569"/>
+  <text x="450.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">60</text>
+  <line x1="550.0" y1="201" x2="550.0" y2="209" stroke="#475569"/>
+  <text x="550.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">80</text>
+  <line x1="650.0" y1="201" x2="650.0" y2="209" stroke="#475569"/>
+  <text x="650.0" y="227.0" fill="#64748b" font-size="11" text-anchor="middle">100</text>
+  <line x1="285.0" y1="171" x2="285.0" y2="211" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="285.0" y="165.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.6 × 45 = 27</text>
+  <circle cx="350.0" cy="205" r="7" fill="#f87171"/>
+  <text x="354.0" y="191.0" fill="#f87171" font-size="11" text-anchor="end" font-weight="600">1등 40</text>
+  <circle cx="375.0" cy="205" r="7" fill="#94a3b8"/>
+  <text x="371.0" y="191.0" fill="#94a3b8" font-size="11" text-anchor="start">2등 45</text>
+  <text x="20.0" y="199.0" fill="#e2e8f0" font-size="12" text-anchor="start">점 B (반복되는 타일)</text>
+  <text x="20.0" y="217.0" fill="#f87171" font-size="12" text-anchor="start" font-weight="600">40 &gt; 27 → 버린다</text>
+  <text x="400.0" y="262.0" fill="#94a3b8" font-size="11" text-anchor="middle">Hamming distance (bit). 1등이 2등의 0.6 배보다 작을 때만 짝으로 받는다</text>
+</svg>

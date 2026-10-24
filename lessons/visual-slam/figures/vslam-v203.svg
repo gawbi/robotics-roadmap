@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>EuRoC V203 sequence 에서 ORB-SLAM3 의 센서 구성별 RMS ATE. monocular 는 실패했고, stereo 는 0.521 m, monocular + IMU 는 0.027 m, stereo + IMU 는 0.024 m 다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="658" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="330.0" y="32.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">EuRoC V203 에서 ORB-SLAM3 의 RMS ATE</text>
+  <text x="188.0" y="75.0" fill="#e2e8f0" font-size="12" text-anchor="end">monocular</text>
+  <text x="206.0" y="75.0" fill="#f87171" font-size="12" text-anchor="start" font-weight="600">✕ 끝까지 추적하지 못함</text>
+  <text x="188.0" y="119.0" fill="#e2e8f0" font-size="12" text-anchor="end">stereo</text>
+  <rect x="200" y="104" width="347.3" height="20" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
+  <text x="555.3" y="119.0" fill="#f59e0b" font-size="12" text-anchor="start" font-weight="600">0.521 m</text>
+  <text x="188.0" y="163.0" fill="#e2e8f0" font-size="12" text-anchor="end">monocular + IMU</text>
+  <rect x="200" y="148" width="18.0" height="20" rx="3" fill="#34d399" fill-opacity="0.8"/>
+  <text x="226.0" y="163.0" fill="#34d399" font-size="12" text-anchor="start" font-weight="600">0.027 m</text>
+  <text x="188.0" y="207.0" fill="#e2e8f0" font-size="12" text-anchor="end">stereo + IMU</text>
+  <rect x="200" y="192" width="16.0" height="20" rx="3" fill="#34d399" fill-opacity="0.8"/>
+  <text x="224.0" y="207.0" fill="#34d399" font-size="12" text-anchor="start" font-weight="600">0.024 m</text>
+  <line x1="200.0" y1="234.0" x2="600.0" y2="234.0" stroke="#475569" stroke-width="1.8"/>
+  <line x1="200.0" y1="234" x2="200.0" y2="239" stroke="#475569"/>
+  <text x="200.0" y="253.0" fill="#64748b" font-size="11" text-anchor="middle">0 m</text>
+  <line x1="333.3" y1="234" x2="333.3" y2="239" stroke="#475569"/>
+  <text x="333.3" y="253.0" fill="#64748b" font-size="11" text-anchor="middle">0.2 m</text>
+  <line x1="466.7" y1="234" x2="466.7" y2="239" stroke="#475569"/>
+  <text x="466.7" y="253.0" fill="#64748b" font-size="11" text-anchor="middle">0.4 m</text>
+  <line x1="600.0" y1="234" x2="600.0" y2="239" stroke="#475569"/>
+  <text x="600.0" y="253.0" fill="#64748b" font-size="11" text-anchor="middle">0.6 m</text>
+  <text x="330.0" y="278.0" fill="#94a3b8" font-size="11" text-anchor="middle">IMU 를 합치면 카메라만으로는 위치를 잃는 구간을 넘긴다</text>
+</svg>

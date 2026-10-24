@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>modular stack 과 end-to-end. modular stack 은 perception, prediction, planning, control 이 box 목록·경로·trajectory 같은 사람이 정한 interface 로 이어진다. UniAD 는 camera 6 대의 영상을 BEV feature 로 바꾼 뒤 TrackFormer, MapFormer, MotionFormer, OccFormer, Planner 를 network 하나로 잇고, planning 의 loss 로 전체를 함께 학습한다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker></defs>
+  <rect x="1" y="1" width="898" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30.0" y="40.0" fill="#e2e8f0" font-size="14" text-anchor="start" font-weight="600">modular stack</text>
+  <text x="170.0" y="40.0" fill="#94a3b8" font-size="12" text-anchor="start">module 사이에 사람이 정한 interface 가 있다</text>
+  <rect x="40" y="60" width="150" height="54" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="115.0" y="92.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">perception</text>
+  <line x1="192.0" y1="87.0" x2="263.0" y2="87.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="227.5" y="78.0" fill="#94a3b8" font-size="11" text-anchor="middle">box 목록</text>
+  <rect x="265" y="60" width="150" height="54" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="340.0" y="92.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">prediction</text>
+  <line x1="417.0" y1="87.0" x2="488.0" y2="87.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="452.5" y="78.0" fill="#94a3b8" font-size="11" text-anchor="middle">경로 + 확률</text>
+  <rect x="490" y="60" width="150" height="54" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="565.0" y="92.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">planning</text>
+  <line x1="642.0" y1="87.0" x2="713.0" y2="87.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="677.5" y="78.0" fill="#94a3b8" font-size="11" text-anchor="middle">trajectory</text>
+  <rect x="715" y="60" width="150" height="54" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="790.0" y="92.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">control</text>
+  <text x="450.0" y="140.0" fill="#94a3b8" font-size="12" text-anchor="middle">module 마다 따로 만들고 따로 시험한다 · 앞 module 이 놓친 정보는 뒤로 넘어가지 않는다</text>
+  <text x="30.0" y="190.0" fill="#e2e8f0" font-size="14" text-anchor="start" font-weight="600">end-to-end (UniAD)</text>
+  <text x="205.0" y="190.0" fill="#94a3b8" font-size="12" text-anchor="start">network 하나, planning loss 가 모든 부분까지 거슬러 올라간다</text>
+  <rect x="30" y="235" width="100" height="42" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80.0" y="261.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">camera 6 대</text>
+  <rect x="145" y="235" width="105" height="42" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="197.5" y="261.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">BEV feature</text>
+  <rect x="265" y="210" width="115" height="42" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="322.5" y="236.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">TrackFormer</text>
+  <rect x="265" y="262" width="115" height="42" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="322.5" y="288.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">MapFormer</text>
+  <rect x="400" y="235" width="115" height="42" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="457.5" y="261.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">MotionFormer</text>
+  <rect x="535" y="235" width="115" height="42" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="592.5" y="261.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">OccFormer</text>
+  <rect x="670" y="235" width="100" height="42" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="720.0" y="261.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">Planner</text>
+  <line x1="132.0" y1="256.0" x2="143.0" y2="256.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="252.0" y1="252.0" x2="263.0" y2="234.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="252.0" y1="260.0" x2="263.0" y2="280.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="382.0" y1="231.0" x2="398.0" y2="250.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="382.0" y1="283.0" x2="398.0" y2="262.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="517.0" y1="256.0" x2="533.0" y2="256.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="652.0" y1="256.0" x2="668.0" y2="256.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <line x1="772.0" y1="256.0" x2="820.0" y2="256.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
+  <text x="840.0" y="260.0" fill="#e2e8f0" font-size="12" text-anchor="middle">경로</text>
+  <path d="M720,302 C 720,340 330,340 330,306" fill="none" stroke="#f87171" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#ar)"/>
+  <text x="525.0" y="352.0" fill="#f87171" font-size="12" text-anchor="middle">학습: planning 의 오차가 앞 부분 weight 까지 고친다</text>
+  <text x="450.0" y="382.0" fill="#94a3b8" font-size="12" text-anchor="middle">nuScenes 에서 A100 GPU 한 장으로 1.8 FPS (한 frame 0.56 초)</text>
+</svg>

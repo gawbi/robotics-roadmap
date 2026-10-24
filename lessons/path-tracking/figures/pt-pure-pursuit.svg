@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>pure pursuit 의 기하. 로봇에서 1 m 떨어진 경로 위 점이 옆으로 0.25 m 에 있으면, 두 점을 지나는 원호의 곡률은 2 × 0.25 ÷ 1² = 0.5 /m(반지름 2 m)이고, 0.5 m/s 로 달리면 회전 속도는 0.25 rad/s 다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <rect x="1" y="1" width="678" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="170.0" y1="328.8" x2="170.0" y2="24.0" stroke="#34d399" stroke-width="3"/>
+  <text x="178.0" y="34.0" fill="#34d399" font-size="12" text-anchor="start">경로</text>
+  <polyline points="110.0,300.0 110.0,293.9 110.2,287.9 110.3,281.8 110.6,275.8 111.0,269.7 111.4,263.6 111.9,257.6 112.4,251.6 113.1,245.5 113.8,239.5 114.6,233.5 115.5,227.5 116.5,221.5 117.5,215.5 118.6,209.6 119.8,203.6 121.0,197.7 122.4,191.8 123.8,185.9 125.2,180.0 126.8,174.1 128.4,168.3 130.1,162.5 131.9,156.7 133.7,150.9 135.7,145.1 137.7,139.4 139.7,133.7 141.9,128.0 144.1,122.4 146.3,116.8 148.7,111.2 151.1,105.6 153.6,100.1 156.2,94.6 158.8,89.1 161.5,83.7 164.3,78.3 167.1,72.9 170.0,67.6" fill="none" stroke="#38bdf8" stroke-width="2.4" stroke-linejoin="round"/>
+  <line x1="110.0" y1="300.0" x2="110.0" y2="67.6" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4"/>
+  <line x1="110.0" y1="67.6" x2="170.0" y2="67.6" stroke="#a78bfa" stroke-width="2.2"/>
+  <text x="166.0" y="55.6" fill="#a78bfa" font-size="13" text-anchor="end">y = 0.25 m</text>
+  <line x1="110.0" y1="300.0" x2="170.0" y2="67.6" stroke="#f59e0b" stroke-width="2"/>
+  <text x="100.0" y="183.8" fill="#f59e0b" font-size="13" text-anchor="end">L = 1 m</text>
+  <circle cx="170.0" cy="67.6" r="6" fill="#f59e0b"/>
+  <text x="182.0" y="89.6" fill="#f59e0b" font-size="12" text-anchor="start">lookahead point</text>
+  <g transform="translate(110.0,300.0) rotate(-90.0) scale(1.0)"><rect x="-18" y="-14" width="36" height="28" rx="6" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/><rect x="-9" y="-19" width="18" height="5" rx="2" fill="#e2e8f0"/><rect x="-9" y="14" width="18" height="5" rx="2" fill="#e2e8f0"/><path d="M6,-6 L16,0 L6,6 z" fill="#e2e8f0"/></g>
+  <text x="84.0" y="306.0" fill="#e2e8f0" font-size="12" text-anchor="end">로봇</text>
+  <line x1="136.0" y1="300.0" x2="584.0" y2="300.0" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4"/>
+  <circle cx="590.0" cy="300.0" r="4" fill="#94a3b8"/>
+  <text x="590.0" y="322.0" fill="#94a3b8" font-size="12" text-anchor="end">원의 중심 (R = 2 m)</text>
+  <text x="400.0" y="60.0" fill="#e2e8f0" font-size="16" text-anchor="start" font-weight="600">κ = 2y ÷ L²</text>
+  <text x="400.0" y="90.0" fill="#e2e8f0" font-size="13" text-anchor="start">= 2 × 0.25 ÷ 1² = 0.5 /m</text>
+  <text x="400.0" y="116.0" fill="#e2e8f0" font-size="13" text-anchor="start">R = 1 ÷ κ = 2 m</text>
+  <text x="400.0" y="150.0" fill="#94a3b8" font-size="12" text-anchor="start">v = 0.5 m/s 이면</text>
+  <text x="400.0" y="172.0" fill="#38bdf8" font-size="13" text-anchor="start">ω = v × κ = 0.25 rad/s</text>
+  <text x="400.0" y="214.0" fill="#94a3b8" font-size="12" text-anchor="start">로봇에서 출발해 lookahead point 를 지나는</text>
+  <text x="400.0" y="232.0" fill="#94a3b8" font-size="12" text-anchor="start">원호(파란 선) 하나를 고르고,</text>
+  <text x="400.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="start">그 원호를 따라가는 속도를 낸다</text>
+</svg>

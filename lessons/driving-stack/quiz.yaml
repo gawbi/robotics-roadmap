@@ -1,0 +1,310 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: stack-modules
+  title: module 구성과 계산 주기
+  variants:
+    - question: |
+        면접관: "자율주행 stack 에서 LiDAR 는 1초에 10 번 scan 을 내는데 localization 은 50 Hz 로 pose 를 냅니다. 어떻게 가능한가요?"
+      choices:
+        - 'scan 과 scan 사이를 IMU·바퀴 속도로 예측해 채우고, scan matching 결과가 올 때마다 filter 로 보정하기 때문이다'
+        - 'LiDAR scan 하나를 다섯 조각으로 나눠 조각마다 따로 matching 하기 때문이다'
+        - '같은 pose 를 다섯 번씩 되풀이해 publish 할 뿐이라 실제로 새 정보는 10 Hz 로만 나온다'
+        - 'localization 은 LiDAR 대신 GNSS 만으로 50 Hz pose 를 계산하기 때문이다'
+      answer: 0
+      explanation: |
+        localization 은 EKF 같은 filter 로 IMU 와 바퀴 속도를 써서 scan 사이의 움직임을 예측하고, scan matching 결과가 들어오면 그때 보정한다.
+        그래서 예측한 pose 를 50 Hz 로 낼 수 있다. 같은 값을 되풀이하는 것이 아니라 매번 새로 예측한 값이고, scan 을 쪼개 matching 하는 방식도
+        아니다. GNSS 만으로는 오차가 수 m 라 차로 안에서 달리기에 부족하다.
+    - question: |
+        면접관: "planning 은 10 Hz 로 trajectory 를 내고 control 은 30 ms 마다 명령을 냅니다. 새 trajectory 가 오기 전까지 control 은 무엇을 하나요?"
+      choices:
+        - 'planning 을 기다리며 직전에 낸 명령을 그대로 되풀이해 보낸다'
+        - 'trajectory 없이 지금 속도만 유지하도록 명령한다'
+        - '가장 최근에 받은 trajectory 를 따라가도록, 매번 지금 자세에서 steering 과 가속도를 다시 계산한다'
+        - 'planning 에 새 trajectory 를 요청하고 받을 때까지 계산을 멈춘다'
+      answer: 2
+      explanation: |
+        module 은 앞 module 을 기다리지 않고 각자의 주기로 가장 최근 입력을 써서 계산한다. control 은 마지막 trajectory 를 기준으로 30 ms 마다
+        지금 자세와의 오차를 다시 보고 명령을 고친다. 같은 명령을 되풀이하면 그사이 차가 움직인 만큼의 오차를 고치지 못하고, 계산을 멈추거나
+        trajectory 를 버리면 차를 제어할 수 없다.
+    - question: |
+        면접관: "자율주행 stack 을 module 로 나누고 module 사이의 메시지 형식을 정해 두면 얻는 이점으로 가장 알맞은 것은?"
+      choices:
+        - 'module 사이의 전달 지연이 0 이 된다'
+        - 'module 하나를 다른 구현으로 바꿔도 나머지는 그대로 둘 수 있고, module 마다 출력을 따로 확인할 수 있다'
+        - '모든 module 을 운전 결과에 대한 loss 하나로 함께 학습할 수 있다'
+        - '모든 module 의 계산 주기가 같아져 시간 동기화가 필요 없어진다'
+      answer: 1
+      explanation: |
+        interface 가 정해져 있으면 Autoware 처럼 localization 의 pose 추정 방법을 NDT 에서 camera 기반 방법으로 바꿔도 다른 module 은 그대로
+        쓸 수 있고, 차가 이상하게 움직일 때 어느 module 의 출력이 틀렸는지 찾을 수 있다. loss 하나로 함께 학습하는 것은 end-to-end 방식의 특징이다.
+        메시지를 정해도 전달 지연은 남고, module 마다 주기는 서로 다르다.
+
+- topic: ndt
+  title: NDT scan matching
+  variants:
+    - question: |
+        면접관: "LiDAR localization 에서 NDT scan matching 은 ICP 와 무엇이 다른가요?"
+      choices:
+        - 'NDT 는 지도 없이 연속한 scan 두 개만으로 위치를 구하고, ICP 는 반드시 지도가 필요하다'
+        - 'NDT 는 camera 영상을 쓰고, ICP 는 LiDAR point cloud 를 쓴다'
+        - 'NDT 는 처음 자세가 아무리 틀려도 항상 정답으로 수렴한다'
+        - 'ICP 는 scan 의 점마다 가장 가까운 지도 점을 짝짓지만, NDT 는 지도를 칸으로 나눠 칸마다 Gaussian 으로 바꾸고 그 값의 합이 커지는 자세를 찾는다'
+      answer: 3
+      explanation: |
+        NDT 는 지도 점을 칸별 평균과 covariance(Gaussian)로 요약해 두고, scan 점이 받는 Gaussian 값의 합을 score 로 삼아 Newton 방법으로 키운다.
+        점끼리 짝을 지을 필요가 없다. 둘 다 LiDAR point cloud 를 쓰고, 둘 다 scan 끼리 또는 scan 과 지도를 맞출 수 있다. NDT 도 처음 자세가 많이
+        틀리면 score 의 기울기가 없어 수렴하지 못한다.
+    - question: |
+        면접관: "양쪽 벽이 나란히 길게 이어지는 터널에서, NDT localization 의 score 는 높은데 위치가 진행 방향으로 어긋날 수 있는 이유는?"
+      choices:
+        - '벽의 Gaussian 은 벽에 수직한 방향의 자세만 잡아 주므로, 벽을 따라 미끄러진 자세도 score 가 거의 같기 때문이다'
+        - '터널 안에서는 LiDAR 점이 많아져 score 가 지나치게 커지기 때문이다'
+        - '터널에서는 GNSS 가 끊겨 NDT 가 계산을 멈추기 때문이다'
+        - 'score 가 높을수록 Newton 방법이 발산하기 때문이다'
+      answer: 0
+      explanation: |
+        벽이 지나가는 칸의 Gaussian 은 벽을 따라 길고 벽에 수직한 방향으로 얇아서, 수직 방향으로 벗어나면 score 가 빨리 떨어지지만 벽을 따라
+        옮기면 거의 바뀌지 않는다. 앞뒤 방향을 잡아 줄 모양이 없는 곳에서는 score 가 높아도 그 방향의 위치가 정해지지 않는다. NDT 는 GNSS 없이도
+        계산하고, 점이 많다고 틀린 자세가 맞아 보이지는 않는다.
+    - question: |
+        면접관: "NDT 의 칸 크기(resolution)를 크게 잡으면 무엇이 달라지나요?"
+      choices:
+        - '지도의 세밀한 모양까지 담겨 언제나 더 정확해진다'
+        - '계산 시간만 바뀌고 matching 결과와는 관계없다'
+        - 'Gaussian 이 넓게 퍼져 처음 자세가 더 많이 틀려도 score 의 기울기를 찾을 수 있지만, 지도의 세밀한 모양은 뭉개진다'
+        - '칸이 크면 점을 짝지어야 해서 ICP 와 같은 방식이 된다'
+      answer: 2
+      explanation: |
+        칸이 크면 한 칸에 더 넓은 범위의 지도 점이 들어가 Gaussian 이 넓어지므로, 멀리 떨어진 scan 점도 score 와 기울기를 받는다. 대신 작은
+        모양이 평균으로 뭉개져 정밀도가 떨어진다. 칸 크기는 결과에 직접 영향을 주며, 크기와 관계없이 NDT 는 점을 짝짓지 않는다.
+
+- topic: hd-map
+  title: HD map 과 Lanelet2
+  variants:
+    - question: |
+        면접관: "Lanelet2 지도에서 lanelet 은 어떻게 정의되나요?"
+      choices:
+        - '차로 중앙선 하나와 차로 폭 숫자 하나로 정의된다'
+        - '왼쪽 경계 linestring 하나와 오른쪽 경계 linestring 하나로 정의되고, 그 구간 안에서는 교통 규칙과 다른 lanelet 과의 연결이 바뀌지 않는다'
+        - 'point cloud 지도의 점들을 2 m 칸으로 묶은 것이다'
+        - '주차장처럼 진행 방향이 정해지지 않은 구역을 둘러싼 다각형이다'
+      answer: 1
+      explanation: |
+        lanelet 은 차가 한 방향으로 움직이는 가장 작은 구간이고, 경계 linestring 두 개로 정해진다. 이어지는 lanelet 은 경계 끝점을 공유해 연결
+        graph 를 이룬다. 진행 방향이 없는 구역은 area 이고, 점을 칸으로 묶는 것은 NDT 가 point cloud 지도를 다루는 방식이다.
+    - question: |
+        면접관: "Autoware 는 point cloud 지도와 Lanelet2 지도를 함께 씁니다. 두 지도의 역할을 바르게 나눈 것은?"
+      choices:
+        - 'point cloud 지도는 route 계산에, Lanelet2 는 NDT localization 에 쓴다'
+        - '둘은 같은 정보를 담은 다른 파일 형식이라 하나만 있으면 된다'
+        - 'Lanelet2 는 perception 의 학습 데이터로만 쓰고 주행 중에는 읽지 않는다'
+        - 'point cloud 지도는 LiDAR scan 을 맞춰 위치를 찾는 데, Lanelet2 는 차로의 연결과 교통 규칙을 담아 route·behavior planning·prediction 에 쓴다'
+      answer: 3
+      explanation: |
+        point cloud 지도에는 점만 있어 scan matching 에는 쓰이지만 "여기가 차로다", "여기서 서야 한다" 같은 뜻이 없다. Lanelet2 는 차로 경계,
+        연결, 신호등·정지선 같은 규칙을 담아 planning 과 prediction 이 주행 중에 읽는다. 두 지도는 담는 정보가 달라 함께 쓴다.
+    - question: |
+        면접관: "HD map 에 의존하는 자율주행 stack 의 약점으로 가장 알맞은 것은?"
+      choices:
+        - '지도를 만들고 공사나 차선 변경 때마다 고쳐야 하며, 지도가 없는 지역에서는 달릴 수 없다'
+        - '지도가 있으면 LiDAR 를 쓸 필요가 없어져 센서 고장에 약해진다'
+        - '지도에 교통 규칙이 들어가면 planning 이 그 규칙을 무시하게 된다'
+        - 'HD map 은 도로 단위 정보만 있어 차로를 구분하지 못한다'
+      answer: 0
+      explanation: |
+        HD map 덕분에 perception 이 매번 차선과 규칙을 찾지 않아도 되지만, 지도를 만들고 고치는 비용이 들고 지도 범위가 달릴 수 있는 범위(ODD 의
+        경계)가 된다. 지도가 있어도 주변 물체를 보려면 LiDAR 와 camera 가 필요하고, HD map 은 도로가 아니라 차로 단위로 규칙까지 담는다.
+
+- topic: prediction
+  title: map 기반 prediction
+  variants:
+    - question: |
+        면접관: "교차로에 다가오는 차량의 미래 경로를 지금 속도로 직선을 그어 예측하면 어떤 문제가 있나요?"
+      choices:
+        - '직선 예측은 계산량이 너무 많아 실시간으로 할 수 없다'
+        - '직선 예측은 항상 실제보다 느린 속도를 가정한다'
+        - '차로가 휘거나 갈라지는 곳에서 실제로 갈 수 없는 곳으로 경로가 뻗고, 직진과 우회전처럼 갈 수 있는 길이 여럿인 것을 나타내지 못한다'
+        - '직선 예측은 정지한 물체에만 쓸 수 있다'
+      answer: 2
+      explanation: |
+        다른 차는 차로를 따라 움직이므로, 지도의 lanelet 모양을 따라 경로를 만들어야 갈 수 있는 곳을 예측한다. 이어지는 lanelet 이 여럿이면 경로도
+        여럿 만들고 확률을 붙인다. 직선 예측은 계산이 가볍고 지금 속도를 그대로 쓰므로, 느린 속도를 가정하거나 계산이 무거운 것이 문제는 아니다.
+    - question: |
+        면접관: "planning 에 주변 물체의 지금 위치만 주지 않고 예측 경로까지 주는 이유는?"
+      choices:
+        - 'perception 은 물체의 지금 위치를 planning 에 줄 수 없기 때문이다'
+        - '내 차가 어떤 지점을 지나는 시각에 그 물체가 어디 있을지를 알아야 충돌과 양보를 판단할 수 있기 때문이다'
+        - '예측 경로가 있으면 HD map 이 필요 없기 때문이다'
+        - '예측 경로로 control 의 PID gain 을 정하기 때문이다'
+      answer: 1
+      explanation: |
+        다른 차와 보행자도 움직이므로, 내 trajectory 와 상대의 미래 위치가 같은 시각에 겹치는지를 봐야 횡단보도에서 설지, 차로를 바꿀지 정할 수
+        있다. perception 은 지금 위치를 주지만 그것만으로는 몇 초 뒤를 판단할 수 없다. map 기반 prediction 은 오히려 HD map 을 써서 경로를 만들고,
+        PID gain 과는 관계없다.
+    - question: |
+        10 m/s 로 달리는 차량의 경로를 15 초 앞까지 0.5 초 간격의 점으로 예측한다. 경로 하나의 점 수와 마지막 점까지의 거리로 알맞은 것은?
+      choices:
+        - '15 개, 75 m'
+        - '30 개, 75 m'
+        - '15 개, 150 m'
+        - '30 개, 150 m'
+      answer: 3
+      explanation: |
+        점 수는 $15 \div 0.5 = 30$ 개이고, 마지막 점은 15 초 뒤의 위치라 $10 \times 15 = 150$ m 떨어져 있다. 15 개는 1 초 간격일 때의 점 수이고,
+        75 m 는 7.5 초까지만 갔을 때의 거리다.
+
+- topic: planning-layers
+  title: behavior planning 과 motion planning
+  variants:
+    - question: |
+        면접관: "behavior planning 과 motion planning 은 각각 무엇을 정하나요?"
+      choices:
+        - 'behavior 는 차로 변경·정지·양보처럼 무엇을 할지를 정하고, motion 은 그 결정을 따라 시간마다 위치와 속도를 가속도·jerk 한계 안에서 정한 trajectory 를 만든다'
+        - 'behavior 는 steering 각을, motion 은 브레이크 압력을 정한다'
+        - 'behavior 는 목적지까지의 lanelet route 를, motion 은 신호등 색을 정한다'
+        - '둘은 같은 일을 하고 계산 주기만 다르다'
+      answer: 0
+      explanation: |
+        behavior planning 은 교통 규칙과 예측을 보고 차로를 바꿀지, 어디서 설지 같은 결정을 내리고 path 와 멈출 곳을 낸다. motion planning 은 그
+        path 위에서 승차감과 장애물 거리를 고려해 속도를 정한 trajectory 를 만든다. steering 각과 브레이크는 control 이, route 는 mission planning
+        이, 신호등 색은 perception 이 맡는다.
+    - question: |
+        4 m/s 로 달리던 차가 20 m 앞의 장애물 앞에 4 m 를 두고 서려고 한다. 일정한 감속도 2 m/s² 로 감속하면 몇 m 지점에서 감속을 시작해야 할까?
+      choices:
+        - '16 m'
+        - '20 m'
+        - '8 m'
+        - '12 m'
+      answer: 3
+      explanation: |
+        서는 데 필요한 거리는 $v^2 \div (2a) = 4^2 \div (2 \times 2) = 4$ m 이고, 설 곳은 $20 - 4 = 16$ m 라서 $16 - 4 = 12$ m 에서 감속을 시작한다.
+        16 m 는 설 곳이고, 20 m 는 장애물 위치다. 8 m 는 감속 거리를 두 번 뺀 값이다.
+    - question: |
+        면접관: "자율주행 planning 의 결과가 공간의 경로(path)가 아니라 trajectory 인 이유는?"
+      choices:
+        - 'control 이 path 형식의 메시지를 읽을 수 없기 때문이다'
+        - 'trajectory 는 path 보다 점이 적어 계산이 가볍기 때문이다'
+        - '다른 차와 보행자가 움직여서 같은 경로라도 언제 지나는지에 따라 안전이 달라지므로, 시간마다 위치와 속도를 정해야 하기 때문이다'
+        - 'trajectory 를 쓰면 교통 규칙을 따로 확인하지 않아도 되기 때문이다'
+      answer: 2
+      explanation: |
+        trajectory 는 path 의 각 점에 그 점을 지날 시각과 속도를 더한 것이다. 움직이는 물체가 있는 도로에서는 공간의 경로가 같아도 1 초 늦게
+        지나면 충돌할 수 있으므로 시간까지 정해야 한다. 메시지 형식이나 점 수 때문이 아니고, 교통 규칙은 behavior planning 이 따로 확인한다.
+
+- topic: latency
+  title: latency budget
+  variants:
+    - question: |
+        72 km/h(20 m/s)로 달리는 차의 sensing 부터 actuation 까지의 지연이 0.25 초다. 지연 동안 차가 가는 거리는?
+      choices:
+        - '2.5 m'
+        - '5 m'
+        - '18 m'
+        - '0.8 m'
+      answer: 1
+      explanation: |
+        지연 동안 차는 앞의 속도 그대로 가므로 거리는 속도 × 지연, $20 \times 0.25 = 5$ m 다. 18 m 는 km/h 를 m/s 로 바꾸지 않고 $72 \times 0.25$ 를
+        계산한 값이고, 2.5 m 는 지연을 0.125 초로 잘못 쓴 값이다.
+    - question: |
+        면접관: "planning 이 10 Hz 로 결과를 내면, sensing 부터 명령까지의 지연은 0.1 초라고 볼 수 있나요?"
+      choices:
+        - '아니다. 주기는 결과가 얼마나 자주 나오는지이고 지연은 결과가 얼마나 오래된 정보로 계산됐는지라서, 단계마다 기다림과 처리 시간이 쌓이면 0.1 초보다 길어진다'
+        - '그렇다. 주기가 10 Hz 면 지연은 언제나 정확히 0.1 초다'
+        - '그렇다. 전체 지연은 가장 느린 module 의 주기 하나와 같다'
+        - '아니다. 지연은 언제나 주기의 절반인 0.05 초다'
+      answer: 0
+      explanation: |
+        센서가 다음 scan 을 낼 때까지의 기다림, perception·planning 의 처리, control 의 다음 계산, actuator 의 반응이 차례로 더해진다. 앞 단계가
+        다음 scan 을 처리하는 동안 뒤 단계가 앞 scan 을 처리하면, 결과는 10 Hz 로 나와도 그 결과는 더 오래된 scan 으로 계산한 것이다. 주기 하나나
+        그 절반으로 지연이 정해지지 않는다.
+    - question: |
+        면접관: "자율주행 system 의 처리 지연을 평가할 때 평균 대신 tail latency 를 보는 이유는?"
+      choices:
+        - 'tail latency 가 평균보다 항상 작아서 기준을 맞추기 쉽기 때문이다'
+        - '평균 지연은 측정할 방법이 없기 때문이다'
+        - 'tail latency 는 CPU 에서만 생기므로 GPU 를 쓰면 볼 필요가 없기 때문이다'
+        - '1 만 번에 한 번 생기는 긴 지연도 1 시간 주행 동안 여러 번 일어나고, 그 한 번에 사고가 날 수 있기 때문이다'
+      answer: 3
+      explanation: |
+        10 Hz 로 1 시간 달리면 36,000 번 계산하므로 99.99 percentile 밖의 긴 지연도 3 ~ 4 번 생긴다. 평균이 기준 안이어도 그 순간에는 늦게 반응한다.
+        tail latency 는 정의상 평균보다 크고, GPU 를 쓰는 구성에서도 생긴다.
+
+- topic: sae-odd
+  title: SAE level 과 ODD
+  variants:
+    - question: |
+        면접관: "SAE J3016 의 level 3 과 level 4 는 무엇이 다른가요?"
+      choices:
+        - 'level 3 은 속도만, level 4 는 속도와 조향을 함께 자동으로 한다'
+        - 'level 3 은 고속도로에서만, level 4 는 모든 도로에서 동작한다'
+        - '둘 다 ODD 안에서 운전 전체를 맡지만, level 3 은 문제가 생기면 사람이 넘겨받아야 하고 level 4 는 그 fallback 까지 system 이 맡는다'
+        - 'level 4 는 ODD 의 제한 없이 어디서나 동작한다'
+      answer: 2
+      explanation: |
+        level 3 과 4 는 모두 ODD 안에서 DDT 전체를 system 이 하고, 갈리는 곳은 fallback 이다. level 3 에서는 사람이 개입 요청이나 명백한 고장에
+        대비하다가 넘겨받고, level 4 는 차를 안전하게 세우는 일까지 system 이 한다. 속도와 조향 중 하나만 하는 것은 level 1, ODD 제한이 없는 것은
+        level 5 이고, 도로 종류는 level 이 아니라 각 기능의 ODD 가 정한다.
+    - question: |
+        면접관: "ODD(operational design domain)를 바르게 설명한 것은?"
+      choices:
+        - '자율주행차가 달릴 수 있는 지역의 경계선(geofence)만을 뜻한다'
+        - '기능이 동작하도록 설계된 조건 전체로, 지역뿐 아니라 도로 종류·속도 범위·날씨·밝기·지도 유무 같은 조건이 들어간다'
+        - 'SAE level 을 정하는 시험 점수다'
+        - '사람이 운전대를 잡아야 하는 시간의 비율이다'
+      answer: 1
+      explanation: |
+        ODD 는 지역만이 아니라 그 기능이 제대로 동작한다고 설계한 모든 조건이다. 예를 들어 어떤 level 3 기능은 아우토반의 오른쪽 차로에서 앞차를
+        따라 달릴 때 95 km/h 까지만 동작한다. ODD 를 벗어나면 fallback 이 필요하다. level 은 시험 점수가 아니라 역할 분담으로 정한다.
+    - question: |
+        면접관: "SAE level 이 높은 자율주행 기능일수록 더 안전하다고 말할 수 있나요?"
+      choices:
+        - '아니다. SAE level 은 사람과 system 이 운전과 fallback 을 어떻게 나눠 맡는지를 정할 뿐 안전 수준의 기준이 아니다'
+        - '그렇다. level 이 하나 오를 때마다 사고율이 정해진 비율로 줄도록 표준이 요구한다'
+        - '그렇다. level 5 만 실제 도로를 달릴 수 있으므로 가장 안전하다'
+        - '아니다. level 이 높을수록 언제나 더 위험하다'
+      answer: 0
+      explanation: |
+        J3016 은 역할 분담을 정의하는 용어 표준이고 안전 요구 사항을 두지 않는다. 운전자 감시가 허술한 level 2 차가 운전자의 방심 때문에 level 1
+        차보다 사고가 더 많을 수도 있다. 반대로 level 이 높다고 언제나 위험한 것도 아니다.
+
+- topic: modular-vs-e2e
+  title: modular 와 end-to-end
+  variants:
+    - question: |
+        면접관: "modular stack 대신 UniAD 같은 end-to-end 방식을 쓰려는 이유는?"
+      choices:
+        - 'end-to-end 방식은 학습 데이터가 필요 없기 때문이다'
+        - 'end-to-end 방식은 추론이 항상 더 빨라 latency 가 줄기 때문이다'
+        - 'end-to-end 방식은 부분마다 출력을 사람이 읽기 쉬워 디버깅이 쉽기 때문이다'
+        - 'module 사이의 box 목록 같은 정해진 interface 에서 버려지던 정보를 넘기고, 모든 부분을 planning 목표에 맞춰 함께 학습할 수 있기 때문이다'
+      answer: 3
+      explanation: |
+        modular stack 은 앞 module 이 box 목록으로 정리하며 버린 단서를 뒤 module 이 쓸 수 없고, module 마다 자기 기준으로 학습한다. end-to-end 는
+        학습한 vector 로 정보를 넘기고 planning loss 로 전체를 학습한다. 대신 많은 운전 데이터가 필요하고, UniAD 는 한 frame 에 0.56 초가 걸릴 만큼
+        무겁고, 중간 출력을 사람이 읽기는 modular 쪽이 쉽다.
+    - question: |
+        면접관: "nuScenes 에서 계획 경로와 사람이 운전한 경로의 L2 오차가 작은 모델은 실제 운전도 잘한다고 볼 수 있나요?"
+      choices:
+        - '그렇다. L2 가 작으면 충돌도 반드시 없다'
+        - '그렇다. nuScenes 평가는 closed-loop simulation 이라 실제 주행과 같다'
+        - '아니다. 기록된 장면에 대한 open-loop 비교라 계획대로 움직인 결과를 보지 않고, 직진 장면이 많아 내 차 속도만으로도 L2 가 작게 나올 수 있다'
+        - '아니다. L2 는 perception 의 detection 정확도만 재는 지표다'
+      answer: 2
+      explanation: |
+        nuScenes 의 planning 평가는 기록된 장면을 보여 주고 계획 경로를 사람의 경로와 비교하는 open-loop 평가라서, 계획대로 차를 움직였을 때
+        장면이 어떻게 바뀌는지는 보지 않는다. 데이터의 73.9% 가 직진 장면이라 주변을 거의 보지 않아도 L2 가 작게 나올 수 있다. L2 는 planning
+        경로의 위치 오차이고, L2 가 작아도 충돌이 없다는 보장은 없다.
+    - question: |
+        면접관: "한 frame 에 0.56 초가 걸리는 end-to-end 모델을 50 km/h(약 13.9 m/s)로 달리는 차에 그대로 쓰면 어떤 문제가 있나요?"
+      choices:
+        - '문제없다. control 이 0.03 초마다 계산하므로 지연이 사라진다'
+        - '판단 하나가 나오는 동안 차가 약 7.7 m 를 가서, 처리 지연을 100 ms 안으로 두라는 기준을 크게 넘는다'
+        - '0.56 초는 사람의 평소 반응 시간보다 짧으므로 오히려 여유가 있다'
+        - 'frame 처리 시간은 차가 가는 거리와 관계없고 계산 주기에만 영향을 준다'
+      answer: 1
+      explanation: |
+        지연 동안 간 거리는 $13.9 \times 0.56 \approx 7.7$ m 다. Lin 등은 사람이 가장 빨리 반응하는 100 ~ 150 ms 보다 빨라야 한다는 이유로 처리 지연
+        100 ms 를 기준으로 제시했으므로, 사람의 평소 반응 시간(600 ms 안팎)과 비교하는 것은 기준이 아니다. control 이 자주 계산해도 0.56 초 전 정보로
+        만든 판단은 그대로이고, 처리 시간 동안 차는 그만큼 나아간다.

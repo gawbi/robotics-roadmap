@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>바퀴 odometry 의 누적 오차. 20 m × 10 m 복도를 한 바퀴(60 m) 돌았을 때 바퀴 지름을 1% 크게 세고 90° 마다 1° 더 돈 것으로 세면, odometry 경로는 출발점에서 0.78 m 떨어진 곳에서 끝나고 같은 벽이 두 겹으로 그려진다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <rect x="1" y="1" width="698" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <polyline points="90.0,250.0 370.0,250.0 370.0,110.0 90.0,110.0 90.0,250.0" fill="none" stroke="#34d399" stroke-width="2.2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+  <polyline points="90.0,250.0 125.3,250.0 160.7,250.0 196.0,250.0 231.4,250.0 266.8,250.0 302.1,250.0 337.5,250.0 372.8,250.0 372.2,214.7 371.6,179.3 370.9,144.0 370.3,108.6 335.0,109.9 299.7,111.1 264.3,112.3 229.0,113.6 193.7,114.8 158.4,116.0 123.0,117.3 87.7,118.5 89.6,153.8 91.4,189.1 93.3,224.4 95.1,259.7" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="90.0" cy="250.0" r="6" fill="#34d399"/>
+  <circle cx="95.1" cy="259.7" r="6" fill="#f59e0b"/>
+  <line x1="95.1" y1="259.7" x2="92.0" y2="254.0" stroke="#f87171" stroke-width="1.6" stroke-dasharray="3 3"/>
+  <text x="175.1" y="281.7" fill="#f87171" font-size="13" text-anchor="start" font-weight="600">0.78 m 차이</text>
+  <text x="102.0" y="240.0" fill="#34d399" font-size="12" text-anchor="start">출발</text>
+  <text x="107.1" y="281.7" fill="#f59e0b" font-size="12" text-anchor="start">돌아온 곳</text>
+  <line x1="53.6" y1="285.0" x2="53.6" y2="215.0" stroke="#38bdf8" stroke-width="3"/>
+  <line x1="58.7" y1="294.7" x2="58.7" y2="224.7" stroke="#f59e0b" stroke-width="3" stroke-dasharray="5 3"/>
+  <text x="55.6" y="305.0" fill="#38bdf8" font-size="12" text-anchor="middle">같은 벽이 두 겹</text>
+  <line x1="420.0" y1="60.0" x2="454.0" y2="60.0" stroke="#34d399" stroke-width="2.2" stroke-dasharray="6 5"/>
+  <text x="464.0" y="64.0" fill="#e2e8f0" font-size="12" text-anchor="start">실제 경로: 20 m × 10 m 복도 한 바퀴 (60 m)</text>
+  <line x1="420.0" y1="92.0" x2="454.0" y2="92.0" stroke="#f59e0b" stroke-width="2.4"/>
+  <text x="464.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="start">바퀴 odometry 로 이어 붙인 경로</text>
+  <text x="420.0" y="140.0" fill="#94a3b8" font-size="12" text-anchor="start" font-weight="600">odometry 오차 가정</text>
+  <text x="420.0" y="162.0" fill="#94a3b8" font-size="12" text-anchor="start">· 바퀴 지름을 1% 크게 셈</text>
+  <text x="420.0" y="182.0" fill="#94a3b8" font-size="12" text-anchor="start">· 90° 돌 때마다 1° 더 돈 것으로 셈</text>
+  <text x="420.0" y="214.0" fill="#e2e8f0" font-size="12" text-anchor="start">출발점으로 돌아왔는데 odometry 는</text>
+  <text x="420.0" y="234.0" fill="#e2e8f0" font-size="12" text-anchor="start">0.78 m 떨어진 곳이라고 계산한다</text>
+  <text x="350.0" y="334.0" fill="#94a3b8" font-size="12" text-anchor="middle">그 자리에서 찍은 scan 을 그대로 지도에 그리면 처음 본 벽과 어긋나 벽이 두 겹이 된다</text>
+</svg>

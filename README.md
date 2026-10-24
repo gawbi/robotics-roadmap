@@ -5,19 +5,19 @@
 </p>
 
 <p align="center">
-  <b>강의 43개</b> · <b>branch 12개</b> · <b>약 119시간</b> · <b>코드 없이 숫자와 그림으로</b>
+  <b>강의 50개</b> · <b>branch 14개</b> · <b>약 133시간</b> · <b>코드 없이 숫자와 그림으로</b>
 </p>
 
 로보틱스 분야에 취업하려는 사람을 위한 독학 커리큘럼이다. vector·미분·확률과 ROS 2 같은 공통 기초에서 출발해 로봇 학습(VLA),
 manipulation, mobile robot·자율주행 세 직무 방향으로 나아가며, 강의마다 개념을 실제 로봇에 쓰는 법과 면접에서 설명하는 법까지
-다루고 면접 질문 형식의 퀴즈로 확인한다. 강의 43개가 선수 관계로 이어져 있고, 이 관계를 가운데에서 세 방향으로 뻗는 지도로 보여
+다루고 면접 질문 형식의 퀴즈로 확인한다. 강의 50개가 선수 관계로 이어져 있고, 이 관계를 가운데에서 세 방향으로 뻗는 지도로 보여
 준다. 코드를 짤 일은 없고, 강의는 처음 배우는 사람 기준으로 숫자 예시부터 한 단계씩 설명한다.
 
 ## 화면 구성
 
 ### 커리큘럼 지도
 
-![커리큘럼 지도. 가운데 Vectors & Matrices 둘레에 Derivatives·Probability·ROS 2 가 모여 있고, 아래로는 Linear Regression 에서 Foundations 줄기가 내려가며 갈라지는 로봇 학습 트리, 왼쪽 위로는 Transforms 에서 MuJoCo 까지 이어지는 manipulation 트리, 오른쪽 위로는 Kalman Filter 가 있는 mobile robot 트리가 뻗는다. 왼쪽 위에는 지금 시작할 수 있는 강의 목록, 왼쪽 아래에는 범례가 있다](docs/map.png)
+![커리큘럼 지도. 가운데 Vectors & Matrices 둘레에 Derivatives·Probability·ROS 2 가 모여 있고, 아래로는 Linear Regression 에서 Foundations 줄기가 내려가며 갈라지는 로봇 학습 트리, 왼쪽 위로는 Transforms 에서 MuJoCo 까지 이어지는 manipulation 트리, 오른쪽 위로는 Kalman Filter 에서 SLAM 을 거쳐 path planning·LiDAR perception·자율주행 stack 으로 갈라지는 mobile robot 트리가 뻗는다. 왼쪽 위에는 지금 시작할 수 있는 강의 목록, 왼쪽 아래에는 범례가 있다](docs/map.png)
 
 원 하나가 강의 하나이고, 색은 branch, 모양은 진행 상태(완료·진행 중·시작 가능·선수 강의 남음)를 나타낸다. 가운데에는 모든
 방향의 공통 기초가 모여 있고, 아래는 로봇 학습, 왼쪽 위는 manipulation, 오른쪽 위는 mobile robot·자율주행 트리다. 선은 선수
@@ -95,13 +95,18 @@ fork 에서는 `progress/` 만 커밋한다. `lessons/` 나 `site/` 를 직접 �
 
 | branch | 다루는 것 |
 | --- | --- |
+| Math | vector·행렬, 미분·gradient, 확률·Gaussian |
+| ROS 2 | node·topic·QoS, tf2 |
 | Foundations | linear regression, perceptron, backpropagation, PyTorch training loop |
 | Language | BPE tokenizer, Transformer, GPT-2 |
 | Vision | CNN, ResNet, ViT, CLIP |
+| Imitation Learning | behavior cloning, DAgger, teleoperation 데이터, RT-1, Diffusion Policy, ACT, 실물 로봇 |
 | Generative Models | VAE, DDPM, flow matching |
-| Imitation Learning | behavior cloning, DAgger, RT-1, Diffusion Policy, ACT, 실물 로봇 |
 | Reinforcement Learning | bandit·MDP, DQN·SAC, policy gradient, PPO, sim-to-real 보행 |
-| Robotics | 좌표 변환, kinematics, PID, MuJoCo, 카메라, pick-and-place, teleoperation 데이터 |
+| Manipulation | 좌표 변환, kinematics, PID, MuJoCo, 카메라, pick-and-place |
+| State Estimation | Kalman filter, particle filter, LiDAR SLAM, visual SLAM·VIO |
+| Navigation | costmap·A*·Nav2 path planning, pure pursuit·MPC path tracking |
+| Autonomous Driving | LiDAR perception, 자율주행 stack(Autoware) |
 | VLA | RT-2 → OpenVLA, π0, GR00T N1 |
 | Frontier | world model, VLA 의 RL fine-tuning |
 
