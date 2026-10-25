@@ -38,6 +38,8 @@ function shareMeta(): Plugin {
     ['property', 'og:title', S.title],
     ['property', 'og:description', S.description],
     ['property', 'og:image', image],
+    ['property', 'og:image:secure_url', image],
+    ['property', 'og:image:type', 'image/png'],
     ['property', 'og:image:width', String(S.imageWidth)],
     ['property', 'og:image:height', String(S.imageHeight)],
     ['property', 'og:image:alt', S.imageAlt],

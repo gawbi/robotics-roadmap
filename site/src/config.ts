@@ -10,7 +10,8 @@ export const CONFIG = {
     siteUrl: 'https://woolimi.github.io/robotics-roadmap/',
     title: 'Robotics Roadmap',
     description: '로보틱스 개발자가 되기 위한 오픈소스 독학 커리큘럼. 강의 56개를 선수 관계 지도로 따라가며 읽고 면접형 퀴즈로 확인합니다.',
-    image: 'og.png', // site/public/og.png
+    // site/public/og.png. Link previews are cached by the image's URL, so bump `v` whenever the picture changes
+    image: 'og.png?v=2',
     imageWidth: 1200,
     imageHeight: 630,
     imageAlt: 'Robotics Roadmap 커리큘럼 지도. 가운데 공통 기초 동심원에서 Robot Learning, Manipulation, Mobile Autonomy 트리가 뻗는다',
