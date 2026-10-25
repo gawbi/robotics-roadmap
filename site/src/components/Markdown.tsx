@@ -21,6 +21,19 @@ const LESSON_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
 // lesson therefore works both here and on GitHub
 const SECTION_ID_PREFIX = 'sec-'
 
+/**
+ * Scrolls `target` to the top of its scroll box once every figure there has its size. Figures load lazily, so those the
+ * scroll passes would otherwise grow under it and leave the target short of the top.
+ */
+export function scrollToSettled(target: HTMLElement | null) {
+  if (!target) return
+  const figures = [...(target.closest('.panel-scroll') ?? document).querySelectorAll('img')]
+  for (const img of figures) img.loading = 'eager'
+  void Promise.all(figures.map((img) => img.decode().catch(() => {}))).then(() =>
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+  )
+}
+
 /** text of the bold label a paragraph starts with, e.g. `**확인 문제.** ...` → "확인 문제." */
 function boldLead(node: RootContent | ElementContent | undefined): string | undefined {
   if (node?.type !== 'element' || node.tagName !== 'p') return undefined
@@ -126,7 +139,7 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
             href={href}
             onClick={(e) => {
               e.preventDefault()
-              document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              scrollToSettled(document.getElementById(id))
             }}
           >
             {children}

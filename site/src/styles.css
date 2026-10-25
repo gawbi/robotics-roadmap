@@ -782,7 +782,10 @@ code {
   }
 }
 
+/* positioned so the lesson's absolutely placed bits (KaTeX's hidden MathML, screen-reader text) scroll and clip with it
+   instead of stretching the page under the map, which scrollIntoView would then scroll */
 .panel-scroll {
+  position: relative;
   height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;

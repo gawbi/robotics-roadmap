@@ -7,7 +7,7 @@ import { loadBody } from '../curriculum/load'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
-import { Markdown } from './Markdown'
+import { Markdown, scrollToSettled } from './Markdown'
 import { QuizSection } from './Quiz'
 
 interface Props {
@@ -134,7 +134,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           <StatusCard
             progressFile={progressFile}
             lessonId={lessonId}
-            onJump={() => quizRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            onJump={() => scrollToSettled(quizRef.current)}
           />
 
           {missing.length > 0 && status === 'todo' && (
