@@ -3,6 +3,7 @@
 
 - topic: convolution
   title: convolution 계산과 feature map
+  section: convolution
   variants:
     - question: |
         CNN 의 convolution layer 가 출력 한 칸을 계산하는 방법으로 맞는 것은?
@@ -49,6 +50,7 @@
 
 - topic: filter-learning
   title: label 에서 filter 까지의 학습 신호
+  section: filter-학습
   variants:
     - question: |
         손글씨 숫자 분류 CNN 을 학습할 때 첫 층 filter 의 숫자는 무엇을 정답 삼아 고쳐지는가?
@@ -97,6 +99,7 @@
 
 - topic: weight-sharing
   title: weight sharing 과 translation equivariance
+  section: weight-sharing
   variants:
     - question: |
         사진을 펼쳐 MLP 에 넣는 대신 convolution 을 쓰면 parameter 가 크게 줄어드는 이유는 무엇인가?
@@ -144,6 +147,7 @@
 
 - topic: output-size
   title: stride 와 padding
+  section: stride-와-padding
   variants:
     - question: |
         3×3 convolution 에서 padding 1, stride 1 을 쓰는 이유는 무엇인가?
@@ -190,6 +194,7 @@
 
 - topic: channels
   title: 여러 channel 의 convolution 과 parameter 수
+  section: 여러-channel-의-convolution
   variants:
     - question: |
         RGB 사진을 받는 첫 conv layer 의 3×3 filter 하나에는 학습할 weight 가 몇 개 있는가? bias 는 빼고 센다.
@@ -235,6 +240,7 @@
 
 - topic: pooling
   title: pooling 과 translation invariance
+  section: pooling
   variants:
     - question: |
         2×2 max pooling 이 하는 일과 학습할 parameter 의 개수로 맞는 것은?
@@ -281,6 +287,7 @@
 
 - topic: receptive-field
   title: receptive field 와 층의 깊이
+  section: receptive-field
   variants:
     - question: |
         3×3 convolution 을 stride 1 로 세 번 쌓으면, 마지막 출력 한 칸의 receptive field 는 입력에서 얼마인가?
@@ -326,6 +333,7 @@
 
 - topic: robot-encoder
   title: 로봇 image encoder 와 위치 정보
+  section: 로봇-policy-의-image-encoder
   variants:
     - question: |
         로봇 팔 policy 의 image encoder 로 ImageNet 분류용 CNN 을 가져올 때, 마지막의 global average pooling 을 그대로 쓰면 어떤 문제가 생길 수

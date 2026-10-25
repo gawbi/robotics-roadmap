@@ -3,6 +3,7 @@
 
 - topic: control-loop
   title: controller_manager 의 제어 loop
+  section: controller_manager
   variants:
     - question: |
         ros2_control 의 controller_manager 는 한 주기에 어떤 일을 어떤 순서로 하는가?
@@ -43,6 +44,7 @@
 
 - topic: interfaces
   title: command interface 와 state interface
+  section: command-interface-와-state-interface
   variants:
     - question: |
         ros2_control 의 command interface 와 state interface 는 무엇이 다른가?
@@ -84,6 +86,7 @@
 
 - topic: hardware-abstraction
   title: ros2_control tag 와 hardware interface
+  section: urdf-의-ros2_control-tag
   variants:
     - question: |
         같은 controller 설정으로 실제 로봇과 Gazebo 와 mock hardware 를 오가려면 무엇을 바꾸는가?
@@ -124,6 +127,7 @@
 
 - topic: jtc-interpolation
   title: joint_trajectory_controller 의 보간
+  section: 점-사이-보간
   variants:
     - question: |
         joint_trajectory_controller 에 각 점의 위치만 담은 trajectory 를 보내면 점 사이를 어떻게 보간하고, 무엇이 문제인가?
@@ -163,6 +167,7 @@
 
 - topic: jtc-tolerance
   title: tolerance 와 성공 판정
+  section: tolerance-와-성공-판정
   variants:
     - question: |
         joint_trajectory_controller 의 constraints 에서 관절마다 trajectory 와 goal tolerance 를 0 으로 두면 어떻게 되는가?
@@ -203,6 +208,7 @@
 
 - topic: moveit-execution
   title: MoveIt 2 와 FollowJointTrajectory
+  section: moveit-2-와-followjointtrajectory
   variants:
     - question: |
         MoveIt 2 가 계획한 trajectory 는 어떤 경로로 ros2_control 에 전달되는가?
@@ -242,6 +248,7 @@
 
 - topic: realtime
   title: real-time loop
+  section: real-time-loop
   variants:
     - question: |
         ros2_control 로 1 kHz 제어를 할 때 real-time kernel 을 권하는 이유는 무엇인가?
@@ -282,6 +289,7 @@
 
 - topic: mock-sim
   title: mock hardware 와 simulator plugin
+  section: simulation-과-mock-hardware
   variants:
     - question: |
         mock_components/GenericSystem 으로 MoveIt 2 실행이 잘 됐다면 실제 로봇에서도 잘 될까?

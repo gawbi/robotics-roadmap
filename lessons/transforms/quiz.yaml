@@ -3,6 +3,7 @@
 
 - topic: frame-pose
   title: frame 과 pose
+  section: frame-과-pose
   variants:
     - question: |
         로봇에서 어떤 물체의 pose 라고 하면 무엇을 말하는가?
@@ -43,6 +44,7 @@
 
 - topic: rotation-matrix
   title: rotation matrix 의 성질
+  section: 2d-rotation-matrix
   variants:
     - question: |
         3×3 행렬이 rotation matrix 이려면 어떤 조건을 만족해야 하는가?
@@ -83,6 +85,7 @@
 
 - topic: composition
   title: 변환의 합성과 곱하는 순서
+  section: 변환의-합성
   variants:
     - question: |
         world 에서 본 base 의 pose $T_{wb}$ 와 base 에서 본 camera 의 pose $T_{bc}$ 가 있다. world 에서 본 camera 의 pose 는 어떻게 구하는가?
@@ -123,6 +126,7 @@
 
 - topic: inverse
   title: 역변환
+  section: 역변환
   variants:
     - question: |
         $T_{ab}$ 의 rotation 이 $R$, translation 이 $p$ 일 때 역변환 $T_{ba}$ 의 translation 칸에는 무엇이 들어가는가?
@@ -162,6 +166,7 @@
 
 - topic: euler-gimbal
   title: roll-pitch-yaw 와 gimbal lock
+  section: roll-pitch-yaw
   variants:
     - question: |
         URDF 의 `rpy` 세 값은 어떤 순서로 회전을 적용하는가?
@@ -202,6 +207,7 @@
 
 - topic: quaternion
   title: quaternion 의 성질과 칸 순서
+  section: quaternion
   variants:
     - question: |
         축 $\hat n$ 을 중심으로 $\theta$ 만큼 도는 rotation 을 unit quaternion 으로 적으면 어떻게 되는가?
@@ -241,6 +247,7 @@
 
 - topic: slerp
   title: 자세 보간과 slerp
+  section: slerp
   variants:
     - question: |
         두 자세 사이의 중간 자세를 만들려고 두 rotation matrix 를 칸마다 평균하면 어떤 문제가 생기는가?
@@ -280,6 +287,7 @@
 
 - topic: robot-frames
   title: 로봇의 frame 사슬
+  section: gripper-에-단-카메라
   variants:
     - question: |
         손목(gripper)에 단 카메라로 찾은 물체 위치 $p_c$ 를 로봇 base 의 좌표로 바꾸려면 어떤 계산을 하는가? $T_{be}$ 는 base 에서 본 gripper 의 pose 이고, $T_{ec}$ 는 gripper 에서 본 카메라의 pose 이다.

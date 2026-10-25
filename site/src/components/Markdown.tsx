@@ -21,17 +21,19 @@ const LESSON_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
 // lesson therefore works both here and on GitHub
 const SECTION_ID_PREFIX = 'sec-'
 
+/** The rendered heading a `#slug` link in the lesson points at. */
+export const sectionElement = (slug: string) => document.getElementById(SECTION_ID_PREFIX + slug)
+
 /**
  * Scrolls `target` to the top of its scroll box once every figure there has its size. Figures load lazily, so those the
  * scroll passes would otherwise grow under it and leave the target short of the top.
  */
-export function scrollToSettled(target: HTMLElement | null) {
+export async function scrollToSettled(target: HTMLElement | null) {
   if (!target) return
   const figures = [...(target.closest('.panel-scroll') ?? document).querySelectorAll('img')]
   for (const img of figures) img.loading = 'eager'
-  void Promise.all(figures.map((img) => img.decode().catch(() => {}))).then(() =>
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' }),
-  )
+  await Promise.all(figures.map((img) => img.decode().catch(() => {})))
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 /** text of the bold label a paragraph starts with, e.g. `**확인 문제.** ...` → "확인 문제." */
@@ -122,9 +124,11 @@ interface Props {
   inline?: boolean
 }
 
-/** Render a subject body. The leading `# Title` is dropped because the panel header shows it. */
+/**
+ * Render a subject body. The `# Title` is not drawn because the panel header shows it, but it stays in the source so the
+ * headings after it get the same slugs as on GitHub (a `## X` under `# X` is `x-1` there).
+ */
 export function Markdown({ lessonId, source, inline = false }: Props) {
-  const body = source.replace(/^\s*# .*\n/, '')
   const blob = `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/lessons/${lessonId}/`
 
   const components: Components = {
@@ -163,6 +167,7 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
       const resolved = typeof src === 'string' && !/^[a-z]+:/i.test(src) ? assetUrl(lessonId, src) : src
       return <img src={resolved as string} alt={alt} loading="lazy" />
     },
+    h1: () => null,
     ...(inline && { p: ({ children }) => <span>{children}</span> }),
     // `> **오해** ...` then `> **사실** ...` is a misconception box: one line for the belief, one for the fact
     blockquote({ node, children }) {
@@ -210,7 +215,7 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
         rehypePlugins={[rehypeRaw, rehypeLessonBlocks, [rehypeSlug, { prefix: SECTION_ID_PREFIX }], rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
         components={components}
       >
-        {body}
+        {source}
       </ReactMarkdown>
     </Wrapper>
   )

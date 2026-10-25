@@ -3,6 +3,7 @@
 
 - topic: demo-gap
   title: 시연을 늘려도 비어 있는 상태
+  section: 시연이-채우지-못하는-상태
   variants:
     - question: |
         behavior cloning policy 가 실수한 뒤 들어가는 상태에서 자꾸 실패해서, 같은 expert 의 시연을 열 배로 더 모았다.
@@ -44,6 +45,7 @@
 
 - topic: expert-label
   title: 지나간 상태에 붙이는 expert 의 정답
+  section: 실행한-조향과-저장하는-정답
   variants:
     - question: |
         DAgger 에서 policy 가 움직이며 지나간 상태에 저장하는 정답 action 은 무엇인가?
@@ -87,6 +89,7 @@
 
 - topic: aggregation
   title: 데이터를 모아 합치는 반복
+  section: dataset-aggregation
   variants:
     - question: |
         DAgger 의 iteration 하나를 순서대로 적은 것으로 맞는 것은?
@@ -128,6 +131,7 @@
 
 - topic: own-error
   title: 자기가 간 상태에서 잰 오차
+  section: 자기가-간-상태에서-잰-오차
   variants:
     - question: |
         DAgger iteration 이 지나는 동안 시연에서 떼어 둔 validation set 의 loss 는 거의 그대로였는데, rollout 에서는 자꾸
@@ -171,6 +175,7 @@
 
 - topic: residual-error
   title: DAgger 가 줄이지 못하는 오차
+  section: dagger-가-줄이지-못하는-오차
   variants:
     - question: |
         DAgger 의 iteration 을 여러 번 반복한 policy 가 과제를 끝까지 해내게 됐지만, 익숙한 상태에서도 매 step 조금씩은 계속 틀린다.
@@ -214,6 +219,7 @@
 
 - topic: beta-mixing
   title: 확률 β 로 섞는 운전
+  section: expert-와-policy-를-섞는-운전
   variants:
     - question: |
         DAgger 의 섞은 운전 $\pi_i = \beta_i\,\pi^* + (1-\beta_i)\,\hat\pi_i$ 는 무슨 뜻인가? ($\pi^*$ 는 expert, $\hat\pi_i$ 는
@@ -257,6 +263,7 @@
 
 - topic: bound
   title: 실수가 쌓이는 정도, T² 와 T
+  section: 실수가-쌓이는-정도
   variants:
     - question: |
         episode 길이를 $T$ 라 할 때 틀린 step 수의 상한은 behavior cloning 이 $T^2\epsilon$ 꼴이고 DAgger 가 $uT\epsilon_N$ 꼴이다.
@@ -300,6 +307,7 @@
 
 - topic: human-gated
   title: 사람 expert 와 개입 기반 수집
+  section: 사람-expert-와-개입-기반-수집
   variants:
     - question: |
         사람을 expert 로 두고 실물 로봇에 DAgger 를 그대로 적용할 때의 어려움으로 맞지 않는 것은?

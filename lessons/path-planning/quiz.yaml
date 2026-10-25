@@ -3,6 +3,7 @@
 
 - topic: costmap-layers
   title: costmap 과 layer
+  section: costmap-과-layer
   variants:
     - question: |
         Nav2 의 global costmap 에서 static layer 와 obstacle layer 는 각각 어떤 정보를 적는가?
@@ -43,6 +44,7 @@
 
 - topic: inflation
   title: inflation 과 robot radius
+  section: inflation-과-robot-radius
   variants:
     - question: |
         planner 는 로봇을 점 하나로 보고 경로를 계산하는데, 그래도 크기가 있는 로봇이 벽에 부딪히지 않는 이유는 무엇인가?
@@ -84,6 +86,7 @@
 
 - topic: dijkstra
   title: Dijkstra 의 확장 순서
+  section: dijkstra
   variants:
     - question: |
         Dijkstra 알고리즘은 다음에 확장할 node 를 어떻게 고르는가?
@@ -123,6 +126,7 @@
 
 - topic: astar-heuristic
   title: A* 와 admissible heuristic
+  section: a-와-heuristic
   variants:
     - question: |
         A* 와 Dijkstra 의 차이는 무엇인가?
@@ -163,6 +167,7 @@
 
 - topic: hybrid-astar
   title: 자동차형 로봇과 Hybrid-A*
+  section: 자동차형-로봇과-hybrid-a
   variants:
     - question: |
         grid A* 가 낸 경로를 자동차형(Ackermann) 로봇이 따라가지 못하는 이유는 무엇인가?
@@ -203,6 +208,7 @@
 
 - topic: global-local
   title: global planning 과 local planning
+  section: global-planning-과-local-planning
   variants:
     - question: |
         navigation 을 global planning 과 local planning 으로 나누는 이유는 무엇인가?
@@ -242,6 +248,7 @@
 
 - topic: nav2-bt
   title: Nav2 의 behavior tree 와 재계획
+  section: nav2-의-planner-server-와-behavior-tree
   variants:
     - question: |
         Nav2 의 기본 behavior tree 는 navigation 중에 global 경로를 어떻게 다루는가?

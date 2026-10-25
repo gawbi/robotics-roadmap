@@ -3,6 +3,7 @@
 
 - topic: orb-feature
   title: feature point 와 ORB
+  section: feature-point-와-orb
   variants:
     - question: |
         Visual SLAM 은 흰 벽 한가운데의 pixel 이 아니라 corner 를 feature point 로 쓴다. 그 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: matching
   title: feature matching 과 ratio test
+  section: feature-matching
   variants:
     - question: |
         어떤 feature 의 가장 가까운 후보가 Hamming distance 30 bit, 두 번째 후보가 32 bit 이다. ratio 0.6 의 ratio test 를 쓰면 이 짝은 어떻게 되는가?
@@ -83,6 +85,7 @@
 
 - topic: triangulation
   title: triangulation 과 parallax
+  section: triangulation
   variants:
     - question: |
         같은 1 pixel 의 feature 위치 오차인데, 2 m 앞의 점보다 10 m 앞의 점의 depth 오차가 훨씬 큰 이유는 무엇인가?
@@ -123,6 +126,7 @@
 
 - topic: keyframe-ba
   title: keyframe 과 bundle adjustment
+  section: tracking-과-keyframe
   variants:
     - question: |
         Visual SLAM 이 모든 사진을 bundle adjustment 에 넣지 않고 keyframe 만 고르는 이유는 무엇인가?
@@ -163,6 +167,7 @@
 
 - topic: monocular-scale
   title: monocular scale ambiguity
+  section: monocular-scale-ambiguity
   variants:
     - question: |
         카메라 한 대만 쓰는 monocular Visual SLAM 이 실제 m 단위의 지도를 만들지 못하는 이유는 무엇인가?
@@ -202,6 +207,7 @@
 
 - topic: vio
   title: VIO
+  section: vio
   variants:
     - question: |
         IMU 를 붙이면 monocular 카메라가 모르던 scale 을 알 수 있는 이유는 무엇인가?
@@ -241,6 +247,7 @@
 
 - topic: failure-cases
   title: Visual SLAM 의 실패 상황
+  section: 실패-상황
   variants:
     - question: |
         카메라가 무늬 없는 흰 벽을 보면 Visual SLAM 의 tracking 이 끊기는 이유는 무엇인가?

@@ -3,6 +3,7 @@
 
 - topic: finite-difference
   title: finite difference 와 derivative
+  section: 변화율과-derivative
   variants:
     - question: |
         encoder 가 0.01 초마다 관절 각도를 준다. 이 값으로 관절 속도를 어떻게 구하고, 그 값은 정확히 무엇을 뜻하는가?
@@ -42,6 +43,7 @@
 
 - topic: differentiation-noise
   title: 수치 미분이 noise 를 키우는 이유
+  section: 수치-미분과-noise
   variants:
     - question: |
         한 칸이 0.088° 인 encoder 로 천천히 도는 관절의 속도를 계산한다. 계산 주기를 100 Hz 에서 1 kHz 로 올렸더니 속도 값이 훨씬 심하게 튄다. 그 이유는 무엇인가?
@@ -81,6 +83,7 @@
 
 - topic: filtering-delay
   title: 평균과 low-pass filter 의 대가
+  section: 수치-미분과-noise
   variants:
     - question: |
         1 kHz 로 계산한 관절 속도가 튀어서, 최근 속도 50 개의 평균을 쓰기로 했다. 이때 얻는 것과 잃는 것은 무엇인가?
@@ -121,6 +124,7 @@
 
 - topic: integration-drift
   title: 적분과 drift
+  section: 적분과-drift
   variants:
     - question: |
         IMU 의 gyro 값을 적분해 로봇의 방향을 구하면, 로봇이 멈춰 있어도 방향 값이 계속 한쪽으로 흘러간다. 그 이유는 무엇인가?
@@ -160,6 +164,7 @@
 
 - topic: chain-rule
   title: chain rule
+  section: 미분-규칙
   variants:
     - question: |
         감속비 100:1 인 gear 로 motor 가 관절을 돌린다. 관절을 1 rad 돌릴 때 손끝 높이는 0.3 m 변한다. motor 를 1 rad 돌리면 손끝 높이는 대략 얼마나 변할까?
@@ -199,6 +204,7 @@
 
 - topic: gradient
   title: partial derivative 와 gradient
+  section: partial-derivative-와-gradient
   variants:
     - question: |
         어떤 함수의 gradient 가 지금 점에서 $(-0.2, -0.1)$ 이다. 이 함수를 가장 빨리 줄이려면 두 변수를 어떻게 바꿔야 하는가?
@@ -237,6 +243,7 @@
 
 - topic: jacobian
   title: Jacobian 과 선형 근사
+  section: jacobian-과-선형-근사
   variants:
     - question: |
         2 관절 팔의 Jacobian 은 무엇인가?

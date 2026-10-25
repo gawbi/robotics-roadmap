@@ -3,6 +3,7 @@
 
 - topic: chunk-horizon
   title: action chunking 과 compounding error
+  section: action-chunking
   variants:
     - question: |
         ACT 는 관측 한 번에 앞으로 여러 step 의 action 을 묶어서(action chunk) 낸다. 이것이 behavior cloning 의 compounding error 를 줄이는
@@ -47,6 +48,7 @@
 
 - topic: chunk-timing
   title: 추론 시한과 chunk 길이
+  section: 추론-시한과-chunk-길이
   variants:
     - question: |
         action chunking 을 쓰면 모델의 추론이 로봇의 제어 주기보다 느려도 로봇이 명령을 기다리지 않는다고 하는데, 왜 그런가?
@@ -90,6 +92,7 @@
 
 - topic: temporal-ensembling
   title: 겹치는 chunk 예측의 가중 평균
+  section: temporal-ensembling
   variants:
     - question: |
         chunk 를 끝까지 실행한 뒤 다음 chunk 로 넘어가는 policy 에서 chunk 가 바뀔 때마다 팔이 갑자기 튄다. 원인은 무엇이고, temporal ensembling
@@ -133,6 +136,7 @@
 
 - topic: ensemble-weight
   title: weight 식 exp(−m·i) 와 m 의 역할
+  section: temporal-ensembling
   variants:
     - question: |
         ACT 의 temporal ensembling 은 같은 시각에 대한 예측들에 $w_i = \exp(-m \cdot i)$ 의 weight 를 주고, $i = 0$ 이 가장 오래전에 낸
@@ -174,6 +178,7 @@
 
 - topic: style-average
   title: style 이 갈린 시연과 평균의 함정
+  section: 시연의-style-과-평균의-함정
   variants:
     - question: |
         같은 장면에서 사람이 어떤 때는 곧장 내려가 큐브를 잡고, 어떤 때는 잠깐 멈췄다가 내려가 잡았다. 둘 다 성공한 시연이고 관측은 거의 같다.
@@ -215,6 +220,7 @@
 
 - topic: cvae-z
   title: CVAE 의 style 변수 z 와 KL
+  section: cvae-와-style-변수-z
   variants:
     - question: |
         ACT 는 학습 때 CVAE encoder 가 시연의 정답 chunk 를 보고 style 변수 $z$ 를 만들어 policy 에 함께 넣는다. 이것이 평균의 함정을 막는
@@ -256,6 +262,7 @@
 
 - topic: inference-z
   title: 추론 때 z = 0 을 쓰는 이유
+  section: 추론-때의-z--0
   variants:
     - question: |
         학습이 끝난 ACT 로 로봇을 움직일 때는 CVAE encoder 를 쓰지 않는다. 가장 직접적인 이유는 무엇인가?
@@ -299,6 +306,7 @@
 
 - topic: act-architecture
   title: ACT 의 token 과 decoder
+  section: transformer-decoder-와-action-head
   variants:
     - question: |
         ACT 의 Transformer decoder 에는 학습으로 정해지는 고정 query 가 chunk 길이만큼 들어간다. 이 query 들은 어떤 역할을 하는가?

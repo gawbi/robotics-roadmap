@@ -3,6 +3,7 @@
 
 - topic: why-measure
   title: 카메라와 로봇 사이 transform 의 오차
+  section: 카메라와-gripper-사이의-transform
   variants:
     - question: |
         손목 카메라와 gripper 사이 transform 의 rotation 이 1° 틀렸다. 카메라에서 0.5 m 떨어진 물체의 위치는 어떻게 틀어지는가?
@@ -43,6 +44,7 @@
 
 - topic: setups
   title: eye-in-hand 와 eye-to-hand
+  section: eye-in-hand-와-eye-to-hand
   variants:
     - question: |
         eye-in-hand 와 eye-to-hand 에서 calibration 으로 구하는 transform 은 각각 무엇인가?
@@ -82,6 +84,7 @@
 
 - topic: axxb
   title: AX = XB 의 A 와 B
+  section: ax--xb
   variants:
     - question: |
         hand-eye calibration 의 AX = XB 에서 A 와 B 는 각각 어디서 얻는가?
@@ -120,6 +123,7 @@
 
 - topic: rotation-axes
   title: 회전 축의 짝과 최소 자세 수
+  section: 회전-축의-짝
   variants:
     - question: |
         gripper 가 30° 돌았을 때, 거기 단단히 붙은 카메라의 회전은 어떻게 계산되는가?
@@ -160,6 +164,7 @@
 
 - topic: pure-translation
   title: translation 만 하는 움직임
+  section: translation-이-정해지는-조건
   variants:
     - question: |
         자세를 회전 없이 translation 만으로 바꿔 가며 모으면 왜 X 의 translation 을 구할 수 없는가?
@@ -197,6 +202,7 @@
 
 - topic: data-collection
   title: 자세 수집 조건
+  section: 자세-수집
   variants:
     - question: |
         hand-eye calibration 의 정확도를 높이려면 자세를 어떻게 모아야 하는가?
@@ -236,6 +242,7 @@
 
 - topic: solvers
   title: Tsai-Lenz·Park-Martin·Daniilidis
+  section: tsai-lenzpark-martindaniilidis-solver
   variants:
     - question: |
         Tsai-Lenz 와 Daniilidis 방법의 가장 큰 차이는 무엇인가?
@@ -274,6 +281,7 @@
 
 - topic: validation
   title: calibration 검증
+  section: 검증
   variants:
     - question: |
         hand-eye calibration 결과를 별도 장비 없이 검증하는 방법으로 알맞은 것은?

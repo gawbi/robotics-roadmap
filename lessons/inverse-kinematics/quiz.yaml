@@ -3,6 +3,7 @@
 
 - topic: ik-problem
   title: inverse kinematics 와 답의 개수
+  section: fk-와-ik
   variants:
     - question: |
         forward kinematics 는 답이 늘 하나인데, inverse kinematics 는 왜 답이 하나로 정해지지 않는가?
@@ -43,6 +44,7 @@
 
 - topic: analytic-solution
   title: 해석적 풀이와 workspace
+  section: 2-관절-팔의-해석적-풀이
   variants:
     - question: |
         2 관절 평면 팔을 코사인 법칙으로 풀었더니 cos θ₂ 가 1.5 로 나왔다. 이것은 무슨 뜻인가?
@@ -82,6 +84,7 @@
 
 - topic: jacobian
   title: Jacobian 의 열과 선형 근사
+  section: jacobian
   variants:
     - question: |
         로봇 팔 Jacobian 의 한 열은 무엇을 나타내는가?
@@ -122,6 +125,7 @@
 
 - topic: iterative-ik
   title: 반복 계산과 시작 자세
+  section: 반복-계산으로-푸는-ik
   variants:
     - question: |
         반복 IK 에서 J Δq = e 를 풀어 joint 를 한 번 돌렸는데 손끝이 목표에 정확히 닿지 않았다. 그 이유와 대처로 알맞은 것은?
@@ -161,6 +165,7 @@
 
 - topic: transpose
   title: Jacobian transpose 와 step 크기
+  section: jacobian-transpose
   variants:
     - question: |
         Jacobian transpose 법 Δq = α Jᵀ e 는 어떤 최적화 방법과 같은가?
@@ -199,6 +204,7 @@
 
 - topic: singularity
   title: singularity 와 pseudo-inverse
+  section: singularity
   variants:
     - question: |
         2 관절 평면 팔은 어떤 자세에서 singularity 가 되는가?
@@ -238,6 +244,7 @@
 
 - topic: dls
   title: damped least squares 와 λ
+  section: damped-least-squares
   variants:
     - question: |
         damped least squares(DLS)는 pseudo-inverse 와 무엇이 다른가?
@@ -277,6 +284,7 @@
 
 - topic: ik-solver
   title: joint limit 과 IK solver
+  section: joint-limit-과-ik-solver
   variants:
     - question: |
         반복 IK 가 joint limit 에 막혀 목표 근처에서 멈췄다. 실제 IK solver 는 보통 어떻게 대처하는가?

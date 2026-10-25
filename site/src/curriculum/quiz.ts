@@ -9,12 +9,16 @@ export interface Variant {
   choices: string[]
   answer: number
   explanation: string
+  /** heading slug of the lecture section this variant asks about, when it differs from its topic's */
+  section?: string
 }
 
 /** One principle the quiz checks. A quiz asks one variant per topic. */
 export interface Topic {
   topic: string
   title: string
+  /** GitHub heading slug of the lecture section that teaches the topic; a wrong answer links there */
+  section: string
   variants: Variant[]
 }
 
@@ -39,6 +43,14 @@ export interface QuizResult {
 }
 
 const TOPIC_ID = /^[a-z0-9-]+$/
+// a GitHub heading slug: lower-case letters of any script, digits, `-` and `_`
+const SECTION_ID = /^[\p{Ll}\p{Lo}\p{Lm}\p{M}\p{N}_-]+$/u
+
+function section(value: unknown, where: string): string {
+  const slug = text(value, where)
+  if (!SECTION_ID.test(slug)) throw new Error(`${where}: 제목 slug 가 아닙니다`)
+  return slug
+}
 
 function text(value: unknown, where: string): string {
   if (typeof value !== 'string' || !value.trim()) throw new Error(`${where}: 문자열이 아닙니다`)
@@ -66,11 +78,20 @@ export function parseBank(source: string): Topic[] {
       if (typeof answer !== 'number' || !Number.isInteger(answer) || answer < 0 || answer >= choices.length) {
         throw new Error(`${where}: answer 가 보기 범위를 벗어났습니다`)
       }
-      return { question: text(v.question, `${where}.question`), choices, answer, explanation: text(v.explanation, `${where}.explanation`) }
+      return {
+        question: text(v.question, `${where}.question`),
+        choices,
+        answer,
+        explanation: text(v.explanation, `${where}.explanation`),
+        ...(v.section !== undefined && { section: section(v.section, `${where}.section`) }),
+      }
     })
-    return { topic, title: text(t.title, `${topic}.title`), variants }
+    return { topic, title: text(t.title, `${topic}.title`), section: section(t.section, `${topic}.section`), variants }
   })
 }
+
+/** Heading slug of the lecture section to reread after missing `variant` of `topic`. */
+export const sectionOf = (topic: Topic, variant: number) => topic.variants[variant]?.section ?? topic.section
 
 /** The most recent answer to each topic across all attempts. */
 export function latestAnswers(attempts: readonly Attempt[]): Map<string, Answer> {

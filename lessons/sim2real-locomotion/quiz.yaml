@@ -3,6 +3,7 @@
 
 - topic: observation-action
   title: 보행 policy 의 observation 과 목표 각도 action
+  section: 보행-policy-의-observation-과-action
   variants:
     - question: |
         simulator 는 바닥의 마찰 계수를 정확히 안다. 그런데 보행 policy 의 observation 에 마찰 계수를 넣지 않는 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: reward-design
   title: 여러 항목을 더한 보행 reward
+  section: 보행-reward
   variants:
     - question: |
         보행 reward 를 명령한 속도를 얼마나 잘 따르는지 하나로만 정하면 어떤 문제가 생기는가?
@@ -83,6 +85,7 @@
 
 - topic: reality-gap
   title: reality gap 의 원인
+  section: reality-gap-의-원인
   variants:
     - question: |
         sim-to-real gap 이 생기는 원인을 크게 두 가지로 나눈다면 무엇인가?
@@ -123,6 +126,7 @@
 
 - topic: actuator-network
   title: actuator network
+  section: actuator-network
   variants:
     - question: |
         Hwangbo 등이 ANYmal 에 쓴 actuator network 는 무엇을 입력으로 받아 무엇을 내고, 무엇으로 학습했는가?
@@ -163,6 +167,7 @@
 
 - topic: domain-randomization
   title: domain randomization 과 범위
+  section: domain-randomization
   variants:
     - question: |
         domain randomization 으로 학습한 policy 는 무엇을 키우도록 학습되는가?
@@ -203,6 +208,7 @@
 
 - topic: observation-noise-latency
   title: observation noise 와 지연의 학습
+  section: observation-noise-와-지연의-학습
   variants:
     - question: |
         보행 policy 를 학습할 때 observation 에 일부러 noise 를 더하는 이유는 무엇인가?
@@ -243,6 +249,7 @@
 
 - topic: terrain-curriculum
   title: 지형 curriculum
+  section: 지형-curriculum
   variants:
     - question: |
         계단과 경사가 있는 지형의 보행을 학습할 때 쉬운 지형부터 시작하는 curriculum 을 쓰는 이유는 무엇인가?
@@ -283,6 +290,7 @@
 
 - topic: teacher-student
   title: teacher-student 학습과 privileged information
+  section: teacher-student-학습
   variants:
     - question: |
         teacher-student 보행 학습에서 privileged information 은 무엇이고, 왜 teacher 에게만 주는가?

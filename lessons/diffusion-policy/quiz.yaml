@@ -3,6 +3,7 @@
 
 - topic: multimodal-head
   title: 정답이 갈린 시연과 diffusion head
+  section: 정답이-둘인-장면과-diffusion-head
   variants:
     - question: |
         장애물 앞에서 시연의 절반은 왼쪽으로, 절반은 오른쪽으로 피했다. MSE 로 학습한 policy 와 Diffusion Policy 는
@@ -49,6 +50,7 @@
 
 - topic: normalize
   title: action 의 min-max 정규화
+  section: 행동-값의-정규화
   variants:
     - question: |
         Diffusion Policy 에 0 ~ 512 pixel 범위의 action 을 넣기 전에 $-1$ ~ $+1$ 로 정규화하는 이유는 무엇인가?
@@ -90,6 +92,7 @@
 
 - topic: conditioning
   title: 관측을 조건으로 받는 denoising
+  section: 관측을-조건으로-받는-denoising
   variants:
     - question: |
         이미지 생성용 DDPM 의 network 는 noise 가 섞인 값과 단계 번호만 받는데, Diffusion Policy 의 network 는 관측도 함께 받는다.
@@ -133,6 +136,7 @@
 
 - topic: action-chunk
   title: action chunk 와 prediction horizon
+  section: action-chunk-와-prediction-horizon
   variants:
     - question: |
         정답이 둘로 갈린 시연에서 action 을 한 step 씩 따로 sampling 하면 어떤 문제가 생기고, action chunk 는 이를 어떻게 줄이는가?
@@ -176,6 +180,7 @@
 
 - topic: receding-horizon
   title: receding horizon 과 action horizon
+  section: receding-horizon-과-action-horizon
   variants:
     - question: |
         Diffusion Policy 는 action 16 개를 만들고 앞 8 개만 실행한 뒤 다시 만든다. 16 개를 모두 실행하지 않는 이유는?
@@ -218,6 +223,7 @@
 
 - topic: image-encoder
   title: spatial softmax 와 pretrained encoder
+  section: image-encoder-와-spatial-softmax
   variants:
     - question: |
         Diffusion Policy 가 ResNet-18 의 global average pooling 을 spatial softmax 로 바꾼 이유는 무엇인가?
@@ -262,6 +268,7 @@
 
 - topic: denoiser
   title: CNN denoiser 와 transformer denoiser
+  section: cnn-denoiser-와-transformer-denoiser
   variants:
     - question: |
         Diffusion Policy 의 1D convolution U-Net denoiser 와 transformer denoiser 를 고를 때의 기준은 무엇인가?
@@ -304,6 +311,7 @@
 
 - topic: ddim
   title: DDIM 으로 줄이는 sampling 단계
+  section: ddim-으로-줄이는-sampling-단계
   variants:
     - question: |
         Diffusion Policy 를 실물 로봇에서 실행할 때 DDIM 을 쓰는 이유는 무엇인가?

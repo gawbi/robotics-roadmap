@@ -1,14 +1,14 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
-import { ArrowDown, BookOpen, ClipboardCheck, Clock, ExternalLink, X } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Clock, ExternalLink, ListChecks, X } from 'lucide-react'
 import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { loadBody } from '../curriculum/load'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
-import { Markdown, scrollToSettled } from './Markdown'
-import { QuizSection } from './Quiz'
+import { Markdown } from './Markdown'
+import { QuizReturn, QuizSection, useQuizNav } from './Quiz'
 
 interface Props {
   curriculum: Curriculum
@@ -56,8 +56,8 @@ function statusText(status: Status, passedDate: string | undefined, tries: numbe
   return quiz ? '강의를 끝까지 읽고 퀴즈로 마무리' : '퀴즈 준비 중'
 }
 
-/** Where the learner stands on this lesson, with a jump to the quiz at the end of the lecture. */
-function StatusCard({ progressFile, lessonId, onJump }: { progressFile: ProgressFile; lessonId: string; onJump(): void }) {
+/** Where the learner stands on this lesson, with a button that opens its quiz. */
+function StatusCard({ progressFile, lessonId, onTake }: { progressFile: ProgressFile; lessonId: string; onTake(): void }) {
   const status = statusOf(progressFile, lessonId)
   const quiz = hasQuiz(lessonId)
   return (
@@ -65,15 +65,17 @@ function StatusCard({ progressFile, lessonId, onJump }: { progressFile: Progress
       <h3 id="record-title">
         <ClipboardCheck size={15} aria-hidden="true" /> 진행 상태
       </h3>
-      <p className="record-status">
-        <span className="record-dot" aria-hidden="true" />
-        {statusText(status, passedOn(progressFile, lessonId), attemptsOf(progressFile, lessonId).length, quiz)}
-      </p>
-      {quiz && (
-        <button type="button" className="text-button record-jump" onClick={onJump}>
-          <ArrowDown size={15} aria-hidden="true" /> 퀴즈로 이동
-        </button>
-      )}
+      <div className="record-row">
+        <p className="record-status">
+          <span className="record-dot" aria-hidden="true" />
+          {statusText(status, passedOn(progressFile, lessonId), attemptsOf(progressFile, lessonId).length, quiz)}
+        </p>
+        {quiz && (
+          <button type="button" className="text-button record-quiz" onClick={onTake}>
+            <ListChecks size={15} aria-hidden="true" /> 퀴즈 풀기
+          </button>
+        )}
+      </div>
     </section>
   )
 }
@@ -89,7 +91,8 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
   const [failed, setFailed] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
-  const quizRef = useRef<HTMLDivElement>(null)
+  const quiz = useQuizNav(lessonId)
+  const attempts = attemptsOf(progressFile, lessonId)
 
   // editing a lesson in dev re-runs curriculum/load.ts through HMR, which hands down a new curriculum; the body is
   // fetched again then, so the open panel shows the edit without a reload
@@ -110,7 +113,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
   }, [lessonId])
 
   return (
-    <aside className="panel" aria-labelledby="panel-title" style={{ ['--branch' as string]: branch.color }}>
+    <aside className={`panel ${quiz.back ? 'has-quiz-return' : ''}`} aria-labelledby="panel-title" style={{ ['--branch' as string]: branch.color }}>
       <div className="panel-scroll" ref={scrollRef}>
         <header className="panel-head">
           <div className="panel-topline">
@@ -134,7 +137,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           <StatusCard
             progressFile={progressFile}
             lessonId={lessonId}
-            onJump={() => scrollToSettled(quizRef.current)}
+            onTake={quiz.take}
           />
 
           {missing.length > 0 && status === 'todo' && (
@@ -205,8 +208,8 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           </div>
         )}
 
-        <div ref={quizRef} className="panel-quiz">
-          <QuizSection lessonId={lessonId} title={lesson.title} attempts={attemptsOf(progressFile, lessonId)} />
+        <div className="panel-quiz">
+          <QuizSection lessonId={lessonId} title={lesson.title} attempts={attempts} nav={quiz} />
         </div>
 
         <footer className="panel-foot">
@@ -215,6 +218,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           </a>
         </footer>
       </div>
+      <QuizReturn attempts={attempts} nav={quiz} />
     </aside>
   )
 })

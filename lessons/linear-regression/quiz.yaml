@@ -3,6 +3,7 @@
 
 - topic: mse
   title: 오차 제곱의 평균, MSE
+  section: mse-loss
   variants:
     - question: |
         MSE 를 계산할 때 점마다 구한 오차(예측 − 정답)를 그냥 더하지 않고 제곱한 뒤 평균하는 이유가 무엇인가?
@@ -47,6 +48,7 @@
 
 - topic: gradient-sign
   title: gradient 의 부호
+  section: mse-의-gradient
   variants:
     - question: |
         어떤 parameter 의 gradient 가 +4 이다. 이 값은 무엇을 뜻하고, loss 를 줄이려면 그 parameter 를 어떻게 바꿔야 하는가?
@@ -89,6 +91,7 @@
 
 - topic: gradient-formula
   title: MSE 의 gradient 공식
+  section: mse-의-gradient
   variants:
     - question: |
         직선 ŷ = wx + b 의 MSE 에서 ∂L/∂w 공식에는 점마다 오차에 입력 x_i 가 곱해지는데, ∂L/∂b 공식에는 곱해지지 않는다. 이유가 무엇인가?
@@ -131,6 +134,7 @@
 
 - topic: update-step
   title: gradient descent 의 update
+  section: gradient-descent
   variants:
     - question: |
         update 식 $w \leftarrow w - \eta \times \frac{\partial L}{\partial w}$ ($\eta > 0$)에서 지금 자리의 gradient 가 $-3$ 이다. update 뒤의 $w$ 는?
@@ -172,6 +176,7 @@
 
 - topic: learning-rate
   title: learning rate 와 발산
+  section: learning-rate-의-크기
   variants:
     - question: |
         loss 가 L(w) = a·w² (a > 0) 꼴일 때 gradient descent 의 update 는 w 에 매번 같은 수를 곱하는 일이 된다. 수렴과 발산을 가르는 기준은 무엇인가?
@@ -214,6 +219,7 @@
 
 - topic: input-scale
   title: 입력의 크기, standardization, mean 과 sum
+  section: 입력의-크기와-standardization
   variants:
     - question: |
         관절 각도를 radian 대신 encoder 눈금 수(한 바퀴 4096 눈금)로 넣어 직선을 학습했더니, radian 일 때 잘 되던 learning rate 에서 발산한다. 왜 그런가?
@@ -255,6 +261,7 @@
 
 - topic: normal-equation
   title: normal equation 과 gradient descent
+  section: normal-equation
   variants:
     - question: |
         linear regression 은 normal equation 으로 답을 한 번에 구할 수 있다. normal equation 은 어떤 식인가?
@@ -295,6 +302,7 @@
 
 - topic: overfitting
   title: train loss, test loss, overfitting
+  section: train-loss-와-test-loss
   variants:
     - question: |
         모델 A 는 train loss 0.01, test loss 3.2 이고 모델 B 는 train loss 0.3, test loss 0.35 이다. 로봇에 올릴 모델과 그 이유는?

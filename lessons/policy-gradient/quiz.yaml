@@ -3,6 +3,7 @@
 
 - topic: stochastic-policy
   title: 확률로 고르는 policy
+  section: 확률로-고르는-policy
   variants:
     - question: |
         policy gradient 는 Q 값이 가장 큰 action 을 고르는 argmax policy 대신 action 마다 확률을 내는 policy 를 쓴다. 그 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: log-derivative
   title: log-derivative trick
+  section: log-derivative-trick
   variants:
     - question: |
         policy gradient 에서 $\nabla_\theta \ln \pi_\theta(a \mid s)$ 는 무엇을 뜻하는가?
@@ -83,6 +85,7 @@
 
 - topic: reinforce-update
   title: REINFORCE 의 update
+  section: reinforce
   variants:
     - question: |
         baseline 없는 REINFORCE 에서 reward 가 모두 0 이상이면, 평균보다 나쁜 action 을 골랐을 때 그 action 의 확률은 어떻게 되는가?
@@ -123,6 +126,7 @@
 
 - topic: reward-to-go
   title: reward-to-go
+  section: episode-와-reward-to-go
   variants:
     - question: |
         episode 에서 step t 의 log-probability gradient 에 episode 전체의 return 대신 그 뒤의 reward 만 더한 reward-to-go 를 곱하는 이유는 무엇인가?
@@ -161,6 +165,7 @@
 
 - topic: baseline
   title: baseline
+  section: variance-와-baseline
   variants:
     - question: |
         REINFORCE 에서 reward 에서 baseline 을 빼면 gradient 추정은 어떻게 달라지는가?
@@ -201,6 +206,7 @@
 
 - topic: advantage
   title: advantage 와 value baseline
+  section: advantage
   variants:
     - question: |
         advantage $A(s, a) = Q(s, a) - V(s)$ 가 양수라는 것은 무슨 뜻인가?
@@ -241,6 +247,7 @@
 
 - topic: actor-critic
   title: actor-critic 과 bias·variance
+  section: actor-critic
   variants:
     - question: |
         actor-critic 이 advantage 를 $r_{t+1} + \gamma V(s_{t+1}) - V(s_t)$ 로 추정하면 REINFORCE 의 $G_t$ 와 비교해 무엇이 달라지는가?
@@ -281,6 +288,7 @@
 
 - topic: gaussian-policy
   title: 연속 action 의 Gaussian policy
+  section: 연속-action-의-gaussian-policy
   variants:
     - question: |
         legged_gym·rsl_rl 의 보행 policy 에서 actor MLP 의 출력 12 개는 학습 중에 어떻게 쓰이는가?

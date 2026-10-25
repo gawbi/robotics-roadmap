@@ -3,6 +3,7 @@
 
 - topic: projection
   title: pinhole model 의 투영
+  section: pinhole-projection
   variants:
     - question: |
         pinhole model 에서 camera frame 의 3D 점 (X, Y, Z) 를 pixel 좌표로 바꾸는 계산의 순서로 맞는 것은? distortion 은 없다고 본다.
@@ -45,6 +46,7 @@
 
 - topic: depth
   title: 카메라 한 대로 알 수 없는 거리와 stereo depth
+  section: 카메라-한-대로-알-수-없는-거리
   variants:
     - question: |
         calibration 을 마친 카메라 한 대의 사진 한 장만으로는 물체까지의 거리를 알 수 없다. 그 이유는 무엇인가?
@@ -86,6 +88,7 @@
 
 - topic: intrinsics-extrinsics
   title: intrinsics 와 extrinsics
+  section: extrinsics
   variants:
     - question: |
         calibration 해 둔 카메라를 책상에서 선반으로 옮겨 달았다. 렌즈와 해상도는 그대로다. 무엇을 다시 구해야 하는가?
@@ -126,6 +129,7 @@
 
 - topic: ros-camera
   title: ROS 2 의 camera_info 와 optical frame
+  section: pixel-좌표와-camera-frame
   variants:
     - question: |
         ROS 2 에서 카메라의 optical frame(예: camera_color_optical_frame)과 camera_link 를 따로 두는 이유는 무엇인가?
@@ -168,6 +172,7 @@
 
 - topic: distortion
   title: lens distortion 의 성질
+  section: lens-distortion
   variants:
     - question: |
         radial lens distortion 은 사진의 어느 부분에서 크게 나타나는가?
@@ -207,6 +212,7 @@
 
 - topic: calibration
   title: reprojection error 와 refinement
+  section: checkerboard-calibration-과-reprojection-error
   variants:
     - question: |
         camera calibration 결과로 나오는 reprojection error 는 무엇을 잰 값인가?
@@ -247,6 +253,7 @@
 
 - topic: zhang-homography
   title: homography 와 기울인 판
+  section: homography
   variants:
     - question: |
         checkerboard 를 정면으로만 들고 여러 장 찍어 calibration 하면 focal length 가 잘 정해지지 않는다. 그 이유는 무엇인가?
@@ -287,6 +294,7 @@
 
 - topic: marker-pose
   title: marker 로 구하는 물체 pose
+  section: aruco-marker-와-물체-pose
   variants:
     - question: |
         카메라 한 대로는 거리를 알 수 없는데, ArUco marker 하나로는 pose 를 구할 수 있다. 무엇이 빠진 거리를 채우는가?

@@ -3,6 +3,7 @@
 
 - topic: function-approximation
   title: 표에서 neural network 로
+  section: 표에서-neural-network-로
   variants:
     - question: |
         CartPole 처럼 state 가 막대 각도 같은 연속된 숫자인 문제에서 Q 를 표로 배우기 어려운 이유는 무엇인가?
@@ -44,6 +45,7 @@
 
 - topic: moving-target
   title: 따라 움직이는 target 과 target network
+  section: 따라-움직이는-target
   variants:
     - question: |
         neural network 로 Q-learning 을 하면 Q 를 target 쪽으로 고칠수록 target 도 달아나 값이 발산할 수 있다. 왜 그런가?
@@ -85,6 +87,7 @@
 
 - topic: replay-buffer
   title: replay buffer
+  section: replay-buffer
   variants:
     - question: |
         DQN 이 transition 을 replay buffer 에 쌓아 두고 무작위 batch 로 뽑아 학습하면 무엇이 좋아지는가?
@@ -127,6 +130,7 @@
 
 - topic: dqn-target
   title: DQN 의 target 과 episode 의 끝
+  section: dqn-의-loss
   variants:
     - question: |
         CartPole 에서 막대가 서 있는 채로 500 step 시간 제한에 걸려 episode 가 끊겼다. reward 1, discount factor 0.9, 다음 state 에서 target network 의 Q 가 (5, 7) 일 때 이 transition 의 DQN target 은?
@@ -168,6 +172,7 @@
 
 - topic: overestimation
   title: overestimation 과 double Q
+  section: overestimation-과-double-q
   variants:
     - question: |
         Q-learning 이나 DQN 이 Q 를 실제보다 크게 잡는 overestimation 은 왜 생기는가?
@@ -209,6 +214,7 @@
 
 - topic: actor-critic
   title: 연속 action 과 actor-critic
+  section: 연속-action-과-actor-critic
   variants:
     - question: |
         action 이 관절 torque 처럼 연속된 숫자일 때 DQN 대신 actor 와 critic 을 따로 두는 이유는 무엇인가?
@@ -249,6 +255,7 @@
 
 - topic: sac-entropy
   title: SAC 의 entropy bonus 와 temperature
+  section: entropy-bonus-와-temperature-α
   variants:
     - question: |
         SAC 가 reward 에 temperature α × entropy 를 더하면 policy 의 탐색은 어떻게 달라지는가?
@@ -289,6 +296,7 @@
 
 - topic: off-policy-real-robot
   title: off-policy 의 sample efficiency 와 실물 로봇
+  section: off-policy-의-sample-efficiency-와-실물-로봇
   variants:
     - question: |
         simulator 에서는 PPO 같은 on-policy 방법이 많이 쓰이는데, 실물 로봇에서는 SAC 계열 off-policy 방법을 많이 쓰는 이유는 무엇인가?

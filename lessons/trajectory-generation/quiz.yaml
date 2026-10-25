@@ -3,6 +3,7 @@
 
 - topic: path-trajectory
   title: path 와 trajectory
+  section: path-와-trajectory
   variants:
     - question: |
         motion planning 에서 path 와 trajectory 는 어떻게 다른가?
@@ -41,6 +42,7 @@
 
 - topic: cartesian
   title: Cartesian 보간과 singularity
+  section: joint-space-보간과-cartesian-보간
   variants:
     - question: |
         손끝을 곧은 선으로 움직이는 Cartesian path 를 만들 때 joint space 보간에는 없던 어떤 문제가 생기는가?
@@ -79,6 +81,7 @@
 
 - topic: trapezoid
   title: 사다리꼴 속도 profile
+  section: 사다리꼴-속도-profile
   variants:
     - question: |
         v_max = 1 rad/s, a_max = 2 rad/s² 인 관절을 정지 상태에서 3 rad 옮겨 다시 세운다. 사다리꼴 속도 profile 로 걸리는 시간은?
@@ -116,6 +119,7 @@
 
 - topic: jerk
   title: jerk 제한과 S-curve
+  section: jerk-제한과-s-curve
   variants:
     - question: |
         trajectory 에서 jerk 를 제한하는 이유는 무엇인가?
@@ -153,6 +157,7 @@
 
 - topic: polynomial
   title: cubic 과 quintic 다항식
+  section: cubic-과-quintic-다항식
   variants:
     - question: |
         trajectory 에 cubic 대신 quintic 다항식을 쓰는 이유는 무엇인가?
@@ -190,6 +195,7 @@
 
 - topic: synchronization
   title: 여러 관절의 동기화
+  section: 여러-관절의-동기화
   variants:
     - question: |
         관절이 여러 개인 팔의 point-to-point 이동 시간은 무엇이 정하는가?
@@ -228,6 +234,7 @@
 
 - topic: time-optimal
   title: time-optimal path parameterization
+  section: time-optimal-path-parameterization
   variants:
     - question: |
         TOPP(time-optimal path parameterization)는 무엇을 입력받아 무엇을 내는가?
@@ -268,6 +275,7 @@
 
 - topic: moveit-scaling
   title: MoveIt 2 의 time parameterization 과 scaling factor
+  section: moveit-2-의-time-parameterization
   variants:
     - question: |
         MoveIt 2 로 새 팔을 설정했더니 계획한 동작이 아주 느리다. 가장 먼저 무엇을 확인하는가?

@@ -3,6 +3,7 @@
 
 - topic: next-token-data
   title: text 안에 들어 있는 정답
+  section: 정답이-들어-있는-text
   variants:
     - question: |
         GPT 같은 language model 은 사람이 정답(label)을 달지 않은 웹 text 로 학습한다. 그런데도 학습이 가능한 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: decoder-only
   title: decoder 만 쌓은 구조
+  section: decoder-only-구조
   variants:
     - question: |
         번역용 Transformer 의 decoder 에는 cross-attention 이 있는데, GPT 의 block 에는 없다. 왜 빠졌는가?
@@ -85,6 +87,7 @@
 
 - topic: causal-mask
   title: causal mask 와 teacher forcing
+  section: causal-mask-와-teacher-forcing
   variants:
     - question: |
         GPT 를 학습시킬 때 self-attention 에서 causal mask 를 빼면 어떤 일이 생기는가?
@@ -127,6 +130,7 @@
 
 - topic: cross-entropy
   title: 위치마다 정답 확률로 매기는 loss
+  section: cross-entropy-loss
   variants:
     - question: |
         GPT 는 위치마다 정답 token 에 준 확률 p 로 loss −log p 를 매겨 평균한다. 이 loss 의 성질로 맞는 것은?
@@ -169,6 +173,7 @@
 
 - topic: lr-schedule
   title: warmup 과 cosine decay
+  section: learning-rate-schedule
   variants:
     - question: |
         GPT 를 처음부터 학습시킬 때 learning rate 를 처음 몇 천 step 동안 0 근처에서 서서히 올리는 warmup 을 둔다. warmup 은 왜 필요한가?
@@ -211,6 +216,7 @@
 
 - topic: decoding
   title: greedy decoding·sampling·temperature·top-k
+  section: greedy-decoding-과-sampling
   variants:
     - question: |
         language model 로 긴 글을 쓸 때 매번 확률이 가장 큰 token 만 고르는 greedy decoding 을 쓰면 어떤 문제가 생기기 쉬운가?
@@ -252,6 +258,7 @@
 
 - topic: scaling
   title: 모델 크기와 scaling
+  section: gpt-2-의-크기
   variants:
     - question: |
         GPT 류 Transformer 에서 token vector 의 차원 d 를 두 배로 늘리면 block 하나의 parameter 수는 대략 몇 배가 되는가?
@@ -292,6 +299,7 @@
 
 - topic: vla-action-tokens
   title: language model 위에서 생성하는 action token
+  section: language-model-위의-vla
   variants:
     - question: |
         RT-2 나 OpenVLA 는 language model 의 vocabulary 로 로봇 행동을 낸다. 연속된 행동 값은 어떻게 token 으로 바꾸는가?

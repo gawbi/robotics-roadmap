@@ -3,6 +3,7 @@
 
 - topic: straight-path
   title: 직선 경로와 target velocity
+  section: 직선-경로와-target-velocity
   variants:
     - question: |
         flow matching 에서 noise $\epsilon$ 과 데이터 $x_1$ 을 $x_t = (1 - t)\,\epsilon + t\,x_1$ 로 섞는다. 이 직선 위에서 점이
@@ -46,6 +47,7 @@
 
 - topic: cfm-loss
   title: conditional flow matching loss
+  section: conditional-flow-matching-loss
   variants:
     - question: |
         conditional flow matching 의 학습 한 step 은 어떤 순서로 이루어지는가?
@@ -87,6 +89,7 @@
 
 - topic: euler
   title: Euler 법과 경로의 곧음
+  section: euler-법
   variants:
     - question: |
         flow matching 의 sampling 에서 Euler 법은 무엇을 하는가?
@@ -127,6 +130,7 @@
 
 - topic: marginal
   title: 엇갈리는 직선과 평균 속도
+  section: 엇갈리는-경로와-marginal-velocity-field
   variants:
     - question: |
         데이터가 두 무리로 나뉘어 있으면, noise 와 데이터를 무작위로 짝지은 직선들이 엇갈린다. 같은 $(x_t, t)$ 를 지나는 쌍의
@@ -168,6 +172,7 @@
 
 - topic: step-count
   title: step 수와 sample 품질
+  section: step-수와-sample-품질
   variants:
     - question: |
         데이터의 봉우리가 둘인데 flow matching sampling 을 Euler step 1 번으로 하면 어떤 sample 이 나오는가?
@@ -210,6 +215,7 @@
 
 - topic: vs-diffusion
   title: diffusion 과의 비교
+  section: diffusion-과의-비교
   variants:
     - question: |
         같은 noise 에서 출발해 sampling 을 두 번 하면, flow matching 과 DDPM 의 결과는 각각 어떠한가?
@@ -253,6 +259,7 @@
 
 - topic: pi0-action-expert
   title: π0 의 action expert
+  section: π0-의-action-expert
   variants:
     - question: |
         π0 는 action chunk 하나를 만들 때 Euler step 을 10 번 밟는다. 이미지와 지시문을 읽는 큰 VLM 은 몇 번 계산하는가?
@@ -295,6 +302,7 @@
 
 - topic: sign-convention
   title: 시각의 방향과 정답 속도의 부호
+  section: gr00t-n1-과-step-수의-선택
   variants:
     - question: |
         GR00T N1 논문은 섞는 식을 $A_t^\tau = \tau A_t + (1 - \tau)\epsilon$ 으로 두고, $\tau = 0$ 의 noise 에서 출발해

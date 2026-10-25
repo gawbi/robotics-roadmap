@@ -3,6 +3,7 @@
 
 - topic: pipeline
   title: module 의 입력과 출력
+  section: pick-and-place-와-모듈-파이프라인
   variants:
     - question: |
         카메라로 물체를 찾아 집는 classical pick-and-place pipeline 에서 IK module 은 무엇을 받아 무엇을 내는가?
@@ -43,6 +44,7 @@
 
 - topic: perception
   title: 색 규칙, 인식기, yaw 주기
+  section: 색과-이름으로-찾는-물체
   variants:
     - question: |
         빨간 물체를 'R 값이 150 이상인 pixel' 로 고르면 그늘진 부분을 놓친다. 빨강의 몫 R ÷ (R + G + B) 이나 HSV 의 hue 로 고르면 나아지는
@@ -85,6 +87,7 @@
 
 - topic: depth
   title: depth 와 back-projection
+  section: depth-와-3d-위치
   variants:
     - question: |
         카메라 한 대로 찍은 사진에서 물체의 pixel 을 찾았는데, 왜 그것만으로는 로봇이 갈 3D 위치를 정할 수 없는가?
@@ -126,6 +129,7 @@
 
 - topic: grasp-waypoint
   title: top-down grasp 와 waypoint
+  section: grasp-pose-와-waypoint
   variants:
     - question: |
         물체를 집을 때 grasp pose 로 바로 가지 않고, 물체 위 몇 cm 의 pre-grasp 자세를 먼저 거치는 이유는 무엇인가?
@@ -167,6 +171,7 @@
 
 - topic: ik
   title: IK 답과 도달 범위
+  section: ik-와-답-고르기
   variants:
     - question: |
         같은 손끝 pose 에 IK 답이 elbow-up 과 elbow-down 두 개 나왔다. waypoint 마다 답을 어떻게 고르는가?
@@ -207,6 +212,7 @@
 
 - topic: path
   title: joint 보간, Cartesian path, planner
+  section: waypoint-사이의-경로
   variants:
     - question: |
         pre-grasp 와 grasp 의 손끝이 같은 수직선 위에 있다. 두 자세의 joint angle 을 부드럽게 보간해 움직이면 손끝은 어떻게 움직이는가?
@@ -247,6 +253,7 @@
 
 - topic: mtc
   title: MoveIt Task Constructor 의 stage
+  section: moveit-task-constructor-의-pick-and-place
   variants:
     - question: |
         MoveIt Task Constructor 의 pick task 에서 approach object(MoveRelative) stage 는 어떤 종류이고, 무엇을 기준으로 계산하는가?
@@ -289,6 +296,7 @@
 
 - topic: error-and-tradeoff
   title: 오차 누적과 두 방식의 비교
+  section: 오차의-누적
   variants:
     - question: |
         손끝 위치 여유가 10 mm 인 grasp 에서 인식 2 mm, calibration 3 mm, 실행 3 mm 의 오차가 있다. 성공을 보장하는지 어떻게 판단하는가?

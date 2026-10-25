@@ -1,6 +1,8 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import GithubSlugger from 'github-slugger'
 import { describe, expect, it } from 'vitest'
-import { clearedAt, grade, parseBank, parseResult, passed, pickVariants, wrongTopics, type Attempt } from '../src/curriculum/quiz'
+import { parseLesson } from '../src/curriculum/parse'
+import { clearedAt, grade, parseBank, parseResult, passed, pickVariants, sectionOf, wrongTopics, type Attempt } from '../src/curriculum/quiz'
 
 const lessonsDir = new URL('../../lessons/', import.meta.url)
 const banks = readdirSync(lessonsDir, { withFileTypes: true })
@@ -10,13 +12,15 @@ const banks = readdirSync(lessonsDir, { withFileTypes: true })
 const bank = parseBank(`
 - topic: a
   title: A
+  section: s
   variants:
     - { question: qa0, choices: [w, x, y, z], answer: 1, explanation: e }
     - { question: qa1, choices: [w, x, y, z], answer: 2, explanation: e }
 - topic: b
   title: B
+  section: s
   variants:
-    - { question: qb0, choices: [w, x, y, z], answer: 0, explanation: e }
+    - { question: qb0, choices: [w, x, y, z], answer: 0, explanation: e, section: t }
     - { question: qb1, choices: [w, x, y, z], answer: 3, explanation: e }
 `)
 
@@ -60,12 +64,41 @@ describe('quiz', () => {
     expect(polite, 'questions ending in polite speech').toEqual([])
   })
 
-  it('rejects a bank with a wrong answer index, choice count or a single variant', () => {
+  // a wrong answer links to this section; one folded into a closed 심화 block would scroll to nothing visible
+  it.each(banks)('lessons/%s/quiz.yaml points every topic at a visible heading of its lecture', (id) => {
+    const { body } = parseLesson(id, readFileSync(new URL(`${id}/README.md`, lessonsDir), 'utf8'))
+    const slugger = new GithubSlugger()
+    const visible = new Set<string>()
+    let folded = 0
+    for (const line of body.split('\n')) {
+      folded += (line.match(/<details/g) ?? []).length - (line.match(/<\/details>/g) ?? []).length
+      const heading = /^#{1,6} (.+)$/.exec(line)
+      if (heading) {
+        const slug = slugger.slug(heading[1])
+        if (folded === 0) visible.add(slug)
+      }
+    }
+    const parsed = parseBank(readFileSync(new URL(`${id}/quiz.yaml`, lessonsDir), 'utf8'))
+    const missing = parsed.flatMap((t) =>
+      t.variants.map((_, j) => sectionOf(t, j)).filter((s) => !visible.has(s)).map((s) => `${t.topic} → #${s}`),
+    )
+    expect(missing, 'sections that are not a visible heading').toEqual([])
+  })
+
+  it('rejects a bank with a wrong answer index, choice count, a single variant or no section', () => {
     const ok = '{ question: q, choices: [w, x, y, z], answer: 0, explanation: e }'
-    expect(() => parseBank(`- { topic: a, title: A, variants: [${ok}, { question: q, choices: [w, x, y, z], answer: 4, explanation: e }] }`)).toThrow()
-    expect(() => parseBank(`- { topic: a, title: A, variants: [${ok}, { question: q, choices: [w, x], answer: 0, explanation: e }] }`)).toThrow()
-    expect(() => parseBank(`- { topic: a, title: A, variants: [${ok}] }`)).toThrow()
-    expect(parseBank(`- { topic: a, title: A, variants: [${ok}, ${ok}] }`)).toHaveLength(1)
+    expect(() => parseBank(`- { topic: a, title: A, section: s, variants: [${ok}, { question: q, choices: [w, x, y, z], answer: 4, explanation: e }] }`)).toThrow()
+    expect(() => parseBank(`- { topic: a, title: A, section: s, variants: [${ok}, { question: q, choices: [w, x], answer: 0, explanation: e }] }`)).toThrow()
+    expect(() => parseBank(`- { topic: a, title: A, section: s, variants: [${ok}] }`)).toThrow()
+    expect(() => parseBank(`- { topic: a, title: A, variants: [${ok}, ${ok}] }`)).toThrow()
+    expect(() => parseBank(`- { topic: a, title: A, section: '#S', variants: [${ok}, ${ok}] }`)).toThrow()
+    expect(parseBank(`- { topic: a, title: A, section: s, variants: [${ok}, ${ok}] }`)).toHaveLength(1)
+  })
+
+  it('links a missed variant to its own section, else to its topic\'s', () => {
+    expect(sectionOf(bank[0], 0)).toBe('s')
+    expect(sectionOf(bank[1], 0)).toBe('t')
+    expect(sectionOf(bank[1], 1)).toBe('s')
   })
 
   it('starts with the first variant and moves to the next one on a retake', () => {

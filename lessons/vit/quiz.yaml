@@ -3,6 +3,7 @@
 
 - topic: patch-token
   title: pixel 대신 patch 를 token 으로 쓰는 이유
+  section: pixel-과-patch
   variants:
     - question: |
         ViT 가 pixel 하나하나를 token 으로 쓰지 않고, 가로세로 여러 pixel 을 묶은 patch 를 token 으로 쓰는 이유는 무엇인가?
@@ -46,6 +47,7 @@
 
 - topic: patch-embedding
   title: patch embedding 의 역할
+  section: patch-embedding
   variants:
     - question: |
         ViT 는 펼친 patch 에 행렬 E 를 곱해 token 을 만들고 모든 patch 가 같은 E 를 쓴다. 사진을 키워 patch 수가 4 배가 되면 E 의 parameter 수는 어떻게 되는가?
@@ -89,6 +91,7 @@
 
 - topic: cls-token
   title: '[CLS] token 의 역할'
+  section: cls-token
   variants:
     - question: |
         ViT 의 [CLS] token 은 무엇이고 어떻게 쓰이는가?
@@ -132,6 +135,7 @@
 
 - topic: position-embedding
   title: position embedding 이 필요한 이유
+  section: position-embedding
   variants:
     - question: |
         position embedding 을 빼면 ViT 에는 어떤 문제가 생기는가?
@@ -175,6 +179,7 @@
 
 - topic: token-cost
   title: patch 크기와 계산량
+  section: patch-크기와-계산량
   variants:
     - question: |
         같은 사진에서 patch 한 변을 절반으로 줄이면 token 수와 attention 점수 표의 크기는 어떻게 되는가?
@@ -219,6 +224,7 @@
 
 - topic: inductive-bias
   title: inductive bias 와 데이터 양
+  section: inductive-bias-와-데이터-양
   variants:
     - question: |
         ViT 가 CNN 보다 학습 데이터를 훨씬 많이 봐야 하는 이유는 무엇인가?
@@ -263,6 +269,7 @@
 
 - topic: patch-as-token
   title: VLA 가 patch token 전부를 넘기는 이유
+  section: 로봇-policy-의-vit-encoder
   variants:
     - question: |
         VLA 는 ViT image encoder 의 [CLS] 출력 하나가 아니라 patch 출력 전부를 언어 모델에 넘긴다. 그 이유는 무엇인가?
@@ -304,6 +311,7 @@
 
 - topic: robot-encoder
   title: 로봇 VLA 의 image encoder 선택
+  section: 로봇-policy-의-vit-encoder
   variants:
     - question: |
         OpenVLA 는 SigLIP 과 함께 DINOv2 encoder 를 써서, patch 마다 두 encoder 의 출력을 이어 붙인다. DINOv2 를 더하는 이유로 알맞은 것은?

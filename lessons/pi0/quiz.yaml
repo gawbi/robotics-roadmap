@@ -3,6 +3,7 @@
 
 - topic: expert-structure
   title: VLM backbone 과 action expert
+  section: paligemma-backbone-과-action-expert
   variants:
     - question: |
         π0 는 PaliGemma 의 weight 와 action expert 의 weight 를 한 transformer 안에 둔다. 두 weight 묶음은 입력을 어떻게
@@ -48,6 +49,7 @@
 
 - topic: attention-mask
   title: blockwise causal attention mask
+  section: attention-mask-의-세-block
   variants:
     - question: |
         π0 는 token 을 사진·지시문, 로봇 상태, noise 가 섞인 action 의 세 block 으로 나눈 attention mask 를 쓴다. 어느 token 이
@@ -93,6 +95,7 @@
 
 - topic: flow-chunk
   title: flow matching 으로 만드는 action chunk
+  section: flow-matching-으로-만드는-chunk
   variants:
     - question: |
         π0 논문은 noise 가 섞인 action 을 $A_t^\tau = \tau A_t + (1 - \tau)\epsilon$ 으로 적는다. 여기서 아래첨자 $t$ 와
@@ -137,6 +140,7 @@
 
 - topic: multimodal
   title: 정답이 여럿인 시연과 flow matching
+  section: 정답이-여럿인-시연
   variants:
     - question: |
         같은 장면에서 시연자가 장애물을 왼쪽으로 비켜 가기도 하고 오른쪽으로 비켜 가기도 했다. 이 시연으로 action 을 차이의 제곱이
@@ -180,6 +184,7 @@
 
 - topic: kv-cache
   title: KV cache 와 추론 시간
+  section: kv-cache-와-추론-시간
   variants:
     - question: |
         π0 는 Euler step 10 번으로 action chunk 를 만드는데, VLM 쪽 계산은 chunk 하나에 한 번만 한다. 이것이 가능한 이유는
@@ -223,6 +228,7 @@
 
 - topic: chunk-execution
   title: chunk 실행과 비동기 추론
+  section: chunk-실행과-비동기-추론
   variants:
     - question: |
         50 Hz 로봇에서 π0 는 action 50 개짜리 chunk 를 만들고도 25 개만 실행한 뒤 다시 추론한다. chunk 를 끝까지 쓰지 않는 이유는
@@ -264,6 +270,7 @@
 
 - topic: training-recipe
   title: pretraining 과 fine-tuning
+  section: pretraining-과-fine-tuning
   variants:
     - question: |
         π0 는 여러 로봇의 다양한 데이터로 pretraining 한 뒤 작업 하나의 질 좋은 데이터로 fine-tuning 한다. 질 좋은 데이터만으로
@@ -309,6 +316,7 @@
 
 - topic: pi0-fast
   title: π0-FAST 와 π0 의 차이
+  section: π0-fast-와-π05
   variants:
     - question: |
         π0-FAST 는 π0 와 같은 PaliGemma backbone 을 쓰지만 action expert 와 flow matching 대신 FAST token 을 하나씩 내는 방식으로

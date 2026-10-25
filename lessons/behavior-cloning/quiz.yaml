@@ -3,6 +3,7 @@
 
 - topic: bc-supervised
   title: supervised learning 으로서의 behavior cloning
+  section: policy-와-behavior-cloning
   variants:
     - question: |
         behavior cloning 으로 policy 를 학습할 때 각 관측에 붙는 정답은 무엇인가?
@@ -45,6 +46,7 @@
 
 - topic: compounding-error
   title: 오차가 쌓이는 compounding error
+  section: compounding-error
   variants:
     - question: |
         behavior cloning 으로 학습한 차가 처음에는 차선을 잘 따라가다가 점점 벗어나 결국 이탈했다. 이 현상을 compounding error 로 바르게 설명한
@@ -89,6 +91,7 @@
 
 - topic: distribution-shift
   title: distribution shift 와 validation loss
+  section: distribution-shift
   variants:
     - question: |
         imitation learning 에서 말하는 distribution shift 는 무엇인가?
@@ -130,6 +133,7 @@
 
 - topic: action-head
   title: 로봇 팔 policy 의 action head
+  section: 로봇-팔의-action-head
   variants:
     - question: |
         사진 feature 와 지금의 관절 각도를 이어 붙여(concatenation) MLP head 에 넣는 policy 를 학습했다. 학습할 때는 앞쪽 칸에 사진 feature 를
@@ -168,6 +172,7 @@
 
 - topic: normalization
   title: 여러 차원 action 의 loss 와 normalization
+  section: 관절-여러-개의-loss-와-normalization
   variants:
     - question: |
         관절 여러 개의 목표 각도를 한 MSE 로 학습한다. 어떤 시연 쌍에서 집게 칸의 오차가 다른 칸보다 훨씬 크다면, 출력 하나하나의 gradient 는
@@ -211,6 +216,7 @@
 
 - topic: end-to-end
   title: 사진에서 관절 각도로 바로 가는 end-to-end
+  section: end-to-end-policy
   variants:
     - question: |
         카메라 한 대로는 pixel 하나가 얼마나 먼 곳인지 알 수 없다. 그런데 작업대 위에 고정한 카메라 사진으로 3D 좌표 없이 관절 각도를 바로
@@ -253,6 +259,7 @@
 
 - topic: multimodal
   title: 정답이 여럿인 시연과 평균
+  section: multimodal-시연과-평균
   variants:
     - question: |
         장애물 앞에서 expert 가 시연의 절반은 왼쪽으로, 절반은 오른쪽으로 크게 꺾어 피했고 관측은 모두 같다. 핸들 각도 하나를 내는 policy 를 MSE
@@ -297,6 +304,7 @@
 
 - topic: mode-selection
   title: 평균을 피하는 방법
+  section: 평균을-피하는-방법
   variants:
     - question: |
         같은 장면에서 시연의 절반은 왼쪽, 절반은 오른쪽으로 장애물을 피했다. action 범위를 여러 구간으로 나눠 구간마다 확률을 내는 policy 를

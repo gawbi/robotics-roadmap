@@ -3,6 +3,7 @@
 
 - topic: rl-problem
   title: reward 로 배우는 문제와 MDP
+  section: reward-로-배우는-문제
   variants:
     - question: |
         reinforcement learning 의 reward 는 supervised learning 의 label 과 무엇이 다른가?
@@ -43,6 +44,7 @@
 
 - topic: exploration
   title: exploration 과 exploitation
+  section: greedy-와-exploration
   variants:
     - question: |
         bandit 문제에서 지금까지 평균 reward 가 가장 높았던 arm 만 고르는 greedy 전략의 문제는 무엇인가?
@@ -83,6 +85,7 @@
 
 - topic: ucb
   title: UCB 의 bonus
+  section: ucb
   variants:
     - question: |
         UCB 는 arm 마다 추정값에 bonus $c\sqrt{\ln t / N(a)}$ 를 더해 가장 큰 arm 을 고른다. 이 bonus 는 무엇을 반영하는가?
@@ -122,6 +125,7 @@
 
 - topic: discount
   title: discount factor 와 control 주기
+  section: discount-factor-와-control-주기
   variants:
     - question: |
         discount factor γ 를 0 으로 두면 agent 는 어떻게 행동하는가?
@@ -162,6 +166,7 @@
 
 - topic: reward-design
   title: reward 설계
+  section: reward-설계
   variants:
     - question: |
         로봇 팔 reaching 과제에서 '목표 반경 안이면 0, 밖이면 −1' 인 sparse reward 를 쓰면 학습 초반에 어떤 어려움이 있는가?
@@ -203,6 +208,7 @@
 
 - topic: value-bellman
   title: value 와 Bellman 식
+  section: value-와-bellman-식
   variants:
     - question: |
         state 의 value 와 reward 는 어떻게 다른가?
@@ -243,6 +249,7 @@
 
 - topic: value-iteration
   title: value iteration
+  section: value-iteration
   variants:
     - question: |
         value iteration 을 쓰려면 무엇을 알아야 하는가?
@@ -284,6 +291,7 @@
 
 - topic: q-learning
   title: Q-learning 과 off-policy
+  section: q-learning
   variants:
     - question: |
         Q-learning 의 update 에서 target 은 무엇이고, value iteration 과 무엇이 다른가?

@@ -3,6 +3,7 @@
 
 - topic: cross-entropy
   title: softmax 와 cross-entropy, 점수의 gradient
+  section: softmax-와-cross-entropy
   variants:
     - question: |
         분류 network 를 softmax 와 cross-entropy loss $L = -\log p_y$ 로 학습한다($p_y$ 는 정답 class 의 확률). loss 가 가장 크게 나오는 경우는 언제인가?
@@ -45,6 +46,7 @@
 
 - topic: minibatch
   title: mini-batch, step, epoch
+  section: mini-batch-와-epoch
   variants:
     - question: |
         시연 frame 40,000 개로 policy 를 batch 크기 8 로 학습한다. 50,000 step 을 학습하면 데이터 전체를 대략 몇 번 쓰는가?
@@ -85,6 +87,7 @@
 
 - topic: momentum
   title: SGD 와 momentum
+  section: optimizer
   variants:
     - question: |
         momentum($b \leftarrow \mu b + g$, $\theta \leftarrow \theta - \eta b$, $\mu = 0.9$, buffer 는 0 에서 시작)에서 gradient 가 매 step 같은 방향으로 들어오면 어떻게 되는가?
@@ -127,6 +130,7 @@
 
 - topic: adam
   title: Adam 의 step 크기와 기본값
+  section: optimizer
   variants:
     - question: |
         loss 에 0.01 을 곱해 모든 gradient 가 100 분의 1 이 되었다. learning rate 를 그대로 두면 SGD 와 Adam 의 움직임은 어떻게 달라지는가?
@@ -171,6 +175,7 @@
 
 - topic: training-loop
   title: training loop 와 autograd 의 자리
+  section: training-loop
   variants:
     - question: |
         PyTorch 의 training loop 에서 parameter 값을 실제로 바꾸는 것은 무엇인가?
@@ -212,6 +217,7 @@
 
 - topic: normalization
   title: 입력 normalization
+  section: 입력-normalization
   variants:
     - question: |
         관절 각도(radian, −3 ~ 3)와 집게 벌림(mm, 0 ~ 80)을 policy 입력으로 그대로 넣으면 어떤 문제가 생기는가?
@@ -255,6 +261,7 @@
 
 - topic: early-stopping
   title: validation, loss curve, early stopping
+  section: loss-curve-와-early-stopping
   variants:
     - question: |
         학습하는 동안 train loss 는 계속 줄었는데 validation loss 는 어느 epoch 까지 줄다가 다시 올라갔다. 어떤 parameter 를 써야 하는가?
@@ -298,6 +305,7 @@
 
 - topic: gpu-memory
   title: 학습 중 GPU memory
+  section: gpu-memory
   variants:
     - question: |
         parameter 가 10 억 개인 모델을 float32 와 Adam 으로 학습하면, activation 을 빼고 parameter 관련 값만으로 GPU memory 가 대략 얼마나 필요할까?

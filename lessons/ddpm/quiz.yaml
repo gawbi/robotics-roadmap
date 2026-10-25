@@ -3,6 +3,7 @@
 
 - topic: forward-process
   title: forward process 와 끝 상태
+  section: forward-process
   variants:
     - question: |
         DDPM 의 forward process 는 학습이 필요한가? 그리고 network 가 배우는 것은 무엇인가?
@@ -48,6 +49,7 @@
 
 - topic: noise-schedule
   title: noise schedule 과 step 의 크기
+  section: noise-schedule
   variants:
     - question: |
         DDPM 원 논문은 $T = 1000$ 에 $\beta_t$ 를 0.0001 ~ 0.02 처럼 작게 잡았다. step 을 5 개로 줄이고 $\beta_t$ 를 크게
@@ -91,6 +93,7 @@
 
 - topic: epsilon-prediction
   title: noise 를 맞히는 network
+  section: noise-를-맞히는-network
   variants:
     - question: |
         DDPM 의 network 는 깨끗한 데이터 대신 섞인 noise $\epsilon$ 을 맞히도록 학습한다. 이 선택의 이점으로 맞는 것은?
@@ -135,6 +138,7 @@
 
 - topic: training-loss
   title: 학습 순서와 loss
+  section: 학습과-loss
   variants:
     - question: |
         DDPM 학습 한 번의 순서로 맞는 것은?
@@ -179,6 +183,7 @@
 
 - topic: reverse-sampling
   title: reverse step 과 새 noise
+  section: reverse-process-의-한-step
   variants:
     - question: |
         DDPM sampling 의 reverse step 은 network 가 맞힌 noise 를 빼고 나서 표준 정규분포에서 새로 뽑은 noise 를 조금 더한다. 이 새
@@ -222,6 +227,7 @@
 
 - topic: ddim
   title: DDIM 과 step 수
+  section: ddim
   variants:
     - question: |
         DDIM 은 DDPM 과 무엇이 같고 무엇이 다른가?
@@ -265,6 +271,7 @@
 
 - topic: multimodal
   title: 봉우리가 여럿인 데이터
+  section: 1-차원-두-봉우리
   variants:
     - question: |
         DDPM 의 network 도 MSE 로 학습해서 평균을 낸다. 그런데도 봉우리가 둘인 데이터에서 sample 이 봉우리 사이에 거의 놓이지
@@ -310,6 +317,7 @@
 
 - topic: diffusion-policy
   title: Diffusion Policy 의 action 생성
+  section: diffusion-policy
   variants:
     - question: |
         상자를 왼쪽과 오른쪽으로 비켜 간 시연이 반반 섞인 데이터로 policy 를 학습했다. MSE 로 action 을 직접 맞히는 policy 와
