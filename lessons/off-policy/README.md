@@ -484,8 +484,9 @@ $r_t$ 와 $s_t$ 는 step $t$ 의 reward 와 state 이고, 식은 step 마다 rew
 $\alpha$ 는 entropy 를 얼마나 쳐줄지 정하는 숫자로 **temperature** 라고 부르는데, 물리학에서 온도가 높을수록 입자가 무작위로 움직이는 것처럼
 $\alpha$ 가 클수록 policy 가 무작위에 가까워진다.
 
-**흔한 오해.** Q-learning 의 $\alpha$ 와 SAC 의 $\alpha$ 를 같은 것으로 읽기 쉽다. Q-learning 에서 $\alpha$ 는 learning rate 였지만 SAC 에서
-$\alpha$ 는 temperature 다.
+> **오해** Q-learning 의 $\alpha$ 와 SAC 의 $\alpha$ 는 같은 것이다.
+>
+> **사실** Q-learning 에서 $\alpha$ 는 learning rate 였지만 SAC 에서 $\alpha$ 는 temperature 다.
 
 예를 들어 $Q(s, \text{왼쪽}) = 1.0$, $Q(s, \text{오른쪽}) = 0.9$ 로 비슷한 state 에서, 왼쪽을 고를 확률 $p$ 마다 "Q 의 기댓값 + $\alpha$ ×
 entropy" 를 $\alpha = 0.1$ 로 계산하면 아래와 같다. Q 의 기댓값은 $p \times 1.0 + (1 - p) \times 0.9$ 다.

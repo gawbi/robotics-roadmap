@@ -171,9 +171,10 @@ rotation 도 같은 짝을 만족하기 때문이다. Park 와 Martin 은 짝 �
 움직임이 두 개 있어야 해가 하나로 정해진다는 것을 증명했다. 움직임 두 개는 자세 세 개에서 나오므로, OpenCV 문서도 자세가 적어도 3 개
 필요하다고 하면서 실제로는 훨씬 많이 쓰라고 권한다. Tsai 와 Lenz 의 논문에서도 최소 자세 수는 3 개다.
 
-**흔한 오해.** "로봇을 여러 번 움직이기만 하면 된다." 손목의 마지막 관절 하나만 돌려 자세 10 개를 모으면 움직임은 45 개지만 회전 축이 모두
-같아서 해가 하나로 정해지지 않는다. [자세 수집](#자세-수집) 절의 simulation 과 같은 가정에서 한 축으로만 돌린 자세 10 개를 넣으면, Tsai 와
-Park 모두 rotation 이 약 90° 틀리고 translation 이 1 ~ 1.4 m 틀린 답을 낸다.
+> **오해** 로봇을 여러 번 움직이기만 하면 된다.
+>
+> **사실** 손목의 마지막 관절 하나만 돌려 자세 10 개를 모으면 움직임은 45 개지만 회전 축이 모두 같아서 해가 하나로 정해지지 않는다. [자세 수집](#자세-수집) 절의 simulation 과 같은 가정에서 한 축으로만 돌린 자세 10 개를
+> 넣으면, Tsai 와 Park 모두 rotation 이 약 90°, translation 이 1 ~ 1.4 m 틀린 답을 낸다.
 
 **확인 문제.** 두 자세 사이에서 FK 로 계산한 gripper 의 회전은 40° 인데, 두 장의 target pose 로 계산한 camera 의 회전은 37° 다. 무엇을 의심해야
 할까?
@@ -228,9 +229,10 @@ translation 만 하는 움직임은 더 나쁘다. $R_A = I$ 이면 왼쪽이 �
 OpenCV 의 solver 들은 rotation 도 회전 축의 짝으로 구하기 때문에 이런 자세로는 rotation 마저 제대로 구하지 못한다. [자세 수집](#자세-수집) 절과
 같은 가정의 simulation 에서 translation 만 한 자세 10 개를 넣으면, Tsai 는 계산에 실패하고 Park 는 rotation 이 100° 넘게 틀린 답을 낸다.
 
-**흔한 오해.** "로봇을 멀리 옮길수록 translation 이 정확해진다." $t_X$ 는 회전이 있어야 정해진다. Tsai 와 Lenz 는 오히려 자세 사이에 gripper
-가 옮겨 가는 거리를 줄이라고 권했는데, 그 거리가 길수록 로봇의 위치 오차가 translation 오차로 더 많이 들어오기 때문이다. easy_handeye2 README
-도 각 축으로 양쪽 방향 최대 90° 까지 크게 돌리라고 하면서, translation 은 꼭 필요하지 않다고 적는다.
+> **오해** 로봇을 멀리 옮길수록 translation 이 정확해진다.
+>
+> **사실** $t_X$ 는 회전이 있어야 정해진다. Tsai 와 Lenz 는 오히려 자세 사이에 gripper 가 옮겨 가는 거리가 길수록 로봇의 위치 오차가 translation 오차로 더 많이 들어온다며 그 거리를 줄이라고 권했고,
+> easy_handeye2 README 도 각 축으로 양쪽 방향 최대 90° 까지 크게 돌리라고 하면서 translation 은 꼭 필요하지 않다고 적는다.
 
 **확인 문제.** 모든 자세를 gripper 의 $z$ 축 회전으로만 만들었다. $X$ 의 어느 부분을 알 수 없을까?
 
@@ -332,9 +334,10 @@ translation 식에 넣으므로 rotation 의 오차가 translation 에 그대로
 rotation 은 Park 가 가장 정확했고 translation 은 Daniilidis 가 가장 정확했다. 같은 논문에 따르면 회전 범위를 넓히면 separable 방법은
 정확해지지만 simultaneous 방법은 오히려 나빠진다. translation 범위를 넓히면 반대로 simultaneous 방법이 정확해지고 separable 방법이 나빠진다.
 
-**흔한 오해.** "solver 를 바꾸면 결과가 크게 좋아진다." 앞의 simulation 에서 자세를 잘 모았을 때 세 solver 의 차이는 0.1 mm 단위였지만,
-회전 범위를 ±5° 에서 ±30° 로 넓히면 translation 오차가 약 6 mm 줄어든다. 그러니 solver 를 바꾸기 전에 자세부터 다시 모으는 편이 낫다.
-solver 마다 결과가 크게 다르다면 데이터가 나쁘다는 신호로 본다.
+> **오해** solver 를 바꾸면 결과가 크게 좋아진다.
+>
+> **사실** 앞의 simulation 에서 자세를 잘 모았을 때 세 solver 의 차이는 0.1 mm 단위였지만, 회전 범위를 ±5° 에서 ±30° 로 넓히면 translation 오차가 약 6 mm 줄어든다. solver 를 바꾸기 전에
+> 자세부터 다시 모으고, solver 마다 결과가 크게 다르면 데이터가 나쁘다는 신호로 본다.
 
 <details><summary><b>심화: Tsai-Lenz 의 계산 순서</b></summary>
 

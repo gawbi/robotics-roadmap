@@ -213,8 +213,9 @@ action goal 에 tolerance 를 함께 보내면 그 goal 에서만 parameter 대�
 정하고 goal_time 을 0 으로 두면 목표에 닿지 못한 팔을 끝없이 기다린다. UR 의 ROS 2 driver 는 모든 관절에 trajectory 0.2 rad, goal 0.1 rad,
 stopped_velocity_tolerance 0.2 를 설정해 둔다.
 
-**흔한 오해.** "JTC 가 trajectory 를 따라가지 못하면 알아서 멈춘다." JTC 는 tolerance 를 설정했을 때만 멈추고, 기본값 0 은 검사하지 않는다는 뜻이다.
-실제 로봇에 쓰기 전에 관절마다 `trajectory`, `goal`, `goal_time` 을 정해야 한다.
+> **오해** JTC 는 trajectory 를 따라가지 못하면 알아서 멈춘다.
+>
+> **사실** JTC 는 tolerance 를 설정했을 때만 멈추고, 기본값 0 은 검사하지 않는다는 뜻이다. 실제 로봇에 쓰기 전에 관절마다 `trajectory`, `goal`, `goal_time` 을 정해야 한다.
 
 UR 의 teach pendant 에는 실행 속도를 0 ~ 100% 로 줄이는 slider 가 있다. JTC 는 hardware 가 내놓은 speed scaling state interface 로 이 값을 읽어
 trajectory 의 시계를 매 주기 `period × scaling` 만큼만 진행시킨다. slider 가 50% 이면 2 ms 주기마다 trajectory 시간이 1 ms 씩만 흘러서 4 초짜리 동작이
@@ -321,8 +322,10 @@ realtime_tools package 에는 이 규칙을 지키면서 thread 사이에 값을
 않고 가져가게 하는 `RealtimeThreadSafeBox`, 중간 message 를 하나도 잃으면 안 될 때 쓰는 `LockFreeQueue`, loop 안의 값을 별도 thread 로
 publish 하는 `RealtimePublisher` 가 그 예다. JTC 도 action 으로 받은 새 trajectory 를 이런 buffer 에 넣어 두고, loop 는 다음 update 에서 그것을 꺼내 쓴다.
 
-**흔한 오해.** "`update_rate` 를 높이면 제어가 더 좋아진다." 한 주기 안에 read, update, write 가 끝나지 않으면 overrun 으로 주기를 건너뛰어
-오히려 불규칙해진다. 로봇 controller 가 받는 주기(UR5e 500 Hz, UR5 같은 CB3 세대 125 Hz)와 컴퓨터가 지킬 수 있는 주기에 맞춰 정한다.
+> **오해** `update_rate` 를 높이면 제어가 더 좋아진다.
+>
+> **사실** 한 주기 안에 read, update, write 가 끝나지 않으면 overrun 으로 주기를 건너뛰어 오히려 불규칙해진다. 로봇 controller 가 받는 주기(UR5e 500 Hz, UR5 같은 CB3 세대 125 Hz)와
+> 컴퓨터가 지킬 수 있는 주기에 맞춰 정한다.
 
 **확인 문제.** 1 kHz loop 에서 kernel 이 thread 를 4.5 ms 늦게 깨웠다. 몇 주기를 놓쳤을까? 같은 loop 를 500 Hz 로 실행하면?
 
@@ -363,8 +366,9 @@ mujoco_ros2_control 은 `<plugin>` 에 `mujoco_ros2_control/MujocoSystemInterfac
 package 가 제공하는 `ros2_control_node` 를 `use_sim_time: true` 로 실행해야 한다. MuJoCo 의 position actuator 와 torque actuator 가 어떻게
 다른지는 [MuJoCo Simulation](../mujoco-sim/README.md) 에서 다룬다.
 
-**흔한 오해.** "mock hardware 에서 MoveIt 2 실행이 성공했으니 실제 팔에서도 된다." mock 은 명령을 그대로 상태로 돌려주므로 tracking 오차,
-gripper 의 stall, 통신 지연이 모두 0 이다. tolerance 와 gain 은 simulator 나 실제 팔에서 다시 확인해야 한다.
+> **오해** mock hardware 에서 MoveIt 2 실행이 성공했으니 실제 팔에서도 된다.
+>
+> **사실** mock 은 명령을 그대로 상태로 돌려주므로 tracking 오차, gripper 의 stall, 통신 지연이 모두 0 이다. tolerance 와 gain 은 simulator 나 실제 팔에서 다시 확인해야 한다.
 
 **확인 문제.** gz_ros2_control 의 `update_rate` 가 250 Hz 이고 `position_proportional_gain` 이 0.1 이다. position 명령에 대한 time constant 는?
 gain 을 0.5 로 올리면?

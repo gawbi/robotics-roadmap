@@ -165,8 +165,9 @@ GPT-2 는 subword 를 찾는 출발점으로 byte 256 개를 vocabulary 에 먼�
 한글·emoji 가 나와도 최악의 경우 byte 하나하나가 token 이 될 뿐 `<unk>` 는 생기지 않는다. OpenVLA 가 지시문을 읽는 데 쓰는 Llama 2 의
 tokenizer 도 BPE 로 만든 vocabulary 32,000 개를 쓰고, 숫자는 한 자리씩 나누며, vocabulary 에 없는 글자는 UTF-8 byte 로 쪼갠다.
 
-**흔한 오해.** token 을 "단어" 와 같은 말로 여기기 쉽지만, token 은 tokenizer 가 정한 조각일 뿐이다. unbelievable 은 단어 하나지만
-GPT-2 에서는 token 4 개이고, 앞에 공백이 붙은 "␣unbelievable" 은 GPT-2 에서 token 1 개다.
+> **오해** token 은 단어와 같은 말이다.
+>
+> **사실** token 은 tokenizer 가 정한 조각일 뿐이다. unbelievable 은 단어 하나지만 GPT-2 에서는 token 4 개이고, 앞에 공백이 붙은 "␣unbelievable" 은 GPT-2 에서 token 1 개다.
 
 **확인 문제.** "hello world"(공백 포함)를 글자 단위로 자르면 token 이 몇 개이고, 단어 단위로 자르면 몇 개일까?
 

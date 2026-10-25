@@ -242,8 +242,9 @@ $q_\phi(z \mid x)$ 를 **posterior** 라고 한다. 두 이름은 라틴어로 "
 만들 때 encoder 없이 prior 에서 뽑은 $z$ 도 어느 그림의 범위 안에 떨어질 가능성이 높다. posterior 를 prior 쪽으로 끌어당기는 일은 loss
 의 KL 항이 맡는다.
 
-**흔한 오해.** encoder 가 내는 $\sigma$ 는 작을수록 좋다고 생각하기 쉽다. $\sigma$ 가 0 에 가까우면 $z$ 가 늘 $\mu$ 로 뽑혀 보통의
-autoencoder 와 같아지고, 범위가 사라진 자리에 빈 곳도 다시 생긴다.
+> **오해** encoder 가 내는 $\sigma$ 는 작을수록 좋다.
+>
+> **사실** $\sigma$ 가 0 에 가까우면 $z$ 가 늘 $\mu$ 로 뽑혀 보통의 autoencoder 와 같아지고, 범위가 사라진 자리에 빈 곳도 다시 생긴다.
 
 **확인 문제.** encoder 가 어떤 그림에 $\mu = 2$, $\sigma = 0.5$ 를 냈다. 학습 중 이 그림에서 뽑히는 $z$ 의 약 95% 는 어느 범위에 있을까?
 
@@ -304,8 +305,9 @@ $$
 PyTorch 공식 예제에서는 $\epsilon$ 을 뽑는 `torch.randn_like` 한 줄과 곱하고 더하는 한 줄로 이 식을 계산한다. ACT 논문에서도 CVAE encoder
 가 낸 평균과 분산으로 이 방법을 써서 $z$ 를 뽑고, encoder 와 policy 를 함께 학습한다.
 
-**흔한 오해.** reparameterization trick 을 쓰면 $z$ 의 무작위성이 사라진다고 생각하기 쉽다. $\epsilon$ 은 여전히 매번 새로 뽑으므로 $z$ 는
-매번 다르다. 무작위성이 계산의 가운데에서 바깥 입력 자리로 옮겨 갔을 뿐이고, 그 덕분에 $\mu$ 와 $\sigma$ 를 지나는 계산이 끊기지 않는다.
+> **오해** reparameterization trick 을 쓰면 $z$ 의 무작위성이 사라진다.
+>
+> **사실** $\epsilon$ 은 여전히 매번 새로 뽑으므로 $z$ 는 매번 다르다. 무작위성이 계산의 가운데에서 바깥 입력 자리로 옮겨 갔을 뿐이고, 그 덕분에 $\mu$ 와 $\sigma$ 를 지나는 계산이 끊기지 않는다.
 
 <details><summary><b>심화: gradient 계산표와 숫자로 잰 비율</b></summary>
 
@@ -615,9 +617,9 @@ $\beta = 10$ 이라 $z$ 에 담긴 정보도 적어서, $z = 0$ 에서 나온 ch
 평균하는 temporal ensembling 은 [ACT](../act/README.md) 에서 다루고, 무작위 출발점에서 시작해 두 무리 중 하나에 도착하게 만드는 방법은
 [Diffusion Policy](../diffusion-policy/README.md) 에서 다룬다.
 
-**흔한 오해.** ACT 가 CVAE 를 쓰니 실행할 때마다 $z$ 를 뽑아 여러 움직임 중 하나를 고른다고 생각하기 쉽다. CVAE 의 encoder 는 학습할 때
-시연마다 다른 움직임을 $z$ 에 담아 policy 에 넘기는 데만 쓰인다. 실행할 때는 $z$ 를 0 하나로 고정하므로 같은 관측에는 늘 같은 chunk 가
-나온다.
+> **오해** ACT 는 CVAE 를 쓰니 실행할 때마다 $z$ 를 뽑아 여러 움직임 중 하나를 고른다.
+>
+> **사실** CVAE 의 encoder 는 학습할 때 시연마다 다른 움직임을 $z$ 에 담아 policy 에 넘기는 데만 쓰인다. 실행할 때는 $z$ 를 0 하나로 고정하므로 같은 관측에는 늘 같은 chunk 가 나온다.
 
 **확인 문제.** ACT 의 CVAE encoder 가 한 차원에서 $\mu = 0.5$, $\sigma = 1$ 을 냈다. 이 차원의 KL 은 얼마이고, $\beta = 10$ 을 곱하면 loss 에
 얼마가 더해질까?

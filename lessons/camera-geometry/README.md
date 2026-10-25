@@ -140,9 +140,10 @@ ROS 2 의 `CameraInfo` 메시지는 이 숫자를 아래 칸에 담는다.
 RealSense 의 librealsense 는 같은 숫자를 `rs2_intrinsics` 구조체의 `fx`, `fy`, `ppx`, `ppy` 와 distortion 계수 5 개로 주고, ROS 2 driver 는
 이 숫자를 `/camera/camera/color/camera_info` 로 publish 한다.
 
-**흔한 오해.** "intrinsics 는 카메라마다 하나다." intrinsics 는 사진 크기마다 다르다. 같은 센서를 640×480 대신 1280×960 으로 읽으면 pixel 이
-가로세로 두 배로 촘촘해져서 $f$ 는 1000 이 되고 principal point 는 $(640, 480)$ 이 된다. 그래서 driver 의 해상도를 바꾸면 그 해상도의
-`camera_info` 를 써야 한다.
+> **오해** intrinsics 는 카메라마다 하나다.
+>
+> **사실** intrinsics 는 사진 크기마다 다르다. 같은 센서를 640×480 대신 1280×960 으로 읽으면 pixel 이 가로세로 두 배로 촘촘해져서 $f$ 는 1000, principal point 는 $(640, 480)$ 이
+> 되므로, driver 의 해상도를 바꾸면 그 해상도의 `camera_info` 를 써야 한다.
 
 ## 카메라 한 대로 알 수 없는 거리
 
@@ -246,8 +247,9 @@ $R$ 이 identity matrix $I$ 이고 $t = (-0.1, 0, 1.0)$ 이면 world 의 점 $(0
 되어 pixel $(370, 215)$ 에 찍힌다. 카메라가 world 안의 어디에 어느 방향으로 놓였는지를 적은 이 $R$ 과 $t$ 를 **extrinsics** 라고 하고, 숫자는
 rotation 3 개와 translation 3 개를 합쳐 6 개다.
 
-**흔한 오해.** "$t$ 는 world 에서 본 카메라의 위치다." $t$ 는 카메라에서 본 world 원점의 위치다. 위 예에서 $t = (-0.1, 0, 1.0)$ 이지만 카메라는
-world 의 $(0.1, 0, -1.0)$ 에 있고, 카메라 위치가 필요하면 역변환을 쓴다.
+> **오해** $t$ 는 world 에서 본 카메라의 위치다.
+>
+> **사실** $t$ 는 카메라에서 본 world 원점의 위치다. 위 예에서 $t = (-0.1, 0, 1.0)$ 이지만 카메라는 world 의 $(0.1, 0, -1.0)$ 에 있고, 카메라 위치가 필요하면 역변환을 쓴다.
 
 $R$ 옆에 $t$ 를 넷째 칸으로 붙인 3×4 행렬 $[R \mid t]$ 에, world 좌표 끝에 1 을 붙인 vector 를 곱하면 $R\,p_w + t$ 가 한 번에 계산된다.
 여기에 $K$ 를 곱하면 world 의 점에서 pixel 까지를 식 하나로 쓸 수 있다.
@@ -324,8 +326,9 @@ $k_2 \approx 0.078$ 이 나온다(직접 실행한 결과).
 $(k_1, k_2, t_1, t_2, k_3)$ 순서로 `d` 에 적고, OpenCV 도 같은 순서를 쓴다. 어안 렌즈에는 `equidistant` 모델이 따로 있다. ROS 2 `image_proc` 의 rectify
 node 는 `image` 와 `camera_info` 를 받아 왜곡을 편 `image_rect` 를 publish 하고, 그 뒤의 계산은 distortion 없는 pinhole model 로 한다.
 
-**흔한 오해.** "distortion 은 사진 전체를 조금 줄이는 것이다." 배율이 $r$ 에 따라 달라서 가운데는 거의 그대로이고 가장자리만 크게 휜다. 전체를
-같은 비율로 줄이는 것은 $f$ 를 바꾸는 것과 같아서 곧은 선이 곧게 남는다.
+> **오해** distortion 은 사진 전체를 조금 줄이는 것이다.
+>
+> **사실** 배율이 $r$ 에 따라 달라서 가운데는 거의 그대로이고 가장자리만 크게 휜다. 전체를 같은 비율로 줄이는 것은 $f$ 를 바꾸는 것과 같아서 곧은 선이 곧게 남는다.
 
 ![ROS 2 카메라 데이터의 흐름. driver 가 image_raw 와 camera_info 를 내고, image_proc 의 rectify node 가 왜곡을 편 image_rect 를 만든다. detector 가 찾은 pixel (370, 215) 에 aligned depth 1.0 m 를 넣어 back-projection 하면 optical frame 의 (0.1, −0.05, 1.0) 이 되고, tf2 가 base_link 좌표로 옮긴다](figures/ros-camera-pipeline.svg)
 
@@ -408,8 +411,9 @@ $r_1$, $r_2$ 는 $R$ 의 첫째·둘째 칸이고, 평면 위의 점을 다른 �
 숫자에 같은 수를 곱해도 같은 pixel 이 나오므로 숫자 9 개 가운데 8 개만 정하면 된다. 점 하나가 $u$ 와 $v$ 의 식 두 개를 주므로 점은 최소
 4 개 필요하다. 바닥을 비추는 mobile robot 카메라도 바닥 위의 점이라면 homography 하나로 pixel 을 바닥 좌표로 바로 옮길 수 있다.
 
-**흔한 오해.** "homography 는 아무 3D 점에나 쓴다." 평면 위의 점에만 맞는다. 판에서 튀어나온 점은 $Z$ 가 0 이 아니라서 지운 셋째 칸이
-다시 필요하다.
+> **오해** homography 는 아무 3D 점에나 쓸 수 있다.
+>
+> **사실** homography 는 평면 위의 점에만 맞는다. 판에서 튀어나온 점은 $Z$ 가 0 이 아니라서 지운 셋째 칸이 다시 필요하다.
 
 <details><summary><b>심화: 점 4 개로 H 를 구하는 DLT</b></summary>
 

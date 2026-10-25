@@ -1129,6 +1129,67 @@ code {
   color: var(--text-muted);
 }
 
+.markdown .misconception {
+  margin: 0 0 16px;
+  padding: 12px 16px 4px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.06);
+}
+
+.misconception-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.misconception-row {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.misconception-row + .misconception-row {
+  border-top: 1px solid var(--border);
+}
+
+/* the icon sits on the first text line: (line-height − icon size) / 2 */
+.misconception-row > svg {
+  flex: none;
+  margin-top: calc((1.75em - 16px) / 2);
+}
+
+.misconception-row.is-belief > svg {
+  color: var(--danger);
+}
+
+.misconception-row.is-fact > svg {
+  color: var(--success);
+}
+
+.markdown .misconception-row > p {
+  margin: 0;
+}
+
+.misconception-row.is-belief > p {
+  color: var(--text-muted);
+}
+
+/* the icon already says which line is which; the bold label is kept for screen readers and GitHub */
+.misconception-row > p > strong:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .markdown img {
   max-width: 100%;
   border-radius: 8px;

@@ -269,10 +269,11 @@ Nav2 AMCL 의 `pf.c` 에는 Probabilistic Robotics 의 low-variance resampling �
 따로 뽑는 multinomial 방식을 쓴다. 코드 주석에 따르면 low-variance 방식은 KLD sampling(뒤 절)과 함께 쓰기 어렵다. low-variance 방식은 바늘 간격
 $1/N$ 을 정하려면 뽑을 개수 $N$ 을 먼저 알아야 하는데, KLD sampling 은 뽑는 도중에 개수를 정하기 때문이다.
 
-**흔한 오해.** "resampling 은 particle 을 더 정확한 자리로 옮긴다." resampling 은 이미 있는 particle 을 복사하거나 지울 뿐 새 자리를 만들지
-않는다. 같은 측정으로 resampling 을 되풀이하면 몇몇 particle 의 복사본만 남아 후보의 다양성이 사라지는데, Dellaert 등은 이것을 sample
-impoverishment 라고 불렀다. 복사본을 다시 여러 자리로 퍼뜨리는 것은 다음 예측의 motion noise 다. 로봇이 서 있는 동안에는 AMCL 이 cycle 을 수행하지 않으므로
-같은 scan 으로 resampling 을 되풀이하지도 않는다.
+> **오해** resampling 은 particle 을 더 정확한 자리로 옮긴다.
+>
+> **사실** resampling 은 이미 있는 particle 을 복사하거나 지울 뿐 새 자리를 만들지 않아서, 같은 측정으로 되풀이하면 몇몇 particle 의 복사본만 남아 후보의 다양성이 사라진다. Dellaert 등은 이것을 sample
+> impoverishment 라고 불렀다. 복사본을 다시 여러 자리로 퍼뜨리는 것은 다음 예측의 motion noise 이고, 로봇이 서 있는 동안에는 AMCL 이 cycle 을 수행하지 않으므로 같은 scan 으로 resampling 을
+> 되풀이하지도 않는다.
 
 ## Particle 수와 계산량
 
@@ -359,9 +360,10 @@ kidnapped robot 처럼 particle 이 모두 틀린 자리에 모여 있으면 res
 | `recovery_alpha_slow`, `recovery_alpha_fast` | 0.0, 0.0 | 무작위 particle 을 넣는 복구 기능. 0 이면 꺼짐 |
 | `set_initial_pose` | false | true 면 `initial_pose.x` 같은 parameter 로 시작하고, false 면 `/initialpose` 를 기다린다 |
 
-**흔한 오해.** "AMCL 은 돌아다니며 지도도 고친다." AMCL 은 `/map` 을 읽기만 하고 바꾸지 않는다. 가구를 옮겨 지도와 실제가 조금 달라지면 그
-자리에 닿는 beam 은 `z_rand` 의 바닥 값 덕분에 점수가 0 까지 떨어지지 않는다. 그러나 달라진 곳이 많으면 맞는 particle 의 점수도 낮아져
-위치가 틀어지므로 지도를 새로 만들어야 한다.
+> **오해** AMCL 은 돌아다니며 지도도 고친다.
+>
+> **사실** AMCL 은 `/map` 을 읽기만 하고 바꾸지 않는다. 가구를 옮겨 지도와 실제가 조금 달라져도 그 자리에 닿는 beam 은 `z_rand` 의 바닥 값 덕분에 점수가 0 까지 떨어지지 않지만, 달라진 곳이 많으면 맞는
+> particle 의 점수도 낮아져 위치가 틀어지므로 지도를 새로 만들어야 한다.
 
 **확인 문제.** 위치를 찾아 particle 이 bin 30 개에 모여 있고, KLD 식이 365 개를 냈다. 기본값의 AMCL 은 particle 을 몇 개 쓸까? 사람이
 로봇을 들어 다른 방에 옮겼을 때, 기본값 그대로라면 AMCL 이 스스로 위치를 되찾을 수 있을까?

@@ -206,9 +206,9 @@ convex hull 이라고 하는데, primitive wrench 의 convex hull 이 원점을 
 평면에서는 마찰 있는 두 손가락으로 antipodal 하게 쥐면 force closure 지만, 3차원에서는 그렇지 않다. point contact 두 개의 힘은 모두 두
 접촉점을 지나는 축 위에 있어서 그 축을 도는 외부 torque 를 버티지 못하기 때문이다. 그래서 실제 gripper 는 고무 패드의 soft finger contact 로 그 torque 를 버티게 하거나 손가락을 셋 이상 쓴다.
 
-**흔한 오해.** "antipodal 이면 어떤 흔들림에도 버틴다." 두 접촉점을 잇는 축을 도는 torque 는 point contact 로 막지 못한다.
-길쭉한 물체의 끝을 쥐면 물체가 그 축을 중심으로 돌며 늘어지는 것도 이 때문인데, 이 torque 를 얼마나 버틸지는 다음 절에서 볼 패드
-마찰로 정해진다.
+> **오해** antipodal 이면 어떤 흔들림에도 버틴다.
+>
+> **사실** 두 접촉점을 잇는 축을 도는 torque 는 point contact 로 막지 못해서, 길쭉한 물체의 끝을 쥐면 물체가 그 축을 중심으로 돌며 늘어진다. 이 torque 를 얼마나 버틸지는 다음 절에서 볼 패드 마찰로 정해진다.
 
 ## grip force
 
@@ -431,9 +431,10 @@ grasp pose 후보를 만든다. `angle_delta` 의 기본값은 0.1 rad 이고, �
 ClearGrasp 논문은 투명한 물체가 일반 3D 센서에서 그 뒤에 있는 면의 noise 섞인 모양으로 보인다고 적었다. AnyGrasp 의 물고기 잡기
 실험에서는 실패의 절반 가까이가 grasp pose 는 맞았는데 물속의 낮은 마찰로 미끄러진 경우였다.
 
-**흔한 오해.** "grasp network 의 성공률이 90% 면 로봇이 열 번에 아홉 번 집는다." 논문의 성공률은 그 논문의 물체, 카메라, gripper, 손가락 패드에서
-잰 값이다. AnyGrasp 의 실험에서도 물체 종류에 따라 철물은 81.5%, 과자와 인형은 100% 로 달랐다. 내 로봇의 카메라 calibration 이
-몇 mm 틀리거나 패드의 $\mu$ 가 다르면 같은 network 로도 성공률이 크게 달라진다.
+> **오해** grasp network 의 성공률이 90% 면 로봇이 열 번에 아홉 번 집는다.
+>
+> **사실** 논문의 성공률은 그 논문의 물체, 카메라, gripper, 손가락 패드에서 잰 값이고, AnyGrasp 의 실험에서도 물체 종류에 따라 철물은 81.5%, 과자와 인형은 100% 로 달랐다. 내 로봇의 카메라 calibration 이
+> 몇 mm 틀리거나 패드의 $\mu$ 가 다르면 같은 network 로도 성공률이 크게 달라진다.
 
 ## 정리
 

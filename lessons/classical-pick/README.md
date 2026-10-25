@@ -196,8 +196,9 @@ $$
 [Rigid Transforms](../transforms/README.md) 에서 본 homogeneous transform 을 곱한다. base 에서 본 카메라의 pose(위치와 방향)를 extrinsics 라고
 하는데, 이 값을 로봇을 움직여 재는 방법은 [Hand-Eye Calibration](../hand-eye-calibration/README.md) 에서 다룬다.
 
-**흔한 오해.** "depth 가 틀리면 높이만 틀린다." back-projection 은 ② 에서 구한 방향에 depth 를 곱하므로, depth 를 0.5 대신 0.51 로 재면
-가로 위치 $X$ 도 $-0.2 \times 0.51 = -0.102$ 로 2 mm 바뀐다.
+> **오해** depth 가 틀리면 높이만 틀린다.
+>
+> **사실** back-projection 은 ② 에서 구한 방향에 depth 를 곱하므로, depth 를 0.5 대신 0.51 로 재면 가로 위치 $X$ 도 $-0.2 \times 0.51 = -0.102$ 로 2 mm 바뀐다.
 
 **확인 문제.** pixel $(420, 290)$ 의 depth 가 0.5 m 다. base frame 좌표는?
 
@@ -552,8 +553,9 @@ stage 의 성공한 해와 실패한 해가 따로 나열되므로, `grasp pose 
 $314 \times 2 \div 360 \approx 1.7$ cm 다. 인식이 pixel 을 정확히 찾았어도 합이 $8 + 17 = 25$ mm 가 되어 여유를 넘는다. rotation 오차는
 물체까지의 거리를 곱한 만큼 위치 오차가 되므로, 카메라를 옮기거나 건드리면 calibration 을 다시 해야 한다.
 
-**흔한 오해.** "오차가 큰 module 하나만 고치면 된다." 위 표의 오차는 하나하나 3 mm 이하지만 합은 8 mm 다. 오차는 더해지므로 module 마다 작은
-오차만 내도 합이 여유를 넘을 수 있다.
+> **오해** 오차가 큰 module 하나만 고치면 된다.
+>
+> **사실** 위 표의 오차는 하나하나 3 mm 이하지만 합은 8 mm 다. 오차는 더해지므로 module 마다 작은 오차만 내도 합이 여유를 넘을 수 있다.
 
 **확인 문제.** 카메라가 1° 기울었다. 0.5 m 떨어진 cube 의 위치는 약 몇 cm 틀릴까?
 

@@ -171,8 +171,9 @@ loss 는 정답 class 의 확률 $p_y$ 에 log 를 씌우고 부호를 바꾼 **
 틀린 class 를 확신할수록 loss 가 크다. 점수가 $(0, 2, 0)$ 인데 정답이 class 0 이면 정답 확률이 0.107 이라 loss 는 2.240 이다. batch 에서는
 사진마다 loss 를 구해 평균한다.
 
-**흔한 오해.** "loss 가 0.417 이면 41.7% 틀렸다." cross-entropy 는 비율이 아니라 $-\log$ 값이라 1 을 넘을 수 있다. 맞힌 비율은 accuracy 로
-따로 재는데, 점수가 가장 큰 class 가 label 과 같은 사진의 비율이다.
+> **오해** loss 가 0.417 이면 41.7% 틀렸다.
+>
+> **사실** cross-entropy 는 비율이 아니라 $-\log$ 값이라 1 을 넘을 수 있다. 맞힌 비율은 점수가 가장 큰 class 가 label 과 같은 사진의 비율인 accuracy 로 따로 잰다.
 
 정답 class 의 값만 1 이고 나머지는 0 인 vector 를 $\mathrm{onehot}(y)$ 로 쓰면, 점수 $z_j$ 의 gradient 는 그 class 의 확률 $p_j$ 에서
 $\mathrm{onehot}(y)$ 의 $j$ 번째 값을 뺀 값이다.
@@ -364,8 +365,10 @@ $L = w^2$ 에서 SGD 는 매 step $w \leftarrow 0.8w$ 다. momentum 은 step 2 �
 
 ![L = w² 와 L = 0.01w² 에서 SGD·momentum·Adam 이 60 step 동안 움직인 w. Adam 은 두 경우가 똑같다](figures/optimizer-compare.svg)
 
-**흔한 오해.** "Adam 이 SGD 보다 언제나 빠르다." $L = w^2$ 에서는 20 step 에 SGD 가 0.058, Adam 이 3.06 이었다. Adam 을 쓰면 gradient 크기가
-parameter 마다 다르고 학습 시기마다 달라져도 learning rate 하나로 학습할 수 있다.
+> **오해** Adam 이 SGD 보다 언제나 빠르다.
+>
+> **사실** $L = w^2$ 에서는 20 step 뒤 SGD 가 0.058, Adam 이 3.06 이었다. Adam 의 장점은 gradient 크기가 parameter 마다, 학습 시기마다 달라도 learning rate 하나로 학습할 수 있다는
+> 데 있다.
 
 </details>
 

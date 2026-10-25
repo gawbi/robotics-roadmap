@@ -61,9 +61,10 @@ policy 에서 사진과 로봇 상태를 요약한 숫자 묶음(feature)을 받
 noise 를 조금씩 걷어 내고(denoising), 끝에 남은 값을 action 으로 쓴다. 출발 noise 는 실행할 때마다 새로 뽑으므로, 여러 번 실행하면 절반쯤은
 $-20$° 근처에서 끝나고 나머지는 $+20$° 근처에서 끝난다. 0° 근처에서 끝나는 경우는 거의 없다.
 
-**흔한 오해.** diffusion head 의 network 도 MSE 로 학습하니 결국 평균을 낼 것이라고 생각하기 쉽다. network 가 MSE 로 맞히는 것은 action 이 아니라
-섞인 noise 이고, 이 추정으로는 한 단계에서 조금 움직일 방향만 정해진다. 그 방향을 여러 단계 이어 가는 동안 값이 한쪽 봉우리로 가므로 최종
-action 은 두 봉우리의 평균이 되지 않는다.
+> **오해** diffusion head 의 network 도 MSE 로 학습하니 결국 평균을 낸다.
+>
+> **사실** network 가 MSE 로 맞히는 것은 action 이 아니라 섞인 noise 이고, 이 추정은 한 단계에서 조금 움직일 방향만 정한다. 그 방향을 여러 단계 이어 가는 동안 값이 한쪽 봉우리로 가므로 최종 action 은 두
+> 봉우리의 평균이 되지 않는다.
 
 **확인 문제.** 시연이 $-20$° 7 개와 $+20$° 3 개라면 MSE head 는 몇 도를 낼까? 이상적으로 학습한 RT-1 head 는 $-20$° 가 든 108 번 칸과 $+20$° 가
 든 148 번 칸에 각각 확률을 얼마씩 줄까?
@@ -216,8 +217,9 @@ noise 로 계산하면 $A^k$ 가 0.60, 0.56, 0.18, 0.19, 0.15 를 거쳐 0.00(0�
 
 </details>
 
-**흔한 오해.** 출발 noise 가 양수면 언제나 $+20$° 로 간다고 생각하기 쉽다. 앞쪽 단계에서 더하는 새 noise $\sigma_k z$ 가 출발점보다 크면 값이
-음수 쪽으로 넘어갈 수 있으므로, 어느 봉우리로 갈지는 출발점과 여러 단계의 새 noise, network 의 추정이 함께 정한다.
+> **오해** 출발 noise 가 양수면 언제나 $+20$° 로 간다.
+>
+> **사실** 앞쪽 단계에서 더하는 새 noise $\sigma_k z$ 가 출발점보다 크면 값이 음수 쪽으로 넘어갈 수 있어서, 어느 봉우리로 갈지는 출발점과 여러 단계의 새 noise, network 의 추정이 함께 정한다.
 
 **확인 문제.** 곧은 길 시연에서 $A^0 = 0$ 을 꺼냈고 $k = 3$, $\epsilon = -1$ 이 뽑혔다. $A^3$ 은? network 가 $-0.8$ 을 냈다면 loss 는?
 
@@ -400,9 +402,10 @@ BatchNorm 을 그대로 둔다. `use_group_norm` 을 켠 채 pretrained weight �
 값을 받도록 학습됐기 때문에 GroupNorm 으로 바꾸면 다음 층이 받는 값이 달라진다. 공개 checkpoint `lerobot/diffusion_pusht` 의 설정은 바뀌기
 전의 기본값(pretraining 없음, GroupNorm)이다.
 
-**흔한 오해.** Diffusion Policy 논문이 pretrained encoder 는 나쁘다고 결론 내렸다고 생각하기 쉽다. 성공률이 크게 떨어진 것은 pretrained weight 를
-고정한 경우였고, 작은 learning rate 로 fine-tuning 하면 처음부터 학습한 것과 비슷하거나 더 좋았다. CLIP 으로 pretraining 한 ViT-B/16 은
-fine-tuning 50 epoch 만에 0.98 에 닿았다.
+> **오해** Diffusion Policy 논문은 pretrained encoder 가 나쁘다고 결론 내렸다.
+>
+> **사실** 성공률이 크게 떨어진 것은 pretrained weight 를 고정한 경우였고, 작은 learning rate 로 fine-tuning 하면 처음부터 학습한 것과 비슷하거나 더 좋았다. CLIP 으로 pretraining 한
+> ViT-B/16 은 fine-tuning 50 epoch 만에 0.98 에 닿았다.
 
 **확인 문제.** 3×3 feature map 의 가운데 칸만 2 이고 나머지가 0 이면 spatial softmax 의 결과는?
 
@@ -516,8 +519,9 @@ $\frac{1.91}{2} \times 40 - 20 = 18.2$° 다.
 
 </details>
 
-**흔한 오해.** 단계를 줄이려면 network 를 다시 학습해야 한다고 생각하기 쉽다. DDIM 은 DDPM 과 같은 loss 로 학습한 network 를 그대로 쓰고, 실행할 때
-밟는 단계와 계산식만 바꾼다.
+> **오해** 단계를 줄이려면 network 를 다시 학습해야 한다.
+>
+> **사실** DDIM 은 DDPM 과 같은 loss 로 학습한 network 를 그대로 쓰고, 실행할 때 밟는 단계와 계산식만 바꾼다.
 
 **확인 문제.** network 한 번에 0.02 초가 걸린다. 100 단계와 10 단계의 추론 시간은 각각 얼마이고, 0.8 초마다 새 chunk 가 필요할 때 제때 나오는 것은?
 

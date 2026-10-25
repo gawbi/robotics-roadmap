@@ -377,9 +377,10 @@ response adapter 목록에서 TOTG 뒤에 `AddRuckigTrajectorySmoothing` 을 더
 `joint_limits.yaml` 의 `has_jerk_limits` 와 `max_jerk` 로 정한다. 한계를 정하지 않은 관절에는 MoveIt 이 소스에 적힌 기본값 1000 rad/s³ 를 쓰고
 경고를 남긴다.
 
-**흔한 오해.** "scaling factor 를 0.5 로 주면 시간이 정확히 두 배가 된다." velocity 와 acceleration 을 함께 0.5 로 줄이면 위 표처럼 2 rad
-이동은 2.5 s 에서 4.5 s 로 1.8 배가 되고, 0.32 rad 이동은 0.8 s 에서 1.14 s 로 1.43 배가 된다. 사다리꼴의 시간 $T = d / v_{\max} + v_{\max} / a_{\max}$ 에서 두 값을 같이
-0.5 배 하면 첫 항만 두 배가 되고 둘째 항은 그대로이기 때문이다. 0.32 rad 이동은 원래 삼각형이라 배율이 더 작다.
+> **오해** scaling factor 를 0.5 로 주면 시간이 정확히 두 배가 된다.
+>
+> **사실** velocity 와 acceleration 을 함께 0.5 로 줄이면 위 표처럼 2 rad 이동은 2.5 s 에서 4.5 s 로 1.8 배가 되고, 0.32 rad 이동은 0.8 s 에서 1.14 s 로 1.43 배가 된다. 사다리꼴의
+> 시간 $T = d / v_{\max} + v_{\max} / a_{\max}$ 에서 두 값을 같이 0.5 배 하면 첫 항만 두 배가 되고 둘째 항은 그대로이기 때문이다. 0.32 rad 이동은 원래 삼각형이라 배율이 더 작다.
 
 **확인 문제.** $v_{\max} = 1$ rad/s, $a_{\max} = 2$ rad/s² 인 관절을 1 rad 옮긴다. scaling factor 를 둘 다 0.5 로 주면 시간은?
 

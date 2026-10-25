@@ -75,9 +75,10 @@ observation 48 개를 쓴다.
 다리 넷에 관절이 셋씩이라 관절은 12 개다. 계단 지형용 설정은 몸통 주변 지형 높이 187 개를 더 받는데, 실제 로봇에서는 LiDAR 로 만든 높이
 지도에서 이 값을 읽는다(Rudin 등 2021).
 
-**흔한 오해.** simulator 에 있는 마찰 계수를 policy 의 observation 에 넣어 주면 더 잘 걷지 않을까 생각하기 쉽다. simulation 에서는 실제로 더 잘 걷지만,
-실제 로봇에는 마찰 계수를 재는 센서가 없어서 그 policy 는 옮길 수 없다. 그 숫자를 학습에만 쓰는 방법은
-[teacher-student 학습](#teacher-student-학습) 에서 다룬다.
+> **오해** simulator 에 있는 마찰 계수를 policy 의 observation 에 넣어 주면 더 잘 걷는다.
+>
+> **사실** simulation 에서는 실제로 더 잘 걷지만, 실제 로봇에는 마찰 계수를 재는 센서가 없어서 그 policy 는 옮길 수 없다. 그 숫자를 학습에만 쓰는 방법은 [teacher-student
+> 학습](#teacher-student-학습) 에서 다룬다.
 
 policy 의 **action** 은 관절 12 개의 목표 각도다. policy 가 $-1$ 에서 $1$ 근처의 작은 숫자 $a$ 를 내면, 여기에 배율 $s$ 를 곱해 기본
 자세의 각도에 더한 값이 목표 각도가 된다.
@@ -327,9 +328,10 @@ LSTM 은 층이 2 개이고 층마다 내부 상태가 8 개다. 예로 ANYmal C
 계산하면 torque 는 $80 \times 0.05 - 2 \times 1.0 = 2$ N·m 로 언제나 같지만, LSTM 은 바로 앞까지의 움직임에 따라 다른 torque 를 낸다. Rudin 등은
 A1 을 학습할 때는 이 motor 모델을 빼고 PD gain 과 torque penalty 를 줄였다.
 
-**흔한 오해.** actuator network 가 실제 로봇의 PD controller 를 대신한다고 생각하기 쉽다. 실제 로봇에서는 목표 각도를 여전히 motor 안의 PD
-controller 가 torque 로 바꾸고, actuator network 는 simulation 안에서만 그 PD controller 와 그 뒤의 전류 제어·기어·spring 전체가 내는 torque 를
-흉내 낸다.
+> **오해** actuator network 가 실제 로봇의 PD controller 를 대신한다.
+>
+> **사실** 실제 로봇에서는 목표 각도를 여전히 motor 안의 PD controller 가 torque 로 바꾼다. actuator network 는 simulation 안에서만 그 PD controller 와 그 뒤의 전류
+> 제어·기어·spring 전체가 내는 torque 를 흉내 낸다.
 
 **확인 문제.** 입력으로 지금과 0.01 초 전, 0.02 초 전의 각도 오차와 각속도를 쓰면 입력은 몇 개일까? 관절 12 개에서 1초에 400 번씩 4 분 동안
 기록하면 sample 은 몇 개일까?
@@ -579,8 +581,9 @@ Lee 등의 실험에서 50 N 의 힘으로 몸통을 5 초 동안 옆으로 밀�
 Kumar 등(2021)의 RMA(Rapid Motor Adaptation)도 같은 구조다. 저자들은 마찰·짐 무게·motor 세기 같은 17 개 숫자를 8 개로 요약한 값을 받는
 base policy 를 먼저 학습하고, 최근 50 step(0.5 초)의 상태와 action 으로 그 8 개를 추정하는 adaptation module 을 따로 학습해 Unitree A1 에 올렸다.
 
-**흔한 오해.** teacher 가 더 잘 걸으니 실제 로봇에도 teacher 를 올리면 된다고 생각하기 쉽다. teacher 는 발 주변 지형 높이와 마찰 계수를 받아야
-움직이는데 실제 로봇에서는 그 숫자를 얻을 수 없다. 그래서 실제 로봇에는 student 만 올라간다.
+> **오해** teacher 가 더 잘 걸으니 실제 로봇에도 teacher 를 올리면 된다.
+>
+> **사실** teacher 는 발 주변 지형 높이와 마찰 계수를 받아야 움직이는데 실제 로봇에서는 그 숫자를 얻을 수 없어서, 실제 로봇에는 student 만 올라간다.
 
 **확인 문제.** policy 가 1초에 50 번 계산하고 student 가 최근 50 step 의 observation 을 받는다면 몇 초 동안의 이력을 볼까? RMA 처럼 1초에
 100 번 계산하는 로봇에서 50 step 이면?

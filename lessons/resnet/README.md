@@ -57,9 +57,10 @@ ImageNet 은 사진을 강아지 품종, 컵, 자동차 같은 1000 개 종류(c
 CIFAR-10 에서도 56 층 plain 망의 training error 가 20 층보다 높았다. He 등은 이렇게 층을 더 쌓았는데 학습 데이터에서조차 더 많이
 틀리는 현상을 **degradation** 이라고 불렀다.
 
-**흔한 오해.** "층이 많아 parameter(weight 처럼 학습으로 정하는 숫자)가 많아지니 학습 데이터를 외우는 overfitting 이 생긴 것" 이라고
-생각하기 쉽다. overfitting 이라면 학습 데이터는 잘 맞히고 처음 보는 데이터(test)만 못 맞혀 training error 가 낮아야 하는데,
-degradation 은 training error 자체가 높으니 외운 것이 아니라 덜 배운 것이다.
+> **오해** 층이 많아 parameter(weight 처럼 학습으로 정하는 숫자)가 많아지니 학습 데이터를 외우는 overfitting 이 생긴 것이다.
+>
+> **사실** overfitting 이라면 학습 데이터는 잘 맞히고 처음 보는 데이터(test)만 못 맞혀서 training error 가 낮아야 한다. degradation 은 training error 자체가 높으니 외운 것이 아니라 덜 배운
+> 것이다.
 
 원리로 따지면 깊은 망이 얕은 망보다 나빠질 이유는 없다. 입력을 바꾸지 않고 그대로 내보내는 계산을 **identity** 라고 하는데, 잘 학습한
 20 층 망 뒤에 identity 층 36 개를 붙인 56 층 망은 20 층 망과 똑같은 답을 내고 똑같이 틀린다.
@@ -204,9 +205,10 @@ block 20 개의 weight 가 모두 $w$ 라면 plain 망의 비율은 $w^{20}$ 이
 residual 망은 block 이 아무것도 배우지 않은 $w = 0$ 에서도 1 을 전하고 $\pm 0.1$ 범위에서는 0.12 와 6.73 사이에 머물러서, block 20 개
 아래에 있는 층도 위쪽과 비슷한 크기의 gradient 를 받는다.
 
-**흔한 오해.** "residual connection 이 있으면 gradient 가 언제나 정확히 1 로 전해진다." block 하나의 비율은
-$1 + \frac{\partial \mathcal F}{\partial x}$ 라서 1 에서 조금씩 벗어나고, 위 표처럼 20 번 곱하면 0.12 나 6.73 이 되기도 한다. residual
-connection 은 weight 를 거치지 않는 길 하나를 언제나 남길 뿐이다.
+> **오해** residual connection 이 있으면 gradient 가 언제나 정확히 1 로 전해진다.
+>
+> **사실** block 하나의 비율은 $1 + \frac{\partial \mathcal F}{\partial x}$ 라서 1 에서 조금씩 벗어나고, 위 표처럼 20 번 곱하면 0.12 나 6.73 이 되기도 한다. residual
+> connection 은 weight 를 거치지 않는 길 하나를 언제나 남길 뿐이다.
 
 He 등이 plain 망과 층 수·parameter 수가 같은 ResNet 을 만들어 비교하자, 18 층에서 34 층으로 갈 때 plain 망은 error 가 0.60%p(퍼센트
 포인트) 오르고 ResNet 은 2.85%p 내려갔다.
@@ -304,9 +306,10 @@ $\gamma = 1$, $\beta = 0$ 이다. $\gamma$ 가 원래 표준편차를 배우고 
 BatchNorm 논문에서는 이미지 분류 모델에 BatchNorm 을 넣자 학습 step 을 14 배 적게 쓰고도 같은 정확도에 도달했다. 평균을 빼는 순간
 conv 의 bias 도 지워지므로 ResNet 의 conv 층에는 bias 가 없고, 평균 위치는 $\beta$ 로 정한다.
 
-**흔한 오해.** "BatchNorm 이 효과가 있는 이유는 internal covariate shift 를 줄이기 때문이다." Santurkar 등(2018)은 층 입력의 분포를
-일부러 흔들어도 BatchNorm 의 효과가 거의 그대로라는 것을 실험으로 보이고, BatchNorm 이 loss 의 모양을 매끄럽게 만들어 gradient 가 덜
-급하게 바뀌는 것을 이유로 들었다.
+> **오해** BatchNorm 이 효과가 있는 것은 internal covariate shift 를 줄이기 때문이다.
+>
+> **사실** Santurkar 등(2018)은 층 입력의 분포를 일부러 흔들어도 BatchNorm 의 효과가 거의 그대로라는 것을 실험으로 보였다. 그들은 BatchNorm 이 loss 의 모양을 매끄럽게 만들어 gradient 가 덜 급하게
+> 바뀌는 것을 이유로 들었다.
 
 <details><summary><b>심화: 분산과 표준편차의 손계산, γ·β 와 bias</b></summary>
 
@@ -502,8 +505,10 @@ stem 의 conv 뒤에는 BN 과 ReLU 가 붙는다. stem 뒤로는 block 몇 개�
 
 ![ResNet-18 의 stage 별 출력 모양. stem 이 3×224×224 를 64×56×56 으로 줄이고, layer2·3·4 가 크기를 반씩 줄여 512×7×7 이 된다. global average pooling 이 숫자 512 개를 내고 fc 가 점수 1000 개를 낸다](figures/resnet18.svg)
 
-**흔한 오해.** "층이 18 개면 사진을 18 번 줄인다." 크기를 줄이는 곳은 stem 의 conv·max pooling 과 layer2·3·4 의 첫 block 다섯 곳이고,
-각각 반으로 줄여 $2^5 = 32$ 분의 1 이 된다. 나머지 층은 크기를 그대로 두고 feature 를 다듬는다.
+> **오해** 층이 18 개면 사진을 18 번 줄인다.
+>
+> **사실** 크기를 줄이는 곳은 stem 의 conv·max pooling 과 layer2·3·4 의 첫 block, 이렇게 다섯 곳이고 각각 반으로 줄여 $2^5 = 32$ 분의 1 이 된다. 나머지 층은 크기를 그대로 두고 feature 를
+> 다듬는다.
 
 ### global average pooling 과 fc
 

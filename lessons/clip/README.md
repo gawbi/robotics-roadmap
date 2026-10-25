@@ -280,8 +280,9 @@ CLIP 은 $\tau$ 도 encoder 와 함께 학습하며, 시작값은 0.07 이다. �
 보다 작아지지 않는데, 저자들은 이 상한이 없으면 학습이 불안정했다고 보고했다. 실제로 저장하는 값은 logit scale 의 $\log$ 이고, 공개된
 ViT-B/32 weight 에 든 값은 4.6052 라서 $e^{4.6052} = 100.0$ 이다. 학습이 끝났을 때 logit scale 이 상한 100 에 닿아 있었다는 뜻이다.
 
-**흔한 오해.** $\tau$ 는 작을수록 좋다고 생각하기 쉽다. $\tau = 0.01$ 이면 cosine 0.01 차이가 logit 1 차이가 되어, 짝을 조금만 잘못 놓아도
-loss 와 gradient 가 크게 튀고 학습이 불안정해진다.
+> **오해** $\tau$ 는 작을수록 좋다.
+>
+> **사실** $\tau = 0.01$ 이면 cosine 0.01 차이가 logit 1 차이가 되어서, 짝을 조금만 잘못 놓아도 loss 와 gradient 가 크게 튀고 학습이 불안정해진다.
 
 **확인 문제.** logit scale 이 50 이면 $\tau$ 는 얼마이고, cosine similarity 0.5 와 0.3 의 logit 차이는 얼마일까?
 
@@ -355,9 +356,10 @@ notebook 이 80 개 template 으로 이 계산을 한다.
 찾는다. 10 개 집에서 171 번 시도한 실험에서 세부 실패 원인 가운데 가장 많은 것은 엉뚱한 물체를 찾은 경우로 전체의 9.3% 였고, 논문에는 뜻이
 거의 같은 두 문장 가운데 하나로는 물체를 찾고 다른 하나로는 못 찾은 예가 실려 있다.
 
-**흔한 오해.** zero-shot 을 CLIP 이 그런 사진을 한 번도 본 적이 없다는 뜻으로 읽기 쉽다. 0 개인 것은 그 분류 문제의 label 이 달린 학습
-예시일 뿐, CLIP 은 4억 쌍 속에서 고양이 사진을 아주 많이 봤을 것이다. 학습 데이터에 거의 없던 종류에는 약해서, 손글씨 숫자 사진 모음인 MNIST 에서는
-zero-shot 정확도가 88% 에 그쳐 pixel 값을 그대로 쓰는 logistic regression 보다도 낮았다.
+> **오해** zero-shot 은 CLIP 이 그런 사진을 한 번도 본 적이 없다는 뜻이다.
+>
+> **사실** 0 개인 것은 그 분류 문제의 label 이 달린 학습 예시일 뿐이고, CLIP 은 4억 쌍 속에서 고양이 사진을 아주 많이 봤을 것이다. 학습 데이터에 거의 없던 종류에는 약해서, 손글씨 숫자 사진 모음인 MNIST 에서는
+> zero-shot 정확도가 88% 에 그쳐 pixel 값을 그대로 쓰는 logistic regression 보다도 낮았다.
 
 **확인 문제.** 어떤 사진과 prompt 두 개의 cosine similarity 가 0.25, 0.23 이다. logit scale 100 으로 첫 prompt 의 확률을 구해 보자.
 ($e^{-2} = 0.1353$)
@@ -518,9 +520,10 @@ VLM 의 image encoder 로 SigLIP 을 많이 쓴다. SigLIP 은 사진과 설명 
 OpenVLA 저자들은 SigLIP 에 DINOv2 를 더하면 공간 추론이 나아진다고 보았고, 이 조합을 쓴 VLM 으로 만든 policy 가 LLaVA 로 만든 policy 보다
 로봇 작업 성공률이 약 10%p 높았다고 보고했다. 또 zero-shot 분류는 사진 하나를 embedding 하나로 줄이지만, VLA 는 [ViT](../vit/README.md) 에서 본 patch token 을 전부 언어 model 에 넘겨 위치 정보를 지킨다.
 
-**흔한 오해.** CLIP 을 붙이면 로봇이 지시문을 이해해 바로 움직인다고 생각하기 쉽다. CLIP 은 사진과 문장이 얼마나 맞는지 점수를 낼 뿐 action
-을 내지 않는다. OK-Robot 에서도 CLIP 은 물체를 고르는 데만 쓰였고 집는 자세는 grasp model 이 정했다. CLIPort 는 위치를 Transporter 에
-맡겼고, VLA 에서도 action 은 언어 model 이나 그 뒤에 따로 붙인 부분이 낸다.
+> **오해** CLIP 을 붙이면 로봇이 지시문을 이해해 바로 움직인다.
+>
+> **사실** CLIP 은 사진과 문장이 얼마나 맞는지 점수를 낼 뿐 action 을 내지 않는다. OK-Robot 에서 CLIP 은 물체를 고르는 데만 쓰였고 집는 자세는 grasp model 이 정했다. CLIPort 는 위치를
+> Transporter 에 맡겼고, VLA 에서도 action 은 언어 model 이나 그 뒤에 따로 붙인 부분이 낸다.
 
 **확인 문제.** OK-Robot 처럼 물체 memory 에 CLIP embedding 을 저장해 둔 로봇이 있다. 찾을 물체를 "blue mug" 에서 "red screwdriver" 로 바꾸면
 무엇을 다시 계산해야 하고, 무엇은 그대로 쓸 수 있을까?

@@ -210,10 +210,11 @@ $$
 번인데, $\delta$("델타")는 한 step 의 길이이고 $v_\theta$ 는 weight 가 $\theta$("세타")인 network 가 낸 속도다. $o_t$ 는 사진·지시문·관절
 각도를 합친 관측(observation)이라서, 같은 noise 에서 출발해도 장면과 지시가 다르면 다른 chunk 가 나온다.
 
-**흔한 오해.** π0 식의 아래첨자 $t$ 를 flow matching 의 시각으로 읽기 쉽지만, 아래첨자 $t$ 는 로봇이 몇 번째 step 에 있는지를 나타낸다.
-chunk 를 noise 에서 시연 쪽으로 옮기는 시각은 위첨자 $\tau$ 이고, Flow Matching 강의의 $t$ 가 이 $\tau$ 에 해당한다. openpi 의 코드는 시각의
-방향과 정답 속도의 부호를 함께 뒤집어 `time` 이 1 일 때를 noise 로 두므로, 코드를 읽을 때는 [π0 의 action
-expert](../flow-matching/README.md#π0-의-action-expert) 절의 심화처럼 방향부터 확인한다.
+> **오해** π0 식의 아래첨자 $t$ 는 flow matching 의 시각이다.
+>
+> **사실** 아래첨자 $t$ 는 로봇이 몇 번째 step 에 있는지를 나타내고, chunk 를 noise 에서 시연 쪽으로 옮기는 시각은 위첨자 $\tau$ 다. Flow Matching 강의의 $t$ 가 이 $\tau$ 에 해당한다. openpi
+> 의 코드는 시각의 방향과 정답 속도의 부호를 함께 뒤집어 `time` 이 1 일 때를 noise 로 두므로, 코드를 읽을 때는 [π0 의 action expert](../flow-matching/README.md#π0-의-action-expert)
+> 절의 심화처럼 방향부터 확인한다.
 
 학습 한 step 에서는 시연에서 $o_t$ 와 $A_t$ 를 꺼내고 $\epsilon$ 과 $\tau$ 를 뽑아 $A_t^\tau$ 를 만든 뒤, network 의 속도와 $A_t - \epsilon$
 의 차이를 제곱한 loss 를 줄인다. $\tau$ 는 noise 쪽($\tau$ 가 작은 쪽)을 더 자주 뽑는데, 논문의 beta 분포로 계산하면 $\tau = 0.1$ 근처가
@@ -318,9 +319,9 @@ cache 없이 step 마다 사진부터 다시 계산한다고 어림하면 step �
 
 ![KV cache 가 있을 때와 없을 때의 시간 막대. 위는 image encoder 14 ms 와 사진·지시문·상태 계산 32 ms 를 한 번 한 뒤 action 계산 2.7 ms 를 10 번 해 73 ms 다. 아래는 step 마다 14 + 32 + 2.7 ms 를 되풀이해 약 487 ms 다](figures/kv-cache.svg)
 
-**흔한 오해.** VLM 쪽 계산을 chunk 하나에 한 번만 하니 action 을 만들 때 사진을 덜 본다고 생각하기 쉽다. action token 은 step
-마다 모든 층에 저장된 key·value 전체를 attention 으로 다시 보므로 사진에서 가져오는 정보는 그대로이고, 줄어든 것은 같은 계산을 되풀이하는
-시간뿐이다.
+> **오해** VLM 쪽 계산을 chunk 하나에 한 번만 하니 action 을 만들 때 사진을 덜 본다.
+>
+> **사실** action token 은 step 마다 모든 층에 저장된 key·value 전체를 attention 으로 다시 보므로 사진에서 가져오는 정보는 그대로이고, 줄어든 것은 같은 계산을 되풀이하는 시간뿐이다.
 
 **확인 문제.** image encoder 가 20 ms, 사진·지시문·상태 계산이 40 ms, action 계산 한 번이 3 ms 인 모델이 Euler 10 step 을 밟는다. KV
 cache 를 쓸 때와 안 쓸 때 chunk 하나에 걸리는 시간은?
@@ -525,8 +526,9 @@ Hugging Face 의 SmolVLA(2025)는 π0 처럼 VLM 옆에 action expert 를 붙이
 parameter 로 줄이고 그중 약 1 억을 action expert 에 두었다. 이 크기를 노트북에 올리는 계산은 [Real Robot](../real-robot/README.md) 에서
 다룬다.
 
-**흔한 오해.** π0 가 bf16(숫자 하나에 2 byte)으로 약 6.6 GB 라서 메모리가 넉넉한 노트북이면 실시간으로 실행할 수 있다고 생각하기 쉽다.
-메모리에 들어가는 것은 필요 조건일 뿐이고, 메모리를 읽는 속도와 공개 구현이 그 칩을 지원하는지도 함께 따져야 한다.
+> **오해** π0 는 bf16(숫자 하나에 2 byte)으로 약 6.6 GB 라서 메모리가 넉넉한 노트북이면 실시간으로 실행할 수 있다.
+>
+> **사실** 메모리에 들어가는 것은 필요 조건일 뿐이고, 메모리를 읽는 속도와 공개 구현이 그 칩을 지원하는지도 함께 따져야 한다.
 
 <details><summary><b>심화: 메모리 읽기 시간으로 본 action expert 의 크기</b></summary>
 

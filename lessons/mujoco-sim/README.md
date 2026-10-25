@@ -183,8 +183,9 @@ $$
 하나였고, joint 가 6 개인 SO-101 에서는 $6 \times 6$ 행렬이다. MuJoCo 문서는 같은 식을 $M\dot v + c = \tau + J^\top f$($f$ 는 접촉 같은
 constraint 의 힘)로 적고, 매 step 계산한 $c$ 를 `qfrc_bias` 에 담아 둔다.
 
-**흔한 오해.** joint 마다 pendulum 식을 하나씩 따로 쓰면 된다고 생각하기 쉽다. 어깨에만 torque 를 줘도 팔꿈치가 −8 rad/s² 로 꺾였듯 joint 들은
-mass matrix 의 대각선 밖 숫자로 얽혀 있어서, 따로 계산하면 틀린 답이 나온다.
+> **오해** joint 마다 pendulum 식을 하나씩 따로 쓰면 된다.
+>
+> **사실** 어깨에만 torque 를 줘도 팔꿈치가 −8 rad/s² 로 꺾였듯 joint 들은 mass matrix 의 대각선 밖 숫자로 얽혀 있어서, 따로 계산하면 틀린 답이 나온다.
 
 **확인 문제.** 팔을 편 채 멈춘 상태에서 이번에는 팔꿈치에만 torque 1 N·m 를 준다($\tau_1 = 0$, $\tau_2 = 1$, gravity 없음). 두 joint 의
 각가속도는?
@@ -365,8 +366,9 @@ MuJoCo geom 의 마찰 기본값 `friction="1 0.005 0.0001"` 의 세 숫자는 �
 (torsional)을 막는 계수, 구르는 회전(rolling)을 막는 계수다. 기본 `condim="3"` 에서는 미끄러짐만 막고 `condim="6"` 이면 비틀림과 구름까지 막는다.
 닿은 두 geom 의 값이 다르면 `priority` 가 높은 쪽의 값을 쓰고, priority 가 같으면 항목마다 큰 값을 쓴다.
 
-**흔한 오해.** 마찰 힘이 늘 $\mu \times (\text{normal force})$ 라고 생각하기 쉽다. 그 값은 한계일 뿐이고, 미끄러지지 않는 동안의 마찰 힘은 미는
-힘만큼만 생긴다. 5 N 으로 민 상자가 9.81 N 의 마찰을 받는다면 상자가 거꾸로 밀려 와야 한다.
+> **오해** 마찰 힘은 늘 $\mu \times (\text{normal force})$ 다.
+>
+> **사실** 그 값은 한계일 뿐이고, 미끄러지지 않는 동안의 마찰 힘은 미는 힘만큼만 생긴다. 5 N 으로 민 상자가 9.81 N 의 마찰을 받는다면 상자가 거꾸로 밀려 와야 한다.
 
 ### 집게로 물체를 들 때
 
@@ -505,8 +507,9 @@ timestep 을 줄이면 계산 시간이 는다. 앞에서 잰 SO-101 의 step �
 실시간으로 simulation 하려면 timestep 이 step 하나의 계산 시간보다 커야 하고(RK4 는 4 배), 접촉이 많은 장면일수록 step 하나가 오래 걸린다.
 학습처럼 빠를수록 좋은 경우에는 발산하지 않는 범위에서 timestep 을 최대한 크게 잡는다.
 
-**흔한 오해.** simulation 이 튀면 모델의 물리가 틀렸다고 생각하기 쉽다. 용수철에서 봤듯 같은 모델도 timestep 만 0.1 초에서 0.3 초로 바꾸면
-발산하므로, 물체가 갑자기 날아가면 먼저 timestep 과 접촉의 단단함을 의심한다.
+> **오해** simulation 이 튀면 모델의 물리가 틀린 것이다.
+>
+> **사실** 용수철에서 봤듯 같은 모델도 timestep 만 0.1 초에서 0.3 초로 바꾸면 발산하므로, 물체가 갑자기 날아가면 먼저 timestep 과 접촉의 단단함을 의심한다.
 
 **확인 문제.** $k = 400$ N/m, $m = 1$ kg 인 용수철을 semi-implicit Euler 로 계산할 때 발산하지 않는 $\Delta t$ 의 경계는? $\Delta t = 0.12$
 초로 계산하면 어떻게 될까?
@@ -546,8 +549,9 @@ Menagerie 의 SO-101 은 position actuator 에 $k_p = 998.22$ N·m/rad, $k_v = 2
 
 오차가 1° 든 30° 든 joint 는 늘 2.94 N·m 로 똑같이 밀리고, 멀수록 세게 미는 PD 처럼 동작하는 것은 목표에서 0.17° 안쪽뿐이다.
 
-**흔한 오해.** position 제어라고 하면 명령값을 넣는 순간 joint 가 그 각도로 옮겨 간다고 생각하기 쉽다. joint 는 engine 이 계산한 torque 를
-받아 equation of motion 을 따라 가속하고 감속하며 다가가므로 시간이 걸리고, gravity 때문에 목표를 지나치거나 못 미칠 수도 있다.
+> **오해** position 제어에서는 명령값을 넣는 순간 joint 가 그 각도로 옮겨 간다.
+>
+> **사실** joint 는 engine 이 계산한 torque 를 받아 equation of motion 을 따라 가속하고 감속하며 다가가므로 시간이 걸리고, gravity 때문에 목표를 지나치거나 못 미칠 수도 있다.
 
 ### gravity compensation
 
@@ -628,8 +632,10 @@ randomization** 은 학습 중 episode(처음부터 끝까지 한 번의 시도)
 경험(실제 시간 약 1.5 시간)으로 배웠는데, 모든 randomization 을 켜고 같은 성능에 이르는 데는 서론의 100 년치가 들었다. 걷는 로봇에 쓰는 domain
 randomization 은 [Sim-to-Real Locomotion](../sim2real-locomotion/README.md) 에서 다룬다.
 
-**흔한 오해.** simulator 가 정확하지 않으니 쓸모없다고 생각하기 쉽다. simulator 는 빠르고 부서지지 않으며 같은 장면을 정확히 되풀이할 수 있고,
-실물에서는 잴 수 없는 접촉 힘도 읽을 수 있다. 그래서 simulation 에서 동작을 다듬어 실물에서 확인하고, 드러난 차이를 다시 모델에 반영한다.
+> **오해** simulator 는 정확하지 않으니 쓸모없다.
+>
+> **사실** simulator 는 빠르고 부서지지 않으며 같은 장면을 정확히 되풀이할 수 있고, 실물에서는 잴 수 없는 접촉 힘도 읽을 수 있다. 그래서 simulation 에서 동작을 다듬어 실물에서 확인하고, 드러난 차이를 다시 모델에
+> 반영한다.
 
 **확인 문제.** domain randomization 으로 마찰 계수를 보정한 값의 0.7 ~ 1.3 배에서 뽑으며 집기를 학습했다. 보정한 값이 1 인데 실제 큐브의
 마찰 계수가 0.5 라면 무엇이 문제일까?

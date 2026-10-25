@@ -159,10 +159,10 @@ backpropagation 으로 모든 weight 의 gradient 를 구해 update 한다.
 
 </details>
 
-**흔한 오해.** behavior cloning 을 로봇만을 위한 특별한 학습 방법으로 생각하기 쉽다. loss 와 gradient 와 update 는 Linear Regression 과
-똑같고, 정답 자리에 expert 가 그 순간 낸 action 이 들어간다는 것만 다르다. 학습이 잘 됐는지도 똑같이 시연 쌍 일부를 떼어 둔 validation
-set 에서 잰 loss(validation loss)로 확인한다. 일반 supervised learning 과 다른 문제는 학습이 끝난 policy 에게 실제로 움직임을 맡길 때
-생긴다.
+> **오해** behavior cloning 은 로봇만을 위한 특별한 학습 방법이다.
+>
+> **사실** loss 와 gradient 와 update 는 Linear Regression 과 똑같고, 정답 자리에 expert 가 그 순간 낸 action 이 들어간다는 것만 다르다. 학습이 잘 됐는지도 시연 쌍 일부를 떼어 둔
+> validation set 에서 잰 loss(validation loss)로 똑같이 확인하며, 일반 supervised learning 과 다른 문제는 학습한 policy 에게 실제로 움직임을 맡길 때 생긴다.
 
 **확인 문제.** $w = 4$, $b = 1$ 에서 두 쌍 $(1, 4)$, $(2, 8)$ 의 gradient 를 구하고, $\eta = 0.05$ 로 한 step 고친 $b$ 를 구하라.
 
@@ -240,10 +240,10 @@ Bojarski 등도 사람의 운전 기록만으로는 network 가 실수에서 돌
 policy 가 지나간 상태의 분포를 $d_{\pi_\theta}$ 로 적는다. behavior cloning 의 loss 는 $d_{\pi^*}$ 에서 나온 쌍으로만 계산하는데,
 rollout 의 관측은 $d_{\pi_\theta}$ 에서 나온다. distribution shift 가 원인이고, compounding error 는 그 결과로 오차가 쌓이는 현상이다.
 
-**흔한 오해.** validation loss 가 낮으면 rollout 도 잘 될 것이라고 생각하기 쉽다. validation set 은 시연에서 떼어 둔 쌍이라 expert 가
-지나간 위치에서만 나오고, 그 위치에서는 policy 의 오차가 늘 0.1 m 로 작다. policy 가 스스로 밀려나 들어간 0.4 m 바깥의 위치는 validation set
-에 하나도 없어서, validation loss 만 봐서는 차가 이탈한다는 것을 알 수 없다. 그래서 로봇 policy 는 실제로 rollout 해 본
-성공률로 평가한다.
+> **오해** validation loss 가 낮으면 rollout 도 잘 된다.
+>
+> **사실** validation set 은 시연에서 떼어 둔 쌍이라 expert 가 지나간 위치, 곧 policy 의 오차가 늘 0.1 m 로 작은 위치에서만 나온다. policy 가 스스로 밀려나 들어간 0.4 m 바깥의 위치는 하나도 없어서
+> validation loss 로는 차의 이탈을 알 수 없고, 그래서 로봇 policy 는 실제로 rollout 해 본 성공률로 평가한다.
 
 episode 길이를 $T$ 라 하고, 시연과 같은 상황에서 policy 가 한 step 에 틀릴 확률을 $\epsilon$(epsilon)이라 하자. 실수가 서로 영향을 주지 않는다면
 한 episode 에서 평균 $T\epsilon$ 번 틀리지만, 한 번 틀려 시연에 없는 상황으로 들어간 뒤로 계속 틀린다면 실수 한 번이 남은 step 을 많게는
@@ -441,8 +441,9 @@ $\frac{10}{360}$ 이라서, 축에서 30 cm 떨어진 집게 끝은 $2 \times 3.
 무엇을 낼지 알 수 없다. network 는 직선이 아니라서, $u = 500$ 에 놓인 컵에 표의 규칙을 그대로 늘린 100° 를 낸다는 보장이 없다. 차가
 시연에 없던 위치에서 크게 틀린 것과 같은 원인이다.
 
-**흔한 오해.** end-to-end policy 가 컵 집는 법을 이해했으니 어디에 놓인 어떤 컵이든 집을 것이라고 생각하기 쉽다. policy 가 배운 것은
-시연 장면과 관절 각도 사이의 짝이라, 처음 보는 자리·컵 모양·조명에서는 실패한다. 범위를 넓히려면 시연을 더 다양하게 모아야 한다.
+> **오해** end-to-end policy 가 컵 집는 법을 배웠으니 어디에 놓인 어떤 컵이든 집는다.
+>
+> **사실** policy 가 배운 것은 시연 장면과 관절 각도 사이의 짝이라서 처음 보는 자리·컵 모양·조명에서는 실패하고, 범위를 넓히려면 시연을 더 다양하게 모아야 한다.
 
 **확인 문제.** 카메라가 밀려 시연 때 $u = 100$ 이던 자리가 $u = 150$ 에 보인다. 컵이 그 자리에 있을 때 policy 는 몇 도를 내고, 몇 도 틀릴까?
 
@@ -494,8 +495,9 @@ $3 \times 40^2 \div 10 = 480$ 보다 작다.
 
 </details>
 
-**흔한 오해.** 시연을 더 많이 모으면 이 문제가 풀릴 것이라고 생각하기 쉽다. 왼쪽과 오른쪽을 500 번씩으로 늘려도 평균은 그대로 0° 다.
-데이터의 양과 관계없이, 관측 하나에 숫자 하나만 내는 policy 를 MSE 로 학습하면 평균이 나온다.
+> **오해** 시연을 더 많이 모으면 이 문제가 풀린다.
+>
+> **사실** 왼쪽과 오른쪽을 500 번씩으로 늘려도 평균은 그대로 0° 다. 관측 하나에 숫자 하나만 내는 policy 를 MSE 로 학습하면 데이터의 양과 관계없이 평균이 나온다.
 
 실제 시연은 정확히 $\pm 20$° 로 나오지 않고 조금씩 흩어진다. 상자 앞 시연 20 개의 action 을 2° 구간마다 세면 아래와 같았다고 하자.
 

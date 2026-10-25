@@ -80,9 +80,10 @@ sigmoid 의 derivative 다. 공식에 출력만 들어가서, $\sigma(1) = 0.731
 
 ![sigmoid 의 기울기를 그린 그래프. z = 0 에서 가장 큰 0.25 이고, z 가 1, 2, 4 로 0 에서 멀어질수록 0.1966, 0.1050, 0.0177 로 작아지지만 0 이 되지는 않는다. step function 의 기울기는 0 이다](figures/sigmoid-slope.svg)
 
-**흔한 오해.** "sigmoid 로 바꾸면 기울기가 늘 넉넉하다." 기울기는 $z = 0$ 에서 가장 큰 0.25 이고, $z = 4$ 에서는 $0.9820 \times 0.0180 =
-0.0177$ 이다. 출력이 0 이나 1 에 붙은 unit 은 숫자를 바꿔도 출력이 거의 변하지 않아 느리게 배우는데, 이 성질 때문에 생기는 문제는
-[vanishing gradient](#vanishing-gradient) 에서 다룬다.
+> **오해** sigmoid 로 바꾸면 기울기가 늘 넉넉하다.
+>
+> **사실** 기울기는 $z = 0$ 에서 가장 큰 0.25 이고 $z = 4$ 에서는 $0.9820 \times 0.0180 = 0.0177$ 이라서, 출력이 0 이나 1 에 붙은 unit 은 숫자를 바꿔도 출력이 거의 변하지 않아 느리게 배운다.
+> 이 성질 때문에 생기는 문제는 [vanishing gradient](#vanishing-gradient) 에서 다룬다.
 
 <details><summary><b>심화: e 의 지수 계산과 tanh</b></summary>
 
@@ -199,8 +200,9 @@ $\frac{\partial L}{\partial d} \times \frac{\partial d}{\partial p}$ 같은 곱�
 derivative" 곱셈 하나뿐이고, 순서 6 과 7 은 순서 4 에서 구한 $\frac{\partial L}{\partial p} = -2$ 를 그대로 다시 쓴다. gradient 가 양수면
 그 값을 늘릴 때 $L$ 이 늘고, $\frac{\partial L}{\partial b} = -4$ 처럼 음수면 $L$ 이 준다.
 
-**흔한 오해.** "gradient 는 그 값이 얼마나 큰지를 나타낸다." $c = 10$ 은 가장 큰 값이지만 gradient 는 $-2$ 이고, $a = 2$ 는 작은 값이지만
-gradient 는 6 으로 가장 크다. gradient 는 값을 바꿨을 때 $L$ 이 얼마나 민감하게 반응하는지를 나타낸다.
+> **오해** gradient 는 그 값이 얼마나 큰지를 나타낸다.
+>
+> **사실** gradient 는 값을 바꿨을 때 $L$ 이 얼마나 민감하게 반응하는지를 나타낸다. $c = 10$ 은 가장 큰 값이지만 gradient 는 $-2$ 이고, $a = 2$ 는 작은 값이지만 gradient 는 6 으로 가장 크다.
 
 **확인 문제.** 같은 graph 에 $a = 1$, $b = 4$, $c = -1$, $f = 3$ 을 넣었다. forward 를 한 뒤 $f$, $d$, $p$, $a$, $b$ 의 gradient 를
 backward 순서대로 구하라.
@@ -238,8 +240,9 @@ $2 + 1$ 과 같다. $a$ 를 늘리면 두 길로 동시에 $L$ 이 늘기 때문
 $L = a \times a$ 도 같은 $a$ 가 곱셈의 두 입력에 다 들어간 경우다. $a = 3$ 이면 입력마다 다른 입력 3 이 local derivative 로 들어와
 $3 + 3 = 6$ 이 되고, $a^2$ 의 derivative $2a$ 에 $a = 3$ 을 넣은 값과 같다.
 
-**흔한 오해.** "두 번째 길의 gradient 가 오면 앞의 값을 바꿔 넣는다." 덮어쓰면 $L = q + a$ 에서 2 나 1 하나만 남고, $L = a \times a$ 에서는
-6 대신 3 이 나온다. gradient 는 들어오는 대로 더한다.
+> **오해** 두 번째 길의 gradient 가 오면 앞의 값을 지우고 바꿔 넣는다.
+>
+> **사실** gradient 는 들어오는 대로 더한다. 덮어쓰면 $L = q + a$ 에서 2 나 1 하나만 남고, $L = a \times a$ 에서는 6 대신 3 이 나온다.
 
 <details><summary><b>심화: 여러 곳에 쓰인 값의 식</b></summary>
 
@@ -383,8 +386,9 @@ assignment 문제의 답이다. $h_1$ 의 gradient 는 음수라 $h_1$ 을 키�
 $v_2 = -1$ 이라 $h_2$ 가 클수록 $\hat y$ 가 작아지는데, 지금 $\hat y = 0.5575$ 는 정답 1 보다 작으니 $h_2$ 를 줄이라는 이 신호가 맞다. 출력에
 곱해지는 weight $v$ 의 크기가 클수록 그 hidden neuron 이 받는 gradient 도 커진다.
 
-**흔한 오해.** "backpropagation 은 hidden neuron 마다 정답을 만들어 준다." backward 가 전하는 것은 정답이 아니라 출력을 바꿀 때 loss 가
-변하는 비율이다. $h_1$ 이 무엇을 계산하는 neuron 이 될지는 매 step 이 비율을 따라 고친 결과로 정해진다.
+> **오해** backpropagation 은 hidden neuron 마다 정답을 만들어 준다.
+>
+> **사실** backward 가 전하는 것은 정답이 아니라 출력을 바꿀 때 loss 가 변하는 비율이고, $h_1$ 이 무엇을 계산하는 neuron 이 될지는 매 step 이 비율을 따라 고친 결과로 정해진다.
 
 <details><summary><b>심화: 아홉 parameter 의 gradient</b></summary>
 
@@ -643,9 +647,10 @@ PyTorch 에서 이 강의의 계산을 맡는 부분이 autograd 다. `requires_
 4억 5천만 개 가운데 action 을 내는 부분(약 1억 개)만 학습하는데, 기본으로 켜져 있는 설정 `freeze_vision_encoder` 와 `train_expert_only`
 가 이미지와 글을 처리하는 VLM(vision-language model)의 parameter 에 `requires_grad = False` 를 적용한다.
 
-**흔한 오해.** "`backward()` 를 부르면 `.grad` 가 새 gradient 로 바뀐다." `.grad` 는 backward 한 번 안에서 길별 gradient 를 더하려고 늘
-더해 쌓는데, 이 규칙은 학습 step 사이에도 적용된다. `L = q + a` 를 forward 부터 다시 계산해 backward 를 한 번 더 부르면 `a.grad` 가 2 + 1 = 3
-이 아니라 3 + 3 = 6 이 되기 때문에, 학습 loop 는 매 step gradient 를 0 으로 지우고 시작한다.
+> **오해** `backward()` 를 부르면 `.grad` 가 새 gradient 로 바뀐다.
+>
+> **사실** `.grad` 는 길별 gradient 를 더하려고 늘 더해 쌓고, 이 규칙은 학습 step 사이에도 적용된다. `L = q + a` 를 forward 부터 다시 계산해 backward 를 한 번 더 부르면 `a.grad` 가 2 +
+> 1 = 3 이 아니라 3 + 3 = 6 이 되므로, 학습 loop 는 매 step gradient 를 0 으로 지우고 시작한다.
 
 ## 정리
 

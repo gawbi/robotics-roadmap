@@ -367,8 +367,9 @@ $\eta = 0.3$ 으로 바로 시작하면 $w$ 가 $1 \to -2 \to 4 \to -8$ 로 커�
 위 그림은 최대 0.001, 최소 0.0001, warmup 4 step 으로 정하고 decay 를 step 8 에서 끝낸 작은 예다. 줄어드는 폭은 decay 의 처음과 끝에서 작고
 가운데서 크다. nanoGPT 의 Tiny Shakespeare 설정도 최대·최소값은 같고, warmup 은 100 step 이며 decay 는 step 5,000 에서 끝난다.
 
-**흔한 오해.** warmup 을 처음에 learning rate 가 작아 덜 배우는 구간으로만 보기 쉽다. warmup 이 막는 것은 loss 가 가파른 초반에 큰 learning
-rate 가 일으키는 발산이고, 그 덕분에 나중에 큰 learning rate 를 쓸 수 있다.
+> **오해** warmup 은 처음에 learning rate 가 작아 덜 배우는 구간일 뿐이다.
+>
+> **사실** warmup 은 loss 가 가파른 초반에 큰 learning rate 가 일으키는 발산을 막고, 그 덕분에 나중에 큰 learning rate 를 쓸 수 있다.
 
 이미 학습된 모델을 이어서 학습할 때는 warmup 이 꼭 필요하지 않을 수 있다. OpenVLA 의 저자들은 Llama 2 기반의 미리 학습된 모델을 이어서 학습하며
 learning rate 를 0.00002 로 고정했고, warmup 을 넣어도 이득이 없었다고 보고했다.
@@ -484,8 +485,10 @@ GPT-2 논문에 실린 생성 예시는 $k = 40$ 인 top-k sampling 으로 만�
 $k = 2$ 를 썼다. OpenVLA 의 공식 예제에서는 sampling 을 끄는 설정(`do_sample=False`)으로 greedy decoding 을 써서 action token 을 고른다. 이렇게
 하면 같은 장면과 지시문에서 언제나 같은 행동이 나와서 로봇 실험을 똑같이 다시 해 볼 수 있다.
 
-**흔한 오해.** temperature 를 바꾸면 가장 그럴듯한 token 이 바뀐다고 생각하기 쉽다. 같은 양수로 나누면 logit 의 크기 순서는 그대로라서 위 표의
-세 temperature 모두 집어 > 놓아 > 밀어 > 던져 이고, greedy decoding 의 결과도 같다. temperature 는 순서가 아니라 확률이 몰린 정도만 바꾼다.
+> **오해** temperature 를 바꾸면 가장 그럴듯한 token 이 바뀐다.
+>
+> **사실** 같은 양수로 나누면 logit 의 크기 순서는 그대로라서 위 표의 세 temperature 모두 집어 > 놓아 > 밀어 > 던져 이고, greedy decoding 의 결과도 같다. temperature 는 순서가 아니라 확률이 몰린
+> 정도만 바꾼다.
 
 **확인 문제.** logit 이 $[1, 0]$ 이고 $\tau = 0.5$ 다. 두 token 의 확률은? ($e^{2} \approx 7.389$)
 

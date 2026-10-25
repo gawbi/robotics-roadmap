@@ -243,8 +243,9 @@ $\theta = 0$, $\eta = 0.1$ 에서 레버를 여덟 번 당기며 매번 $\theta$
 
 위 그림처럼 B 에서 4 개를 받은 step 1, 4, 6, 8 에는 B 의 확률이 크게 오르고, B 에서 0 개를 받은 step 3 과 7 에는 그대로다.
 
-**흔한 오해.** "REINFORCE 는 좋은 action 의 확률만 올린다." step 2 와 5 에서는 더 나쁜 기계 A 를 골랐는데도 A 의 확률이 오르고 B 의 확률이 내려갔다. reward 가
-양수이면 고른 action 은 언제나 확률이 오르는데, 좋은 action 이 더 많이 오를 뿐이다.
+> **오해** REINFORCE 는 좋은 action 의 확률만 올린다.
+>
+> **사실** step 2 와 5 에서는 더 나쁜 기계 A 를 골랐는데도 A 의 확률이 오르고 B 의 확률이 내려갔다. reward 가 양수이면 고른 action 은 언제나 확률이 오르고, 좋은 action 이 더 많이 오를 뿐이다.
 
 neural network 학습 도구의 optimizer 는 loss 를 줄이는 gradient descent 만 하므로, 실제 구현에서는 부호를 뒤집은 $L = -\,r \ln \pi_\theta(a)$ 를
 loss 로 둔다. 이 loss 는 분류에서 쓰는 cross-entropy $-\ln p_y$ 에 $r$ 을 곱한 꼴이라, 고른 action 을 정답 label 로 놓고 reward 가 클수록 세게
@@ -582,8 +583,9 @@ legged_gym 의 ANYmal C 평지 설정도 actor-critic 이라서, 다음 절에�
 value 숫자 하나를 낸다. $\gamma$ 기본값은 0.99 이고, advantage 는 여러 step 의 추정을 비율 $\lambda = 0.95$
 로 섞는 GAE 로 계산한다. GAE 는 [PPO](../ppo/README.md) 에서 다룬다.
 
-**흔한 오해.** "critic 이 있으면 언제나 더 좋다." 학습 초반의 critic 은 아직 틀린 값을 내서, 그 값으로 만든 advantage 가 policy 를 잘못된 쪽으로
-고칠 수 있다.
+> **오해** critic 이 있으면 언제나 더 좋다.
+>
+> **사실** 학습 초반의 critic 은 아직 틀린 값을 내서, 그 값으로 만든 advantage 가 policy 를 잘못된 쪽으로 고칠 수 있다.
 
 **확인 문제.** $r_{t+1} = 1$, $\gamma = 0.99$, $V_\phi(s_t) = 10$ 이고 진짜 $V(s_{t+1}) = 9.5$ 다. critic 이 $V_\phi(s_{t+1}) = 7$ 로 잘못
 추정하면 advantage 는 얼마이고, 진짜 값과 비교해 어느 쪽으로 치우쳤을까?
@@ -652,9 +654,10 @@ softmax 의 $1 - \pi_\theta(B)$ 와 같은 역할을 하는데, 위 그림처럼
 학습이 끝나 policy 를 실행하거나 내보낼 때는 Gaussian 에서 뽑지 않고 평균 $\mu$ 를 그대로 쓴다(rsl_rl 의 `act_inference`). $\sigma$ 는 학습 중
 exploration 에만 쓰인다.
 
-**흔한 오해.** "Gaussian policy 의 $\sigma$ 는 언제나 network 가 state 마다 낸다." rsl_rl 은 $\sigma$ 를 state 와 상관없는 parameter 로 둔다.
-반면 A3C 논문의 MuJoCo 실험에서는 network 가 평균과 함께 variance $\sigma^2$ 도 내는데, 이 출력은 양수가 되도록 SoftPlus $\ln(1 + e^x)$ 를
-거친다.
+> **오해** Gaussian policy 의 $\sigma$ 는 언제나 network 가 state 마다 낸다.
+>
+> **사실** rsl_rl 은 $\sigma$ 를 state 와 상관없는 parameter 로 둔다. A3C 논문의 MuJoCo 실험처럼 network 가 평균과 함께 variance $\sigma^2$ 도 내는 경우에는, 이 출력이 양수가 되도록
+> SoftPlus $\ln(1 + e^x)$ 를 거친다.
 
 **확인 문제.** Gaussian policy 의 한 관절에서 $\mu = -0.1$, $\sigma = 0.5$ 이고 뽑힌 action 이 $a = 0.4$ 였다. $\nabla_\mu \ln p(a)$ 는 얼마이고,
 advantage 가 음수라면 $\mu$ 는 어느 쪽으로 움직일까?

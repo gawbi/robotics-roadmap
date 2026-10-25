@@ -439,8 +439,10 @@ singular matrix 는 앞 절의 카메라 calibration 에서도 생긴다. 위치
 이렇게 손끝이 어느 한 방향으로 움직이지 못하는 자세를 singularity 라고 한다. singularity 근처에서는 앞 절 calibration 의 표식이 가까울
 때처럼, 손끝을 조금 움직이는 데도 관절을 아주 크게 돌리라는 답이 나온다.
 
-**흔한 오해.** "숫자가 0 이 아니면 나눌 수 있듯, 0 이 아닌 숫자가 들어 있는 행렬은 inverse 가 있다." $\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$
-처럼 0 이 하나도 없어도 열들이 한 직선 위에 있으면 inverse 가 없다. inverse 가 있는지는 determinant 가 0 인지로 판단한다.
+> **오해** 0 이 아닌 숫자가 들어 있는 행렬은 숫자처럼 inverse 가 있다.
+>
+> **사실** $\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$ 처럼 0 이 하나도 없어도 열들이 한 직선 위에 있으면 inverse 가 없다. inverse 가 있는지는 determinant 가 0 인지로
+> 판단한다.
 
 **확인 문제.** $\begin{bmatrix} 2 & 1 \\ 4 & 2 \end{bmatrix}$ 는 inverse 가 있는가?
 

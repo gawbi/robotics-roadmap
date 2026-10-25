@@ -277,8 +277,10 @@ VIO 계산에는 아래 요소가 들어간다.
 - 설정값: camera 와 IMU 사이의 상대 pose(extrinsics)와 시간 동기가 틀리면 오류 메시지 없이 틀린 추정이 나온다. IMU noise 크기는 Isaac ROS
   Visual SLAM 의 `gyro_noise_density`, `accel_noise_density` 같은 parameter 로 넣는데, Kalman filter 의 $Q$·$R$ 처럼 데이터시트 값에서 출발한다
 
-**흔한 오해.** "IMU 를 붙이면 위치 drift 가 사라진다." IMU 는 scale 과 roll·pitch 를 정해 주고 사진이 잠깐 끊긴 구간을 이어 주지만, x·y·z
-위치와 yaw 의 오차는 VIO 에서도 천천히 쌓이고, 이 drift 는 전에 온 곳을 다시 알아보는 loop closure 로 고친다.
+> **오해** IMU 를 붙이면 위치 drift 가 사라진다.
+>
+> **사실** IMU 는 scale 과 roll·pitch 를 정해 주고 사진이 잠깐 끊긴 구간을 이어 주지만, x·y·z 위치와 yaw 의 오차는 VIO 에서도 천천히 쌓인다. 이 drift 는 전에 온 곳을 다시 알아보는 loop closure
+> 로 고친다.
 
 **확인 문제.** 멈춰 있던 카메라가 2 초 동안 0.5 m/s² 로 일정하게 가속했고, 같은 시간 동안 monocular SLAM 이 구한 이동 거리는 4 단위다.
 지도의 1 단위는 몇 m 인가?

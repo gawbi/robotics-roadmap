@@ -257,8 +257,10 @@ PPO 논문의 저자들은 MuJoCo 연속 제어 과제 7 개를 seed 3 개씩 �
 1(가장 좋은 결과) 사이로 맞춰 평균했다. 제한 없는 surrogate 는 한 과제(half cheetah)에서 처음의 무작위 policy 보다도 나빠져 평균이
 $-0.39$ 였다. clip 을 쓴 결과는 $\epsilon$ 이 0.1, 0.2, 0.3 일 때 각각 0.76, 0.82, 0.70 이었다. CleanRL, legged_gym, Isaac Lab 의 기본값도 0.2 다.
 
-**흔한 오해.** "clip 은 ratio 를 늘 0.8 과 1.2 사이에 가둔다." clip 은 ratio 를 경계 안으로 되돌리지 않는다. 한 번의 update 가 크면 ratio 가
-경계를 넘을 수 있고, clip 은 그다음부터 그 방향으로 더 밀지 않을 뿐이다. 다음 절의 표에서 ratio 가 0.6473 까지 내려가는 것이 그 예다.
+> **오해** clip 은 ratio 를 늘 0.8 과 1.2 사이에 가둔다.
+>
+> **사실** clip 은 ratio 를 경계 안으로 되돌리지 않는다. 한 번의 update 가 크면 ratio 가 경계를 넘을 수 있고 clip 은 그다음부터 그 방향으로 더 밀지 않을 뿐이라서, 다음 절의 표에서는 ratio 가 0.6473 까지
+> 내려간다.
 
 <details><summary><b>심화: advantage 가 ±2 일 때의 두 항</b></summary>
 

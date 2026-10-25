@@ -113,9 +113,10 @@ encoder 는 각도를 연속으로 재지 못하고 정해진 눈금 단위로�
 [PID Control](../pid-control/README.md) 의 D 항도 오차의 변화율을 계산하므로 같은 문제를 겪고, 그래서 D 항에는 low-pass filter 를 거친
 값을 쓰는 경우가 많다.
 
-**흔한 오해.** "각도를 더 자주 읽을수록 속도가 정확해진다." 각도의 quantization error 는 그대로인데 나누는 $\Delta t$ 만 작아져서, 미분한
-속도의 오차는 오히려 커진다. 계산 주기를 높일 때는 여러 측정값을 평균하거나 filter 를 거치고, 그 강도는 noise 와 늦어짐 사이에서 알맞게
-고른다.
+> **오해** 각도를 더 자주 읽을수록 속도가 정확해진다.
+>
+> **사실** 각도의 quantization error 는 그대로인데 나누는 $\Delta t$ 만 작아져서 미분한 속도의 오차는 오히려 커진다. 계산 주기를 높일 때는 여러 측정값을 평균하거나 filter 를 거치고, 그 강도는 noise 와
+> 늦어짐 사이에서 알맞게 고른다.
 
 <details><summary><b>심화: forward difference 와 central difference 의 오차</b></summary>
 

@@ -118,9 +118,10 @@ GR00T N1 은 사진을 $224 \times 224$ 로 줄여 넣고 이웃한 token 넷을
 층의 출력을 $\phi_t$ 로 쓴다. 논문에 따르면 이렇게 하자 추론이 빨라지고 성공률도 올랐다. 공개 구현은 모델을 불러올 때 12 번째 층 위를 아예
 지워서 위 층은 계산하지도 메모리에 올리지도 않는다.
 
-**흔한 오해.** "System 2 와 System 1 은 따로 학습한 두 모델이다" 라고 생각하기 쉽다. 논문에 따르면 두 부분을 하나로 이어 end-to-end 로
-함께 학습하고, 언어 모델의 weight 만 얼려 둔다. action 의 loss 에서 나온 gradient 는 diffusion transformer 를 지나고 얼려 둔 언어 모델 층을
-거쳐 image encoder 까지 전해져서, image encoder 의 weight 도 고친다.
+> **오해** System 2 와 System 1 은 따로 학습한 두 모델이다.
+>
+> **사실** 논문은 두 부분을 하나로 이어 end-to-end 로 함께 학습하고, 언어 모델의 weight 만 얼려 둔다. action 의 loss 에서 나온 gradient 는 diffusion transformer 와 얼려 둔 언어 모델 층을
+> 거쳐 image encoder 까지 전해져서 image encoder 의 weight 도 고친다.
 
 <details><summary><b>심화: pixel shuffle 로 token 을 4 분의 1 로 줄이는 계산</b></summary>
 
@@ -239,8 +240,9 @@ action decoder 가 다시 6 개 또는 14 개의 숫자로 되돌린다.
 
 LeRobot 의 GR00T 문서는 SO-101 처럼 pretraining 에 없던 로봇에 `new_embodiment` 번호를 쓰도록 안내한다.
 
-**흔한 오해.** "로봇마다 encoder 가 따로 있으니 로봇마다 모델을 따로 학습한다" 고 생각하기 쉽다. 따로 있는 것은 입력과 출력 쪽의 작은 MLP
-뿐이고, 22 억 parameter 의 대부분인 VLM 과 diffusion transformer 는 모든 로봇의 데이터로 함께 학습한다.
+> **오해** 로봇마다 encoder 가 따로 있으니 로봇마다 모델을 따로 학습한다.
+>
+> **사실** 따로 있는 것은 입력과 출력 쪽의 작은 MLP 뿐이고, 22 억 parameter 의 대부분인 VLM 과 diffusion transformer 는 모든 로봇의 데이터로 함께 학습한다.
 
 **확인 문제.** 상태 숫자가 20 개인 로봇을 새로 붙인다. 위 예처럼 공통 길이 4 의 Linear layer 하나로 state encoder 를 만들면 parameter 는 몇
 개이고, π0 처럼 18 칸으로 맞추는 방법에서는 무엇이 문제일까?
@@ -290,10 +292,11 @@ weight 가 $\theta$ 인 diffusion transformer 가 낸 속도이고, 이 속도�
 
 논문에 따르면 $K = 4$ 로 실험한 모든 로봇에서 잘 동작했다.
 
-**흔한 오해.** 논문의 식 (1) 이 정답 속도를 $\epsilon - A_t$ 로 적어서 그대로 따라 쓰기 쉽다. 그런데 같은 논문의 Euler 식은 $\tau = 0$ 의 noise 에서 출발해
-$+\frac{1}{K} V_\theta$ 를 더해 가므로, 시연 쪽으로 가려면 속도가 $A_t - \epsilon$ 이어야 한다. 섞는 식에서 $\tau$ 가 1 늘 때 $A_t^\tau$ 가 변하는
-양도 $A_t - \epsilon$ 이고, 공개 구현의 학습 코드도 정답 속도를 `actions - noise` 로 계산한다. 다른 구현을 읽을 때는 noise 가 $\tau = 0$ 쪽인지
-1 쪽인지부터 확인한다.
+> **오해** 논문의 식 (1) 대로 정답 속도는 $\epsilon - A_t$ 다.
+>
+> **사실** 같은 논문의 Euler 식은 $\tau = 0$ 의 noise 에서 출발해 $+\frac{1}{K} V_\theta$ 를 더해 가므로, 시연 쪽으로 가려면 속도가 $A_t - \epsilon$ 이어야 한다. 섞는 식에서 $\tau$ 가
+> 1 늘 때 $A_t^\tau$ 가 변하는 양도 $A_t - \epsilon$ 이고 공개 구현의 학습 코드도 정답 속도를 `actions - noise` 로 계산하니, 다른 구현을 읽을 때는 noise 가 $\tau = 0$ 쪽인지 1 쪽인지부터
+> 확인한다.
 
 <details><summary><b>심화: Euler 4 step 의 손 계산</b></summary>
 
