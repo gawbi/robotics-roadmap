@@ -95,9 +95,9 @@ export const CONFIG = {
     maxPixelRatio: 2, // caps the canvas resolution on high-density screens
     nebulaScale: 700, // px of the layout per noise cell of the clouds
     nebulaStrength: 0.3,
-    // trees whose clouds are thinned near the hub, by this share at the rim easing to none at three times its radius:
-    // amber reads much brighter than the other trees' colours there
-    innerCut: { mobile: 0.6 } as Record<string, number>,
+    // trees whose clouds are thinned near the hub, by this share at the rim easing to none at three times its radius, so
+    // the clouds stay clear of the hub's lessons; amber reads much brighter than the other colours there
+    innerCut: { learning: 0.4, manipulation: 0.4, mobile: 0.6 } as Record<string, number>,
     treeDensity: { mobile: 0.7 } as Record<string, number>, // a tree's clouds, as a share of the others' brightness
     nebulaSpread: 1.7, // the clouds fade out by this many times the distance from the centre to the map's farthest point
     // stars behind the clouds, scattered over the same square; most are small, a few large
@@ -118,6 +118,7 @@ export const CONFIG = {
     },
     accent: '#22d3ee', // the hovered hub's light, in the site's accent colour (styles.css --accent)
     focusGain: 1.2, // how much brighter the hovered area's clouds get (1.2: 2.2 times)
+    hubGlow: 0.07, // how bright the accent cloud filling the hovered hub is, where its clouds are thinnest
     focusEase: 6, // how fast an area's light follows the pointer, per second
   },
 

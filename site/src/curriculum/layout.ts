@@ -46,8 +46,6 @@ export interface Edge {
   path: string
   /** the path sampled as a polyline */
   points: Point[]
-  /** prerequisite edge inside the core branch; drawn as the graph's trunk */
-  trunk: boolean
   /** prerequisite in another tree; drawn faint so it does not compete with the trees */
   bridge: boolean
 }
@@ -519,8 +517,7 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
           const a = d.at.get(q)!
           first = { x: a.x, y: a.y + turnedBox(shapes.get(q)!.box, d.tree).bottom }
         }
-        const trunk = isCore(q) && isCore(to)
-        edges.push({ from: q, to, trunk, bridge: inHub(q) && aside, ...treeCurve([first, ...rest], (p) => toScreen(d, p)) })
+        edges.push({ from: q, to, bridge: inHub(q) && aside, ...treeCurve([first, ...rest], (p) => toScreen(d, p)) })
         drawn.add(`${q}>${to}`)
       }
     }
@@ -544,7 +541,7 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
       const c2 = { x: end.x - inward.x * k, y: end.y - inward.y * k }
       const points = [start]
       bezier(start, c1, c2, end, points)
-      edges.push({ from: q, to: p.id, trunk: false, bridge: true, path: `M${f(start)}C${f(c1)} ${f(c2)} ${f(end)}`, points })
+      edges.push({ from: q, to: p.id, bridge: true, path: `M${f(start)}C${f(c1)} ${f(c2)} ${f(end)}`, points })
     }
   }
 

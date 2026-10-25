@@ -3,7 +3,7 @@ export interface Branch {
   title: string
   summary: string
   color: string
-  /** the foundations every other branch builds on; its chain is drawn as the graph's trunk */
+  /** the foundations every other branch builds on; its chain is laid out as the graph's straight trunk */
   core: boolean
 }
 

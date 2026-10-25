@@ -203,17 +203,6 @@ export function Holygraph({
         }}
       >
         <defs>
-          <marker
-            id="hg-trunk-arrow"
-            viewBox="0 0 10 10"
-            refX="9"
-            refY="5"
-            markerWidth="5"
-            markerHeight="5"
-            orient="auto-start-reverse"
-          >
-            <path d="M0,1 L9,5 L0,9 Z" className="hg-arrow" />
-          </marker>
           {/* each tree's tint is strongest at the rim and fades out toward the edge of the map */}
           {c.trees.map((t) => (
             <radialGradient key={t.id} id={`hg-area-${t.id}`} gradientUnits="userSpaceOnUse" cx={0} cy={0} r={layout.reach}>
@@ -279,10 +268,9 @@ export function Holygraph({
                 <path
                   key={`${e.from}>${e.to}`}
                   d={e.path}
-                  className={`hg-edge is-${kind} ${e.trunk ? 'is-trunk' : ''} ${e.bridge ? 'is-bridge' : ''} ${lit ? 'is-lit' : ''} ${
+                  className={`hg-edge is-${kind} ${e.bridge ? 'is-bridge' : ''} ${lit ? 'is-lit' : ''} ${
                     emphasis && !lit ? 'is-dim' : ''
                   }`}
-                  markerEnd={e.trunk ? 'url(#hg-trunk-arrow)' : undefined}
                 />
               )
             })}

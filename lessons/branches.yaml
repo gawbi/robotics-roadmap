@@ -30,8 +30,8 @@ trees:
     angle: 60
     branches: [estimation, navigation, driving]
 
-# Listed in legend order. core: true marks the foundations every other branch builds on (exactly one); the map draws
-# its chain as the trunk.
+# Listed in legend order. core: true marks the foundations every other branch builds on (exactly one); the map lays
+# its chain out as a straight trunk.
 branches:
   - id: math
     title: Math

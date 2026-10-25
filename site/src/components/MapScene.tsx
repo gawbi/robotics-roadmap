@@ -100,7 +100,7 @@ const PLANE_VERTEX = /* glsl */ `
 // behind everything: clouds in each tree's colour, brightest just outside the hub and fading out past the map; the
 // hovered area's clouds brighten, and a hovered hub lights up in the accent colour
 const BACKDROP_FRAGMENT = /* glsl */ `
-  uniform float uTime, uRim, uReach, uScale, uStrength, uHubFocus, uSpread;
+  uniform float uTime, uRim, uReach, uScale, uStrength, uHubFocus, uHubGlow, uSpread;
   uniform vec3 uAccent;
   varying vec2 vPos;
   ${TINT}
@@ -119,7 +119,7 @@ const BACKDROP_FRAGMENT = /* glsl */ `
     vec3 col = tint.rgb * (0.18 + cloud) * fall * uStrength * tint.a;
     // the hub, hovered, fills with a soft cloud of the accent colour
     float inside = 1.0 - smoothstep(uRim * 0.97, uRim, r);
-    col += uAccent * uHubFocus * (0.1 + cloud * 0.12) * inside;
+    col += uAccent * uHubFocus * uHubGlow * (1.0 + cloud * 1.2) * inside;
     gl_FragColor = light(col);
   }
 `
@@ -243,6 +243,7 @@ export function MapScene({ curriculum: c, layout, onReady, ref }: Props) {
         uFocus: { value: Array.from({ length: MAX_TREES }, () => 0) },
         uInnerCut: { value: Array.from({ length: MAX_TREES }, (_, i) => (trees[i] ? (S.innerCut[trees[i].tree] ?? 0) : 0)) },
         uHubFocus: { value: 0 },
+        uHubGlow: { value: S.hubGlow },
         uAccent: { value: new Color(S.accent) },
         uCount: { value: trees.length },
         uColor: {

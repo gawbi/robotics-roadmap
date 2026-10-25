@@ -534,12 +534,8 @@ code {
   transition: opacity 200ms var(--ease), stroke-width 200ms var(--ease);
 }
 
-.hg-arrow {
-  fill: var(--accent);
-}
-
-/* edges that lead somewhere now, the trunk and a hovered chain are drawn in the accent colour; the rest stay grey */
-:is(.hg-edge.is-open, .hg-edge.is-done, .hg-edge.is-lit, .hg-edge.is-trunk) {
+/* edges that lead somewhere now and a hovered chain are drawn in the accent colour; the rest stay grey */
+:is(.hg-edge.is-open, .hg-edge.is-done, .hg-edge.is-lit) {
   stroke: var(--accent);
 }
 
@@ -575,12 +571,6 @@ code {
 
 .hg-edge.is-lit {
   stroke-opacity: 1;
-  stroke-width: 2.6;
-  stroke-dasharray: none;
-}
-
-.hg-edge.is-trunk {
-  stroke-opacity: 0.9;
   stroke-width: 2.6;
   stroke-dasharray: none;
 }
