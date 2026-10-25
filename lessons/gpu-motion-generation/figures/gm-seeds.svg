@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>seed 수와 계획 시간. cage 장면 100 문제에서 seed 1, 4, 12, 24, 48 개의 평균 계획 시간은 RTX 4090 이 27, 27, 28, 30, 35 ms, Jetson AGX Orin 60 W 가 81, 90, 119, 165, 248 ms, Orin 15 W 가 159, 181, 252, 390, 598 ms 다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="698" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="start">trajectory seed 수에 따른 평균 계획 시간 (cage 장면 100 문제)</text>
+  <rect x="80.0" y="56.0" width="440.0" height="250.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80.0" y1="306.0" x2="520.0" y2="306.0" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="310.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="80.0" y1="267.5" x2="520.0" y2="267.5" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="271.5" fill="#64748b" font-size="12" text-anchor="end">100</text>
+  <line x1="80.0" y1="229.1" x2="520.0" y2="229.1" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="233.1" fill="#64748b" font-size="12" text-anchor="end">200</text>
+  <line x1="80.0" y1="190.6" x2="520.0" y2="190.6" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="194.6" fill="#64748b" font-size="12" text-anchor="end">300</text>
+  <line x1="80.0" y1="152.2" x2="520.0" y2="152.2" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="156.2" fill="#64748b" font-size="12" text-anchor="end">400</text>
+  <line x1="80.0" y1="113.7" x2="520.0" y2="113.7" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="117.7" fill="#64748b" font-size="12" text-anchor="end">500</text>
+  <line x1="80.0" y1="75.2" x2="520.0" y2="75.2" stroke="#16213a" stroke-width="1"/>
+  <text x="72.0" y="79.2" fill="#64748b" font-size="12" text-anchor="end">600</text>
+  <text x="72.0" y="48.0" fill="#94a3b8" font-size="12" text-anchor="end">ms</text>
+  <text x="110.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <text x="205.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="300.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">12</text>
+  <text x="395.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">24</text>
+  <text x="490.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">48</text>
+  <text x="300.0" y="344.0" fill="#94a3b8" font-size="13" text-anchor="middle">trajectory seed 수</text>
+  <path d="M110.0,295.6 L205.0,295.6 L300.0,295.2 L395.0,294.5 L490.0,292.5" fill="none" stroke="#7fc4a2" stroke-width="2.4"/>
+  <circle cx="110.0" cy="295.6" r="4.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="205.0" cy="295.6" r="4.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="300.0" cy="295.2" r="4.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="395.0" cy="294.5" r="4.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="490.0" cy="292.5" r="4.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="100.0" y="299.6" fill="#7fc4a2" font-size="12" text-anchor="end">27</text>
+  <text x="500.0" y="296.5" fill="#7fc4a2" font-size="12" text-anchor="start">35</text>
+  <path d="M110.0,274.8 L205.0,271.4 L300.0,260.2 L395.0,242.5 L490.0,210.6" fill="none" stroke="#d6aa62" stroke-width="2.4"/>
+  <circle cx="110.0" cy="274.8" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="205.0" cy="271.4" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="300.0" cy="260.2" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="395.0" cy="242.5" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="490.0" cy="210.6" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="100.0" y="278.8" fill="#d6aa62" font-size="12" text-anchor="end">81</text>
+  <text x="500.0" y="214.6" fill="#d6aa62" font-size="12" text-anchor="start">248</text>
+  <path d="M110.0,244.8 L205.0,236.4 L300.0,209.1 L395.0,156.0 L490.0,76.0" fill="none" stroke="#d88b8b" stroke-width="2.4"/>
+  <circle cx="110.0" cy="244.8" r="4.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <circle cx="205.0" cy="236.4" r="4.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <circle cx="300.0" cy="209.1" r="4.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <circle cx="395.0" cy="156.0" r="4.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <circle cx="490.0" cy="76.0" r="4.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="100.0" y="248.8" fill="#d88b8b" font-size="12" text-anchor="end">159</text>
+  <text x="500.0" y="80.0" fill="#d88b8b" font-size="12" text-anchor="start">598</text>
+  <rect x="560.0" y="80.0" width="14.0" height="10.0" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <text x="580.0" y="90.0" fill="#e2e8f0" font-size="12" text-anchor="start">RTX 4090</text>
+  <text x="580.0" y="108.0" fill="#7fc4a2" font-size="12" text-anchor="start">4 → 48 개: +8 ms</text>
+  <rect x="560.0" y="144.0" width="14.0" height="10.0" rx="2" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <text x="580.0" y="154.0" fill="#e2e8f0" font-size="12" text-anchor="start">Jetson AGX Orin 60 W</text>
+  <text x="580.0" y="172.0" fill="#d6aa62" font-size="12" text-anchor="start">4 → 48 개: +158 ms</text>
+  <rect x="560.0" y="208.0" width="14.0" height="10.0" rx="2" fill="#d88b8b" stroke="#d88b8b" stroke-width="1"/>
+  <text x="580.0" y="218.0" fill="#e2e8f0" font-size="12" text-anchor="start">Jetson AGX Orin 15 W</text>
+  <text x="580.0" y="236.0" fill="#d88b8b" font-size="12" text-anchor="start">4 → 48 개: +417 ms</text>
+</svg>

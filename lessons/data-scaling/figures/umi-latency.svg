@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>latency matching 의 시간표. 예로 든 값으로, 시각 0 에 찍힌 사진이 80 ms 에 컴퓨터에 닿고, 120 ms 동안 추론해 200 ms 에 명령을 보내면 팔은 100 ms 뒤인 300 ms 에 따라간다. 0·100·200 ms 의 action 은 버리고 300 ms 부터 실행한다</title>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="30" fill="#e2e8f0" font-size="14" text-anchor="start">사진이 찍힌 시각을 0 으로 둔 시간표 (예로 든 지연)</text>
+  <rect x="60" y="52" width="80" height="30" rx="4" fill="#a99ad6" fill-opacity="0.85"/>
+  <text x="100" y="72" fill="#0b1220" font-size="12.5" text-anchor="middle">카메라 80</text>
+  <rect x="140" y="52" width="120" height="30" rx="4" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="200" y="72" fill="#0b1220" font-size="12.5" text-anchor="middle">추론 120</text>
+  <rect x="260" y="52" width="100" height="30" rx="4" fill="#d88b8b" fill-opacity="0.85"/>
+  <text x="310" y="72" fill="#0b1220" font-size="12.5" text-anchor="middle">팔 실행 100</text>
+  <text x="380" y="64" fill="#e2e8f0" font-size="12.5" text-anchor="start">80 + 120 + 100 = 300 ms</text>
+  <text x="380" y="81" fill="#94a3b8" font-size="12" text-anchor="start">뒤에야 첫 명령이 팔에서 실현된다</text>
+  <line x1="60" y1="120" x2="560" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="60" y1="114" x2="60" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="160" y1="114" x2="160" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="260" y1="114" x2="260" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="360" y1="114" x2="360" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="460" y1="114" x2="460" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="560" y1="114" x2="560" y2="126" stroke="#64748b" stroke-width="1.5"/>
+  <text x="60" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">0</text>
+  <text x="160" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">100</text>
+  <text x="260" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">200</text>
+  <text x="360" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">300</text>
+  <text x="460" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">400</text>
+  <text x="552" y="142" fill="#94a3b8" font-size="12" text-anchor="middle">500 ms</text>
+  <line x1="360" y1="86" x2="360" y2="112" stroke="#7fc4a2" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <line x1="360" y1="150" x2="360" y2="174" stroke="#7fc4a2" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="20" y="176" fill="#94a3b8" font-size="12" text-anchor="start">action</text>
+  <circle cx="60" cy="190" r="13" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <path d="M53,183 L67,197 M67,183 L53,197" stroke="#94a3b8" stroke-width="1.6"/>
+  <circle cx="160" cy="190" r="13" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <path d="M153,183 L167,197 M167,183 L153,197" stroke="#94a3b8" stroke-width="1.6"/>
+  <circle cx="260" cy="190" r="13" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
+  <path d="M253,183 L267,197 M267,183 L253,197" stroke="#94a3b8" stroke-width="1.6"/>
+  <circle cx="360" cy="190" r="13" fill="#7fc4a2" fill-opacity="0.85"/>
+  <circle cx="460" cy="190" r="13" fill="#7fc4a2" fill-opacity="0.85"/>
+  <circle cx="560" cy="190" r="13" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="160" y="226" fill="#94a3b8" font-size="12.5" text-anchor="middle">이미 지난 몫이라 버린다</text>
+  <text x="460" y="226" fill="#7fc4a2" font-size="12.5" text-anchor="middle">300 ms 의 action 부터 보낸다</text>
+  <text x="20" y="262" fill="#94a3b8" font-size="12" text-anchor="start">policy 는 사진이 찍힌 시각 0 부터 100 ms 간격의 action 을 낸다</text>
+  <text x="20" y="282" fill="#94a3b8" font-size="12" text-anchor="start">팔 100 ms, 집게 120 ms 처럼 실행 지연이 다르면 집게 명령을 20 ms 더 일찍 보낸다</text>
+</svg>

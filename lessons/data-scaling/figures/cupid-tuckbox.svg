@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>TuckBox 의 시연 고르기. 밀기 시연과 집어 옮기기 시연이 2 : 1 로 섞인 데이터로 학습한 policy 는 무게 배치를 바꾼 통을 밀다가 모두 실패한다. 실패한 실행의 action 을 만든 밀기 시연은 점수가 − 이고 집어 옮기기 시연은 + 라서, − 인 시연을 지우고 다시 학습하면 성공률이 0% 에서 84 ~ 88% 로 오른다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="105" y="32" fill="#e2e8f0" font-size="13.5" text-anchor="middle">① 시연 (모두 성공)</text>
+  <text x="300" y="32" fill="#e2e8f0" font-size="13.5" text-anchor="middle">② 바뀐 통에서 실행</text>
+  <text x="495" y="32" fill="#e2e8f0" font-size="13.5" text-anchor="middle">③ − 시연을 지우고 재학습</text>
+  <rect x="20" y="46" width="170" height="170" rx="8" fill="#111a2e" stroke="#1e293b"/>
+  <text x="34" y="72" fill="#7cb4d8" font-size="12.5" text-anchor="start">밀기</text>
+  <rect x="34" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="60" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="86" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="112" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="138" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="164" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="34" y="132" fill="#7fc4a2" font-size="12.5" text-anchor="start">집어 옮기기</text>
+  <rect x="34" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <rect x="60" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <rect x="86" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="105" y="200" fill="#94a3b8" font-size="12.5" text-anchor="middle">밀기 : 집어 옮기기 = 2 : 1</text>
+  <line x1="192" y1="131" x2="212" y2="131" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <rect x="215" y="46" width="170" height="170" rx="8" fill="#111a2e" stroke="#1e293b"/>
+  <text x="300" y="72" fill="#94a3b8" font-size="12.5" text-anchor="middle">policy 가 늘 민다</text>
+  <circle cx="246" cy="98" r="11" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <path d="M240,92 L252,104 M252,92 L240,104" stroke="#d88b8b" stroke-width="1.6"/>
+  <circle cx="273" cy="98" r="11" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <path d="M267,92 L279,104 M279,92 L267,104" stroke="#d88b8b" stroke-width="1.6"/>
+  <circle cx="300" cy="98" r="11" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <path d="M294,92 L306,104 M306,92 L294,104" stroke="#d88b8b" stroke-width="1.6"/>
+  <circle cx="327" cy="98" r="11" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <path d="M321,92 L333,104 M333,92 L321,104" stroke="#d88b8b" stroke-width="1.6"/>
+  <circle cx="354" cy="98" r="11" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <path d="M348,92 L360,104 M360,92 L348,104" stroke="#d88b8b" stroke-width="1.6"/>
+  <text x="300" y="132" fill="#d88b8b" font-size="13" text-anchor="middle">성공률 0%</text>
+  <text x="300" y="164" fill="#7cb4d8" font-size="12.5" text-anchor="middle">밀기 시연 점수 −</text>
+  <text x="300" y="186" fill="#7fc4a2" font-size="12.5" text-anchor="middle">집어 옮기기 시연 점수 +</text>
+  <line x1="387" y1="131" x2="407" y2="131" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <rect x="410" y="46" width="170" height="170" rx="8" fill="#111a2e" stroke="#1e293b"/>
+  <text x="424" y="72" fill="#7cb4d8" font-size="12.5" text-anchor="start">밀기</text>
+  <rect x="424" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="450" y="82" width="22" height="22" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="476" y="82" width="22" height="22" rx="4" fill="none" stroke="#64748b" stroke-dasharray="3 3"/>
+  <rect x="502" y="82" width="22" height="22" rx="4" fill="none" stroke="#64748b" stroke-dasharray="3 3"/>
+  <rect x="528" y="82" width="22" height="22" rx="4" fill="none" stroke="#64748b" stroke-dasharray="3 3"/>
+  <rect x="554" y="82" width="22" height="22" rx="4" fill="none" stroke="#64748b" stroke-dasharray="3 3"/>
+  <text x="424" y="132" fill="#7fc4a2" font-size="12.5" text-anchor="start">집어 옮기기</text>
+  <rect x="424" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <rect x="450" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <rect x="476" y="142" width="22" height="22" rx="4" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="495" y="200" fill="#7fc4a2" font-size="13" text-anchor="middle">성공률 84 ~ 88%</text>
+  <text x="20" y="246" fill="#94a3b8" font-size="12" text-anchor="start">점선 칸은 지운 시연이다. 칸의 개수는 비율을 보이려고 정한 예다</text>
+  <text x="20" y="268" fill="#94a3b8" font-size="12" text-anchor="start">점수 = 실행마다 (결과: 성공 +1, 실패 −1) × (그 시연이 그 실행의 action 을 키우는 정도) 의 합</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Gemini Robotics-ER 의 출력 예. 예로 든 640×480 사진 위에 정규화 좌표 [y, x] = [500, 250] 의 point 가 pixel (160, 240) 에 찍혀 있고, 컵을 둘러싼 2D bounding box 와 gripper 에서 컵까지 point 다섯 개로 된 trajectory 가 그려져 있다. 오른쪽에는 정규화 좌표를 pixel 로 바꾸는 계산을 적었다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="758" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="30.0" y="50.0" width="320.0" height="240.0" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="30.0" y="38.0" fill="#94a3b8" font-size="12" text-anchor="start">예로 든 640×480 사진</text>
+  <line x1="30.0" y1="215.0" x2="350.0" y2="215.0" stroke="#334155" stroke-width="1.2"/>
+  <rect x="115.0" y="150.0" width="40.0" height="50.0" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+  <path d="M115.0,160.0 C101.0,160.0 101.0,181.0 115.0,181.0" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+  <rect x="100.0" y="145.0" width="55.0" height="55.0" rx="1" fill="none" stroke="#7fc4a2" stroke-width="1.6"/>
+  <text x="161.0" y="198.0" fill="#7fc4a2" font-size="11" text-anchor="start">2D box</text>
+  <rect x="280.0" y="68.0" width="20.0" height="14.0" rx="2" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="283.0" y1="82.0" x2="283.0" y2="94.0" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="297.0" y1="82.0" x2="297.0" y2="94.0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="304.0" y="76.0" fill="#94a3b8" font-size="11" text-anchor="start">gripper</text>
+  <path d="M290.0,90.0 L245.0,110.0 L200.0,130.0 L155.0,150.0 L110.0,170.0" fill="none" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="290.0" cy="90.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="245.0" cy="110.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="200.0" cy="130.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="155.0" cy="150.0" r="3.5" fill="#d6aa62"/>
+  <text x="225.0" y="134.0" fill="#d6aa62" font-size="11" text-anchor="start">trajectory (point 5 개)</text>
+  <circle cx="110.0" cy="170.0" r="5" fill="#d88b8b" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="70.0" y="174.0" fill="#d88b8b" font-size="11" text-anchor="end">point</text>
+  <line x1="74.0" y1="170.0" x2="103.0" y2="170.0" stroke="#d88b8b" stroke-width="1.2"/>
+  <text x="380.0" y="64.0" fill="#d88b8b" font-size="13" text-anchor="start">point [y, x] = [500, 250]</text>
+  <text x="380.0" y="86.0" fill="#94a3b8" font-size="12" text-anchor="start">좌표는 0 ~ 1000 으로 정규화, y 가 먼저</text>
+  <text x="380.0" y="114.0" fill="#e2e8f0" font-size="13" text-anchor="start">pixel x = 250 ÷ 1000 × 640 = 160</text>
+  <text x="380.0" y="136.0" fill="#e2e8f0" font-size="13" text-anchor="start">pixel y = 500 ÷ 1000 × 480 = 240</text>
+  <text x="380.0" y="172.0" fill="#7fc4a2" font-size="12" text-anchor="start">2D box [y0, x0, y1, x1] = [396, 219, 625, 391]</text>
+  <text x="380.0" y="192.0" fill="#94a3b8" font-size="12" text-anchor="start">→ pixel x 140 ~ 250, y 190 ~ 300</text>
+  <text x="380.0" y="226.0" fill="#d6aa62" font-size="12" text-anchor="start">trajectory: point 여러 개를 순서대로</text>
+  <text x="380.0" y="262.0" fill="#e2e8f0" font-size="12" text-anchor="start">depth 를 알면 back-projection 으로</text>
+  <text x="380.0" y="282.0" fill="#e2e8f0" font-size="12" text-anchor="start">3 차원 위치를 구해 팔을 보낸다</text>
+</svg>

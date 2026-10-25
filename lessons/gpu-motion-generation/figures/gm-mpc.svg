@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>계획 한 번과 MPC. 한 번 계획한 trajectory 는 실행 1.59 초 동안 0.48 m 움직인 상자를 보지 못하고, 0.03 초마다 명령을 고치는 MPC 는 상자가 9 mm 움직일 때마다 장면을 다시 읽는다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="758" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <line x1="110.0" y1="290.0" x2="720.0" y2="290.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="110.0" y1="290.0" x2="110.0" y2="295.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="110.0" y="310.0" fill="#64748b" font-size="12" text-anchor="middle">0 s</text>
+  <line x1="289.4" y1="290.0" x2="289.4" y2="295.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="289.4" y="310.0" fill="#64748b" font-size="12" text-anchor="middle">0.5 s</text>
+  <line x1="468.8" y1="290.0" x2="468.8" y2="295.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="468.8" y="310.0" fill="#64748b" font-size="12" text-anchor="middle">1 s</text>
+  <line x1="648.2" y1="290.0" x2="648.2" y2="295.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="648.2" y="310.0" fill="#64748b" font-size="12" text-anchor="middle">1.5 s</text>
+  <text x="289.4" y="30.0" fill="#d88b8b" font-size="12" text-anchor="middle">예: 0.5 s 에 상자가 나타남 (0.3 m/s)</text>
+  <line x1="289.4" y1="48.0" x2="289.4" y2="94.0" stroke="#d88b8b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="289.4" y1="160.0" x2="289.4" y2="206.0" stroke="#d88b8b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="289.4" y1="38.0" x2="289.4" y2="48.0" stroke="#d88b8b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="24.0" y="76.0" fill="#d6aa62" font-size="14" text-anchor="start" font-weight="600">계획 한 번</text>
+  <rect x="110.0" y="56.0" width="17.9" height="30.0" rx="3" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="127.9" y="56.0" width="570.5" height="30.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1" opacity="0.35"/>
+  <text x="110.0" y="106.0" fill="#e2e8f0" font-size="12" text-anchor="start">50 ms 계획한 뒤 1.59 s 동안 그대로 실행하고, 실행 중에는 장면을 다시 보지 않는다</text>
+  <text x="110.0" y="124.0" fill="#d6aa62" font-size="12" text-anchor="start">실행하는 동안 상자 이동 0.3 × 1.59 ≈ 0.48 m</text>
+  <text x="24.0" y="188.0" fill="#7fc4a2" font-size="14" text-anchor="start" font-weight="600">MPC</text>
+  <rect x="110.5" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="121.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="132.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="142.8" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="153.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="164.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="175.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="185.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="196.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="207.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="218.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="228.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="239.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="250.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="261.2" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="272.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="282.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="293.5" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="304.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="315.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="325.8" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="336.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="347.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="358.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="368.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="379.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="390.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="401.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="411.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="422.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="433.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="444.2" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="455.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="465.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="476.5" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="487.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="498.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="508.8" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="519.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="530.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="541.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="551.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="562.6" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="573.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="584.1" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="594.9" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="605.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="616.4" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="627.2" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="638.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="648.7" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="659.5" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="670.3" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <rect x="681.0" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.35"/>
+  <rect x="691.8" y="168.0" width="9.3" height="30.0" rx="1" fill="#7fc4a2" stroke="none" stroke-width="0" opacity="0.55"/>
+  <text x="110.0" y="218.0" fill="#e2e8f0" font-size="12" text-anchor="start">0.03 s 마다 장면을 읽고 horizon 을 다시 최적화해 첫 명령만 보낸다</text>
+  <text x="110.0" y="236.0" fill="#7fc4a2" font-size="12" text-anchor="start">명령 사이 상자 이동 0.3 × 0.03 = 0.009 m (9 mm)</text>
+</svg>

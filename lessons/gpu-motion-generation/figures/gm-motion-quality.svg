@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>이동 시간과 최대 jerk 의 평균. Tesseract 는 1.96 초와 200 rad/s³, TOTG 로 시각을 다시 붙인 Tesseract-TG 는 1.25 초와 602 rad/s³, cuRobo 는 1.59 초와 49 rad/s³ 다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="718" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="start">Panda 문제 2,600 개 (cuRobo 논문)</text>
+  <text x="200.0" y="58.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">평균 이동 시간 (s)</text>
+  <rect x="70.0" y="70.0" width="260.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70.0" y1="270.0" x2="330.0" y2="270.0" stroke="#16213a" stroke-width="1"/>
+  <text x="64.0" y="274.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="70.0" y1="190.0" x2="330.0" y2="190.0" stroke="#16213a" stroke-width="1"/>
+  <text x="64.0" y="194.0" fill="#64748b" font-size="12" text-anchor="end">1</text>
+  <line x1="70.0" y1="110.0" x2="330.0" y2="110.0" stroke="#16213a" stroke-width="1"/>
+  <text x="64.0" y="114.0" fill="#64748b" font-size="12" text-anchor="end">2</text>
+  <rect x="89.0" y="113.2" width="52.0" height="156.8" rx="2" fill="#a99ad6" stroke="#a99ad6" stroke-width="1" opacity="0.85"/>
+  <text x="115.0" y="105.2" fill="#a99ad6" font-size="13" text-anchor="middle">1.96</text>
+  <text x="115.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Tesseract</text>
+  <rect x="174.0" y="170.0" width="52.0" height="100.0" rx="2" fill="#d6aa62" stroke="#d6aa62" stroke-width="1" opacity="0.85"/>
+  <text x="200.0" y="162.0" fill="#d6aa62" font-size="13" text-anchor="middle">1.25</text>
+  <text x="200.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Tesseract-TG</text>
+  <rect x="259.0" y="142.8" width="52.0" height="127.2" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1" opacity="0.85"/>
+  <text x="285.0" y="134.8" fill="#7fc4a2" font-size="13" text-anchor="middle">1.59</text>
+  <text x="285.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">cuRobo</text>
+  <text x="540.0" y="58.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">평균 최대 jerk (rad/s³)</text>
+  <rect x="410.0" y="70.0" width="260.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="410.0" y1="270.0" x2="670.0" y2="270.0" stroke="#16213a" stroke-width="1"/>
+  <text x="404.0" y="274.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="410.0" y1="212.9" x2="670.0" y2="212.9" stroke="#16213a" stroke-width="1"/>
+  <text x="404.0" y="216.9" fill="#64748b" font-size="12" text-anchor="end">200</text>
+  <line x1="410.0" y1="155.7" x2="670.0" y2="155.7" stroke="#16213a" stroke-width="1"/>
+  <text x="404.0" y="159.7" fill="#64748b" font-size="12" text-anchor="end">400</text>
+  <line x1="410.0" y1="98.6" x2="670.0" y2="98.6" stroke="#16213a" stroke-width="1"/>
+  <text x="404.0" y="102.6" fill="#64748b" font-size="12" text-anchor="end">600</text>
+  <rect x="429.0" y="212.9" width="52.0" height="57.1" rx="2" fill="#a99ad6" stroke="#a99ad6" stroke-width="1" opacity="0.85"/>
+  <text x="455.0" y="204.9" fill="#a99ad6" font-size="13" text-anchor="middle">200</text>
+  <text x="455.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Tesseract</text>
+  <rect x="514.0" y="98.0" width="52.0" height="172.0" rx="2" fill="#d6aa62" stroke="#d6aa62" stroke-width="1" opacity="0.85"/>
+  <text x="540.0" y="90.0" fill="#d6aa62" font-size="13" text-anchor="middle">602</text>
+  <text x="540.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Tesseract-TG</text>
+  <rect x="599.0" y="256.0" width="52.0" height="14.0" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1" opacity="0.85"/>
+  <text x="625.0" y="248.0" fill="#7fc4a2" font-size="13" text-anchor="middle">49</text>
+  <text x="625.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">cuRobo</text>
+  <text x="24.0" y="324.0" fill="#94a3b8" font-size="12" text-anchor="start">Tesseract-TG 는 cuRobo 보다 0.34 s 빨리 끝나지만 최대 jerk 는 602 ÷ 49 ≈ 12 배</text>
+</svg>

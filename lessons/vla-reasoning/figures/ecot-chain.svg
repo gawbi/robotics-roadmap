@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ECoT 의 추론 순서. TASK, PLAN, SUBTASK 는 보통의 글 추론이고 MOVE, GRIPPER, OBJECTS 는 사진과 로봇 상태를 봐야 쓸 수 있는 embodied 추론이며, 마지막에 action token 7 개가 나온다. 아래 막대는 한 step 에 내는 token 수로 OpenVLA 는 7 개, ECoT 는 350 개다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="758" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="67.0" y="94.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">TASK</text>
+  <text x="67.0" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">지시를</text>
+  <text x="67.0" y="132.0" fill="#e2e8f0" font-size="11" text-anchor="middle">다시 쓴다</text>
+  <line x1="115.0" y1="109.0" x2="122.5" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="123.5" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="170.5" y="94.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">PLAN</text>
+  <text x="170.5" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">4 단계</text>
+  <text x="170.5" y="132.0" fill="#e2e8f0" font-size="11" text-anchor="middle">계획</text>
+  <line x1="218.5" y1="109.0" x2="226.0" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="227.0" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="274.0" y="94.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">SUBTASK</text>
+  <text x="274.0" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">Move to the</text>
+  <text x="274.0" y="132.0" fill="#e2e8f0" font-size="11" text-anchor="middle">watermelon</text>
+  <line x1="322.0" y1="109.0" x2="329.5" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="330.5" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="377.5" y="94.0" fill="#a99ad6" font-size="13" text-anchor="middle" font-weight="600">MOVE</text>
+  <text x="377.5" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">Move</text>
+  <text x="377.5" y="132.0" fill="#e2e8f0" font-size="11" text-anchor="middle">backward</text>
+  <line x1="425.5" y1="109.0" x2="433.0" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="434.0" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="481.0" y="94.0" fill="#a99ad6" font-size="13" text-anchor="middle" font-weight="600">GRIPPER</text>
+  <text x="481.0" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">[156, 55]</text>
+  <line x1="529.0" y1="109.0" x2="536.5" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="537.5" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="584.5" y="94.0" fill="#a99ad6" font-size="13" text-anchor="middle" font-weight="600">OBJECTS</text>
+  <text x="584.5" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">물체 이름과</text>
+  <text x="584.5" y="132.0" fill="#e2e8f0" font-size="11" text-anchor="middle">상자</text>
+  <line x1="632.5" y1="109.0" x2="640.0" y2="109.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <rect x="641.0" y="70.0" width="94.0" height="78.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="688.0" y="94.0" fill="#d6aa62" font-size="13" text-anchor="middle" font-weight="600">ACTION</text>
+  <text x="688.0" y="116.0" fill="#e2e8f0" font-size="11" text-anchor="middle">token 7 개</text>
+  <path d="M20,58 L20,50 L321.0,50 L321.0,58" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="170.5" y="42.0" fill="#7fc4a2" font-size="12" text-anchor="middle">글 추론 (보통의 CoT)</text>
+  <path d="M330.5,58 L330.5,50 L631.5,50 L631.5,58" fill="none" stroke="#a99ad6" stroke-width="1.4"/>
+  <text x="481.0" y="42.0" fill="#a99ad6" font-size="12" text-anchor="middle">embodied 추론 (사진·로봇 상태)</text>
+  <text x="20.0" y="192.0" fill="#94a3b8" font-size="12" text-anchor="start">한 step 에 내는 token</text>
+  <text x="20.0" y="222.0" fill="#e2e8f0" font-size="13" text-anchor="start">OpenVLA</text>
+  <rect x="150.0" y="210.0" width="11.4" height="18.0" rx="2" fill="#d6aa62"/>
+  <text x="169.4" y="224.0" fill="#d6aa62" font-size="12" text-anchor="start">7 개</text>
+  <text x="20.0" y="260.0" fill="#e2e8f0" font-size="13" text-anchor="start">ECoT</text>
+  <rect x="150.0" y="248.0" width="558.6" height="18.0" rx="2" fill="#a99ad6" fill-opacity="0.75"/>
+  <rect x="708.6" y="248.0" width="11.4" height="18.0" rx="2" fill="#d6aa62"/>
+  <text x="426.9" y="262.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">추론 token + action token = 350 개</text>
+</svg>

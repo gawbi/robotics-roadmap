@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>계층 VLA 의 구조. 사용자의 지시 clean the kitchen 과 중간에 한 말 that's not trash 가 high-level policy(VLM)에 들어가고, high-level 은 1 초마다 또는 사용자가 말할 때 subtask 글 pick up the plate 와 로봇이 소리로 낼 대답을 낸다. low-level policy(VLA)는 subtask 글과 카메라 사진, 관절 각도를 받아 0.5 초마다 action chunk 를 만들고, 로봇은 50 Hz 로 action 을 실행한다. 아래에는 Hi Robot 이 VLM 두 개를 쓰고 π0.5 는 weight 한 벌로 두 일을 한다고 적었다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="758" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="30.0" width="170.0" height="74.0" rx="8" fill="#111a2e" stroke="#cf96b8" stroke-width="1.5"/>
+  <text x="105.0" y="55.0" fill="#e2e8f0" font-size="14" text-anchor="middle">사용자</text>
+  <text x="105.0" y="74.0" fill="#94a3b8" font-size="12" text-anchor="middle">"clean the kitchen"</text>
+  <text x="105.0" y="91.0" fill="#94a3b8" font-size="12" text-anchor="middle">"that's not trash"</text>
+  <rect x="20.0" y="150.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="105.0" y="180.0" fill="#e2e8f0" font-size="14" text-anchor="middle">카메라 사진</text>
+  <rect x="20.0" y="222.0" width="170.0" height="50.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="105.0" y="252.0" fill="#e2e8f0" font-size="14" text-anchor="middle">관절 각도</text>
+  <rect x="260.0" y="30.0" width="220.0" height="74.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="370.0" y="63.0" fill="#e2e8f0" font-size="14" text-anchor="middle">high-level policy (VLM)</text>
+  <text x="370.0" y="82.0" fill="#94a3b8" font-size="12" text-anchor="middle">1 초마다, 또는 사용자가 말할 때</text>
+  <rect x="260.0" y="186.0" width="220.0" height="74.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="370.0" y="219.0" fill="#e2e8f0" font-size="14" text-anchor="middle">low-level policy (VLA)</text>
+  <text x="370.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5 초마다 action chunk</text>
+  <rect x="550.0" y="186.0" width="190.0" height="74.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="645.0" y="219.0" fill="#e2e8f0" font-size="14" text-anchor="middle">로봇</text>
+  <text x="645.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">50 Hz 로 action 실행</text>
+  <rect x="550.0" y="30.0" width="190.0" height="74.0" rx="8" fill="#111a2e" stroke="#cf96b8" stroke-width="1.5"/>
+  <text x="645.0" y="63.0" fill="#e2e8f0" font-size="14" text-anchor="middle">로봇의 대답 (음성)</text>
+  <text x="645.0" y="82.0" fill="#94a3b8" font-size="12" text-anchor="middle">"Oh sorry! I'll put it back"</text>
+  <line x1="192.0" y1="67.0" x2="256.0" y2="67.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="480.0" y1="67.0" x2="546.0" y2="67.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <path d="M192,175 L226,175 L226,92 L256,92" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <path d="M192,175 L226,175 L226,210 L256,210" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <path d="M192,247 L226,247 L226,240 L256,240" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="370.0" y1="106.0" x2="370.0" y2="182.0" stroke="#a99ad6" stroke-width="2" marker-end="url(#arrow-violet)"/>
+  <text x="380.0" y="140.0" fill="#a99ad6" font-size="12" text-anchor="start">subtask 글</text>
+  <text x="380.0" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="start">"pick up the plate"</text>
+  <line x1="482.0" y1="223.0" x2="546.0" y2="223.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <text x="514.0" y="214.0" fill="#94a3b8" font-size="11" text-anchor="middle">chunk</text>
+  <line x1="20.0" y1="290.0" x2="740.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="20.0" y="312.0" fill="#e2e8f0" font-size="12" text-anchor="start">Hi Robot: PaliGemma-3B 에서 출발한 VLM 두 개 (low-level 은 π0)</text>
+  <text x="20.0" y="330.0" fill="#e2e8f0" font-size="12" text-anchor="start">π0.5: weight 한 벌이 subtask 글을 먼저 내고, 같은 모델의 action expert 가 그 글을 보고 chunk 를 만든다</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>DOPE 의 keypoint 와 학습 데이터. cuboid 꼭짓점 8 개와 중심 1 개의 belief map 봉우리를 PnP 에 넣는다. sugar box 의 ADD AUC 는 domain randomization 만 30만 장이면 66.64 이고 사실적인 사진만 60만 장이면 62.94 이고 둘을 섞은 12만 장이면 77.00 이다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="a-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="678" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="start">① belief map 9 장의 봉우리 → PnP</text>
+  <line x1="60.0" y1="120.0" x2="180.0" y2="120.0" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="100.0" y1="90.0" x2="220.0" y2="90.0" stroke="#7cb4d8" stroke-width="1.2"/>
+  <line x1="60.0" y1="120.0" x2="100.0" y2="90.0" stroke="#7cb4d8" stroke-width="1.2"/>
+  <line x1="180.0" y1="120.0" x2="180.0" y2="260.0" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="220.0" y1="90.0" x2="220.0" y2="230.0" stroke="#7cb4d8" stroke-width="1.2"/>
+  <line x1="180.0" y1="120.0" x2="220.0" y2="90.0" stroke="#7cb4d8" stroke-width="1.2"/>
+  <line x1="180.0" y1="260.0" x2="60.0" y2="260.0" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="220.0" y1="230.0" x2="100.0" y2="230.0" stroke="#7cb4d8" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="180.0" y1="260.0" x2="220.0" y2="230.0" stroke="#7cb4d8" stroke-width="1.2"/>
+  <line x1="60.0" y1="260.0" x2="60.0" y2="120.0" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="100.0" y1="230.0" x2="100.0" y2="90.0" stroke="#7cb4d8" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="60.0" y1="260.0" x2="100.0" y2="230.0" stroke="#7cb4d8" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <circle cx="60.0" cy="120.0" r="5" fill="#d6aa62"/>
+  <text x="44.0" y="124.0" fill="#d6aa62" font-size="11" text-anchor="start">1</text>
+  <circle cx="180.0" cy="120.0" r="5" fill="#d6aa62"/>
+  <text x="188.0" y="124.0" fill="#d6aa62" font-size="11" text-anchor="start">2</text>
+  <circle cx="180.0" cy="260.0" r="5" fill="#d6aa62"/>
+  <text x="188.0" y="264.0" fill="#d6aa62" font-size="11" text-anchor="start">3</text>
+  <circle cx="60.0" cy="260.0" r="5" fill="#d6aa62"/>
+  <text x="44.0" y="264.0" fill="#d6aa62" font-size="11" text-anchor="start">4</text>
+  <circle cx="100.0" cy="90.0" r="5" fill="#d6aa62"/>
+  <text x="84.0" y="94.0" fill="#d6aa62" font-size="11" text-anchor="start">5</text>
+  <circle cx="220.0" cy="90.0" r="5" fill="#d6aa62"/>
+  <text x="228.0" y="94.0" fill="#d6aa62" font-size="11" text-anchor="start">6</text>
+  <circle cx="220.0" cy="230.0" r="5" fill="#d6aa62"/>
+  <text x="228.0" y="234.0" fill="#d6aa62" font-size="11" text-anchor="start">7</text>
+  <circle cx="100.0" cy="230.0" r="5" fill="#d6aa62"/>
+  <text x="84.0" y="234.0" fill="#d6aa62" font-size="11" text-anchor="start">8</text>
+  <circle cx="140.0" cy="175.0" r="5.5" fill="#7fc4a2"/>
+  <text x="149.0" y="179.0" fill="#7fc4a2" font-size="11" text-anchor="start">중심</text>
+  <text x="130.0" y="286.0" fill="#e2e8f0" font-size="12" text-anchor="middle">꼭짓점 8 개 + 중심 1 개 = 9</text>
+  <text x="130.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="middle">4 개 이상 잡히면 PnP 로 R, t</text>
+  <line x1="250.0" y1="170.0" x2="282.0" y2="170.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-muted)"/>
+  <rect x="286.0" y="140.0" width="74.0" height="60.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="323.0" y="166.5" fill="#e2e8f0" font-size="14" text-anchor="middle">PnP</text>
+  <text x="323.0" y="183.5" fill="#94a3b8" font-size="12" text-anchor="middle">R, t</text>
+  <text x="400.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="start">② sugar box 의 ADD AUC</text>
+  <text x="400.0" y="72.0" fill="#e2e8f0" font-size="12" text-anchor="start">domain randomization 만</text>
+  <text x="660.0" y="72.0" fill="#94a3b8" font-size="12" text-anchor="end">30만 장</text>
+  <rect x="400.0" y="80.0" width="133.3" height="22.0" rx="3" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <rect x="400.0" y="80.0" width="200.0" height="22.0" rx="3" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <text x="527.3" y="96.0" fill="#0b1220" font-size="12" text-anchor="end" font-weight="600">66.64</text>
+  <text x="400.0" y="144.0" fill="#e2e8f0" font-size="12" text-anchor="start">사실적인 사진만</text>
+  <text x="660.0" y="144.0" fill="#94a3b8" font-size="12" text-anchor="end">60만 장</text>
+  <rect x="400.0" y="152.0" width="125.9" height="22.0" rx="3" fill="#cf96b8" stroke="#cf96b8" stroke-width="1"/>
+  <rect x="400.0" y="152.0" width="200.0" height="22.0" rx="3" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <text x="519.9" y="168.0" fill="#0b1220" font-size="12" text-anchor="end" font-weight="600">62.94</text>
+  <text x="400.0" y="216.0" fill="#e2e8f0" font-size="12" text-anchor="start">둘을 섞음</text>
+  <text x="660.0" y="216.0" fill="#94a3b8" font-size="12" text-anchor="end">12만 장</text>
+  <rect x="400.0" y="224.0" width="154.0" height="22.0" rx="3" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <rect x="400.0" y="224.0" width="200.0" height="22.0" rx="3" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <text x="548.0" y="240.0" fill="#0b1220" font-size="12" text-anchor="end" font-weight="600">77.00</text>
+  <text x="400.0" y="282.0" fill="#64748b" font-size="11" text-anchor="start">막대 끝 = 100</text>
+  <text x="400.0" y="300.0" fill="#64748b" font-size="11" text-anchor="start">위 두 막대는 장 수를 바꿔 본 실험에서 가장 높았던 값</text>
+</svg>

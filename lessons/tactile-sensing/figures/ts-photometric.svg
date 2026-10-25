@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>GelSight 의 photometric stereo. 왼쪽은 gel 단면으로, 물체에 눌려 패인 막을 왼쪽 빛 A 와 오른쪽 빛 B 가 아래에서 비추고 카메라가 찍는다. 오른쪽은 예로 든 pixel 7 개에서 두 빛의 밝기로 기울기 (A − B) ÷ (A + B) 를 구하고, 간격 0.1 mm 마다 기울기 × 0.1 을 더해 깊이 0.04, 0.07, 0.08, 0.07, 0.04, 0, 0 mm 를 얻는 과정이다</title>
+  <rect x="1" y="1" width="738" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="150" y="30" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">gel 단면 (빛 두 개로 줄인 예)</text>
+  <path d="M108,56 L108,80 Q150,112 192,80 L192,56 Q150,48 108,56 Z" fill="#94a3b8"/>
+  <text x="150" y="72" fill="#0b1220" font-size="11" text-anchor="middle" font-weight="600">물체</text>
+  <rect x="40" y="80" width="220" height="50" fill="#7cb4d8" fill-opacity="0.15" stroke="#7cb4d8" stroke-width="1.2"/>
+  <path d="M40,80 L108,80 Q150,112 192,80 L260,80" fill="none" stroke="#e2e8f0" stroke-width="2.6"/>
+  <text x="222" y="74" fill="#e2e8f0" font-size="11" text-anchor="start">반사막</text>
+  <text x="150" y="124" fill="#7cb4d8" font-size="11" text-anchor="middle">투명한 gel</text>
+  <circle cx="52" cy="200" r="8" fill="#d6aa62"/>
+  <text x="52" y="224" fill="#d6aa62" font-size="12" text-anchor="middle">빛 A</text>
+  <circle cx="248" cy="200" r="8" fill="#a99ad6"/>
+  <text x="248" y="224" fill="#a99ad6" font-size="12" text-anchor="middle">빛 B</text>
+  <line x1="58" y1="194" x2="126" y2="96" stroke="#d6aa62" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <line x1="242" y1="194" x2="174" y2="96" stroke="#a99ad6" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <rect x="133" y="218" width="34" height="24" rx="4" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.4"/>
+  <circle cx="150" cy="218" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="1.2"/>
+  <line x1="144" y1="212" x2="104" y2="134" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 3"/>
+  <line x1="156" y1="212" x2="196" y2="134" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 3"/>
+  <text x="150" y="260" fill="#e2e8f0" font-size="11" text-anchor="middle">카메라</text>
+  <text x="20" y="292" fill="#d6aa62" font-size="12">왼쪽 비탈은 빛 A 쪽을 향해 A 가 밝다</text>
+  <text x="20" y="314" fill="#a99ad6" font-size="12">오른쪽 비탈은 빛 B 쪽을 향해 B 가 밝다</text>
+  <text x="20" y="336" fill="#94a3b8" font-size="12">실제 센서: 공을 눌러 만든 lookup table</text>
+  <line x1="292" y1="44" x2="292" y2="344" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="510" y="30" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">pixel 7 개의 밝기에서 깊이까지</text>
+  <g font-size="12" text-anchor="middle">
+    <text x="305" y="58" fill="#94a3b8" text-anchor="start">pixel</text>
+    <text x="410" y="58" fill="#94a3b8">1</text><text x="455" y="58" fill="#94a3b8">2</text><text x="500" y="58" fill="#94a3b8">3</text><text x="545" y="58" fill="#94a3b8">4</text><text x="590" y="58" fill="#94a3b8">5</text><text x="635" y="58" fill="#94a3b8">6</text><text x="680" y="58" fill="#94a3b8">7</text>
+    <text x="305" y="84" fill="#d6aa62" text-anchor="start">빛 A</text>
+    <text x="410" y="84" fill="#e2e8f0">70</text><text x="455" y="84" fill="#e2e8f0">65</text><text x="500" y="84" fill="#e2e8f0">55</text><text x="545" y="84" fill="#e2e8f0">45</text><text x="590" y="84" fill="#e2e8f0">35</text><text x="635" y="84" fill="#e2e8f0">30</text><text x="680" y="84" fill="#e2e8f0">50</text>
+    <text x="305" y="108" fill="#a99ad6" text-anchor="start">빛 B</text>
+    <text x="410" y="108" fill="#e2e8f0">30</text><text x="455" y="108" fill="#e2e8f0">35</text><text x="500" y="108" fill="#e2e8f0">45</text><text x="545" y="108" fill="#e2e8f0">55</text><text x="590" y="108" fill="#e2e8f0">65</text><text x="635" y="108" fill="#e2e8f0">70</text><text x="680" y="108" fill="#e2e8f0">50</text>
+    <text x="305" y="132" fill="#7cb4d8" text-anchor="start">기울기</text>
+    <text x="410" y="132" fill="#7cb4d8">0.4</text><text x="455" y="132" fill="#7cb4d8">0.3</text><text x="500" y="132" fill="#7cb4d8">0.1</text><text x="545" y="132" fill="#7cb4d8">−0.1</text><text x="590" y="132" fill="#7cb4d8">−0.3</text><text x="635" y="132" fill="#7cb4d8">−0.4</text><text x="680" y="132" fill="#7cb4d8">0</text>
+    <text x="305" y="156" fill="#7fc4a2" text-anchor="start">깊이(mm)</text>
+    <text x="410" y="156" fill="#7fc4a2">0.04</text><text x="455" y="156" fill="#7fc4a2">0.07</text><text x="500" y="156" fill="#7fc4a2">0.08</text><text x="545" y="156" fill="#7fc4a2">0.07</text><text x="590" y="156" fill="#7fc4a2">0.04</text><text x="635" y="156" fill="#7fc4a2">0</text><text x="680" y="156" fill="#7fc4a2">0</text>
+  </g>
+  <line x1="300" y1="168" x2="720" y2="168" stroke="#1e293b" stroke-width="1"/>
+  <text x="305" y="204" fill="#94a3b8" font-size="11" text-anchor="start">깊이 0</text>
+  <line x1="380" y1="200" x2="705" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <path d="M387.5,200 L410,232 L455,256 L500,264 L545,256 L590,232 L635,200 L680,200 Z" fill="#7fc4a2" fill-opacity="0.2"/>
+  <polyline points="387.5,200 410,232 455,256 500,264 545,256 590,232 635,200 680,200" fill="none" stroke="#7fc4a2" stroke-width="2"/>
+  <g fill="#7fc4a2"><circle cx="410" cy="232" r="3"/><circle cx="455" cy="256" r="3"/><circle cx="500" cy="264" r="3"/><circle cx="545" cy="256" r="3"/><circle cx="590" cy="232" r="3"/><circle cx="635" cy="200" r="3"/><circle cx="680" cy="200" r="3"/></g>
+  <text x="652" y="234" fill="#7fc4a2" font-size="11" text-anchor="start">가장 깊은 곳</text>
+  <text x="652" y="250" fill="#7fc4a2" font-size="11" text-anchor="start">0.08 mm</text>
+  <line x1="387.5" y1="284" x2="612.5" y2="284" stroke="#e2e8f0" stroke-width="1.2"/>
+  <line x1="387.5" y1="278" x2="387.5" y2="290" stroke="#e2e8f0" stroke-width="1.2"/>
+  <line x1="612.5" y1="278" x2="612.5" y2="290" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="500" y="306" fill="#e2e8f0" font-size="12" text-anchor="middle">닿은 자리: pixel 1 ~ 5, 폭 5 × 0.1 = 0.5 mm</text>
+  <text x="305" y="336" fill="#7cb4d8" font-size="12" text-anchor="start">기울기 = (A − B) ÷ (A + B), 깊이 = 앞 깊이 + 기울기 × 0.1 mm</text>
+</svg>

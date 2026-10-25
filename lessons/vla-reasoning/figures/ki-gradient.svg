@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>knowledge insulation 의 구조. VLM backbone(약 30 억 parameter)은 사진·지시문·상태를 읽고 FAST token 과 웹 데이터의 next-token loss 로 학습한다. action expert(약 3 억 parameter)는 backbone 의 key·value 를 attention 으로 읽어 flow matching loss 로 학습하는데, 이 loss 의 gradient 는 action expert 만 고치고 backbone 으로 가는 길은 stop-gradient 에서 끊긴다. 오른쪽 표는 예로 든 gradient +0.2 와 −0.5 로 w 가 +0.03 대신 −0.02 만큼 바뀌는 계산이다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="758" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20.0" y="24.0" width="220.0" height="58.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="130.0" y="49.0" fill="#e2e8f0" font-size="14" text-anchor="middle">next-token loss</text>
+  <text x="130.0" y="68.0" fill="#94a3b8" font-size="12" text-anchor="middle">FAST token + 웹의 사진·글</text>
+  <rect x="300.0" y="24.0" width="200.0" height="58.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="400.0" y="49.0" fill="#e2e8f0" font-size="14" text-anchor="middle">flow matching loss</text>
+  <text x="400.0" y="68.0" fill="#94a3b8" font-size="12" text-anchor="middle">연속 action</text>
+  <rect x="20.0" y="140.0" width="220.0" height="70.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="130.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">VLM backbone</text>
+  <text x="130.0" y="190.0" fill="#94a3b8" font-size="12" text-anchor="middle">약 30 억 parameter</text>
+  <rect x="300.0" y="140.0" width="200.0" height="70.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="400.0" y="171.0" fill="#e2e8f0" font-size="14" text-anchor="middle">action expert</text>
+  <text x="400.0" y="190.0" fill="#94a3b8" font-size="12" text-anchor="middle">약 3 억 parameter</text>
+  <rect x="20.0" y="262.0" width="220.0" height="44.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="130.0" y="289.0" fill="#e2e8f0" font-size="14" text-anchor="middle">사진 · 지시문 · 상태</text>
+  <rect x="300.0" y="262.0" width="200.0" height="44.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="400.0" y="289.0" fill="#e2e8f0" font-size="14" text-anchor="middle">noise 가 섞인 action</text>
+  <line x1="130.0" y1="260.0" x2="130.0" y2="214.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="400.0" y1="260.0" x2="400.0" y2="214.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="100.0" y1="138.0" x2="100.0" y2="86.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="370.0" y1="138.0" x2="370.0" y2="86.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="242.0" y1="162.0" x2="296.0" y2="162.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <text x="269.0" y="154.0" fill="#94a3b8" font-size="11" text-anchor="middle">key·value</text>
+  <line x1="160.0" y1="86.0" x2="160.0" y2="136.0" stroke="#7fc4a2" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-green)"/>
+  <text x="167.0" y="116.0" fill="#7fc4a2" font-size="12" text-anchor="start">+0.2</text>
+  <line x1="430.0" y1="86.0" x2="430.0" y2="136.0" stroke="#d6aa62" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+  <text x="437.0" y="116.0" fill="#d6aa62" font-size="12" text-anchor="start">gradient</text>
+  <line x1="298.0" y1="196.0" x2="246.0" y2="196.0" stroke="#d88b8b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="272.0" y="201.0" fill="#d88b8b" font-size="16" text-anchor="middle" font-weight="700">✕</text>
+  <text x="272.0" y="228.0" fill="#d88b8b" font-size="12" text-anchor="middle">stop-gradient</text>
+  <text x="272.0" y="244.0" fill="#d88b8b" font-size="12" text-anchor="middle">−0.5 가 막힌다</text>
+  <rect x="530.0" y="24.0" width="210.0" height="282.0" rx="8" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="542.0" y="48.0" fill="#e2e8f0" font-size="13" text-anchor="start">w 의 변화 (예)</text>
+  <text x="542.0" y="66.0" fill="#94a3b8" font-size="11" text-anchor="start">learning rate 0.1</text>
+  <text x="542.0" y="98.0" fill="#e2e8f0" font-size="12" text-anchor="start">두 gradient 를 모두 받으면</text>
+  <text x="542.0" y="118.0" fill="#94a3b8" font-size="12" text-anchor="start">0.2 + (−0.5) = −0.3</text>
+  <text x="542.0" y="138.0" fill="#d88b8b" font-size="12" text-anchor="start">w: −0.1 × (−0.3) = +0.03</text>
+  <text x="542.0" y="156.0" fill="#d88b8b" font-size="12" text-anchor="start">FAST loss 가 늘어난다</text>
+  <line x1="542.0" y1="176.0" x2="728.0" y2="176.0" stroke="#334155" stroke-width="1"/>
+  <text x="542.0" y="202.0" fill="#e2e8f0" font-size="12" text-anchor="start">action expert 쪽을 막으면</text>
+  <text x="542.0" y="222.0" fill="#94a3b8" font-size="12" text-anchor="start">gradient 0.2</text>
+  <text x="542.0" y="242.0" fill="#7fc4a2" font-size="12" text-anchor="start">w: −0.1 × 0.2 = −0.02</text>
+  <text x="542.0" y="260.0" fill="#7fc4a2" font-size="12" text-anchor="start">FAST loss 가 줄어든다</text>
+  <text x="542.0" y="290.0" fill="#d6aa62" font-size="12" text-anchor="start">차이: +0.03 → −0.02</text>
+</svg>

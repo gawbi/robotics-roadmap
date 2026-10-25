@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>PnP 의 reprojection error 와 depth 방향의 약점. 투영한 (420, 210) 과 찾은 (423, 214) 의 차이는 5 pixel 이다. 20 cm 변이 200 대신 198 pixel 로 잡히면 depth 는 5 mm 틀리고, 옆으로 1 pixel 은 1 mm 다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="a-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="658" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="start">① 상자 윗면 꼭짓점의 reprojection error</text>
+  <rect x="24.0" y="42.0" width="262.0" height="110.0" rx="4" fill="#0e1626" stroke="#1e293b" stroke-width="1"/>
+  <rect x="53.0" y="71.0" width="230.0" height="69.0" rx="0" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="168.0" y="110.5" fill="#94a3b8" font-size="12" text-anchor="middle">20 × 6 cm 윗면, 0.5 m 앞</text>
+  <circle cx="283.0" cy="71.0" r="9" fill="none" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="53.0" y="63.0" fill="#64748b" font-size="11" text-anchor="start">(220, 210)</text>
+  <rect x="330.0" y="62.0" width="300.0" height="104.0" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.2"/>
+  <line x1="292.0" y1="71.0" x2="330.0" y2="82.0" stroke="#d6aa62" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="470.0" y1="84.0" x2="506.0" y2="84.0" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="506.0" y1="84.0" x2="506.0" y2="132.0" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="470.0" y1="84.0" x2="506.0" y2="132.0" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="470.0" cy="84.0" r="5" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="506.0" cy="132.0" r="5" fill="#d6aa62"/>
+  <text x="460.0" y="88.0" fill="#7cb4d8" font-size="12" text-anchor="end">투영 (420, 210)</text>
+  <text x="516.0" y="136.0" fill="#d6aa62" font-size="12" text-anchor="start">찾음 (423, 214)</text>
+  <text x="488.0" y="78.0" fill="#64748b" font-size="11" text-anchor="middle">3</text>
+  <text x="514.0" y="112.0" fill="#64748b" font-size="11" text-anchor="start">4</text>
+  <text x="480.0" y="156.0" fill="#d88b8b" font-size="13" text-anchor="middle">√(3² + 4²) = 5 pixel</text>
+  <text x="24.0" y="196.0" fill="#e2e8f0" font-size="14" text-anchor="start">② 같은 1 pixel 오차가 주는 위치 오차 (f = 500)</text>
+  <text x="195.0" y="220.0" fill="#94a3b8" font-size="12" text-anchor="middle">변화 전</text>
+  <text x="310.0" y="220.0" fill="#94a3b8" font-size="12" text-anchor="middle">변화 후</text>
+  <text x="455.0" y="220.0" fill="#94a3b8" font-size="12" text-anchor="middle">계산한 위치</text>
+  <text x="600.0" y="220.0" fill="#94a3b8" font-size="12" text-anchor="middle">변화량</text>
+  <rect x="24.0" y="222.0" width="612.0" height="34.0" rx="6" fill="#111a2e" stroke="#1e293b" stroke-width="1"/>
+  <text x="36.0" y="244.0" fill="#e2e8f0" font-size="13" text-anchor="start">depth 방향</text>
+  <text x="195.0" y="244.0" fill="#e2e8f0" font-size="12" text-anchor="middle">20 cm 변 200 pixel</text>
+  <text x="310.0" y="244.0" fill="#e2e8f0" font-size="12" text-anchor="middle">198 pixel</text>
+  <text x="455.0" y="244.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.500 m → 0.505 m</text>
+  <text x="600.0" y="244.0" fill="#d88b8b" font-size="13" text-anchor="middle" font-weight="600">+5 mm</text>
+  <rect x="24.0" y="266.0" width="612.0" height="34.0" rx="6" fill="#111a2e" stroke="#1e293b" stroke-width="1"/>
+  <text x="36.0" y="288.0" fill="#e2e8f0" font-size="13" text-anchor="start">옆 방향</text>
+  <text x="195.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">u: 420</text>
+  <text x="310.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">421</text>
+  <text x="455.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">x: 0.100 m → 0.101 m</text>
+  <text x="600.0" y="288.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">+1 mm</text>
+  <text x="330.0" y="330.0" fill="#94a3b8" font-size="12" text-anchor="middle">depth = 500 × 0.2 ÷ 198 ≈ 0.505 m,  옆 방향 1 pixel = 0.5 ÷ 500 = 0.001 m</text>
+</svg>

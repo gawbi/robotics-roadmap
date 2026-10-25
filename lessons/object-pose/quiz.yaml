@@ -1,0 +1,337 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: pose-6d
+  title: 6D pose 의 뜻
+  section: 6d-pose
+  variants:
+    - question: |
+        물체 pose 추정기가 내는 6D pose $T_{co}$ 는 무엇을 나타내는가?
+      choices:
+        - 'object frame 의 방향(rotation)과 원점의 위치(translation)를 camera frame 에서 잰 값'
+        - '사진에서 물체를 둘러싼 bounding box 의 두 꼭짓점 pixel 과, 그 두 점까지의 depth 값 두 개'
+        - '물체 가운데의 3D 위치 세 개와, 그 위치를 잰 카메라의 focal length 와 principal point'
+        - 'gripper 가 물체를 쥘 위치와 방향으로, 로봇 base frame 에서 잰 손끝의 목표 자세'
+      answer: 0
+      explanation: |
+        6D pose 는 CAD model 에 붙인 object frame 이 camera frame 에서 어느 방향으로 돌아가 있고(rotation 3 개) 원점이 어디에 있는지(translation 3 개)를
+        합친 숫자 6 개다. bounding box 와 depth 는 거리 일부만 줄 뿐 방향을 주지 않는다. focal length 와 principal point 는 카메라의 intrinsics 라서 물체의
+        pose 가 아니다. gripper 의 목표 자세는 pose 를 hand-eye transform 과 grasp 정의에 이어 계산한 결과이지 pose 추정기의 출력이 아니다.
+    - question: |
+        책상 위에 선 머그컵의 가운데 3D 위치는 정확히 알지만 rotation 은 모른다. 손잡이를 집는 grasp 를 정할 수 없는 이유로 가장 알맞은 것은?
+      choices:
+        - '가운데 위치에는 depth 오차가 섞여 있어서, 손잡이를 집을 만큼 정확한 높이를 얻을 수 없기 때문이다'
+        - 'grasp 는 bounding box 의 pixel 로만 정할 수 있어서, 3D 위치는 IK 단계에서만 쓰이기 때문이다'
+        - '컵이 제자리에서 돌면 가운데는 그대로인데 손잡이는 다른 곳으로 옮겨 가서, 방향 없이는 손잡이 위치를 모르기 때문이다'
+        - '손잡이는 컵보다 작아서 camera 가 찍지 못하므로, 손잡이 위치는 tracking 으로만 구할 수 있기 때문이다'
+      answer: 2
+      explanation: |
+        손잡이는 object frame 에서 정해진 점이라 camera 좌표는 $R\,p_o + t$ 로 rotation 에 따라 바뀐다. 가운데가 같은 두 컵도 90° 돌면 손잡이가 약
+        10 cm 떨어진 곳에 있다. 문제에서 가운데 위치는 정확하다고 했으므로 depth 오차는 이유가 아니다. grasp 는 3D pose 로 정하고, IK 는 그 pose 를 받아
+        관절 각도를 구한다. 손잡이가 찍히지 않는다는 조건은 문제에 없다. tracking 도 결국 같은 pose 를 갱신하는 일이다.
+    - question: |
+        rotation matrix 는 숫자가 9 개인데 6D pose 의 rotation 을 숫자 3 개로 세는 이유는 무엇인가?
+      choices:
+        - '9 개 가운데 대각선의 3 개만 회전을 나타내고, 나머지 6 개는 translation 을 담는 칸이기 때문이다'
+        - 'camera 의 intrinsics 가 숫자 6 개를 미리 정해 두므로, pose 추정기는 남은 3 개만 구하면 되기 때문이다'
+        - 'roll·pitch·yaw 로 바꾸면 gimbal lock 때문에 숫자 6 개가 사라지고 3 개만 남기 때문이다'
+        - '세 열의 길이가 1 이고 서로 직각이어야 한다는 조건 6 개가 붙어서, 독립인 숫자는 3 개뿐이기 때문이다'
+      answer: 3
+      explanation: |
+        rotation matrix 의 세 열은 object frame 축의 방향이라 길이가 1 이고 서로 직각이어야 한다. 이 조건 6 개 때문에 9 개 가운데 독립인 숫자는 3 개다.
+        translation 은 rotation matrix 밖의 넷째 열에 따로 담긴다. intrinsics 는 카메라 자체의 숫자라 물체의 rotation 과 관계가 없다. gimbal lock 은
+        roll·pitch·yaw 표현에서 특정 각도에 자유도 하나를 잃는 문제이지 숫자를 줄이는 원리가 아니다.
+
+- topic: pnp-depth
+  title: PnP 와 depth 방향의 오차
+  section: 2d3d-대응과-pnp
+  variants:
+    - question: |
+        PnP 로 물체의 pose 를 구하려면 무엇이 필요한가?
+      choices:
+        - '물체를 찍은 depth 의 point cloud 와 CAD model 의 점, 그리고 둘을 맞출 첫 pose 하나'
+        - 'object frame 의 3D 점과 그 점이 찍힌 pixel 의 짝 여러 개, 카메라 intrinsics'
+        - '같은 물체를 옆으로 나란히 찍은 사진 두 장과, 두 카메라 사이의 거리(baseline)'
+        - '물체의 bounding box 와, 같은 물체를 여러 pose 로 미리 렌더해 둔 그림의 목록'
+      answer: 1
+      explanation: |
+        PnP 는 위치를 아는 3D 점과 그 점이 찍힌 pixel 의 짝(2D–3D 대응)으로 reprojection error 를 가장 작게 하는 $R$, $t$ 를 찾고, 투영 계산에 intrinsics 가
+        필요하다. point cloud 와 첫 pose 로 맞추는 것은 ICP 다. 사진 두 장과 baseline 은 stereo depth 계산의 입력이다. 렌더한 그림 목록과 box 는
+        template 비교나 render-and-compare 의 입력이다.
+    - question: |
+        RGB 사진만 쓰는 PnP 로 0.5 m 앞의 물체 pose 를 구했다. keypoint 가 1 pixel 씩 틀릴 때 위치 오차는 어느 방향으로 크게 나오는가?
+      choices:
+        - '사진의 가로 방향이 가장 크다. 사진은 가로 pixel 이 더 많아서 가로 1 pixel 이 더 먼 거리에 해당하기 때문이다'
+        - '모든 방향이 같다. 1 pixel 은 가로든 세로든 depth 든 늘 $Z \div f$ 만큼의 거리에 해당하기 때문이다'
+        - '사진의 세로 방향이 가장 크다. 세로 pixel 좌표 $v$ 는 아래로 갈수록 커져서 오차도 함께 커지기 때문이다'
+        - '카메라 앞쪽(depth) 방향이다. 거리를 찍힌 크기의 비로 구해서 작은 pixel 오차가 크게 번지기 때문이다'
+      answer: 3
+      explanation: |
+        사진만 쓰면 거리는 물체가 찍힌 크기에서 구한다. 그래서 20 cm 변이 200 pixel 대신 198 pixel 로 잡히면 depth 가 5 mm 틀리지만, 옆으로 1 pixel
+        틀리면 위치는 1 mm 만 틀린다.
+        Joyce 등(2025)도 RGB 추정기의 translation 오차 80% 이상이 시선 방향에서 나왔다고 보고했다. 가로·세로 pixel 의 크기는 같다. $v$ 가 커지는 방향은
+        오차 크기와 관계없다. $Z \div f$ 는 옆 방향 1 pixel 의 거리일 뿐 depth 방향 오차는 그보다 크다.
+    - question: |
+        대응 3 개만으로 PnP 를 풀면 어떤 문제가 생기는가?
+      choices:
+        - '식은 6 개라 숫자는 맞지만 답이 최대 4 개라서, 하나를 고르려면 넷째 점이 필요하다'
+        - '식이 3 개뿐이라 모르는 숫자 6 개를 정할 수 없어서, 점이 최소 6 개는 있어야 한다'
+        - '점 3 개는 늘 한 평면 위에 있어서 depth 를 알 수 없고, ICP 로만 풀 수 있다'
+        - 'RANSAC 이 한 번에 5 개를 뽑기 때문에, 3 개로는 inlier 를 셀 수 없어 답이 나오지 않는다'
+      answer: 0
+      explanation: |
+        대응 하나가 $u$, $v$ 식 두 개를 주므로 3 개면 식 6 개로 모르는 숫자 6 개와 개수는 같다. 하지만 OpenCV 문서에 따르면 답이 최대 4 개라서 넷째 점으로
+        하나를 고른다. 식이 3 개라는 것은 대응 하나가 식 두 개를 준다는 사실을 놓친 계산이다. 평면 위 점으로도 PnP 를 풀 수 있다(ArUco marker).
+        RANSAC 의 표본 크기는 PnP 자체의 최소 점 수와 다른 문제다.
+
+- topic: ransac
+  title: RANSAC 과 outlier
+  section: ransac
+  variants:
+    - question: |
+        PnP 에 틀린 대응(outlier)이 섞일 때 RANSAC 이 pose 를 지키는 방식은 무엇인가?
+      choices:
+        - '모든 대응의 reprojection error 를 평균해, 평균보다 큰 대응을 한 번에 지운 뒤 다시 푼다'
+        - '대응마다 weight 를 학습해서 outlier 의 weight 를 0 으로 만드는 network 를 함께 쓴다'
+        - '대응 몇 개로 pose 를 여러 번 구하고, 문턱 안에 드는 대응이 가장 많은 pose 를 고른다'
+        - 'outlier 의 오차를 제곱하지 않고 그대로 더해, 큰 오차의 영향을 줄인 PnP 를 한 번 푼다'
+      answer: 2
+      explanation: |
+        RANSAC 은 대응 몇 개(OpenCV 는 5 개)로 pose 를 구하고, 모든 점을 투영해 reprojection error 가 문턱 안인 inlier 를 센다. 이를 되풀이한 뒤
+        inlier 가 가장 많은 pose 의 inlier 로만 다시 푼다. 평균에는 outlier 가 이미 섞여 있어 기준 자체가 끌려간다. RANSAC 은 학습하는 network 가 아니다. 오차를
+        제곱하지 않는 방법도 outlier 의 영향을 줄일 뿐 outlier 를 골라내지 않으며 RANSAC 의 방식이 아니다.
+    - question: |
+        대응 5 개씩 뽑는 RANSAC 에서 inlier 비율이 0.5 에서 0.3 으로 떨어지면 99% 확률을 맞추는 반복 횟수는 어떻게 되는가?
+      choices:
+        - '약 1,900 번으로 크게 는다. 5 개가 모두 inlier 일 확률 $w^5$ 가 빠르게 줄기 때문이다'
+        - '약 240 번으로 는다. 반복 횟수는 inlier 비율에 반비례해서 비율이 줄면 그만큼만 늘기 때문이다'
+        - '145 번 그대로다. 반복 횟수는 원하는 확률 99% 로만 정해지고 inlier 비율과는 관계없기 때문이다'
+        - '약 90 번으로 준다. outlier 가 많으면 틀린 pose 가 빨리 드러나서 일찍 멈출 수 있기 때문이다'
+      answer: 0
+      explanation: |
+        5 개가 모두 inlier 일 확률은 $w^5$ 라서 0.5 에서는 0.031 이고 0.3 에서는 0.0024 다. 그래서 필요한 횟수 $\log(1 - p) \div \log(1 - w^5)$ 는 145 번에서
+        1,893 번으로 는다. 반비례가 아니라 다섯제곱으로 줄어드는 확률 때문에 훨씬 빠르게 는다. 식에 $w$ 가 들어 있으므로 비율과 관계없다는 답은 틀리다.
+        outlier 가 많을수록 inlier 만 뽑기 어려워지므로 횟수가 줄 수 없다.
+    - question: |
+        OpenCV `solvePnPRansac` 의 `iterationsCount` 기본값 100 으로 inlier 가 30% 인 대응을 풀었더니 pose 가 자주 틀린다. 가장 알맞은 대응은?
+      choices:
+        - '`reprojectionError` 문턱을 8 pixel 에서 80 pixel 로 늘려, outlier 도 inlier 로 세게 만든다'
+        - '상한을 올리거나, segmentation mask 안의 대응만 남겨 inlier 비율을 먼저 올린다'
+        - '`iterationsCount` 를 10 으로 줄여, 적게 뽑을수록 outlier 가 섞일 기회를 줄인다'
+        - 'RANSAC 을 빼고 모든 대응으로 PnP 를 한 번 풀어, 많은 대응으로 outlier 를 평균해 지운다'
+      answer: 1
+      explanation: |
+        100 은 상한이라 OpenCV 는 그 이상 뽑지 않는다. inlier 30% 에서 99% 를 맞추려면 약 1,900 번이 필요하고, 100 번이면 성공 확률이 21.6% 다. 그래서
+        상한을 올리거나 mask 로 물체 영역의 대응만 남겨 $w$ 를 올린다. 문턱을 크게 늘리면 outlier 가 inlier 로 세어져 pose 가 끌려간다. 반복을 줄이면
+        inlier 만 뽑을 확률이 더 떨어진다. outlier 는 제곱 오차로 큰 몫을 차지해 평균으로 지워지지 않는다.
+
+- topic: icp-basin
+  title: ICP 와 basin of attraction
+  section: depth-와-icp
+  variants:
+    - question: |
+        depth 의 point cloud 에 CAD model 을 ICP 로 맞췄는데, 오차가 0 이 아닌 엉뚱한 pose 에서 멈췄다. 가장 가능성 높은 원인은?
+      choices:
+        - 'ICP 는 반복할수록 오차가 커지는 방법이라서, 반복 횟수를 넘기면 늘 엉뚱한 자리에서 멈춘다'
+        - 'depth 에 noise 가 조금이라도 있으면 ICP 는 짝을 짓지 못해서 첫 pose 를 그대로 낸다'
+        - 'CAD model 의 점 수가 point cloud 보다 많으면 ICP 의 rotation 계산이 정의되지 않는다'
+        - '첫 pose 가 참값에서 멀어서 가장 가까운 점이 틀린 짝이 되고, 그 짝으로 local minimum 에 멈췄다'
+      answer: 3
+      explanation: |
+        ICP 는 지금 pose 에서 가장 가까운 점을 짝으로 정하므로, 출발점이 basin of attraction 밖이면 틀린 짝으로 오차가 둘레보다 작은 local minimum 에
+        멈춘다. 방열판 예에서 1.0 cm 에서 출발하면 1.5 cm 에서 멈췄다. ICP 는 반복마다 오차를 줄이는 방법이다. noise 가 있어도 짝은 지어지고 결과가 조금
+        흔들릴 뿐이다. 두 점 집합의 개수가 달라도 짝을 지어 rotation 을 구할 수 있다.
+    - question: |
+        PoseCNN 이 network 의 pose 를 조금씩 흔든 여러 출발점에서 ICP 를 실행하고 가장 잘 맞은 결과를 고른 이유는 무엇인가?
+      choices:
+        - 'ICP 는 출발점마다 다른 dataset 으로 학습되어서, 여러 번 실행해야 학습한 weight 를 모두 쓸 수 있기 때문이다'
+        - 'ICP 는 출발점 근처의 local minimum 에 수렴해서, 여러 출발점이 있어야 basin 안의 출발점을 얻을 수 있기 때문이다'
+        - 'ICP 한 번은 rotation 만 고치고 translation 은 고치지 못해서, 흔든 출발점으로 translation 을 맞추기 때문이다'
+        - '여러 번 실행한 결과를 평균하면 depth noise 가 줄어서, 하나만 고르는 것보다 늘 정확해지기 때문이다'
+      answer: 1
+      explanation: |
+        ICP 는 출발점에서 가까운 local minimum 으로 가므로, 출발점 하나가 basin 밖이면 틀린 pose 에서 멈춘다. 여러 출발점을 쓰면 그 가운데 basin 안의
+        것이 있을 가능성이 커져, 가장 잘 맞은 결과를 고를 수 있다. ICP 는 학습하는 방법이 아니다. 짝이 정해지면 rotation 과 translation 을 함께 구한다.
+        PoseCNN 은 결과를 평균하지 않고 가장 잘 맞은 하나를 고른다.
+    - question: |
+        2 cm 간격의 핀이 선 방열판을 ICP 로 맞출 때, 참값으로 수렴하는 출발점의 범위(basin of attraction)는 대략 어떻게 정해지는가?
+      choices:
+        - '범위가 없다. ICP 는 어떤 출발점에서든 반복만 충분하면 참값으로 수렴한다'
+        - '핀 간격 2 cm 의 두 배인 ±4 cm 안이다. 짝이 바뀌려면 두 핀을 건너야 하기 때문이다'
+        - '참값에서 핀 간격의 절반인 1 cm 안이다. 그보다 멀면 이웃 핀과 짝지어지기 때문이다'
+        - '0 cm 다. 참값에서 출발하지 않으면 ICP 는 언제나 이웃 핀과 짝을 짓기 때문이다'
+      answer: 2
+      explanation: |
+        가장 가까운 점으로 짝을 지으므로, 출발점이 참값에서 핀 간격의 절반(1 cm)보다 가까우면 모든 핀이 제 짝을 찾아 참값으로 간다(2.2 cm 에서
+        출발하면 3.0 에 닿는다). 그보다 멀면 이웃 핀과 짝지어져 local minimum 에 멈춘다(1.0 cm 에서 출발하면 1.5 에서 멈춘다). 반복을 늘려도 짝이
+        그대로면 같은 자리에 머문다. 4 cm 차이면 이웃 핀과 짝지어진다. 1 cm 안이면 참값에서 출발하지 않아도 제 짝을 찾는다.
+
+- topic: symmetry-metric
+  title: 대칭 물체와 BOP 지표
+  section: 대칭-물체와-오차-지표
+  variants:
+    - question: |
+        무늬 없는 직육면체 상자를 수직축으로 180° 돌린 pose 를 ADD 로 평가하면 어떤 문제가 생기는가?
+      choices:
+        - '사진으로 구별되지 않는 정답인데도, 같은 점끼리 거리를 재서 오차가 커 틀렸다고 판정된다'
+        - '돌린 pose 는 꼭짓점 집합이 같아서 ADD 가 0 이 되고, 실제로 틀린 pose 도 맞았다고 판정된다'
+        - 'ADD 는 rotation 을 재지 않고 translation 만 재서, 180° 돌린 것을 전혀 알아차리지 못한다'
+        - 'ADD 는 depth 가 있어야 계산되므로, RGB 만 쓰는 방법에서는 이 pose 를 평가할 수 없다'
+      answer: 0
+      explanation: |
+        ADD 는 model 의 같은 점을 두 pose 로 옮겨 거리를 평균한다. 180° 돌린 상자는 꼭짓점이 반대편으로 가서, 20 × 6 × 4 cm 상자에서는 ADD 가
+        20.9 cm 다.
+        사진으로 구별되지 않는 pose 인데도 문턱 2.13 cm 를 넘어 틀렸다고 판정된다. 가장 가까운 점과 재서 0 이 되는 것은 ADD-S 다. ADD 는 model 점
+        전체를 옮기므로 rotation 오차도 반영한다. ADD 는 CAD model 과 두 pose 로 계산하므로 입력 사진의 종류와 관계없다.
+    - question: |
+        ADD-S 를 grasp 에 쓸 pose 를 고르는 지표로만 쓰면 위험한 이유는 무엇인가?
+      choices:
+        - 'ADD-S 는 diameter 로 나누지 않아서 큰 물체일수록 오차가 작게 나오기 때문이다'
+        - 'ADD-S 는 depth 만 비교해서 사진에 보이지 않는 면의 오차를 놓치기 때문이다'
+        - '가장 가까운 점과만 비교해서, 손잡이가 반대쪽인 컵처럼 구별되는 잘못도 작게 재기 때문이다'
+        - 'ADD-S 는 rotation 오차만 재고 translation 오차는 재지 않아 위치가 틀려도 0 이 나오기 때문이다'
+      answer: 2
+      explanation: |
+        ADD-S 는 점마다 가장 가까운 점까지의 거리를 평균하므로, 대부분의 점이 몸통 표면에 겹치는 컵은 손잡이가 반대쪽이어도 오차가 작게 나온다. BOP
+        2020 보고서도 ADD-S 가 구별되는 pose 에서 직관에 맞지 않게 낮을 수 있다고 적는다. 문턱을 diameter 비율로 두는 것은 판정 규칙이지 ADD-S 의 결함이 아니다.
+        보이는 표면의 depth 만 비교하는 것은 VSD 다. ADD-S 는 옮긴 점 사이의 거리라서 translation 오차도 들어간다.
+    - question: |
+        BOP 가 pose 의 정확도를 AR(Average Recall)로 매기는 방식으로 옳은 것은?
+      choices:
+        - '오차가 가장 작은 물체 하나의 recall 을 골라서, 그 값을 dataset 전체의 점수로 쓴다'
+        - 'ADD 하나만 쓰고, 문턱을 diameter 의 10% 하나로 정해서 맞은 비율을 점수로 쓴다'
+        - '세 지표의 오차를 더한 값이 diameter 보다 작으면 1 을 주고, 크면 0 을 주어 평균한다'
+        - '지표마다 여러 문턱에서 맞은 비율을 평균하고, VSD·MSSD·MSPD 의 값을 다시 평균한다'
+      answer: 3
+      explanation: |
+        BOP 는 지표마다 문턱 여러 개에서 recall 을 구해 평균한 AR 을 쓰고, dataset 의 점수는 VSD·MSSD·MSPD 의 AR 평균이다. MSSD 3 cm 인 추정은 21.3 cm 상자의
+        문턱 10 개 가운데 8 개를 통과해 0.8 을 보탠다. 물체 하나만 고르면 dataset 전체를 대표하지 못한다. 문턱 하나의 ADD 는 BOP 이전의 관례다. 세 오차를
+        더하는 규칙은 BOP 에 없다.
+
+- topic: synthetic-data
+  title: 합성 데이터와 domain randomization
+  section: 학습한-pose-추정과-합성-데이터
+  variants:
+    - question: |
+        domain randomization 으로 학습 사진을 만드는 이유는 무엇인가?
+      choices:
+        - '실제 사진과 똑같은 사진을 렌더해서 simulation 과 실제 사이의 차이를 0 으로 만들려는 것이다'
+        - '무늬·조명·배경을 마구 바꿔서 실제 사진도 network 에게 학습한 변형 가운데 하나로 보이게 하려는 것이다'
+        - '사진 수를 줄이려는 것이다. 무작위로 바꾸면 적은 사진으로도 세상의 모든 물체를 학습할 수 있다'
+        - '정답 pose 를 사람이 달기 쉽게 하려는 것이다. 비현실적인 사진에서는 꼭짓점이 더 잘 보인다'
+      answer: 1
+      explanation: |
+        domain randomization 은 학습 사진의 무늬, 조명, 배경, 방해 물체를 일부러 비현실적으로 바꿔, 실제 사진이 network 에게 또 하나의 변형으로 보이게
+        한다. Tobin 등은 이렇게 만든 합성 사진만으로 실제 물체를 1.5 cm 안으로 찾았다. 사진을 실제와 똑같이 만드는 것은 사실적인(photorealistic) 렌더링의
+        목표다. DOPE 의 실험에서는 오히려 사진을 수만 장씩 썼다. 합성 데이터는 물체를 놓은 pose 가 simulation 에 이미 있어서 사람이 정답을 달 필요가 없다.
+    - question: |
+        DOPE 의 sugar box 실험에서 domain randomization 사진 6만 장과 사실적인 사진 6만 장을 섞은 12만 장의 AUC 가, 한 종류만 30만 ~ 60만 장 쓴 경우보다
+        높았다. 이 결과로 알 수 있는 것은?
+      choices:
+        - '사진 수가 많을수록 성능이 떨어진다. 12만 장보다 많으면 network 가 합성 사진에 과적합한다'
+        - '사실적인 사진은 쓸모가 없다. 결과를 올린 것은 섞은 사진 안의 domain randomization 사진뿐이다'
+        - 'domain randomization 은 쓸모가 없다. 사실적인 사진을 6만 장만 써도 같은 결과가 나온다'
+        - '두 종류가 서로 다른 변화를 보여 주어서, 양보다 종류를 섞는 것이 reality gap 을 더 잘 메운다'
+      answer: 3
+      explanation: |
+        AUC 는 domain randomization 만 30만 장 쓰면 66.64 였고 사실적인 사진만 60만 장 쓰면 62.94 였다. 두 값 모두 둘을 섞은 12만 장의 77.00 보다
+        낮았으므로, 두 종류를 섞는 것이 양을 늘리는 것보다 효과가 컸다. 한 종류의 사진 수를 늘리면 처음에는 성능이 올랐으므로 많을수록 떨어진다는
+        결론은 맞지 않는다. domain randomization 사진만 쓴 66.64 도 섞은 결과보다 낮았으므로 사실적인 사진이 쓸모없다는 해석은 틀리다. 사실적인 사진만 60만 장 써도 62.94 였으므로
+        domain randomization 이 쓸모없다는 해석도 틀리다.
+    - question: |
+        PoseCNN 이나 DOPE 로 학습한 network 를 새 물체에 쓰려면 어떻게 해야 하는가?
+      choices:
+        - '새 물체의 데이터로 다시 학습해야 한다. 학습한 물체만 다루는 instance-level 방법이다'
+        - '새 물체의 CAD model 만 넣어 주면 된다. network 가 model 을 렌더해 바로 비교하기 때문이다'
+        - '아무것도 할 필요가 없다. 합성 데이터로 학습한 network 는 어떤 물체든 pose 를 낸다'
+        - '새 물체를 찍은 사진 16 장만 넣어 주면 된다. 그 사진에서 물체의 모양을 몇 초 만에 배운다'
+      answer: 0
+      explanation: |
+        PoseCNN 과 DOPE 는 학습한 물체만 다루는 instance-level 방법이라 새 물체를 쓰려면 그 물체의 합성 데이터를 만들어 다시 학습해야 한다. MegaPose 논문은 이
+        준비에 물체마다 몇 시간에서 며칠이 걸린다고 적는다. CAD model 을 넣어 렌더해 비교하는 것은 MegaPose·FoundationPose 의 방식이다. 합성 데이터로
+        학습했다고 해서 학습하지 않은 물체로 넓어지지는 않는다. 사진 16 장으로 새 물체를 받는 것은 FoundationPose 의 model-free 설정이다.
+
+- topic: render-compare
+  title: render-and-compare 와 처음 보는 물체
+  section: render-and-compare
+  variants:
+    - question: |
+        render-and-compare 방식의 refiner 가 pose 를 고치는 과정으로 옳은 것은?
+      choices:
+        - '사진에서 물체 꼭짓점의 pixel 을 찾아, 꼭짓점의 짝으로 PnP 를 한 번 풀어 pose 를 낸다'
+        - 'depth 의 점마다 CAD model 의 가장 가까운 점을 짝지어, 짝 사이 거리 제곱 합을 줄인다'
+        - '지금 pose 로 렌더한 그림과 사진의 물체 영역을 넣어 고칠 양을 받고, 고친 뒤 다시 렌더한다'
+        - '사진 전체를 network 에 넣어 quaternion 과 거리를 한 번에 맞히고, 그 값을 그대로 쓴다'
+      answer: 2
+      explanation: |
+        refiner 는 지금 pose 로 렌더한 그림과 사진에서 자른 물체 영역을 비교해 Δt, ΔR 을 내고, 고친 pose 로 다시 렌더하기를 되풀이한다. DeepIM 은 이렇게
+        PoseCNN 의 pose 를 고쳐 LINEMOD 의 ADD 정답률을 62.7% 에서 88.6% 로 올렸다. keypoint 와 PnP 는 DOPE 의 방식이다. 가장 가까운 점끼리 맞추는 것은
+        ICP 다. 한 번에 맞히는 것은 PoseCNN 같은 regression 이다.
+    - question: |
+        MegaPose 나 FoundationPose 가 refiner 앞에 hypothesis(후보 pose) 수백 개를 만들고 점수를 매기는 단계를 두는 이유는 무엇인가?
+      choices:
+        - 'refiner 는 학습 때 본 범위 안의 오차만 고쳐서, basin 안에서 출발할 첫 pose 를 골라 줘야 하기 때문이다'
+        - 'refiner 는 한 번에 hypothesis 하나만 받으므로, 수백 개를 만들어야 GPU 를 다 쓸 수 있기 때문이다'
+        - 'hypothesis 를 평균하면 noise 가 줄어서, 평균 pose 가 가장 좋은 hypothesis 보다 늘 정확하기 때문이다'
+        - '점수 단계가 pose 를 직접 고치고 refiner 는 점수만 매기므로, hypothesis 가 많아야 고칠 재료가 생기기 때문이다'
+      answer: 0
+      explanation: |
+        refiner 는 정답에 일정 범위의 noise 를 더한 pose 를 고치도록 학습해서, 그 범위(basin of attraction) 밖에서 출발하면 고치지 못한다. MegaPose 저자들도
+        가장 흔한 실패로 coarse 단계의 pose 가 basin 밖인 경우를 꼽았다. GPU 를 채우는 것은 목적이 아니다. 서로 다른 방향의 hypothesis 를 평균하면 엉뚱한
+        rotation 이 나온다. pose 를 고치는 것은 refiner 이고 점수 단계는 hypothesis 를 고를 뿐이다.
+    - section: foundationpose
+      question: |
+        FoundationPose 의 score network 는 hypothesis 들을 함께 self-attention 에 넣을 때 position embedding 을 쓰지 않는다. 그 이유는 무엇인가?
+      choices:
+        - 'position embedding 을 넣으면 hypothesis 의 수가 학습 때와 같아야 해서, tracking 을 할 수 없기 때문이다'
+        - 'hypothesis 의 순서에는 뜻이 없어서, 순서를 바꿔도 같은 점수가 나오게 해야 하기 때문이다'
+        - 'hypothesis 는 사진의 patch 가 아니라 숫자 하나라서, 더할 위치가 없기 때문이다'
+        - 'position embedding 은 ViT 의 분류에서만 쓰는 장치라서, pose 추정에는 쓸 수 없기 때문이다'
+      answer: 1
+      explanation: |
+        self-attention 은 위치 정보가 없으면 token 의 순서를 바꿔도 출력이 같다. hypothesis 를 늘어놓은 순서에는 뜻이 없으므로 저자들은 일부러 position
+        embedding 을 넣지 않았다. tracking 은 hypothesis 하나로 refiner 만 쓰므로 이 선택과 관계없다. hypothesis 하나는 숫자 512 개짜리 vector 다.
+        FoundationPose 의 refiner 도 patch token 에 position embedding 을 더하므로 pose 추정에 쓸 수 없는 장치가 아니다.
+
+- topic: pose-to-grasp
+  title: pose 에서 grasp 와 tracking 까지
+  section: pose-에서-grasp-까지
+  variants:
+    - question: |
+        base frame 의 grasp pose 를 $T_{bg} = T_{bc}\,T_{co}\,T_{og}$ 로 구한다. 세 항을 각각 어디서 얻는가?
+      choices:
+        - '세 항 모두 pose 추정기가 한 번에 낸다. network 가 base, camera, grasp 의 관계를 함께 학습하기 때문이다'
+        - '$T_{bc}$ 는 pose 추정기가 내고, $T_{co}$ 는 hand-eye calibration 으로 구하고, $T_{og}$ 는 IK 로 푼다'
+        - '$T_{bc}$ 는 URDF 의 joint limit 에서 읽고, $T_{co}$ 는 depth 로 back-projection 하고, $T_{og}$ 는 RANSAC 으로 고른다'
+        - '$T_{bc}$ 는 hand-eye calibration 으로 구하고, $T_{co}$ 는 pose 추정기가 내고, $T_{og}$ 는 CAD model 위에서 미리 정해 둔다'
+      answer: 3
+      explanation: |
+        base 에서 본 카메라 $T_{bc}$ 는 hand-eye calibration 으로 구하고, 카메라에서 본 물체 $T_{co}$ 는 pose 추정기가 내며, 물체에서 본 gripper $T_{og}$ 는
+        CAD model 위에서 미리 정해 둔다(Isaac Sim 의 grasp YAML 도 물체 frame 에서 잰 gripper pose 다). pose 추정기는 물체의 pose 만 낸다. IK 는 grasp
+        pose 를 받아 관절 각도를 구하는 다음 단계다. joint limit 은 관절 범위이고, RANSAC 은 대응의 outlier 를 거르는 방법이다.
+    - question: |
+        pose 의 rotation 이 5° 틀렸다. 물체 원점에서 7 cm 떨어진 손잡이를 쥐는 grasp 위치는 대략 얼마나 어긋나는가?
+      choices:
+        - '0 mm 다. rotation 오차는 방향만 바꾸고 위치는 translation 만 정하기 때문이다'
+        - '약 6 mm 다. rotation 오차는 원점에서 grasp 점까지의 거리를 곱한 만큼 위치를 옮기기 때문이다'
+        - '약 44 mm 다. rotation 오차는 카메라에서 물체까지의 거리 0.5 m 를 곱한 만큼 옮기기 때문이다'
+        - '5 cm 다. rotation 1° 가 1 cm 의 위치 오차가 되는 것이 pose 추정의 일반 규칙이기 때문이다'
+      answer: 1
+      explanation: |
+        object frame 의 점은 $R\,p_o + t$ 로 옮겨지므로 rotation 이 틀리면 원점에서 떨어진 점일수록 많이 움직인다. 7 cm 떨어진 손잡이는
+        $0.07 \times \tan 5° \approx 0.0061$ m 움직인다.
+        원점이 아닌 점은 rotation 에 따라 위치가 바뀌므로 0 이 아니다. 카메라까지의 거리를 곱하는 것은 카메라 자체의 rotation($T_{bc}$)이 틀렸을 때의
+        lever arm 이다. 각도와 위치 오차 사이에 거리와 무관한 일반 비율은 없다.
+    - section: foundationpose
+      question: |
+        FoundationPose 를 로봇에 붙일 때 첫 frame 에서만 pose estimation 을 하고 그 뒤로 tracking 을 쓰는 이유는 무엇인가?
+      choices:
+        - 'tracking 은 CAD model 이 없어도 되므로, 첫 frame 뒤에는 mesh 를 메모리에서 지울 수 있다'
+        - 'pose estimation 은 첫 frame 에서만 정확하고, 그 뒤 frame 에서는 늘 틀린 pose 를 낸다'
+        - '추정은 hypothesis 수백 개를 다뤄 약 1.3 초가 걸리지만, tracking 은 앞 pose 하나만 고쳐 빠르다'
+        - 'tracking 은 score network 만 쓰므로, refiner 를 돌리는 estimation 보다 더 정확하다'
+      answer: 2
+      explanation: |
+        pose estimation 은 hypothesis 252 ~ 504 개를 refine 하고 점수 매기느라 RTX 3090 에서 물체 하나에 약 1.3 초가 걸린다. tracking 은 앞 frame 의
+        pose 하나를 refiner 로 한 번 고쳐 약 32 Hz 다. tracking 도 앞 pose 로 렌더해야 하므로 CAD model 이 필요하다. estimation 은 어느 frame 에서도 같은 방식으로
+        동작하고 느릴 뿐이다. tracking 이 쓰는 것은 score network 가 아니라 refiner 다.

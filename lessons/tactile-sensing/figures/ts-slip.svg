@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>미끄러짐과 marker 이동. 예로 든 접촉면을 가로지르는 marker 5 개가 모두 붙어 있으면 다섯 개 모두 0.20 mm 움직여 가장자리 ÷ 가운데 비율이 1 이다. 가장자리가 미끄러지면 0.08, 0.18, 0.22, 0.18, 0.08 mm 로 비율이 0.36 이 되어 경고 문턱 0.5 아래로 떨어지고, 이때 grip force 를 올린다</title>
+  <defs><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="738" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="190" y="32" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">모두 붙어 있음</text>
+  <rect x="70" y="48" width="240" height="22" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="80" y="63" fill="#94a3b8" font-size="11">물체</text>
+  <rect x="70" y="70" width="240" height="14" rx="3" fill="#7cb4d8" fill-opacity="0.2" stroke="#7cb4d8" stroke-width="1.2"/>
+  <text x="80" y="81" fill="#7cb4d8" font-size="10">gel</text>
+  <line x1="260" y1="59" x2="302" y2="59" stroke="#e2e8f0" stroke-width="2" marker-end="url(#aa)"/>
+  <text x="250" y="63" fill="#e2e8f0" font-size="11" text-anchor="end">끄는 힘 T</text>
+  <rect x="55" y="126" width="30" height="100" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="70" y="120" fill="#d6aa62" font-size="11" text-anchor="middle">0.20</text>
+  <text x="70" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가장자리</text>
+  <rect x="115" y="126" width="30" height="100" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="130" y="120" fill="#d6aa62" font-size="11" text-anchor="middle">0.20</text>
+  <text x="130" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">중간</text>
+  <rect x="175" y="126" width="30" height="100" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="190" y="120" fill="#d6aa62" font-size="11" text-anchor="middle">0.20</text>
+  <text x="190" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가운데</text>
+  <rect x="235" y="126" width="30" height="100" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="250" y="120" fill="#d6aa62" font-size="11" text-anchor="middle">0.20</text>
+  <text x="250" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">중간</text>
+  <rect x="295" y="126" width="30" height="100" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="310" y="120" fill="#d6aa62" font-size="11" text-anchor="middle">0.20</text>
+  <text x="310" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가장자리</text>
+  <line x1="45" y1="226" x2="335" y2="226" stroke="#94a3b8" stroke-width="1"/>
+  <text x="190" y="266" fill="#e2e8f0" font-size="12" text-anchor="middle">marker 이동(mm), 예로 든 값</text>
+  <text x="190" y="290" fill="#7fc4a2" font-size="12" text-anchor="middle">가장자리 ÷ 가운데 = 0.20 ÷ 0.20 = 1</text>
+  <text x="190" y="312" fill="#7fc4a2" font-size="12" text-anchor="middle" font-weight="600">문턱 0.5 위: 그대로 쥔다</text>
+  <text x="560" y="32" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">가장자리가 미끄러짐</text>
+  <rect x="440" y="48" width="240" height="22" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="450" y="63" fill="#94a3b8" font-size="11">물체</text>
+  <rect x="440" y="70" width="240" height="14" rx="3" fill="#7cb4d8" fill-opacity="0.2" stroke="#7cb4d8" stroke-width="1.2"/>
+  <text x="450" y="81" fill="#7cb4d8" font-size="10">gel</text>
+  <line x1="630" y1="59" x2="672" y2="59" stroke="#e2e8f0" stroke-width="2" marker-end="url(#aa)"/>
+  <text x="620" y="63" fill="#e2e8f0" font-size="11" text-anchor="end">끄는 힘 T</text>
+  <rect x="440" y="70" width="44" height="14" fill="#d88b8b" fill-opacity="0.5"/>
+  <rect x="636" y="70" width="44" height="14" fill="#d88b8b" fill-opacity="0.5"/>
+  <rect x="425" y="186" width="30" height="40" fill="#d88b8b" fill-opacity="0.85"/>
+  <text x="440" y="180" fill="#d88b8b" font-size="11" text-anchor="middle">0.08</text>
+  <text x="440" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가장자리</text>
+  <rect x="485" y="136" width="30" height="90" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="500" y="130" fill="#d6aa62" font-size="11" text-anchor="middle">0.18</text>
+  <text x="500" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">중간</text>
+  <rect x="545" y="116" width="30" height="110" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="560" y="110" fill="#d6aa62" font-size="11" text-anchor="middle">0.22</text>
+  <text x="560" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가운데</text>
+  <rect x="605" y="136" width="30" height="90" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="620" y="130" fill="#d6aa62" font-size="11" text-anchor="middle">0.18</text>
+  <text x="620" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">중간</text>
+  <rect x="665" y="186" width="30" height="40" fill="#d88b8b" fill-opacity="0.85"/>
+  <text x="680" y="180" fill="#d88b8b" font-size="11" text-anchor="middle">0.08</text>
+  <text x="680" y="242" fill="#94a3b8" font-size="11" text-anchor="middle">가장자리</text>
+  <line x1="415" y1="226" x2="705" y2="226" stroke="#94a3b8" stroke-width="1"/>
+  <text x="560" y="266" fill="#e2e8f0" font-size="12" text-anchor="middle">marker 이동(mm), 예로 든 값</text>
+  <text x="560" y="290" fill="#d88b8b" font-size="12" text-anchor="middle">가장자리 ÷ 가운데 = 0.08 ÷ 0.22 = 0.36</text>
+  <text x="560" y="312" fill="#d88b8b" font-size="12" text-anchor="middle" font-weight="600">문턱 0.5 아래: grip force 를 올린다</text>
+  <line x1="370" y1="46" x2="370" y2="314" stroke="#1e293b" stroke-width="1.5"/>
+</svg>

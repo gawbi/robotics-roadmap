@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>촉각 simulation. 위는 TACTO 의 과정으로, physics engine 이 물체 pose 와 수직 힘을 계산하면 TACTO 가 힘을 gel 깊이로 바꾸고 OpenGL 로 사진을 그린다. 아래는 펜이 닿은 자리를 추정하는 실험의 위치 오차다. simulation 데이터로 학습한 모델은 simulation 에서 시험하면 0.41 mm 이고 실물에서 시험하면 4.56 mm 이며, 밝기를 흔든 augmentation 을 더하면 1.66 mm 다. 실물 128 장만으로 학습하면 0.76 mm 이고, simulation 에 실물 128 장을 섞으면 0.52 mm 다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="738" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="370" y="28" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">TACTO 가 촉각 사진을 만드는 과정</text>
+  <rect x="20" y="44" width="150" height="52" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="95.0" y="66" fill="#e2e8f0" font-size="13" text-anchor="middle">physics engine</text>
+  <text x="95.0" y="85" fill="#94a3b8" font-size="11" text-anchor="middle">PyBullet, rigid body</text>
+  <rect x="200" y="44" width="160" height="52" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="280.0" y="66" fill="#e2e8f0" font-size="13" text-anchor="middle">물체 pose, 수직 힘</text>
+  <text x="280.0" y="85" fill="#94a3b8" font-size="11" text-anchor="middle">step 마다 받음</text>
+  <rect x="390" y="44" width="165" height="52" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="472.5" y="66" fill="#e2e8f0" font-size="13" text-anchor="middle">힘 → 밀어 넣는 깊이</text>
+  <text x="472.5" y="85" fill="#94a3b8" font-size="11" text-anchor="middle">0 ~ 100 N → 0 ~ 5 mm</text>
+  <rect x="585" y="44" width="135" height="52" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="652.5" y="66" fill="#e2e8f0" font-size="13" text-anchor="middle">OpenGL 렌더링</text>
+  <text x="652.5" y="85" fill="#94a3b8" font-size="11" text-anchor="middle">깊이·RGB 사진</text>
+  <line x1="172" y1="70" x2="197" y2="70" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
+  <line x1="362" y1="70" x2="387" y2="70" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
+  <line x1="557" y1="70" x2="582" y2="70" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
+  <text x="24" y="120" fill="#94a3b8" font-size="12">DIGIT 기본 설정(tacto/config_digit.yml): 10 N 이면 10 ÷ 100 × 5 = 0.5 mm, 밝기 noise 표준편차 7</text>
+  <text x="24" y="142" fill="#94a3b8" font-size="12">실물 맞추기: simulation 의 접촉 전후 차이 + 실물 센서의 접촉 전 사진</text>
+  <line x1="20" y1="158" x2="720" y2="158" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="370" y="182" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">펜이 닿은 자리 추정의 위치 오차 (학습 데이터 → 시험)</text>
+  <text x="258" y="209" fill="#e2e8f0" font-size="12" text-anchor="end">simulation → simulation</text>
+  <rect x="268" y="198" width="33" height="14" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="309" y="209" fill="#7fc4a2" font-size="12">0.41 mm</text>
+  <text x="258" y="233" fill="#e2e8f0" font-size="12" text-anchor="end">simulation → 실물</text>
+  <rect x="268" y="222" width="365" height="14" fill="#d88b8b" fill-opacity="0.85"/>
+  <text x="641" y="233" fill="#d88b8b" font-size="12">4.56 mm</text>
+  <text x="258" y="257" fill="#e2e8f0" font-size="12" text-anchor="end">simulation + 색 흔들기 → 실물</text>
+  <rect x="268" y="246" width="133" height="14" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="409" y="257" fill="#d6aa62" font-size="12">1.66 mm</text>
+  <text x="258" y="281" fill="#e2e8f0" font-size="12" text-anchor="end">실물 64 장 → 실물</text>
+  <rect x="268" y="270" width="161" height="14" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="437" y="281" fill="#7cb4d8" font-size="12">2.01 mm</text>
+  <text x="258" y="305" fill="#e2e8f0" font-size="12" text-anchor="end">실물 128 장 → 실물</text>
+  <rect x="268" y="294" width="61" height="14" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="337" y="305" fill="#7cb4d8" font-size="12">0.76 mm</text>
+  <text x="258" y="329" fill="#e2e8f0" font-size="12" text-anchor="end">simulation + 실물 128 장 → 실물</text>
+  <rect x="268" y="318" width="42" height="14" fill="#a99ad6" fill-opacity="0.85"/>
+  <text x="318" y="329" fill="#a99ad6" font-size="12">0.52 mm</text>
+  <line x1="268" y1="194" x2="268" y2="340" stroke="#94a3b8" stroke-width="1"/>
+</svg>

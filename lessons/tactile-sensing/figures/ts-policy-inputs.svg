@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>촉각을 policy 에 넣는 세 방법. 첫째는 촉각 사진이나 숫자를 카메라 사진과 따로 encoder 에 넣는 방법이고, 둘째는 손가락 256 칸의 위치를 forward kinematics 로 계산해 카메라 point cloud 512 점과 한 공간에 합치는 3D-ViTac 이며, 셋째는 label 없는 촉각 사진 46 만여 장으로 미리 학습한 Sparsh encoder 를 고정하고 작은 decoder 만 학습하는 방법이다</title>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="738" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="370" y="28" fill="#e2e8f0" font-size="14" text-anchor="middle" font-weight="600">촉각을 policy 에 넣는 세 방법</text>
+  <text x="18" y="76" fill="#d6aa62" font-size="12" font-weight="600">① 촉각 입력을</text>
+  <text x="18" y="93" fill="#d6aa62" font-size="12" font-weight="600">따로 encoder 로</text>
+  <rect x="140" y="44" width="170" height="24" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
+  <text x="225.0" y="60.5" fill="#e2e8f0" font-size="12" text-anchor="middle">카메라 사진 → ResNet-18</text>
+  <rect x="140" y="72" width="170" height="24" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.4"/>
+  <text x="225.0" y="88.5" fill="#e2e8f0" font-size="12" text-anchor="middle">DIGIT 사진 → ResNet-18</text>
+  <rect x="140" y="100" width="170" height="24" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.4"/>
+  <text x="225.0" y="116.5" fill="#e2e8f0" font-size="12" text-anchor="middle">AnySkin 숫자 → MLP</text>
+  <line x1="312" y1="56" x2="346" y2="84" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <line x1="312" y1="84" x2="346" y2="84" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <line x1="312" y1="112" x2="346" y2="84" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="350" y="68" width="120" height="32" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="410.0" y="88.5" fill="#e2e8f0" font-size="12" text-anchor="middle">transformer</text>
+  <line x1="472" y1="84" x2="500" y2="84" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="504" y="68" width="214" height="32" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="611.0" y="88.5" fill="#e2e8f0" font-size="12" text-anchor="middle">앞으로 10 step 의 action</text>
+  <line x1="18" y1="138" x2="722" y2="138" stroke="#1e293b" stroke-width="1"/>
+  <text x="18" y="162" fill="#7fc4a2" font-size="12" font-weight="600">② 촉각을 3D 점으로</text>
+  <text x="18" y="179" fill="#7fc4a2" font-size="12" font-weight="600">카메라 점과 합침</text>
+  <rect x="140" y="150" width="170" height="26" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
+  <text x="225.0" y="167.5" fill="#e2e8f0" font-size="12" text-anchor="middle">카메라 point cloud 512 점</text>
+  <rect x="140" y="182" width="170" height="26" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="225.0" y="199.5" fill="#e2e8f0" font-size="12" text-anchor="middle">손가락 256 칸 → 3D 점</text>
+  <line x1="312" y1="163" x2="346" y2="178" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <line x1="312" y1="195" x2="346" y2="180" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="350" y="163" width="120" height="32" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="410.0" y="183.5" fill="#e2e8f0" font-size="12" text-anchor="middle">한 point cloud</text>
+  <line x1="472" y1="179" x2="500" y2="179" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="504" y="163" width="214" height="32" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="611.0" y="183.5" fill="#e2e8f0" font-size="12" text-anchor="middle">diffusion policy → action</text>
+  <text x="350" y="212" fill="#94a3b8" font-size="11">점 위치: forward kinematics, 점 값: 누르는 힘</text>
+  <line x1="18" y1="224" x2="722" y2="224" stroke="#1e293b" stroke-width="1"/>
+  <text x="18" y="248" fill="#a99ad6" font-size="12" font-weight="600">③ 미리 학습한</text>
+  <text x="18" y="265" fill="#a99ad6" font-size="12" font-weight="600">encoder 를 고정</text>
+  <rect x="140" y="236" width="170" height="44" rx="6" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
+  <text x="225.0" y="255.0" fill="#e2e8f0" font-size="12" text-anchor="middle">label 없는 촉각 사진</text>
+  <text x="225.0" y="271.0" fill="#94a3b8" font-size="11" text-anchor="middle">46 만여 장</text>
+  <line x1="312" y1="258" x2="346" y2="258" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="350" y="236" width="120" height="44" rx="6" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
+  <text x="410.0" y="255.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Sparsh encoder</text>
+  <text x="410.0" y="271.0" fill="#94a3b8" font-size="11" text-anchor="middle">학습 뒤 고정</text>
+  <line x1="472" y1="258" x2="500" y2="258" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#am)"/>
+  <rect x="504" y="236" width="214" height="44" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="611.0" y="255.0" fill="#e2e8f0" font-size="12" text-anchor="middle">작은 decoder 만 학습</text>
+  <text x="611.0" y="271.0" fill="#94a3b8" font-size="11" text-anchor="middle">힘·미끄러짐·자세 추정</text>
+  <text x="18" y="306" fill="#7fc4a2" font-size="12">3D-ViTac 육각 렌치 과제: 카메라 한 대 point cloud 만 0.30 → 촉각 점을 더하면 0.70</text>
+  <text x="18" y="326" fill="#a99ad6" font-size="12">Sparsh 힘 추정(DIGIT): label 1/100 에서 오차 187.51 mN(처음부터 학습) → 97.95 mN(Sparsh)</text>
+</svg>

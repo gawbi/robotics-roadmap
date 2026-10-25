@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 384" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ASAP 의 delta action. 예로 든 발목은 명령의 60% 만 움직여, simulation 에서 학습한 policy 의 action 0.10 이 실제로는 0.06 만 움직인다. delta action −0.04 를 더해 simulation 을 실제에 맞추고, 고친 simulation 에서 fine-tuning 한 policy 는 action 을 0.10 에서 0.167 로 0.067 키운다. 배포할 때는 delta action 없이 0.167 을 내고 실제 발목이 0.167 × 0.6 ≈ 0.10 움직인다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="382" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="30" fill="#94a3b8" font-size="12.5" text-anchor="start">예로 든 발목: 실제로는 명령한 움직임의 60% 만 움직인다. reference 는 발목을 0.10 rad 움직이라고 한다</text>
+  <rect x="20" y="46" width="320" height="136" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="36" y="72" fill="#d6aa62" font-size="13.5" text-anchor="start">①② 학습한 policy 를 실제 로봇에서 기록</text>
+  <text x="36" y="100" fill="#e2e8f0" font-size="12.5" text-anchor="start">action 0.10 (Δa 없음)</text>
+  <text x="36" y="122" fill="#94a3b8" font-size="12.5" text-anchor="start">simulation 의 발목: 0.10</text>
+  <text x="36" y="144" fill="#94a3b8" font-size="12.5" text-anchor="start">실제 발목: 0.10 × 0.6 = 0.06</text>
+  <text x="36" y="166" fill="#d88b8b" font-size="12.5" text-anchor="start">실제 − simulation = 0.06 − 0.10 = −0.04</text>
+  <rect x="380" y="46" width="320" height="136" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="396" y="72" fill="#a99ad6" font-size="13.5" text-anchor="start">③ delta action 으로 simulation 고치기</text>
+  <text x="396" y="100" fill="#e2e8f0" font-size="12.5" text-anchor="start">action 0.10 + Δa (−0.04) = 0.06</text>
+  <text x="396" y="122" fill="#94a3b8" font-size="12.5" text-anchor="start">고친 simulation 의 발목: 0.06</text>
+  <text x="396" y="144" fill="#7fc4a2" font-size="12.5" text-anchor="start">실제 기록 0.06 과 같아진다</text>
+  <text x="396" y="166" fill="#94a3b8" font-size="12.5" text-anchor="start">배운 값: Δa = −0.4 × action</text>
+  <rect x="380" y="226" width="320" height="136" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="396" y="252" fill="#7cb4d8" font-size="13.5" text-anchor="start">④ 고친 simulation 에서 fine-tuning</text>
+  <text x="396" y="280" fill="#e2e8f0" font-size="12.5" text-anchor="start">action 0.10 → 0.167 (+0.067)</text>
+  <text x="396" y="302" fill="#94a3b8" font-size="12.5" text-anchor="start">Δa = −0.4 × 0.167 ≈ −0.067</text>
+  <text x="396" y="324" fill="#94a3b8" font-size="12.5" text-anchor="start">0.167 − 0.067 = 0.10</text>
+  <text x="396" y="346" fill="#7fc4a2" font-size="12.5" text-anchor="start">고친 simulation 의 발목: 0.10 = reference</text>
+  <rect x="20" y="226" width="320" height="136" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="36" y="252" fill="#7fc4a2" font-size="13.5" text-anchor="start">실제 로봇에 배포 (Δa 를 뺀다)</text>
+  <text x="36" y="280" fill="#e2e8f0" font-size="12.5" text-anchor="start">action 0.167</text>
+  <text x="36" y="302" fill="#94a3b8" font-size="12.5" text-anchor="start">실제 발목: 0.167 × 0.6 ≈ 0.10</text>
+  <text x="36" y="324" fill="#7fc4a2" font-size="12.5" text-anchor="start">reference 0.10 을 따라간다</text>
+  <text x="36" y="346" fill="#94a3b8" font-size="12.5" text-anchor="start">차이는 실제 몸이 이미 만든다</text>
+  <line x1="342" y1="114" x2="374" y2="114" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <line x1="540" y1="184" x2="540" y2="220" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <line x1="378" y1="294" x2="346" y2="294" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+</svg>

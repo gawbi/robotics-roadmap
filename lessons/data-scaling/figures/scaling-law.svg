@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>Mouse Arrangement 에 맞춘 식 gap = 1.263 × x^−0.683 으로 계산한 점수. 환경·물체 쌍이 4, 8, 16, 32, 64 개일 때 점수는 0.51, 0.69, 0.81, 0.88, 0.93 이고, 쌍이 두 배가 될 때마다 gap 이 0.62 배가 되어 오르는 폭이 줄어든다</title>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="28" fill="#e2e8f0" font-size="14" text-anchor="start">Mouse Arrangement 에 맞춘 식으로 계산한 점수</text>
+  <text x="580" y="28" fill="#94a3b8" font-size="12" text-anchor="end">gap = 1.263 × x<tspan baseline-shift="super" font-size="9.5">−0.683</tspan></text>
+  <line x1="70" y1="240" x2="560" y2="240" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="70" y1="145" x2="560" y2="145" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70" y1="97.5" x2="560" y2="97.5" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70" y1="50" x2="560" y2="50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="62" y="244" fill="#94a3b8" font-size="11.5" text-anchor="end">0</text>
+  <text x="62" y="149" fill="#94a3b8" font-size="11.5" text-anchor="end">0.5</text>
+  <text x="62" y="101.5" fill="#94a3b8" font-size="11.5" text-anchor="end">0.75</text>
+  <text x="62" y="54" fill="#94a3b8" font-size="11.5" text-anchor="end">1</text>
+  <text x="556" y="45" fill="#94a3b8" font-size="11.5" text-anchor="end">만점 1</text>
+  <polyline points="90,143.1 200,108.9 310,86.1 420,72.8 530,63.3" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="90" cy="143.1" r="4.5" fill="#7cb4d8"/>
+  <circle cx="200" cy="108.9" r="4.5" fill="#7cb4d8"/>
+  <circle cx="310" cy="86.1" r="4.5" fill="#7cb4d8"/>
+  <circle cx="420" cy="72.8" r="4.5" fill="#7cb4d8"/>
+  <circle cx="530" cy="63.3" r="4.5" fill="#7cb4d8"/>
+  <text x="90" y="134" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0.51</text>
+  <text x="200" y="100" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0.69</text>
+  <text x="310" y="77" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0.81</text>
+  <text x="420" y="64" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0.88</text>
+  <text x="530" y="83" fill="#e2e8f0" font-size="12.5" text-anchor="middle">0.93</text>
+  <text x="145" y="142" fill="#d6aa62" font-size="12" text-anchor="middle">+0.18</text>
+  <text x="255" y="114" fill="#d6aa62" font-size="12" text-anchor="middle">+0.12</text>
+  <text x="365" y="96" fill="#d6aa62" font-size="12" text-anchor="middle">+0.07</text>
+  <text x="475" y="85" fill="#d6aa62" font-size="12" text-anchor="middle">+0.05</text>
+  <text x="90" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
+  <text x="200" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">8</text>
+  <text x="310" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">16</text>
+  <text x="420" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">32</text>
+  <text x="530" y="258" fill="#94a3b8" font-size="12" text-anchor="middle">64</text>
+  <text x="310" y="280" fill="#94a3b8" font-size="12" text-anchor="middle">환경·물체 쌍의 수 (두 배 간격). 두 배마다 gap 이 0.62 배가 되어 오르는 폭(주황)이 줄어든다</text>
+  <text x="380" y="200" fill="#94a3b8" font-size="12" text-anchor="middle">gap(1 − 점수): 0.49 → 0.31 → 0.19 → 0.12 → 0.074</text>
+</svg>

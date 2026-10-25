@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>구 근사와 activation distance. 반지름 0.06 m 구 셋의 중심 ESDF 값이 0.12, 0.07, 0.04 m 라서 표면까지 거리는 0.06, 0.01, −0.02 m 이고, η = 0.025 m 의 비용 곡선에서 비용은 0, 0.0045, 0.0325 다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="758" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">ESDF 칸 값 (벽까지의 거리)</text>
+  <rect x="38.0" y="58.0" width="32.0" height="312.0" rx="0" fill="#3a2424" stroke="#d88b8b" stroke-width="1.2"/>
+  <text x="54.0" y="214.0" fill="#d88b8b" font-size="13" text-anchor="middle">벽</text>
+  <rect x="70.0" y="58.0" width="176.0" height="312.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <rect x="70.0" y="58.0" width="20.0" height="312.0" rx="0" fill="#d6aa62" stroke="none" stroke-width="0" opacity="0.18"/>
+  <line x1="70.0" y1="58.0" x2="70.0" y2="370.0" stroke="#16213a" stroke-width="1"/>
+  <text x="70.0" y="386.0" fill="#64748b" font-size="12" text-anchor="middle">0.00</text>
+  <line x1="110.0" y1="58.0" x2="110.0" y2="370.0" stroke="#16213a" stroke-width="1"/>
+  <text x="110.0" y="386.0" fill="#64748b" font-size="12" text-anchor="middle">0.05</text>
+  <line x1="150.0" y1="58.0" x2="150.0" y2="370.0" stroke="#16213a" stroke-width="1"/>
+  <text x="150.0" y="386.0" fill="#64748b" font-size="12" text-anchor="middle">0.10</text>
+  <line x1="190.0" y1="58.0" x2="190.0" y2="370.0" stroke="#16213a" stroke-width="1"/>
+  <text x="190.0" y="386.0" fill="#64748b" font-size="12" text-anchor="middle">0.15</text>
+  <line x1="230.0" y1="58.0" x2="230.0" y2="370.0" stroke="#16213a" stroke-width="1"/>
+  <text x="230.0" y="386.0" fill="#64748b" font-size="12" text-anchor="middle">0.20</text>
+  <text x="158.0" y="404.0" fill="#94a3b8" font-size="12" text-anchor="middle">칸 값 = 벽까지 거리 (m)</text>
+  <text x="80.0" y="52.0" fill="#d6aa62" font-size="13" text-anchor="middle">η</text>
+  <path d="M166.0,114.0 L126.0,214.0 L102.0,314.0" fill="none" stroke="#a99ad6" stroke-width="3" opacity="0.6"/>
+  <circle cx="166.0" cy="114.0" r="48.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="166.0" cy="114.0" r="48.0" fill="none" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="166.0" cy="114.0" r="3.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="126.0" cy="214.0" r="48.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="126.0" cy="214.0" r="48.0" fill="none" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="126.0" cy="214.0" r="3.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="102.0" cy="314.0" r="48.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5" opacity="0.18"/>
+  <circle cx="102.0" cy="314.0" r="48.0" fill="none" stroke="#d88b8b" stroke-width="1.5"/>
+  <circle cx="102.0" cy="314.0" r="3.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="260.0" y="110.0" fill="#94a3b8" font-size="12" text-anchor="start">중심 0.12 − 반지름 0.06</text>
+  <text x="260.0" y="127.0" fill="#7fc4a2" font-size="13" text-anchor="start">d = 0.06 m</text>
+  <text x="260.0" y="210.0" fill="#94a3b8" font-size="12" text-anchor="start">중심 0.07 − 반지름 0.06</text>
+  <text x="260.0" y="227.0" fill="#d6aa62" font-size="13" text-anchor="start">d = 0.01 m</text>
+  <text x="260.0" y="310.0" fill="#94a3b8" font-size="12" text-anchor="start">중심 0.04 − 반지름 0.06</text>
+  <text x="260.0" y="327.0" fill="#d88b8b" font-size="13" text-anchor="start">d = −0.02 m</text>
+  <text x="460.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">충돌 비용 (η = 0.025 m)</text>
+  <rect x="470.0" y="80.0" width="260.0" height="250.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="496.0" y1="80.0" x2="496.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="496.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">−0.02</text>
+  <line x1="548.0" y1="80.0" x2="548.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="548.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="600.0" y1="80.0" x2="600.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="600.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">0.02</text>
+  <line x1="652.0" y1="80.0" x2="652.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="652.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">0.04</text>
+  <line x1="704.0" y1="80.0" x2="704.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="704.0" y="346.0" fill="#64748b" font-size="12" text-anchor="middle">0.06</text>
+  <line x1="470.0" y1="330.0" x2="730.0" y2="330.0" stroke="#16213a" stroke-width="1"/>
+  <text x="464.0" y="334.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <line x1="470.0" y1="274.4" x2="730.0" y2="274.4" stroke="#16213a" stroke-width="1"/>
+  <text x="464.0" y="278.4" fill="#64748b" font-size="12" text-anchor="end">0.01</text>
+  <line x1="470.0" y1="218.9" x2="730.0" y2="218.9" stroke="#16213a" stroke-width="1"/>
+  <text x="464.0" y="222.9" fill="#64748b" font-size="12" text-anchor="end">0.02</text>
+  <line x1="470.0" y1="163.3" x2="730.0" y2="163.3" stroke="#16213a" stroke-width="1"/>
+  <text x="464.0" y="167.3" fill="#64748b" font-size="12" text-anchor="end">0.03</text>
+  <line x1="470.0" y1="107.8" x2="730.0" y2="107.8" stroke="#16213a" stroke-width="1"/>
+  <text x="464.0" y="111.8" fill="#64748b" font-size="12" text-anchor="end">0.04</text>
+  <text x="600.0" y="364.0" fill="#94a3b8" font-size="12" text-anchor="middle">표면까지 거리 d (m)</text>
+  <path d="M470.0,93.9 L471.3,96.7 L472.6,99.4 L473.9,102.2 L475.2,105.0 L476.5,107.8 L477.8,110.6 L479.1,113.3 L480.4,116.1 L481.7,118.9 L483.0,121.7 L484.3,124.4 L485.6,127.2 L486.9,130.0 L488.2,132.8 L489.5,135.6 L490.8,138.3 L492.1,141.1 L493.4,143.9 L494.7,146.7 L496.0,149.4 L497.3,152.2 L498.6,155.0 L499.9,157.8 L501.2,160.6 L502.5,163.3 L503.8,166.1 L505.1,168.9 L506.4,171.7 L507.7,174.4 L509.0,177.2 L510.3,180.0 L511.6,182.8 L512.9,185.6 L514.2,188.3 L515.5,191.1 L516.8,193.9 L518.1,196.7 L519.4,199.4 L520.7,202.2 L522.0,205.0 L523.3,207.8 L524.6,210.6 L525.9,213.3 L527.2,216.1 L528.5,218.9 L529.8,221.7 L531.1,224.4 L532.4,227.2 L533.7,230.0 L535.0,232.8 L536.3,235.6 L537.6,238.3 L538.9,241.1 L540.2,243.9 L541.5,246.7 L542.8,249.4 L544.1,252.2 L545.4,255.0 L546.7,257.8 L548.0,260.6 L549.3,263.3 L550.6,266.0 L551.9,268.6 L553.2,271.2 L554.5,273.8 L555.8,276.2 L557.1,278.6 L558.4,281.0 L559.7,283.3 L561.0,285.6 L562.3,287.8 L563.6,289.9 L564.9,292.0 L566.2,294.0 L567.5,296.0 L568.8,297.9 L570.1,299.8 L571.4,301.6 L572.7,303.3 L574.0,305.0 L575.3,306.6 L576.6,308.2 L577.9,309.8 L579.2,311.2 L580.5,312.6 L581.8,314.0 L583.1,315.3 L584.4,316.6 L585.7,317.8 L587.0,318.9 L588.3,320.0 L589.6,321.0 L590.9,322.0 L592.2,322.9 L593.5,323.8 L594.8,324.6 L596.1,325.3 L597.4,326.0 L598.7,326.6 L600.0,327.2 L601.3,327.8 L602.6,328.2 L603.9,328.6 L605.2,329.0 L606.5,329.3 L607.8,329.6 L609.1,329.8 L610.4,329.9 L611.7,330.0 L613.0,330.0 L614.3,330.0 L615.6,330.0 L616.9,330.0 L618.2,330.0 L619.5,330.0 L620.8,330.0 L622.1,330.0 L623.4,330.0 L624.7,330.0 L626.0,330.0 L627.3,330.0 L628.6,330.0 L629.9,330.0 L631.2,330.0 L632.5,330.0 L633.8,330.0 L635.1,330.0 L636.4,330.0 L637.7,330.0 L639.0,330.0 L640.3,330.0 L641.6,330.0 L642.9,330.0 L644.2,330.0 L645.5,330.0 L646.8,330.0 L648.1,330.0 L649.4,330.0 L650.7,330.0 L652.0,330.0 L653.3,330.0 L654.6,330.0 L655.9,330.0 L657.2,330.0 L658.5,330.0 L659.8,330.0 L661.1,330.0 L662.4,330.0 L663.7,330.0 L665.0,330.0 L666.3,330.0 L667.6,330.0 L668.9,330.0 L670.2,330.0 L671.5,330.0 L672.8,330.0 L674.1,330.0 L675.4,330.0 L676.7,330.0 L678.0,330.0 L679.3,330.0 L680.6,330.0 L681.9,330.0 L683.2,330.0 L684.5,330.0 L685.8,330.0 L687.1,330.0 L688.4,330.0 L689.7,330.0 L691.0,330.0 L692.3,330.0 L693.6,330.0 L694.9,330.0 L696.2,330.0 L697.5,330.0 L698.8,330.0 L700.1,330.0 L701.4,330.0 L702.7,330.0 L704.0,330.0 L705.3,330.0 L706.6,330.0 L707.9,330.0 L709.2,330.0 L710.5,330.0 L711.8,330.0 L713.1,330.0 L714.4,330.0 L715.7,330.0 L717.0,330.0 L718.3,330.0 L719.6,330.0 L720.9,330.0 L722.2,330.0 L723.5,330.0 L724.8,330.0 L726.1,330.0 L727.4,330.0 L728.7,330.0 L730.0,330.0" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <line x1="548.0" y1="80.0" x2="548.0" y2="330.0" stroke="#d88b8b" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="613.0" y1="80.0" x2="613.0" y2="330.0" stroke="#d6aa62" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="544.0" y="94.0" fill="#d88b8b" font-size="11" text-anchor="end">표면</text>
+  <text x="617.0" y="94.0" fill="#d6aa62" font-size="12" text-anchor="start">η</text>
+  <circle cx="704.0" cy="330.0" r="5.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="574.0" cy="305.0" r="5.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="496.0" cy="149.4" r="5.0" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="504.0" y="143.4" fill="#d88b8b" font-size="12" text-anchor="start">0.0325</text>
+  <text x="582.0" y="297.0" fill="#d6aa62" font-size="12" text-anchor="start">0.0045</text>
+  <text x="704.0" y="320.0" fill="#7fc4a2" font-size="12" text-anchor="middle">0</text>
+  <text x="730.0" y="72.0" fill="#94a3b8" font-size="11" text-anchor="end">파고들면 기울기 −1, η 밖은 0</text>
+</svg>

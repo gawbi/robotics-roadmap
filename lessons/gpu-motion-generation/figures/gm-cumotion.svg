@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>MoveIt 2 와 cuMotion. robot segmenter 가 depth image 에서 팔을 지우고 nvblox 가 ESDF 를 만들면, move_group 의 plugin 이 요청을 cuMotion node 에 넘기고 결과 trajectory 는 joint_trajectory_controller 로 간다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="758" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="24.0" y="40.0" width="150.0" height="56.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="99.0" y="64.0" fill="#e2e8f0" font-size="14" text-anchor="middle">depth camera</text>
+  <text x="99.0" y="82.0" fill="#94a3b8" font-size="12" text-anchor="middle">depth image</text>
+  <rect x="218.0" y="40.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#cf96b8" stroke-width="1.5"/>
+  <text x="318.0" y="64.0" fill="#e2e8f0" font-size="14" text-anchor="middle">robot segmenter</text>
+  <text x="318.0" y="82.0" fill="#94a3b8" font-size="12" text-anchor="middle">팔 pixel 지움 (여유 0.05 m)</text>
+  <rect x="462.0" y="40.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="562.0" y="64.0" fill="#e2e8f0" font-size="14" text-anchor="middle">nvblox</text>
+  <text x="562.0" y="82.0" fill="#94a3b8" font-size="12" text-anchor="middle">TSDF → ESDF</text>
+  <line x1="176.0" y1="68.0" x2="214.0" y2="68.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-muted)"/>
+  <line x1="420.0" y1="68.0" x2="458.0" y2="68.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-muted)"/>
+  <rect x="24.0" y="150.0" width="150.0" height="56.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="99.0" y="174.0" fill="#e2e8f0" font-size="14" text-anchor="middle">/joint_states</text>
+  <text x="99.0" y="192.0" fill="#94a3b8" font-size="12" text-anchor="middle">지금 관절 각도</text>
+  <path d="M174,165 L318,165 L318,100" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-muted)"/>
+  <rect x="380.0" y="150.0" width="356.0" height="96.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="558.0" y="176.0" fill="#e2e8f0" font-size="14" text-anchor="middle">cuMotion node (cuRobo)</text>
+  <text x="558.0" y="196.0" fill="#94a3b8" font-size="12" text-anchor="middle">URDF + XRDF (구, 가속도·jerk 한계, buffer)</text>
+  <text x="558.0" y="214.0" fill="#94a3b8" font-size="12" text-anchor="middle">read_esdf_world 가 true 일 때만 ESDF 를 읽음</text>
+  <text x="558.0" y="232.0" fill="#94a3b8" font-size="12" text-anchor="middle">time_dilation_factor 기본 0.5</text>
+  <path d="M562,98 L562,146" fill="none" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#a-sky)"/>
+  <text x="570.0" y="126.0" fill="#7cb4d8" font-size="12" text-anchor="start">ESDF service</text>
+  <path d="M174,190 L376,190" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#a-muted)"/>
+  <rect x="24.0" y="270.0" width="250.0" height="64.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="149.0" y="298.0" fill="#e2e8f0" font-size="14" text-anchor="middle">MoveIt 2 move_group</text>
+  <text x="149.0" y="316.0" fill="#94a3b8" font-size="12" text-anchor="middle">planning pipeline: ompl, isaac_ros_cumotion</text>
+  <path d="M230,268 L230,222 L376,222" fill="none" stroke="#a99ad6" stroke-width="1.8" marker-end="url(#a-violet)"/>
+  <text x="236.0" y="212.0" fill="#a99ad6" font-size="12" text-anchor="start">cumotion/move_group</text>
+  <text x="236.0" y="252.0" fill="#a99ad6" font-size="12" text-anchor="start">action</text>
+  <path d="M420,248 L420,282 L280,282" fill="none" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#a-green)" stroke-dasharray="5 3"/>
+  <text x="428.0" y="270.0" fill="#7fc4a2" font-size="12" text-anchor="start">trajectory</text>
+  <rect x="470.0" y="274.0" width="266.0" height="56.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="603.0" y="298.0" fill="#e2e8f0" font-size="14" text-anchor="middle">joint_trajectory_controller</text>
+  <text x="603.0" y="316.0" fill="#94a3b8" font-size="12" text-anchor="middle">allow_nonzero_velocity_at_trajectory_end</text>
+  <line x1="276.0" y1="302.0" x2="466.0" y2="302.0" stroke="#d6aa62" stroke-width="1.8" marker-end="url(#a-amber)"/>
+  <text x="371.0" y="322.0" fill="#d6aa62" font-size="12" text-anchor="middle">FollowJointTrajectory</text>
+</svg>

@@ -1,0 +1,309 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: hierarchy
+  title: high-level policy 와 low-level policy
+  section: high-level-policy-와-low-level-policy
+  variants:
+    - question: |
+        계층 VLA 에서 high-level policy 와 low-level policy 는 각각 무엇을 입력받고 무엇을 내는가?
+      choices:
+        - 'high-level 은 사진과 전체 지시로 subtask 글을 내고, low-level 은 사진·관절 각도·그 글로 action chunk 를 낸다'
+        - 'high-level 은 사진만 보고 action chunk 를 내고, low-level 은 그 chunk 를 지시문에 맞게 고쳐서 관절 목표로 바꿔 보낸다'
+        - 'high-level 은 관절 각도를 보고 다음 자세를 내고, low-level 은 전체 지시를 다시 읽어 그 자세에 어울리는 글을 만들어 낸다'
+        - 'high-level 과 low-level 은 같은 입력을 받아 action chunk 를 하나씩 내고, 로봇에는 두 chunk 의 평균을 목표로 보낸다'
+      answer: 0
+      explanation: |
+        high-level 은 사진과 "clean the kitchen" 같은 전체 지시를 보고 "pick up the plate" 같은 subtask 글을 내고, low-level 은 그 글과
+        사진·관절 각도를 보고 action chunk 를 낸다. 긴 지시를 짧은 단계로 바꿔 주면 low-level 이 받는 글이 단계마다 달라진다. 둘째 보기는
+        두 층의 일을 뒤바꿨고 high-level 이 action 을 내지 않는다. 셋째 보기도 순서가 뒤집혀서, 글을 내는 쪽은 high-level 이다. 넷째 보기처럼
+        두 chunk 를 평균하지 않고, 두 층은 입력과 출력이 다르다.
+    - question: |
+        π0.5 는 low-level 추론이 전체 지시문 없이 subtask 글에만 기대게 했다. 이렇게 나누면 학습 데이터 면에서 무엇이 좋아지는가?
+      choices:
+        - 'low-level 이 전체 지시를 몰라도 되므로, 지시문 없이 모은 시연은 오히려 학습에 아예 쓸 수 없게 된다'
+        - 'subtask 가 단순해서 다른 로봇의 짧은 시연으로도 low-level 을 배우고, high-level 은 웹 데이터로 배울 수 있다'
+        - 'high-level 이 action 을 대신 내므로 low-level 은 학습할 필요가 없고, 로봇 시연은 high-level 에만 쓰인다'
+        - '전체 지시가 low-level 에 들어가지 않으므로, high-level 도 지시문 없이 사진만으로 학습해야 서로 맞는다'
+      answer: 1
+      explanation: |
+        low-level 은 "pick up the cup" 같은 짧은 subtask 만 읽으므로, 부엌 정리를 본 적 없는 고정 팔의 시연에서도 배울 수 있다. high-level 은
+        action 이 없는 웹 데이터와 사람이 고른 subtask 예시에서 배운다. 두 층이 서로 다른 출처의 지식을 쓰는 것이 장점이다. 첫째 보기는 반대로,
+        짧은 지시가 붙은 시연이면 low-level 학습에 쓸 수 있다. 셋째 보기와 달리 action 을 내는 쪽은 low-level 이라 로봇 시연으로 학습한다.
+        넷째 보기와 달리 high-level 은 전체 지시를 읽어야 subtask 를 고를 수 있다.
+    - section: hi-robot-의-지시와-수정-해석
+      question: |
+        Hi Robot 논문에서 high-level 자리에 GPT-4o 같은 큰 범용 모델을 쓴 비교 모델이 Hi Robot 보다 지시를 잘 따르지 못했다. 저자들이
+        든 이유로 알맞은 것은?
+      choices:
+        - '범용 모델은 parameter 가 너무 많아 1 초 안에 답을 내지 못해서, 로봇이 명령을 기다리며 멈췄기 때문이다'
+        - '범용 모델은 사진을 읽지 못하고 글만 받으므로, 물건이 장면 어디에 있는지 알 수 없었기 때문이다'
+        - '범용 모델이 낸 명령이 너무 짧아서, low-level 이 그 뜻을 알아듣지 못하고 평소 동작을 했기 때문이다'
+        - '글은 잘 다루지만 이 로봇이 할 수 있는 동작과 지금 장면에 묶여 있지 않아 엉뚱한 명령을 냈기 때문이다'
+      answer: 3
+      explanation: |
+        저자들은 GPT-4o 가 물건을 만지기 시작하면 맥락을 잃고 "pick up bermuda triangle" 같은 엉뚱한 명령을 냈다며, 실제 장면과 로봇의
+        능력에 묶여 있지 않은 점을 이유로 들었다. 그래서 high-level 도 로봇 데이터로 학습한다. 첫째 보기의 추론 속도는 저자들이 든 이유가
+        아니다. 둘째 보기와 달리 GPT-4o 는 사진도 읽는 VLM 이다. 셋째 보기와 달리 명령은 low-level 이 알아듣는 라벨 목록에서 고르게 했으므로
+        길이가 문제가 아니었다.
+
+- topic: pi05-high-level
+  title: π0.5 의 high-level 추론
+  section: π05-의-high-level-추론
+  variants:
+    - question: |
+        π0.5 논문의 비교에서, 실행 때는 subtask 를 글로 내지 않지만 학습에는 subtask 예측 예시를 넣은 모델(implicit HL)은 어떤 결과를
+        냈고 저자들은 이를 어떻게 해석했는가?
+      choices:
+        - 'subtask 를 아예 쓰지 않은 모델과 같아서, subtask 예시는 실행 때 글로 내지 않으면 아무 도움도 되지 않는다고 보았다'
+        - 'subtask 를 글로 내는 π0.5 보다도 높아서, 실행 때 subtask 를 글로 내는 단계는 오히려 성능을 떨어뜨린다고 보았다'
+        - 'subtask 를 아예 쓰지 않은 모델보다 높아서, subtask 를 내는 이득의 상당 부분이 그 예시를 학습하는 것만으로 생긴다고 보았다'
+        - 'GPT-4 가 subtask 를 고른 경우보다 낮아서, subtask 는 학습한 모델보다 큰 범용 모델이 고르는 편이 낫다고 보았다'
+      answer: 2
+      explanation: |
+        implicit HL 은 subtask 를 글로 내는 π0.5 다음으로 높았고, subtask 데이터가 아예 없는 모델보다 높았다. 저자들은 subtask 를 글로 내는
+        이득의 상당 부분이 subtask 를 맞히는 예시를 학습에 넣는 것만으로 이미 생긴다고 해석했다. 첫째 보기와 달리 subtask 를 아예 쓰지 않은
+        모델은 크게 떨어졌다. 둘째 보기와 달리 가장 높은 것은 subtask 를 글로 내는 π0.5 였다. 넷째 보기와 달리 GPT-4 가 고른 경우가 가장
+        낮았다.
+    - question: |
+        π0.5 는 subtask 라벨과 함께 관련 물체의 bounding box 좌표를 subtask 보다 먼저 맞히도록 학습했다. 이 순서의 뜻으로 알맞은 것은?
+      choices:
+        - '상자 좌표를 먼저 글로 내려면 사진에서 그 물체를 찾아야 하므로, subtask 를 고르기 전에 장면을 보게 된다'
+        - 'bounding box 는 사람이 읽기 좋게 붙이는 장식이라서, 모델이 그것을 내는 순서는 action 에 영향을 주지 않는다'
+        - 'bounding box 를 먼저 내면 action expert 가 flow matching 없이 상자 좌표를 그대로 관절 각도로 쓸 수 있다'
+        - 'bounding box 를 먼저 내면 subtask 글이 짧아져서, high-level 추론을 1 초에 50 번 할 수 있을 만큼 빨라진다'
+      answer: 0
+      explanation: |
+        상자 좌표를 글로 내려면 그 물체가 사진 어디에 있는지 실제로 찾아야 하므로, 모델은 subtask 를 고르기 전에 장면을 본다. ECoT 가
+        bounding box 같은 장면에 묶인 단계를 넣은 것과 같은 생각이다. 둘째 보기와 달리 좌표는 학습 정답의 일부라서 모델의 표현에 영향을
+        준다. 셋째 보기와 달리 action 은 action expert 가 flow matching 으로 만든다. 넷째 보기와 달리 글을 더 내면 추론은 오히려 길어진다.
+    - question: |
+        π0.5 의 post-training 에 넣은 verbal instruction 데이터는 무엇이고, 이 데이터를 빼면 high-level 비교에서 어떻게 되었는가?
+      choices:
+        - '사람이 원격 조종기로 모은 시연에 음성을 덧붙인 데이터인데, 빼도 high-level 의 결과는 거의 같게 나왔다'
+        - '사람이 학습된 low-level 에게 subtask 명령을 골라 주며 움직인 기록인데, 양이 적어도 빼면 크게 떨어졌다'
+        - '웹에서 모은 사진 설명 데이터인데, 빼면 처음 보는 물체를 알아보는 능력만 조금 떨어지고 나머지는 같았다'
+        - 'GPT-4 가 지어낸 사용자 지시 데이터인데, 빼면 subtask 글이 길어져서 high-level 추론만 느려졌다'
+      answer: 1
+      explanation: |
+        verbal instruction 은 숙련된 사람이 이미 학습된 low-level policy 에게 실시간으로 subtask 명령을 골라 주며 로봇을 움직인 기록으로,
+        좋은 high-level 출력이 무엇인지 보여 준다. 이동 로봇 high-level 예시의 약 11% 뿐이었지만 빼면 크게 떨어졌다. 첫째 보기는 원격 조종
+        시연과 혼동했고, 결과도 반대다. 셋째 보기는 웹 데이터의 설명이다. 넷째 보기의 지어낸 지시는 Hi Robot 의 합성 데이터에 가까운
+        설명이고, 이 데이터를 뺀다고 추론이 느려지지는 않는다.
+
+- topic: hi-robot
+  title: Hi Robot 의 지시와 수정 해석
+  section: hi-robot-의-지시와-수정-해석
+  variants:
+    - question: |
+        Hi Robot 은 high-level 을 1 초마다 다시 계산하고, 사용자가 말하면 기다리지 않고 바로 다시 계산한다. 말할 때 바로 다시 계산하는
+        규칙이 필요한 이유는?
+      choices:
+        - 'low-level 은 사용자의 말을 직접 들을 수 있어서, high-level 은 말이 끝난 뒤 한 번만 확인하면 되기 때문이다'
+        - 'high-level 을 자주 계산할수록 low-level 의 action chunk 가 길어져서, 움직임이 더 매끄러워지기 때문이다'
+        - '1 초마다만 계산하면 수정의 말이 다음 계산까지 기다려야 해서, 그동안 로봇이 잘못된 동작을 이어 가기 때문이다'
+        - '사용자가 말하는 동안에는 카메라 사진이 바뀌지 않아서, 그때 계산하면 GPU 를 덜 쓰고 끝낼 수 있기 때문이다'
+      answer: 2
+      explanation: |
+        주기만 지키면 "that's not trash" 같은 수정이 다음 high-level 계산까지 기다려야 하고, 가장 늦으면 1 초 넘게 로봇이 잘못 집은 물건을
+        계속 옮긴다. 말을 듣자마자 다시 계산하면 prefill, 명령 decode, low-level chunk 계산만큼만 걸린다. 첫째 보기와 달리 사용자의 말을
+        읽는 쪽은 high-level 이다. 둘째 보기와 달리 high-level 의 주기는 chunk 길이를 바꾸지 않는다. 넷째 보기의 GPU 절약은 이 규칙의
+        목적이 아니고, 말하는 동안에도 장면은 바뀔 수 있다.
+    - question: |
+        Hi Robot 이 high-level 학습에 쓴 합성 데이터는 어떻게 만들었고, 왜 필요했는가?
+      choices:
+        - '큰 VLM 이 잘린 skill 의 사진과 라벨을 보고 그 직전 사용자의 말과 대답을 지어냈다. 시연에 복잡한 지시가 없어서다'
+        - 'simulation 에서 로봇을 무작위로 움직여 성공한 장면만 모았다. 실물 시연은 모으는 비용이 너무 크기 때문이다'
+        - '사람이 모든 시연을 다시 보며 나올 법한 지시를 손으로 적었다. 자동으로 만든 글은 학습에 해롭기 때문이다'
+        - 'low-level 이 낸 action 을 글로 바꿔 high-level 의 정답으로 썼다. 그래야 두 모델이 같은 말을 쓰기 때문이다'
+      answer: 0
+      explanation: |
+        시연에는 "make a sandwich" 같은 거친 목표만 붙어 있어서 "피클은 빼 줘" 같은 지시를 배울 예시가 없었다. 저자들은 시연을 1 ~ 3 초짜리
+        skill 로 잘라 라벨을 붙이고, 큰 VLM 에게 사진과 라벨을 보여 그 직전에 사용자가 했을 법한 말과 로봇의 대답을 지어내게 했다. 둘째
+        보기의 simulation 은 쓰지 않았고 실물 시연을 썼다. 셋째 보기와 달리 말은 사람이 아니라 VLM 이 지어냈고, 이 데이터를 빼면 크게
+        나빠졌다. 넷째 보기처럼 action 을 글로 바꾼 것이 아니라 skill 라벨에서 출발했다.
+    - question: |
+        Hi Robot 실험에서 사람이 high-level 을 대신 맡자 low-level 이 거의 완벽하게 실행했다. 이 결과가 뜻하는 것은?
+      choices:
+        - 'low-level 의 손동작이 가장 약한 고리라서, 무엇보다 더 큰 low-level 모델이 먼저 필요하다는 뜻이다'
+        - '사람의 명령은 너무 길어서 low-level 이 알아듣지 못하므로, 사람은 high-level 을 맡을 수 없다는 뜻이다'
+        - 'high-level 은 없어도 되므로, 계층 구조 대신 flat VLA 하나를 쓰는 편이 늘 낫다는 뜻이다'
+        - '실패가 손동작보다 무엇을 할지 고르는 판단에서 더 많이 오므로, high-level 을 잘 배우는 것이 중요하다는 뜻이다'
+      answer: 3
+      explanation: |
+        좋은 명령을 받으면 low-level 이 거의 실수하지 않았으므로, 저자들은 실패가 손동작보다 판단에서 더 많이 온다고 적었다. 그래서 복잡한
+        지시와 수정을 해석하는 high-level 의 학습이 중요하다. 첫째 보기는 반대로, 이 실험에서 low-level 은 약한 고리가 아니었다. 둘째 보기와
+        달리 사람이 high-level 을 맡은 경우가 가장 잘 됐다. 셋째 보기와 달리 같은 데이터로 학습한 flat VLA 는 Hi Robot 보다 지시를 덜 따랐다.
+
+- topic: ecot
+  title: embodied chain-of-thought
+  section: embodied-chain-of-thought
+  variants:
+    - question: |
+        ECoT 는 계획과 subtask 뒤에 움직일 방향, gripper 위치, bounding box 를 쓰고 action 을 낸다. 계획과 subtask 만 쓰는 Naive CoT 와
+        비교한 결과는?
+      choices:
+        - 'Naive CoT 도 같은 성공률을 냈다. 추론의 이득은 어떤 글이든 action 앞에 쓰기만 하면 생기기 때문이다'
+        - 'ECoT 가 크게 높았다. 장면과 로봇 상태에 묶인 단계가 모델이 사진을 실제로 보게 만들었기 때문이다'
+        - 'Naive CoT 가 더 높았다. bounding box 같은 숫자를 쓰면 언어 모델이 글로 하는 추론을 잊기 때문이다'
+        - '둘 다 추론 없는 OpenVLA 보다 낮았다. 추론 글이 길어질수록 action token 의 뜻이 흐려지기 때문이다'
+      answer: 1
+      explanation: |
+        같은 카메라 조건에서 ECoT 는 66% 였고 Naive CoT 는 48% 였다. 저자들은 VLA 가 생각만 잘하는 것이 아니라 잘 보기도 해야 한다며,
+        장면과 로봇 상태에 묶인 단계를 넣었다. 첫째 보기와 달리 글의 종류에 따라 결과가 크게 달랐다. 셋째 보기는 결과가 반대다. 넷째
+        보기와 달리 두 방법 모두 추론 없는 OpenVLA(44%)보다 높았다.
+    - question: |
+        ECoT 의 저자들이 수백만 step 의 로봇 데이터에 추론 글을 붙인 방법은?
+      choices:
+        - '사람 평가자들이 step 마다 계획과 물체 위치를 직접 적었고, 서로 다른 답은 투표로 하나를 골랐다'
+        - '로봇이 실행 중에 스스로 쓴 추론 글 가운데 성공한 episode 의 글만 골라서 정답으로 썼다'
+        - 'detector 로 물체와 gripper 위치를 찾고, 움직임은 규칙으로 정하고, 큰 언어 모델이 계획을 썼다'
+        - 'simulation 에서 정답 계획을 계산하는 planner 를 돌리고, 그 계획을 실물 시연에 그대로 붙였다'
+      answer: 2
+      explanation: |
+        사람이 수백만 step 에 글을 붙일 수 없어서, 저자들은 Grounding DINO 같은 detector 로 물체 상자와 gripper 위치를 찾고, 움직임
+        방향은 4 step 뒤 위치와의 차이로 규칙에 따라 정하고, Gemini 가 계획과 subtask 를 쓰게 했다. 첫째 보기의 사람 라벨은 이 규모에서
+        불가능해서 쓰지 않았다. 둘째 보기와 달리 처음 학습할 모델은 아직 추론 글을 쓸 줄 모른다. 넷째 보기의 simulation planner 는 쓰지
+        않았고, 실물 BridgeData V2 에 바로 라벨을 만들었다.
+    - question: |
+        ECoT 의 추론 글을 보면 실패 원인을 찾거나 사람이 말로 고칠 수 있다. 이 추론 글에 대한 설명으로 알맞은 것은?
+      choices:
+        - '추론 글은 action 과 따로 학습한 설명일 뿐이라서, 실제로 낸 action 과는 아무 관계가 없다'
+        - '추론 글이 맞으면 action 도 반드시 맞으므로, 추론 글만 검사하면 로봇의 안전을 보장할 수 있다'
+        - '추론 글을 사람이 고치면 모델의 weight 가 바로 바뀌어서, 다음 episode 부터 같은 실수를 하지 않는다'
+        - '대체로 실행된 action 과 맞지만, 계획을 쓰고도 다른 action 을 낼 수 있어 완벽한 진단 도구는 아니다'
+      answer: 3
+      explanation: |
+        저자들은 추론 글과 실행된 action 이 대체로 맞았다고 하면서도, 모델이 계획을 쓰고도 다르게 움직일 수 있어 완벽한 진단 도구는
+        아니라고 적었다. 첫째 보기와 달리 action token 은 추론 글 바로 뒤에 같은 모델이 이어서 내므로 글의 영향을 받는다. 둘째 보기는
+        저자들이 경고한 과신이다. 셋째 보기와 달리 사람의 수정은 그 episode 의 추론 글을 바꿀 뿐 weight 를 학습시키지 않는다.
+
+- topic: reasoning-cost
+  title: 추론 token 의 비용과 제어 주기
+  section: 추론-token-의-비용과-제어-주기
+  variants:
+    - question: |
+        action token 7 개만 내던 VLA 가 한 step 마다 추론 token 수백 개를 먼저 쓰게 하면, 1 초에 내는 action 수는 어떻게 되는가?
+      choices:
+        - '추론 글은 사진과 함께 한꺼번에 계산되므로, token 수와 관계없이 추론 시간은 거의 같게 유지된다'
+        - 'token 을 하나씩 차례로 만들어야 해서 추론 시간이 token 수에 따라 늘고, 1 초에 내는 action 이 크게 준다'
+        - '추론 token 은 GPU 가 아니라 CPU 에서 따로 계산되므로, action 을 내는 주기에는 영향을 주지 않는다'
+        - '추론 글이 길어질수록 모델이 확신을 얻어 계산 step 이 줄어들어서, action 을 오히려 더 빨리 낸다'
+      answer: 1
+      explanation: |
+        언어 모델은 새 token 을 하나 낼 때마다 decode 를 한 번 해야 하므로, 추론 시간은 대략 prefill 시간에 token 수 × decode 시간을 더한
+        값이다. ECoT 는 token 이 7 개에서 350 개로 늘어 1 초에 1 번 남짓밖에 action 을 내지 못했다. 첫째 보기처럼 한꺼번에 계산되는 것은 이미
+        있는 입력을 읽는 prefill 이다. 셋째 보기와 달리 추론 token 도 같은 모델이 GPU 에서 계산한다. 넷째 보기처럼 확신에 따라 계산이 줄지는
+        않는다.
+    - question: |
+        ECoT 가 계획과 subtask 는 5 step 마다 한 번만 새로 쓰고, 그사이에는 이미 쓴 글을 다시 입력으로 넣는 방식이 빨라지는 이유는?
+      choices:
+        - '5 step 동안은 사진을 새로 읽지 않아서, 사진을 token 으로 바꾸는 image encoder 의 계산이 빠지기 때문이다'
+        - '이미 쓴 글을 다시 읽는 것은 한꺼번에 계산되지만, 새 글은 token 마다 차례로 만들어야 하기 때문이다'
+        - '고정한 글은 GPU 메모리에서 지워지므로, 모델이 한 번에 다루는 token 의 개수가 줄어들기 때문이다'
+        - '계획을 고정하면 action token 도 5 step 동안 같은 값을 다시 쓰게 되어 계산이 빠지기 때문이다'
+      answer: 1
+      explanation: |
+        이미 있는 글은 prefill 처럼 한 번에 계산되지만, 새로 쓰는 글은 token 마다 decode 를 차례로 되풀이해야 한다. 그래서 위쪽 추론을 고정하면
+        새로 쓰는 token 이 줄어 빨라진다. 첫째 보기와 달리 사진은 매 step 새로 읽는다. 셋째 보기와 달리 고정한 글은 지워지지 않고 입력으로
+        다시 들어간다. 넷째 보기와 달리 action 은 매 step 새로 낸다.
+    - question: |
+        ECoT-Lite 의 저자들이 추론 글과 같은 개수의 내용 없는 빈 thinking token 을 넣어 학습했더니 성능이 오히려 떨어졌다. 이 결과가 뜻하는
+        것은?
+      choices:
+        - '추론의 이득은 계산을 더 하는 데서 오므로, 빈 token 을 더 많이 넣으면 결국 ECoT 를 따라잡는다는 뜻이다'
+        - '빈 token 은 실행할 때 지울 수 없어서 느려지기만 할 뿐, 성능에는 영향을 주지 않는다는 뜻이다'
+        - '추론 글은 실행할 때 반드시 써야만 도움이 되므로, 학습에만 추론을 쓰는 방법은 늘 낮다는 뜻이다'
+        - '추론의 이득은 뜻 있는 추론 단계를 배우는 데서 오고, 계산량만 늘려서는 생기지 않는다는 뜻이다'
+      answer: 3
+      explanation: |
+        같은 계산량을 빈 token 으로 채우면 평균 3.8% 떨어졌으므로, 저자들은 추론의 이득이 계산을 더 하는 데서가 아니라 뜻 있는 추론을 배우는
+        데서 온다고 해석했다. 첫째 보기는 이 결과와 반대다. 둘째 보기와 달리 성능이 실제로 떨어졌다. 셋째 보기와 달리 학습에만 추론을 쓰는
+        reasoning dropout·pre-training 은 추론 없는 VLA 보다 높았고 ECoT 보다 약 3 배 빨랐다.
+
+- topic: knowledge-insulation
+  title: knowledge insulation
+  section: knowledge-insulation
+  variants:
+    - question: |
+        knowledge insulation 에서 stop-gradient 는 어디에 놓이고, 무엇을 막는가?
+      choices:
+        - 'backbone 의 출력 앞에 놓여서, 사진과 지시문의 내용이 action expert 로 전해지는 앞쪽 계산을 막는다'
+        - 'action expert 가 backbone 의 key·value 를 읽는 자리에 놓여, 그 길로 가는 gradient 만 끊는다'
+        - 'FAST token 의 loss 와 backbone 사이에 놓여서, 이산 action 의 정답이 backbone 을 고치지 못하게 막는다'
+        - '웹 데이터와 backbone 사이에 놓여서, 로봇과 관계없는 사진과 글이 backbone 을 바꾸지 못하게 막는다'
+      answer: 1
+      explanation: |
+        action expert 의 query 가 backbone 의 key·value 를 읽는 자리에 stop-gradient 를 두어, 앞으로 계산할 때는 값을 그대로 쓰고 flow
+        matching loss 의 gradient 만 backbone 으로 가지 못하게 끊는다. 첫째 보기와 달리 앞쪽 계산은 막지 않아서 action expert 는 사진과
+        지시문의 내용을 읽는다. 셋째 보기는 반대로, backbone 은 FAST token 의 loss 로 action 을 배운다. 넷째 보기와 달리 웹 데이터는
+        backbone 이 지식을 지키도록 함께 학습한다.
+    - question: |
+        action expert 의 gradient 를 끊기만 하면 backbone 은 로봇 action 에 대해 배우지 못한다. knowledge insulation 은 이 문제를 어떻게
+        푸는가?
+      choices:
+        - 'backbone 을 아예 얼려 웹에서 배운 표현만 쓰고, action expert 의 크기를 키워 모자란 부분을 메운다'
+        - 'action expert 가 학습을 마친 뒤에만 gradient 의 길을 다시 열어, backbone 을 마지막에 함께 고친다'
+        - 'backbone 도 action 을 FAST token 으로 바꾼 정답을 next-token 예측으로 배우게 해서 배울 거리를 준다'
+        - 'action expert 의 learning rate 를 0 으로 두고, backbone 만 flow matching loss 로 학습하게 한다'
+      answer: 2
+      explanation: |
+        backbone 은 action 을 FAST token 으로 바꾼 정답과 웹 데이터를 next-token 예측으로 배우고, action expert 는 backbone 을 읽기만 하며
+        flow matching 으로 연속 action 을 배운다. FAST token 은 학습에만 쓴다. 첫째 보기의 얼린 backbone 은 서랍 작업과 셔츠 개기에서 성공하지
+        못했다. 둘째 보기처럼 나중에 길을 열지 않는다. 넷째 보기는 반대로, flow matching loss 로 배우는 쪽이 action expert 다.
+    - question: |
+        backbone 의 weight 하나에 FAST token loss 의 gradient +0.2 와, 아직 무작위인 action expert 쪽에서 온 gradient −0.5 가 함께 온다.
+        둘을 다 받아 gradient descent 로 한 step 고치면 FAST loss 는 어떻게 되는가?
+      choices:
+        - '합이 −0.3 이라 weight 가 늘어나고, FAST loss 의 gradient 가 + 이므로 FAST loss 는 늘어난다'
+        - '합이 −0.3 이라 weight 가 줄어들고, FAST loss 의 gradient 가 + 이므로 FAST loss 는 줄어든다'
+        - '두 gradient 의 부호가 달라 서로 지워지므로, weight 는 바뀌지 않고 FAST loss 도 그대로다'
+        - '크기가 큰 gradient 만 반영되므로 −0.5 쪽으로 weight 가 줄고, FAST loss 는 줄어든다'
+      answer: 0
+      explanation: |
+        gradient descent 는 gradient 의 반대쪽으로 움직이므로, 합 −0.3 을 받으면 weight 가 늘어난다. FAST loss 의 gradient 는 + 라서 weight 를
+        늘리면 FAST loss 가 늘어나므로, action expert 쪽 gradient 가 backbone 의 학습을 방해한다. 둘째 보기는 −0.3 에서 weight 가 줄어든다고
+        잘못 읽었다. 셋째 보기와 달리 +0.2 와 −0.5 는 크기가 달라 지워지지 않는다. 넷째 보기와 달리 gradient 는 모두 더해서 반영한다.
+
+- topic: embodied-reasoning
+  title: Gemini Robotics-ER 와 thinking VLA
+  section: gemini-robotics-er-와-thinking-vla
+  variants:
+    - question: |
+        640×480 사진에 대해 Gemini Robotics-ER 가 point [y, x] = [500, 250] 을 냈다. 좌표가 0 ~ 1000 으로 정규화돼 있을 때 pixel 위치는?
+      choices:
+        - 'x = 500, y = 250 이다. 정규화 좌표는 앞의 값이 가로라서 그 숫자를 그대로 pixel 로 쓴다'
+        - 'x = 320, y = 120 이다. 앞의 값은 가로 640 에, 뒤의 값은 세로 480 에 맞춰 바꾼다'
+        - 'x = 160, y = 240 이다. 앞의 값이 세로라서 500 은 480 에, 250 은 640 에 맞춰 바꾼다'
+        - 'x = 250, y = 500 이다. 정규화 좌표는 pixel 과 단위가 같아서 순서만 바꾸면 된다'
+      answer: 2
+      explanation: |
+        Gemini Robotics-ER 의 point 는 [y, x] 순서이고 0 ~ 1000 으로 정규화돼 있으므로, x 는 250 ÷ 1000 × 640 = 160, y 는 500 ÷ 1000 × 480
+        = 240 이다. 첫째 보기는 순서도 틀렸고 정규화도 풀지 않았다. 둘째 보기는 정규화는 풀었지만 앞의 값을 가로로 읽었다. 넷째 보기는
+        순서만 바꾸고 정규화를 풀지 않았다.
+    - question: |
+        Gemini Robotics 1.5 의 thinking VLA 에서 생각을 켜자 여러 단계 작업의 진행 점수가 올랐다. 보고서가 든 이유로 알맞은 것은?
+      choices:
+        - '생각 글을 쓰는 동안 로봇이 멈춰 있어서, 움직임이 느려진 만큼 실수도 함께 줄었기 때문이다'
+        - '생각 글이 orchestrator 에게 전해져서, orchestrator 가 action 을 대신 계산해 주었기 때문이다'
+        - '생각을 켜면 모델 parameter 가 두 배로 늘어나는 구조라서, 표현할 수 있는 동작이 많아졌기 때문이다'
+        - '긴 지시를 짧은 글 단계로 바꾸는 일과 그 글을 action 으로 바꾸는 일로 나눠 각각이 쉬워졌기 때문이다'
+      answer: 3
+      explanation: |
+        보고서는 긴 지시를 action 으로 바로 바꾸는 어려운 번역을, VLM 이 잘하는 글 단계 나누기와 더 단순한 글 → action 대응의 두 단계로
+        나눈 덕분이라고 설명했다. 첫째 보기의 멈춤은 보고서가 든 이유가 아니다. 둘째 보기와 달리 action 은 VLA 가 내고 orchestrator 는
+        계획과 판정을 맡는다. 셋째 보기와 달리 생각을 켜도 같은 모델이 글을 더 쓸 뿐 parameter 는 그대로다.
+    - question: |
+        Gemini Robotics 1.5 는 Gemini Robotics-ER 1.5 를 orchestrator 로, thinking VLA 를 action model 로 묶었다. orchestrator 가 맡는
+        일로 알맞은 것은?
+      choices:
+        - '전체 계획을 세워 VLA 에 단계를 지시하고, 단계가 끝났는지 판정하며, 필요하면 웹 검색 같은 도구를 쓴다'
+        - '50 Hz 로 관절 목표를 내고, action chunk 의 경계에서 목표가 갑자기 튀지 않게 앞뒤를 이어 붙인다'
+        - '카메라 사진을 pixel 단위로 보정하고, gripper 의 힘을 PID 로 계산해 모터에 직접 보낸다'
+        - 'VLA 가 쓴 생각 글을 지우고 action 만 남겨서, 로봇에 보내는 데이터의 양을 줄여 준다'
+      answer: 0
+      explanation: |
+        orchestrator 는 사용자의 말을 듣고 전체 계획을 세워 VLA 에 단계를 지시하고, success detection 으로 단계가 끝났는지 판정하며, 필요하면
+        웹 검색 같은 도구를 쓴다. 8 가지 긴 작업에서 orchestrator 를 붙인 agent 가 thinking VLA 혼자보다 크게 높았다. 둘째 보기의 관절 목표는
+        VLA 와 로봇의 실행 층이 맡는다. 셋째 보기의 PID 는 모터 제어기의 일이다. 넷째 보기와 달리 생각 글은 VLA 가 action 을 내기 전에
+        자기 문맥에 붙여 쓰는 것이다.

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>위에서 내려다본 두 컵. 가운데는 같은 pixel (220, 240) 이지만 손잡이는 컵 A 에서 (290, 240) 이고 컵 B 에서 (220, 170) 이다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="a-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="125.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="middle">object frame (CAD model)</text>
+  <text x="125.0" y="50.0" fill="#94a3b8" font-size="12" text-anchor="middle">옆에서 본 머그컵</text>
+  <rect x="55.0" y="118.0" width="100.0" height="124.0" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <path d="M155,146 C200,146 200,214 155,214" fill="none" stroke="#7cb4d8" stroke-width="6"/>
+  <line x1="105.0" y1="180.0" x2="223.0" y2="180.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#a-amber)"/>
+  <text x="227.0" y="185.0" fill="#d6aa62" font-size="14" text-anchor="start">x</text>
+  <line x1="105.0" y1="180.0" x2="105.0" y2="92.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#a-green)"/>
+  <text x="113.0" y="98.0" fill="#7fc4a2" font-size="14" text-anchor="start">z</text>
+  <circle cx="105.0" cy="180.0" r="4" fill="#e2e8f0"/>
+  <text x="99.0" y="198.0" fill="#94a3b8" font-size="12" text-anchor="end">원점</text>
+  <circle cx="192.5" cy="180.0" r="5.5" fill="#d88b8b"/>
+  <text x="175.0" y="264.0" fill="#d88b8b" font-size="12" text-anchor="middle">손잡이 (0.07, 0, 0) m</text>
+  <text x="125.0" y="292.0" fill="#94a3b8" font-size="12" text-anchor="middle">object 좌표 p_o</text>
+  <text x="125.0" y="310.0" fill="#e2e8f0" font-size="13" text-anchor="middle">→  p_c = R p_o + t</text>
+  <text x="340.0" y="56.0" fill="#e2e8f0" font-size="14" text-anchor="middle">컵 A</text>
+  <text x="340.0" y="72.0" fill="#94a3b8" font-size="12" text-anchor="middle">손잡이 → 사진 오른쪽(+X)</text>
+  <rect x="250.0" y="80.0" width="180.0" height="198.0" rx="4" fill="#0e1626" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="313.0" cy="179.0" r="36" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="313.0" cy="179.0" r="29" fill="none" stroke="#7cb4d8" stroke-width="1"/>
+  <line x1="349.0" y1="179.0" x2="382.0" y2="179.0" stroke="#7cb4d8" stroke-width="9"/>
+  <circle cx="313.0" cy="179.0" r="4" fill="#e2e8f0"/>
+  <circle cx="376.0" cy="179.0" r="5.5" fill="#d88b8b"/>
+  <text x="313.0" y="235.0" fill="#e2e8f0" font-size="12" text-anchor="middle">가운데 (220, 240)</text>
+  <text x="372.0" y="157.0" fill="#d88b8b" font-size="12" text-anchor="middle">(290, 240)</text>
+  <text x="560.0" y="56.0" fill="#e2e8f0" font-size="14" text-anchor="middle">컵 B</text>
+  <text x="560.0" y="72.0" fill="#94a3b8" font-size="12" text-anchor="middle">90° 돌아 사진 위쪽(−Y)</text>
+  <rect x="470.0" y="80.0" width="180.0" height="198.0" rx="4" fill="#0e1626" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="533.0" cy="179.0" r="36" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="533.0" cy="179.0" r="29" fill="none" stroke="#7cb4d8" stroke-width="1"/>
+  <line x1="533.0" y1="143.0" x2="533.0" y2="110.0" stroke="#7cb4d8" stroke-width="9"/>
+  <circle cx="533.0" cy="179.0" r="4" fill="#e2e8f0"/>
+  <circle cx="533.0" cy="116.0" r="5.5" fill="#d88b8b"/>
+  <text x="533.0" y="235.0" fill="#e2e8f0" font-size="12" text-anchor="middle">가운데 (220, 240)</text>
+  <text x="545.0" y="120.0" fill="#d88b8b" font-size="12" text-anchor="start">(220, 170)</text>
+  <line x1="256.0" y1="296.0" x2="290.0" y2="296.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a-muted)"/>
+  <text x="294.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="start">u</text>
+  <line x1="256.0" y1="296.0" x2="256.0" y2="316.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a-muted)"/>
+  <text x="262.0" y="318.0" fill="#94a3b8" font-size="12" text-anchor="start">v</text>
+  <text x="560.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="middle">두 컵의 t = (−0.1, 0, 0.5) 는 같다</text>
+  <text x="560.0" y="318.0" fill="#e2e8f0" font-size="12" text-anchor="middle">손잡이는 약 10 cm 떨어져 있다</text>
+</svg>

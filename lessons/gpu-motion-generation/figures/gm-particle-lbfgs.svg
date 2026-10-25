@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>particle 최적화와 L-BFGS. 왼쪽은 비용 0.08, 2.0, 4.08 인 후보 셋의 weight 0.86, 0.13, 0.02 와 가중 평균 −0.17 이다. 오른쪽은 비용 (x − 3)² 에서 gradient descent 가 0 → 0.6 → 1.08 로 가는 동안 휜 정도를 추정한 걸음은 0.6 에서 3.0 으로 간다</title>
+  <defs><marker id="a-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
+  <rect x="1" y="1" width="758" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">particle 최적화: 가운데 waypoint 의 y</text>
+  <line x1="50.0" y1="260.0" x2="340.0" y2="260.0" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="50.0" y1="260.0" x2="50.0" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="50.0" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">−0.3</text>
+  <line x1="98.3" y1="260.0" x2="98.3" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="98.3" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">−0.2</text>
+  <line x1="146.7" y1="260.0" x2="146.7" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="146.7" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">−0.1</text>
+  <line x1="195.0" y1="260.0" x2="195.0" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="195.0" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="243.3" y1="260.0" x2="243.3" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="243.3" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">0.1</text>
+  <line x1="291.7" y1="260.0" x2="291.7" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="291.7" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">0.2</text>
+  <line x1="340.0" y1="260.0" x2="340.0" y2="265.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="340.0" y="280.0" fill="#64748b" font-size="12" text-anchor="middle">0.3</text>
+  <rect x="82.3" y="131.0" width="32.0" height="129.0" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1" opacity="0.85"/>
+  <text x="98.3" y="123.0" fill="#7fc4a2" font-size="12" text-anchor="middle">weight 0.86</text>
+  <text x="98.3" y="107.0" fill="#94a3b8" font-size="12" text-anchor="middle">비용 0.08</text>
+  <rect x="179.0" y="240.5" width="32.0" height="19.5" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1" opacity="0.85"/>
+  <text x="195.0" y="232.5" fill="#7fc4a2" font-size="12" text-anchor="middle">weight 0.13</text>
+  <text x="195.0" y="216.5" fill="#94a3b8" font-size="12" text-anchor="middle">비용 2.0</text>
+  <rect x="275.7" y="257.0" width="32.0" height="3.0" rx="2" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1" opacity="0.85"/>
+  <text x="291.7" y="249.0" fill="#7fc4a2" font-size="12" text-anchor="middle">weight 0.02</text>
+  <text x="291.7" y="233.0" fill="#94a3b8" font-size="12" text-anchor="middle">비용 4.08</text>
+  <line x1="195.0" y1="302.0" x2="116.8" y2="302.0" stroke="#7cb4d8" stroke-width="2" marker-end="url(#a-sky)"/>
+  <circle cx="195.0" cy="302.0" r="4.0" fill="#94a3b8" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="203.0" y="307.0" fill="#94a3b8" font-size="12" text-anchor="start">전: 0</text>
+  <text x="112.8" y="324.0" fill="#7cb4d8" font-size="12" text-anchor="middle">후: −0.17 (변화 −0.17)</text>
+  <text x="24.0" y="56.0" fill="#94a3b8" font-size="12" text-anchor="start">weight ∝ exp(−(비용 − 0.08) ÷ 1)</text>
+  <text x="450.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">L-BFGS: 비용 (x − 3)²</text>
+  <rect x="470.0" y="60.0" width="260.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
+  <line x1="470.0" y1="60.0" x2="470.0" y2="280.0" stroke="#16213a" stroke-width="1"/>
+  <text x="470.0" y="296.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
+  <line x1="535.0" y1="60.0" x2="535.0" y2="280.0" stroke="#16213a" stroke-width="1"/>
+  <text x="535.0" y="296.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
+  <line x1="600.0" y1="60.0" x2="600.0" y2="280.0" stroke="#16213a" stroke-width="1"/>
+  <text x="600.0" y="296.0" fill="#64748b" font-size="12" text-anchor="middle">2</text>
+  <line x1="665.0" y1="60.0" x2="665.0" y2="280.0" stroke="#16213a" stroke-width="1"/>
+  <text x="665.0" y="296.0" fill="#64748b" font-size="12" text-anchor="middle">3</text>
+  <line x1="730.0" y1="60.0" x2="730.0" y2="280.0" stroke="#16213a" stroke-width="1"/>
+  <text x="730.0" y="296.0" fill="#64748b" font-size="12" text-anchor="middle">4</text>
+  <text x="464.0" y="284.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
+  <text x="464.0" y="64.0" fill="#64748b" font-size="12" text-anchor="end">10</text>
+  <text x="600.0" y="314.0" fill="#94a3b8" font-size="12" text-anchor="middle">x</text>
+  <path d="M470.0,82.0 L471.6,85.3 L473.2,88.5 L474.9,91.8 L476.5,95.0 L478.1,98.2 L479.8,101.3 L481.4,104.4 L483.0,107.5 L484.6,110.6 L486.2,113.6 L487.9,116.6 L489.5,119.6 L491.1,122.6 L492.8,125.5 L494.4,128.4 L496.0,131.3 L497.6,134.1 L499.2,136.9 L500.9,139.7 L502.5,142.5 L504.1,145.2 L505.8,147.9 L507.4,150.6 L509.0,153.3 L510.6,155.9 L512.2,158.5 L513.9,161.1 L515.5,163.6 L517.1,166.1 L518.8,168.6 L520.4,171.1 L522.0,173.5 L523.6,175.9 L525.2,178.3 L526.9,180.7 L528.5,183.0 L530.1,185.3 L531.8,187.5 L533.4,189.8 L535.0,192.0 L536.6,194.2 L538.2,196.3 L539.9,198.5 L541.5,200.6 L543.1,202.7 L544.8,204.7 L546.4,206.7 L548.0,208.7 L549.6,210.7 L551.2,212.6 L552.9,214.5 L554.5,216.4 L556.1,218.3 L557.8,220.1 L559.4,221.9 L561.0,223.7 L562.6,225.4 L564.2,227.1 L565.9,228.8 L567.5,230.5 L569.1,232.1 L570.8,233.7 L572.4,235.3 L574.0,236.9 L575.6,238.4 L577.2,239.9 L578.9,241.4 L580.5,242.8 L582.1,244.2 L583.8,245.6 L585.4,247.0 L587.0,248.3 L588.6,249.6 L590.2,250.9 L591.9,252.2 L593.5,253.4 L595.1,254.6 L596.8,255.7 L598.4,256.9 L600.0,258.0 L601.6,259.1 L603.2,260.1 L604.9,261.2 L606.5,262.2 L608.1,263.2 L609.8,264.1 L611.4,265.0 L613.0,265.9 L614.6,266.8 L616.2,267.6 L617.9,268.4 L619.5,269.2 L621.1,270.0 L622.8,270.7 L624.4,271.4 L626.0,272.1 L627.6,272.7 L629.2,273.3 L630.9,273.9 L632.5,274.5 L634.1,275.0 L635.8,275.5 L637.4,276.0 L639.0,276.5 L640.6,276.9 L642.2,277.3 L643.9,277.7 L645.5,278.0 L647.1,278.3 L648.8,278.6 L650.4,278.9 L652.0,279.1 L653.6,279.3 L655.2,279.5 L656.9,279.7 L658.5,279.8 L660.1,279.9 L661.8,279.9 L663.4,280.0 L665.0,280.0 L666.6,280.0 L668.2,279.9 L669.9,279.9 L671.5,279.8 L673.1,279.7 L674.8,279.5 L676.4,279.3 L678.0,279.1 L679.6,278.9 L681.2,278.6 L682.9,278.3 L684.5,278.0 L686.1,277.7 L687.8,277.3 L689.4,276.9 L691.0,276.5 L692.6,276.0 L694.2,275.5 L695.9,275.0 L697.5,274.5 L699.1,273.9 L700.8,273.3 L702.4,272.7 L704.0,272.1 L705.6,271.4 L707.2,270.7 L708.9,270.0 L710.5,269.2 L712.1,268.4 L713.8,267.6 L715.4,266.8 L717.0,265.9 L718.6,265.0 L720.2,264.1 L721.9,263.2 L723.5,262.2 L725.1,261.2 L726.8,260.1 L728.4,259.1 L730.0,258.0" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+  <path d="M470.0,82.0 L509.0,153.3" fill="none" stroke="#d6aa62" stroke-width="2" marker-end="url(#a-amber)"/>
+  <path d="M509.0,153.3 L540.2,198.9" fill="none" stroke="#d6aa62" stroke-width="2" marker-end="url(#a-amber)"/>
+  <circle cx="470.0" cy="82.0" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="509.0" cy="153.3" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="540.2" cy="198.9" r="4.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="478.0" y="86.0" fill="#d6aa62" font-size="11" text-anchor="start">x = 0, gradient −6</text>
+  <text x="501.0" y="169.3" fill="#d6aa62" font-size="11" text-anchor="end">x = 0.6,</text>
+  <text x="501.0" y="183.3" fill="#d6aa62" font-size="11" text-anchor="end">gradient −4.8</text>
+  <text x="548.2" y="202.8" fill="#d6aa62" font-size="11" text-anchor="start">x = 1.08</text>
+  <path d="M509.0,153.3 Q593.5,71.0 665.0,277.0" fill="none" stroke="#7fc4a2" stroke-width="2" marker-end="url(#a-green)" stroke-dasharray="5 3"/>
+  <circle cx="665.0" cy="280.0" r="5.0" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="677.0" y="264.0" fill="#7fc4a2" font-size="12" text-anchor="start">x = 3.0</text>
+  <text x="724.0" y="78.0" fill="#7fc4a2" font-size="12" text-anchor="end">휜 정도 (−4.8 + 6) ÷ 0.6 = 2</text>
+  <text x="724.0" y="94.0" fill="#7fc4a2" font-size="12" text-anchor="end">걸음 4.8 ÷ 2 = 2.4</text>
+  <text x="724.0" y="110.0" fill="#d6aa62" font-size="12" text-anchor="end">배율 0.1 의 gradient descent</text>
+</svg>

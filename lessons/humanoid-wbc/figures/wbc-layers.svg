@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>VLA 아래의 whole-body controller. GR00T N1.5 가 motion token 64 개와 손 관절 14 개, 모두 78 개의 숫자를 내고, SONIC 이 1 초에 50 번 관절 29 개의 목표 각도를 계산하며, command writer 가 1 초에 500 번 G1 의 관절 PD controller 로 보낸다. 세 작업의 평균 성공률은 token 이 68%, SMPL 자세가 27% 다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="30" fill="#94a3b8" font-size="12.5" text-anchor="start">SONIC 실험의 층 구조. 위층일수록 넓게 판단하고, 아래층일수록 자주 계산한다</text>
+  <rect x="20" y="48" width="470" height="62" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="36" y="74" fill="#e2e8f0" font-size="14" text-anchor="start">VLA (GR00T N1.5)</text>
+  <text x="36" y="96" fill="#94a3b8" font-size="12.5" text-anchor="start">사진·지시문 → motion token 64 개 + 손 관절 14 개 = 78 개</text>
+  <text x="474" y="74" fill="#d6aa62" font-size="12.5" text-anchor="end">주기는 논문에 없음</text>
+  <rect x="20" y="146" width="470" height="62" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="36" y="172" fill="#e2e8f0" font-size="14" text-anchor="start">whole-body controller (SONIC)</text>
+  <text x="36" y="194" fill="#94a3b8" font-size="12.5" text-anchor="start">token + 로봇 상태 → 관절 29 개의 목표 각도</text>
+  <text x="474" y="172" fill="#7fc4a2" font-size="12.5" text-anchor="end">1 초에 50 번</text>
+  <rect x="20" y="244" width="470" height="62" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="36" y="270" fill="#e2e8f0" font-size="14" text-anchor="start">command writer</text>
+  <text x="36" y="292" fill="#94a3b8" font-size="12.5" text-anchor="start">가장 최근의 목표 각도를 로봇으로 보낸다</text>
+  <text x="474" y="270" fill="#7cb4d8" font-size="12.5" text-anchor="end">1 초에 500 번</text>
+  <rect x="20" y="342" width="470" height="50" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="36" y="373" fill="#e2e8f0" font-size="14" text-anchor="start">로봇 관절의 PD controller (G1 내장)</text>
+  <line x1="255" y1="112" x2="255" y2="142" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <line x1="255" y1="210" x2="255" y2="240" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <line x1="255" y1="308" x2="255" y2="338" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <rect x="512" y="48" width="188" height="124" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="606" y="72" fill="#a99ad6" font-size="13.5" text-anchor="middle">action 공간 비교</text>
+  <text x="528" y="98" fill="#94a3b8" font-size="12" text-anchor="start">세 작업의 평균 성공률</text>
+  <text x="528" y="122" fill="#e2e8f0" font-size="12.5" text-anchor="start">token 78 개: 68%</text>
+  <text x="528" y="144" fill="#e2e8f0" font-size="12.5" text-anchor="start">SMPL 자세 81 개: 27%</text>
+  <text x="528" y="164" fill="#94a3b8" font-size="12" text-anchor="start">가장 복잡한 작업: 60% 와 0%</text>
+  <rect x="512" y="196" width="188" height="110" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="606" y="220" fill="#e2e8f0" font-size="13.5" text-anchor="middle">주기 계산</text>
+  <text x="528" y="246" fill="#94a3b8" font-size="12" text-anchor="start">목표 하나를 보내는 횟수</text>
+  <text x="528" y="268" fill="#e2e8f0" font-size="12.5" text-anchor="start">500 ÷ 50 = 10 번</text>
+  <text x="528" y="292" fill="#94a3b8" font-size="12" text-anchor="start">policy 한 번 계산: 1 ~ 2 ms</text>
+  <text x="512" y="330" fill="#94a3b8" font-size="12" text-anchor="start">조이스틱·VR 3 점 입력일 때는</text>
+  <text x="512" y="348" fill="#94a3b8" font-size="12" text-anchor="start">kinematic planner 가 1 초에 10 번</text>
+  <text x="512" y="366" fill="#94a3b8" font-size="12" text-anchor="start">짧은 reference 동작을 만든다</text>
+</svg>

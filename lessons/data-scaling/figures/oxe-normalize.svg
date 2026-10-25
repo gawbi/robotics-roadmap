@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>dataset 마다 따로 하는 정규화. 예로 든 로봇 A 는 최대 ±2 cm, 로봇 B 는 최대 ±0.5 cm 를 옮기므로 A 의 1 cm 와 B 의 0.25 cm 가 모두 0.5 가 된다. 모델이 낸 0.5 는 A 에서는 1 cm, B 에서는 0.25 cm 로 되돌린다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+  <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="95" y="30" fill="#94a3b8" font-size="12.5" text-anchor="middle">dataset 마다 정규화</text>
+  <text x="345" y="30" fill="#94a3b8" font-size="12.5" text-anchor="middle">학습과 실행</text>
+  <text x="530" y="30" fill="#94a3b8" font-size="12.5" text-anchor="middle">로봇마다 되돌리기</text>
+  <rect x="20" y="50" width="150" height="70" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="95" y="72" fill="#7cb4d8" font-size="14" text-anchor="middle">로봇 A</text>
+  <text x="95" y="91" fill="#94a3b8" font-size="12.5" text-anchor="middle">한 step 최대 ±2 cm</text>
+  <text x="95" y="110" fill="#e2e8f0" font-size="13" text-anchor="middle">이번 이동 1 cm</text>
+  <rect x="20" y="170" width="150" height="70" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="95" y="192" fill="#d6aa62" font-size="14" text-anchor="middle">로봇 B</text>
+  <text x="95" y="211" fill="#94a3b8" font-size="12.5" text-anchor="middle">한 step 최대 ±0.5 cm</text>
+  <text x="95" y="230" fill="#e2e8f0" font-size="13" text-anchor="middle">이번 이동 0.25 cm</text>
+  <line x1="172" y1="85" x2="224" y2="85" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="198" y="77" fill="#94a3b8" font-size="12" text-anchor="middle">÷ 2</text>
+  <line x1="172" y1="205" x2="224" y2="205" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="198" y="197" fill="#94a3b8" font-size="12" text-anchor="middle">÷ 0.5</text>
+  <circle cx="246" cy="85" r="19" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="246" y="90" fill="#e2e8f0" font-size="14" text-anchor="middle">0.5</text>
+  <circle cx="246" cy="205" r="19" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="246" y="210" fill="#e2e8f0" font-size="14" text-anchor="middle">0.5</text>
+  <path d="M262,96 L292,128" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <path d="M262,194 L292,162" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <rect x="295" y="118" width="100" height="54" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="345" y="140" fill="#e2e8f0" font-size="14" text-anchor="middle">모델</text>
+  <text x="345" y="159" fill="#94a3b8" font-size="12" text-anchor="middle">같은 크기로 배움</text>
+  <path d="M397,128 L428,96" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <path d="M397,162 L428,194" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <circle cx="444" cy="85" r="19" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="444" y="90" fill="#e2e8f0" font-size="14" text-anchor="middle">0.5</text>
+  <circle cx="444" cy="205" r="19" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="444" y="210" fill="#e2e8f0" font-size="14" text-anchor="middle">0.5</text>
+  <line x1="465" y1="85" x2="493" y2="85" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="479" y="77" fill="#94a3b8" font-size="12" text-anchor="middle">× 2</text>
+  <line x1="465" y1="205" x2="493" y2="205" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="479" y="197" fill="#94a3b8" font-size="12" text-anchor="middle">× 0.5</text>
+  <rect x="496" y="62" width="88" height="46" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="540" y="82" fill="#7cb4d8" font-size="13" text-anchor="middle">A 에</text>
+  <text x="540" y="100" fill="#e2e8f0" font-size="13" text-anchor="middle">1 cm</text>
+  <rect x="496" y="182" width="88" height="46" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="540" y="202" fill="#d6aa62" font-size="13" text-anchor="middle">B 에</text>
+  <text x="540" y="220" fill="#e2e8f0" font-size="13" text-anchor="middle">0.25 cm</text>
+  <text x="20" y="276" fill="#94a3b8" font-size="12" text-anchor="start">같은 범위(±2 cm)로 다루면 B 의 움직임은 A 의 4 분의 1 크기라 loss 에서 거의 보이지 않는다</text>
+</svg>

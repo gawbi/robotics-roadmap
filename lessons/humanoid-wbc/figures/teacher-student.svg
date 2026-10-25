@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>OmniH2O 의 teacher 와 student. teacher 는 모든 link 의 상태와 전신 reference 를 담은 입력 913 개로 PPO 학습한다. student 는 지금 상태 90 개와 지난 25 step × 63 = 1,575 개를 합친 1,665 개를 받아, student 가 움직인 상태마다 teacher 가 낸 action 을 따라 배운다. 성공률은 teacher 94.77%, student 94.10%, PPO 로 바로 학습한 같은 입력의 policy 47.11% 다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="428" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="30" fill="#d6aa62" font-size="14" text-anchor="start">1 단계: teacher 를 PPO 로 학습 (simulation 안에서만)</text>
+  <rect x="20" y="46" width="230" height="104" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.8"/>
+  <text x="135" y="70" fill="#d88b8b" font-size="13.5" text-anchor="middle">privileged 입력</text>
+  <text x="135" y="92" fill="#94a3b8" font-size="12" text-anchor="middle">모든 link 의 위치·회전·속도</text>
+  <text x="135" y="110" fill="#94a3b8" font-size="12" text-anchor="middle">전신 link 의 reference 와 차이</text>
+  <text x="135" y="128" fill="#94a3b8" font-size="12" text-anchor="middle">직전 action</text>
+  <line x1="250" y1="98" x2="298" y2="98" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <rect x="302" y="62" width="170" height="72" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="387" y="92" fill="#e2e8f0" font-size="14" text-anchor="middle">teacher</text>
+  <text x="387" y="114" fill="#94a3b8" font-size="12.5" text-anchor="middle">입력 913 개</text>
+  <line x1="472" y1="98" x2="512" y2="98" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <text x="518" y="94" fill="#94a3b8" font-size="12.5" text-anchor="start">tracking reward 로</text>
+  <text x="518" y="112" fill="#94a3b8" font-size="12.5" text-anchor="start">PPO 가 고친다</text>
+  <text x="20" y="190" fill="#7fc4a2" font-size="14" text-anchor="start">2 단계: student 가 teacher 를 따라 배움 (DAgger)</text>
+  <rect x="20" y="204" width="230" height="96" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="135" y="226" fill="#e2e8f0" font-size="13.5" text-anchor="middle">지금 상태 90 개</text>
+  <text x="135" y="246" fill="#94a3b8" font-size="12" text-anchor="middle">관절 각도 19, 관절 속도 19,</text>
+  <text x="135" y="264" fill="#94a3b8" font-size="12" text-anchor="middle">몸통 각속도 3, 중력 방향 3,</text>
+  <text x="135" y="282" fill="#94a3b8" font-size="12" text-anchor="middle">3 점 목표 27, 직전 action 19</text>
+  <rect x="20" y="310" width="230" height="58" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="135" y="332" fill="#e2e8f0" font-size="13.5" text-anchor="middle">지난 25 step 의 이력</text>
+  <text x="135" y="352" fill="#94a3b8" font-size="12" text-anchor="middle">25 × 63 = 1,575 개</text>
+  <path d="M250,252 L276,252 L276,282 L298,282" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <path d="M250,339 L276,339 L276,296 L298,296" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+  <rect x="302" y="252" width="170" height="74" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="387" y="282" fill="#e2e8f0" font-size="14" text-anchor="middle">student</text>
+  <text x="387" y="304" fill="#94a3b8" font-size="12.5" text-anchor="middle">90 + 1,575 = 1,665 개</text>
+  <line x1="472" y1="289" x2="506" y2="289" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
+  <rect x="510" y="240" width="190" height="104" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="605" y="266" fill="#e2e8f0" font-size="12" text-anchor="middle">loss = ‖a_teacher − a_student‖²</text>
+  <text x="605" y="290" fill="#94a3b8" font-size="12" text-anchor="middle">student 가 움직인 상태마다</text>
+  <text x="605" y="308" fill="#94a3b8" font-size="12" text-anchor="middle">teacher 가 정답 action 을 낸다</text>
+  <text x="605" y="330" fill="#7fc4a2" font-size="12" text-anchor="middle">로봇에는 student 만 올린다</text>
+  <path d="M387,134 L387,170 L640,170 L640,236" fill="none" stroke="#a99ad6" stroke-width="1.6" marker-end="url(#ar-violet)"/>
+  <text x="560" y="162" fill="#a99ad6" font-size="12" text-anchor="start">정답 action 제공</text>
+  <text x="20" y="396" fill="#e2e8f0" font-size="13" text-anchor="start">simulation 성공률: teacher 94.77%, student 94.10%, 같은 1,665 개 입력을 PPO 로 바로 학습 47.11%</text>
+  <text x="20" y="418" fill="#94a3b8" font-size="12" text-anchor="start">입력 수와 성공률은 OmniH2O 논문의 값이다</text>
+</svg>
