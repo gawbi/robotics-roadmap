@@ -32,14 +32,15 @@ papers:
 
 카메라가 손목에 붙은 위치와 방향, 손목이 몸통에 대해 놓인 위치와 방향을 각각 4×4 행렬 하나로 적어 두면, 카메라 좌표를 몸통 좌표로 바꾸는
 계산은 이 행렬들을 차례로 곱하는 일이 된다. 모양은 그대로 두고 돌리고 옮기기만 하는 이런 변환을 rigid transform 이라고 한다. ROS 2 의
-tf2 는 frame 사이의 관계를 이동량 숫자 3 개와 quaternion 숫자 4 개로 저장해 두고, 두 frame 사이의 변환을 물으면 frame tree 를 따라 이 변환들을
+tf2 는 frame 사이의 관계를 이동량 숫자 3 개와, 방향을 숫자 4 개로 적는 quaternion 으로 저장해 두고, 두 frame 사이의 변환을 물으면 frame tree 를 따라 이 변환들을
 이어 계산한다.
 
 ## 학습 목표
 
 - frame 과 pose 의 뜻과, rotation matrix 의 열이 자식 frame 의 축을 부모 frame 에서 잰 값이라는 것을 설명할 수 있다
 - homogeneous transform 으로 여러 frame 을 거치는 변환을 합성하고, 곱하는 순서와 역변환의 translation 칸이 $-R^\top p$ 인 이유를 설명할 수 있다
-- 같은 3D rotation 을 rotation matrix·roll-pitch-yaw·axis-angle·quaternion 으로 적을 때의 차이와 gimbal lock, $q$ 와 $-q$, slerp 를 설명할 수 있다
+- 같은 3D rotation 을 rotation matrix·roll-pitch-yaw·axis-angle·quaternion 으로 적을 때의 차이를 설명하고, roll-pitch-yaw 가 pitch 90° 에서
+  각도 하나를 잃는 gimbal lock, quaternion $q$ 와 $-q$ 가 같은 rotation 인 이유, 두 자세 사이를 고르게 잇는 slerp 를 설명할 수 있다
 - tf2, 손목 카메라, mobile robot 의 `odom` → `base_link` 에서 이 계산이 어떻게 쓰이는지 설명할 수 있다
 
 ## frame 과 pose
@@ -430,8 +431,10 @@ pitch 가 90° 일 때는 roll 로 돈 양과 yaw 로 반대로 돈 양이 같�
 
 ## axis-angle
 
-원점을 고정한 3D rotation 에는 언제나 움직이지 않는 방향이 하나 있어서, 어떤 rotation 이든 "축 하나를 중심으로 각도 하나만큼 돈 것" 으로
-적을 수 있다. Euler 가 증명한 이 성질을 이용해 rotation 을 축과 각도로 적는 방법이 **axis-angle** 이다.
+roll-pitch-yaw 는 rotation 을 축 세 개에 나눠 적기 때문에, pitch 가 90° 이면 roll 의 축이 yaw 의 축과 겹쳐 각도 하나를 잃는
+[gimbal lock](#roll-pitch-yaw) 이 생긴다. 그런데 원점을 고정한 3D rotation 에는 언제나 움직이지 않는 방향이 하나 있어서, 어떤 rotation 이든
+나누지 않고 "축 하나를 중심으로 각도 하나만큼 돈 것" 으로 한 번에 적을 수 있다. Euler 가 증명한 이 성질을 이용해 rotation 을 축과 각도로
+적는 방법이 **axis-angle** 이다.
 
 $R_z(90°)\,R_x(90°)$ 는 열이 $(0, 1, 0)$, $(0, 0, 1)$, $(1, 0, 0)$ 이라 축을 $x \to y$, $y \to z$, $z \to x$ 자리로 하나씩 옮긴다.
 이 행렬에 $(1, 1, 1)$ 을 곱하면 행마다 $0 + 0 + 1 = 1$ 이라 $(1, 1, 1)$ 이 그대로 나오므로 이 방향이 회전축이다. 이 rotation 을 세 번 하면
@@ -447,13 +450,20 @@ OpenCV 의 `solvePnP` 는 카메라에서 본 물체의 자세를 이 rotation v
 
 ## quaternion
 
-축 $\hat\omega$ 를 중심으로 $\theta$ 만큼 도는 rotation 을 각도의 절반을 써서 숫자 네 개로 적은 것이 **quaternion** 이다.
+지금까지 본 세 표현은 저마다 불편한 점이 있다. rotation matrix 는 숫자 9 개를 쓰는 데다, 곱셈을 거듭해 반올림 오차가 쌓이면 열의 길이가 1 에서,
+열 사이가 직각에서 조금씩 벗어나는데 이를 바로잡는 계산이 번거롭다. roll-pitch-yaw 는 pitch 90° 에서 roll 과 yaw 가 같은 축으로 돌게 되어
+각도 하나를 잃는 gimbal lock 이 생긴다. axis-angle 은 숫자 3 개로 gimbal lock 없이 적지만, 두 rotation 을 이어 붙이는 간단한 식이 없어
+rotation matrix 로 바꿔 곱한 뒤 축과 각도를 다시 뽑는 경우가 많다. 숫자 네 개로 이 세 가지를 함께 피하는 표현이 quaternion 이라서, tf2 와 MuJoCo 는 자세를 quaternion 으로 저장한다.
+
+**quaternion** 은 axis-angle 의 축 $\hat\omega$ 와 각도 $\theta$ 를 그대로 쓰되, 각도의 절반의 cos 과 sin 으로 네 칸을 채운다.
 
 $$
 q = (w,\ x,\ y,\ z) = \left(\cos\tfrac{\theta}{2},\ \ \hat\omega \sin\tfrac{\theta}{2}\right)
 $$
 
 첫 칸 $w$ 를 scalar 부분이라고 하고 나머지 세 칸을 vector 부분이라고 하는데, 여기서 $x, y, z$ 는 점의 좌표가 아니라 칸의 이름이다.
+각도를 절반만 적는 까닭은 quaternion 으로 점을 돌릴 때 $q$ 를 점의 앞과 뒤에 한 번씩 곱해서, 절반짜리 회전이 두 번 더해지기 때문이다
+(계산은 이 절 끝의 심화 블록).
 quaternion 은 1843 년 William Rowan Hamilton 이 만든 수 체계로, 이름은 넷으로 이루어진 묶음을 뜻하는 라틴어 quaternio 에서 왔다.
 
 | rotation | 축 | $\frac{\theta}{2}$ | quaternion $(w, x, y, z)$ |
@@ -465,7 +475,7 @@ quaternion 은 1843 년 William Rowan Hamilton 이 만든 수 체계로, 이름�
 $\cos 45° = \sin 45° \approx 0.707$ 이고, 마지막 줄은 $0.577 \times \sin 60° = 0.577 \times 0.866 \approx 0.5$ 다. 네 칸을 제곱해 더하면
 $\cos^2\frac{\theta}{2} + \sin^2\frac{\theta}{2} = 1$ 이라 rotation 을 나타내는 quaternion 은 늘 길이가 1 이고, 이를 unit quaternion 이라고
 한다. unit quaternion 은 rotation matrix 보다 숫자가 적고 gimbal lock 이 없으며, 반올림 오차가 쌓여도 네 칸을 길이로 나누면 다시 rotation 이 된다. 두 rotation
-의 합성은 quaternion 곱 $q_1 \otimes q_2$ 로 하는데, 이 곱은 행렬 곱 $R_1 R_2$ 와 같은 rotation 이다.
+의 합성은 rotation matrix 를 거치지 않고 quaternion 곱 $q_1 \otimes q_2$ 로 바로 하는데, 이 곱은 행렬 곱 $R_1 R_2$ 와 같은 rotation 이다.
 
 quaternion 에는 각도의 절반이 들어가서, 같은 자세인 90° 와 $90° + 360°$ 가 $\frac{\theta}{2}$ 로는 45° 와 225° 로 갈려 모든 칸의 부호가
 뒤집힌다. 그래서 $q$ 와 $-q$ 는 같은 rotation 이고, rotation 하나에 quaternion 이 두 개씩 있다.
@@ -531,6 +541,10 @@ $(0.707, 0.707, 0)$ 이 나오고, 둘째 곱에서 $(0, 1, 0)$ 이 나온다.
 로봇 손이 지금 자세에서 $z$ 축으로 90° 돈 자세까지 움직일 때는 그 사이의 자세를 일정한 간격으로 만들어 보내야 손이 고르게 도는데, 이렇게
 두 값 사이의 중간값을 만드는 일을 interpolation 이라고 한다. 두 rotation matrix 를 칸마다 평균하면 rotation matrix 가 나오지 않는다. $I$ 와
 $R_z(90°)$ 의 첫째 열을 평균하면 $(0.5, 0.5, 0)$ 인데 길이가 $\sqrt{0.25 + 0.25} \approx 0.707$ 이라, 이 행렬을 곱하면 물체가 쪼그라든다.
+진행 비율 $t$(0 에서 출발해 1 에서 도착)만큼 섞는 평균 $(1 - t)\,I + t\,R_z(90°)$ 로 넓혀 보면, $t = 0.25$ 에서는 첫째 열이 $(0.75, 0.25, 0)$ 이라
+$z$ 축으로 18.4° 만 돌고 길이가 $\sqrt{0.75^2 + 0.25^2} \approx 0.79$ 로 줄어서 각도 간격도 고르지 않다.
+
+![위에서 내려다본 로봇 손을 z 축으로 0° 에서 90° 까지 돌릴 때의 중간 자세. 원하는 움직임은 t 가 0.25 늘 때마다 22.5° 씩 고르게 돌고 크기가 그대로지만, rotation matrix 를 칸마다 평균하면 18.4°·26.6°·26.6°·18.4° 씩 돌아 간격이 고르지 않고 손이 0.79 배·0.71 배로 쪼그라든다](figures/slerp-hand.svg)
 
 quaternion 으로는 두 자세를 네 칸 공간의 길이 1 인 점 두 개로 보고, 두 점을 잇는 원호를 일정한 속도로 따라간다. 이 방법을
 **slerp**(spherical linear interpolation)라고 하고, 1985 년 Ken Shoemake 가 computer animation 에서 물체를 고르게 돌리려고 도입했다.

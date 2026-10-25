@@ -14,15 +14,15 @@
   <rect x="255.0" y="110.0" width="80.0" height="120.0" rx="3" fill="#34d399" fill-opacity="0.75" stroke="none" stroke-width="0"/>
   <text x="295.0" y="102.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">0.67</text>
   <text x="295.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="middle">감지 1 번</text>
-  <line x1="205.0" y1="210.0" x2="249.0" y2="120.0" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
+  <line x1="201.4" y1="209.4" x2="253.6" y2="112.6" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
   <rect x="390.0" y="54.9" width="80.0" height="175.1" rx="3" fill="#34d399" fill-opacity="0.75" stroke="none" stroke-width="0"/>
   <text x="430.0" y="46.9" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">0.97</text>
   <text x="430.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="middle">감지 2 번</text>
-  <line x1="340.0" y1="108.0" x2="384.0" y2="64.9" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
+  <line x1="337.1" y1="107.9" x2="387.9" y2="57.0" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
   <rect x="525.0" y="50.3" width="80.0" height="179.7" rx="3" fill="#34d399" fill-opacity="0.75" stroke="none" stroke-width="0"/>
   <text x="565.0" y="42.3" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">0.998</text>
   <text x="565.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="middle">감지 3 번</text>
-  <line x1="475.0" y1="52.9" x2="519.0" y2="60.3" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
+  <line x1="473.0" y1="54.6" x2="522.0" y2="50.6" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#am)"/>
   <text x="30.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="start">"이 자리에 문이 있다" 의 확률</text>
   <text x="340.0" y="284.0" fill="#94a3b8" font-size="12" text-anchor="middle">앞의 결과를 다음 계산의 사전 확률로 쓰면 같은 감지가 쌓일수록 확신이 커진다</text>
 </svg>

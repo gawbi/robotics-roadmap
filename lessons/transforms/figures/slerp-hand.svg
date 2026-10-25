@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>로봇 손을 z 축으로 0° 에서 90° 까지 돌릴 때의 중간 자세. 원하는 움직임은 t = 0, 0.25, 0.5, 0.75, 1 에서 0°, 22.5°, 45°, 67.5°, 90° 로 각도가 고르게 늘고 크기는 그대로다. rotation matrix 를 칸마다 평균하면 0°, 18.4°, 45°, 71.6°, 90° 로 칸 사이에 18.4°, 26.6°, 26.6°, 18.4° 씩 더 돌아 간격이 고르지 않고 손이 1, 0.79, 0.71, 0.79, 1 배로 쪼그라든다</title>
+  <rect x="1" y="1" width="678" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30" y="30" fill="#e2e8f0" font-size="13">위에서 내려다본 로봇 손 (z 축은 화면 밖을 향한다)</text>
+  <text x="190" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">t = 0</text>
+  <text x="300" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">t = 0.25</text>
+  <text x="410" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">t = 0.5</text>
+  <text x="520" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">t = 0.75</text>
+  <text x="630" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">t = 1</text>
+  <text x="30" y="126" fill="#38bdf8" font-size="13" font-weight="600">원하는 움직임</text>
+  <text x="30" y="144" fill="#94a3b8" font-size="11">각도가 고르게 는다</text>
+  <text x="30" y="276" fill="#f87171" font-size="13" font-weight="600">행렬 칸 평균</text>
+  <text x="30" y="294" fill="#94a3b8" font-size="11">덜 돌거나 더 돌고 줄어든다</text>
+  <circle cx="190" cy="130" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="190" y1="130" x2="235" y2="130" stroke="#475569" stroke-width="1"/>
+  <g transform="translate(190,130) rotate(0.00) scale(1.0000)" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="190" cy="130" r="2.5" fill="#e2e8f0"/>
+  <text x="190" y="191" fill="#f59e0b" font-size="12" text-anchor="middle">0°</text>
+  <text x="190" y="207" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="300" cy="130" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="300" y1="130" x2="345" y2="130" stroke="#475569" stroke-width="1"/>
+  <path d="M324,130 A24,24 0 0 0 322.2,120.8" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(300,130) rotate(-22.50) scale(1.0000)" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="300" cy="130" r="2.5" fill="#e2e8f0"/>
+  <text x="245" y="191" fill="#94a3b8" font-size="11" text-anchor="middle">+22.5°</text>
+  <text x="300" y="191" fill="#f59e0b" font-size="12" text-anchor="middle">22.5°</text>
+  <text x="300" y="207" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="410" cy="130" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="410" y1="130" x2="455" y2="130" stroke="#475569" stroke-width="1"/>
+  <path d="M434,130 A24,24 0 0 0 427.0,113.0" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(410,130) rotate(-45.00) scale(1.0000)" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="410" cy="130" r="2.5" fill="#e2e8f0"/>
+  <text x="355" y="191" fill="#94a3b8" font-size="11" text-anchor="middle">+22.5°</text>
+  <text x="410" y="191" fill="#f59e0b" font-size="12" text-anchor="middle">45°</text>
+  <text x="410" y="207" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="520" cy="130" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="520" y1="130" x2="565" y2="130" stroke="#475569" stroke-width="1"/>
+  <path d="M544,130 A24,24 0 0 0 529.2,107.8" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(520,130) rotate(-67.50) scale(1.0000)" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="520" cy="130" r="2.5" fill="#e2e8f0"/>
+  <text x="465" y="191" fill="#94a3b8" font-size="11" text-anchor="middle">+22.5°</text>
+  <text x="520" y="191" fill="#f59e0b" font-size="12" text-anchor="middle">67.5°</text>
+  <text x="520" y="207" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="630" cy="130" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="630" y1="130" x2="675" y2="130" stroke="#475569" stroke-width="1"/>
+  <path d="M654,130 A24,24 0 0 0 630.0,106.0" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(630,130) rotate(-90.00) scale(1.0000)" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="630" cy="130" r="2.5" fill="#e2e8f0"/>
+  <text x="575" y="191" fill="#94a3b8" font-size="11" text-anchor="middle">+22.5°</text>
+  <text x="630" y="191" fill="#f59e0b" font-size="12" text-anchor="middle">90°</text>
+  <text x="630" y="207" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="190" cy="280" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="190" y1="280" x2="235" y2="280" stroke="#475569" stroke-width="1"/>
+  <g transform="translate(190,280) rotate(-0.00) scale(1.0000)" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="190" cy="280" r="2.5" fill="#e2e8f0"/>
+  <text x="190" y="341" fill="#f59e0b" font-size="12" text-anchor="middle">0°</text>
+  <text x="190" y="357" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <circle cx="300" cy="280" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="300" y1="280" x2="345" y2="280" stroke="#475569" stroke-width="1"/>
+  <path d="M324,280 A24,24 0 0 0 322.8,272.4" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(300,280) rotate(-18.43) scale(0.7906)" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="300" cy="280" r="2.5" fill="#e2e8f0"/>
+  <text x="245" y="341" fill="#94a3b8" font-size="11" text-anchor="middle">+18.4°</text>
+  <text x="300" y="341" fill="#f59e0b" font-size="12" text-anchor="middle">18.4°</text>
+  <text x="300" y="357" fill="#f87171" font-size="11" text-anchor="middle">크기 0.79 배</text>
+  <circle cx="410" cy="280" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="410" y1="280" x2="455" y2="280" stroke="#475569" stroke-width="1"/>
+  <path d="M434,280 A24,24 0 0 0 427.0,263.0" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(410,280) rotate(-45.00) scale(0.7071)" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="410" cy="280" r="2.5" fill="#e2e8f0"/>
+  <text x="355" y="341" fill="#94a3b8" font-size="11" text-anchor="middle">+26.6°</text>
+  <text x="410" y="341" fill="#f59e0b" font-size="12" text-anchor="middle">45°</text>
+  <text x="410" y="357" fill="#f87171" font-size="11" text-anchor="middle">크기 0.71 배</text>
+  <circle cx="520" cy="280" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="520" y1="280" x2="565" y2="280" stroke="#475569" stroke-width="1"/>
+  <path d="M544,280 A24,24 0 0 0 527.6,257.2" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(520,280) rotate(-71.57) scale(0.7906)" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="520" cy="280" r="2.5" fill="#e2e8f0"/>
+  <text x="465" y="341" fill="#94a3b8" font-size="11" text-anchor="middle">+26.6°</text>
+  <text x="520" y="341" fill="#f59e0b" font-size="12" text-anchor="middle">71.6°</text>
+  <text x="520" y="357" fill="#f87171" font-size="11" text-anchor="middle">크기 0.79 배</text>
+  <circle cx="630" cy="280" r="39" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="630" y1="280" x2="675" y2="280" stroke="#475569" stroke-width="1"/>
+  <path d="M654,280 A24,24 0 0 0 630.0,256.0" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(630,280) rotate(-90.00) scale(1.0000)" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,0 L-6,0 M-6,-15 L-6,15 M-6,-15 L36,-15 M-6,15 L36,15" vector-effect="non-scaling-stroke"/>
+  </g>
+  <circle cx="630" cy="280" r="2.5" fill="#e2e8f0"/>
+  <text x="575" y="341" fill="#94a3b8" font-size="11" text-anchor="middle">+18.4°</text>
+  <text x="630" y="341" fill="#f59e0b" font-size="12" text-anchor="middle">90°</text>
+  <text x="630" y="357" fill="#94a3b8" font-size="11" text-anchor="middle">크기 1.00 배</text>
+  <text x="340" y="386" fill="#94a3b8" font-size="12" text-anchor="middle">점선 원은 손 끝이 닿는 반지름 1 배이고, 주황 호는 처음 방향(회색 선)에서 돈 각도, 칸 사이 숫자는 앞 칸보다 더 돈 각도다</text>
+</svg>
