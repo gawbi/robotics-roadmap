@@ -7,9 +7,10 @@ interface Props {
   lessonCount: number
   onClose(): void
   onStart(id: string): void
+  onPortfolio(): void
 }
 
-export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
+export function Intro({ firstLessonId, lessonCount, onClose, onStart, onPortfolio }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -28,11 +29,12 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
       <button type="button" className="icon-button intro-close" onClick={onClose} aria-label="안내 닫기">
         <X size={20} aria-hidden="true" />
       </button>
-      <p className="intro-kicker">lecture &amp; quiz self-study</p>
+      <p className="intro-kicker">{CONFIG.owner.name} · study record</p>
       <h2 id="intro-title">Robotics Roadmap</h2>
       <p className="intro-lead">
         제어·상태 추정·딥러닝부터 VLA 까지, 로보틱스 일을 하는 데 필요한 아이디어 {lessonCount}개를 강의로 읽고 면접에서 나올
-        법한 퀴즈로 확인하는 지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다.
+        법한 퀴즈로 확인하는 지도입니다. 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다. 이 지도를 따라
+        공부하며 남긴 퀴즈 기록, 직접 쓴 노트, 직접 구현한 코드가 함께 있습니다.
       </p>
       <ol className="intro-steps">
         <li>
@@ -41,22 +43,29 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart }: Props) {
         </li>
         <li>
           <strong>원을 눌러 강의 읽기</strong>
-          <span>처음 보는 사람 기준으로 그림과 숫자 예시로 설명하고, 수식과 계산은 접힌 심화 블록에 둡니다. 코드를 짤 일은 없습니다.</span>
+          <span>처음 보는 사람 기준으로 그림과 숫자 예시로 설명하고, 수식과 계산은 접힌 심화 블록에 둡니다. 원 오른쪽 위의 점은 내 노트, 왼쪽 위의 마름모는 구현 코드가 있는 강의이고, 강의 창의 탭에서 열립니다.</span>
         </li>
         <li>
           <strong>강의 끝의 퀴즈 풀기</strong>
           <span>
             틀린 문항은 해설을 보여 주고, 틀린 문항만 같은 원리의 다른 문항으로 다시 풉니다. 틀린 문항이 남지 않으면 통과이고 이어지는 강의가 밝아집니다.
-            답안은 <code>progress/&lt;강의&gt;.json</code> 에 저장되고, fork 에 커밋해 두면 다른 기기에서도 이어서 볼 수 있습니다.
+            답안은 <code>progress/&lt;강의&gt;.json</code> 에 저장되고, 커밋해서 push 하면 공개 사이트의 지도에도 칠해집니다.
           </span>
         </li>
       </ol>
       <p className="intro-note">
-        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. 퀴즈 답안은 리포에 저장되므로 리포의 <code>site/</code> 에서{' '}
-        <code>npm run dev</code> 로 띄운 지도에서 풉니다.
+        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. 공개 사이트에서 푼 퀴즈는 새로고침하면 사라지고, 기록은 리포의 <code>site/</code>{' '}
+        에서 <code>npm run dev</code> 로 띄운 지도에서만 남습니다. 커리큘럼은{' '}
+        <a href={CONFIG.upstreamUrl} target="_blank" rel="noreferrer">
+          {CONFIG.upstreamUrl.replace('https://github.com/', '')}
+        </a>{' '}
+        를 바탕으로 합니다.
       </p>
       <div className="intro-actions">
-        <button type="button" className="primary-button" onClick={() => onStart(firstLessonId)}>
+        <button type="button" className="primary-button" onClick={onPortfolio}>
+          공부 기록 보기
+        </button>
+        <button type="button" className="text-button" onClick={() => onStart(firstLessonId)}>
           첫 강의 열기
         </button>
         <a className="text-button" href={CONFIG.repoUrl} target="_blank" rel="noreferrer">

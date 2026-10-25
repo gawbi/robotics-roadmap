@@ -1,15 +1,35 @@
 // Single source of truth for site settings. Curriculum content lives in ../lessons/.
 
 export const CONFIG = {
-  repoUrl: 'https://github.com/woolimi/robotics-roadmap',
+  // this copy of the roadmap: lesson, note and lab links on the page point here
+  repoUrl: 'https://github.com/gawbi/robotics-roadmap',
   repoBranch: 'main',
+  // the curriculum this copy is built from; the dev server takes its new lessons from here (update-server.ts)
+  upstreamUrl: 'https://github.com/woolimi/robotics-roadmap',
+
+  // whose study record this is: the portfolio page (#/me) and the intro introduce them
+  owner: {
+    name: 'gawbi',
+    githubUrl: 'https://github.com/gawbi',
+    tagline: 'Robot Learning · Manipulation 직무를 준비하며 공부한 기록',
+    tracks: ['learning', 'manipulation'], // tree ids from lessons/branches.yaml, listed first on the portfolio page
+  },
+
+  // what the learner writes on top of the lessons, kept apart from lessons/ so the curriculum can still take updates.
+  // The globs in curriculum/record.ts must use the same names (globs take literals only)
+  record: {
+    notesDir: 'notes', // notes/<lesson id>.md: the lesson explained in the learner's own words
+    labsDir: 'labs', // labs/<name>/README.md: code the learner wrote, with frontmatter naming the lessons it implements
+    activityDirs: ['notes', 'labs', 'progress'], // commits touching these count as study days on the portfolio page
+    heatmapWeeks: 53,
+  },
 
   // link previews on LinkedIn, KakaoTalk and Slack (Open Graph). Crawlers need absolute URLs, so they point at the
-  // published example site; vite.config.ts writes these into index.html
+  // published site; vite.config.ts writes these into index.html
   share: {
-    siteUrl: 'https://woolimi.github.io/robotics-roadmap/',
-    title: 'Robotics Roadmap',
-    description: '로보틱스 개발자가 되기 위한 오픈소스 독학 커리큘럼. 강의 56개를 선수 관계 지도로 따라가며 읽고 면접형 퀴즈로 확인합니다.',
+    siteUrl: 'https://gawbi.github.io/robotics-roadmap/',
+    title: 'Robotics Roadmap · gawbi',
+    description: 'Robot Learning·Manipulation 을 준비하며 공부한 기록. 강의 지도 위에 퀴즈 통과 기록, 직접 쓴 노트, 직접 구현한 코드를 남깁니다.',
     // site/public/og.png. Link previews are cached by the image's URL, so bump `v` whenever the picture changes
     image: 'og.png?v=2',
     imageWidth: 1200,

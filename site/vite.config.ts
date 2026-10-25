@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react'
 // the config and the files it imports name their .ts extension, as Node's own TypeScript loading requires
 import { quizServer } from './quiz-server.ts'
 import { updateServer } from './update-server.ts'
+import { studyActivity } from './study-activity.ts'
 import { CONFIG } from './src/config.ts'
 
 const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---\r?\n?/
@@ -72,7 +73,7 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url))
 
 export default defineConfig({
   base: './',
-  plugins: [frontmatterOnly(), react(), shareMeta(), quizServer(repoRoot), updateServer(repoRoot)],
+  plugins: [frontmatterOnly(), react(), shareMeta(), quizServer(repoRoot), updateServer(repoRoot), studyActivity(repoRoot)],
   server: { ...localServerOptions(), fs: { allow: ['..'] } },
   // the lazily loaded panel chunk carries markdown + KaTeX (~240 kB gzip)
   build: { chunkSizeWarningLimit: 900 },

@@ -1,4 +1,4 @@
-import { HelpCircle, Maximize2, Minus, Plus } from 'lucide-react'
+import { HelpCircle, IdCard, Maximize2, Minus, Plus } from 'lucide-react'
 import { CONFIG } from '../config'
 import { nodeState, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum } from '../curriculum/types'
@@ -8,10 +8,12 @@ export function TopBar({
   curriculum: c,
   progressFile,
   onHelp,
+  onPortfolio,
 }: {
   curriculum: Curriculum
   progressFile: ProgressFile
   onHelp(): void
+  onPortfolio(): void
 }) {
   const done = c.lessons.filter((p) => statusOf(progressFile, p.id) === 'done')
   const total = c.lessons.length
@@ -46,6 +48,10 @@ export function TopBar({
       </div>
 
       <nav className="topbar-actions" aria-label="도구">
+        <button type="button" className="text-button topbar-me" onClick={onPortfolio}>
+          <IdCard size={18} aria-hidden="true" />
+          <span>공부 기록</span>
+        </button>
         <button type="button" className="icon-button" onClick={onHelp} aria-label="사용 안내">
           <HelpCircle size={20} aria-hidden="true" />
         </button>
@@ -148,6 +154,14 @@ export function Legend({
         <li>
           <span className="lg-node is-locked" aria-hidden="true" />
           선수 강의 남음
+        </li>
+        <li>
+          <span className="lg-mark is-note" aria-hidden="true" />
+          내 노트
+        </li>
+        <li>
+          <span className="lg-mark is-lab" aria-hidden="true" />
+          구현 코드
         </li>
       </ul>
       <ul className="legend-branches">

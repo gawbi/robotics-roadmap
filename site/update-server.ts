@@ -58,7 +58,7 @@ function send(res: ServerResponse, code: number, body: unknown) {
  * conflicts. The page hears about every change of state over Vite's own WebSocket.
  */
 export function updateServer(repoRoot: string): Plugin {
-  const upstream = `${CONFIG.repoUrl}.git`
+  const upstream = `${CONFIG.upstreamUrl}.git`
   const ref = `${U.remote}/${CONFIG.repoBranch}`
   let state: UpdateState = { status: 'checking' }
   let server: ViteDevServer | null = null

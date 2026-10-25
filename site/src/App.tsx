@@ -8,16 +8,22 @@ import { CONFIG } from './config'
 import { computeLayout, type Layout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
 import { useProgress } from './curriculum/progress'
+import type { LessonTab } from './components/LessonPanel'
 
 // the panel pulls in markdown, KaTeX and highlighting; the graph does not need them to show up
 const LessonPanel = lazy(() => import('./components/LessonPanel').then((m) => ({ default: m.LessonPanel })))
+const Portfolio = lazy(() => import('./components/Portfolio').then((m) => ({ default: m.Portfolio })))
 
-const ROUTE = /^#\/p\/([a-z0-9-]+)$/
+// #/p/<lesson> opens a lecture, #/p/<lesson>/note and /lab the learner's note and code for it; #/me the portfolio page
+const ROUTE = /^#\/p\/([a-z0-9-]+)(?:\/(note|lab))?$/
+const PORTFOLIO_ROUTE = '#/me'
 
-function readRoute(): string | null {
+function readRoute(): { id: string; tab: LessonTab } | null {
   const m = ROUTE.exec(window.location.hash)
-  return m && curriculum.byId.has(m[1]) ? m[1] : null
+  return m && curriculum.byId.has(m[1]) ? { id: m[1], tab: (m[2] as LessonTab | undefined) ?? 'lecture' } : null
 }
+
+const readPortfolio = () => window.location.hash === PORTFOLIO_ROUTE
 
 function useMediaQuery(query: string): boolean {
   const [match, setMatch] = useState(() => window.matchMedia(query).matches)
@@ -48,10 +54,12 @@ export function App() {
     }
   }, [])
   const progressFile = useProgress()
-  const [selectedId, setSelectedId] = useState<string | null>(readRoute)
+  const [route, setRoute] = useState(readRoute)
+  const selectedId = route?.id ?? null
+  const [portfolio, setPortfolio] = useState(readPortfolio)
   const [hoverId, setHoverId] = useState<string | null>(null)
   const [hoverBranch, setHoverBranch] = useState<string | null>(null)
-  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute())
+  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute() && !readPortfolio())
   const controls = useRef<GraphControls>(null)
   const wide = useMediaQuery('(min-width: 960px)')
   const sidebarInset = wide ? 280 : 0
@@ -59,26 +67,39 @@ export function App() {
   const [resizing, setResizing] = useState(false)
 
   useEffect(() => {
-    const onHash = () => setSelectedId(readRoute())
+    const onHash = () => {
+      setRoute(readRoute())
+      setPortfolio(readPortfolio())
+    }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  const select = useCallback((id: string) => {
-    window.location.hash = `#/p/${id}`
+  const select = useCallback((id: string, tab: LessonTab = 'lecture') => {
+    window.location.hash = tab === 'lecture' ? `#/p/${id}` : `#/p/${id}/${tab}`
   }, [])
   const close = useCallback(() => {
     history.pushState(null, '', window.location.pathname + window.location.search + '#/')
-    setSelectedId(null)
+    setRoute(null)
+    setPortfolio(false)
+  }, [])
+  // switching tabs keeps the lesson's place in history: Back returns to the map, not to the previous tab
+  const showTab = useCallback((tab: LessonTab) => {
+    if (!selectedId) return
+    history.replaceState(null, '', `${window.location.pathname}${window.location.search}#/p/${selectedId}${tab === 'lecture' ? '' : `/${tab}`}`)
+    setRoute({ id: selectedId, tab })
+  }, [selectedId])
+  const openPortfolio = useCallback(() => {
+    window.location.hash = PORTFOLIO_ROUTE
   }, [])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selectedId && !showIntro) close()
+      if (e.key === 'Escape' && (selectedId || portfolio) && !showIntro) close()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [selectedId, showIntro, close])
+  }, [selectedId, portfolio, showIntro, close])
 
   const closeIntro = useCallback(() => {
     try {
@@ -124,6 +145,7 @@ export function App() {
         curriculum={curriculum}
         progressFile={progressFile}
         onHelp={() => setShowIntro(true)}
+        onPortfolio={openPortfolio}
       />
 
       <UpdateBanner />
@@ -144,9 +166,17 @@ export function App() {
             curriculum={curriculum}
             progressFile={progressFile}
             lessonId={selectedId}
+            tab={route!.tab}
+            onTab={showTab}
             onClose={close}
             onSelect={select}
           />
+        </Suspense>
+      )}
+
+      {portfolio && (
+        <Suspense fallback={<main className="portfolio" aria-busy="true" />}>
+          <Portfolio curriculum={curriculum} progressFile={progressFile} onClose={close} onSelect={select} />
         </Suspense>
       )}
 
@@ -158,6 +188,10 @@ export function App() {
           onStart={(id) => {
             closeIntro()
             select(id)
+          }}
+          onPortfolio={() => {
+            closeIntro()
+            openPortfolio()
           }}
         />
       )}

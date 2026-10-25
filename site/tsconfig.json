@@ -15,5 +15,5 @@
     "allowImportingTsExtensions": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "test", "vite.config.ts", "quiz-server.ts", "update-server.ts"]
+  "include": ["src", "test", "vite.config.ts", "quiz-server.ts", "update-server.ts", "study-activity.ts"]
 }

@@ -13,10 +13,11 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { CONFIG } from '../config'
-import { assetUrl } from '../curriculum/load'
+import { assetUrl, recordAssetUrl } from '../curriculum/load'
 
 const LANGUAGES = { bash, json, python, yaml }
-const LESSON_LINK = /^\.\.\/([a-z0-9-]+)\/(README\.md)?$/
+// a link that resolves to a lecture opens it on the map; a link with a #section still goes to GitHub
+const LESSON_LINK = /^lessons\/([a-z0-9-]+)\/(README\.md)?$/
 // headings get GitHub's slug as their id, prefixed so they cannot clash with the app's own ids; a `#slug` link in a
 // lesson therefore works both here and on GitHub
 const SECTION_ID_PREFIX = 'sec-'
@@ -116,20 +117,25 @@ function misconceptionRows(children: ReactNode) {
 }
 
 interface Props {
-  lessonId: string
+  /** the lesson whose lecture or quiz this is; its relative links and images resolve inside lessons/<id>/ */
+  lessonId?: string
+  /** or the repo path of the note or lab file it comes from (e.g. notes/pid-control.md), for links and images there */
+  file?: string
   source: string
   /** render inside phrasing content (a quiz choice label): paragraphs become spans */
   inline?: boolean
 }
 
 /** Render a subject body. The leading `# Title` is dropped because the panel header shows it. */
-export function Markdown({ lessonId, source, inline = false }: Props) {
+export function Markdown({ lessonId, file, source, inline = false }: Props) {
   const body = source.replace(/^\s*# .*\n/, '')
-  const blob = `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/lessons/${lessonId}/`
+  const dir = lessonId ? `lessons/${lessonId}/` : (file ?? '').replace(/[^/]*$/, '')
+  /** repo path a relative link points at */
+  const resolve = (href: string) => decodeURIComponent(new URL(href, `https://repo.invalid/${dir}`).pathname.slice(1))
 
   const components: Components = {
     a({ href = '', children, ...rest }) {
-      const internal = LESSON_LINK.exec(href)
+      const internal = !/^[a-z]+:|#/i.test(href) && LESSON_LINK.exec(resolve(href))
       if (internal) return <a href={`#/p/${internal[1]}`}>{children}</a>
       // the page hash holds the route, so a section link scrolls the panel instead of changing it
       if (href.startsWith('#')) {
@@ -154,13 +160,14 @@ export function Markdown({ lessonId, source, inline = false }: Props) {
         )
       }
       return (
-        <a href={new URL(href, blob).toString()} target="_blank" rel="noreferrer">
+        <a href={`${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/${resolve(href)}${href.includes('#') ? href.slice(href.indexOf('#')) : ''}`} target="_blank" rel="noreferrer">
           {children}
         </a>
       )
     },
     img({ src = '', alt = '' }) {
-      const resolved = typeof src === 'string' && !/^[a-z]+:/i.test(src) ? assetUrl(lessonId, src) : src
+      const local = typeof src === 'string' && !/^[a-z]+:/i.test(src)
+      const resolved = !local ? src : lessonId ? assetUrl(lessonId, src) : recordAssetUrl(resolve(src))
       return <img src={resolved as string} alt={alt} loading="lazy" />
     },
     ...(inline && { p: ({ children }) => <span>{children}</span> }),

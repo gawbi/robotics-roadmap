@@ -5,6 +5,7 @@ import { useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } f
 import { CONFIG } from '../config'
 import type { Layout } from '../curriculum/layout'
 import { ancestors } from '../curriculum/parse'
+import { hasNote, labsFor } from '../curriculum/load'
 import { nodeState, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState } from '../curriculum/types'
 import { MapScene, type SceneHandle } from './MapScene'
@@ -283,6 +284,9 @@ export function Holygraph({
               const state = states.get(n.id)!
               const dim = emphasis ? !emphasis.has(n.id) : false
               const selected = selectedId === n.id
+              const note = hasNote(n.id)
+              const labCount = labsFor(n.id).length
+              const record = [note && '내 노트 있음', labCount > 0 && `구현 ${labCount}개`].filter(Boolean).join(', ')
               // a label above the circle ends just over it; one below starts just under it
               const labelY = n.labelAbove
                 ? -n.size - L.labelOffset - L.labelFontSize * 0.25 - (n.label.length - 1) * L.labelLineHeight
@@ -297,7 +301,7 @@ export function Holygraph({
                   style={{ ['--branch' as string]: branch.color }}
                   role="button"
                   tabIndex={0}
-                  aria-label={`${p.title}, ${branch.title}, 약 ${p.hours}시간, ${STATE_LABEL[state]}`}
+                  aria-label={`${p.title}, ${branch.title}, 약 ${p.hours}시간, ${STATE_LABEL[state]}${record && `, ${record}`}`}
                   aria-pressed={selected}
                   onClick={(e) => {
                     e.stopPropagation()
@@ -329,6 +333,11 @@ export function Holygraph({
                       d={`M${-n.size * 0.38},0 L${-n.size * 0.08},${n.size * 0.3} L${n.size * 0.42},${-n.size * 0.32}`}
                       className="hg-check"
                     />
+                  )}
+                  {/* the learner's own record on this lesson: a dot for a note at the upper right, a diamond for code at the upper left */}
+                  {note && <circle cx={n.size * 0.78} cy={-n.size * 0.78} r={4.5} className="hg-mark is-note" />}
+                  {labCount > 0 && (
+                    <rect x={-n.size * 0.78 - 4} y={-n.size * 0.78 - 4} width={8} height={8} transform={`rotate(45 ${-n.size * 0.78} ${-n.size * 0.78})`} className="hg-mark is-lab" />
                   )}
                   <text className="hg-label" y={labelY} textAnchor="middle">
                     {n.label.map((line, i) => (

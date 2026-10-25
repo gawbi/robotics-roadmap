@@ -1,7 +1,20 @@
 # Robotics Roadmap
 
-로보틱스 개발자가 되기 위한 한국어 독학 커리큘럼이다. `lessons/<id>/` 에 강의 56개가 있고, `site/` 의 Vite + React 앱이 강의
+로보틱스 개발자가 되기 위한 한국어 독학 커리큘럼이다. `lessons/<id>/` 에 강의가 있고, `site/` 의 Vite + React 앱이 강의
 frontmatter 를 읽어 선수 관계 지도를 그린다. 공부하는 법은 [README.md](README.md) 에 있다.
+
+이 리포는 [woolimi/robotics-roadmap](https://github.com/woolimi/robotics-roadmap) 을 바탕으로 한 gawbi 의 공부 기록이다. 원본 강의에
+강의를 더하고, 공부한 사람이 직접 남기는 기록(`notes/`, `labs/`, `progress/`)을 지도와 포트폴리오 페이지(`#/me`)에 보여 준다.
+
+## 공부 기록
+
+`notes/<강의 id>.md`(내 말로 쓴 노트), `labs/<이름>/`(직접 짠 코드와 결과), `progress/<강의 id>.json`(dev server 가 쓰는 퀴즈 기록)은
+리포 주인이 공부한 증거로 채용 담당자에게 보여 주는 기록이다.
+
+- 노트 본문과 구현 코드를 대신 써 주지 않는다. 요청을 받으면 질문을 던지거나, 이미 쓴 노트의 사실 오류를 짚거나, 막힌 코드의 원인을
+  같이 찾는다. 템플릿([docs/templates/](docs/templates/))이나 사이트 기능은 고쳐도 된다
+- `progress/` 는 손으로 고치지 않는다. 퀴즈는 `npm run dev` 로 띄운 지도에서 푼다
+- 노트·구현 파일 이름과 frontmatter 형식은 `site/test/record.test.ts` 가 검사한다
 
 ## 먼저 읽을 문서
 
@@ -58,6 +71,6 @@ frontmatter 를 읽어 선수 관계 지도를 그린다. 공부하는 법은 [R
 ## 작업 범위
 
 - 강의 하나를 고칠 때는 그 강의 폴더만 바꾼다. `lessons/branches.yaml` 이나 `site/` 를 바꾸면 `npm test` 로 지도 레이아웃 검사까지 통과시킨다
-- `progress/` 는 fork 에서만 커밋하는 퀴즈 기록이다. 원본 리포에는 커밋하지 않는다
+- `progress/`, `notes/`, `labs/` 는 이 리포에서 커밋하는 공부 기록이다. 원본 리포로 보내는 pull request 에는 넣지 않는다
 - 사이트의 튜닝값과 경로는 `site/src/config.ts` 의 `CONFIG` 한 곳에 두고, 환경변수를 새로 읽지 않는다
 - 커밋 메시지는 영어로 쓴다
