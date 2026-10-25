@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>OpenVLA 의 action token 생성. 카메라 영상은 DINOv2 와 SigLIP 과 projector 를 거쳐, 지시문은 token 으로 Llama 2 7B 에 들어가고, 모델은 위치 변화 3 개, 회전 변화 3 개, 집게 1 개의 action token 7 개를 forward 7 번으로 하나씩 고른다. 각 token 은 256 개 bin 중 하나를 가리키고 연속된 값으로 되돌려 로봇 팔에 보낸다. RTX 4090 한 장에서 1초에 약 6 번 행동을 낸다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="340.0" y="32.0" fill="#94a3b8" font-size="14" text-anchor="middle">OpenVLA: 영상과 지시문 뒤에 action token 7 개를 하나씩 생성한다</text>
   <rect x="24.0" y="56.0" width="130.0" height="48.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="89.0" y="85.0" fill="#e2e8f0" font-size="14" text-anchor="middle">카메라 영상</text>
   <line x1="156.0" y1="80.0" x2="184.0" y2="80.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
-  <rect x="188.0" y="56.0" width="150.0" height="48.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="188.0" y="56.0" width="150.0" height="48.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="263.0" y="77.0" fill="#e2e8f0" font-size="13" text-anchor="middle">DINOv2 + SigLIP</text>
   <text x="263.0" y="95.0" fill="#94a3b8" font-size="12" text-anchor="middle">+ projector</text>
-  <rect x="24.0" y="120.0" width="314.0" height="48.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="24.0" y="120.0" width="314.0" height="48.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="181.0" y="141.0" fill="#e2e8f0" font-size="14" text-anchor="middle">지시문 token</text>
   <text x="181.0" y="159.0" fill="#94a3b8" font-size="12" text-anchor="middle">"put carrot in bowl"</text>
   <rect x="372.0" y="56.0" width="284.0" height="112.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -18,37 +18,37 @@
   <text x="514.0" y="140.0" fill="#94a3b8" font-size="13" text-anchor="middle">다음 token 의 확률표를 낸다</text>
   <line x1="340.0" y1="80.0" x2="368.0" y2="80.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
   <line x1="340.0" y1="144.0" x2="368.0" y2="144.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
-  <rect x="40.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="40.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="78.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a1</text>
   <text x="78.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δx</text>
-  <rect x="126.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="126.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="164.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a2</text>
   <text x="164.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δy</text>
-  <rect x="212.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="212.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="250.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a3</text>
   <text x="250.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δz</text>
-  <rect x="298.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="298.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="336.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a4</text>
   <text x="336.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δθx</text>
-  <rect x="384.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="384.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="422.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a5</text>
   <text x="422.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δθy</text>
-  <rect x="470.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="470.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="508.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a6</text>
   <text x="508.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">Δθz</text>
-  <rect x="556.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="556.0" y="232.0" width="76.0" height="44.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="594.0" y="252.0" fill="#e2e8f0" font-size="13" text-anchor="middle">a7</text>
   <text x="594.0" y="269.0" fill="#94a3b8" font-size="11" text-anchor="middle">집게</text>
-  <path d="M514,170 L514,200 L78.0,200 L78.0,228" fill="none" stroke="#34d399" stroke-width="1.6" marker-end="url(#arrow-green)"/>
-  <line x1="117.0" y1="254.0" x2="125.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <line x1="203.0" y1="254.0" x2="211.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <line x1="289.0" y1="254.0" x2="297.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <line x1="375.0" y1="254.0" x2="383.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <line x1="461.0" y1="254.0" x2="469.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <line x1="547.0" y1="254.0" x2="555.0" y2="254.0" stroke="#34d399" stroke-width="1.4" marker-end="url(#arrow-green)"/>
-  <text x="340.0" y="222.0" fill="#34d399" font-size="12" text-anchor="middle">고른 token 을 입력 끝에 붙여 다시 forward  →  forward 7 번, 매번 확률이 가장 큰 token (greedy)</text>
-  <line x1="340.0" y1="280.0" x2="340.0" y2="306.0" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#arrow-amber)"/>
-  <rect x="110.0" y="310.0" width="460.0" height="66.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <path d="M514,170 L514,200 L78.0,200 L78.0,228" fill="none" stroke="#7fc4a2" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+  <line x1="117.0" y1="254.0" x2="125.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <line x1="203.0" y1="254.0" x2="211.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <line x1="289.0" y1="254.0" x2="297.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <line x1="375.0" y1="254.0" x2="383.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <line x1="461.0" y1="254.0" x2="469.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <line x1="547.0" y1="254.0" x2="555.0" y2="254.0" stroke="#7fc4a2" stroke-width="1.4" marker-end="url(#arrow-green)"/>
+  <text x="340.0" y="222.0" fill="#7fc4a2" font-size="12" text-anchor="middle">고른 token 을 입력 끝에 붙여 다시 forward  →  forward 7 번, 매번 확률이 가장 큰 token (greedy)</text>
+  <line x1="340.0" y1="280.0" x2="340.0" y2="306.0" stroke="#d6aa62" stroke-width="1.6" marker-end="url(#arrow-amber)"/>
+  <rect x="110.0" y="310.0" width="460.0" height="66.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="340.0" y="336.0" fill="#e2e8f0" font-size="14" text-anchor="middle">token → bin (256 개 중 하나) → 연속된 값 → 로봇 팔</text>
   <text x="340.0" y="359.0" fill="#94a3b8" font-size="12" text-anchor="middle">RTX 4090 한 장에서 1초에 약 6 번 (bfloat16, 약 15 GB)</text>
 </svg>

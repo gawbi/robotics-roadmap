@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>50 Hz 로봇의 실행 시간표. 위는 동기 추론으로, action 25 개(500 ms)를 실행한 뒤 73 ms 동안 멈추고 새 chunk 를 받는다. 아래는 비동기 추론으로, action 이 4 개(80 ms) 남았을 때 다음 추론을 시작해 멈춤 없이 이어진다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="778" height="258" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="70.0" fill="#e2e8f0" font-size="14" text-anchor="start">동기</text>
-  <rect x="120.0" y="50.0" width="265.7" height="30.0" rx="3" fill="#34d399" fill-opacity="0.85"/>
+  <rect x="120.0" y="50.0" width="265.7" height="30.0" rx="3" fill="#7fc4a2" fill-opacity="0.85"/>
   <text x="253.3" y="70.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">action 25 개 실행 (500 ms)</text>
-  <rect x="386.7" y="50.0" width="37.9" height="30.0" rx="3" fill="#f87171" fill-opacity="0.85"/>
-  <rect x="425.6" y="50.0" width="265.7" height="30.0" rx="3" fill="#34d399" fill-opacity="0.85"/>
+  <rect x="386.7" y="50.0" width="37.9" height="30.0" rx="3" fill="#d88b8b" fill-opacity="0.85"/>
+  <rect x="425.6" y="50.0" width="265.7" height="30.0" rx="3" fill="#7fc4a2" fill-opacity="0.85"/>
   <text x="558.9" y="70.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">action 25 개 실행</text>
-  <rect x="692.3" y="50.0" width="37.9" height="30.0" rx="3" fill="#f87171" fill-opacity="0.85"/>
-  <rect x="386.7" y="86.0" width="37.9" height="14.0" rx="2" fill="#f59e0b"/>
-  <text x="405.9" y="116.0" fill="#f87171" font-size="11" text-anchor="middle">멈춤 73 ms</text>
-  <rect x="692.3" y="86.0" width="37.9" height="14.0" rx="2" fill="#f59e0b"/>
-  <text x="711.5" y="116.0" fill="#f87171" font-size="11" text-anchor="middle">멈춤 73 ms</text>
-  <text x="735.2" y="97.0" fill="#f59e0b" font-size="11" text-anchor="start">추론</text>
+  <rect x="692.3" y="50.0" width="37.9" height="30.0" rx="3" fill="#d88b8b" fill-opacity="0.85"/>
+  <rect x="386.7" y="86.0" width="37.9" height="14.0" rx="2" fill="#d6aa62"/>
+  <text x="405.9" y="116.0" fill="#d88b8b" font-size="11" text-anchor="middle">멈춤 73 ms</text>
+  <rect x="692.3" y="86.0" width="37.9" height="14.0" rx="2" fill="#d6aa62"/>
+  <text x="711.5" y="116.0" fill="#d88b8b" font-size="11" text-anchor="middle">멈춤 73 ms</text>
+  <text x="735.2" y="97.0" fill="#d6aa62" font-size="11" text-anchor="start">추론</text>
   <text x="20.0" y="170.0" fill="#e2e8f0" font-size="14" text-anchor="start">비동기</text>
-  <rect x="120.0" y="150.0" width="639.0" height="30.0" rx="3" fill="#34d399" fill-opacity="0.85"/>
+  <rect x="120.0" y="150.0" width="639.0" height="30.0" rx="3" fill="#7fc4a2" fill-opacity="0.85"/>
   <line x1="386.7" y1="146.0" x2="386.7" y2="184.0" stroke="#0b1220" stroke-width="2"/>
   <line x1="653.3" y1="146.0" x2="653.3" y2="184.0" stroke="#0b1220" stroke-width="2"/>
   <text x="253.3" y="170.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">action 25 개 실행</text>
   <text x="520.0" y="170.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">다음 25 개</text>
-  <rect x="344.0" y="186.0" width="37.9" height="14.0" rx="2" fill="#f59e0b"/>
-  <rect x="610.7" y="186.0" width="37.9" height="14.0" rx="2" fill="#f59e0b"/>
-  <text x="344.0" y="216.0" fill="#f59e0b" font-size="11" text-anchor="start">4 개 (80 ms) 남았을 때 추론 시작 → 73 ms 뒤 도착</text>
+  <rect x="344.0" y="186.0" width="37.9" height="14.0" rx="2" fill="#d6aa62"/>
+  <rect x="610.7" y="186.0" width="37.9" height="14.0" rx="2" fill="#d6aa62"/>
+  <text x="344.0" y="216.0" fill="#d6aa62" font-size="11" text-anchor="start">4 개 (80 ms) 남았을 때 추론 시작 → 73 ms 뒤 도착</text>
   <line x1="120.0" y1="238.0" x2="760.0" y2="238.0" stroke="#64748b" stroke-width="1"/>
   <line x1="120.0" y1="234.0" x2="120.0" y2="242.0" stroke="#64748b" stroke-width="1"/>
   <line x1="344.0" y1="234.0" x2="344.0" y2="242.0" stroke="#64748b" stroke-width="1"/>

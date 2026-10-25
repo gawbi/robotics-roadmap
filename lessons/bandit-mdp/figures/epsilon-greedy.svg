@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>ε = 0.1 인 ε-greedy 의 갈림길. 0.9 의 확률로 추정값이 큰 기계 B 를 고르고, 0.1 의 확률로 무작위로 고르는데 그 안에서 A 와 B 가 반씩이라 B 는 0.95, A 는 0.05 의 확률로 골라진다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="618" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="40.0" y="130.0" width="110.0" height="50.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="95.0" y="160.0" fill="#e2e8f0" font-size="14" text-anchor="middle">한 step</text>
   <line x1="150.0" y1="145.0" x2="250.0" y2="80.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="185.0" y="100.0" fill="#38bdf8" font-size="14" text-anchor="middle">0.9</text>
+  <text x="185.0" y="100.0" fill="#7cb4d8" font-size="14" text-anchor="middle">0.9</text>
   <line x1="150.0" y1="165.0" x2="250.0" y2="230.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="185.0" y="222.0" fill="#f59e0b" font-size="14" text-anchor="middle">0.1</text>
-  <rect x="252.0" y="55.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="327.0" y="77.0" fill="#38bdf8" font-size="14" text-anchor="middle">greedy</text>
+  <text x="185.0" y="222.0" fill="#d6aa62" font-size="14" text-anchor="middle">0.1</text>
+  <rect x="252.0" y="55.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="327.0" y="77.0" fill="#7cb4d8" font-size="14" text-anchor="middle">greedy</text>
   <text x="327.0" y="96.0" fill="#94a3b8" font-size="12" text-anchor="middle">Q 가 큰 B</text>
-  <rect x="252.0" y="205.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="327.0" y="227.0" fill="#f59e0b" font-size="14" text-anchor="middle">무작위</text>
+  <rect x="252.0" y="205.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="327.0" y="227.0" fill="#d6aa62" font-size="14" text-anchor="middle">무작위</text>
   <text x="327.0" y="246.0" fill="#94a3b8" font-size="12" text-anchor="middle">동전 던지기</text>
   <line x1="402.0" y1="80.0" x2="470.0" y2="80.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
   <text x="436.0" y="72.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
@@ -20,15 +20,15 @@
   <text x="430.0" y="196.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
   <line x1="402.0" y1="238.0" x2="470.0" y2="270.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
   <text x="430.0" y="270.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
-  <rect x="472.0" y="62.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#f59e0b" stroke-width="2"/>
-  <text x="495.0" y="86.0" fill="#f59e0b" font-size="15" text-anchor="middle">B</text>
-  <rect x="472.0" y="172.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#f59e0b" stroke-width="2"/>
-  <text x="495.0" y="196.0" fill="#f59e0b" font-size="15" text-anchor="middle">B</text>
-  <rect x="472.0" y="252.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#38bdf8" stroke-width="2"/>
-  <text x="495.0" y="276.0" fill="#38bdf8" font-size="15" text-anchor="middle">A</text>
+  <rect x="472.0" y="62.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#d6aa62" stroke-width="2"/>
+  <text x="495.0" y="86.0" fill="#d6aa62" font-size="15" text-anchor="middle">B</text>
+  <rect x="472.0" y="172.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#d6aa62" stroke-width="2"/>
+  <text x="495.0" y="196.0" fill="#d6aa62" font-size="15" text-anchor="middle">B</text>
+  <rect x="472.0" y="252.0" width="46.0" height="36.0" rx="6" fill="#0e1628" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="495.0" y="276.0" fill="#7cb4d8" font-size="15" text-anchor="middle">A</text>
   <text x="530.0" y="86.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.9</text>
   <text x="530.0" y="196.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.05</text>
   <text x="530.0" y="276.0" fill="#e2e8f0" font-size="13" text-anchor="start">0.05</text>
-  <text x="40.0" y="36.0" fill="#f59e0b" font-size="14" text-anchor="start">B 를 고를 확률 = 0.9 + 0.1 × 0.5 = 0.95</text>
-  <text x="40.0" y="300.0" fill="#38bdf8" font-size="14" text-anchor="start">A 를 고를 확률 = 0.1 × 0.5 = 0.05</text>
+  <text x="40.0" y="36.0" fill="#d6aa62" font-size="14" text-anchor="start">B 를 고를 확률 = 0.9 + 0.1 × 0.5 = 0.95</text>
+  <text x="40.0" y="300.0" fill="#7cb4d8" font-size="14" text-anchor="start">A 를 고를 확률 = 0.1 × 0.5 = 0.05</text>
 </svg>

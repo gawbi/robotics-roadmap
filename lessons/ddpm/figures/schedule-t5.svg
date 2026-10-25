@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>T = 5 schedule. step 마다 β 는 0.1, 0.2, 0.3, 0.4, 0.5 로 커지고, α 를 차례로 곱한 ᾱ 는 0.9, 0.72, 0.504, 0.3024, 0.1512 로 작아진다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="40.0" width="420.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
   <line x1="70.0" y1="260.0" x2="490.0" y2="260.0" stroke="#1e293b" stroke-width="1"/>
@@ -23,31 +23,31 @@
   <text x="360.8" y="279.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 4</text>
   <line x1="441.5" y1="260.0" x2="441.5" y2="265.0" stroke="#475569" stroke-width="1.5"/>
   <text x="441.5" y="279.0" fill="#94a3b8" font-size="12" text-anchor="middle">t = 5</text>
-  <rect x="90.5" y="238.0" width="26.0" height="22.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="103.5" y="232.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.1</text>
-  <rect x="120.5" y="62.0" width="26.0" height="198.0" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="133.5" y="56.0" fill="#38bdf8" font-size="11" text-anchor="middle">0.9</text>
-  <rect x="171.2" y="216.0" width="26.0" height="44.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="184.2" y="210.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.2</text>
-  <rect x="201.2" y="101.6" width="26.0" height="158.4" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="214.2" y="95.6" fill="#38bdf8" font-size="11" text-anchor="middle">0.72</text>
-  <rect x="252.0" y="194.0" width="26.0" height="66.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="265.0" y="188.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.3</text>
-  <rect x="282.0" y="149.1" width="26.0" height="110.9" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="295.0" y="143.1" fill="#38bdf8" font-size="11" text-anchor="middle">0.504</text>
-  <rect x="332.8" y="172.0" width="26.0" height="88.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="345.8" y="166.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.4</text>
-  <rect x="362.8" y="193.5" width="26.0" height="66.5" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="375.8" y="187.5" fill="#38bdf8" font-size="11" text-anchor="middle">0.3024</text>
-  <rect x="413.5" y="150.0" width="26.0" height="110.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="426.5" y="144.0" fill="#f59e0b" font-size="11" text-anchor="middle">0.5</text>
-  <rect x="443.5" y="226.7" width="26.0" height="33.3" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
-  <text x="456.5" y="220.7" fill="#38bdf8" font-size="11" text-anchor="middle">0.1512</text>
-  <rect x="510.0" y="70.0" width="16.0" height="16.0" rx="2" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
+  <rect x="90.5" y="238.0" width="26.0" height="22.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="103.5" y="232.0" fill="#d6aa62" font-size="11" text-anchor="middle">0.1</text>
+  <rect x="120.5" y="62.0" width="26.0" height="198.0" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="133.5" y="56.0" fill="#7cb4d8" font-size="11" text-anchor="middle">0.9</text>
+  <rect x="171.2" y="216.0" width="26.0" height="44.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="184.2" y="210.0" fill="#d6aa62" font-size="11" text-anchor="middle">0.2</text>
+  <rect x="201.2" y="101.6" width="26.0" height="158.4" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="214.2" y="95.6" fill="#7cb4d8" font-size="11" text-anchor="middle">0.72</text>
+  <rect x="252.0" y="194.0" width="26.0" height="66.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="265.0" y="188.0" fill="#d6aa62" font-size="11" text-anchor="middle">0.3</text>
+  <rect x="282.0" y="149.1" width="26.0" height="110.9" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="295.0" y="143.1" fill="#7cb4d8" font-size="11" text-anchor="middle">0.504</text>
+  <rect x="332.8" y="172.0" width="26.0" height="88.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="345.8" y="166.0" fill="#d6aa62" font-size="11" text-anchor="middle">0.4</text>
+  <rect x="362.8" y="193.5" width="26.0" height="66.5" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="375.8" y="187.5" fill="#7cb4d8" font-size="11" text-anchor="middle">0.3024</text>
+  <rect x="413.5" y="150.0" width="26.0" height="110.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="426.5" y="144.0" fill="#d6aa62" font-size="11" text-anchor="middle">0.5</text>
+  <rect x="443.5" y="226.7" width="26.0" height="33.3" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5" fill-opacity="0.85"/>
+  <text x="456.5" y="220.7" fill="#7cb4d8" font-size="11" text-anchor="middle">0.1512</text>
+  <rect x="510.0" y="70.0" width="16.0" height="16.0" rx="2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
   <text x="534.0" y="83.0" fill="#e2e8f0" font-size="13" text-anchor="start">β_t</text>
   <text x="510.0" y="104.0" fill="#94a3b8" font-size="11" text-anchor="start">이번 step 에 더하는</text>
   <text x="510.0" y="120.0" fill="#94a3b8" font-size="11" text-anchor="start">noise 의 분산</text>
-  <rect x="510.0" y="150.0" width="16.0" height="16.0" rx="2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <rect x="510.0" y="150.0" width="16.0" height="16.0" rx="2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
   <text x="534.0" y="163.0" fill="#e2e8f0" font-size="13" text-anchor="start"><tspan text-decoration="overline">α</tspan>_t</text>
   <text x="510.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="start">원래 값이 남은 몫</text>
   <text x="510.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="start">(α 를 1 부터 t 까지 곱함)</text>

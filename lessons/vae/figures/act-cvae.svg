@@ -5,18 +5,18 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="698" height="368" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="24.0" y="32.0" fill="#38bdf8" font-size="15" text-anchor="start">학습할 때</text>
-  <rect x="20.0" y="50.0" width="130.0" height="44.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="24.0" y="32.0" fill="#7cb4d8" font-size="15" text-anchor="start">학습할 때</text>
+  <rect x="20.0" y="50.0" width="130.0" height="44.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="85.0" y="77.0" fill="#e2e8f0" font-size="13" text-anchor="middle">시연 action chunk</text>
   <rect x="20.0" y="104.0" width="130.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="85.0" y="129.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관절 위치</text>
@@ -25,11 +25,11 @@
   <rect x="182.0" y="74.0" width="110.0" height="46.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="237.0" y="102.0" fill="#e2e8f0" font-size="13" text-anchor="middle">CVAE encoder</text>
   <line x1="292.0" y1="97.0" x2="316.0" y2="97.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="320.0" y="74.0" width="120.0" height="46.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="320.0" y="74.0" width="120.0" height="46.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="380.0" y="94.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = μ + σ ⊙ ε</text>
   <text x="380.0" y="111.0" fill="#94a3b8" font-size="12" text-anchor="middle">32 차원</text>
   <line x1="440.0" y1="97.0" x2="466.0" y2="97.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="470.0" y="74.0" width="90.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="470.0" y="74.0" width="90.0" height="46.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="515.0" y="102.0" fill="#e2e8f0" font-size="14" text-anchor="middle">policy</text>
   <rect x="470.0" y="136.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="515.0" y="161.0" fill="#e2e8f0" font-size="12" text-anchor="middle">카메라·관절</text>
@@ -39,12 +39,12 @@
   <text x="636.0" y="102.0" fill="#e2e8f0" font-size="13" text-anchor="middle">예측 chunk</text>
   <text x="470.0" y="200.0" fill="#94a3b8" font-size="12" text-anchor="middle">loss = L1(예측, 시연) + 10 × KL</text>
   <line x1="20.0" y1="222.0" x2="680.0" y2="222.0" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="24.0" y="252.0" fill="#f59e0b" font-size="15" text-anchor="start">로봇을 움직일 때</text>
-  <rect x="320.0" y="280.0" width="120.0" height="46.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="24.0" y="252.0" fill="#d6aa62" font-size="15" text-anchor="start">로봇을 움직일 때</text>
+  <rect x="320.0" y="280.0" width="120.0" height="46.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="380.0" y="300.0" fill="#e2e8f0" font-size="14" text-anchor="middle">z = 0</text>
   <text x="380.0" y="317.0" fill="#94a3b8" font-size="12" text-anchor="middle">prior 의 평균</text>
   <line x1="440.0" y1="303.0" x2="466.0" y2="303.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="470.0" y="280.0" width="90.0" height="46.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="470.0" y="280.0" width="90.0" height="46.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="515.0" y="308.0" fill="#e2e8f0" font-size="14" text-anchor="middle">policy</text>
   <rect x="470.0" y="334.0" width="90.0" height="30.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="515.0" y="354.0" fill="#e2e8f0" font-size="12" text-anchor="middle">카메라·관절</text>

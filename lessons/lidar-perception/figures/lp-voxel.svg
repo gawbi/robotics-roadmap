@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>voxel downsampling. 공간을 같은 크기의 칸으로 나누고 칸마다 점들의 평균 위치 하나만 남겨, 점 52개가 13개로 줄고 센서 가까이 몰려 있던 점의 밀도가 고르게 된다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="698" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="40.0" y1="80.0" x2="40.0" y2="248.0" stroke="#475569" stroke-width="1"/>
   <line x1="96.0" y1="80.0" x2="96.0" y2="248.0" stroke="#475569" stroke-width="1"/>
@@ -24,73 +24,73 @@
   <line x1="390.0" y1="192.0" x2="670.0" y2="192.0" stroke="#475569" stroke-width="1"/>
   <line x1="390.0" y1="248.0" x2="670.0" y2="248.0" stroke="#475569" stroke-width="1"/>
   <text x="530.0" y="58.0" fill="#e2e8f0" font-size="13" text-anchor="middle">voxel 마다 평균 위치 하나</text>
-  <circle cx="56.8" cy="109.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="62.5" cy="112.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="73.4" cy="89.5" r="2.8" fill="#38bdf8"/>
-  <circle cx="47.3" cy="122.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="57.8" cy="96.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="89.1" cy="106.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="82.3" cy="107.0" r="2.8" fill="#38bdf8"/>
-  <circle cx="73.9" cy="93.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="73.7" cy="123.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="125.0" cy="118.3" r="2.8" fill="#38bdf8"/>
-  <circle cx="131.3" cy="89.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="135.0" cy="111.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="115.5" cy="88.0" r="2.8" fill="#38bdf8"/>
-  <circle cx="139.6" cy="106.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="133.3" cy="124.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="189.1" cy="125.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="175.5" cy="120.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="177.6" cy="126.5" r="2.8" fill="#38bdf8"/>
-  <circle cx="252.1" cy="90.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="220.5" cy="96.0" r="2.8" fill="#38bdf8"/>
-  <circle cx="87.8" cy="161.3" r="2.8" fill="#38bdf8"/>
-  <circle cx="73.4" cy="155.5" r="2.8" fill="#38bdf8"/>
-  <circle cx="68.3" cy="159.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="61.7" cy="167.6" r="2.8" fill="#38bdf8"/>
-  <circle cx="71.6" cy="181.2" r="2.8" fill="#38bdf8"/>
-  <circle cx="75.7" cy="182.3" r="2.8" fill="#38bdf8"/>
-  <circle cx="83.2" cy="184.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="131.3" cy="149.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="139.3" cy="183.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="141.2" cy="166.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="133.1" cy="151.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="194.1" cy="167.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="170.8" cy="145.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="251.1" cy="184.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="274.5" cy="176.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="64.2" cy="205.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="59.2" cy="231.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="83.9" cy="200.6" r="2.8" fill="#38bdf8"/>
-  <circle cx="72.9" cy="200.6" r="2.8" fill="#38bdf8"/>
-  <circle cx="77.3" cy="212.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="84.2" cy="240.5" r="2.8" fill="#38bdf8"/>
-  <circle cx="68.2" cy="241.2" r="2.8" fill="#38bdf8"/>
-  <circle cx="59.9" cy="202.0" r="2.8" fill="#38bdf8"/>
-  <circle cx="128.2" cy="200.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="111.1" cy="216.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="128.7" cy="205.4" r="2.8" fill="#38bdf8"/>
-  <circle cx="104.5" cy="235.7" r="2.8" fill="#38bdf8"/>
-  <circle cx="116.1" cy="239.5" r="2.8" fill="#38bdf8"/>
-  <circle cx="196.9" cy="214.8" r="2.8" fill="#38bdf8"/>
-  <circle cx="178.3" cy="220.9" r="2.8" fill="#38bdf8"/>
-  <circle cx="186.1" cy="224.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="294.5" cy="225.1" r="2.8" fill="#38bdf8"/>
-  <circle cx="418.5" cy="106.8" r="4.2" fill="#34d399"/>
-  <circle cx="479.9" cy="106.4" r="4.2" fill="#34d399"/>
-  <circle cx="530.8" cy="124.4" r="4.2" fill="#34d399"/>
-  <circle cx="586.3" cy="93.4" r="4.2" fill="#34d399"/>
-  <circle cx="424.5" cy="170.3" r="4.2" fill="#34d399"/>
-  <circle cx="486.2" cy="163.0" r="4.2" fill="#34d399"/>
-  <circle cx="532.5" cy="156.3" r="4.2" fill="#34d399"/>
-  <circle cx="601.1" cy="184.8" r="4.2" fill="#34d399"/>
-  <circle cx="624.5" cy="176.8" r="4.2" fill="#34d399"/>
-  <circle cx="421.2" cy="216.8" r="4.2" fill="#34d399"/>
-  <circle cx="467.7" cy="219.3" r="4.2" fill="#34d399"/>
-  <circle cx="537.1" cy="219.9" r="4.2" fill="#34d399"/>
-  <circle cx="644.5" cy="225.1" r="4.2" fill="#34d399"/>
+  <circle cx="56.8" cy="109.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="62.5" cy="112.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="73.4" cy="89.5" r="2.8" fill="#7cb4d8"/>
+  <circle cx="47.3" cy="122.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="57.8" cy="96.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="89.1" cy="106.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="82.3" cy="107.0" r="2.8" fill="#7cb4d8"/>
+  <circle cx="73.9" cy="93.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="73.7" cy="123.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="125.0" cy="118.3" r="2.8" fill="#7cb4d8"/>
+  <circle cx="131.3" cy="89.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="135.0" cy="111.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="115.5" cy="88.0" r="2.8" fill="#7cb4d8"/>
+  <circle cx="139.6" cy="106.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="133.3" cy="124.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="189.1" cy="125.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="175.5" cy="120.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="177.6" cy="126.5" r="2.8" fill="#7cb4d8"/>
+  <circle cx="252.1" cy="90.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="220.5" cy="96.0" r="2.8" fill="#7cb4d8"/>
+  <circle cx="87.8" cy="161.3" r="2.8" fill="#7cb4d8"/>
+  <circle cx="73.4" cy="155.5" r="2.8" fill="#7cb4d8"/>
+  <circle cx="68.3" cy="159.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="61.7" cy="167.6" r="2.8" fill="#7cb4d8"/>
+  <circle cx="71.6" cy="181.2" r="2.8" fill="#7cb4d8"/>
+  <circle cx="75.7" cy="182.3" r="2.8" fill="#7cb4d8"/>
+  <circle cx="83.2" cy="184.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="131.3" cy="149.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="139.3" cy="183.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="141.2" cy="166.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="133.1" cy="151.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="194.1" cy="167.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="170.8" cy="145.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="251.1" cy="184.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="274.5" cy="176.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="64.2" cy="205.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="59.2" cy="231.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="83.9" cy="200.6" r="2.8" fill="#7cb4d8"/>
+  <circle cx="72.9" cy="200.6" r="2.8" fill="#7cb4d8"/>
+  <circle cx="77.3" cy="212.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="84.2" cy="240.5" r="2.8" fill="#7cb4d8"/>
+  <circle cx="68.2" cy="241.2" r="2.8" fill="#7cb4d8"/>
+  <circle cx="59.9" cy="202.0" r="2.8" fill="#7cb4d8"/>
+  <circle cx="128.2" cy="200.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="111.1" cy="216.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="128.7" cy="205.4" r="2.8" fill="#7cb4d8"/>
+  <circle cx="104.5" cy="235.7" r="2.8" fill="#7cb4d8"/>
+  <circle cx="116.1" cy="239.5" r="2.8" fill="#7cb4d8"/>
+  <circle cx="196.9" cy="214.8" r="2.8" fill="#7cb4d8"/>
+  <circle cx="178.3" cy="220.9" r="2.8" fill="#7cb4d8"/>
+  <circle cx="186.1" cy="224.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="294.5" cy="225.1" r="2.8" fill="#7cb4d8"/>
+  <circle cx="418.5" cy="106.8" r="4.2" fill="#7fc4a2"/>
+  <circle cx="479.9" cy="106.4" r="4.2" fill="#7fc4a2"/>
+  <circle cx="530.8" cy="124.4" r="4.2" fill="#7fc4a2"/>
+  <circle cx="586.3" cy="93.4" r="4.2" fill="#7fc4a2"/>
+  <circle cx="424.5" cy="170.3" r="4.2" fill="#7fc4a2"/>
+  <circle cx="486.2" cy="163.0" r="4.2" fill="#7fc4a2"/>
+  <circle cx="532.5" cy="156.3" r="4.2" fill="#7fc4a2"/>
+  <circle cx="601.1" cy="184.8" r="4.2" fill="#7fc4a2"/>
+  <circle cx="624.5" cy="176.8" r="4.2" fill="#7fc4a2"/>
+  <circle cx="421.2" cy="216.8" r="4.2" fill="#7fc4a2"/>
+  <circle cx="467.7" cy="219.3" r="4.2" fill="#7fc4a2"/>
+  <circle cx="537.1" cy="219.9" r="4.2" fill="#7fc4a2"/>
+  <circle cx="644.5" cy="225.1" r="4.2" fill="#7fc4a2"/>
   <line x1="332.0" y1="164.0" x2="378.0" y2="164.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <text x="180.0" y="274.0" fill="#38bdf8" font-size="12" text-anchor="middle">점 52개 (센서에 가까운 왼쪽이 촘촘하다)</text>
-  <text x="530.0" y="274.0" fill="#34d399" font-size="12" text-anchor="middle">점 13개 (칸마다 최대 하나)</text>
+  <text x="180.0" y="274.0" fill="#7cb4d8" font-size="12" text-anchor="middle">점 52개 (센서에 가까운 왼쪽이 촘촘하다)</text>
+  <text x="530.0" y="274.0" fill="#7fc4a2" font-size="12" text-anchor="middle">점 13개 (칸마다 최대 하나)</text>
   <text x="350.0" y="308.0" fill="#94a3b8" font-size="11" text-anchor="middle">칸 한 변이 voxel 크기다. 칸 안의 점을 모두 지우고 그 점들의 평균 위치 하나만 남긴다</text>
 </svg>

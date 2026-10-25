@@ -2,43 +2,43 @@
   <title>왼쪽은 step 마다 왼쪽(−)과 오른쪽(+)을 따로 고른 경우로, 가로 위치가 1, 0, −1, 0, 1, 0, 1, 0 으로 흔들리다 상자에 부딪힌다. 오른쪽은 chunk 하나로 왼쪽 길을 한 번에 정해 상자를 비켜 간다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
     <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="14.0" y="30.0" width="280.0" height="306.0" rx="10" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
-  <text x="154.0" y="54.0" fill="#f87171" font-size="14" text-anchor="middle">step 마다 따로 고를 때</text>
+  <text x="154.0" y="54.0" fill="#d88b8b" font-size="14" text-anchor="middle">step 마다 따로 고를 때</text>
   <line x1="44.0" y1="76.0" x2="44.0" y2="300.0" stroke="#334155" stroke-width="1.5"/>
   <line x1="264.0" y1="76.0" x2="264.0" y2="300.0" stroke="#334155" stroke-width="1.5"/>
-  <rect x="136.0" y="94.0" width="36.0" height="28.0" rx="3" fill="#f87171" fill-opacity="0.35" stroke="#f87171" stroke-width="1.5"/>
+  <rect x="136.0" y="94.0" width="36.0" height="28.0" rx="3" fill="#d88b8b" fill-opacity="0.35" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="154.0" y="113.0" fill="#e2e8f0" font-size="11" text-anchor="middle">상자</text>
-  <polyline points="154.0,300.0 176.0,276.0 154.0,252.0 132.0,228.0 154.0,204.0 176.0,180.0 154.0,156.0 176.0,132.0 154.0,108.0" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="176.0" cy="276.0" r="3.5" fill="#f87171"/>
-  <circle cx="154.0" cy="252.0" r="3.5" fill="#f87171"/>
-  <circle cx="132.0" cy="228.0" r="3.5" fill="#f87171"/>
-  <circle cx="154.0" cy="204.0" r="3.5" fill="#f87171"/>
-  <circle cx="176.0" cy="180.0" r="3.5" fill="#f87171"/>
-  <circle cx="154.0" cy="156.0" r="3.5" fill="#f87171"/>
-  <circle cx="176.0" cy="132.0" r="3.5" fill="#f87171"/>
+  <polyline points="154.0,300.0 176.0,276.0 154.0,252.0 132.0,228.0 154.0,204.0 176.0,180.0 154.0,156.0 176.0,132.0 154.0,108.0" fill="none" stroke="#d88b8b" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="176.0" cy="276.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="154.0" cy="252.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="132.0" cy="228.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="154.0" cy="204.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="176.0" cy="180.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="154.0" cy="156.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="176.0" cy="132.0" r="3.5" fill="#d88b8b"/>
   <circle cx="154.0" cy="300.0" r="7" fill="#e2e8f0"/>
   <text x="154.0" y="324.0" fill="#94a3b8" font-size="11" text-anchor="middle">고른 방향 + − − + + − + −</text>
   <rect x="306.0" y="30.0" width="280.0" height="306.0" rx="10" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
-  <text x="446.0" y="54.0" fill="#34d399" font-size="14" text-anchor="middle">chunk 로 한 번에 만들 때</text>
+  <text x="446.0" y="54.0" fill="#7fc4a2" font-size="14" text-anchor="middle">chunk 로 한 번에 만들 때</text>
   <line x1="336.0" y1="76.0" x2="336.0" y2="300.0" stroke="#334155" stroke-width="1.5"/>
   <line x1="556.0" y1="76.0" x2="556.0" y2="300.0" stroke="#334155" stroke-width="1.5"/>
-  <rect x="428.0" y="94.0" width="36.0" height="28.0" rx="3" fill="#f87171" fill-opacity="0.35" stroke="#f87171" stroke-width="1.5"/>
+  <rect x="428.0" y="94.0" width="36.0" height="28.0" rx="3" fill="#d88b8b" fill-opacity="0.35" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="446.0" y="113.0" fill="#e2e8f0" font-size="11" text-anchor="middle">상자</text>
-  <polyline points="446.0,300.0 424.0,276.0 402.0,252.0 380.0,228.0 358.0,204.0 358.0,180.0 358.0,156.0 358.0,132.0 358.0,108.0" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="424.0" cy="276.0" r="3.5" fill="#34d399"/>
-  <circle cx="402.0" cy="252.0" r="3.5" fill="#34d399"/>
-  <circle cx="380.0" cy="228.0" r="3.5" fill="#34d399"/>
-  <circle cx="358.0" cy="204.0" r="3.5" fill="#34d399"/>
-  <circle cx="358.0" cy="180.0" r="3.5" fill="#34d399"/>
-  <circle cx="358.0" cy="156.0" r="3.5" fill="#34d399"/>
-  <circle cx="358.0" cy="132.0" r="3.5" fill="#34d399"/>
+  <polyline points="446.0,300.0 424.0,276.0 402.0,252.0 380.0,228.0 358.0,204.0 358.0,180.0 358.0,156.0 358.0,132.0 358.0,108.0" fill="none" stroke="#7fc4a2" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="424.0" cy="276.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="402.0" cy="252.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="380.0" cy="228.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="358.0" cy="204.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="358.0" cy="180.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="358.0" cy="156.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="358.0" cy="132.0" r="3.5" fill="#7fc4a2"/>
   <circle cx="446.0" cy="300.0" r="7" fill="#e2e8f0"/>
   <text x="446.0" y="324.0" fill="#94a3b8" font-size="11" text-anchor="middle">chunk 하나: 왼쪽 길 8 step</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 370" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>data association. Kalman filter 가 track A 를 10.0 m, B 를 12.0 m 로 예측했고 detection 은 11.2 m 와 13.5 m 다. 가장 가까운 쌍부터 고르면 B–d1 을 먼저 잡아 A 를 놓치지만, 거리 합이 최소인 짝을 찾는 Hungarian algorithm 은 A–d1, B–d2 (합 2.7 m)를 고른다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="778" height="368" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="390.0" y="28.0" fill="#e2e8f0" font-size="13" text-anchor="middle">차로 위의 두 물체, 0.1 초 뒤 frame (위치는 차로 방향 거리)</text>
   <line x1="50.0" y1="160.0" x2="456.0" y2="160.0" stroke="#475569" stroke-width="1.5"/>
@@ -16,44 +16,44 @@
   <text x="365.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">13 m</text>
   <line x1="435.0" y1="156.0" x2="435.0" y2="164.0" stroke="#475569" stroke-width="1"/>
   <text x="435.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">14 m</text>
-  <circle cx="85.0" cy="120.0" r="5" fill="#a78bfa" fill-opacity="0.5"/>
-  <line x1="93.0" y1="120.0" x2="147.0" y2="120.0" stroke="#a78bfa" stroke-width="1.4" marker-end="url(#av)"/>
-  <circle cx="155.0" cy="120.0" r="6" fill="#a78bfa"/>
-  <text x="120.0" y="106.0" fill="#a78bfa" font-size="11" text-anchor="middle">A: 9.0 m, 10 m/s → 예측 10.0</text>
-  <circle cx="260.0" cy="90.0" r="5" fill="#f472b6" fill-opacity="0.5"/>
-  <line x1="268.0" y1="90.0" x2="287.0" y2="90.0" stroke="#f472b6" stroke-width="1.4" marker-end="url(#am)"/>
-  <circle cx="295.0" cy="90.0" r="6" fill="#f472b6"/>
-  <text x="277.5" y="76.0" fill="#f472b6" font-size="11" text-anchor="middle">B: 11.5 m, 5 m/s → 예측 12.0</text>
-  <rect x="232.0" y="192.0" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <text x="239.0" y="224.0" fill="#f59e0b" font-size="11" text-anchor="middle">d1 11.2</text>
-  <rect x="393.0" y="192.0" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <text x="400.0" y="224.0" fill="#f59e0b" font-size="11" text-anchor="middle">d2 13.5</text>
-  <text x="57.0" y="224.0" fill="#f59e0b" font-size="11" text-anchor="start">detection</text>
+  <circle cx="85.0" cy="120.0" r="5" fill="#a99ad6" fill-opacity="0.5"/>
+  <line x1="93.0" y1="120.0" x2="147.0" y2="120.0" stroke="#a99ad6" stroke-width="1.4" marker-end="url(#av)"/>
+  <circle cx="155.0" cy="120.0" r="6" fill="#a99ad6"/>
+  <text x="120.0" y="106.0" fill="#a99ad6" font-size="11" text-anchor="middle">A: 9.0 m, 10 m/s → 예측 10.0</text>
+  <circle cx="260.0" cy="90.0" r="5" fill="#cf96b8" fill-opacity="0.5"/>
+  <line x1="268.0" y1="90.0" x2="287.0" y2="90.0" stroke="#cf96b8" stroke-width="1.4" marker-end="url(#am)"/>
+  <circle cx="295.0" cy="90.0" r="6" fill="#cf96b8"/>
+  <text x="277.5" y="76.0" fill="#cf96b8" font-size="11" text-anchor="middle">B: 11.5 m, 5 m/s → 예측 12.0</text>
+  <rect x="232.0" y="192.0" width="14" height="14" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <text x="239.0" y="224.0" fill="#d6aa62" font-size="11" text-anchor="middle">d1 11.2</text>
+  <rect x="393.0" y="192.0" width="14" height="14" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <text x="400.0" y="224.0" fill="#d6aa62" font-size="11" text-anchor="middle">d2 13.5</text>
+  <text x="57.0" y="224.0" fill="#d6aa62" font-size="11" text-anchor="start">detection</text>
   <text x="630.0" y="80.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">거리 표 (m), gate 2 m</text>
   <rect x="520" y="90" width="70" height="32" fill="#111a2e" stroke="#475569"/>
   <text x="555.0" y="111.0" fill="#e2e8f0" font-size="12" text-anchor="middle"></text>
   <rect x="590" y="90" width="70" height="32" fill="#111a2e" stroke="#475569"/>
-  <text x="625.0" y="111.0" fill="#f59e0b" font-size="12" text-anchor="middle">d1</text>
+  <text x="625.0" y="111.0" fill="#d6aa62" font-size="12" text-anchor="middle">d1</text>
   <rect x="660" y="90" width="70" height="32" fill="#111a2e" stroke="#475569"/>
-  <text x="695.0" y="111.0" fill="#f59e0b" font-size="12" text-anchor="middle">d2</text>
+  <text x="695.0" y="111.0" fill="#d6aa62" font-size="12" text-anchor="middle">d2</text>
   <rect x="520" y="122" width="70" height="32" fill="#111a2e" stroke="#475569"/>
-  <text x="555.0" y="143.0" fill="#a78bfa" font-size="12" text-anchor="middle">A</text>
+  <text x="555.0" y="143.0" fill="#a99ad6" font-size="12" text-anchor="middle">A</text>
   <rect x="590" y="122" width="70" height="32" fill="#111a2e" stroke="#475569"/>
   <text x="625.0" y="143.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1.2</text>
   <rect x="660" y="122" width="70" height="32" fill="#111a2e" stroke="#475569"/>
   <text x="695.0" y="143.0" fill="#64748b" font-size="12" text-anchor="middle">3.5</text>
   <rect x="520" y="154" width="70" height="32" fill="#111a2e" stroke="#475569"/>
-  <text x="555.0" y="175.0" fill="#f472b6" font-size="12" text-anchor="middle">B</text>
+  <text x="555.0" y="175.0" fill="#cf96b8" font-size="12" text-anchor="middle">B</text>
   <rect x="590" y="154" width="70" height="32" fill="#111a2e" stroke="#475569"/>
   <text x="625.0" y="175.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.8</text>
   <rect x="660" y="154" width="70" height="32" fill="#111a2e" stroke="#475569"/>
   <text x="695.0" y="175.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1.5</text>
-  <rect x="40.0" y="255.0" width="340.0" height="90.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
-  <text x="210.0" y="280.0" fill="#f87171" font-size="12" text-anchor="middle" font-weight="600">가장 가까운 쌍부터 고르면</text>
+  <rect x="40.0" y="255.0" width="340.0" height="90.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="210.0" y="280.0" fill="#d88b8b" font-size="12" text-anchor="middle" font-weight="600">가장 가까운 쌍부터 고르면</text>
   <text x="210.0" y="302.0" fill="#e2e8f0" font-size="11" text-anchor="middle">B–d1 (0.8) 먼저 → A 에 남은 d2 는 3.5 m > gate</text>
   <text x="210.0" y="322.0" fill="#94a3b8" font-size="11" text-anchor="middle">A 는 짝을 잃고, d2 는 새 track 이 된다</text>
-  <rect x="400.0" y="255.0" width="340.0" height="90.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="570.0" y="280.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">Hungarian algorithm (합이 최소인 짝)</text>
+  <rect x="400.0" y="255.0" width="340.0" height="90.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="570.0" y="280.0" fill="#7fc4a2" font-size="12" text-anchor="middle" font-weight="600">Hungarian algorithm (합이 최소인 짝)</text>
   <text x="570.0" y="302.0" fill="#e2e8f0" font-size="11" text-anchor="middle">A–d1 + B–d2 = 1.2 + 1.5 = 2.7</text>
   <text x="570.0" y="322.0" fill="#94a3b8" font-size="11" text-anchor="middle">A–d2 + B–d1 = 3.5 + 0.8 = 4.3 보다 작아 채택</text>
 </svg>

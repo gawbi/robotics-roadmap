@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>두 집기 방법의 기댓값. A 는 90% 로 성공해 보상 10, 10% 로 물건을 떨어뜨려 보상 −50 이라 기댓값이 4 다. B 는 70% 로 성공해 10, 30% 는 실패해도 0 이라 기댓값이 7 이다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
   <rect x="1" y="1" width="678" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="138.0" y="94.0" fill="#e2e8f0" font-size="13" text-anchor="end" font-weight="600">A: 위에서 집기</text>
-  <rect x="150.0" y="70.0" width="333.0" height="38.0" rx="3" fill="#34d399" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="150.0" y="70.0" width="333.0" height="38.0" rx="3" fill="#7fc4a2" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
   <text x="316.5" y="94.0" fill="#e2e8f0" font-size="12" text-anchor="middle">90%  보상 +10</text>
-  <rect x="483.0" y="70.0" width="37.0" height="38.0" rx="3" fill="#f472b6" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
-  <text x="501.5" y="62.0" fill="#f472b6" font-size="12" text-anchor="middle">10%  보상 −50</text>
-  <text x="150.0" y="130.0" fill="#f59e0b" font-size="12" text-anchor="start">기댓값 0.9 × 10 + 0.1 × (−50) = 4</text>
+  <rect x="483.0" y="70.0" width="37.0" height="38.0" rx="3" fill="#cf96b8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <text x="501.5" y="62.0" fill="#cf96b8" font-size="12" text-anchor="middle">10%  보상 −50</text>
+  <text x="150.0" y="130.0" fill="#d6aa62" font-size="12" text-anchor="start">기댓값 0.9 × 10 + 0.1 × (−50) = 4</text>
   <text x="138.0" y="184.0" fill="#e2e8f0" font-size="13" text-anchor="end" font-weight="600">B: 옆에서 밀어 집기</text>
-  <rect x="150.0" y="160.0" width="259.0" height="38.0" rx="3" fill="#34d399" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
+  <rect x="150.0" y="160.0" width="259.0" height="38.0" rx="3" fill="#7fc4a2" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
   <text x="279.5" y="184.0" fill="#e2e8f0" font-size="12" text-anchor="middle">70%  보상 +10</text>
   <rect x="409.0" y="160.0" width="111.0" height="38.0" rx="3" fill="#94a3b8" fill-opacity="0.55" stroke="#0b1220" stroke-width="2"/>
   <text x="464.5" y="184.0" fill="#e2e8f0" font-size="12" text-anchor="middle">30%  보상 0</text>
-  <text x="150.0" y="220.0" fill="#f59e0b" font-size="12" text-anchor="start">기댓값 0.7 × 10 + 0.3 × 0 = 7</text>
+  <text x="150.0" y="220.0" fill="#d6aa62" font-size="12" text-anchor="start">기댓값 0.7 × 10 + 0.3 × 0 = 7</text>
   <text x="595.0" y="94.0" fill="#94a3b8" font-size="12" text-anchor="middle">성공률 90%</text>
   <text x="595.0" y="184.0" fill="#94a3b8" font-size="12" text-anchor="middle">성공률 70%</text>
   <text x="340.0" y="30.0" fill="#94a3b8" font-size="12" text-anchor="middle">막대 너비가 확률이고, 숫자는 그 결과의 보상이다</text>

@@ -1,7 +1,6 @@
 :root {
   color-scheme: dark;
-  --bg: #070b14;
-  --bg-grid: #0c1322;
+  --bg: #05080f;
   --surface: rgba(12, 18, 32, 0.88);
   --surface-solid: #0d1424;
   --surface-raised: #131c30;
@@ -15,7 +14,7 @@
   --danger: #f87171;
   --success: #4ade80;
   --node-fill: #0b1222;
-  --edge-locked: #44597f;
+  --edge-locked: #7088b3;
   --radius: 12px;
   --font-sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -79,9 +78,8 @@ code {
   position: relative;
   height: 100%;
   background:
-    radial-gradient(circle at 50% 45%, rgba(34, 211, 238, 0.06), transparent 55%),
-    radial-gradient(var(--bg-grid) 1px, transparent 1px) 0 0 / 28px 28px,
-    var(--bg);
+    radial-gradient(ellipse 90% 85% at 50% 45%, rgba(56, 120, 220, 0.04), transparent 80%),
+    radial-gradient(ellipse 140% 120% at 50% 45%, #04060e 0%, #020309 60%, #010104 100%);
 }
 
 .icon-button {
@@ -153,7 +151,7 @@ code {
   align-items: center;
   gap: 24px;
   padding: 0 16px 0 20px;
-  background: linear-gradient(to bottom, rgba(7, 11, 20, 0.96), rgba(7, 11, 20, 0.7));
+  background: linear-gradient(to bottom, rgba(5, 8, 15, 0.94), rgba(5, 8, 15, 0.72));
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
 }
@@ -489,6 +487,19 @@ code {
 
 /* ---------- holygraph ---------- */
 
+/* the WebGL layer under the map: tree-coloured clouds that take over from the SVG's flat tints */
+.map-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.holygraph.has-scene .hg-area {
+  display: none;
+}
+
 .holygraph {
   position: absolute;
   inset: 0;
@@ -523,9 +534,38 @@ code {
   transition: opacity 200ms var(--ease), stroke-width 200ms var(--ease);
 }
 
+.hg-arrow {
+  fill: var(--accent);
+}
+
+/* edges that lead somewhere now, the trunk and a hovered chain are drawn in the accent colour; the rest stay grey */
+:is(.hg-edge.is-open, .hg-edge.is-done, .hg-edge.is-lit, .hg-edge.is-trunk) {
+  stroke: var(--accent);
+}
+
 .hg-edge.is-open {
   stroke-opacity: 0.8;
-  stroke-dasharray: 5 5;
+  stroke-dasharray: 7 7; /* one dash and gap span the 14px edge-flow moves per cycle */
+}
+
+/* the dashes of an edge into a lesson that can start now run from the prerequisite toward that lesson, and a hovered
+   chain flows the same way */
+.hg-edge.is-open,
+.hg-edge.is-lit:not(.is-locked) {
+  animation: edge-flow 0.8s linear infinite;
+}
+
+.hg-edge.is-lit:not(.is-locked) {
+  stroke-dasharray: 10 4;
+}
+
+@keyframes edge-flow {
+  from {
+    stroke-dashoffset: 14;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .hg-edge.is-done {
@@ -658,10 +698,6 @@ code {
   transition: opacity 200ms var(--ease);
 }
 
-.hg-node.is-locked .hg-label {
-  fill: var(--text-dim);
-}
-
 .hg-divider {
   stroke: color-mix(in srgb, var(--accent) 30%, transparent);
   stroke-width: 1.5;
@@ -670,13 +706,27 @@ code {
 }
 
 
+.hg-art {
+  fill: currentColor;
+  opacity: 0.04;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease);
+}
+
+/* the hovered area's picture stands out a little */
+.is-focus > .hg-art {
+  opacity: 0.09;
+}
+
+/* a tree's name set like a constellation on a star chart: light, widely spaced capitals in the tree's colour */
 .hg-sector {
-  font-family: var(--font-mono);
-  font-size: 64px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  opacity: 0.3;
+  fill: currentColor;
+  fill-opacity: 0.16;
   pointer-events: none;
 }
 
@@ -1093,24 +1143,44 @@ code {
 }
 
 .markdown details {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface-raised);
+  border-radius: 8px;
 }
 
 .markdown summary {
   min-height: 44px;
   display: flex;
   align-items: center;
+  gap: 10px;
   padding: 0 14px;
   cursor: pointer;
   font-weight: 500;
   color: var(--text);
+  transition: color 0.15s var(--ease);
 }
 
-.markdown details[open] summary {
-  border-bottom: 1px solid var(--border);
+.markdown summary:hover {
+  color: #fff;
+}
+
+/* the folded state as a chevron at the right end: › closed, ⌄ open */
+.markdown summary::after {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  margin-right: 4px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  opacity: 0.6;
+  transform: rotate(-45deg);
+  transition: transform 0.15s var(--ease);
+}
+
+.markdown details[open] > summary::after {
+  transform: rotate(45deg);
 }
 
 .markdown details > :not(summary) {
@@ -1119,43 +1189,51 @@ code {
 }
 
 .markdown details > :nth-child(2) {
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
-.markdown blockquote {
-  margin: 0 0 14px;
-  padding: 2px 16px;
-  border-left: 3px solid var(--border-strong);
-  color: var(--text-muted);
-}
-
-.markdown .misconception {
-  margin: 0 0 16px;
-  padding: 12px 16px 4px;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 10px;
-  background: rgba(34, 211, 238, 0.06);
-}
-
-.misconception-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-  font-size: 14px;
+.aside-label,
+.deep-badge {
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--accent);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.deep-badge {
+  flex: none;
+}
+
+/* misconception and check question share one shape: a rule in the lesson's branch colour, a label, then the text */
+.markdown :is(.misconception, .check) {
+  margin: 20px 0 22px;
+  padding: 2px 0 2px 18px;
+  border-left: 2px solid var(--branch);
+}
+
+.aside-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* the label above already names the aside; the bold label in the source is kept for screen readers and GitHub */
+.markdown .check > p:first-of-type > strong:first-child,
+.misconception-row > p > strong:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .misconception-row {
   display: flex;
   gap: 10px;
-  padding: 8px 0;
 }
 
 .misconception-row + .misconception-row {
-  border-top: 1px solid var(--border);
+  margin-top: 6px;
 }
 
 /* the icon sits on the first text line: (line-height − icon size) / 2 */
@@ -1165,11 +1243,11 @@ code {
 }
 
 .misconception-row.is-belief > svg {
-  color: var(--danger);
+  color: var(--text-dim);
 }
 
 .misconception-row.is-fact > svg {
-  color: var(--success);
+  color: var(--branch);
 }
 
 .markdown .misconception-row > p {
@@ -1180,14 +1258,50 @@ code {
   color: var(--text-muted);
 }
 
-/* the icon already says which line is which; the bold label is kept for screen readers and GitHub */
-.misconception-row > p > strong:first-child {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+.markdown .check > p {
+  margin-bottom: 4px;
+}
+
+/* the answer folds open as a plain link-coloured line, not a second box */
+.markdown .check details {
+  margin: 0;
+  border: none;
+}
+
+.markdown .check summary {
+  display: inline-flex;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--branch);
+}
+
+.markdown .check summary:hover {
+  color: var(--branch);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.markdown .check summary::after {
+  margin-left: 0;
+  opacity: 1;
+}
+
+.markdown .check details > :not(summary) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.markdown .check details > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown blockquote {
+  margin: 0 0 14px;
+  padding: 2px 16px;
+  border-left: 3px solid var(--border-strong);
+  color: var(--text-muted);
 }
 
 .markdown img {

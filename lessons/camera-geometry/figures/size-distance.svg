@@ -15,20 +15,20 @@
   <text x="54" y="272" fill="#e2e8f0" font-size="13" text-anchor="middle">카메라</text>
 
   <!-- image plane -->
-  <line x1="130" y1="190" x2="130" y2="246" stroke="#38bdf8" stroke-width="2.5"/>
-  <line x1="130" y1="215" x2="130" y2="230" stroke="#34d399" stroke-width="5"/>
-  <text x="130" y="164" fill="#38bdf8" font-size="13" text-anchor="middle">image plane</text>
+  <line x1="130" y1="190" x2="130" y2="246" stroke="#7cb4d8" stroke-width="2.5"/>
+  <line x1="130" y1="215" x2="130" y2="230" stroke="#7fc4a2" stroke-width="5"/>
+  <text x="130" y="164" fill="#7cb4d8" font-size="13" text-anchor="middle">image plane</text>
 
   <!-- shared ray -->
-  <line x1="80" y1="230" x2="480" y2="110" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="80" y1="230" x2="480" y2="110" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="6 5"/>
 
   <!-- cup: 0.1 m at 1 m -->
-  <path d="M262,170 L298,170 L294,230 L266,230 Z" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="2"/>
-  <text x="280" y="160" fill="#a78bfa" font-size="14" text-anchor="middle">컵 0.1 m</text>
+  <path d="M262,170 L298,170 L294,230 L266,230 Z" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="2"/>
+  <text x="280" y="160" fill="#a99ad6" font-size="14" text-anchor="middle">컵 0.1 m</text>
 
   <!-- box: 0.2 m at 2 m -->
-  <rect x="454" y="110" width="52" height="120" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="2"/>
-  <text x="480" y="100" fill="#38bdf8" font-size="14" text-anchor="middle">상자 0.2 m</text>
+  <rect x="454" y="110" width="52" height="120" fill="#7cb4d8" fill-opacity="0.18" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="480" y="100" fill="#7cb4d8" font-size="14" text-anchor="middle">상자 0.2 m</text>
 
   <!-- distances -->
   <line x1="80" y1="262" x2="278" y2="262" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
@@ -38,7 +38,7 @@
 
   <!-- explanation -->
   <text x="150" y="40" fill="#e2e8f0" font-size="14">사진 속 높이 = f × 실제 높이 ÷ 거리  (f = 500)</text>
-  <text x="150" y="66" fill="#a78bfa" font-size="14">컵: 500 × 0.1 ÷ 1 = 50 pixel</text>
-  <text x="150" y="88" fill="#38bdf8" font-size="14">상자: 500 × 0.2 ÷ 2 = 50 pixel</text>
-  <text x="130" y="182" fill="#34d399" font-size="13" text-anchor="middle">둘 다 50 pixel</text>
+  <text x="150" y="66" fill="#a99ad6" font-size="14">컵: 500 × 0.1 ÷ 1 = 50 pixel</text>
+  <text x="150" y="88" fill="#7cb4d8" font-size="14">상자: 500 × 0.2 ÷ 2 = 50 pixel</text>
+  <text x="130" y="182" fill="#7fc4a2" font-size="13" text-anchor="middle">둘 다 50 pixel</text>
 </svg>

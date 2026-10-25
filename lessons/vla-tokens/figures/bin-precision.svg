@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>관절에서 30 cm 떨어진 손끝의 어긋남: 칸 256 개면 최대 0.5° 로 약 2.6 mm, 칸 16 개면 최대 8° 로 약 41.9 mm. 1 mm 틈에 꽂는 핀에는 2.6 mm 도 크다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <circle cx="60" cy="250" r="9" fill="#94a3b8" stroke="none"/>
   <text x="60" y="280" fill="#94a3b8" font-size="12" text-anchor="middle">관절</text>
-  <line x1="60" y1="250" x2="276.12930278075896" y2="171.3353670350962" stroke="#38bdf8" stroke-width="3"/>
-  <circle cx="276.12930278075896" cy="171.3353670350962" r="5" fill="#38bdf8" stroke="none"/>
-  <line x1="60" y1="250" x2="263.0779463575532" y2="142.02154055924512" stroke="#f87171" stroke-width="3"/>
-  <circle cx="263.0779463575532" cy="142.02154055924512" r="5" fill="#f87171" stroke="none"/>
-  <path d="M276.12930278075896,171.3353670350962 A230,230 0 0,0 263.0779463575532,142.02154055924512" stroke="#f59e0b" stroke-width="2" fill="none"/>
-  <text x="288.12930278075896" y="177.3353670350962" fill="#38bdf8" font-size="12" text-anchor="start">원하는 자리</text>
-  <text x="275.0779463575532" y="134.02154055924512" fill="#f87171" font-size="12" text-anchor="start">8° 어긋난 자리</text>
+  <line x1="60" y1="250" x2="276.12930278075896" y2="171.3353670350962" stroke="#7cb4d8" stroke-width="3"/>
+  <circle cx="276.12930278075896" cy="171.3353670350962" r="5" fill="#7cb4d8" stroke="none"/>
+  <line x1="60" y1="250" x2="263.0779463575532" y2="142.02154055924512" stroke="#d88b8b" stroke-width="3"/>
+  <circle cx="263.0779463575532" cy="142.02154055924512" r="5" fill="#d88b8b" stroke="none"/>
+  <path d="M276.12930278075896,171.3353670350962 A230,230 0 0,0 263.0779463575532,142.02154055924512" stroke="#d6aa62" stroke-width="2" fill="none"/>
+  <text x="288.12930278075896" y="177.3353670350962" fill="#7cb4d8" font-size="12" text-anchor="start">원하는 자리</text>
+  <text x="275.0779463575532" y="134.02154055924512" fill="#d88b8b" font-size="12" text-anchor="start">8° 어긋난 자리</text>
   <text x="200" y="286" fill="#94a3b8" font-size="12" text-anchor="middle">30 cm</text>
-  <text x="292.12930278075896" y="154.67845379717068" fill="#f59e0b" font-size="11.5" text-anchor="start">≈ 41.9 mm</text>
+  <text x="292.12930278075896" y="154.67845379717068" fill="#d6aa62" font-size="11.5" text-anchor="start">≈ 41.9 mm</text>
   <text x="24" y="32" fill="#e2e8f0" font-size="14" text-anchor="start">손끝이 움직이는 길이 = 둘레 1,884 mm × (각도 ÷ 360)</text>
   <rect x="420" y="60" width="280" height="150" rx="8" fill="#111a2e" stroke="#475569" stroke-width="1.5"/>
   <text x="560" y="86" fill="#e2e8f0" font-size="13" text-anchor="middle">30 cm 팔 끝의 최대 어긋남</text>
-  <text x="440" y="120" fill="#f87171" font-size="13" text-anchor="start">칸 16 개: 최대 8°</text>
-  <text x="680" y="120" fill="#f87171" font-size="13" text-anchor="end">≈ 41.9 mm</text>
-  <text x="440" y="152" fill="#f59e0b" font-size="13" text-anchor="start">칸 256 개: 최대 0.5°</text>
-  <text x="680" y="152" fill="#f59e0b" font-size="13" text-anchor="end">≈ 2.6 mm</text>
-  <text x="440" y="186" fill="#34d399" font-size="13" text-anchor="start">핀을 꽂는 틈</text>
-  <text x="680" y="186" fill="#34d399" font-size="13" text-anchor="end">1 mm</text>
+  <text x="440" y="120" fill="#d88b8b" font-size="13" text-anchor="start">칸 16 개: 최대 8°</text>
+  <text x="680" y="120" fill="#d88b8b" font-size="13" text-anchor="end">≈ 41.9 mm</text>
+  <text x="440" y="152" fill="#d6aa62" font-size="13" text-anchor="start">칸 256 개: 최대 0.5°</text>
+  <text x="680" y="152" fill="#d6aa62" font-size="13" text-anchor="end">≈ 2.6 mm</text>
+  <text x="440" y="186" fill="#7fc4a2" font-size="13" text-anchor="start">핀을 꽂는 틈</text>
+  <text x="680" y="186" fill="#7fc4a2" font-size="13" text-anchor="end">1 mm</text>
   <text x="560" y="240" fill="#64748b" font-size="11.5" text-anchor="middle">왼쪽 그림은 칸 16 개의 8° 를 그렸다</text>
 </svg>

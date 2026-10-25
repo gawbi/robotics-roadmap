@@ -1,43 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 318" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>(a) 는 사진과 관절 각도가 policy 하나에 들어가 목표 각도 chunk 가 나온다. (b) 는 글과 사진이 인식기에 들어가 box 와 그 가운데·크기·각도 숫자 4 개가 나오고, 이 숫자가 사진·관절 각도와 함께 작은 policy 에 들어간다. 글은 인식기까지만 간다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="316" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20" y="32" fill="#f59e0b" font-size="14" text-anchor="start" font-weight="600">(a) end-to-end policy</text>
+  <text x="20" y="32" fill="#d6aa62" font-size="14" text-anchor="start" font-weight="600">(a) end-to-end policy</text>
   <rect x="20" y="46" width="130" height="54" rx="10" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="85" y="68" fill="#e2e8f0" font-size="12.5" text-anchor="middle">카메라 사진</text>
   <text x="85" y="88" fill="#e2e8f0" font-size="12.5" text-anchor="middle">관절 각도 6 개</text>
   <line x1="152" y1="73" x2="236" y2="73" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="240" y="46" width="170" height="54" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="240" y="46" width="170" height="54" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="325" y="68" fill="#e2e8f0" font-size="13" text-anchor="middle">policy (예: ACT)</text>
   <text x="325" y="88" fill="#94a3b8" font-size="11.5" text-anchor="middle">글을 쓰려면 여기에 넣는다</text>
   <line x1="412" y1="73" x2="466" y2="73" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="470" y="46" width="150" height="54" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="470" y="46" width="150" height="54" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="545" y="68" fill="#e2e8f0" font-size="12.5" text-anchor="middle">목표 각도 chunk</text>
   <text x="545" y="88" fill="#94a3b8" font-size="12" text-anchor="middle">(100, 6)</text>
   <line x1="20" y1="124" x2="620" y2="124" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="20" y="152" fill="#38bdf8" font-size="14" text-anchor="start" font-weight="600">(b) 인식기 + 작은 policy</text>
-  <rect x="20" y="168" width="130" height="40" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="85" y="193" fill="#a78bfa" font-size="12.5" text-anchor="middle">글 "blue cube"</text>
+  <text x="20" y="152" fill="#7cb4d8" font-size="14" text-anchor="start" font-weight="600">(b) 인식기 + 작은 policy</text>
+  <rect x="20" y="168" width="130" height="40" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
+  <text x="85" y="193" fill="#a99ad6" font-size="12.5" text-anchor="middle">글 "blue cube"</text>
   <rect x="20" y="218" width="130" height="40" rx="10" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="85" y="243" fill="#e2e8f0" font-size="12.5" text-anchor="middle">카메라 사진</text>
-  <line x1="152" y1="188" x2="186" y2="205" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrow-violet)"/>
+  <line x1="152" y1="188" x2="186" y2="205" stroke="#a99ad6" stroke-width="2" marker-end="url(#arrow-violet)"/>
   <line x1="152" y1="238" x2="186" y2="222" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="190" y="184" width="130" height="56" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="190" y="184" width="130" height="56" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="255" y="206" fill="#e2e8f0" font-size="13" text-anchor="middle">인식기</text>
   <text x="255" y="226" fill="#94a3b8" font-size="11.5" text-anchor="middle">YOLO-World · SAM 3</text>
   <line x1="322" y1="212" x2="352" y2="212" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="356" y="172" width="130" height="80" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="356" y="172" width="130" height="80" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="4 3"/>
   <text x="421" y="192" fill="#94a3b8" font-size="11.5" text-anchor="middle">box</text>
   <text x="421" y="208" fill="#e2e8f0" font-size="11.5" text-anchor="middle">(200,220)–(240,260)</text>
   <text x="421" y="228" fill="#e2e8f0" font-size="11.5" text-anchor="middle">가운데 (220, 240)</text>
   <text x="421" y="244" fill="#e2e8f0" font-size="11.5" text-anchor="middle">크기 40 · 각도 10°</text>
   <line x1="488" y1="212" x2="516" y2="212" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="520" y="172" width="100" height="80" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="520" y="172" width="100" height="80" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="570" y="200" fill="#e2e8f0" font-size="12.5" text-anchor="middle">작은 policy</text>
   <text x="570" y="220" fill="#94a3b8" font-size="11.5" text-anchor="middle">숫자 4 개</text>
   <text x="570" y="236" fill="#94a3b8" font-size="11.5" text-anchor="middle">+ 사진 + 관절</text>
-  <line x1="570" y1="254" x2="570" y2="284" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <text x="570" y="300" fill="#34d399" font-size="12.5" text-anchor="middle">목표 각도</text>
-  <text x="255" y="282" fill="#a78bfa" font-size="12.5" text-anchor="middle">글은 인식기까지만 간다</text>
+  <line x1="570" y1="254" x2="570" y2="284" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="570" y="300" fill="#7fc4a2" font-size="12.5" text-anchor="middle">목표 각도</text>
+  <text x="255" y="282" fill="#a99ad6" font-size="12.5" text-anchor="middle">글은 인식기까지만 간다</text>
   <text x="255" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">policy 는 위치 숫자만 받는다</text>
 </svg>

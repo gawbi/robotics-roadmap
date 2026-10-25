@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>world w, base b, camera c 세 frame. b 는 w 의 (3, 1) 에서 90° 돌아 있고, c 는 b 의 (2, 0) 에 있다. camera 에서 (1, 0) 인 점은 world 에서 (3, 4) 다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="618" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="60.0" y1="290.0" x2="60.0" y2="65.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="105.0" y1="290.0" x2="105.0" y2="65.0" stroke="#1e293b" stroke-width="1"/>
@@ -31,32 +31,32 @@
   <circle cx="60.0" cy="290.0" r="4" fill="#0b1220" stroke="#94a3b8" stroke-width="2"/>
   <text x="100.0" y="282.0" fill="#94a3b8" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">w</tspan><tspan dy="-4">​</tspan></text>
   <text x="68.0" y="252.0" fill="#94a3b8" font-size="13" text-anchor="start">y<tspan dy="4" font-size="10">w</tspan><tspan dy="-4">​</tspan></text>
-  <line x1="195.0" y1="245.0" x2="195.0" y2="209.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="195.0" y1="245.0" x2="159.0" y2="245.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
-  <circle cx="195.0" cy="245.0" r="4" fill="#0b1220" stroke="#f87171" stroke-width="2"/>
-  <text x="203.0" y="211.0" fill="#f87171" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
-  <text x="153.0" y="250.0" fill="#34d399" font-size="13" text-anchor="end">y<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
-  <line x1="195.0" y1="155.0" x2="195.0" y2="128.0" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-sky)"/>
-  <line x1="195.0" y1="155.0" x2="168.0" y2="155.0" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrow-violet)"/>
-  <circle cx="195.0" cy="155.0" r="4" fill="#0b1220" stroke="#38bdf8" stroke-width="2"/>
-  <text x="203.0" y="134.0" fill="#38bdf8" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">c</tspan><tspan dy="-4">​</tspan></text>
-  <text x="162.0" y="160.0" fill="#a78bfa" font-size="13" text-anchor="end">y<tspan dy="4" font-size="10">c</tspan><tspan dy="-4">​</tspan></text>
-  <circle cx="195.0" cy="110.0" r="7" fill="#f59e0b"/>
-  <text x="207.0" y="110.0" fill="#f59e0b" font-size="13" text-anchor="start">점 (camera 에서 (1, 0))</text>
+  <line x1="195.0" y1="245.0" x2="195.0" y2="209.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="195.0" y1="245.0" x2="159.0" y2="245.0" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="195.0" cy="245.0" r="4" fill="#0b1220" stroke="#d88b8b" stroke-width="2"/>
+  <text x="203.0" y="211.0" fill="#d88b8b" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
+  <text x="153.0" y="250.0" fill="#7fc4a2" font-size="13" text-anchor="end">y<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
+  <line x1="195.0" y1="155.0" x2="195.0" y2="128.0" stroke="#7cb4d8" stroke-width="2.5" marker-end="url(#arrow-sky)"/>
+  <line x1="195.0" y1="155.0" x2="168.0" y2="155.0" stroke="#a99ad6" stroke-width="2.5" marker-end="url(#arrow-violet)"/>
+  <circle cx="195.0" cy="155.0" r="4" fill="#0b1220" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="203.0" y="134.0" fill="#7cb4d8" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">c</tspan><tspan dy="-4">​</tspan></text>
+  <text x="162.0" y="160.0" fill="#a99ad6" font-size="13" text-anchor="end">y<tspan dy="4" font-size="10">c</tspan><tspan dy="-4">​</tspan></text>
+  <circle cx="195.0" cy="110.0" r="7" fill="#d6aa62"/>
+  <text x="207.0" y="110.0" fill="#d6aa62" font-size="13" text-anchor="start">점 (camera 에서 (1, 0))</text>
   <text x="205.0" y="265.0" fill="#e2e8f0" font-size="15" text-anchor="start">b</text>
   <text x="205.0" y="173.0" fill="#e2e8f0" font-size="15" text-anchor="start">c</text>
   <path d="M71,279 Q132,276 186,252" fill="none" stroke="#e2e8f0" stroke-width="1.6" marker-end="url(#arrow-white)"/>
   <text x="127.5" y="263.5" fill="#e2e8f0" font-size="14" text-anchor="middle">T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan></text>
   <path d="M206,236 Q236,200 206,164" fill="none" stroke="#e2e8f0" stroke-width="1.6" marker-end="url(#arrow-white)"/>
   <text x="232.5" y="204.0" fill="#e2e8f0" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
-  <path d="M64,274 Q74,114 184,137" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
-  <text x="67.5" y="182.0" fill="#f59e0b" font-size="14" text-anchor="end">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan></text>
+  <path d="M64,274 Q74,114 184,137" fill="none" stroke="#d6aa62" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+  <text x="67.5" y="182.0" fill="#d6aa62" font-size="14" text-anchor="end">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan></text>
   <text x="360.0" y="50.0" fill="#e2e8f0" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan>: 90° 회전, 이동 (3, 1)</text>
   <text x="360.0" y="78.0" fill="#e2e8f0" font-size="14" text-anchor="start">T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan>: 회전 없음, 이동 (2, 0)</text>
-  <text x="360.0" y="114.0" fill="#f59e0b" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan> = T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan> T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
-  <text x="360.0" y="138.0" fill="#f59e0b" font-size="14" text-anchor="start">: 90° 회전, 이동 (3, 3)</text>
+  <text x="360.0" y="114.0" fill="#d6aa62" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">wc</tspan><tspan dy="-4">​</tspan> = T<tspan dy="4" font-size="10">wb</tspan><tspan dy="-4">​</tspan> T<tspan dy="4" font-size="10">bc</tspan><tspan dy="-4">​</tspan></text>
+  <text x="360.0" y="138.0" fill="#d6aa62" font-size="14" text-anchor="start">: 90° 회전, 이동 (3, 3)</text>
   <text x="360.0" y="182.0" fill="#94a3b8" font-size="13" text-anchor="start">camera 에서 (1, 0) 인 점</text>
   <text x="360.0" y="204.0" fill="#94a3b8" font-size="13" text-anchor="start">→ base 에서 (3, 0)</text>
-  <text x="360.0" y="226.0" fill="#f59e0b" font-size="14" text-anchor="start">→ world 에서 (3, 4)</text>
+  <text x="360.0" y="226.0" fill="#d6aa62" font-size="14" text-anchor="start">→ world 에서 (3, 4)</text>
   <text x="360.0" y="280.0" fill="#64748b" font-size="12" text-anchor="start">가운데 글자 b 가 맞닿게 곱한다</text>
 </svg>

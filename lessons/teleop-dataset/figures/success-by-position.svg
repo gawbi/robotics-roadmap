@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>자리별 성공률 A 90%, B 80%, C 100%, D 70%, E 30%. 가장 낮은 E 에 시연을 더 모은다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="50.0" y1="220.0" x2="570.0" y2="220.0" stroke="#64748b" stroke-width="1.5"/>
   <text x="44.0" y="224.0" fill="#94a3b8" font-size="11.5" text-anchor="end">0%</text>
@@ -8,21 +8,21 @@
   <line x1="50.0" y1="140.0" x2="570.0" y2="140.0" stroke="#1e293b" stroke-width="1"/>
   <text x="44.0" y="64.0" fill="#94a3b8" font-size="11.5" text-anchor="end">100%</text>
   <line x1="50.0" y1="60.0" x2="570.0" y2="60.0" stroke="#1e293b" stroke-width="1"/>
-  <rect x="75.0" y="76.0" width="64.0" height="144.0" rx="3" fill="#38bdf8" fill-opacity="0.85"/>
-  <text x="107.0" y="68.0" fill="#38bdf8" font-size="12.5" text-anchor="middle">90%</text>
+  <rect x="75.0" y="76.0" width="64.0" height="144.0" rx="3" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="107.0" y="68.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle">90%</text>
   <text x="107.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">A 왼쪽 앞</text>
-  <rect x="175.0" y="92.0" width="64.0" height="128.0" rx="3" fill="#38bdf8" fill-opacity="0.85"/>
-  <text x="207.0" y="84.0" fill="#38bdf8" font-size="12.5" text-anchor="middle">80%</text>
+  <rect x="175.0" y="92.0" width="64.0" height="128.0" rx="3" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="207.0" y="84.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle">80%</text>
   <text x="207.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">B 오른쪽 앞</text>
-  <rect x="275.0" y="60.0" width="64.0" height="160.0" rx="3" fill="#38bdf8" fill-opacity="0.85"/>
-  <text x="307.0" y="52.0" fill="#38bdf8" font-size="12.5" text-anchor="middle">100%</text>
+  <rect x="275.0" y="60.0" width="64.0" height="160.0" rx="3" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="307.0" y="52.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle">100%</text>
   <text x="307.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">C 가운데</text>
-  <rect x="375.0" y="108.0" width="64.0" height="112.0" rx="3" fill="#38bdf8" fill-opacity="0.85"/>
-  <text x="407.0" y="100.0" fill="#38bdf8" font-size="12.5" text-anchor="middle">70%</text>
+  <rect x="375.0" y="108.0" width="64.0" height="112.0" rx="3" fill="#7cb4d8" fill-opacity="0.85"/>
+  <text x="407.0" y="100.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle">70%</text>
   <text x="407.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">D 왼쪽 뒤</text>
-  <rect x="475.0" y="172.0" width="64.0" height="48.0" rx="3" fill="#f87171" fill-opacity="0.85"/>
-  <text x="507.0" y="164.0" fill="#f87171" font-size="12.5" text-anchor="middle">30%</text>
+  <rect x="475.0" y="172.0" width="64.0" height="48.0" rx="3" fill="#d88b8b" fill-opacity="0.85"/>
+  <text x="507.0" y="164.0" fill="#d88b8b" font-size="12.5" text-anchor="middle">30%</text>
   <text x="507.0" y="238.0" fill="#94a3b8" font-size="12" text-anchor="middle">E 오른쪽 뒤</text>
-  <text x="560.0" y="60.0" fill="#f87171" font-size="12.5" text-anchor="end">E 에 시연 10 개 추가</text>
+  <text x="560.0" y="60.0" fill="#d88b8b" font-size="12.5" text-anchor="end">E 에 시연 10 개 추가</text>
   <text x="20.0" y="280.0" fill="#94a3b8" font-size="12" text-anchor="start">자리마다 10 번 실행. 전체 성공률은 37 ÷ 50 = 74% 이지만 E 만 유난히 낮다</text>
 </svg>

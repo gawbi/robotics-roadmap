@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>책상을 위에서 본 시연 위치 다섯 곳과 그 안쪽의 성공, 바깥쪽의 실패</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="30.0" width="480.0" height="220.0" rx="6" fill="#0e1628" stroke="#475569" stroke-width="2"/>
   <text x="70.0" y="52.0" fill="#94a3b8" font-size="12" text-anchor="start">책상 (위에서 본 모습)</text>
-  <polygon points="200,70 400,70 400,190 200,190" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <circle cx="220.0" cy="90.0" r="8" fill="#f59e0b"/>
-  <circle cx="380.0" cy="90.0" r="8" fill="#f59e0b"/>
-  <circle cx="300.0" cy="130.0" r="8" fill="#f59e0b"/>
-  <circle cx="220.0" cy="170.0" r="8" fill="#f59e0b"/>
-  <circle cx="380.0" cy="170.0" r="8" fill="#f59e0b"/>
-  <circle cx="260.0" cy="130.0" r="8" fill="#34d399"/>
-  <text x="260.0" y="160.0" fill="#34d399" font-size="12" text-anchor="middle">시연 사이</text>
-  <text x="260.0" y="112.0" fill="#34d399" font-size="13" text-anchor="middle">성공</text>
-  <circle cx="490.0" cy="100.0" r="8" fill="#f87171"/>
-  <text x="490.0" y="82.0" fill="#f87171" font-size="13" text-anchor="middle">실패</text>
-  <text x="490.0" y="128.0" fill="#f87171" font-size="12" text-anchor="middle">시연 바깥</text>
+  <polygon points="200,70 400,70 400,190 200,190" fill="#d6aa62" fill-opacity="0.08" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <circle cx="220.0" cy="90.0" r="8" fill="#d6aa62"/>
+  <circle cx="380.0" cy="90.0" r="8" fill="#d6aa62"/>
+  <circle cx="300.0" cy="130.0" r="8" fill="#d6aa62"/>
+  <circle cx="220.0" cy="170.0" r="8" fill="#d6aa62"/>
+  <circle cx="380.0" cy="170.0" r="8" fill="#d6aa62"/>
+  <circle cx="260.0" cy="130.0" r="8" fill="#7fc4a2"/>
+  <text x="260.0" y="160.0" fill="#7fc4a2" font-size="12" text-anchor="middle">시연 사이</text>
+  <text x="260.0" y="112.0" fill="#7fc4a2" font-size="13" text-anchor="middle">성공</text>
+  <circle cx="490.0" cy="100.0" r="8" fill="#d88b8b"/>
+  <text x="490.0" y="82.0" fill="#d88b8b" font-size="13" text-anchor="middle">실패</text>
+  <text x="490.0" y="128.0" fill="#d88b8b" font-size="12" text-anchor="middle">시연 바깥</text>
   <rect x="270.0" y="232.0" width="60.0" height="30.0" rx="6" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="300.0" y="252.0" fill="#e2e8f0" font-size="12" text-anchor="middle">로봇</text>
-  <text x="400.0" y="212.0" fill="#f59e0b" font-size="12" text-anchor="end">시연 범위</text>
-  <circle cx="80.0" cy="280.0" r="6" fill="#f59e0b"/>
+  <text x="400.0" y="212.0" fill="#d6aa62" font-size="12" text-anchor="end">시연 범위</text>
+  <circle cx="80.0" cy="280.0" r="6" fill="#d6aa62"/>
   <text x="92.0" y="285.0" fill="#e2e8f0" font-size="12" text-anchor="start">시연 자리 (다섯 곳 × 10 번)</text>
-  <circle cx="330.0" cy="280.0" r="6" fill="#34d399"/>
-  <circle cx="346.0" cy="280.0" r="6" fill="#f87171"/>
+  <circle cx="330.0" cy="280.0" r="6" fill="#7fc4a2"/>
+  <circle cx="346.0" cy="280.0" r="6" fill="#d88b8b"/>
   <text x="358.0" y="285.0" fill="#e2e8f0" font-size="12" text-anchor="start">실행 때 새 자리</text>
 </svg>

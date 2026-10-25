@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>관절 두 개짜리 평면 팔을 적은 URDF. joint 마다 parent, child, origin, axis 가 있고 각 joint 가 transform 하나가 된다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="428" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="16.0" y="16.0" width="420.0" height="398.0" rx="8" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <text x="28.0" y="40.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;robot name="two_link_arm"&gt;</text>
   <text x="44.0" y="60.0" fill="#94a3b8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;link name="base"/&gt;  &lt;link name="link1"/&gt;</text>
   <text x="44.0" y="80.0" fill="#94a3b8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;link name="link2"/&gt;  &lt;link name="hand"/&gt;</text>
-  <text x="44.0" y="120.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="joint1" type="revolute"&gt;</text>
+  <text x="44.0" y="120.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="joint1" type="revolute"&gt;</text>
   <text x="60.0" y="140.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;parent link="base"/&gt; &lt;child link="link1"/&gt;</text>
-  <text x="60.0" y="160.0" fill="#f59e0b" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="0 0 0" rpy="0 0 0"/&gt;</text>
-  <text x="60.0" y="180.0" fill="#34d399" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;axis xyz="0 0 1"/&gt;</text>
-  <text x="44.0" y="200.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
-  <text x="44.0" y="220.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="joint2" type="revolute"&gt;</text>
+  <text x="60.0" y="160.0" fill="#d6aa62" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="0 0 0" rpy="0 0 0"/&gt;</text>
+  <text x="60.0" y="180.0" fill="#7fc4a2" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;axis xyz="0 0 1"/&gt;</text>
+  <text x="44.0" y="200.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
+  <text x="44.0" y="220.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="joint2" type="revolute"&gt;</text>
   <text x="60.0" y="240.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;parent link="link1"/&gt; &lt;child link="link2"/&gt;</text>
-  <text x="60.0" y="260.0" fill="#f59e0b" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="1 0 0" rpy="0 0 0"/&gt;</text>
-  <text x="60.0" y="280.0" fill="#34d399" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;axis xyz="0 0 1"/&gt;</text>
-  <text x="44.0" y="300.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
-  <text x="44.0" y="320.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="hand_joint" type="fixed"&gt;</text>
+  <text x="60.0" y="260.0" fill="#d6aa62" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="1 0 0" rpy="0 0 0"/&gt;</text>
+  <text x="60.0" y="280.0" fill="#7fc4a2" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;axis xyz="0 0 1"/&gt;</text>
+  <text x="44.0" y="300.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
+  <text x="44.0" y="320.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;joint name="hand_joint" type="fixed"&gt;</text>
   <text x="60.0" y="340.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;parent link="link2"/&gt; &lt;child link="hand"/&gt;</text>
-  <text x="60.0" y="360.0" fill="#f59e0b" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="1 0 0" rpy="0 0 0"/&gt;</text>
-  <text x="44.0" y="380.0" fill="#38bdf8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
+  <text x="60.0" y="360.0" fill="#d6aa62" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;origin xyz="1 0 0" rpy="0 0 0"/&gt;</text>
+  <text x="44.0" y="380.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/joint&gt;</text>
   <text x="28.0" y="400.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-family="Menlo, 'SF Mono', Consolas, monospace">&lt;/robot&gt;</text>
-  <text x="452.0" y="44.0" fill="#38bdf8" font-size="13" text-anchor="start">joint1 → T₀₁ = R(θ₁)</text>
+  <text x="452.0" y="44.0" fill="#7cb4d8" font-size="13" text-anchor="start">joint1 → T₀₁ = R(θ₁)</text>
   <text x="452.0" y="66.0" fill="#94a3b8" font-size="12" text-anchor="start">origin 이 0 이라 이동 없음</text>
   <text x="452.0" y="88.0" fill="#94a3b8" font-size="12" text-anchor="start">z 축으로 θ₁ 만큼 회전</text>
-  <text x="452.0" y="144.0" fill="#38bdf8" font-size="13" text-anchor="start">joint2 → T₁₂ = Tr(1) · R(θ₂)</text>
+  <text x="452.0" y="144.0" fill="#7cb4d8" font-size="13" text-anchor="start">joint2 → T₁₂ = Tr(1) · R(θ₂)</text>
   <text x="452.0" y="166.0" fill="#94a3b8" font-size="12" text-anchor="start">link1 의 x 축으로 1 이동한 뒤</text>
   <text x="452.0" y="188.0" fill="#94a3b8" font-size="12" text-anchor="start">z 축으로 θ₂ 만큼 회전</text>
-  <text x="452.0" y="244.0" fill="#38bdf8" font-size="13" text-anchor="start">hand_joint → T₂ₕ = Tr(1)</text>
+  <text x="452.0" y="244.0" fill="#7cb4d8" font-size="13" text-anchor="start">hand_joint → T₂ₕ = Tr(1)</text>
   <text x="452.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="start">fixed 라서 회전 없음</text>
   <text x="452.0" y="312.0" fill="#e2e8f0" font-size="13" text-anchor="start">색 구분</text>
-  <text x="452.0" y="334.0" fill="#f59e0b" font-size="12" text-anchor="start">origin: 고정된 이동·회전</text>
-  <text x="452.0" y="354.0" fill="#34d399" font-size="12" text-anchor="start">axis: 도는 축의 방향</text>
+  <text x="452.0" y="334.0" fill="#d6aa62" font-size="12" text-anchor="start">origin: 고정된 이동·회전</text>
+  <text x="452.0" y="354.0" fill="#7fc4a2" font-size="12" text-anchor="start">axis: 도는 축의 방향</text>
   <text x="452.0" y="374.0" fill="#e2e8f0" font-size="12" text-anchor="start">parent / child: 잇는 두 link</text>
   <text x="452.0" y="396.0" fill="#94a3b8" font-size="12" text-anchor="start">θ 값은 파일에 없다</text>
 </svg>

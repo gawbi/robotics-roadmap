@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>θ₂ 를 link 1 기준으로 읽으면(왼쪽) 손끝은 (0.866, 1.5), 바닥 기준으로 잘못 읽으면(오른쪽) (1.366, 1.366) 이 된다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="32.5" y="87.5" width="203.5" height="209.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="32.5" y1="87.5" x2="32.5" y2="296.5" stroke="#16213a" stroke-width="1"/>
@@ -20,18 +20,18 @@
   <text x="53.0" y="296.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
   <text x="242.0" y="285.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
   <text x="65.0" y="81.5" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <text x="30.0" y="30.0" fill="#34d399" font-size="14" text-anchor="start">맞는 읽기: θ₂ 는 link 1 기준</text>
+  <text x="30.0" y="30.0" fill="#7fc4a2" font-size="14" text-anchor="start">맞는 읽기: θ₂ 는 link 1 기준</text>
   <line x1="155.3" y1="225.0" x2="193.4" y2="203.0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <path d="M176.2,212.9 A24.2,24.2 0 0,0 155.3,200.8" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="172.5" y="202.1" fill="#a78bfa" font-size="12" text-anchor="start">60°</text>
-  <line x1="60.0" y1="280.0" x2="155.3" y2="225.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
-  <line x1="155.3" y1="225.0" x2="155.3" y2="115.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M176.2,212.9 A24.2,24.2 0 0,0 155.3,200.8" fill="none" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="172.5" y="202.1" fill="#a99ad6" font-size="12" text-anchor="start">60°</text>
+  <line x1="60.0" y1="280.0" x2="155.3" y2="225.0" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="155.3" y1="225.0" x2="155.3" y2="115.0" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
   <circle cx="60.0" cy="280.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="155.3" cy="225.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="155.3" cy="115.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <text x="167.3" y="119.0" fill="#f59e0b" font-size="13" text-anchor="start">(0.866, 1.5)</text>
+  <circle cx="155.3" cy="115.0" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <text x="167.3" y="119.0" fill="#d6aa62" font-size="13" text-anchor="start">(0.866, 1.5)</text>
   <text x="30.0" y="318.0" fill="#94a3b8" font-size="13" text-anchor="start">link 2 방향 = 30° + 60° = 90°</text>
-  <path d="M88.6,280.0 A28.6,28.6 0 0,0 84.8,265.7" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <path d="M88.6,280.0 A28.6,28.6 0 0,0 84.8,265.7" fill="none" stroke="#d6aa62" stroke-width="1.8"/>
   <rect x="342.5" y="87.5" width="203.5" height="209.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="342.5" y1="87.5" x2="342.5" y2="296.5" stroke="#16213a" stroke-width="1"/>
   <line x1="397.5" y1="87.5" x2="397.5" y2="296.5" stroke="#16213a" stroke-width="1"/>
@@ -50,16 +50,16 @@
   <text x="363.0" y="296.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
   <text x="552.0" y="285.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
   <text x="375.0" y="81.5" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <text x="340.0" y="30.0" fill="#f87171" font-size="14" text-anchor="start">틀린 읽기: θ₂ 를 바닥 기준으로</text>
+  <text x="340.0" y="30.0" fill="#d88b8b" font-size="14" text-anchor="start">틀린 읽기: θ₂ 를 바닥 기준으로</text>
   <line x1="465.3" y1="225.0" x2="514.8" y2="225.0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <path d="M489.5,225.0 A24.2,24.2 0 0,0 477.4,204.0" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="496.1" y="219.2" fill="#a78bfa" font-size="12" text-anchor="start">60°</text>
-  <line x1="370.0" y1="280.0" x2="465.3" y2="225.0" stroke="#f87171" stroke-width="6" stroke-linecap="round"/>
-  <line x1="465.3" y1="225.0" x2="520.3" y2="129.7" stroke="#f87171" stroke-width="6" stroke-linecap="round"/>
+  <path d="M489.5,225.0 A24.2,24.2 0 0,0 477.4,204.0" fill="none" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="496.1" y="219.2" fill="#a99ad6" font-size="12" text-anchor="start">60°</text>
+  <line x1="370.0" y1="280.0" x2="465.3" y2="225.0" stroke="#d88b8b" stroke-width="6" stroke-linecap="round"/>
+  <line x1="465.3" y1="225.0" x2="520.3" y2="129.7" stroke="#d88b8b" stroke-width="6" stroke-linecap="round"/>
   <circle cx="370.0" cy="280.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="465.3" cy="225.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="520.3" cy="129.7" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <text x="530.3" y="147.7" fill="#f87171" font-size="13" text-anchor="start">(1.366, 1.366)</text>
+  <circle cx="520.3" cy="129.7" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <text x="530.3" y="147.7" fill="#d88b8b" font-size="13" text-anchor="start">(1.366, 1.366)</text>
   <text x="340.0" y="318.0" fill="#94a3b8" font-size="13" text-anchor="start">link 2 방향을 60° 로 잘못 씀</text>
-  <path d="M398.6,280.0 A28.6,28.6 0 0,0 394.8,265.7" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  <path d="M398.6,280.0 A28.6,28.6 0 0,0 394.8,265.7" fill="none" stroke="#d6aa62" stroke-width="1.8"/>
 </svg>

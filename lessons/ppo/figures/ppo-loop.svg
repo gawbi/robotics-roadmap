@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>PPO 의 한 iteration. environment 4 개에서 128 step 씩 rollout 을 모아 sample 512 개를 만들고, GAE 로 advantage 와 critic 의 정답을 계산한 뒤, 섞어서 128 개씩 mini-batch 4 개로 나눠 4 epoch, 모두 16 번 고친다. 그다음 데이터를 버리고 고친 policy 로 다음 rollout 을 모은다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="120.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle">① rollout 수집</text>
-  <rect x="40" y="50" width="150" height="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="40" y="50" width="150" height="18" fill="#1e293b" stroke="#7cb4d8" stroke-width="1"/>
   <text x="198.0" y="64.0" fill="#94a3b8" font-size="12" text-anchor="start">env 0</text>
-  <rect x="40" y="72" width="150" height="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="40" y="72" width="150" height="18" fill="#1e293b" stroke="#7cb4d8" stroke-width="1"/>
   <text x="198.0" y="86.0" fill="#94a3b8" font-size="12" text-anchor="start">env 1</text>
-  <rect x="40" y="94" width="150" height="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="40" y="94" width="150" height="18" fill="#1e293b" stroke="#7cb4d8" stroke-width="1"/>
   <text x="198.0" y="108.0" fill="#94a3b8" font-size="12" text-anchor="start">env 2</text>
-  <rect x="40" y="116" width="150" height="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="40" y="116" width="150" height="18" fill="#1e293b" stroke="#7cb4d8" stroke-width="1"/>
   <text x="198.0" y="130.0" fill="#94a3b8" font-size="12" text-anchor="start">env 3</text>
   <text x="115.0" y="160.0" fill="#94a3b8" font-size="12" text-anchor="middle">4 개 × 128 step = 512 sample</text>
   <text x="115.0" y="180.0" fill="#94a3b8" font-size="12" text-anchor="middle">state · action · 옛 확률</text>
   <text x="115.0" y="198.0" fill="#94a3b8" font-size="12" text-anchor="middle">reward · 끝 표시 · V</text>
   <line x1="240.0" y1="95.0" x2="272.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <rect x="276.0" y="64.0" width="120.0" height="62.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="276.0" y="64.0" width="120.0" height="62.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="336.0" y="90.0" fill="#e2e8f0" font-size="14" text-anchor="middle">② GAE</text>
   <text x="336.0" y="110.0" fill="#94a3b8" font-size="12" text-anchor="middle">Â, critic 의 정답</text>
   <line x1="396.0" y1="95.0" x2="428.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
   <text x="535.0" y="34.0" fill="#e2e8f0" font-size="14" text-anchor="middle">③ 섞어서 mini-batch</text>
-  <rect x="434" y="50" width="200" height="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="434" y="50" width="200" height="18" fill="#1e293b" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="534.0" y="63.0" fill="#94a3b8" font-size="11" text-anchor="middle">mini-batch 1: 128 개</text>
-  <rect x="434" y="72" width="200" height="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="434" y="72" width="200" height="18" fill="#1e293b" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="534.0" y="85.0" fill="#94a3b8" font-size="11" text-anchor="middle">mini-batch 2: 128 개</text>
-  <rect x="434" y="94" width="200" height="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="434" y="94" width="200" height="18" fill="#1e293b" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="534.0" y="107.0" fill="#94a3b8" font-size="11" text-anchor="middle">mini-batch 3: 128 개</text>
-  <rect x="434" y="116" width="200" height="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="434" y="116" width="200" height="18" fill="#1e293b" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="534.0" y="129.0" fill="#94a3b8" font-size="11" text-anchor="middle">mini-batch 4: 128 개</text>
   <text x="534.0" y="160.0" fill="#94a3b8" font-size="12" text-anchor="middle">mini-batch 마다 gradient step</text>
-  <path d="M620 170 C 620 205, 450 205, 450 172" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="535.0" y="226.0" fill="#f59e0b" font-size="13" text-anchor="middle">④ 4 epoch 반복 = 16 번 고침</text>
+  <path d="M620 170 C 620 205, 450 205, 450 172" fill="none" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="535.0" y="226.0" fill="#d6aa62" font-size="13" text-anchor="middle">④ 4 epoch 반복 = 16 번 고침</text>
   <path d="M535 240 V276 H115 V212" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ar-muted)"/>
   <text x="325.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">⑤ 데이터를 버리고, 고친 policy 로 다음 rollout</text>
   <text x="340.0" y="310.0" fill="#94a3b8" font-size="12" text-anchor="middle">고친 θ 가 다음 iteration 의 θ_old 가 된다</text>

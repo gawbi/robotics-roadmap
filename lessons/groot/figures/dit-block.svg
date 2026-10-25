@@ -2,46 +2,46 @@
   <title>diffusion transformer 의 block 하나. 위에서 들어온 action·상태 token 이 adaptive layer norm 과 cross-attention 을 지나며 옆의 VLM 출력 φ 를 읽고, 다시 adaptive layer norm 과 self-attention 을 지난다. 왼쪽의 τ 는 작은 network 를 지나 γ 와 β 가 되어 adaptive layer norm 마다 들어간다. 아래 상자는 LN 결과 (1, −1) 이 τ = 0.25 에서 γ 1.5, β 0.2 로 (1.7, −1.3) 이 되는 계산이다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker>
-    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+    <marker id="arrow-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
   </defs>
   <rect x="1" y="1" width="818" height="438" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
   <text x="410" y="30" fill="#e2e8f0" font-size="13" text-anchor="middle">action·상태 token</text>
   <line x1="410" y1="38" x2="410" y2="56" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="310" y="58" width="200" height="34" rx="6" fill="#111a2e" stroke="#f472b6" stroke-width="2"/>
-  <text x="410" y="80" fill="#f472b6" font-size="13" text-anchor="middle">adaptive layer norm</text>
+  <rect x="310" y="58" width="200" height="34" rx="6" fill="#111a2e" stroke="#cf96b8" stroke-width="2"/>
+  <text x="410" y="80" fill="#cf96b8" font-size="13" text-anchor="middle">adaptive layer norm</text>
   <line x1="410" y1="94" x2="410" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="310" y="112" width="200" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="310" y="112" width="200" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="410" y="134" fill="#e2e8f0" font-size="13" text-anchor="middle">cross-attention</text>
   <line x1="410" y1="148" x2="410" y2="164" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="310" y="166" width="200" height="34" rx="6" fill="#111a2e" stroke="#f472b6" stroke-width="2"/>
-  <text x="410" y="188" fill="#f472b6" font-size="13" text-anchor="middle">adaptive layer norm</text>
+  <rect x="310" y="166" width="200" height="34" rx="6" fill="#111a2e" stroke="#cf96b8" stroke-width="2"/>
+  <text x="410" y="188" fill="#cf96b8" font-size="13" text-anchor="middle">adaptive layer norm</text>
   <line x1="410" y1="202" x2="410" y2="218" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="310" y="220" width="200" height="34" rx="6" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+  <rect x="310" y="220" width="200" height="34" rx="6" fill="#0f2a22" stroke="#7fc4a2" stroke-width="2"/>
   <text x="410" y="242" fill="#e2e8f0" font-size="13" text-anchor="middle">self-attention</text>
   <line x1="410" y1="256" x2="410" y2="274" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="410" y="290" fill="#94a3b8" font-size="12" text-anchor="middle">다음 block 으로</text>
 
-  <rect x="610" y="104" width="160" height="50" rx="10" fill="#0c1f33" stroke="#38bdf8" stroke-width="2"/>
-  <text x="690" y="126" fill="#38bdf8" font-size="13" text-anchor="middle">VLM 출력 φ</text>
+  <rect x="610" y="104" width="160" height="50" rx="10" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="690" y="126" fill="#7cb4d8" font-size="13" text-anchor="middle">VLM 출력 φ</text>
   <text x="690" y="144" fill="#94a3b8" font-size="11" text-anchor="middle">key · value</text>
-  <line x1="608" y1="129" x2="514" y2="129" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-b)"/>
+  <line x1="608" y1="129" x2="514" y2="129" stroke="#7cb4d8" stroke-width="2" marker-end="url(#arrow-b)"/>
 
   <rect x="40" y="58" width="80" height="40" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="80" y="84" fill="#e2e8f0" font-size="15" text-anchor="middle">τ</text>
   <line x1="80" y1="100" x2="80" y2="118" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="30" y="120" width="100" height="40" rx="10" fill="#22183a" stroke="#a78bfa" stroke-width="2"/>
-  <text x="80" y="145" fill="#a78bfa" font-size="12" text-anchor="middle">작은 network</text>
+  <rect x="30" y="120" width="100" height="40" rx="10" fill="#22183a" stroke="#a99ad6" stroke-width="2"/>
+  <text x="80" y="145" fill="#a99ad6" font-size="12" text-anchor="middle">작은 network</text>
   <line x1="80" y1="162" x2="80" y2="180" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="80" y="198" fill="#f472b6" font-size="14" text-anchor="middle">γ(τ), β(τ)</text>
-  <polyline points="132,140 220,140 220,75 306,75" fill="none" stroke="#f472b6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-p)"/>
-  <polyline points="220,140 220,183 306,183" fill="none" stroke="#f472b6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-p)"/>
+  <text x="80" y="198" fill="#cf96b8" font-size="14" text-anchor="middle">γ(τ), β(τ)</text>
+  <polyline points="132,140 220,140 220,75 306,75" fill="none" stroke="#cf96b8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-p)"/>
+  <polyline points="220,140 220,183 306,183" fill="none" stroke="#cf96b8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-p)"/>
 
   <rect x="40" y="318" width="740" height="104" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
   <text x="60" y="346" fill="#e2e8f0" font-size="14">adaptive layer norm 의 계산 (τ = 0.25 의 예)</text>
   <text x="60" y="376" fill="#94a3b8" font-size="13">LN(x) = (1, −1)</text>
-  <text x="230" y="376" fill="#f472b6" font-size="13">γ(0.25) = 1.5,  β(0.25) = 0.2</text>
+  <text x="230" y="376" fill="#cf96b8" font-size="13">γ(0.25) = 1.5,  β(0.25) = 0.2</text>
   <text x="480" y="376" fill="#e2e8f0" font-size="13">1.5 × (1, −1) + 0.2 = (1.7, −1.3)</text>
   <text x="60" y="404" fill="#94a3b8" font-size="12">τ = 0.75 에서 γ = 0.5, β = −0.1 이면 같은 (1, −1) 이 (0.4, −0.6) 이 된다</text>
 </svg>

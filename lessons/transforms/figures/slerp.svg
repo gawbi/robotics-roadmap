@@ -1,34 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>slerp 는 두 quaternion 을 잇는 원호를 일정한 속도로 따라간다. q₁ 쪽은 짧은 호(45° 회전)이고, −q₁ 쪽은 긴 호라서 z 축으로 −270° 를 도는 먼 길이 된다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="618" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="20.0" y1="170.0" x2="326.0" y2="170.0" stroke="#475569" stroke-width="1.5"/>
   <line x1="170.0" y1="314.0" x2="170.0" y2="26.0" stroke="#475569" stroke-width="1.5"/>
   <circle cx="170.0" cy="170.0" r="120" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
   <text x="326.0" y="164.0" fill="#94a3b8" font-size="13" text-anchor="end">w</text>
   <text x="178.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">z</text>
-  <path d="M290.0,170.0 L290.0,167.6 L289.9,165.3 L289.8,162.9 L289.6,160.6 L289.4,158.2 L289.2,155.9 L288.9,153.6 L288.5,151.2 L288.1,148.9 L287.7,146.6 L287.2,144.3 L286.7,142.0 L286.1,139.7 L285.5,137.4 L284.8,135.2 L284.1,132.9 L283.4,130.7 L282.6,128.5 L281.7,126.3 L280.9,124.1 L279.9,121.9 L279.0,119.8 L278.0,117.6 L276.9,115.5 L275.8,113.4 L274.7,111.4 L273.5,109.3 L272.3,107.3 L271.1,105.3 L269.8,103.3 L268.4,101.4 L267.1,99.5 L265.7,97.6 L264.2,95.7 L262.8,93.9 L261.2,92.1 L259.7,90.3 L258.1,88.5 L256.5,86.8 L254.9,85.1" fill="none" stroke="#f59e0b" stroke-width="3.5"/>
-  <path d="M290.0,170.0 L289.8,177.1 L289.2,184.1 L288.1,191.1 L286.7,198.0 L284.8,204.8 L282.6,211.5 L279.9,218.1 L276.9,224.5 L273.5,230.7 L269.8,236.7 L265.7,242.4 L261.2,247.9 L256.5,253.2 L251.5,258.1 L246.1,262.8 L240.5,267.1 L234.7,271.1 L228.6,274.7 L222.4,278.0 L215.9,280.9 L209.3,283.4 L202.6,285.5 L195.7,287.2 L188.8,288.5 L181.8,289.4 L174.7,289.9 L167.6,290.0 L160.6,289.6 L153.6,288.9 L146.6,287.7 L139.7,286.1 L132.9,284.1 L126.3,281.7 L119.8,279.0 L113.4,275.8 L107.3,272.3 L101.4,268.4 L95.7,264.2 L90.3,259.7 L85.1,254.9" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="6 5"/>
-  <circle cx="287.7" cy="146.6" r="4" fill="#f59e0b"/>
-  <circle cx="280.9" cy="124.1" r="4" fill="#f59e0b"/>
-  <circle cx="269.8" cy="103.3" r="4" fill="#f59e0b"/>
-  <text x="288.9" y="128.1" fill="#f59e0b" font-size="12" text-anchor="start">t = 0.5</text>
+  <path d="M290.0,170.0 L290.0,167.6 L289.9,165.3 L289.8,162.9 L289.6,160.6 L289.4,158.2 L289.2,155.9 L288.9,153.6 L288.5,151.2 L288.1,148.9 L287.7,146.6 L287.2,144.3 L286.7,142.0 L286.1,139.7 L285.5,137.4 L284.8,135.2 L284.1,132.9 L283.4,130.7 L282.6,128.5 L281.7,126.3 L280.9,124.1 L279.9,121.9 L279.0,119.8 L278.0,117.6 L276.9,115.5 L275.8,113.4 L274.7,111.4 L273.5,109.3 L272.3,107.3 L271.1,105.3 L269.8,103.3 L268.4,101.4 L267.1,99.5 L265.7,97.6 L264.2,95.7 L262.8,93.9 L261.2,92.1 L259.7,90.3 L258.1,88.5 L256.5,86.8 L254.9,85.1" fill="none" stroke="#d6aa62" stroke-width="3.5"/>
+  <path d="M290.0,170.0 L289.8,177.1 L289.2,184.1 L288.1,191.1 L286.7,198.0 L284.8,204.8 L282.6,211.5 L279.9,218.1 L276.9,224.5 L273.5,230.7 L269.8,236.7 L265.7,242.4 L261.2,247.9 L256.5,253.2 L251.5,258.1 L246.1,262.8 L240.5,267.1 L234.7,271.1 L228.6,274.7 L222.4,278.0 L215.9,280.9 L209.3,283.4 L202.6,285.5 L195.7,287.2 L188.8,288.5 L181.8,289.4 L174.7,289.9 L167.6,290.0 L160.6,289.6 L153.6,288.9 L146.6,287.7 L139.7,286.1 L132.9,284.1 L126.3,281.7 L119.8,279.0 L113.4,275.8 L107.3,272.3 L101.4,268.4 L95.7,264.2 L90.3,259.7 L85.1,254.9" fill="none" stroke="#d88b8b" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="287.7" cy="146.6" r="4" fill="#d6aa62"/>
+  <circle cx="280.9" cy="124.1" r="4" fill="#d6aa62"/>
+  <circle cx="269.8" cy="103.3" r="4" fill="#d6aa62"/>
+  <text x="288.9" y="128.1" fill="#d6aa62" font-size="12" text-anchor="start">t = 0.5</text>
   <circle cx="290.0" cy="170.0" r="6" fill="#e2e8f0"/>
   <text x="278.0" y="162.0" fill="#e2e8f0" font-size="13" text-anchor="end">q₀ (θ = 0°)</text>
-  <circle cx="254.9" cy="85.1" r="6" fill="#f59e0b"/>
-  <text x="260.9" y="77.1" fill="#f59e0b" font-size="13" text-anchor="start">q₁ (θ = 90°)</text>
-  <circle cx="85.1" cy="254.9" r="6" fill="#f87171"/>
-  <text x="77.1" y="272.9" fill="#f87171" font-size="13" text-anchor="end">−q₁</text>
-  <circle cx="215.9" cy="280.9" r="4" fill="#f87171"/>
-  <text x="223.9" y="294.9" fill="#f87171" font-size="12" text-anchor="start">t = 0.5</text>
+  <circle cx="254.9" cy="85.1" r="6" fill="#d6aa62"/>
+  <text x="260.9" y="77.1" fill="#d6aa62" font-size="13" text-anchor="start">q₁ (θ = 90°)</text>
+  <circle cx="85.1" cy="254.9" r="6" fill="#d88b8b"/>
+  <text x="77.1" y="272.9" fill="#d88b8b" font-size="13" text-anchor="end">−q₁</text>
+  <circle cx="215.9" cy="280.9" r="4" fill="#d88b8b"/>
+  <text x="223.9" y="294.9" fill="#d88b8b" font-size="12" text-anchor="start">t = 0.5</text>
   <line x1="290.0" y1="170.0" x2="254.9" y2="85.1" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 3"/>
   <circle cx="272.4" cy="127.6" r="4" fill="#94a3b8"/>
   <text x="266.4" y="131.6" fill="#94a3b8" font-size="11" text-anchor="end">단순 평균</text>
-  <text x="360.0" y="46.0" fill="#f59e0b" font-size="14" text-anchor="start">q₁ 쪽 (짧은 호, 45°)</text>
+  <text x="360.0" y="46.0" fill="#d6aa62" font-size="14" text-anchor="start">q₁ 쪽 (짧은 호, 45°)</text>
   <text x="360.0" y="70.0" fill="#e2e8f0" font-size="13" text-anchor="start">t = 0.25 → z 22.5°</text>
   <text x="360.0" y="92.0" fill="#e2e8f0" font-size="13" text-anchor="start">t = 0.5 → z 45°</text>
   <text x="360.0" y="114.0" fill="#e2e8f0" font-size="13" text-anchor="start">t = 0.75 → z 67.5°</text>
-  <text x="360.0" y="156.0" fill="#f87171" font-size="14" text-anchor="start">−q₁ 쪽 (긴 호, 135°)</text>
+  <text x="360.0" y="156.0" fill="#d88b8b" font-size="14" text-anchor="start">−q₁ 쪽 (긴 호, 135°)</text>
   <text x="360.0" y="180.0" fill="#e2e8f0" font-size="13" text-anchor="start">t = 0.5 → z −135°</text>
   <text x="360.0" y="202.0" fill="#e2e8f0" font-size="13" text-anchor="start">0° → −135° → −270° 로 먼 길</text>
   <text x="360.0" y="248.0" fill="#94a3b8" font-size="13" text-anchor="start">q₀ · q₁ 이 음수면 q₁ 을 −q₁ 로</text>

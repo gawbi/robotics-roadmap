@@ -1,39 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>Franka 팔에서 두 world model 로 계획한 결과. Cosmos 는 action 조건 latent diffusion 7B 로 다음 영상 frame 을 그리고, CEM 후보 80 개를 10 번 반복해 action 하나에 4 분이 걸린다. V-JEPA 2-AC 는 고정한 encoder 의 representation 위에서 약 300M predictor 로 다음 representation 만 예측하고, 후보 800 개를 10 번 반복해도 16 초가 걸린다. 컵 pick-and-place 성공률은 0% 와 80% 였다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20" y="40" fill="#f87171" font-size="15" text-anchor="start">Cosmos (pixel 예측)</text>
+  <text x="20" y="40" fill="#d88b8b" font-size="15" text-anchor="start">Cosmos (pixel 예측)</text>
   <rect x="20" y="56" width="120" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="80.0" y="79.0" fill="#e2e8f0" font-size="14" text-anchor="middle">지금 frame</text>
-  <text x="80.0" y="98.0" fill="#f59e0b" font-size="12" text-anchor="middle">+ action</text>
+  <text x="80.0" y="98.0" fill="#d6aa62" font-size="12" text-anchor="middle">+ action</text>
   <line x1="142" y1="84.0" x2="166" y2="84.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="170" y="56" width="170" height="56" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
-  <text x="255.0" y="79.0" fill="#f87171" font-size="14" text-anchor="middle">latent diffusion 7B</text>
+  <rect x="170" y="56" width="170" height="56" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="255.0" y="79.0" fill="#d88b8b" font-size="14" text-anchor="middle">latent diffusion 7B</text>
   <text x="255.0" y="98.0" fill="#94a3b8" font-size="12" text-anchor="middle">영상을 그린다</text>
   <line x1="342" y1="84.0" x2="366" y2="84.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <rect x="370" y="56" width="130" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="435.0" y="79.0" fill="#e2e8f0" font-size="14" text-anchor="middle">다음 영상 frame</text>
   <text x="435.0" y="98.0" fill="#94a3b8" font-size="12" text-anchor="middle">(pixel)</text>
   <text x="520" y="78" fill="#94a3b8" font-size="13" text-anchor="start">CEM 후보 80 × 반복 10</text>
-  <text x="520" y="100" fill="#f87171" font-size="15" text-anchor="start">action 하나에 4 분</text>
+  <text x="520" y="100" fill="#d88b8b" font-size="15" text-anchor="start">action 하나에 4 분</text>
   <line x1="20" y1="146" x2="700" y2="146" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="20" y="178" fill="#38bdf8" font-size="15" text-anchor="start">V-JEPA 2-AC (representation 예측)</text>
+  <text x="20" y="178" fill="#7cb4d8" font-size="15" text-anchor="start">V-JEPA 2-AC (representation 예측)</text>
   <rect x="20" y="194" width="120" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="80.0" y="226.6" fill="#e2e8f0" font-size="14" text-anchor="middle">지금 frame</text>
   <line x1="142" y1="222.0" x2="166" y2="222.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="170" y="194" width="80" height="56" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="210.0" y="217.1" fill="#38bdf8" font-size="14" text-anchor="middle">encoder</text>
+  <rect x="170" y="194" width="80" height="56" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="210.0" y="217.1" fill="#7cb4d8" font-size="14" text-anchor="middle">encoder</text>
   <text x="210.0" y="236.1" fill="#94a3b8" font-size="12" text-anchor="middle">(고정)</text>
   <line x1="252" y1="222.0" x2="270" y2="222.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="274" y="194" width="120" height="56" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="334.0" y="217.1" fill="#38bdf8" font-size="14" text-anchor="middle">predictor</text>
-  <text x="334.0" y="236.1" fill="#f59e0b" font-size="12" text-anchor="middle">약 300M + action</text>
+  <rect x="274" y="194" width="120" height="56" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="334.0" y="217.1" fill="#7cb4d8" font-size="14" text-anchor="middle">predictor</text>
+  <text x="334.0" y="236.1" fill="#d6aa62" font-size="12" text-anchor="middle">약 300M + action</text>
   <line x1="396" y1="222.0" x2="414" y2="222.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <rect x="418" y="194" width="92" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="464.0" y="217.1" fill="#e2e8f0" font-size="14" text-anchor="middle">다음</text>
   <text x="464.0" y="236.1" fill="#e2e8f0" font-size="12" text-anchor="middle">representation</text>
   <text x="530" y="216" fill="#94a3b8" font-size="13" text-anchor="start">CEM 후보 800 × 반복 10</text>
-  <text x="530" y="238" fill="#38bdf8" font-size="15" text-anchor="start">action 하나에 16 초</text>
+  <text x="530" y="238" fill="#7cb4d8" font-size="15" text-anchor="start">action 하나에 16 초</text>
   <text x="360" y="288" fill="#94a3b8" font-size="12.5" text-anchor="middle">둘 다 goal 이미지과의 거리가 가장 작은 action 을 CEM 으로 찾고, 첫 action 만 실행한 뒤 다시 계획한다</text>
   <text x="360" y="314" fill="#e2e8f0" font-size="13" text-anchor="middle">컵 pick-and-place 성공률: Cosmos 0%, V-JEPA 2-AC 80% (V-JEPA 2 논문, RTX 4090 1 장)</text>
 </svg>

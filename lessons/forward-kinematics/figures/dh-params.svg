@@ -1,46 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>DH parameter 네 개. joint i 의 축 z(i−1) 과 다음 축 z(i) 사이에서 a 는 두 축에 모두 직각인 선의 길이, α 는 두 축이 비틀린 각도, d 는 축을 따라 비켜난 거리, θ 는 joint angle 이다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="768" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="120.0" y1="310.0" x2="120.0" y2="40.0" stroke="#e2e8f0" stroke-width="2" marker-end="url(#at)"/>
   <text x="128.0" y="46.0" fill="#e2e8f0" font-size="15" text-anchor="start">z<tspan font-size="11" dy="4">i−1</tspan><tspan dy="-4"></tspan></text>
   <text x="128.0" y="64.0" fill="#94a3b8" font-size="11" text-anchor="start">joint i 의 축</text>
-  <line x1="120.0" y1="262.0" x2="58.0" y2="296.0" stroke="#f87171" stroke-width="2.2" marker-end="url(#ar)"/>
-  <text x="50.0" y="314.0" fill="#f87171" font-size="15" text-anchor="middle">x<tspan font-size="11" dy="4">i−1</tspan><tspan dy="-4"></tspan></text>
+  <line x1="120.0" y1="262.0" x2="58.0" y2="296.0" stroke="#d88b8b" stroke-width="2.2" marker-end="url(#ar)"/>
+  <text x="50.0" y="314.0" fill="#d88b8b" font-size="15" text-anchor="middle">x<tspan font-size="11" dy="4">i−1</tspan><tspan dy="-4"></tspan></text>
   <circle cx="120" cy="262" r="3.5" fill="#e2e8f0"/>
-  <line x1="98.0" y1="262.0" x2="98.0" y2="170.0" stroke="#f59e0b" stroke-width="1.6"/>
-  <line x1="92.0" y1="262.0" x2="104.0" y2="262.0" stroke="#f59e0b" stroke-width="1.6"/>
-  <line x1="92.0" y1="170.0" x2="104.0" y2="170.0" stroke="#f59e0b" stroke-width="1.6"/>
-  <text x="88.0" y="221.0" fill="#f59e0b" font-size="16" text-anchor="end">d<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
-  <line x1="120.0" y1="170.0" x2="300.0" y2="170.0" stroke="#f59e0b" stroke-width="2.4"/>
-  <text x="210.0" y="160.0" fill="#f59e0b" font-size="16" text-anchor="middle">a<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
+  <line x1="98.0" y1="262.0" x2="98.0" y2="170.0" stroke="#d6aa62" stroke-width="1.6"/>
+  <line x1="92.0" y1="262.0" x2="104.0" y2="262.0" stroke="#d6aa62" stroke-width="1.6"/>
+  <line x1="92.0" y1="170.0" x2="104.0" y2="170.0" stroke="#d6aa62" stroke-width="1.6"/>
+  <text x="88.0" y="221.0" fill="#d6aa62" font-size="16" text-anchor="end">d<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
+  <line x1="120.0" y1="170.0" x2="300.0" y2="170.0" stroke="#d6aa62" stroke-width="2.4"/>
+  <text x="210.0" y="160.0" fill="#d6aa62" font-size="16" text-anchor="middle">a<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
   <text x="210.0" y="138.0" fill="#94a3b8" font-size="11" text-anchor="middle">두 축에 모두 직각인 선의 길이</text>
-  <line x1="300.0" y1="170.0" x2="360.0" y2="170.0" stroke="#f87171" stroke-width="2.2" marker-end="url(#ar)"/>
-  <text x="366.0" y="175.0" fill="#f87171" font-size="15" text-anchor="start">x<tspan font-size="11" dy="4">i</tspan><tspan dy="-4"></tspan></text>
-  <line x1="120.0" y1="170.0" x2="58.0" y2="204.0" stroke="#f87171" stroke-width="1.4" stroke-dasharray="4 4"/>
-  <path d="M 84.0 189.7 Q 112.0 210.0 160.0 176.0" fill="none" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#as)"/>
-  <text x="154.0" y="210.0" fill="#38bdf8" font-size="16" text-anchor="start">θ<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
+  <line x1="300.0" y1="170.0" x2="360.0" y2="170.0" stroke="#d88b8b" stroke-width="2.2" marker-end="url(#ar)"/>
+  <text x="366.0" y="175.0" fill="#d88b8b" font-size="15" text-anchor="start">x<tspan font-size="11" dy="4">i</tspan><tspan dy="-4"></tspan></text>
+  <line x1="120.0" y1="170.0" x2="58.0" y2="204.0" stroke="#d88b8b" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <path d="M 84.0 189.7 Q 112.0 210.0 160.0 176.0" fill="none" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#as)"/>
+  <text x="154.0" y="210.0" fill="#7cb4d8" font-size="16" text-anchor="start">θ<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
   <line x1="300.0" y1="170.0" x2="300.0" y2="60.0" stroke="#e2e8f0" stroke-width="1.4" stroke-dasharray="4 4"/>
   <line x1="259.8" y1="227.3" x2="371.7" y2="67.6" stroke="#e2e8f0" stroke-width="2" marker-end="url(#at)"/>
   <text x="377.7" y="65.6" fill="#e2e8f0" font-size="15" text-anchor="start">z<tspan font-size="11" dy="4">i</tspan><tspan dy="-4"></tspan></text>
   <text x="377.7" y="83.6" fill="#94a3b8" font-size="11" text-anchor="start">joint i+1 의 축</text>
-  <path d="M 300.0 100.0 A 70 70 0 0 1 340.2 112.7" fill="none" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#av)"/>
-  <text x="326.9" y="82.0" fill="#a78bfa" font-size="16" text-anchor="middle">α<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
+  <path d="M 300.0 100.0 A 70 70 0 0 1 340.2 112.7" fill="none" stroke="#a99ad6" stroke-width="1.8" marker-end="url(#av)"/>
+  <text x="326.9" y="82.0" fill="#a99ad6" font-size="16" text-anchor="middle">α<tspan font-size="12" dy="4">i</tspan><tspan dy="-4"></tspan></text>
   <circle cx="300" cy="170" r="3.5" fill="#e2e8f0"/>
-  <circle cx="120" cy="170" r="3" fill="#f59e0b"/>
+  <circle cx="120" cy="170" r="3" fill="#d6aa62"/>
   <rect x="470.0" y="30.0" width="284.0" height="300.0" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
   <text x="490.0" y="58.0" fill="#94a3b8" font-size="12" text-anchor="start">parameter</text>
   <text x="580.0" y="58.0" fill="#94a3b8" font-size="12" text-anchor="start">뜻</text>
-  <text x="504.0" y="98.0" fill="#f59e0b" font-size="20" text-anchor="middle">a</text>
+  <text x="504.0" y="98.0" fill="#d6aa62" font-size="20" text-anchor="middle">a</text>
   <text x="580.0" y="92.0" fill="#e2e8f0" font-size="13" text-anchor="start">두 joint 축 사이의 거리</text>
   <text x="580.0" y="112.0" fill="#94a3b8" font-size="12" text-anchor="start">UR5e: a₂ = −0.425 m</text>
-  <text x="504.0" y="160.0" fill="#a78bfa" font-size="20" text-anchor="middle">α</text>
+  <text x="504.0" y="160.0" fill="#a99ad6" font-size="20" text-anchor="middle">α</text>
   <text x="580.0" y="154.0" fill="#e2e8f0" font-size="13" text-anchor="start">두 축이 비틀린 각도</text>
   <text x="580.0" y="174.0" fill="#94a3b8" font-size="12" text-anchor="start">UR5e: α₁ = π/2 (90°)</text>
-  <text x="504.0" y="222.0" fill="#f59e0b" font-size="20" text-anchor="middle">d</text>
+  <text x="504.0" y="222.0" fill="#d6aa62" font-size="20" text-anchor="middle">d</text>
   <text x="580.0" y="216.0" fill="#e2e8f0" font-size="13" text-anchor="start">축을 따라 비켜난 거리</text>
   <text x="580.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="start">UR5e: d₁ = 0.1625 m</text>
-  <text x="504.0" y="284.0" fill="#38bdf8" font-size="20" text-anchor="middle">θ</text>
+  <text x="504.0" y="284.0" fill="#7cb4d8" font-size="20" text-anchor="middle">θ</text>
   <text x="580.0" y="278.0" fill="#e2e8f0" font-size="13" text-anchor="start">joint angle (움직이는 값)</text>
   <text x="580.0" y="298.0" fill="#94a3b8" font-size="12" text-anchor="start">센서가 매 순간 알려 줌</text>
   <line x1="486.0" y1="70.0" x2="738.0" y2="70.0" stroke="#1e293b" stroke-width="1"/>

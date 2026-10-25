@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>legged_gym 의 ANYmal C 평지 보행 policy MLP. 몸 상태와 속도 명령 숫자 48 개를 받아 ELU 를 쓰는 128, 64, 32 unit 의 hidden layer 를 거쳐 관절 12 개의 목표 각도를 0.02 초마다 낸다. 실제 로봇에서는 관절마다 PD controller 가 그 목표를 torque 로 바꾼다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker></defs>
   <rect x="1" y="1" width="758" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="16" y="56" width="176" height="226" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="104.0" y="40" fill="#f59e0b" font-size="15" text-anchor="middle">입력 48</text>
+  <rect x="16" y="56" width="176" height="226" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+<text x="104.0" y="40" fill="#d6aa62" font-size="15" text-anchor="middle">입력 48</text>
 <text x="30" y="86" fill="#e2e8f0" font-size="14" text-anchor="start">몸통 선속도</text>
-<text x="178" y="86" fill="#f59e0b" font-size="14" text-anchor="end">3</text>
+<text x="178" y="86" fill="#d6aa62" font-size="14" text-anchor="end">3</text>
 <text x="30" y="115" fill="#e2e8f0" font-size="14" text-anchor="start">몸통 각속도</text>
-<text x="178" y="115" fill="#f59e0b" font-size="14" text-anchor="end">3</text>
+<text x="178" y="115" fill="#d6aa62" font-size="14" text-anchor="end">3</text>
 <text x="30" y="144" fill="#e2e8f0" font-size="14" text-anchor="start">중력 방향</text>
-<text x="178" y="144" fill="#f59e0b" font-size="14" text-anchor="end">3</text>
+<text x="178" y="144" fill="#d6aa62" font-size="14" text-anchor="end">3</text>
 <text x="30" y="173" fill="#e2e8f0" font-size="14" text-anchor="start">속도 명령</text>
-<text x="178" y="173" fill="#f59e0b" font-size="14" text-anchor="end">3</text>
+<text x="178" y="173" fill="#d6aa62" font-size="14" text-anchor="end">3</text>
 <text x="30" y="202" fill="#e2e8f0" font-size="14" text-anchor="start">관절 각도</text>
-<text x="178" y="202" fill="#f59e0b" font-size="14" text-anchor="end">12</text>
+<text x="178" y="202" fill="#d6aa62" font-size="14" text-anchor="end">12</text>
 <text x="30" y="231" fill="#e2e8f0" font-size="14" text-anchor="start">관절 속도</text>
-<text x="178" y="231" fill="#f59e0b" font-size="14" text-anchor="end">12</text>
+<text x="178" y="231" fill="#d6aa62" font-size="14" text-anchor="end">12</text>
 <text x="30" y="260" fill="#e2e8f0" font-size="14" text-anchor="start">직전 action</text>
-<text x="178" y="260" fill="#f59e0b" font-size="14" text-anchor="end">12</text>
+<text x="178" y="260" fill="#d6aa62" font-size="14" text-anchor="end">12</text>
   <line x1="192" y1="101.2" x2="250" y2="103.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="192" y1="101.2" x2="250" y2="235.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="192" y1="169.0" x2="250" y2="103.0" stroke="#1e293b" stroke-width="1"/>
@@ -25,14 +25,14 @@
   <line x1="192" y1="236.8" x2="250" y2="103.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="192" y1="236.8" x2="250" y2="235.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="194" y1="169.0" x2="246" y2="169.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="250" y="59.0" width="60" height="220" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <circle cx="280" cy="81.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="280" cy="97.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="280" cy="113.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="280" cy="129.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="250" y="59.0" width="60" height="220" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="280" cy="81.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="280" cy="97.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="280" cy="113.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="280" cy="129.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
 <text x="280" y="181.0" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
-  <circle cx="280" cy="261.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-<text x="280" y="49.0" fill="#34d399" font-size="14" text-anchor="middle">128 unit</text>
+  <circle cx="280" cy="261.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+<text x="280" y="49.0" fill="#7fc4a2" font-size="14" text-anchor="middle">128 unit</text>
   <line x1="310" y1="103.0" x2="350" y2="116.2" stroke="#1e293b" stroke-width="1"/>
   <line x1="310" y1="103.0" x2="350" y2="221.8" stroke="#1e293b" stroke-width="1"/>
   <line x1="310" y1="169.0" x2="350" y2="116.2" stroke="#1e293b" stroke-width="1"/>
@@ -40,14 +40,14 @@
   <line x1="310" y1="235.0" x2="350" y2="116.2" stroke="#1e293b" stroke-width="1"/>
   <line x1="310" y1="235.0" x2="350" y2="221.8" stroke="#1e293b" stroke-width="1"/>
   <line x1="312" y1="169.0" x2="346" y2="169.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="350" y="81.0" width="60" height="176" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <circle cx="380" cy="103.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="380" cy="119.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="380" cy="135.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="380" cy="151.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="350" y="81.0" width="60" height="176" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="380" cy="103.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="380" cy="119.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="380" cy="135.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="380" cy="151.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
 <text x="380" y="181.0" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
-  <circle cx="380" cy="239.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-<text x="380" y="71.0" fill="#34d399" font-size="14" text-anchor="middle">64 unit</text>
+  <circle cx="380" cy="239.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+<text x="380" y="71.0" fill="#7fc4a2" font-size="14" text-anchor="middle">64 unit</text>
   <line x1="410" y1="116.2" x2="450" y2="129.4" stroke="#1e293b" stroke-width="1"/>
   <line x1="410" y1="116.2" x2="450" y2="208.6" stroke="#1e293b" stroke-width="1"/>
   <line x1="410" y1="169.0" x2="450" y2="129.4" stroke="#1e293b" stroke-width="1"/>
@@ -55,22 +55,22 @@
   <line x1="410" y1="221.8" x2="450" y2="129.4" stroke="#1e293b" stroke-width="1"/>
   <line x1="410" y1="221.8" x2="450" y2="208.6" stroke="#1e293b" stroke-width="1"/>
   <line x1="412" y1="169.0" x2="446" y2="169.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="450" y="103.0" width="60" height="132" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <circle cx="480" cy="125.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="480" cy="141.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-  <circle cx="480" cy="157.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="450" y="103.0" width="60" height="132" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <circle cx="480" cy="125.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="480" cy="141.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+  <circle cx="480" cy="157.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
 <text x="480" y="181.0" fill="#94a3b8" font-size="16" text-anchor="middle">⋮</text>
-  <circle cx="480" cy="217.0" r="5" fill="none" stroke="#34d399" stroke-width="1.4"/>
-<text x="480" y="93.0" fill="#34d399" font-size="14" text-anchor="middle">32 unit</text>
-<text x="380" y="24" fill="#34d399" font-size="14" text-anchor="middle">hidden layer · activation function ELU</text>
+  <circle cx="480" cy="217.0" r="5" fill="none" stroke="#7fc4a2" stroke-width="1.4"/>
+<text x="480" y="93.0" fill="#7fc4a2" font-size="14" text-anchor="middle">32 unit</text>
+<text x="380" y="24" fill="#7fc4a2" font-size="14" text-anchor="middle">hidden layer · activation function ELU</text>
   <line x1="512" y1="169.0" x2="548" y2="169.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="552" y="121.0" width="76" height="96" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-<text x="590" y="149.0" fill="#38bdf8" font-size="15" text-anchor="middle">출력 12</text>
+  <rect x="552" y="121.0" width="76" height="96" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+<text x="590" y="149.0" fill="#7cb4d8" font-size="15" text-anchor="middle">출력 12</text>
 <text x="590" y="173.0" fill="#e2e8f0" font-size="13" text-anchor="middle">관절</text>
 <text x="590" y="191.0" fill="#e2e8f0" font-size="13" text-anchor="middle">목표 각도</text>
-  <line x1="630" y1="169.0" x2="648" y2="169.0" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#arrow-sky)"/>
-  <rect x="652" y="133.0" width="92" height="72" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-<text x="698" y="161.0" fill="#a78bfa" font-size="15" text-anchor="middle">실물 PD</text>
+  <line x1="630" y1="169.0" x2="648" y2="169.0" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#arrow-sky)"/>
+  <rect x="652" y="133.0" width="92" height="72" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+<text x="698" y="161.0" fill="#a99ad6" font-size="15" text-anchor="middle">실물 PD</text>
 <text x="698" y="185.0" fill="#e2e8f0" font-size="13" text-anchor="middle">→ torque</text>
 <text x="380.0" y="312" fill="#94a3b8" font-size="13" text-anchor="middle">weight 와 bias: 6,272 + 8,256 + 2,080 + 396 = 17,004 개 · 0.02 초마다(50 Hz) 한 번 계산</text>
 </svg>

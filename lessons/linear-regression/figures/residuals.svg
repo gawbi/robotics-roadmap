@@ -5,7 +5,7 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
@@ -19,25 +19,25 @@
   <text x="270" y="320" fill="#64748b" font-size="13" text-anchor="middle">3</text>
   <text x="50" y="215.0" fill="#64748b" font-size="13" text-anchor="end">4</text>
   <text x="50" y="125.0" fill="#64748b" font-size="13" text-anchor="end">8</text>
-  <line x1="60" y1="277.5" x2="340" y2="97.5" stroke="#38bdf8" stroke-width="2.5"/>
-  <text x="301.5" y="167.25" fill="#38bdf8" font-size="14" text-anchor="middle">ŷ = 2x + 1</text>
-  <line x1="130" y1="187.5" x2="130" y2="232.5" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
-  <circle cx="130" cy="232.5" r="5" fill="#38bdf8"/>
-  <circle cx="130" cy="187.5" r="7" fill="#f59e0b"/>
-  <text x="120" y="215.0" fill="#f87171" font-size="14" text-anchor="end">−2</text>
-  <line x1="200" y1="120.0" x2="200" y2="187.5" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
-  <circle cx="200" cy="187.5" r="5" fill="#38bdf8"/>
-  <circle cx="200" cy="120.0" r="7" fill="#f59e0b"/>
-  <text x="190" y="158.75" fill="#f87171" font-size="14" text-anchor="end">−3</text>
-  <line x1="270" y1="52.5" x2="270" y2="142.5" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
-  <circle cx="270" cy="142.5" r="5" fill="#38bdf8"/>
-  <circle cx="270" cy="52.5" r="7" fill="#f59e0b"/>
-  <text x="260" y="102.5" fill="#f87171" font-size="14" text-anchor="end">−4</text>
-  <circle cx="378" cy="44" r="7" fill="#f59e0b"/>
+  <line x1="60" y1="277.5" x2="340" y2="97.5" stroke="#7cb4d8" stroke-width="2.5"/>
+  <text x="301.5" y="167.25" fill="#7cb4d8" font-size="14" text-anchor="middle">ŷ = 2x + 1</text>
+  <line x1="130" y1="187.5" x2="130" y2="232.5" stroke="#d88b8b" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="130" cy="232.5" r="5" fill="#7cb4d8"/>
+  <circle cx="130" cy="187.5" r="7" fill="#d6aa62"/>
+  <text x="120" y="215.0" fill="#d88b8b" font-size="14" text-anchor="end">−2</text>
+  <line x1="200" y1="120.0" x2="200" y2="187.5" stroke="#d88b8b" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="200" cy="187.5" r="5" fill="#7cb4d8"/>
+  <circle cx="200" cy="120.0" r="7" fill="#d6aa62"/>
+  <text x="190" y="158.75" fill="#d88b8b" font-size="14" text-anchor="end">−3</text>
+  <line x1="270" y1="52.5" x2="270" y2="142.5" stroke="#d88b8b" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="270" cy="142.5" r="5" fill="#7cb4d8"/>
+  <circle cx="270" cy="52.5" r="7" fill="#d6aa62"/>
+  <text x="260" y="102.5" fill="#d88b8b" font-size="14" text-anchor="end">−4</text>
+  <circle cx="378" cy="44" r="7" fill="#d6aa62"/>
   <text x="394" y="49" fill="#e2e8f0" font-size="14">데이터 (x, y)</text>
-  <circle cx="378" cy="72" r="5" fill="#38bdf8"/>
+  <circle cx="378" cy="72" r="5" fill="#7cb4d8"/>
   <text x="394" y="77" fill="#e2e8f0" font-size="14">예측 ŷ</text>
-  <line x1="371" y1="100" x2="385" y2="100" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="371" y1="100" x2="385" y2="100" stroke="#d88b8b" stroke-width="2" stroke-dasharray="5 4"/>
   <text x="394" y="105" fill="#e2e8f0" font-size="14">오차 ŷ − y</text>
   <text x="380" y="150" fill="#94a3b8" font-size="13" text-anchor="middle">x</text>
   <text x="416" y="150" fill="#94a3b8" font-size="13" text-anchor="middle">y</text>

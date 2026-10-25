@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 295" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>점수 1, 0, −1 의 softmax 는 0.665, 0.245, 0.090 으로 고르게 퍼지지만, 8 배 한 8, 0, −8 은 0.99966 으로 한 token 에 몰리는 비교 막대그래프</title>
-  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="293" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="155.0" y="58.0" fill="#34d399" font-size="14" text-anchor="middle">점수 [1, 0, −1] 의 weight</text>
+  <text x="155.0" y="58.0" fill="#7fc4a2" font-size="14" text-anchor="middle">점수 [1, 0, −1] 의 weight</text>
   <line x1="40.0" y1="220.0" x2="270.0" y2="220.0" stroke="#94a3b8" stroke-width="1"/>
-  <rect x="57.3" y="125.0" width="42.2" height="95.0" rx="2" fill="#34d399" fill-opacity="0.35" stroke="#34d399" stroke-width="1"/>
+  <rect x="57.3" y="125.0" width="42.2" height="95.0" rx="2" fill="#7fc4a2" fill-opacity="0.35" stroke="#7fc4a2" stroke-width="1"/>
   <text x="78.3" y="119.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.665</text>
   <text x="78.3" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">첫째</text>
-  <rect x="133.9" y="185.0" width="42.2" height="35.0" rx="2" fill="#34d399" fill-opacity="0.35" stroke="#34d399" stroke-width="1"/>
+  <rect x="133.9" y="185.0" width="42.2" height="35.0" rx="2" fill="#7fc4a2" fill-opacity="0.35" stroke="#7fc4a2" stroke-width="1"/>
   <text x="155.0" y="179.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.245</text>
   <text x="155.0" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">둘째</text>
-  <rect x="210.6" y="207.1" width="42.2" height="12.9" rx="2" fill="#34d399" fill-opacity="0.35" stroke="#34d399" stroke-width="1"/>
+  <rect x="210.6" y="207.1" width="42.2" height="12.9" rx="2" fill="#7fc4a2" fill-opacity="0.35" stroke="#7fc4a2" stroke-width="1"/>
   <text x="231.7" y="201.1" fill="#e2e8f0" font-size="13" text-anchor="middle">0.090</text>
   <text x="231.7" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">셋째</text>
-  <text x="445.0" y="58.0" fill="#f87171" font-size="14" text-anchor="middle">점수 [8, 0, −8] 의 weight</text>
+  <text x="445.0" y="58.0" fill="#d88b8b" font-size="14" text-anchor="middle">점수 [8, 0, −8] 의 weight</text>
   <line x1="330.0" y1="220.0" x2="560.0" y2="220.0" stroke="#94a3b8" stroke-width="1"/>
-  <rect x="347.2" y="77.2" width="42.2" height="142.8" rx="2" fill="#f87171" fill-opacity="0.35" stroke="#f87171" stroke-width="1"/>
+  <rect x="347.2" y="77.2" width="42.2" height="142.8" rx="2" fill="#d88b8b" fill-opacity="0.35" stroke="#d88b8b" stroke-width="1"/>
   <text x="368.3" y="71.2" fill="#e2e8f0" font-size="13" text-anchor="middle">0.99966</text>
   <text x="368.3" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">첫째</text>
-  <rect x="423.9" y="220.0" width="42.2" height="0.0" rx="2" fill="#f87171" fill-opacity="0.35" stroke="#f87171" stroke-width="1"/>
+  <rect x="423.9" y="220.0" width="42.2" height="0.0" rx="2" fill="#d88b8b" fill-opacity="0.35" stroke="#d88b8b" stroke-width="1"/>
   <text x="445.0" y="214.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.00034</text>
   <text x="445.0" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">둘째</text>
-  <rect x="500.6" y="220.0" width="42.2" height="0.0" rx="2" fill="#f87171" fill-opacity="0.35" stroke="#f87171" stroke-width="1"/>
+  <rect x="500.6" y="220.0" width="42.2" height="0.0" rx="2" fill="#d88b8b" fill-opacity="0.35" stroke="#d88b8b" stroke-width="1"/>
   <text x="521.7" y="214.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0.0000001</text>
   <text x="521.7" y="242.0" fill="#94a3b8" font-size="12" text-anchor="middle">셋째</text>
   <text x="155.0" y="272.0" fill="#94a3b8" font-size="12" text-anchor="middle">가운데 점수 +0.5 → weight +0.103</text>

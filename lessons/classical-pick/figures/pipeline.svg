@@ -6,44 +6,44 @@
   <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="360" y="30" fill="#e2e8f0" font-size="15" text-anchor="middle">module 여섯 개와 그 사이를 오가는 값 (첫째 cube 의 예)</text>
 
-  <rect x="20" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="123" y="76" fill="#38bdf8" font-size="15" text-anchor="middle">① 인식</text>
+  <rect x="20" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="123" y="76" fill="#7cb4d8" font-size="15" text-anchor="middle">① 인식</text>
   <text x="123" y="102" fill="#94a3b8" font-size="13" text-anchor="middle">입력: 카메라 사진</text>
   <text x="123" y="130" fill="#e2e8f0" font-size="13" text-anchor="middle">pixel (220, 240)</text>
   <text x="123" y="152" fill="#e2e8f0" font-size="13" text-anchor="middle">yaw 10°</text>
   <line x1="228" y1="115" x2="250" y2="115" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="256" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="359" y="76" fill="#38bdf8" font-size="15" text-anchor="middle">② 3D 위치</text>
+  <rect x="256" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="359" y="76" fill="#7cb4d8" font-size="15" text-anchor="middle">② 3D 위치</text>
   <text x="359" y="102" fill="#94a3b8" font-size="13" text-anchor="middle">depth 0.5 m 로 back-projection</text>
   <text x="359" y="130" fill="#e2e8f0" font-size="13" text-anchor="middle">base frame 좌표</text>
   <text x="359" y="152" fill="#e2e8f0" font-size="13" text-anchor="middle">(0.20, 0, 0.05) m</text>
   <line x1="464" y1="115" x2="486" y2="115" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="492" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="595" y="76" fill="#f59e0b" font-size="15" text-anchor="middle">③ 잡기 자세</text>
+  <rect x="492" y="50" width="206" height="130" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="595" y="76" fill="#d6aa62" font-size="15" text-anchor="middle">③ 잡기 자세</text>
   <text x="595" y="102" fill="#94a3b8" font-size="13" text-anchor="middle">top-down grasp 규칙</text>
   <text x="595" y="130" fill="#e2e8f0" font-size="13" text-anchor="middle">waypoint 6 개</text>
   <text x="595" y="152" fill="#e2e8f0" font-size="13" text-anchor="middle">grasp (0.20, 0, 0.025)</text>
 
   <polyline points="595,180 595,205 123,205 123,226" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="20" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="123" y="258" fill="#f59e0b" font-size="15" text-anchor="middle">④ IK</text>
+  <rect x="20" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="123" y="258" fill="#d6aa62" font-size="15" text-anchor="middle">④ IK</text>
   <text x="123" y="284" fill="#94a3b8" font-size="13" text-anchor="middle">waypoint 마다 joint angle</text>
   <text x="123" y="312" fill="#e2e8f0" font-size="13" text-anchor="middle">pre-grasp</text>
   <text x="123" y="334" fill="#e2e8f0" font-size="13" text-anchor="middle">(0°, 90°, −90°, −90°, 10°)</text>
   <line x1="228" y1="297" x2="250" y2="297" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="256" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="359" y="258" fill="#f59e0b" font-size="15" text-anchor="middle">⑤ 경로</text>
+  <rect x="256" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="359" y="258" fill="#d6aa62" font-size="15" text-anchor="middle">⑤ 경로</text>
   <text x="359" y="284" fill="#94a3b8" font-size="13" text-anchor="middle">waypoint 사이를 잇기</text>
   <text x="359" y="312" fill="#e2e8f0" font-size="13" text-anchor="middle">minimum-jerk, T = 2 s</text>
   <text x="359" y="334" fill="#e2e8f0" font-size="13" text-anchor="middle">시간마다의 목표 각도</text>
   <line x1="464" y1="297" x2="486" y2="297" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="492" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="595" y="258" fill="#34d399" font-size="15" text-anchor="middle">⑥ 실행</text>
+  <rect x="492" y="232" width="206" height="130" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="595" y="258" fill="#7fc4a2" font-size="15" text-anchor="middle">⑥ 실행</text>
   <text x="595" y="284" fill="#94a3b8" font-size="13" text-anchor="middle">controller 와 모터</text>
   <text x="595" y="312" fill="#e2e8f0" font-size="13" text-anchor="middle">팔 움직이기</text>
   <text x="595" y="334" fill="#e2e8f0" font-size="13" text-anchor="middle">gripper 닫기·열기</text>

@@ -2,11 +2,11 @@
   <title>오차를 step 별로 그린 그래프. 같은 양씩 늘면 0.2, 0.4, 0.6, 0.8, 1.0 의 직선이지만, 입력으로 되먹임되면 0.2, 0.44, 0.728, 1.074, 1.488 로 위로 휘며 더 빨리 커진다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="40.0" width="400.0" height="230.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
@@ -25,27 +25,27 @@
   <text x="62.0" y="44.0" fill="#64748b" font-size="13" text-anchor="end">1.6</text>
   <text x="480.0" y="275.0" fill="#94a3b8" font-size="14" text-anchor="start">step</text>
   <text x="62.0" y="26.0" fill="#94a3b8" font-size="14" text-anchor="end">오차</text>
-  <polyline points="70.0,270.0 150.0,241.2 230.0,212.5 310.0,183.8 390.0,155.0 470.0,126.2" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <polyline points="70.0,270.0 150.0,241.2 230.0,206.8 310.0,165.4 390.0,115.7 470.0,56.1" fill="none" stroke="#f87171" stroke-width="2.5"/>
-  <circle cx="70.0" cy="270.0" r="4" fill="#38bdf8"/>
-  <circle cx="70.0" cy="270.0" r="4" fill="#f87171"/>
-  <circle cx="150.0" cy="241.2" r="4" fill="#38bdf8"/>
-  <circle cx="150.0" cy="241.2" r="4" fill="#f87171"/>
-  <circle cx="230.0" cy="212.5" r="4" fill="#38bdf8"/>
-  <circle cx="230.0" cy="206.8" r="4" fill="#f87171"/>
-  <circle cx="310.0" cy="183.8" r="4" fill="#38bdf8"/>
-  <circle cx="310.0" cy="165.4" r="4" fill="#f87171"/>
-  <circle cx="390.0" cy="155.0" r="4" fill="#38bdf8"/>
-  <circle cx="390.0" cy="115.7" r="4" fill="#f87171"/>
-  <circle cx="470.0" cy="126.2" r="4" fill="#38bdf8"/>
-  <circle cx="470.0" cy="56.1" r="4" fill="#f87171"/>
-  <text x="222.0" y="198.8" fill="#f87171" font-size="12" text-anchor="end">0.44</text>
-  <text x="302.0" y="157.4" fill="#f87171" font-size="12" text-anchor="end">0.728</text>
-  <text x="382.0" y="107.6" fill="#f87171" font-size="12" text-anchor="end">1.074</text>
-  <text x="462.0" y="48.1" fill="#f87171" font-size="12" text-anchor="end">1.488</text>
-  <text x="316.0" y="201.8" fill="#38bdf8" font-size="12" text-anchor="start">0.6</text>
-  <text x="396.0" y="173.0" fill="#38bdf8" font-size="12" text-anchor="start">0.8</text>
-  <text x="480.0" y="60.1" fill="#f87171" font-size="13" text-anchor="start">되먹임</text>
-  <text x="480.0" y="130.2" fill="#38bdf8" font-size="13" text-anchor="start">같은 양씩</text>
+  <polyline points="70.0,270.0 150.0,241.2 230.0,212.5 310.0,183.8 390.0,155.0 470.0,126.2" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <polyline points="70.0,270.0 150.0,241.2 230.0,206.8 310.0,165.4 390.0,115.7 470.0,56.1" fill="none" stroke="#d88b8b" stroke-width="2.5"/>
+  <circle cx="70.0" cy="270.0" r="4" fill="#7cb4d8"/>
+  <circle cx="70.0" cy="270.0" r="4" fill="#d88b8b"/>
+  <circle cx="150.0" cy="241.2" r="4" fill="#7cb4d8"/>
+  <circle cx="150.0" cy="241.2" r="4" fill="#d88b8b"/>
+  <circle cx="230.0" cy="212.5" r="4" fill="#7cb4d8"/>
+  <circle cx="230.0" cy="206.8" r="4" fill="#d88b8b"/>
+  <circle cx="310.0" cy="183.8" r="4" fill="#7cb4d8"/>
+  <circle cx="310.0" cy="165.4" r="4" fill="#d88b8b"/>
+  <circle cx="390.0" cy="155.0" r="4" fill="#7cb4d8"/>
+  <circle cx="390.0" cy="115.7" r="4" fill="#d88b8b"/>
+  <circle cx="470.0" cy="126.2" r="4" fill="#7cb4d8"/>
+  <circle cx="470.0" cy="56.1" r="4" fill="#d88b8b"/>
+  <text x="222.0" y="198.8" fill="#d88b8b" font-size="12" text-anchor="end">0.44</text>
+  <text x="302.0" y="157.4" fill="#d88b8b" font-size="12" text-anchor="end">0.728</text>
+  <text x="382.0" y="107.6" fill="#d88b8b" font-size="12" text-anchor="end">1.074</text>
+  <text x="462.0" y="48.1" fill="#d88b8b" font-size="12" text-anchor="end">1.488</text>
+  <text x="316.0" y="201.8" fill="#7cb4d8" font-size="12" text-anchor="start">0.6</text>
+  <text x="396.0" y="173.0" fill="#7cb4d8" font-size="12" text-anchor="start">0.8</text>
+  <text x="480.0" y="60.1" fill="#d88b8b" font-size="13" text-anchor="start">되먹임</text>
+  <text x="480.0" y="130.2" fill="#7cb4d8" font-size="13" text-anchor="start">같은 양씩</text>
   <text x="300.0" y="316.0" fill="#94a3b8" font-size="13" text-anchor="middle">빨강: ẑ = 1.2 × z 를 배운 model (실제는 제자리) · 파랑: 오차가 매번 0.2 씩 늘 때</text>
 </svg>

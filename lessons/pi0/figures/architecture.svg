@@ -1,48 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>π0 의 구조. 맨 위 token 한 줄에서 카메라 사진 3 장(사진마다 image token 256 개)과 지시문(token 최대 48 개)은 PaliGemma backbone(약 30 억 parameter)이 처리하고, 로봇 상태 token 1 개와 noise 가 섞인 action token 50 개는 action expert(약 3 억 parameter)가 처리한다. 두 weight 묶음은 층마다 attention 으로 정보를 주고받고, action expert 의 출력은 action 50 개 각각의 속도다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="778" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="32.0" fill="#e2e8f0" font-size="14" text-anchor="start">token 한 줄</text>
-  <rect x="20.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#38bdf8" fill-opacity="0.85"/>
+  <rect x="20.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
   <text x="66.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">사진 1</text>
   <text x="66.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 256 개</text>
-  <rect x="118.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#38bdf8" fill-opacity="0.85"/>
+  <rect x="118.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
   <text x="164.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">사진 2</text>
   <text x="164.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 256 개</text>
-  <rect x="216.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#38bdf8" fill-opacity="0.85"/>
+  <rect x="216.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
   <text x="262.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">사진 3</text>
   <text x="262.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 256 개</text>
-  <rect x="314.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#38bdf8" fill-opacity="0.85"/>
+  <rect x="314.0" y="44.0" width="92.0" height="40.0" rx="4" fill="#7cb4d8" fill-opacity="0.85"/>
   <text x="360.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">지시문</text>
   <text x="360.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 최대 48 개</text>
-  <rect x="430.0" y="44.0" width="70.0" height="40.0" rx="4" fill="#34d399"/>
+  <rect x="430.0" y="44.0" width="70.0" height="40.0" rx="4" fill="#7fc4a2"/>
   <text x="465.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">로봇 상태</text>
   <text x="465.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 1 개</text>
-  <rect x="514.0" y="44.0" width="250.0" height="40.0" rx="4" fill="#f59e0b"/>
+  <rect x="514.0" y="44.0" width="250.0" height="40.0" rx="4" fill="#d6aa62"/>
   <text x="639.0" y="61.0" fill="#0b1220" font-size="12" text-anchor="middle" font-weight="600">noise 가 섞인 action</text>
   <text x="639.0" y="77.0" fill="#0b1220" font-size="11" text-anchor="middle">token 50 개 (chunk, τ 포함)</text>
-  <rect x="20.0" y="120.0" width="386.0" height="150.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="213.0" y="146.0" fill="#38bdf8" font-size="15" text-anchor="middle" font-weight="600">VLM backbone: PaliGemma</text>
+  <rect x="20.0" y="120.0" width="386.0" height="150.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="213.0" y="146.0" fill="#7cb4d8" font-size="15" text-anchor="middle" font-weight="600">VLM backbone: PaliGemma</text>
   <text x="213.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="middle">약 30 억 parameter</text>
   <text x="213.0" y="194.0" fill="#94a3b8" font-size="12" text-anchor="middle">처음 weight: 인터넷 사진·글로 학습한 값</text>
   <text x="213.0" y="216.0" fill="#94a3b8" font-size="12" text-anchor="middle">token 하나 = 숫자 2048 개</text>
   <text x="213.0" y="246.0" fill="#e2e8f0" font-size="12" text-anchor="middle">사진·지시문 token 만 처리한다</text>
-  <rect x="472.0" y="120.0" width="288.0" height="150.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="616.0" y="146.0" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="600">action expert</text>
+  <rect x="472.0" y="120.0" width="288.0" height="150.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="616.0" y="146.0" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="600">action expert</text>
   <text x="616.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="middle">약 3 억 parameter</text>
   <text x="616.0" y="194.0" fill="#94a3b8" font-size="12" text-anchor="middle">처음 weight: 무작위 값</text>
   <text x="616.0" y="216.0" fill="#94a3b8" font-size="12" text-anchor="middle">token 하나 = 숫자 1024 개</text>
   <text x="616.0" y="246.0" fill="#e2e8f0" font-size="12" text-anchor="middle">로봇 상태·action token 만 처리</text>
-  <line x1="213.0" y1="86.0" x2="213.0" y2="118.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
-  <line x1="616.0" y1="86.0" x2="616.0" y2="118.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <line x1="410.0" y1="195.0" x2="468.0" y2="195.0" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrow-purple)" marker-start="url(#arrow-purple)"/>
-  <text x="439.0" y="182.0" fill="#a78bfa" font-size="12" text-anchor="middle">attention</text>
-  <rect x="20.0" y="290.0" width="740.0" height="40.0" rx="8" fill="#0e1628" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="390.0" y="315.0" fill="#a78bfa" font-size="12" text-anchor="middle">두 weight 묶음은 층마다(18 층) attention 에서만 만난다: action token 이 사진·지시문 token 의 key·value 를 본다</text>
-  <rect x="472.0" y="350.0" width="288.0" height="50.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="616.0" y="371.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">출력: 속도 v</text>
+  <line x1="213.0" y1="86.0" x2="213.0" y2="118.0" stroke="#7cb4d8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="616.0" y1="86.0" x2="616.0" y2="118.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="410.0" y1="195.0" x2="468.0" y2="195.0" stroke="#a99ad6" stroke-width="3" marker-end="url(#arrow-purple)" marker-start="url(#arrow-purple)"/>
+  <text x="439.0" y="182.0" fill="#a99ad6" font-size="12" text-anchor="middle">attention</text>
+  <rect x="20.0" y="290.0" width="740.0" height="40.0" rx="8" fill="#0e1628" stroke="#a99ad6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="390.0" y="315.0" fill="#a99ad6" font-size="12" text-anchor="middle">두 weight 묶음은 층마다(18 층) attention 에서만 만난다: action token 이 사진·지시문 token 의 key·value 를 본다</text>
+  <rect x="472.0" y="350.0" width="288.0" height="50.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="616.0" y="371.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">출력: 속도 v</text>
   <text x="616.0" y="390.0" fill="#e2e8f0" font-size="12" text-anchor="middle">action 50 개 × 숫자 7 개 = 350 개</text>
-  <line x1="616.0" y1="272.0" x2="616.0" y2="346.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="616.0" y1="272.0" x2="616.0" y2="346.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
   <rect x="472.0" y="414.0" width="288.0" height="40.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="616.0" y="439.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Euler 10 step → 1 초 분량의 action chunk</text>
   <line x1="616.0" y1="402.0" x2="616.0" y2="412.0" stroke="#94a3b8" stroke-width="2"/>

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>가장 큰 점수를 먼저 빼면 overflow 없이 같은 확률이 나온다</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20.0" y="46.0" fill="#f87171" font-size="14" text-anchor="start">그대로 계산</text>
+  <text x="20.0" y="46.0" fill="#d88b8b" font-size="14" text-anchor="start">그대로 계산</text>
   <rect x="20.0" y="58.0" width="160.0" height="52.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="100.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="middle">점수</text>
   <text x="100.0" y="99.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(1002, 1001, 1000.1)</text>
@@ -15,10 +15,10 @@
   <text x="456.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="middle">합으로 나눔</text>
   <text x="456.0" y="99.0" fill="#e2e8f0" font-size="13" text-anchor="middle">inf ÷ inf</text>
   <line x1="528.0" y1="84.0" x2="550.0" y2="84.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="554.0" y="58.0" width="120.0" height="52.0" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <rect x="554.0" y="58.0" width="120.0" height="52.0" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="614.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="middle">확률</text>
-  <text x="614.0" y="99.0" fill="#f87171" font-size="13" text-anchor="middle">nan</text>
-  <text x="20.0" y="156.0" fill="#34d399" font-size="14" text-anchor="start">가장 큰 점수 1002 를 먼저 뺌</text>
+  <text x="614.0" y="99.0" fill="#d88b8b" font-size="13" text-anchor="middle">nan</text>
+  <text x="20.0" y="156.0" fill="#7fc4a2" font-size="14" text-anchor="start">가장 큰 점수 1002 를 먼저 뺌</text>
   <rect x="20.0" y="168.0" width="150.0" height="52.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="95.0" y="189.0" fill="#94a3b8" font-size="12" text-anchor="middle">뺀 점수</text>
   <text x="95.0" y="209.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(0, −1, −1.9)</text>
@@ -31,8 +31,8 @@
   <text x="436.0" y="189.0" fill="#94a3b8" font-size="12" text-anchor="middle">합으로 나눔</text>
   <text x="436.0" y="209.0" fill="#e2e8f0" font-size="13" text-anchor="middle">÷ 1.517</text>
   <line x1="498.0" y1="194.0" x2="520.0" y2="194.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="524.0" y="168.0" width="170.0" height="52.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="524.0" y="168.0" width="170.0" height="52.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="609.0" y="189.0" fill="#94a3b8" font-size="12" text-anchor="middle">확률</text>
-  <text x="609.0" y="209.0" fill="#34d399" font-size="13" text-anchor="middle">(0.659, 0.242, 0.099)</text>
+  <text x="609.0" y="209.0" fill="#7fc4a2" font-size="13" text-anchor="middle">(0.659, 0.242, 0.099)</text>
   <text x="360.0" y="252.0" fill="#94a3b8" font-size="12" text-anchor="middle">float32 의 가장 큰 수 ≈ 3.4 × 10³⁸,  e⁸⁹ ≈ 4.5 × 10³⁸ 부터 inf</text>
 </svg>

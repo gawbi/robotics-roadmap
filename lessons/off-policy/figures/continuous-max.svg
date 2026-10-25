@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>한 state 에서 action a 에 따른 Q(s, a) = 1 − (a − 0.5)². a 를 −2, −1, 0, 1, 2 다섯 개만 넣어 보면 가장 큰 값이 0.75 지만 실제 가장 큰 값은 a = 0.5 의 1 이다. actor 는 a = 0 에서 출발해 기울기를 따라 0.25, 0.375, 0.4375 로 올라간다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="70.0" y1="260.0" x2="450.0" y2="260.0" stroke="#1e293b" stroke-width="1"/>
   <text x="64.0" y="264.0" fill="#64748b" font-size="12" text-anchor="end">−1.5</text>
@@ -23,30 +23,30 @@
   <line x1="70.0" y1="260.0" x2="450.0" y2="260.0" stroke="#475569" stroke-width="1"/>
   <text x="260.0" y="298.0" fill="#94a3b8" font-size="12" text-anchor="middle">action a (토크)</text>
   <text x="64.0" y="28.0" fill="#94a3b8" font-size="12" text-anchor="start">Q(s, a)</text>
-  <polyline points="166.7,259.7 168.5,254.7 170.2,249.7 171.9,244.8 173.6,240.0 175.4,235.2 177.1,230.5 178.8,225.9 180.5,221.3 182.3,216.8 184.0,212.4 185.7,208.0 187.5,203.6 189.2,199.4 190.9,195.2 192.6,191.1 194.4,187.0 196.1,183.0 197.8,179.1 199.5,175.2 201.3,171.4 203.0,167.6 204.7,164.0 206.5,160.4 208.2,156.8 209.9,153.3 211.6,149.9 213.4,146.5 215.1,143.2 216.8,140.0 218.5,136.8 220.3,133.7 222.0,130.7 223.7,127.7 225.5,124.8 227.2,122.0 228.9,119.2 230.6,116.4 232.4,113.8 234.1,111.2 235.8,108.7 237.5,106.2 239.3,103.8 241.0,101.5 242.7,99.2 244.5,97.0 246.2,94.8 247.9,92.8 249.6,90.8 251.4,88.8 253.1,86.9 254.8,85.1 256.5,83.3 258.3,81.6 260.0,80.0 261.7,78.4 263.5,76.9 265.2,75.5 266.9,74.1 268.6,72.8 270.4,71.6 272.1,70.4 273.8,69.2 275.5,68.2 277.3,67.2 279.0,66.3 280.7,65.4 282.5,64.6 284.2,63.9 285.9,63.2 287.6,62.6 289.4,62.0 291.1,61.6 292.8,61.2 294.5,60.8 296.3,60.5 298.0,60.3 299.7,60.1 301.5,60.0 303.2,60.0 304.9,60.0 306.6,60.1 308.4,60.3 310.1,60.5 311.8,60.8 313.5,61.2 315.3,61.6 317.0,62.0 318.7,62.6 320.5,63.2 322.2,63.9 323.9,64.6 325.6,65.4 327.4,66.3 329.1,67.2 330.8,68.2 332.5,69.2 334.3,70.4 336.0,71.6 337.7,72.8 339.5,74.1 341.2,75.5 342.9,76.9 344.6,78.4 346.4,80.0 348.1,81.6 349.8,83.3 351.5,85.1 353.3,86.9 355.0,88.8 356.7,90.8 358.5,92.8 360.2,94.8 361.9,97.0 363.6,99.2 365.4,101.5 367.1,103.8 368.8,106.2 370.5,108.7 372.3,111.2 374.0,113.8 375.7,116.4 377.5,119.2 379.2,122.0 380.9,124.8 382.6,127.7 384.4,130.7 386.1,133.7 387.8,136.8 389.5,140.0 391.3,143.2 393.0,146.5 394.7,149.9 396.5,153.3 398.2,156.8 399.9,160.4 401.6,164.0 403.4,167.6 405.1,171.4 406.8,175.2 408.5,179.1 410.3,183.0 412.0,187.0 413.7,191.1 415.5,195.2 417.2,199.4 418.9,203.6 420.6,208.0 422.4,212.4 424.1,216.8 425.8,221.3 427.5,225.9 429.3,230.5 431.0,235.2 432.7,240.0 434.5,244.8 436.2,249.7 437.9,254.7 439.6,259.7" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
-  <circle cx="173.6" cy="240.0" r="5" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
-  <circle cx="260.0" cy="80.0" r="5" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
-  <circle cx="346.4" cy="80.0" r="5" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
-  <circle cx="432.7" cy="240.0" r="5" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
-  <line x1="87.3" y1="236.0" x2="87.3" y2="256.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="93.3" y="220.0" fill="#f59e0b" font-size="11" text-anchor="start">a = −2: −5.25</text>
-  <circle cx="303.2" cy="60.0" r="5" fill="#34d399" stroke="none" stroke-width="2"/>
-  <text x="303.2" y="48.0" fill="#34d399" font-size="12" text-anchor="middle">최댓값 1</text>
-  <circle cx="260.0" cy="80.0" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
-  <circle cx="281.6" cy="65.0" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
-  <circle cx="292.4" cy="61.2" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
-  <circle cx="297.8" cy="60.3" r="3.5" fill="#f87171" stroke="none" stroke-width="2"/>
-  <line x1="256.0" y1="84.0" x2="229.8" y2="112.0" stroke="#f87171" stroke-width="1"/>
-  <text x="227.2" y="116.0" fill="#f87171" font-size="11" text-anchor="end">actor 출발 a = 0</text>
+  <polyline points="166.7,259.7 168.5,254.7 170.2,249.7 171.9,244.8 173.6,240.0 175.4,235.2 177.1,230.5 178.8,225.9 180.5,221.3 182.3,216.8 184.0,212.4 185.7,208.0 187.5,203.6 189.2,199.4 190.9,195.2 192.6,191.1 194.4,187.0 196.1,183.0 197.8,179.1 199.5,175.2 201.3,171.4 203.0,167.6 204.7,164.0 206.5,160.4 208.2,156.8 209.9,153.3 211.6,149.9 213.4,146.5 215.1,143.2 216.8,140.0 218.5,136.8 220.3,133.7 222.0,130.7 223.7,127.7 225.5,124.8 227.2,122.0 228.9,119.2 230.6,116.4 232.4,113.8 234.1,111.2 235.8,108.7 237.5,106.2 239.3,103.8 241.0,101.5 242.7,99.2 244.5,97.0 246.2,94.8 247.9,92.8 249.6,90.8 251.4,88.8 253.1,86.9 254.8,85.1 256.5,83.3 258.3,81.6 260.0,80.0 261.7,78.4 263.5,76.9 265.2,75.5 266.9,74.1 268.6,72.8 270.4,71.6 272.1,70.4 273.8,69.2 275.5,68.2 277.3,67.2 279.0,66.3 280.7,65.4 282.5,64.6 284.2,63.9 285.9,63.2 287.6,62.6 289.4,62.0 291.1,61.6 292.8,61.2 294.5,60.8 296.3,60.5 298.0,60.3 299.7,60.1 301.5,60.0 303.2,60.0 304.9,60.0 306.6,60.1 308.4,60.3 310.1,60.5 311.8,60.8 313.5,61.2 315.3,61.6 317.0,62.0 318.7,62.6 320.5,63.2 322.2,63.9 323.9,64.6 325.6,65.4 327.4,66.3 329.1,67.2 330.8,68.2 332.5,69.2 334.3,70.4 336.0,71.6 337.7,72.8 339.5,74.1 341.2,75.5 342.9,76.9 344.6,78.4 346.4,80.0 348.1,81.6 349.8,83.3 351.5,85.1 353.3,86.9 355.0,88.8 356.7,90.8 358.5,92.8 360.2,94.8 361.9,97.0 363.6,99.2 365.4,101.5 367.1,103.8 368.8,106.2 370.5,108.7 372.3,111.2 374.0,113.8 375.7,116.4 377.5,119.2 379.2,122.0 380.9,124.8 382.6,127.7 384.4,130.7 386.1,133.7 387.8,136.8 389.5,140.0 391.3,143.2 393.0,146.5 394.7,149.9 396.5,153.3 398.2,156.8 399.9,160.4 401.6,164.0 403.4,167.6 405.1,171.4 406.8,175.2 408.5,179.1 410.3,183.0 412.0,187.0 413.7,191.1 415.5,195.2 417.2,199.4 418.9,203.6 420.6,208.0 422.4,212.4 424.1,216.8 425.8,221.3 427.5,225.9 429.3,230.5 431.0,235.2 432.7,240.0 434.5,244.8 436.2,249.7 437.9,254.7 439.6,259.7" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <circle cx="173.6" cy="240.0" r="5" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
+  <circle cx="260.0" cy="80.0" r="5" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
+  <circle cx="346.4" cy="80.0" r="5" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
+  <circle cx="432.7" cy="240.0" r="5" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
+  <line x1="87.3" y1="236.0" x2="87.3" y2="256.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="93.3" y="220.0" fill="#d6aa62" font-size="11" text-anchor="start">a = −2: −5.25</text>
+  <circle cx="303.2" cy="60.0" r="5" fill="#7fc4a2" stroke="none" stroke-width="2"/>
+  <text x="303.2" y="48.0" fill="#7fc4a2" font-size="12" text-anchor="middle">최댓값 1</text>
+  <circle cx="260.0" cy="80.0" r="3.5" fill="#d88b8b" stroke="none" stroke-width="2"/>
+  <circle cx="281.6" cy="65.0" r="3.5" fill="#d88b8b" stroke="none" stroke-width="2"/>
+  <circle cx="292.4" cy="61.2" r="3.5" fill="#d88b8b" stroke="none" stroke-width="2"/>
+  <circle cx="297.8" cy="60.3" r="3.5" fill="#d88b8b" stroke="none" stroke-width="2"/>
+  <line x1="256.0" y1="84.0" x2="229.8" y2="112.0" stroke="#d88b8b" stroke-width="1"/>
+  <text x="227.2" y="116.0" fill="#d88b8b" font-size="11" text-anchor="end">actor 출발 a = 0</text>
   <rect x="470.0" y="50.0" width="160.0" height="190.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
-  <circle cx="484.0" cy="72.0" r="5" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
+  <circle cx="484.0" cy="72.0" r="5" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
   <text x="496.0" y="76.0" fill="#e2e8f0" font-size="12" text-anchor="start">넣어 본 다섯 값</text>
   <text x="496.0" y="96.0" fill="#94a3b8" font-size="11" text-anchor="start">가장 큰 값 0.75</text>
   <text x="496.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="start">(a = 0 또는 1)</text>
-  <circle cx="484.0" cy="138.0" r="5" fill="#34d399" stroke="none" stroke-width="2"/>
+  <circle cx="484.0" cy="138.0" r="5" fill="#7fc4a2" stroke="none" stroke-width="2"/>
   <text x="496.0" y="142.0" fill="#e2e8f0" font-size="12" text-anchor="start">실제 최댓값</text>
   <text x="496.0" y="160.0" fill="#94a3b8" font-size="11" text-anchor="start">a = 0.5 에서 1</text>
-  <circle cx="484.0" cy="186.0" r="4" fill="#f87171" stroke="none" stroke-width="2"/>
+  <circle cx="484.0" cy="186.0" r="4" fill="#d88b8b" stroke="none" stroke-width="2"/>
   <text x="496.0" y="190.0" fill="#e2e8f0" font-size="12" text-anchor="start">actor 의 a</text>
   <text x="496.0" y="208.0" fill="#94a3b8" font-size="11" text-anchor="start">0 → 0.25 → 0.375</text>
   <text x="496.0" y="224.0" fill="#94a3b8" font-size="11" text-anchor="start">→ 0.4375</text>

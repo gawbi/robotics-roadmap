@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>CLIP 이 약한 세 가지를 예로 든 점수로 보인 그림. 고양이 두 마리 사진에 "두 마리" 와 "세 마리" 문장이 거의 같은 점수를 받고, "말이 풀을 먹는다" 와 "풀이 말을 먹는다" 처럼 순서만 다른 문장도 같은 점수를 받으며, 참새와 박새처럼 겉모습이 비슷한 종류도 점수 차이가 작다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20" y="16" width="190" height="262" rx="10" fill="#0e1628" stroke="#1e293b"/>
   <text x="115" y="44" fill="#e2e8f0" font-size="15" text-anchor="middle">개수 세기</text>
-  <rect x="50" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <circle cx="87" cy="100" r="16" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
-  <path d="M73,92 L75,76 L83,86 M101,92 L99,76 L91,86" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
-  <circle cx="143" cy="100" r="16" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
-  <path d="M129,92 L131,76 L139,86 M157,92 L155,76 L147,86" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
+  <rect x="50" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <circle cx="87" cy="100" r="16" fill="none" stroke="#7cb4d8" stroke-width="1.6"/>
+  <path d="M73,92 L75,76 L83,86 M101,92 L99,76 L91,86" fill="none" stroke="#7cb4d8" stroke-width="1.6"/>
+  <circle cx="143" cy="100" r="16" fill="none" stroke="#7cb4d8" stroke-width="1.6"/>
+  <path d="M129,92 L131,76 L139,86 M157,92 L155,76 L147,86" fill="none" stroke="#7cb4d8" stroke-width="1.6"/>
   <text x="115" y="164" fill="#e2e8f0" font-size="12" text-anchor="middle">"고양이 두 마리" 0.30</text>
   <text x="115" y="188" fill="#e2e8f0" font-size="12" text-anchor="middle">"고양이 세 마리" 0.29</text>
   <text x="115" y="236" fill="#94a3b8" font-size="12" text-anchor="middle">설명 글에 개수가</text>
   <text x="115" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">정확히 적힌 일이 드물다</text>
   <rect x="225" y="16" width="190" height="262" rx="10" fill="#0e1628" stroke="#1e293b"/>
   <text x="320" y="44" fill="#e2e8f0" font-size="15" text-anchor="middle">위치 관계 · 단어 순서</text>
-  <rect x="255" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="320" y="92" fill="#38bdf8" font-size="14" text-anchor="middle">말과 풀</text>
+  <rect x="255" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="320" y="92" fill="#7cb4d8" font-size="14" text-anchor="middle">말과 풀</text>
   <text x="320" y="114" fill="#94a3b8" font-size="11" text-anchor="middle">(말이 풀을 먹는 사진)</text>
   <text x="320" y="164" fill="#e2e8f0" font-size="12" text-anchor="middle">"말이 풀을 먹는다" 0.31</text>
   <text x="320" y="188" fill="#e2e8f0" font-size="12" text-anchor="middle">"풀이 말을 먹는다" 0.31</text>
@@ -24,8 +24,8 @@
   <text x="320" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">봐도 짝을 고를 수 있었다</text>
   <rect x="430" y="16" width="190" height="262" rx="10" fill="#0e1628" stroke="#1e293b"/>
   <text x="525" y="44" fill="#e2e8f0" font-size="15" text-anchor="middle">세밀한 구분</text>
-  <rect x="460" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="525" y="92" fill="#38bdf8" font-size="14" text-anchor="middle">작은 새 사진</text>
+  <rect x="460" y="62" width="130" height="68" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="525" y="92" fill="#7cb4d8" font-size="14" text-anchor="middle">작은 새 사진</text>
   <text x="525" y="114" fill="#94a3b8" font-size="11" text-anchor="middle">(참새)</text>
   <text x="525" y="164" fill="#e2e8f0" font-size="12" text-anchor="middle">"참새 사진" 0.27</text>
   <text x="525" y="188" fill="#e2e8f0" font-size="12" text-anchor="middle">"박새 사진" 0.26</text>

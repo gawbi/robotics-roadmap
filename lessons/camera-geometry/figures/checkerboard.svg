@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>checkerboard 와 board frame. 안쪽 corner 가 가로 9 개, 세로 6 개 있고, 원점은 왼쪽 위 corner, 모든 corner 의 Z 는 0 이다. 판을 여러 각도로 기울여 찍는다</title>
   <defs>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
   </defs>
   <rect x="1" y="1" width="678" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="34" y="64" width="292" height="208" fill="#cbd5e1" rx="3"/>
@@ -41,65 +41,65 @@
   <rect x="152" y="238" width="28" height="28" fill="#1e293b"/>
   <rect x="208" y="238" width="28" height="28" fill="#1e293b"/>
   <rect x="264" y="238" width="28" height="28" fill="#1e293b"/>
-  <circle cx="68" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="98" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="126" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="154" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="182" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="210" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="96" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="124" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="152" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="180" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="208" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="236" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="264" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="292" cy="238" r="3" fill="#38bdf8"/>
-  <circle cx="68" cy="98" r="5" fill="#f87171"/>
-  <line x1="68" y1="98" x2="152" y2="98" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-amber)"/>
-  <line x1="68" y1="98" x2="68" y2="182" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-green)"/>
-  <text x="164" y="103" fill="#f59e0b" font-size="15" font-weight="700" stroke="#0b1220" stroke-width="3" paint-order="stroke">X</text>
-  <text x="68" y="206" fill="#34d399" font-size="15" font-weight="700" text-anchor="middle" stroke="#0b1220" stroke-width="3" paint-order="stroke">Y</text>
+  <circle cx="68" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="98" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="126" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="154" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="182" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="210" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="96" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="124" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="152" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="180" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="208" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="236" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="264" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="292" cy="238" r="3" fill="#7cb4d8"/>
+  <circle cx="68" cy="98" r="5" fill="#d88b8b"/>
+  <line x1="68" y1="98" x2="152" y2="98" stroke="#d6aa62" stroke-width="3" marker-end="url(#arrow-amber)"/>
+  <line x1="68" y1="98" x2="68" y2="182" stroke="#7fc4a2" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="164" y="103" fill="#d6aa62" font-size="15" font-weight="700" stroke="#0b1220" stroke-width="3" paint-order="stroke">X</text>
+  <text x="68" y="206" fill="#7fc4a2" font-size="15" font-weight="700" text-anchor="middle" stroke="#0b1220" stroke-width="3" paint-order="stroke">Y</text>
   <text x="34" y="30" fill="#e2e8f0" font-size="14">board frame — 원점은 왼쪽 위 안쪽 corner</text>
   <text x="34" y="52" fill="#94a3b8" font-size="13">corner 좌표 (0, 0, 0), (0.025, 0, 0), (0.05, 0, 0), …</text>
   <line x1="68" y1="286" x2="96" y2="286" stroke="#94a3b8" stroke-width="1.2"/>

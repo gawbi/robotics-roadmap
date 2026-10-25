@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>위는 RNN 이 빨간, 컵, 집어 를 차례로 읽으며 크기가 정해진 기억 하나를 고쳐 쓰는 모습. 아래는 attention 에서 세 token 이 서로를 한 번에 보는 모습</title>
-  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20.0" y="32.0" fill="#f59e0b" font-size="15" text-anchor="start">RNN 의 차례 계산</text>
+  <text x="20.0" y="32.0" fill="#d6aa62" font-size="15" text-anchor="start">RNN 의 차례 계산</text>
   <rect x="60.0" y="120.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="105.0" y="141.9" fill="#e2e8f0" font-size="14" text-anchor="middle">빨간</text>
-  <rect x="60.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="105.0" y="76.9" fill="#f59e0b" font-size="14" text-anchor="middle">기억 1</text>
+  <rect x="60.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="105.0" y="76.9" fill="#d6aa62" font-size="14" text-anchor="middle">기억 1</text>
   <line x1="105.0" y1="120.0" x2="105.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
-  <line x1="152.0" y1="72.0" x2="238.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#af59e0b)"/>
+  <line x1="152.0" y1="72.0" x2="238.0" y2="72.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#af59e0b)"/>
   <rect x="240.0" y="120.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="285.0" y="141.9" fill="#e2e8f0" font-size="14" text-anchor="middle">컵</text>
-  <rect x="240.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="285.0" y="76.9" fill="#f59e0b" font-size="14" text-anchor="middle">기억 2</text>
+  <rect x="240.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="285.0" y="76.9" fill="#d6aa62" font-size="14" text-anchor="middle">기억 2</text>
   <line x1="285.0" y1="120.0" x2="285.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
-  <line x1="332.0" y1="72.0" x2="418.0" y2="72.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#af59e0b)"/>
+  <line x1="332.0" y1="72.0" x2="418.0" y2="72.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#af59e0b)"/>
   <rect x="420.0" y="120.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="465.0" y="141.9" fill="#e2e8f0" font-size="14" text-anchor="middle">집어</text>
-  <rect x="420.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="465.0" y="76.9" fill="#f59e0b" font-size="14" text-anchor="middle">기억 3</text>
+  <rect x="420.0" y="52.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="465.0" y="76.9" fill="#d6aa62" font-size="14" text-anchor="middle">기억 3</text>
   <line x1="465.0" y1="120.0" x2="465.0" y2="95.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
   <text x="580.0" y="176.0" fill="#94a3b8" font-size="12" text-anchor="end">오른쪽 기억은 왼쪽 기억이 끝나야 계산할 수 있다</text>
   <line x1="20.0" y1="190.0" x2="580.0" y2="190.0" stroke="#1e293b" stroke-width="1"/>
-  <text x="20.0" y="218.0" fill="#38bdf8" font-size="15" text-anchor="start">attention 의 동시 계산</text>
-  <path d="M105,284 Q195.0,244 285,284" fill="none" stroke="#38bdf8" stroke-width="2"/>
-  <path d="M105,284 Q285.0,209 465,284" fill="none" stroke="#38bdf8" stroke-width="2"/>
-  <path d="M285,284 Q375.0,244 465,284" fill="none" stroke="#38bdf8" stroke-width="2"/>
-  <rect x="60.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="20.0" y="218.0" fill="#7cb4d8" font-size="15" text-anchor="start">attention 의 동시 계산</text>
+  <path d="M105,284 Q195.0,244 285,284" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <path d="M105,284 Q285.0,209 465,284" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <path d="M285,284 Q375.0,244 465,284" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <rect x="60.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="105.0" y="306.9" fill="#e2e8f0" font-size="14" text-anchor="middle">빨간</text>
-  <rect x="240.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="240.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="285.0" y="306.9" fill="#e2e8f0" font-size="14" text-anchor="middle">컵</text>
-  <rect x="420.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="420.0" y="285.0" width="90.0" height="34.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="465.0" y="306.9" fill="#e2e8f0" font-size="14" text-anchor="middle">집어</text>
   <text x="580.0" y="342.0" fill="#94a3b8" font-size="12" text-anchor="end">선마다의 계산은 서로를 기다리지 않는다</text>
 </svg>

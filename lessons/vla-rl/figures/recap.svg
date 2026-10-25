@@ -9,19 +9,19 @@
   <text x="24" y="32" fill="#94a3b8" font-size="13">잡기 직전 상태의 value V = 0.7 × 0.95 + 0.3 × 0.5 = 0.815</text>
 
   <text x="140" y="66" fill="#e2e8f0" font-size="14" text-anchor="middle">rollout 100 개</text>
-  <rect x="40" y="80" width="200" height="56" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="140" y="104" fill="#38bdf8" font-size="13" text-anchor="middle">가운데 잡기 70 개</text>
+  <rect x="40" y="80" width="200" height="56" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="140" y="104" fill="#7cb4d8" font-size="13" text-anchor="middle">가운데 잡기 70 개</text>
   <text x="140" y="124" fill="#94a3b8" font-size="12" text-anchor="middle">A = 0.95 − 0.815 = +0.135</text>
-  <rect x="40" y="150" width="200" height="56" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="140" y="174" fill="#f59e0b" font-size="13" text-anchor="middle">가장자리 잡기 30 개</text>
+  <rect x="40" y="150" width="200" height="56" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="140" y="174" fill="#d6aa62" font-size="13" text-anchor="middle">가장자리 잡기 30 개</text>
   <text x="140" y="194" fill="#94a3b8" font-size="12" text-anchor="middle">A = 0.5 − 0.815 = −0.315</text>
 
   <line x1="242" y1="108" x2="300" y2="108" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
   <line x1="242" y1="178" x2="300" y2="178" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <rect x="304" y="88" width="130" height="40" rx="8" fill="#34d399" fill-opacity="0.2" stroke="#34d399"/>
-  <text x="369" y="113" fill="#34d399" font-size="13" text-anchor="middle">표시 "positive"</text>
-  <rect x="304" y="158" width="130" height="40" rx="8" fill="#f87171" fill-opacity="0.2" stroke="#f87171"/>
-  <text x="369" y="183" fill="#f87171" font-size="13" text-anchor="middle">표시 "negative"</text>
+  <rect x="304" y="88" width="130" height="40" rx="8" fill="#7fc4a2" fill-opacity="0.2" stroke="#7fc4a2"/>
+  <text x="369" y="113" fill="#7fc4a2" font-size="13" text-anchor="middle">표시 "positive"</text>
+  <rect x="304" y="158" width="130" height="40" rx="8" fill="#d88b8b" fill-opacity="0.2" stroke="#d88b8b"/>
+  <text x="369" y="183" fill="#d88b8b" font-size="13" text-anchor="middle">표시 "negative"</text>
 
   <polyline points="436,108 462,108 462,143" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
   <polyline points="436,178 462,178 462,143" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
@@ -33,8 +33,8 @@
   <text x="585" y="182" fill="#94a3b8" font-size="12" text-anchor="middle">"negative" → 가장자리 잡기</text>
 
   <line x1="585" y1="192" x2="585" y2="236" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <rect x="440" y="240" width="240" height="56" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="560" y="264" fill="#34d399" font-size="13" text-anchor="middle">실행할 때는 늘 "positive" 를 넣는다</text>
+  <rect x="440" y="240" width="240" height="56" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="560" y="264" fill="#7fc4a2" font-size="13" text-anchor="middle">실행할 때는 늘 "positive" 를 넣는다</text>
   <text x="560" y="284" fill="#e2e8f0" font-size="13" text-anchor="middle">가운데 잡기 → 성공률 95%</text>
 
   <text x="40" y="250" fill="#94a3b8" font-size="12">filtered BC 는 성공 81.5 개만 써서 1 round 뒤 86.7%</text>

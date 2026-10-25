@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 366" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>decoder 7 개 층이 차례로 계산되고 층마다의 출력 h1 ~ h7 이 목록에 모인다. DETR 은 (목록, encoder 출력) 쌍에서 [0] 으로 목록을 꺼낸 뒤 마지막 h7 을 쓰지만, ACT 는 목록만 돌려받아 [0] 이 h1 을 꺼낸다. 2 ~ 7 층은 계산만 되고 loss 에 닿지 않는다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="678" height="364" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="340.0" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">decoder 7 개 층과 층마다의 출력 목록</text>
-  <rect x="40" y="54" width="70" height="40" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="40" y="54" width="70" height="40" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="75.0" y="79" fill="#e2e8f0" font-size="14" text-anchor="middle">층 1</text>
   <line x1="111" y1="74" x2="124" y2="74" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="75.0" y1="96" x2="75.0" y2="124" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
@@ -30,19 +30,19 @@
   <rect x="550" y="54" width="70" height="40" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="585.0" y="79" fill="#94a3b8" font-size="14" text-anchor="middle">층 7</text>
   <line x1="585.0" y1="96" x2="585.0" y2="124" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="30" y="128" width="600" height="40" rx="8" fill="#1a1530" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="75.0" y="153" fill="#f59e0b" font-size="14" text-anchor="middle">h1</text>
+  <rect x="30" y="128" width="600" height="40" rx="8" fill="#1a1530" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="75.0" y="153" fill="#d6aa62" font-size="14" text-anchor="middle">h1</text>
   <text x="160.0" y="153" fill="#94a3b8" font-size="14" text-anchor="middle">h2</text>
   <text x="245.0" y="153" fill="#94a3b8" font-size="14" text-anchor="middle">h3</text>
   <text x="330.0" y="153" fill="#94a3b8" font-size="14" text-anchor="middle">h4</text>
   <text x="415.0" y="153" fill="#94a3b8" font-size="14" text-anchor="middle">h5</text>
   <text x="500.0" y="153" fill="#94a3b8" font-size="14" text-anchor="middle">h6</text>
-  <text x="585.0" y="153" fill="#34d399" font-size="14" text-anchor="middle">h7</text>
-  <text x="36" y="186" fill="#a78bfa" font-size="13" text-anchor="start">목록 hs = [h1, h2, …, h7]  (DETR 이 층마다 loss 를 매기려고 모으는 출력)</text>
-  <rect x="30" y="204" width="620" height="70" rx="10" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="46" y="228" fill="#34d399" font-size="14" text-anchor="start">DETR: Transformer 가 (hs, encoder 출력) 쌍을 돌려준다</text>
+  <text x="585.0" y="153" fill="#7fc4a2" font-size="14" text-anchor="middle">h7</text>
+  <text x="36" y="186" fill="#a99ad6" font-size="13" text-anchor="start">목록 hs = [h1, h2, …, h7]  (DETR 이 층마다 loss 를 매기려고 모으는 출력)</text>
+  <rect x="30" y="204" width="620" height="70" rx="10" fill="none" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="46" y="228" fill="#7fc4a2" font-size="14" text-anchor="start">DETR: Transformer 가 (hs, encoder 출력) 쌍을 돌려준다</text>
   <text x="46" y="254" fill="#e2e8f0" font-size="14" text-anchor="start">[0] → hs 목록 → 최종 출력에는 마지막 h7 을 쓴다</text>
-  <rect x="30" y="288" width="620" height="64" rx="10" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="46" y="312" fill="#f59e0b" font-size="14" text-anchor="start">ACT: Transformer 가 hs 목록만 돌려주는데 [0] 은 그대로 남았다</text>
+  <rect x="30" y="288" width="620" height="64" rx="10" fill="none" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="46" y="312" fill="#d6aa62" font-size="14" text-anchor="start">ACT: Transformer 가 hs 목록만 돌려주는데 [0] 은 그대로 남았다</text>
   <text x="46" y="338" fill="#e2e8f0" font-size="14" text-anchor="start">[0] → h1 → action head. 층 2 ~ 7 은 계산만 되고 loss 에 닿지 않는다</text>
 </svg>

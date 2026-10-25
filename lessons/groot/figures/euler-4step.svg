@@ -13,23 +13,23 @@
     <text x="92" y="82">1.0</text><text x="92" y="138">0.5</text><text x="92" y="194">0</text><text x="92" y="250">−0.5</text><text x="92" y="306">−1.0</text>
   </g>
 
-  <polyline points="100,302 220,246 340,190 460,134 580,78" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <g fill="#38bdf8"><circle cx="100" cy="302" r="5"/><circle cx="220" cy="246" r="5"/><circle cx="340" cy="190" r="5"/><circle cx="460" cy="134" r="5"/><circle cx="580" cy="78" r="5"/></g>
-  <g fill="#38bdf8" font-size="12" text-anchor="middle">
+  <polyline points="100,302 220,246 340,190 460,134 580,78" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <g fill="#7cb4d8"><circle cx="100" cy="302" r="5"/><circle cx="220" cy="246" r="5"/><circle cx="340" cy="190" r="5"/><circle cx="460" cy="134" r="5"/><circle cx="580" cy="78" r="5"/></g>
+  <g fill="#7cb4d8" font-size="12" text-anchor="middle">
     <text x="110" y="322">−1.0</text><text x="230" y="266">−0.5</text><text x="460" y="120">0.5</text><text x="580" y="64">1.0</text>
   </g>
 
-  <polyline points="100,134 220,162 340,190 460,218 580,246" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <g fill="#f59e0b"><circle cx="100" cy="134" r="5"/><circle cx="220" cy="162" r="5"/><circle cx="340" cy="190" r="5"/><circle cx="460" cy="218" r="5"/><circle cx="580" cy="246" r="5"/></g>
-  <g fill="#f59e0b" font-size="12" text-anchor="middle">
+  <polyline points="100,134 220,162 340,190 460,218 580,246" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <g fill="#d6aa62"><circle cx="100" cy="134" r="5"/><circle cx="220" cy="162" r="5"/><circle cx="340" cy="190" r="5"/><circle cx="460" cy="218" r="5"/><circle cx="580" cy="246" r="5"/></g>
+  <g fill="#d6aa62" font-size="12" text-anchor="middle">
     <text x="110" y="122">0.5</text><text x="220" y="150">0.25</text><text x="460" y="238">−0.25</text><text x="580" y="266">−0.5</text>
   </g>
   <text x="340" y="176" fill="#e2e8f0" font-size="12" text-anchor="middle">(0, 0)</text>
 
   <rect x="606" y="70" width="140" height="150" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="2"/>
-  <text x="620" y="96" fill="#38bdf8" font-size="13">첫째 칸</text>
+  <text x="620" y="96" fill="#7cb4d8" font-size="13">첫째 칸</text>
   <text x="620" y="116" fill="#94a3b8" font-size="12">step 마다 +0.5</text>
-  <text x="620" y="150" fill="#f59e0b" font-size="13">둘째 칸</text>
+  <text x="620" y="150" fill="#d6aa62" font-size="13">둘째 칸</text>
   <text x="620" y="170" fill="#94a3b8" font-size="12">step 마다 −0.25</text>
   <text x="620" y="204" fill="#94a3b8" font-size="11">속도 (2.0, −1.0) × 0.25</text>
   <text x="340" y="32" fill="#e2e8f0" font-size="14" text-anchor="middle">noise (−1.0, 0.5) → 시연 (1.0, −0.5), K = 4</text>

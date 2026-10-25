@@ -2,47 +2,47 @@
   <title>AND 의 epoch 2 를 online update 와 batch update 로 비교한 그림. online 은 칸마다 weight 가 바뀌고, batch 는 네 칸이 같은 weight 를 쓴다</title>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
   <rect x="1" y="1" width="618" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20" y="28" fill="#f59e0b" font-size="15" text-anchor="start">online update · AND epoch 2</text>
-  <rect x="20" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="20" y="28" fill="#d6aa62" font-size="15" text-anchor="start">online update · AND epoch 2</text>
+  <rect x="20" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="85" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0.1</text>
   <text x="85" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">[0,0]: z = 0.1</text>
-  <text x="85" y="104" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="85" y="104" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <line x1="152" y1="77" x2="168" y2="77" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="170" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="170" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="235" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0</text>
   <text x="235" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">[0,1]: z = 0.1</text>
-  <text x="235" y="104" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="235" y="104" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <line x1="302" y1="77" x2="318" y2="77" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="320" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="385" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0 · b −0.1</text>
   <text x="385" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">[1,0]: z = 0</text>
-  <text x="385" y="104" fill="#34d399" font-size="12" text-anchor="middle">맞힘</text>
+  <text x="385" y="104" fill="#7fc4a2" font-size="12" text-anchor="middle">맞힘</text>
   <line x1="452" y1="77" x2="468" y2="77" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="470" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="470" y="40" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="535" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0 · b −0.1</text>
   <text x="535" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">[1,1]: z = 0</text>
-  <text x="535" y="104" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="535" y="104" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <text x="20" y="138" fill="#94a3b8" font-size="13" text-anchor="start">틀릴 때마다 바로 고쳐서 칸마다 쓰는 weight 가 다르다 → 끝: w = [0.2, 0.1], b = 0</text>
-  <text x="20" y="188" fill="#f59e0b" font-size="15" text-anchor="start">batch update · AND epoch 2</text>
-  <rect x="20" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <text x="20" y="188" fill="#d6aa62" font-size="15" text-anchor="start">batch update · AND epoch 2</text>
+  <rect x="20" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="85" y="222" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0.1</text>
   <text x="85" y="244" fill="#e2e8f0" font-size="13" text-anchor="middle">[0,0]: z = 0.1</text>
-  <text x="85" y="264" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="85" y="264" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <line x1="152" y1="237" x2="168" y2="237" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="170" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="170" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="235" y="222" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0.1</text>
   <text x="235" y="244" fill="#e2e8f0" font-size="13" text-anchor="middle">[0,1]: z = 0.2</text>
-  <text x="235" y="264" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="235" y="264" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <line x1="302" y1="237" x2="318" y2="237" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="320" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="320" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="385" y="222" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0.1</text>
   <text x="385" y="244" fill="#e2e8f0" font-size="13" text-anchor="middle">[1,0]: z = 0.2</text>
-  <text x="385" y="264" fill="#f87171" font-size="12" text-anchor="middle">틀림</text>
+  <text x="385" y="264" fill="#d88b8b" font-size="12" text-anchor="middle">틀림</text>
   <line x1="452" y1="237" x2="468" y2="237" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="470" y="200" width="130" height="74" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="535" y="222" fill="#94a3b8" font-size="12" text-anchor="middle">w 0.1, 0.1 · b 0.1</text>
   <text x="535" y="244" fill="#e2e8f0" font-size="13" text-anchor="middle">[1,1]: z = 0.3</text>
-  <text x="535" y="264" fill="#34d399" font-size="12" text-anchor="middle">맞힘</text>
+  <text x="535" y="264" fill="#7fc4a2" font-size="12" text-anchor="middle">맞힘</text>
   <text x="20" y="298" fill="#94a3b8" font-size="13" text-anchor="start">네 칸 모두 같은 weight 로 예측하고 고칠 양만 모았다가 끝에 더한다 → 끝: w = [0, 0], b = −0.2</text>
 
 </svg>

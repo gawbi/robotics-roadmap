@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>chain rule. 감속비 100:1 인 gear 때문에 motor 가 1 rad 돌면 관절은 0.01 rad 돌고, 길이 0.5 m 인 link 가 60° 에 있으면 관절 1 rad 당 손끝 높이가 0.25 m 변한다. 두 비율을 곱한 0.0025 m/rad 가 motor 각도에 대한 손끝 높이의 비율이다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20" y="70" width="180" height="70" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="110.0" y="98.0" fill="#94a3b8" font-size="14" text-anchor="middle" font-weight="600">motor 각도 φ</text>
   <text x="110.0" y="122.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1 rad 돌면</text>
-  <rect x="250" y="70" width="180" height="70" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="340.0" y="98.0" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">관절 각도 θ</text>
+  <rect x="250" y="70" width="180" height="70" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="340.0" y="98.0" fill="#d6aa62" font-size="14" text-anchor="middle" font-weight="600">관절 각도 θ</text>
   <text x="340.0" y="122.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.01 rad 돈다</text>
-  <rect x="480" y="70" width="180" height="70" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="570.0" y="98.0" fill="#38bdf8" font-size="14" text-anchor="middle" font-weight="600">손끝 높이 y</text>
+  <rect x="480" y="70" width="180" height="70" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="570.0" y="98.0" fill="#7cb4d8" font-size="14" text-anchor="middle" font-weight="600">손끝 높이 y</text>
   <text x="570.0" y="122.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.0025 m 오른다</text>
   <line x1="202.0" y1="105.0" x2="246.0" y2="105.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="432.0" y1="105.0" x2="476.0" y2="105.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <text x="224.0" y="58.0" fill="#94a3b8" font-size="12" text-anchor="middle">÷ 100</text>
-  <text x="224.0" y="160.0" fill="#f59e0b" font-size="12" text-anchor="middle">dθ/dφ = 0.01</text>
+  <text x="224.0" y="160.0" fill="#d6aa62" font-size="12" text-anchor="middle">dθ/dφ = 0.01</text>
   <text x="454.0" y="58.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5 cos 60°</text>
-  <text x="454.0" y="160.0" fill="#38bdf8" font-size="12" text-anchor="middle">dy/dθ = 0.25 m/rad</text>
-  <text x="340.0" y="205.0" fill="#34d399" font-size="14" text-anchor="middle" font-weight="600">dy/dφ = 0.25 × 0.01 = 0.0025 m/rad</text>
+  <text x="454.0" y="160.0" fill="#7cb4d8" font-size="12" text-anchor="middle">dy/dθ = 0.25 m/rad</text>
+  <text x="340.0" y="205.0" fill="#7fc4a2" font-size="14" text-anchor="middle" font-weight="600">dy/dφ = 0.25 × 0.01 = 0.0025 m/rad</text>
   <text x="340.0" y="230.0" fill="#94a3b8" font-size="12" text-anchor="middle">단계마다의 비율을 곱하면 처음과 끝 사이의 비율이 된다 (θ = 60° 에서)</text>
 </svg>

@@ -12,29 +12,29 @@
   <line x1="160" y1="95" x2="184" y2="95" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- box 2 -->
-  <rect x="186" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="256" y="88" fill="#f59e0b" font-size="13" text-anchor="middle">[R | t] 곱하기</text>
+  <rect x="186" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="256" y="88" fill="#d6aa62" font-size="13" text-anchor="middle">[R | t] 곱하기</text>
   <text x="256" y="112" fill="#e2e8f0" font-size="14" text-anchor="middle">(0.2, 0.1, 2.0)</text>
   <line x1="328" y1="95" x2="352" y2="95" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- box 3 -->
-  <rect x="354" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="424" y="88" fill="#38bdf8" font-size="13" text-anchor="middle">K 곱하기</text>
+  <rect x="354" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="424" y="88" fill="#7cb4d8" font-size="13" text-anchor="middle">K 곱하기</text>
   <text x="424" y="112" fill="#e2e8f0" font-size="14" text-anchor="middle">(740, 530, 2.0)</text>
   <line x1="496" y1="95" x2="520" y2="95" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- box 4 -->
-  <rect x="522" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="592" y="88" fill="#38bdf8" font-size="13" text-anchor="middle">s = 2.0 으로 나누기</text>
-  <text x="592" y="112" fill="#34d399" font-size="14" text-anchor="middle">pixel (370, 265)</text>
+  <rect x="522" y="60" width="140" height="70" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="592" y="88" fill="#7cb4d8" font-size="13" text-anchor="middle">s = 2.0 으로 나누기</text>
+  <text x="592" y="112" fill="#7fc4a2" font-size="14" text-anchor="middle">pixel (370, 265)</text>
 
   <text x="256" y="50" fill="#94a3b8" font-size="12" text-anchor="middle">camera frame 의 점</text>
 
   <!-- brackets -->
-  <path d="M18,150 L18,160 L326,160 L326,150" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="172" y="184" fill="#f59e0b" font-size="14" text-anchor="middle">extrinsics</text>
+  <path d="M18,150 L18,160 L326,160 L326,150" fill="none" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="172" y="184" fill="#d6aa62" font-size="14" text-anchor="middle">extrinsics</text>
   <text x="172" y="206" fill="#94a3b8" font-size="13" text-anchor="middle">카메라를 어디에 두었는지에 따라 바뀐다</text>
-  <path d="M354,150 L354,160 L662,160 L662,150" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="508" y="184" fill="#38bdf8" font-size="14" text-anchor="middle">intrinsics</text>
+  <path d="M354,150 L354,160 L662,160 L662,150" fill="none" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="508" y="184" fill="#7cb4d8" font-size="14" text-anchor="middle">intrinsics</text>
   <text x="508" y="206" fill="#94a3b8" font-size="13" text-anchor="middle">카메라 자체에 따라 바뀐다</text>
 </svg>

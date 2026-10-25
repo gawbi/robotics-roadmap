@@ -1,64 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>Diffusion Policy 의 PushT 설정. 최근 관측 2 개를 ResNet-18 이 조건 vector 로 바꾸고, noise 16 × 2 에서 시작해 1D U-Net 으로 noise 를 걷어 내 손끝 목표 16 개짜리 action chunk 를 만든다. 학습은 100 step schedule 로 하고 실제 로봇에서는 DDIM 으로 10 step 만 밟으며, 만든 chunk 중 앞 8 개만 실행한 뒤 다시 만든다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20.0" y="40.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="95.0" y="64.0" fill="#38bdf8" font-size="13" text-anchor="middle">관측 To = 2</text>
+  <rect x="20.0" y="40.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="95.0" y="64.0" fill="#7cb4d8" font-size="13" text-anchor="middle">관측 To = 2</text>
   <text x="95.0" y="84.0" fill="#e2e8f0" font-size="12" text-anchor="middle">카메라 이미지 2 장</text>
   <text x="95.0" y="102.0" fill="#94a3b8" font-size="11" text-anchor="middle">손끝 위치 2 개</text>
-  <rect x="20.0" y="150.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="95.0" y="174.0" fill="#a78bfa" font-size="13" text-anchor="middle">noise</text>
+  <rect x="20.0" y="150.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
+  <text x="95.0" y="174.0" fill="#a99ad6" font-size="13" text-anchor="middle">noise</text>
   <text x="95.0" y="194.0" fill="#e2e8f0" font-size="12" text-anchor="middle">16 × 2 = 숫자 32 개</text>
   <text x="95.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">N(0, 1) 에서 뽑음</text>
-  <rect x="225.0" y="40.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="300.0" y="64.0" fill="#38bdf8" font-size="13" text-anchor="middle">ResNet-18</text>
+  <rect x="225.0" y="40.0" width="150.0" height="76.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="300.0" y="64.0" fill="#7cb4d8" font-size="13" text-anchor="middle">ResNet-18</text>
   <text x="300.0" y="84.0" fill="#e2e8f0" font-size="12" text-anchor="middle">관측을 조건 vector 로</text>
-  <rect x="225.0" y="150.0" width="170.0" height="76.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="310.0" y="174.0" fill="#34d399" font-size="13" text-anchor="middle">ε_θ (1D U-Net)</text>
+  <rect x="225.0" y="150.0" width="170.0" height="76.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="310.0" y="174.0" fill="#7fc4a2" font-size="13" text-anchor="middle">ε_θ (1D U-Net)</text>
   <text x="310.0" y="194.0" fill="#e2e8f0" font-size="12" text-anchor="middle">noise 를 K 번 걷어 냄</text>
   <text x="310.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">학습 100 step, 실물 DDIM 10</text>
-  <rect x="430.0" y="150.0" width="130.0" height="76.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="495.0" y="174.0" fill="#f59e0b" font-size="13" text-anchor="middle">action chunk</text>
+  <rect x="430.0" y="150.0" width="130.0" height="76.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="495.0" y="174.0" fill="#d6aa62" font-size="13" text-anchor="middle">action chunk</text>
   <text x="495.0" y="194.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Tp = 16 개</text>
   <text x="495.0" y="212.0" fill="#94a3b8" font-size="11" text-anchor="middle">손끝 목표 (x, y)</text>
   <line x1="170.0" y1="78.0" x2="222.0" y2="78.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="170.0" y1="188.0" x2="222.0" y2="188.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <line x1="300.0" y1="116.0" x2="300.0" y2="147.0" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#arrow-sky)"/>
+  <line x1="300.0" y1="116.0" x2="300.0" y2="147.0" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#arrow-sky)"/>
   <line x1="395.0" y1="188.0" x2="427.0" y2="188.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <path d="M300,226 C300,258 255,258 255,240 C255,232 270,228 285,228" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M300,226 C300,258 255,258 255,240 C255,232 270,228 285,228" fill="none" stroke="#7fc4a2" stroke-width="1.5" marker-end="url(#arrow-green)"/>
   <text x="20.0" y="260.0" fill="#94a3b8" font-size="12" text-anchor="start">실행</text>
-  <rect x="70.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="70.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="85.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">1</text>
-  <rect x="108.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="108.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="123.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">2</text>
-  <rect x="146.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="146.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="161.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">3</text>
-  <rect x="184.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="184.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="199.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">4</text>
-  <rect x="222.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="222.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="237.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">5</text>
-  <rect x="260.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="260.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="275.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">6</text>
-  <rect x="298.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="298.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="313.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">7</text>
-  <rect x="336.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="336.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
   <text x="351.0" y="290.0" fill="#0b1220" font-size="11" text-anchor="middle">8</text>
-  <rect x="374.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="374.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="389.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">9</text>
-  <rect x="412.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="412.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="427.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">10</text>
-  <rect x="450.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="450.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="465.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">11</text>
-  <rect x="488.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="488.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="503.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">12</text>
-  <rect x="526.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="526.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="541.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">13</text>
-  <rect x="564.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="564.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="579.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">14</text>
-  <rect x="602.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="602.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="617.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">15</text>
-  <rect x="640.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="640.0" y="276.0" width="30.0" height="20.0" rx="3" fill="#3b2a12" stroke="#d6aa62" stroke-width="1"/>
   <text x="655.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">16</text>
-  <text x="218.0" y="316.0" fill="#f59e0b" font-size="12" text-anchor="middle">앞 8 개 실행 (Ta = 8)</text>
+  <text x="218.0" y="316.0" fill="#d6aa62" font-size="12" text-anchor="middle">앞 8 개 실행 (Ta = 8)</text>
   <text x="522.0" y="316.0" fill="#94a3b8" font-size="12" text-anchor="middle">버리고 새 관측으로 다시 생성</text>
 </svg>

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>PointPillars 의 구조. 땅을 0.16 m 칸으로 나눈 기둥(pillar)마다 점 최대 100 개의 숫자 9 개를 선형층과 최댓값으로 숫자 64 개로 줄이고, 이를 제자리에 놓은 64 channel pseudo-image 를 2D CNN 과 detection head 에 넣어 3D box 와 class 를 낸다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="838" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="420.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">PointPillars: 점 → pillar → pseudo-image → 2D CNN → 3D box</text>
   <rect x="30" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="30" y="84" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="30" y="98" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="30" y="112" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="30" y="112" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="30" y="126" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="30" y="140" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="30" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
@@ -35,7 +35,7 @@
   <rect x="58" y="196" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="72" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="72" y="84" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="72" y="98" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="72" y="98" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="72" y="112" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="72" y="126" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="72" y="140" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
@@ -48,7 +48,7 @@
   <rect x="86" y="98" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="86" y="112" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="86" y="126" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="86" y="140" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="86" y="140" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="86" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="86" y="168" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="86" y="182" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
@@ -62,7 +62,7 @@
   <rect x="100" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="100" y="168" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="100" y="182" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="100" y="196" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="100" y="196" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="84" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="98" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
@@ -70,7 +70,7 @@
   <rect x="114" y="126" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="140" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="114" y="168" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="114" y="168" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="182" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="114" y="196" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="128" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
@@ -82,48 +82,48 @@
   <rect x="128" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="128" y="168" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="128" y="182" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="128" y="196" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="128" y="196" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="84" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="98" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="142" y="112" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="142" y="112" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="126" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="140" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="168" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="142" y="182" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="142" y="182" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="142" y="196" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="70" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="84" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="98" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="112" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <rect x="156" y="126" width="13" height="13" fill="#38bdf8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
+  <rect x="156" y="126" width="13" height="13" fill="#7cb4d8" fill-opacity="0.8" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="140" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="154" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="168" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="182" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
   <rect x="156" y="196" width="13" height="13" fill="#0f172a" fill-opacity="1" stroke="#475569" stroke-width="0.5"/>
-  <text x="100.0" y="232.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">① 땅을 0.16 m 칸으로 나눔</text>
+  <text x="100.0" y="232.0" fill="#7cb4d8" font-size="12" text-anchor="middle" font-weight="600">① 땅을 0.16 m 칸으로 나눔</text>
   <text x="100.0" y="250.0" fill="#94a3b8" font-size="11" text-anchor="middle">칸 하나 = 높이 전체 기둥 (pillar)</text>
   <text x="100.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">440 × 500 칸 중 점이 있는 칸 6 ~ 9 천</text>
   <line x1="180.0" y1="140.0" x2="208.0" y2="140.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="210.0" y="95.0" width="150.0" height="90.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="285.0" y="120.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">② pillar 마다</text>
+  <rect x="210.0" y="95.0" width="150.0" height="90.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="285.0" y="120.0" fill="#d6aa62" font-size="12" text-anchor="middle" font-weight="600">② pillar 마다</text>
   <text x="285.0" y="140.0" fill="#e2e8f0" font-size="11" text-anchor="middle">점 ≤ 100 개 × 숫자 9 개</text>
   <text x="285.0" y="158.0" fill="#e2e8f0" font-size="11" text-anchor="middle">→ 선형층 → 64 개</text>
   <text x="285.0" y="176.0" fill="#e2e8f0" font-size="11" text-anchor="middle">→ 점들 중 최댓값</text>
   <text x="285.0" y="210.0" fill="#94a3b8" font-size="11" text-anchor="middle">pillar 하나가 숫자 64 개</text>
   <line x1="362.0" y1="140.0" x2="398.0" y2="140.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="400" y="82" width="100" height="90" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.2"/>
-  <rect x="408" y="90" width="100" height="90" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.2"/>
-  <rect x="416" y="98" width="100" height="90" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.2"/>
-  <rect x="424" y="106" width="100" height="90" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.2"/>
-  <text x="474.0" y="218.0" fill="#a78bfa" font-size="12" text-anchor="middle" font-weight="600">③ pseudo-image</text>
+  <rect x="400" y="82" width="100" height="90" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.2"/>
+  <rect x="408" y="90" width="100" height="90" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.2"/>
+  <rect x="416" y="98" width="100" height="90" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.2"/>
+  <rect x="424" y="106" width="100" height="90" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.2"/>
+  <text x="474.0" y="218.0" fill="#a99ad6" font-size="12" text-anchor="middle" font-weight="600">③ pseudo-image</text>
   <text x="474.0" y="236.0" fill="#94a3b8" font-size="11" text-anchor="middle">64 channel × 500 × 440</text>
   <text x="474.0" y="254.0" fill="#94a3b8" font-size="11" text-anchor="middle">pillar 를 제자리 칸에 다시 놓음</text>
   <line x1="536.0" y1="140.0" x2="568.0" y2="140.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="570.0" y="105.0" width="110.0" height="70.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="625.0" y="133.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">④ 2D CNN</text>
+  <rect x="570.0" y="105.0" width="110.0" height="70.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="625.0" y="133.0" fill="#7fc4a2" font-size="12" text-anchor="middle" font-weight="600">④ 2D CNN</text>
   <text x="625.0" y="153.0" fill="#94a3b8" font-size="11" text-anchor="middle">backbone</text>
   <line x1="682.0" y1="140.0" x2="708.0" y2="140.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <rect x="710.0" y="95.0" width="115.0" height="90.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>

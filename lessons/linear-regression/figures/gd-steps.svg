@@ -5,7 +5,7 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="334" rx="12" fill="#0b1220" stroke="#1e293b"/>
@@ -16,12 +16,12 @@
   <text x="272" y="288" fill="#94a3b8" font-size="14" text-anchor="end">w</text>
   <text x="150.0" y="288" fill="#64748b" font-size="13" text-anchor="middle">최솟값</text>
   <line x1="150.0" y1="266" x2="150.0" y2="274" stroke="#64748b" stroke-width="1.5"/>
-  <line x1="55.9" y1="149.8" x2="96.8" y2="229.9" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <line x1="107.3" y1="244.2" x2="119.0" y2="255.7" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <circle cx="51.8" cy="141.8" r="6" fill="#f59e0b"/>
-  <circle cx="100.9" cy="237.9" r="6" fill="#f59e0b"/>
-  <circle cx="125.5" cy="262.0" r="6" fill="#f59e0b"/>
-  <circle cx="137.7" cy="268.0" r="6" fill="#f59e0b"/>
+  <line x1="55.9" y1="149.8" x2="96.8" y2="229.9" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="107.3" y1="244.2" x2="119.0" y2="255.7" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <circle cx="51.8" cy="141.8" r="6" fill="#d6aa62"/>
+  <circle cx="100.9" cy="237.9" r="6" fill="#d6aa62"/>
+  <circle cx="125.5" cy="262.0" r="6" fill="#d6aa62"/>
+  <circle cx="137.7" cy="268.0" r="6" fill="#d6aa62"/>
   <text x="41.8" y="146.8" fill="#e2e8f0" font-size="13" text-anchor="end">w₀</text>
   <text x="150" y="316" fill="#94a3b8" font-size="13" text-anchor="middle">한 step 마다 최솟값에 조금씩 다가간다</text>
   <rect x="310" y="44" width="280" height="250" rx="8" fill="#0e1628" stroke="#1e293b"/>
@@ -31,13 +31,13 @@
   <text x="572" y="288" fill="#94a3b8" font-size="14" text-anchor="end">w</text>
   <text x="450.0" y="288" fill="#64748b" font-size="13" text-anchor="middle">최솟값</text>
   <line x1="450.0" y1="266" x2="450.0" y2="274" stroke="#64748b" stroke-width="1.5"/>
-  <line x1="393.4" y1="211.5" x2="519.7" y2="189.5" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <line x1="519.7" y1="186.1" x2="364.6" y2="153.6" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <line x1="364.5" y1="149.6" x2="554.4" y2="102.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <circle cx="384.5" cy="213.0" r="6" fill="#f59e0b"/>
-  <circle cx="528.5" cy="187.9" r="6" fill="#f59e0b"/>
-  <circle cx="355.7" cy="151.8" r="6" fill="#f59e0b"/>
-  <circle cx="563.1" cy="99.8" r="6" fill="#f59e0b"/>
+  <line x1="393.4" y1="211.5" x2="519.7" y2="189.5" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="519.7" y1="186.1" x2="364.6" y2="153.6" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="364.5" y1="149.6" x2="554.4" y2="102.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <circle cx="384.5" cy="213.0" r="6" fill="#d6aa62"/>
+  <circle cx="528.5" cy="187.9" r="6" fill="#d6aa62"/>
+  <circle cx="355.7" cy="151.8" r="6" fill="#d6aa62"/>
+  <circle cx="563.1" cy="99.8" r="6" fill="#d6aa62"/>
   <text x="374.5" y="218.0" fill="#e2e8f0" font-size="13" text-anchor="end">w₀</text>
   <text x="450" y="316" fill="#94a3b8" font-size="13" text-anchor="middle">최솟값을 넘어 반대편으로 더 멀리 튄다</text>
 </svg>

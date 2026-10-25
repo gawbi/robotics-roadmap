@@ -2,11 +2,11 @@
   <title>learning rate 0.01 로 학습할 때 step 에 따른 loss</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="80.0" y="40.0" width="460.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
@@ -29,16 +29,16 @@
   <text x="72.0" y="44.0" fill="#64748b" font-size="13" text-anchor="end">70</text>
   <text x="548.0" y="265.0" fill="#94a3b8" font-size="14" text-anchor="start">step</text>
   <text x="72.0" y="20.0" fill="#94a3b8" font-size="14" text-anchor="end">loss</text>
-  <polyline points="80.0,40.0 87.7,86.1 95.3,122.5 103.0,151.3 110.7,174.0 118.3,192.0 126.0,206.2 133.7,217.5 141.3,226.4 149.0,233.4 156.7,238.9 164.3,243.3 172.0,246.8 179.7,249.5 187.3,251.7 195.0,253.4 202.7,254.8 210.3,255.8 218.0,256.7 225.7,257.3 233.3,257.9 241.0,258.3 248.7,258.6 256.3,258.9 264.0,259.1 271.7,259.3 279.3,259.4 287.0,259.5 294.7,259.6 302.3,259.6 310.0,259.7 317.7,259.7 325.3,259.8 333.0,259.8 340.7,259.8 348.3,259.8 356.0,259.8 363.7,259.8 371.3,259.8 379.0,259.9 386.7,259.9 394.3,259.9 402.0,259.9 409.7,259.9 417.3,259.9 425.0,259.9 432.7,259.9 440.3,259.9 448.0,259.9 455.7,259.9 463.3,259.9 471.0,259.9 478.7,259.9 486.3,259.9 494.0,259.9 501.7,259.9 509.3,259.9 517.0,259.9 524.7,259.9 532.3,259.9 540.0,259.9" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="80.0" cy="40.0" r="5" fill="#f59e0b"/>
+  <polyline points="80.0,40.0 87.7,86.1 95.3,122.5 103.0,151.3 110.7,174.0 118.3,192.0 126.0,206.2 133.7,217.5 141.3,226.4 149.0,233.4 156.7,238.9 164.3,243.3 172.0,246.8 179.7,249.5 187.3,251.7 195.0,253.4 202.7,254.8 210.3,255.8 218.0,256.7 225.7,257.3 233.3,257.9 241.0,258.3 248.7,258.6 256.3,258.9 264.0,259.1 271.7,259.3 279.3,259.4 287.0,259.5 294.7,259.6 302.3,259.6 310.0,259.7 317.7,259.7 325.3,259.8 333.0,259.8 340.7,259.8 348.3,259.8 356.0,259.8 363.7,259.8 371.3,259.8 379.0,259.9 386.7,259.9 394.3,259.9 402.0,259.9 409.7,259.9 417.3,259.9 425.0,259.9 432.7,259.9 440.3,259.9 448.0,259.9 455.7,259.9 463.3,259.9 471.0,259.9 478.7,259.9 486.3,259.9 494.0,259.9 501.7,259.9 509.3,259.9 517.0,259.9 524.7,259.9 532.3,259.9 540.0,259.9" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="80.0" cy="40.0" r="5" fill="#d6aa62"/>
   <text x="88.0" y="34.0" fill="#e2e8f0" font-size="12" text-anchor="start">70</text>
-  <circle cx="87.7" cy="86.1" r="5" fill="#f59e0b"/>
+  <circle cx="87.7" cy="86.1" r="5" fill="#d6aa62"/>
   <text x="95.7" y="80.1" fill="#e2e8f0" font-size="12" text-anchor="start">55.34</text>
-  <circle cx="118.3" cy="192.0" r="5" fill="#f59e0b"/>
+  <circle cx="118.3" cy="192.0" r="5" fill="#d6aa62"/>
   <text x="126.3" y="186.0" fill="#e2e8f0" font-size="12" text-anchor="start">21.63</text>
-  <circle cx="156.7" cy="238.9" r="5" fill="#f59e0b"/>
+  <circle cx="156.7" cy="238.9" r="5" fill="#d6aa62"/>
   <text x="164.7" y="232.9" fill="#e2e8f0" font-size="12" text-anchor="start">6.71</text>
-  <circle cx="233.3" cy="257.9" r="5" fill="#f59e0b"/>
+  <circle cx="233.3" cy="257.9" r="5" fill="#d6aa62"/>
   <text x="241.3" y="251.9" fill="#e2e8f0" font-size="12" text-anchor="start">0.68</text>
   <text x="300.0" y="304.0" fill="#94a3b8" font-size="13" text-anchor="middle">처음 20 step 에 빠르게 떨어지고, 그 뒤로는 아주 천천히 0 에 다가간다</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>손목 카메라에서 base 까지의 변환 사슬. camera 에서 (0.02, −0.01, 0.25) 인 컵은 T_ec 의 이동 (0, 0.06, 0) 을 더해 gripper 에서 (0.02, 0.05, 0.25) 가 되고, x 축 중심 180° 로 아래를 보는 gripper 의 pose T_be 로 돌리고 (0.4, 0, 0.3) 을 더해 base 에서 (0.42, −0.05, 0.05) 다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="678" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="30.0" y1="285.0" x2="360.0" y2="285.0" stroke="#475569" stroke-width="2"/>
   <text x="345.0" y="303.0" fill="#64748b" font-size="12" text-anchor="end">책상 (z = 0)</text>
@@ -14,26 +14,26 @@
   <rect x="238.0" y="95.0" width="44.0" height="14.0" rx="3" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="246.0" y1="109.0" x2="246.0" y2="137.0" stroke="#94a3b8" stroke-width="4"/>
   <line x1="274.0" y1="109.0" x2="274.0" y2="137.0" stroke="#94a3b8" stroke-width="4"/>
-  <rect x="304.0" y="91.0" width="28.0" height="24.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <ellipse cx="318.0" cy="117.0" rx="8" ry="4" fill="#0b1220" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="318.0" y="83.0" fill="#38bdf8" font-size="12" text-anchor="middle">camera</text>
-  <path d="M256.0,285.0 L253.0,235.0 L287.0,235.0 L284.0,285.0 Z" fill="#2a1d08" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="270.0" cy="260.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <text x="292.0" y="264.0" fill="#f59e0b" font-size="13" text-anchor="start">컵</text>
+  <rect x="304.0" y="91.0" width="28.0" height="24.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <ellipse cx="318.0" cy="117.0" rx="8" ry="4" fill="#0b1220" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="318.0" y="83.0" fill="#7cb4d8" font-size="12" text-anchor="middle">camera</text>
+  <path d="M256.0,285.0 L253.0,235.0 L287.0,235.0 L284.0,285.0 Z" fill="#2a1d08" stroke="#d6aa62" stroke-width="1.5"/>
+  <circle cx="270.0" cy="260.0" r="4" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <text x="292.0" y="264.0" fill="#d6aa62" font-size="13" text-anchor="start">컵</text>
   <path d="M68.0,247.0 Q120.0,55.0 256.0,87.0" fill="none" stroke="#e2e8f0" stroke-width="2" marker-end="url(#arrow-white)"/>
   <text x="100.0" y="65.0" fill="#e2e8f0" font-size="15" text-anchor="start">T<tspan dy="4" font-size="10">be</tspan><tspan dy="-4">&#8203;</tspan></text>
-  <path d="M284.0,102.0 L300.0,103.0" fill="none" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
-  <text x="291.0" y="133.0" fill="#38bdf8" font-size="15" text-anchor="middle">T<tspan dy="4" font-size="10">ec</tspan><tspan dy="-4">&#8203;</tspan></text>
-  <path d="M318.0,123.0 Q328.0,210.0 286.0,240.0" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
-  <text x="304.0" y="188.0" fill="#f59e0b" font-size="12" text-anchor="end">카메라가 잰 p<tspan dy="4" font-size="10">c</tspan></text>
+  <path d="M284.0,102.0 L300.0,103.0" fill="none" stroke="#7cb4d8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="291.0" y="133.0" fill="#7cb4d8" font-size="15" text-anchor="middle">T<tspan dy="4" font-size="10">ec</tspan><tspan dy="-4">&#8203;</tspan></text>
+  <path d="M318.0,123.0 Q328.0,210.0 286.0,240.0" fill="none" stroke="#d6aa62" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+  <text x="304.0" y="188.0" fill="#d6aa62" font-size="12" text-anchor="end">카메라가 잰 p<tspan dy="4" font-size="10">c</tspan></text>
   <text x="400.0" y="44.0" fill="#e2e8f0" font-size="16" text-anchor="start">p<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">&#8203;</tspan> = T<tspan dy="4" font-size="10">be</tspan><tspan dy="-4">&#8203;</tspan> T<tspan dy="4" font-size="10">ec</tspan><tspan dy="-4">&#8203;</tspan> p<tspan dy="4" font-size="10">c</tspan><tspan dy="-4">&#8203;</tspan></text>
   <text x="400.0" y="84.0" fill="#94a3b8" font-size="12" text-anchor="start">camera 에서 잰 컵</text>
-  <text x="400.0" y="104.0" fill="#f59e0b" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>c</tspan><tspan dy='-4'>&#8203;</tspan> = (0.02, −0.01, 0.25)</text>
+  <text x="400.0" y="104.0" fill="#d6aa62" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>c</tspan><tspan dy='-4'>&#8203;</tspan> = (0.02, −0.01, 0.25)</text>
   <text x="400.0" y="136.0" fill="#94a3b8" font-size="12" text-anchor="start">T<tspan dy="4" font-size="10">ec</tspan><tspan dy="-4">&#8203;</tspan>: 이동 (0, 0.06, 0) 더하기</text>
-  <text x="400.0" y="156.0" fill="#38bdf8" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>e</tspan><tspan dy='-4'>&#8203;</tspan> = (0.02, 0.05, 0.25)</text>
+  <text x="400.0" y="156.0" fill="#7cb4d8" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>e</tspan><tspan dy='-4'>&#8203;</tspan> = (0.02, 0.05, 0.25)</text>
   <text x="400.0" y="188.0" fill="#94a3b8" font-size="12" text-anchor="start">T<tspan dy="4" font-size="10">be</tspan><tspan dy="-4">&#8203;</tspan>: x 축 중심 180° 로 돌리기</text>
   <text x="400.0" y="208.0" fill="#e2e8f0" font-size="14" text-anchor="start">(0.02, −0.05, −0.25)</text>
   <text x="400.0" y="240.0" fill="#94a3b8" font-size="12" text-anchor="start">T<tspan dy="4" font-size="10">be</tspan><tspan dy="-4">&#8203;</tspan>: 이동 (0.4, 0, 0.3) 더하기</text>
-  <text x="400.0" y="260.0" fill="#f59e0b" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>b</tspan><tspan dy='-4'>&#8203;</tspan> = (0.42, −0.05, 0.05)</text>
+  <text x="400.0" y="260.0" fill="#d6aa62" font-size="14" text-anchor="start">p<tspan dy='4' font-size='10'>b</tspan><tspan dy='-4'>&#8203;</tspan> = (0.42, −0.05, 0.05)</text>
   <text x="400.0" y="306.0" fill="#64748b" font-size="12" text-anchor="start">팔이 움직이면 T<tspan dy="4" font-size="10">be</tspan><tspan dy="-4">&#8203;</tspan> 만 바뀌고 T<tspan dy="4" font-size="10">ec</tspan><tspan dy="-4">&#8203;</tspan> 는 그대로다</text>
 </svg>

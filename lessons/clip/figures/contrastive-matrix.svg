@@ -1,35 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>사진 3장과 설명 3개의 cosine similarity 표. 대각선의 초록 칸 0.8, 0.7, 0.9 가 짝이다. 행 방향으로 읽으면 사진마다 맞는 설명을 고르는 문제이고, 열 방향으로 읽으면 설명마다 맞는 사진을 고르는 문제다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="242.0" y="78" fill="#f59e0b" font-size="13" text-anchor="middle">T₁ 고양이 설명</text>
-  <text x="346.0" y="78" fill="#f59e0b" font-size="13" text-anchor="middle">T₂ 개 설명</text>
-  <text x="450.0" y="78" fill="#f59e0b" font-size="13" text-anchor="middle">T₃ 자동차 설명</text>
-  <text x="178" y="124" fill="#38bdf8" font-size="13" text-anchor="end">I₁ 고양이 사진</text>
-  <rect x="190" y="92" width="104" height="52" rx="0" fill="#34d399" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
+  <text x="242.0" y="78" fill="#d6aa62" font-size="13" text-anchor="middle">T₁ 고양이 설명</text>
+  <text x="346.0" y="78" fill="#d6aa62" font-size="13" text-anchor="middle">T₂ 개 설명</text>
+  <text x="450.0" y="78" fill="#d6aa62" font-size="13" text-anchor="middle">T₃ 자동차 설명</text>
+  <text x="178" y="124" fill="#7cb4d8" font-size="13" text-anchor="end">I₁ 고양이 사진</text>
+  <rect x="190" y="92" width="104" height="52" rx="0" fill="#7fc4a2" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
   <text x="242.0" y="125" fill="#e2e8f0" font-size="17" text-anchor="middle">0.8</text>
   <rect x="294" y="92" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="346.0" y="125" fill="#e2e8f0" font-size="17" text-anchor="middle">0.5</text>
   <rect x="398" y="92" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="450.0" y="125" fill="#e2e8f0" font-size="17" text-anchor="middle">0.1</text>
-  <text x="178" y="176" fill="#38bdf8" font-size="13" text-anchor="end">I₂ 강아지 사진</text>
+  <text x="178" y="176" fill="#7cb4d8" font-size="13" text-anchor="end">I₂ 강아지 사진</text>
   <rect x="190" y="144" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="242.0" y="177" fill="#e2e8f0" font-size="17" text-anchor="middle">0.6</text>
-  <rect x="294" y="144" width="104" height="52" rx="0" fill="#34d399" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
+  <rect x="294" y="144" width="104" height="52" rx="0" fill="#7fc4a2" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
   <text x="346.0" y="177" fill="#e2e8f0" font-size="17" text-anchor="middle">0.7</text>
   <rect x="398" y="144" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="450.0" y="177" fill="#e2e8f0" font-size="17" text-anchor="middle">0.2</text>
-  <text x="178" y="228" fill="#38bdf8" font-size="13" text-anchor="end">I₃ 자동차 사진</text>
+  <text x="178" y="228" fill="#7cb4d8" font-size="13" text-anchor="end">I₃ 자동차 사진</text>
   <rect x="190" y="196" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="242.0" y="229" fill="#e2e8f0" font-size="17" text-anchor="middle">0.0</text>
   <rect x="294" y="196" width="104" height="52" rx="0" fill="#111a2e" fill-opacity="1" stroke="#475569" stroke-width="1"/>
   <text x="346.0" y="229" fill="#e2e8f0" font-size="17" text-anchor="middle">0.1</text>
-  <rect x="398" y="196" width="104" height="52" rx="0" fill="#34d399" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
+  <rect x="398" y="196" width="104" height="52" rx="0" fill="#7fc4a2" fill-opacity="0.35" stroke="#475569" stroke-width="1"/>
   <text x="450.0" y="229" fill="#e2e8f0" font-size="17" text-anchor="middle">0.9</text>
-  <line x1="512" y1="170.0" x2="542" y2="170.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-blue)"/>
-  <text x="548" y="164.0" fill="#38bdf8" font-size="12" text-anchor="start">행: 사진 하나에</text>
-  <text x="548" y="182.0" fill="#38bdf8" font-size="12" text-anchor="start">맞는 설명 고르기</text>
-  <line x1="346.0" y1="256" x2="346.0" y2="282" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <text x="346.0" y="300" fill="#f59e0b" font-size="12" text-anchor="middle">열: 설명 하나에 맞는 사진 고르기</text>
+  <line x1="512" y1="170.0" x2="542" y2="170.0" stroke="#7cb4d8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="548" y="164.0" fill="#7cb4d8" font-size="12" text-anchor="start">행: 사진 하나에</text>
+  <text x="548" y="182.0" fill="#7cb4d8" font-size="12" text-anchor="start">맞는 설명 고르기</text>
+  <line x1="346.0" y1="256" x2="346.0" y2="282" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="346.0" y="300" fill="#d6aa62" font-size="12" text-anchor="middle">열: 설명 하나에 맞는 사진 고르기</text>
   <text x="30" y="30" fill="#94a3b8" font-size="12" text-anchor="start">설명 문장: T₁ "소파 위의 고양이", T₂ "공원을 달리는 개", T₃ "길가의 빨간 자동차"</text>
 </svg>

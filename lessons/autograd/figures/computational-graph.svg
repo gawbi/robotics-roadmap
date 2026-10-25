@@ -5,51 +5,51 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
   <!-- legend -->
   <text x="330" y="40" fill="#e2e8f0" font-size="14">흰 숫자: forward 로 계산한 값</text>
-  <text x="330" y="64" fill="#f59e0b" font-size="14">주황 숫자: backward 로 구한 ∂L/∂(그 값)</text>
+  <text x="330" y="64" fill="#d6aa62" font-size="14">주황 숫자: backward 로 구한 ∂L/∂(그 값)</text>
   <rect x="12" y="35" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="52" y="57" fill="#e2e8f0" font-size="15" text-anchor="middle">a = 2</text>
-  <text x="52" y="79" fill="#f59e0b" font-size="14" text-anchor="middle">grad 6</text>
+  <text x="52" y="79" fill="#d6aa62" font-size="14" text-anchor="middle">grad 6</text>
   <rect x="12" y="125" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="52" y="147" fill="#e2e8f0" font-size="15" text-anchor="middle">b = −3</text>
-  <text x="52" y="169" fill="#f59e0b" font-size="14" text-anchor="middle">grad −4</text>
-  <circle cx="142" cy="107" r="17" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="142" y="113" fill="#38bdf8" font-size="18" text-anchor="middle">×</text>
+  <text x="52" y="169" fill="#d6aa62" font-size="14" text-anchor="middle">grad −4</text>
+  <circle cx="142" cy="107" r="17" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="142" y="113" fill="#7cb4d8" font-size="18" text-anchor="middle">×</text>
   <line x1="92" y1="72" x2="126" y2="98" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="92" y1="142" x2="126" y2="116" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="159" y1="107" x2="178" y2="107" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <rect x="180" y="80" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="220" y="102" fill="#e2e8f0" font-size="15" text-anchor="middle">p = −6</text>
-  <text x="220" y="124" fill="#f59e0b" font-size="14" text-anchor="middle">grad −2</text>
+  <text x="220" y="124" fill="#d6aa62" font-size="14" text-anchor="middle">grad −2</text>
   <rect x="180" y="180" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="220" y="202" fill="#e2e8f0" font-size="15" text-anchor="middle">c = 10</text>
-  <text x="220" y="224" fill="#f59e0b" font-size="14" text-anchor="middle">grad −2</text>
-  <circle cx="305" cy="157" r="17" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="305" y="163" fill="#38bdf8" font-size="18" text-anchor="middle">+</text>
+  <text x="220" y="224" fill="#d6aa62" font-size="14" text-anchor="middle">grad −2</text>
+  <circle cx="305" cy="157" r="17" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="305" y="163" fill="#7cb4d8" font-size="18" text-anchor="middle">+</text>
   <line x1="260" y1="118" x2="291" y2="147" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="260" y1="198" x2="291" y2="167" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="322" y1="157" x2="343" y2="157" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <rect x="345" y="130" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="385" y="152" fill="#e2e8f0" font-size="15" text-anchor="middle">d = 4</text>
-  <text x="385" y="174" fill="#f59e0b" font-size="14" text-anchor="middle">grad −2</text>
+  <text x="385" y="174" fill="#d6aa62" font-size="14" text-anchor="middle">grad −2</text>
   <rect x="345" y="225" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="385" y="247" fill="#e2e8f0" font-size="15" text-anchor="middle">f = −2</text>
-  <text x="385" y="269" fill="#f59e0b" font-size="14" text-anchor="middle">grad 4</text>
-  <circle cx="468" cy="207" r="17" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="468" y="213" fill="#38bdf8" font-size="18" text-anchor="middle">×</text>
+  <text x="385" y="269" fill="#d6aa62" font-size="14" text-anchor="middle">grad 4</text>
+  <circle cx="468" cy="207" r="17" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="468" y="213" fill="#7cb4d8" font-size="18" text-anchor="middle">×</text>
   <line x1="425" y1="168" x2="454" y2="197" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="425" y1="243" x2="454" y2="217" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <line x1="485" y1="207" x2="506" y2="207" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <rect x="508" y="180" width="80" height="54" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="548" y="202" fill="#e2e8f0" font-size="15" text-anchor="middle">L = −8</text>
-  <text x="548" y="224" fill="#f59e0b" font-size="14" text-anchor="middle">grad 1</text>
+  <text x="548" y="224" fill="#d6aa62" font-size="14" text-anchor="middle">grad 1</text>
 
-  <line x1="560" y1="304" x2="40" y2="304" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#back)"/>
-  <text x="300" y="296" fill="#f59e0b" font-size="13" text-anchor="middle">backward 는 L 에서 a·b 쪽으로 거꾸로 진행한다</text>
+  <line x1="560" y1="304" x2="40" y2="304" stroke="#d6aa62" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#back)"/>
+  <text x="300" y="296" fill="#d6aa62" font-size="13" text-anchor="middle">backward 는 L 에서 a·b 쪽으로 거꾸로 진행한다</text>
 </svg>

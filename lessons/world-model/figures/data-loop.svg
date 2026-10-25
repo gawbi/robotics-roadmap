@@ -2,11 +2,11 @@
   <title>데이터 수집 반복. dataset 으로 world model 을 학습하고, world model 과 MPC 로 실제 환경에서 행동해 새 transition 을 모아 dataset 에 더하기를 되풀이한다. 처음 dataset 만 무작위 action 으로 모은다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="24.0" y="40.0" width="150.0" height="50.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -16,15 +16,15 @@
   <rect x="34.0" y="128.0" width="130.0" height="56.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="99.0" y="152.0" fill="#e2e8f0" font-size="14" text-anchor="middle">dataset</text>
   <text x="99.0" y="171.0" fill="#94a3b8" font-size="12" text-anchor="middle">(transition 모음)</text>
-  <rect x="330.0" y="40.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="430.0" y="64.0" fill="#38bdf8" font-size="14" text-anchor="middle">world model 학습</text>
+  <rect x="330.0" y="40.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="430.0" y="64.0" fill="#7cb4d8" font-size="14" text-anchor="middle">world model 학습</text>
   <text x="430.0" y="83.0" fill="#94a3b8" font-size="12" text-anchor="middle">encoder · f · g</text>
-  <rect x="330.0" y="212.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="430.0" y="236.0" fill="#34d399" font-size="14" text-anchor="middle">MPC 로 실제 환경에서 행동</text>
+  <rect x="330.0" y="212.0" width="200.0" height="56.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="430.0" y="236.0" fill="#7fc4a2" font-size="14" text-anchor="middle">MPC 로 실제 환경에서 행동</text>
   <text x="430.0" y="255.0" fill="#94a3b8" font-size="12" text-anchor="middle">(planner 가 좋다고 믿은 곳)</text>
   <path d="M164,140 C 240,110 260,70 326,68" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <line x1="430.0" y1="96.0" x2="430.0" y2="208.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow-sky)"/>
-  <text x="440.0" y="156.0" fill="#38bdf8" font-size="12" text-anchor="start">학습한 model 로 계획</text>
-  <path d="M330,240 C 250,240 200,220 168,180" fill="none" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <text x="212.0" y="262.0" fill="#34d399" font-size="12" text-anchor="middle">새 transition 을 더한다</text>
+  <line x1="430.0" y1="96.0" x2="430.0" y2="208.0" stroke="#7cb4d8" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <text x="440.0" y="156.0" fill="#7cb4d8" font-size="12" text-anchor="start">학습한 model 로 계획</text>
+  <path d="M330,240 C 250,240 200,220 168,180" fill="none" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="212.0" y="262.0" fill="#7fc4a2" font-size="12" text-anchor="middle">새 transition 을 더한다</text>
 </svg>

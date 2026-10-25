@@ -2,57 +2,57 @@
   <title>XOR 의 네 점에 직선 세 개를 그어 본 그림. 어느 직선도 네 점을 모두 맞히지 못한다</title>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
   <rect x="1" y="1" width="618" height="310" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="30" y="30" fill="#38bdf8" font-size="14" text-anchor="start">x₁ + x₂ = 0.5</text>
+  <text x="30" y="30" fill="#7cb4d8" font-size="14" text-anchor="start">x₁ + x₂ = 0.5</text>
   <rect x="30" y="44" width="170" height="170" fill="#0e1628" stroke="#1e293b"/>
-  <polygon points="157.5,214.0 200.0,214.0 200.0,44.0 30.0,44.0 30.0,86.5" fill="#38bdf8" fill-opacity="0.14"/>
+  <polygon points="157.5,214.0 200.0,214.0 200.0,44.0 30.0,44.0 30.0,86.5" fill="#7cb4d8" fill-opacity="0.14"/>
   <line x1="30" y1="171.5" x2="200" y2="171.5" stroke="#475569" stroke-width="1.5"/>
   <line x1="72.5" y1="44" x2="72.5" y2="214" stroke="#475569" stroke-width="1.5"/>
   <text x="194" y="185.5" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
   <text x="64.5" y="58" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
   <text x="157.5" y="193.5" fill="#64748b" font-size="11" text-anchor="middle">1</text>
   <text x="60.5" y="91.5" fill="#64748b" font-size="11" text-anchor="end">1</text>
-  <line x1="30" y1="86.5" x2="157.5" y2="214" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="30" y1="86.5" x2="157.5" y2="214" stroke="#7cb4d8" stroke-width="2.5"/>
   <circle cx="72.5" cy="171.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <circle cx="72.5" cy="86.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="157.5" cy="171.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="157.5" cy="86.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="72.5" cy="86.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="157.5" cy="171.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="157.5" cy="86.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
   <circle cx="157.5" cy="86.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <text x="30" y="238" fill="#f87171" font-size="13" text-anchor="start">틀리는 점 1개</text>
-  <text x="226" y="30" fill="#38bdf8" font-size="14" text-anchor="start">x₁ + x₂ = 1.5</text>
+  <text x="30" y="238" fill="#d88b8b" font-size="13" text-anchor="start">틀리는 점 1개</text>
+  <text x="226" y="30" fill="#7cb4d8" font-size="14" text-anchor="start">x₁ + x₂ = 1.5</text>
   <rect x="226" y="44" width="170" height="170" fill="#0e1628" stroke="#1e293b"/>
-  <polygon points="396.0,171.5 396.0,44.0 268.5,44.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <polygon points="396.0,171.5 396.0,44.0 268.5,44.0" fill="#7cb4d8" fill-opacity="0.14"/>
   <line x1="226" y1="171.5" x2="396" y2="171.5" stroke="#475569" stroke-width="1.5"/>
   <line x1="268.5" y1="44" x2="268.5" y2="214" stroke="#475569" stroke-width="1.5"/>
   <text x="390" y="185.5" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
   <text x="260.5" y="58" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
   <text x="353.5" y="193.5" fill="#64748b" font-size="11" text-anchor="middle">1</text>
   <text x="256.5" y="91.5" fill="#64748b" font-size="11" text-anchor="end">1</text>
-  <line x1="396" y1="171.5" x2="268.5" y2="44" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="396" y1="171.5" x2="268.5" y2="44" stroke="#7cb4d8" stroke-width="2.5"/>
   <circle cx="268.5" cy="171.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <circle cx="268.5" cy="86.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
-  <circle cx="268.5" cy="86.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="353.5" cy="171.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
-  <circle cx="353.5" cy="171.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="353.5" cy="86.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="268.5" cy="86.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="268.5" cy="86.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="353.5" cy="171.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="353.5" cy="171.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="353.5" cy="86.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
   <circle cx="353.5" cy="86.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <text x="226" y="238" fill="#f87171" font-size="13" text-anchor="start">틀리는 점 3개</text>
-  <text x="422" y="30" fill="#38bdf8" font-size="14" text-anchor="start">x₁ = 0.5</text>
+  <text x="226" y="238" fill="#d88b8b" font-size="13" text-anchor="start">틀리는 점 3개</text>
+  <text x="422" y="30" fill="#7cb4d8" font-size="14" text-anchor="start">x₁ = 0.5</text>
   <rect x="422" y="44" width="170" height="170" fill="#0e1628" stroke="#1e293b"/>
-  <polygon points="507.0,214.0 592.0,214.0 592.0,44.0 507.0,44.0" fill="#38bdf8" fill-opacity="0.14"/>
+  <polygon points="507.0,214.0 592.0,214.0 592.0,44.0 507.0,44.0" fill="#7cb4d8" fill-opacity="0.14"/>
   <line x1="422" y1="171.5" x2="592" y2="171.5" stroke="#475569" stroke-width="1.5"/>
   <line x1="464.5" y1="44" x2="464.5" y2="214" stroke="#475569" stroke-width="1.5"/>
   <text x="586" y="185.5" fill="#94a3b8" font-size="12" text-anchor="end">x₁</text>
   <text x="456.5" y="58" fill="#94a3b8" font-size="12" text-anchor="end">x₂</text>
   <text x="549.5" y="193.5" fill="#64748b" font-size="11" text-anchor="middle">1</text>
   <text x="452.5" y="91.5" fill="#64748b" font-size="11" text-anchor="end">1</text>
-  <line x1="507" y1="214" x2="507" y2="44" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="507" y1="214" x2="507" y2="44" stroke="#7cb4d8" stroke-width="2.5"/>
   <circle cx="464.5" cy="171.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <circle cx="464.5" cy="86.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
-  <circle cx="464.5" cy="86.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="549.5" cy="171.5" r="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="549.5" cy="86.5" r="12" fill="none" stroke="#f87171" stroke-width="2"/>
+  <circle cx="464.5" cy="86.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="464.5" cy="86.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="549.5" cy="171.5" r="6" fill="#d6aa62" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="549.5" cy="86.5" r="12" fill="none" stroke="#d88b8b" stroke-width="2"/>
   <circle cx="549.5" cy="86.5" r="6" fill="#0b1220" stroke="#e2e8f0" stroke-width="2.5"/>
-  <text x="422" y="238" fill="#f87171" font-size="13" text-anchor="start">틀리는 점 2개</text>
+  <text x="422" y="238" fill="#d88b8b" font-size="13" text-anchor="start">틀리는 점 2개</text>
   <text x="30" y="272" fill="#e2e8f0" font-size="13" text-anchor="start">어느 방향, 어느 위치에 직선을 그어도 XOR 의 네 점 중 적어도 하나는 틀린다</text>
   <text x="30" y="294" fill="#94a3b8" font-size="12" text-anchor="start">파란 영역: 1 로 예측 · 빨간 테두리: 틀리는 점 · 채운 점: 정답 1</text>
 

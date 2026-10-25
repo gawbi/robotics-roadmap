@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 282" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>action 에서 torque 까지. action 0.4 에 배율 0.25 를 곱한 0.1 을 기본 각도 −1.5 에 더해 목표 −1.4 를 만들고, 지금 각도 −1.45 와의 차이 0.05 에 K_p = 20 을 곱해 torque 1.0 N·m 를 낸다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="280" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="30" y="34" fill="#e2e8f0" font-size="14" text-anchor="start">policy 의 action → 목표 각도</text>
-  <rect x="30" y="48" width="160" height="58" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="30" y="48" width="160" height="58" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="110" y="72" fill="#94a3b8" font-size="13" text-anchor="middle">action a</text>
   <text x="110" y="95" fill="#e2e8f0" font-size="17" text-anchor="middle">0.4</text>
   <rect x="260" y="48" width="160" height="58" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="340" y="72" fill="#94a3b8" font-size="13" text-anchor="middle">s × a</text>
   <text x="340" y="95" fill="#e2e8f0" font-size="17" text-anchor="middle">0.1 rad</text>
-  <rect x="490" y="48" width="160" height="58" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="490" y="48" width="160" height="58" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="570" y="72" fill="#94a3b8" font-size="13" text-anchor="middle">목표 각도</text>
   <text x="570" y="95" fill="#e2e8f0" font-size="17" text-anchor="middle">−1.4 rad</text>
   <line x1="192" y1="77" x2="256" y2="77" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="224" y="68" fill="#f59e0b" font-size="13" text-anchor="middle">× 0.25</text>
+  <text x="224" y="68" fill="#d6aa62" font-size="13" text-anchor="middle">× 0.25</text>
   <line x1="422" y1="77" x2="486" y2="77" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="454" y="68" fill="#f59e0b" font-size="13" text-anchor="middle">+ (−1.5)</text>
+  <text x="454" y="68" fill="#d6aa62" font-size="13" text-anchor="middle">+ (−1.5)</text>
   <text x="454" y="96" fill="#94a3b8" font-size="11" text-anchor="middle">기본 각도</text>
   <text x="30" y="160" fill="#e2e8f0" font-size="14" text-anchor="start">PD controller → torque (0.005 초마다)</text>
   <rect x="30" y="174" width="160" height="58" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
@@ -24,12 +24,12 @@
   <rect x="260" y="174" width="160" height="58" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="340" y="198" fill="#94a3b8" font-size="13" text-anchor="middle">각도 차이</text>
   <text x="340" y="221" fill="#e2e8f0" font-size="17" text-anchor="middle">0.05 rad</text>
-  <rect x="490" y="174" width="160" height="58" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="490" y="174" width="160" height="58" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="570" y="198" fill="#94a3b8" font-size="13" text-anchor="middle">torque τ</text>
   <text x="570" y="221" fill="#e2e8f0" font-size="17" text-anchor="middle">1.0 N·m</text>
   <line x1="192" y1="203" x2="256" y2="203" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="224" y="194" fill="#f59e0b" font-size="14" text-anchor="middle">=</text>
+  <text x="224" y="194" fill="#d6aa62" font-size="14" text-anchor="middle">=</text>
   <line x1="422" y1="203" x2="486" y2="203" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <text x="454" y="194" fill="#f59e0b" font-size="13" text-anchor="middle">× K_p 20</text>
+  <text x="454" y="194" fill="#d6aa62" font-size="13" text-anchor="middle">× K_p 20</text>
   <text x="340" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">무릎이 지금 −1.45 rad 에 멈춰 있어 D 항 K_d × 속도 는 0 이다</text>
 </svg>

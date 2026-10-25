@@ -1,41 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>같은 팔이 각도에 따라 받는 gravity torque. 팔이 아래로 늘어지면 수평 거리가 0 이라 torque 가 0, 30° 면 수평 거리 0.25 m 라 2.45 N·m, 90° 면 0.5 m 라 4.905 N·m 다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="44.0" y1="38.0" x2="116.0" y2="38.0" stroke="#475569" stroke-width="3"/>
   <line x1="80.0" y1="50.0" x2="80.0" y2="150.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
   <line x1="80" y1="50" x2="80.0" y2="140.0" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
   <circle cx="80.0" cy="50.0" r="5" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="80.0" cy="140.0" r="11" fill="#f59e0b"/>
-  <line x1="80.0" y1="153.0" x2="80.0" y2="190.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <circle cx="80.0" cy="140.0" r="11" fill="#d6aa62"/>
+  <line x1="80.0" y1="153.0" x2="80.0" y2="190.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
   <text x="80.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">θ = 0°</text>
-  <text x="80.0" y="244.0" fill="#38bdf8" font-size="13" text-anchor="middle">수평 거리 0</text>
-  <text x="80.0" y="266.0" fill="#f59e0b" font-size="13" text-anchor="middle">torque 0</text>
+  <text x="80.0" y="244.0" fill="#7cb4d8" font-size="13" text-anchor="middle">수평 거리 0</text>
+  <text x="80.0" y="266.0" fill="#d6aa62" font-size="13" text-anchor="middle">torque 0</text>
   <line x1="234.0" y1="38.0" x2="306.0" y2="38.0" stroke="#475569" stroke-width="3"/>
   <line x1="270.0" y1="50.0" x2="270.0" y2="150.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
   <line x1="270" y1="50" x2="315.0" y2="127.9" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
   <circle cx="270.0" cy="50.0" r="5" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="315.0" cy="127.9" r="11" fill="#f59e0b"/>
-  <line x1="315.0" y1="140.9" x2="315.0" y2="177.9" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="270.0" y1="187.9" x2="315.0" y2="187.9" stroke="#38bdf8" stroke-width="2.5"/>
-  <line x1="270.0" y1="182.9" x2="270.0" y2="192.9" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="315.0" y1="182.9" x2="315.0" y2="192.9" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="315.0" y1="177.9" x2="315.0" y2="187.9" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 3"/>
+  <circle cx="315.0" cy="127.9" r="11" fill="#d6aa62"/>
+  <line x1="315.0" y1="140.9" x2="315.0" y2="177.9" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="270.0" y1="187.9" x2="315.0" y2="187.9" stroke="#7cb4d8" stroke-width="2.5"/>
+  <line x1="270.0" y1="182.9" x2="270.0" y2="192.9" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="315.0" y1="182.9" x2="315.0" y2="192.9" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="315.0" y1="177.9" x2="315.0" y2="187.9" stroke="#7cb4d8" stroke-width="1" stroke-dasharray="2 3"/>
   <text x="315.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">θ = 30°</text>
-  <text x="315.0" y="244.0" fill="#38bdf8" font-size="13" text-anchor="middle">수평 거리 0.25 m</text>
-  <text x="315.0" y="266.0" fill="#f59e0b" font-size="13" text-anchor="middle">torque 2.45 N·m</text>
+  <text x="315.0" y="244.0" fill="#7cb4d8" font-size="13" text-anchor="middle">수평 거리 0.25 m</text>
+  <text x="315.0" y="266.0" fill="#d6aa62" font-size="13" text-anchor="middle">torque 2.45 N·m</text>
   <line x1="424.0" y1="38.0" x2="496.0" y2="38.0" stroke="#475569" stroke-width="3"/>
   <line x1="460.0" y1="50.0" x2="460.0" y2="150.0" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 4"/>
   <line x1="460" y1="50" x2="550.0" y2="50.0" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
   <circle cx="460.0" cy="50.0" r="5" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="550.0" cy="50.0" r="11" fill="#f59e0b"/>
-  <line x1="550.0" y1="63.0" x2="550.0" y2="100.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="460.0" y1="112.0" x2="550.0" y2="112.0" stroke="#38bdf8" stroke-width="2.5"/>
-  <line x1="460.0" y1="107.0" x2="460.0" y2="117.0" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="550.0" y1="107.0" x2="550.0" y2="117.0" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="550.0" y1="100.0" x2="550.0" y2="112.0" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 3"/>
+  <circle cx="550.0" cy="50.0" r="11" fill="#d6aa62"/>
+  <line x1="550.0" y1="63.0" x2="550.0" y2="100.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="460.0" y1="112.0" x2="550.0" y2="112.0" stroke="#7cb4d8" stroke-width="2.5"/>
+  <line x1="460.0" y1="107.0" x2="460.0" y2="117.0" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="550.0" y1="107.0" x2="550.0" y2="117.0" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="550.0" y1="100.0" x2="550.0" y2="112.0" stroke="#7cb4d8" stroke-width="1" stroke-dasharray="2 3"/>
   <text x="505.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">θ = 90°</text>
-  <text x="505.0" y="244.0" fill="#38bdf8" font-size="13" text-anchor="middle">수평 거리 0.5 m</text>
-  <text x="505.0" y="266.0" fill="#f59e0b" font-size="13" text-anchor="middle">torque 4.905 N·m</text>
+  <text x="505.0" y="244.0" fill="#7cb4d8" font-size="13" text-anchor="middle">수평 거리 0.5 m</text>
+  <text x="505.0" y="266.0" fill="#d6aa62" font-size="13" text-anchor="middle">torque 4.905 N·m</text>
   <text x="300.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">gravity torque = 9.81 N × 수평 거리 (m = 1 kg, l = 0.5 m)</text>
 </svg>

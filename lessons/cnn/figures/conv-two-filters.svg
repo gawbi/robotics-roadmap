@@ -54,37 +54,37 @@
   <rect x="150" y="275" width="30" height="30" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="165.0" y="294.9" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
   <line x1="190" y1="230" x2="255" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="300" y="38" fill="#f59e0b" font-size="14" text-anchor="middle">세로선 filter</text>
+  <text x="300" y="38" fill="#d6aa62" font-size="14" text-anchor="middle">세로선 filter</text>
   <rect x="258" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="68.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="272.0" y="68.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <rect x="286" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="68.55" fill="#f59e0b" font-size="13" text-anchor="middle">2</text>
+  <text x="300.0" y="68.55" fill="#d6aa62" font-size="13" text-anchor="middle">2</text>
   <rect x="314" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="68.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="328.0" y="68.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <rect x="258" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="96.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="272.0" y="96.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <rect x="286" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="96.55" fill="#f59e0b" font-size="13" text-anchor="middle">2</text>
+  <text x="300.0" y="96.55" fill="#d6aa62" font-size="13" text-anchor="middle">2</text>
   <rect x="314" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="96.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="328.0" y="96.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <rect x="258" y="106" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="124.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="272.0" y="124.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <rect x="286" y="106" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="124.55" fill="#f59e0b" font-size="13" text-anchor="middle">2</text>
+  <text x="300.0" y="124.55" fill="#d6aa62" font-size="13" text-anchor="middle">2</text>
   <rect x="314" y="106" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="124.55" fill="#f59e0b" font-size="13" text-anchor="middle">−1</text>
+  <text x="328.0" y="124.55" fill="#d6aa62" font-size="13" text-anchor="middle">−1</text>
   <line x1="350" y1="92" x2="420" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="510" y="38" fill="#34d399" font-size="14" text-anchor="middle">feature map 3×3</text>
+  <text x="510" y="38" fill="#7fc4a2" font-size="14" text-anchor="middle">feature map 3×3</text>
   <rect x="468" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="482.0" y="68.55" fill="#e2e8f0" font-size="13" text-anchor="middle">−1</text>
   <rect x="496" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="510.0" y="68.55" fill="#34d399" font-size="13" text-anchor="middle">5</text>
+  <text x="510.0" y="68.55" fill="#7fc4a2" font-size="13" text-anchor="middle">5</text>
   <rect x="524" y="50" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="538.0" y="68.55" fill="#e2e8f0" font-size="13" text-anchor="middle">−3</text>
   <rect x="468" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="482.0" y="96.55" fill="#e2e8f0" font-size="13" text-anchor="middle">−1</text>
   <rect x="496" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="510.0" y="96.55" fill="#34d399" font-size="13" text-anchor="middle">5</text>
+  <text x="510.0" y="96.55" fill="#7fc4a2" font-size="13" text-anchor="middle">5</text>
   <rect x="524" y="78" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="538.0" y="96.55" fill="#e2e8f0" font-size="13" text-anchor="middle">−3</text>
   <rect x="468" y="106" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
@@ -94,31 +94,31 @@
   <rect x="524" y="106" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="538.0" y="124.55" fill="#e2e8f0" font-size="13" text-anchor="middle">−1</text>
   <line x1="190" y1="230" x2="255" y2="252" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="300" y="198" fill="#a78bfa" font-size="14" text-anchor="middle">가로선 filter</text>
+  <text x="300" y="198" fill="#a99ad6" font-size="14" text-anchor="middle">가로선 filter</text>
   <rect x="258" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="228.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="272.0" y="228.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <rect x="286" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="228.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="300.0" y="228.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <rect x="314" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="228.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="328.0" y="228.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <rect x="258" y="238" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="256.55" fill="#a78bfa" font-size="13" text-anchor="middle">2</text>
+  <text x="272.0" y="256.55" fill="#a99ad6" font-size="13" text-anchor="middle">2</text>
   <rect x="286" y="238" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="256.55" fill="#a78bfa" font-size="13" text-anchor="middle">2</text>
+  <text x="300.0" y="256.55" fill="#a99ad6" font-size="13" text-anchor="middle">2</text>
   <rect x="314" y="238" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="256.55" fill="#a78bfa" font-size="13" text-anchor="middle">2</text>
+  <text x="328.0" y="256.55" fill="#a99ad6" font-size="13" text-anchor="middle">2</text>
   <rect x="258" y="266" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="272.0" y="284.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="272.0" y="284.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <rect x="286" y="266" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="300.0" y="284.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="300.0" y="284.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <rect x="314" y="266" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="328.0" y="284.55" fill="#a78bfa" font-size="13" text-anchor="middle">−1</text>
+  <text x="328.0" y="284.55" fill="#a99ad6" font-size="13" text-anchor="middle">−1</text>
   <line x1="350" y1="252" x2="420" y2="252" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="510" y="198" fill="#34d399" font-size="14" text-anchor="middle">feature map 3×3</text>
+  <text x="510" y="198" fill="#7fc4a2" font-size="14" text-anchor="middle">feature map 3×3</text>
   <rect x="468" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="482.0" y="228.55" fill="#34d399" font-size="13" text-anchor="middle">2</text>
+  <text x="482.0" y="228.55" fill="#7fc4a2" font-size="13" text-anchor="middle">2</text>
   <rect x="496" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="510.0" y="228.55" fill="#34d399" font-size="13" text-anchor="middle">2</text>
+  <text x="510.0" y="228.55" fill="#7fc4a2" font-size="13" text-anchor="middle">2</text>
   <rect x="524" y="210" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="538.0" y="228.55" fill="#e2e8f0" font-size="13" text-anchor="middle">0</text>
   <rect x="468" y="238" width="28" height="28" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>

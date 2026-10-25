@@ -1,88 +1,88 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>iteration 별 누적 데이터의 위치 분포. 주황은 시연 1000 step, 파랑은 DAgger 가 policy 의 rollout 에서 모은 상태(episode 100 번)다. iteration 이 지날수록 파랑이 0.3 m 바깥으로 퍼진다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="40.0" width="500.0" height="110.0" rx="0" fill="#0e1628"/>
-  <rect x="82.7" y="142.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="104.5" y="112.5" width="19.7" height="37.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="126.2" y="70.0" width="19.7" height="80.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="148.0" y="67.5" width="19.7" height="82.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="169.7" y="115.0" width="19.7" height="35.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="191.4" y="142.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="143.0" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="164.7" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="186.4" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="208.2" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="229.9" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="273.4" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="360.3" y="125.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <line x1="527.4" y1="40.0" x2="527.4" y2="150.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <line x1="212.2" y1="66.0" x2="212.2" y2="150.0" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="82.7" y="142.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="104.5" y="112.5" width="19.7" height="37.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="126.2" y="70.0" width="19.7" height="80.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="148.0" y="67.5" width="19.7" height="82.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="169.7" y="115.0" width="19.7" height="35.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="191.4" y="142.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="143.0" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="164.7" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="186.4" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="208.2" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="229.9" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="273.4" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="360.3" y="125.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <line x1="527.4" y1="40.0" x2="527.4" y2="150.0" stroke="#d88b8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="212.2" y1="66.0" x2="212.2" y2="150.0" stroke="#d6aa62" stroke-width="1" stroke-dasharray="3 3"/>
   <line x1="60.0" y1="150.0" x2="560.0" y2="150.0" stroke="#475569" stroke-width="1.5"/>
   <text x="68.0" y="58.0" fill="#e2e8f0" font-size="13" text-anchor="start">iteration 2 뒤: 모두 1700 쌍, 0.3 m 바깥 300 쌍</text>
-  <text x="519.4" y="58.0" fill="#38bdf8" font-size="12" text-anchor="end">가장 먼 정답 1.0 m</text>
+  <text x="519.4" y="58.0" fill="#7cb4d8" font-size="12" text-anchor="end">가장 먼 정답 1.0 m</text>
   <rect x="60.0" y="180.0" width="500.0" height="110.0" rx="0" fill="#0e1628"/>
-  <rect x="82.7" y="282.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="104.5" y="252.5" width="19.7" height="37.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="126.2" y="210.0" width="19.7" height="80.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="148.0" y="207.5" width="19.7" height="82.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="169.7" y="255.0" width="19.7" height="35.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="191.4" y="282.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="143.0" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="164.7" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="186.4" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="208.2" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="229.9" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="251.7" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="273.4" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="295.1" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="316.9" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="338.6" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="360.3" y="240.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="382.1" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="425.6" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="512.5" y="265.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <line x1="527.4" y1="180.0" x2="527.4" y2="290.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <line x1="212.2" y1="206.0" x2="212.2" y2="290.0" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="82.7" y="282.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="104.5" y="252.5" width="19.7" height="37.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="126.2" y="210.0" width="19.7" height="80.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="148.0" y="207.5" width="19.7" height="82.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="169.7" y="255.0" width="19.7" height="35.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="191.4" y="282.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="143.0" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="164.7" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="186.4" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="208.2" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="229.9" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="251.7" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="273.4" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="295.1" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="316.9" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="338.6" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="360.3" y="240.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="382.1" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="425.6" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="512.5" y="265.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <line x1="527.4" y1="180.0" x2="527.4" y2="290.0" stroke="#d88b8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="212.2" y1="206.0" x2="212.2" y2="290.0" stroke="#d6aa62" stroke-width="1" stroke-dasharray="3 3"/>
   <line x1="60.0" y1="290.0" x2="560.0" y2="290.0" stroke="#475569" stroke-width="1.5"/>
   <text x="68.0" y="198.0" fill="#e2e8f0" font-size="13" text-anchor="start">iteration 3 뒤: 모두 3100 쌍, 0.3 m 바깥 1300 쌍</text>
-  <text x="519.4" y="198.0" fill="#38bdf8" font-size="12" text-anchor="end">가장 먼 정답 1.7 m</text>
+  <text x="519.4" y="198.0" fill="#7cb4d8" font-size="12" text-anchor="end">가장 먼 정답 1.7 m</text>
   <rect x="60.0" y="320.0" width="500.0" height="110.0" rx="0" fill="#0e1628"/>
-  <rect x="82.7" y="422.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="104.5" y="392.5" width="19.7" height="37.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="126.2" y="350.0" width="19.7" height="80.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="148.0" y="347.5" width="19.7" height="82.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="169.7" y="395.0" width="19.7" height="35.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="191.4" y="422.5" width="19.7" height="7.5" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <rect x="143.0" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="164.7" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="186.4" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="208.2" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="229.9" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="251.7" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="273.4" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="295.1" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="316.9" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="338.6" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="360.3" y="355.0" width="8.0" height="75.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="382.1" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="403.8" y="405.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="425.6" y="380.0" width="8.0" height="50.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="447.3" y="405.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <rect x="512.5" y="405.0" width="8.0" height="25.0" rx="0" fill="#38bdf8" fill-opacity="0.95"/>
-  <line x1="527.4" y1="320.0" x2="527.4" y2="430.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <line x1="212.2" y1="346.0" x2="212.2" y2="430.0" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="82.7" y="422.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="104.5" y="392.5" width="19.7" height="37.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="126.2" y="350.0" width="19.7" height="80.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="148.0" y="347.5" width="19.7" height="82.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="169.7" y="395.0" width="19.7" height="35.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="191.4" y="422.5" width="19.7" height="7.5" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <rect x="143.0" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="164.7" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="186.4" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="208.2" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="229.9" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="251.7" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="273.4" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="295.1" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="316.9" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="338.6" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="360.3" y="355.0" width="8.0" height="75.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="382.1" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="403.8" y="405.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="425.6" y="380.0" width="8.0" height="50.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="447.3" y="405.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <rect x="512.5" y="405.0" width="8.0" height="25.0" rx="0" fill="#7cb4d8" fill-opacity="0.95"/>
+  <line x1="527.4" y1="320.0" x2="527.4" y2="430.0" stroke="#d88b8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="212.2" y1="346.0" x2="212.2" y2="430.0" stroke="#d6aa62" stroke-width="1" stroke-dasharray="3 3"/>
   <line x1="60.0" y1="430.0" x2="560.0" y2="430.0" stroke="#475569" stroke-width="1.5"/>
   <text x="68.0" y="338.0" fill="#e2e8f0" font-size="13" text-anchor="start">iteration 4 뒤: 모두 4600 쌍, 0.3 m 바깥 2400 쌍</text>
-  <text x="519.4" y="338.0" fill="#38bdf8" font-size="12" text-anchor="end">가장 먼 정답 1.7 m</text>
+  <text x="519.4" y="338.0" fill="#7cb4d8" font-size="12" text-anchor="end">가장 먼 정답 1.7 m</text>
   <text x="81.7" y="446.0" fill="#64748b" font-size="12" text-anchor="middle">-0.3</text>
   <text x="147.0" y="446.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
   <text x="212.2" y="446.0" fill="#64748b" font-size="12" text-anchor="middle">0.3</text>
   <text x="364.3" y="446.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
   <text x="527.4" y="446.0" fill="#64748b" font-size="12" text-anchor="middle">1.75</text>
   <text x="560.0" y="466.0" fill="#94a3b8" font-size="13" text-anchor="end">위치 y (m)</text>
-  <rect x="60.0" y="456.0" width="14.0" height="12.0" rx="0" fill="#f59e0b" fill-opacity="0.55"/>
-  <text x="80.0" y="467.0" fill="#f59e0b" font-size="12" text-anchor="start">시연</text>
-  <rect x="130.0" y="456.0" width="14.0" height="12.0" rx="0" fill="#38bdf8"/>
-  <text x="150.0" y="467.0" fill="#38bdf8" font-size="12" text-anchor="start">DAgger 가 모은 상태 (위치마다 100 씩 쌓임)</text>
+  <rect x="60.0" y="456.0" width="14.0" height="12.0" rx="0" fill="#d6aa62" fill-opacity="0.55"/>
+  <text x="80.0" y="467.0" fill="#d6aa62" font-size="12" text-anchor="start">시연</text>
+  <rect x="130.0" y="456.0" width="14.0" height="12.0" rx="0" fill="#7cb4d8"/>
+  <text x="150.0" y="467.0" fill="#7cb4d8" font-size="12" text-anchor="start">DAgger 가 모은 상태 (위치마다 100 씩 쌓임)</text>
 </svg>

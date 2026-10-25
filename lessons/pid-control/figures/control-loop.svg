@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>trajectory 추종 loop. minimum-jerk 목표에서 feedforward torque 를 미리 계산하고, PID 가 오차를 줄이는 torque 를 더한 뒤 motor 의 한계로 잘라 joint 를 돌린다. 돌아간 각도를 다시 재서 오차를 계산한다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20.0" y="110.0" width="116.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="20.0" y="110.0" width="116.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="78.0" y="132.0" fill="#e2e8f0" font-size="15" text-anchor="middle">목표 trajectory</text>
   <text x="78.0" y="151.0" fill="#94a3b8" font-size="13" text-anchor="middle">minimum-jerk</text>
-  <rect x="200.0" y="28.0" width="140.0" height="52.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="200.0" y="28.0" width="140.0" height="52.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="270.0" y="50.0" fill="#e2e8f0" font-size="15" text-anchor="middle">feedforward</text>
   <text x="270.0" y="69.0" fill="#94a3b8" font-size="13" text-anchor="middle">model 로 미리 계산</text>
   <path d="M78,108 L78,54 L197,54" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
@@ -14,8 +14,8 @@
   <circle cx="188.0" cy="136.0" r="14" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="188.0" y="141.0" fill="#e2e8f0" font-size="16" text-anchor="middle">−</text>
   <line x1="204.0" y1="136.0" x2="232.0" y2="136.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <text x="214.0" y="124.0" fill="#f87171" font-size="13" text-anchor="middle">e</text>
-  <rect x="236.0" y="110.0" width="104.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="214.0" y="124.0" fill="#d88b8b" font-size="13" text-anchor="middle">e</text>
+  <rect x="236.0" y="110.0" width="104.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="288.0" y="132.0" fill="#e2e8f0" font-size="15" text-anchor="middle">PID</text>
   <text x="288.0" y="151.0" fill="#94a3b8" font-size="13" text-anchor="middle">P + I + D</text>
   <line x1="342.0" y1="136.0" x2="364.0" y2="136.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
@@ -23,7 +23,7 @@
   <text x="380.0" y="141.0" fill="#e2e8f0" font-size="16" text-anchor="middle">+</text>
   <path d="M342,54 L380,54 L380,120" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="396.0" y1="136.0" x2="422.0" y2="136.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="426.0" y="110.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <rect x="426.0" y="110.0" width="150.0" height="52.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="501.0" y="132.0" fill="#e2e8f0" font-size="15" text-anchor="middle">한계로 자르기</text>
   <text x="501.0" y="151.0" fill="#94a3b8" font-size="13" text-anchor="middle">±τ_max</text>
   <line x1="501.0" y1="164.0" x2="501.0" y2="194.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>

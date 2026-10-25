@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>위는 aligned 합치기. 예로 든 30 fps 로봇에서 tick 20 의 사진으로 시작한 300 ms 짜리 추론이 tick 29 에 끝나면, 새 chunk 의 앞 9 개는 이미 지난 tick 의 몫이라 버리고 tick 29 부터 남은 queue 를 바꾼다. 아래는 예로 든 상자 앞 장면에서 queue 의 목표 −20° 와 새 chunk 의 목표 +20° 를 blend_weight 0.5 로 섞은 결과로, 0° 가 되어 상자에 부딪히는 −10° ~ +10° 안에 들어간다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20" y="30" fill="#94a3b8" font-size="13" text-anchor="start">aligned 합치기 (30 fps, 추론 300 ms = 9 tick 이라고 둔 예)</text>
   <line x1="70.0" y1="48" x2="70.0" y2="54" stroke="#475569" stroke-width="1"/>
@@ -22,23 +22,23 @@
   <line x1="600.0" y1="48" x2="600.0" y2="54" stroke="#475569" stroke-width="1"/>
   <text x="600.0" y="66" fill="#94a3b8" font-size="11" text-anchor="middle">50</text>
   <text x="20" y="66" fill="#94a3b8" font-size="11.5" text-anchor="start">tick</text>
-  <text x="20" y="92" fill="#38bdf8" font-size="12" text-anchor="start">남은 queue</text>
-  <rect x="70.0" y="80" width="251.75" height="18" rx="3" fill="#38bdf833" stroke="#38bdf8" stroke-width="1.8"/>
-  <rect x="321.75" y="80" width="278.25" height="18" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <text x="20" y="92" fill="#7cb4d8" font-size="12" text-anchor="start">남은 queue</text>
+  <rect x="70.0" y="80" width="251.75" height="18" rx="3" fill="#38bdf833" stroke="#7cb4d8" stroke-width="1.8"/>
+  <rect x="321.75" y="80" width="278.25" height="18" rx="3" fill="#0f172a" stroke="#7cb4d8" stroke-width="1.8" stroke-dasharray="4 3"/>
   <text x="460.875" y="93" fill="#94a3b8" font-size="11" text-anchor="middle">새 chunk 가 오면 버리는 부분</text>
-  <line x1="202.5" y1="104" x2="202.5" y2="150" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <text x="206.5" y="116" fill="#a78bfa" font-size="11.5" text-anchor="start">tick 20 사진으로 추론 시작</text>
-  <rect x="202.5" y="122" width="119.25" height="16" rx="3" fill="#a78bfa44" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="327.75" y="135" fill="#a78bfa" font-size="11.5" text-anchor="start">tick 29 에 도착</text>
-  <text x="20" y="172" fill="#34d399" font-size="12" text-anchor="start">새 chunk</text>
-  <rect x="202.5" y="160" width="119.25" height="18" rx="3" fill="#f8717122" stroke="#f87171" stroke-width="1.8" stroke-dasharray="4 3"/>
-  <text x="262.125" y="194" fill="#f87171" font-size="11" text-anchor="middle">앞 9 개는 이미 지난 tick</text>
-  <rect x="321.75" y="160" width="278.25" height="18" rx="3" fill="#34d39933" stroke="#34d399" stroke-width="1.8"/>
-  <text x="460.875" y="194" fill="#34d399" font-size="11" text-anchor="middle">tick 29 부터 이어 붙인다</text>
+  <line x1="202.5" y1="104" x2="202.5" y2="150" stroke="#a99ad6" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="206.5" y="116" fill="#a99ad6" font-size="11.5" text-anchor="start">tick 20 사진으로 추론 시작</text>
+  <rect x="202.5" y="122" width="119.25" height="16" rx="3" fill="#a78bfa44" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="327.75" y="135" fill="#a99ad6" font-size="11.5" text-anchor="start">tick 29 에 도착</text>
+  <text x="20" y="172" fill="#7fc4a2" font-size="12" text-anchor="start">새 chunk</text>
+  <rect x="202.5" y="160" width="119.25" height="18" rx="3" fill="#f8717122" stroke="#d88b8b" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <text x="262.125" y="194" fill="#d88b8b" font-size="11" text-anchor="middle">앞 9 개는 이미 지난 tick</text>
+  <rect x="321.75" y="160" width="278.25" height="18" rx="3" fill="#34d39933" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="460.875" y="194" fill="#7fc4a2" font-size="11" text-anchor="middle">tick 29 부터 이어 붙인다</text>
   <line x1="20" y1="214" x2="620" y2="214" stroke="#1e293b" stroke-width="1"/>
   <text x="20" y="240" fill="#94a3b8" font-size="13" text-anchor="start">갈린 두 chunk 의 blending (예로 든 상자 앞 장면)</text>
-  <rect x="260.0" y="270" width="150.0" height="38" rx="4" fill="#f871711f" stroke="#f87171" stroke-width="1" stroke-dasharray="4 3"/>
-  <text x="335.0" y="260" fill="#f87171" font-size="11.5" text-anchor="middle">−10° ~ +10° 는 상자에 부딪힌다</text>
+  <rect x="260.0" y="270" width="150.0" height="38" rx="4" fill="#f871711f" stroke="#d88b8b" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="335.0" y="260" fill="#d88b8b" font-size="11.5" text-anchor="middle">−10° ~ +10° 는 상자에 부딪힌다</text>
   <line x1="110" y1="300" x2="560" y2="300" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="110.0" y1="296" x2="110.0" y2="304" stroke="#94a3b8" stroke-width="1"/>
   <text x="110.0" y="320" fill="#94a3b8" font-size="11" text-anchor="middle">−30°</text>
@@ -54,11 +54,11 @@
   <text x="485.0" y="320" fill="#94a3b8" font-size="11" text-anchor="middle">+20°</text>
   <line x1="560.0" y1="296" x2="560.0" y2="304" stroke="#94a3b8" stroke-width="1"/>
   <text x="560.0" y="320" fill="#94a3b8" font-size="11" text-anchor="middle">+30°</text>
-  <circle cx="185.0" cy="300" r="7" fill="#38bdf8"/>
-  <text x="185.0" y="286" fill="#38bdf8" font-size="11.5" text-anchor="middle">queue 의 목표 −20°</text>
-  <circle cx="485.0" cy="300" r="7" fill="#f59e0b"/>
-  <text x="485.0" y="286" fill="#f59e0b" font-size="11.5" text-anchor="middle">새 chunk 의 목표 +20°</text>
-  <circle cx="335.0" cy="300" r="7" fill="#f87171"/>
+  <circle cx="185.0" cy="300" r="7" fill="#7cb4d8"/>
+  <text x="185.0" y="286" fill="#7cb4d8" font-size="11.5" text-anchor="middle">queue 의 목표 −20°</text>
+  <circle cx="485.0" cy="300" r="7" fill="#d6aa62"/>
+  <text x="485.0" y="286" fill="#d6aa62" font-size="11.5" text-anchor="middle">새 chunk 의 목표 +20°</text>
+  <circle cx="335.0" cy="300" r="7" fill="#d88b8b"/>
   <text x="335.0" y="344" fill="#e2e8f0" font-size="12.5" text-anchor="middle">blend_weight 0.5 → −20 + 0.5 × (20 − (−20)) = 0°</text>
   <text x="335.0" y="366" fill="#94a3b8" font-size="12" text-anchor="middle">두 방법 모두 피하는 움직임인데 섞은 목표는 상자로 곧장 간다</text>
 </svg>

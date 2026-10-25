@@ -5,24 +5,24 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="698" height="368" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="24.0" y="32.0" fill="#f87171" font-size="14" text-anchor="start">z 를 바로 뽑을 때</text>
+  <text x="24.0" y="32.0" fill="#d88b8b" font-size="14" text-anchor="start">z 를 바로 뽑을 때</text>
   <rect x="30.0" y="56.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="75.0" y="81.0" fill="#e2e8f0" font-size="14" text-anchor="middle">μ = 0.5</text>
   <rect x="150.0" y="56.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="195.0" y="81.0" fill="#e2e8f0" font-size="14" text-anchor="middle">σ = 2</text>
   <line x1="75.0" y1="96.0" x2="110.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="195.0" y1="96.0" x2="160.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="40.0" y="132.0" width="190.0" height="48.0" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <rect x="40.0" y="132.0" width="190.0" height="48.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="135.0" y="161.0" fill="#e2e8f0" font-size="14" text-anchor="middle">N(μ, σ²) 에서 뽑기</text>
   <line x1="135.0" y1="180.0" x2="135.0" y2="210.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="85.0" y="212.0" width="100.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -30,32 +30,32 @@
   <line x1="135.0" y1="252.0" x2="135.0" y2="276.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="85.0" y="278.0" width="100.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="135.0" y="303.0" fill="#e2e8f0" font-size="14" text-anchor="middle">loss L</text>
-  <path d="M190,298 C262,298 266,170 244,160" fill="none" stroke="#f87171" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-red)"/>
-  <text x="262.0" y="236.0" fill="#f87171" font-size="12" text-anchor="start">gradient</text>
-  <line x1="234.0" y1="150.0" x2="248.0" y2="164.0" stroke="#f87171" stroke-width="2.5"/>
-  <line x1="234.0" y1="164.0" x2="248.0" y2="150.0" stroke="#f87171" stroke-width="2.5"/>
+  <path d="M190,298 C262,298 266,170 244,160" fill="none" stroke="#d88b8b" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-red)"/>
+  <text x="262.0" y="236.0" fill="#d88b8b" font-size="12" text-anchor="start">gradient</text>
+  <line x1="234.0" y1="150.0" x2="248.0" y2="164.0" stroke="#d88b8b" stroke-width="2.5"/>
+  <line x1="234.0" y1="164.0" x2="248.0" y2="150.0" stroke="#d88b8b" stroke-width="2.5"/>
   <text x="150.0" y="350.0" fill="#94a3b8" font-size="11" text-anchor="middle">μ 를 바꿔 다시 뽑으면 z 가 운에 따라 바뀐다</text>
   <line x1="318.0" y1="20.0" x2="318.0" y2="350.0" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="336.0" y="32.0" fill="#34d399" font-size="14" text-anchor="start">z = μ + σ × ε 로 계산할 때</text>
+  <text x="336.0" y="32.0" fill="#7fc4a2" font-size="14" text-anchor="start">z = μ + σ × ε 로 계산할 때</text>
   <rect x="380.0" y="56.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="425.0" y="81.0" fill="#e2e8f0" font-size="14" text-anchor="middle">μ = 0.5</text>
   <rect x="490.0" y="56.0" width="90.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="535.0" y="81.0" fill="#e2e8f0" font-size="14" text-anchor="middle">σ = 2</text>
-  <rect x="596.0" y="56.0" width="92.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="642.0" y="74.0" fill="#f59e0b" font-size="14" text-anchor="middle">ε = 0.3</text>
+  <rect x="596.0" y="56.0" width="92.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="642.0" y="74.0" fill="#d6aa62" font-size="14" text-anchor="middle">ε = 0.3</text>
   <text x="642.0" y="90.0" fill="#94a3b8" font-size="11" text-anchor="middle">N(0, 1) 에서</text>
   <line x1="425.0" y1="96.0" x2="470.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="535.0" y1="96.0" x2="520.0" y2="130.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="632.0" y1="96.0" x2="575.0" y2="130.0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-amber)"/>
-  <rect x="400.0" y="132.0" width="200.0" height="46.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <line x1="632.0" y1="96.0" x2="575.0" y2="130.0" stroke="#d6aa62" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-amber)"/>
+  <rect x="400.0" y="132.0" width="200.0" height="46.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="500.0" y="160.0" fill="#e2e8f0" font-size="13" text-anchor="middle">z = 0.5 + 2 × 0.3 = 1.1</text>
   <line x1="500.0" y1="178.0" x2="500.0" y2="204.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="415.0" y="206.0" width="170.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="500.0" y="231.0" fill="#e2e8f0" font-size="13" text-anchor="middle">L = (z − 2)² = 0.81</text>
-  <path d="M412,226 L352,226 L352,104 L376,80" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-green)"/>
-  <text x="356.0" y="246.0" fill="#34d399" font-size="12" text-anchor="start">gradient</text>
+  <path d="M412,226 L352,226 L352,104 L376,80" fill="none" stroke="#7fc4a2" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-green)"/>
+  <text x="356.0" y="246.0" fill="#7fc4a2" font-size="12" text-anchor="start">gradient</text>
   <text x="400.0" y="274.0" fill="#e2e8f0" font-size="12" text-anchor="start">∂L/∂z = 2 × (1.1 − 2) = −1.8</text>
-  <text x="400.0" y="294.0" fill="#34d399" font-size="12" text-anchor="start">∂L/∂μ = −1.8 × 1 = −1.8</text>
-  <text x="400.0" y="314.0" fill="#34d399" font-size="12" text-anchor="start">∂L/∂σ = −1.8 × ε = −1.8 × 0.3 = −0.54</text>
+  <text x="400.0" y="294.0" fill="#7fc4a2" font-size="12" text-anchor="start">∂L/∂μ = −1.8 × 1 = −1.8</text>
+  <text x="400.0" y="314.0" fill="#7fc4a2" font-size="12" text-anchor="start">∂L/∂σ = −1.8 × ε = −1.8 × 0.3 = −0.54</text>
   <text x="510.0" y="350.0" fill="#94a3b8" font-size="11" text-anchor="middle">ε 는 고정된 입력이라 μ, σ 까지 비율이 정해진다</text>
 </svg>

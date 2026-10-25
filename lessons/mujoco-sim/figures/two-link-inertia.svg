@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>joint 두 개짜리 팔의 두 자세. 팔을 펴면 손끝 추가 어깨에서 1 m 떨어져 어깨의 inertia 가 1.25, 팔꿈치를 직각으로 굽히면 거리의 제곱이 0.5 라 0.75 다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="658" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="30.0" y="36.0" fill="#38bdf8" font-size="14" text-anchor="start">팔을 편 자세 (θ₂ = 0°)</text>
+  <text x="30.0" y="36.0" fill="#7cb4d8" font-size="14" text-anchor="start">팔을 편 자세 (θ₂ = 0°)</text>
   <line x1="60.0" y1="150.0" x2="260.0" y2="150.0" stroke="#e2e8f0" stroke-width="4"/>
   <circle cx="60.0" cy="150.0" r="9" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="60.0" cy="150.0" r="3" fill="#e2e8f0"/>
-  <circle cx="160.0" cy="150.0" r="13" fill="#f59e0b"/>
+  <circle cx="160.0" cy="150.0" r="13" fill="#d6aa62"/>
   <text x="160.0" y="154.0" fill="#0b1220" font-size="11" text-anchor="middle" font-weight="700">1kg</text>
-  <circle cx="260.0" cy="150.0" r="13" fill="#f59e0b"/>
+  <circle cx="260.0" cy="150.0" r="13" fill="#d6aa62"/>
   <text x="260.0" y="154.0" fill="#0b1220" font-size="11" text-anchor="middle" font-weight="700">1kg</text>
   <text x="58.0" y="180.0" fill="#94a3b8" font-size="12" text-anchor="middle">어깨</text>
   <text x="160.0" y="184.0" fill="#94a3b8" font-size="12" text-anchor="middle">팔꿈치</text>
   <text x="260.0" y="184.0" fill="#94a3b8" font-size="12" text-anchor="middle">손끝</text>
   <line x1="60.0" y1="120.0" x2="160.0" y2="120.0" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)" marker-start="url(#arrow-gray)"/>
   <text x="110.0" y="114.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5 m</text>
-  <line x1="60.0" y1="92.0" x2="260.0" y2="92.0" stroke="#38bdf8" stroke-width="1.2" marker-end="url(#arrow-sky)" marker-start="url(#arrow-sky)"/>
-  <text x="160.0" y="86.0" fill="#38bdf8" font-size="12" text-anchor="middle">1 m</text>
+  <line x1="60.0" y1="92.0" x2="260.0" y2="92.0" stroke="#7cb4d8" stroke-width="1.2" marker-end="url(#arrow-sky)" marker-start="url(#arrow-sky)"/>
+  <text x="160.0" y="86.0" fill="#7cb4d8" font-size="12" text-anchor="middle">1 m</text>
   <text x="30.0" y="232.0" fill="#e2e8f0" font-size="14" text-anchor="start">I = 1 × 0.5² + 1 × 1²</text>
   <text x="30.0" y="256.0" fill="#e2e8f0" font-size="14" text-anchor="start">  = 0.25 + 1 = 1.25 kg·m²</text>
   <line x1="330.0" y1="30.0" x2="330.0" y2="270.0" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="355.0" y="36.0" fill="#34d399" font-size="14" text-anchor="start">팔꿈치를 직각으로 굽힌 자세 (θ₂ = 90°)</text>
+  <text x="355.0" y="36.0" fill="#7fc4a2" font-size="14" text-anchor="start">팔꿈치를 직각으로 굽힌 자세 (θ₂ = 90°)</text>
   <line x1="400.0" y1="190.0" x2="500.0" y2="190.0" stroke="#e2e8f0" stroke-width="4"/>
   <line x1="500.0" y1="190.0" x2="500.0" y2="90.0" stroke="#e2e8f0" stroke-width="4"/>
   <circle cx="400.0" cy="190.0" r="9" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="400.0" cy="190.0" r="3" fill="#e2e8f0"/>
-  <circle cx="500.0" cy="190.0" r="13" fill="#f59e0b"/>
+  <circle cx="500.0" cy="190.0" r="13" fill="#d6aa62"/>
   <text x="500.0" y="194.0" fill="#0b1220" font-size="11" text-anchor="middle" font-weight="700">1kg</text>
-  <circle cx="500.0" cy="90.0" r="13" fill="#f59e0b"/>
+  <circle cx="500.0" cy="90.0" r="13" fill="#d6aa62"/>
   <text x="500.0" y="94.0" fill="#0b1220" font-size="11" text-anchor="middle" font-weight="700">1kg</text>
-  <line x1="400.0" y1="190.0" x2="500.0" y2="90.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="444.0" y="130.0" fill="#34d399" font-size="12.5" text-anchor="end">거리² = 0.5² + 0.5² = 0.5</text>
+  <line x1="400.0" y1="190.0" x2="500.0" y2="90.0" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="444.0" y="130.0" fill="#7fc4a2" font-size="12.5" text-anchor="end">거리² = 0.5² + 0.5² = 0.5</text>
   <text x="450.0" y="212.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5 m</text>
   <text x="518.0" y="144.0" fill="#94a3b8" font-size="12" text-anchor="start">0.5 m</text>
   <text x="355.0" y="232.0" fill="#e2e8f0" font-size="14" text-anchor="start">I = 1 × 0.5² + 1 × 0.5</text>

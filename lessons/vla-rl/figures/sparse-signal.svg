@@ -18,18 +18,18 @@
     <circle cx="400" cy="75" r="7"/><circle cx="418" cy="75" r="7"/><circle cx="436" cy="75" r="7"/><circle cx="454" cy="75" r="7"/><circle cx="472" cy="75" r="7"/>
   </g>
   <g fill="#475569">
-    <circle cx="130" cy="145" r="7" fill="#34d399"/><circle cx="148" cy="145" r="7"/><circle cx="166" cy="145" r="7"/><circle cx="184" cy="145" r="7"/><circle cx="202" cy="145" r="7"/>
+    <circle cx="130" cy="145" r="7" fill="#7fc4a2"/><circle cx="148" cy="145" r="7"/><circle cx="166" cy="145" r="7"/><circle cx="184" cy="145" r="7"/><circle cx="202" cy="145" r="7"/>
     <circle cx="220" cy="145" r="7"/><circle cx="238" cy="145" r="7"/><circle cx="256" cy="145" r="7"/><circle cx="274" cy="145" r="7"/><circle cx="292" cy="145" r="7"/>
     <circle cx="310" cy="145" r="7"/><circle cx="328" cy="145" r="7"/><circle cx="346" cy="145" r="7"/><circle cx="364" cy="145" r="7"/><circle cx="382" cy="145" r="7"/>
     <circle cx="400" cy="145" r="7"/><circle cx="418" cy="145" r="7"/><circle cx="436" cy="145" r="7"/><circle cx="454" cy="145" r="7"/><circle cx="472" cy="145" r="7"/>
   </g>
   <g fill="#475569">
-    <circle cx="130" cy="215" r="7" fill="#34d399"/><circle cx="148" cy="215" r="7" fill="#34d399"/><circle cx="166" cy="215" r="7" fill="#34d399"/><circle cx="184" cy="215" r="7" fill="#34d399"/><circle cx="202" cy="215" r="7" fill="#34d399"/>
-    <circle cx="220" cy="215" r="7" fill="#34d399"/><circle cx="238" cy="215" r="7"/><circle cx="256" cy="215" r="7"/><circle cx="274" cy="215" r="7"/><circle cx="292" cy="215" r="7"/>
+    <circle cx="130" cy="215" r="7" fill="#7fc4a2"/><circle cx="148" cy="215" r="7" fill="#7fc4a2"/><circle cx="166" cy="215" r="7" fill="#7fc4a2"/><circle cx="184" cy="215" r="7" fill="#7fc4a2"/><circle cx="202" cy="215" r="7" fill="#7fc4a2"/>
+    <circle cx="220" cy="215" r="7" fill="#7fc4a2"/><circle cx="238" cy="215" r="7"/><circle cx="256" cy="215" r="7"/><circle cx="274" cy="215" r="7"/><circle cx="292" cy="215" r="7"/>
     <circle cx="310" cy="215" r="7"/><circle cx="328" cy="215" r="7"/><circle cx="346" cy="215" r="7"/><circle cx="364" cy="215" r="7"/><circle cx="382" cy="215" r="7"/>
     <circle cx="400" cy="215" r="7"/><circle cx="418" cy="215" r="7"/><circle cx="436" cy="215" r="7"/><circle cx="454" cy="215" r="7"/><circle cx="472" cy="215" r="7"/>
   </g>
-  <g fill="#34d399">
+  <g fill="#7fc4a2">
     <circle cx="130" cy="285" r="7"/><circle cx="148" cy="285" r="7"/><circle cx="166" cy="285" r="7"/><circle cx="184" cy="285" r="7"/><circle cx="202" cy="285" r="7"/>
     <circle cx="220" cy="285" r="7"/><circle cx="238" cy="285" r="7"/><circle cx="256" cy="285" r="7"/><circle cx="274" cy="285" r="7"/><circle cx="292" cy="285" r="7"/>
     <circle cx="310" cy="285" r="7"/><circle cx="328" cy="285" r="7"/><circle cx="346" cy="285" r="7"/><circle cx="364" cy="285" r="7"/><circle cx="382" cy="285" r="7"/>
@@ -37,13 +37,13 @@
   </g>
 
   <g font-size="13">
-    <text x="500" y="72" fill="#f87171">advantage 모두 0</text>
+    <text x="500" y="72" fill="#d88b8b">advantage 모두 0</text>
     <text x="500" y="90" fill="#94a3b8">배울 신호 없음</text>
-    <text x="500" y="142" fill="#34d399">성공 1 개: +0.95</text>
+    <text x="500" y="142" fill="#7fc4a2">성공 1 개: +0.95</text>
     <text x="500" y="160" fill="#94a3b8">실패 19 개: −0.05</text>
-    <text x="500" y="212" fill="#34d399">성공 6 개: +0.7</text>
+    <text x="500" y="212" fill="#7fc4a2">성공 6 개: +0.7</text>
     <text x="500" y="230" fill="#94a3b8">실패 14 개: −0.3</text>
-    <text x="500" y="282" fill="#34d399">성공 19 개: +0.05</text>
+    <text x="500" y="282" fill="#7fc4a2">성공 19 개: +0.05</text>
     <text x="500" y="300" fill="#94a3b8">실패 1 개: −0.95</text>
   </g>
 </svg>

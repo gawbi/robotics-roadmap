@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>ReLU 없이 이은 두 Linear layer 의 출력(평평한 선)과 ReLU 를 넣은 출력(V 자)</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="60.0" y1="218.3" x2="310.0" y2="218.3" stroke="#1e293b" stroke-width="1"/>
   <line x1="60.0" y1="155.0" x2="310.0" y2="155.0" stroke="#1e293b" stroke-width="1"/>
@@ -24,13 +24,13 @@
   <text x="52.0" y="95.7" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
   <text x="185.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="middle">x</text>
   <text x="60.0" y="50.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <text x="185.0" y="34.0" fill="#f87171" font-size="14" text-anchor="middle">ReLU 없이: y = x + (−x)</text>
-  <polyline points="60.0,218.3 310.0,218.3" fill="none" stroke="#f87171" stroke-width="3" stroke-linejoin="round"/>
-  <circle cx="85.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="135.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="185.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="235.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="285.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="185.0" y="34.0" fill="#d88b8b" font-size="14" text-anchor="middle">ReLU 없이: y = x + (−x)</text>
+  <polyline points="60.0,218.3 310.0,218.3" fill="none" stroke="#d88b8b" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="85.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="135.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="185.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="235.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="285.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
   <line x1="420.0" y1="218.3" x2="670.0" y2="218.3" stroke="#1e293b" stroke-width="1"/>
   <line x1="420.0" y1="155.0" x2="670.0" y2="155.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="420.0" y1="91.7" x2="670.0" y2="91.7" stroke="#1e293b" stroke-width="1"/>
@@ -53,13 +53,13 @@
   <text x="412.0" y="95.7" fill="#94a3b8" font-size="12" text-anchor="end">2</text>
   <text x="545.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="middle">x</text>
   <text x="420.0" y="50.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <text x="545.0" y="34.0" fill="#34d399" font-size="14" text-anchor="middle">ReLU 를 넣으면: y = relu(x) + relu(−x)</text>
-  <polyline points="420.0,60.0 545.0,218.3 670.0,60.0" fill="none" stroke="#34d399" stroke-width="3" stroke-linejoin="round"/>
-  <circle cx="445.0" cy="91.7" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="495.0" cy="155.0" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="545.0" cy="218.3" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="595.0" cy="155.0" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="645.0" cy="91.7" r="4.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="545.0" y="34.0" fill="#7fc4a2" font-size="14" text-anchor="middle">ReLU 를 넣으면: y = relu(x) + relu(−x)</text>
+  <polyline points="420.0,60.0 545.0,218.3 670.0,60.0" fill="none" stroke="#7fc4a2" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="445.0" cy="91.7" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="495.0" cy="155.0" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="545.0" cy="218.3" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="595.0" cy="155.0" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="645.0" cy="91.7" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
   <text x="185.0" y="322.0" fill="#94a3b8" font-size="13" text-anchor="middle">무엇을 넣어도 0: 직선 하나와 같다</text>
   <text x="545.0" y="322.0" fill="#94a3b8" font-size="13" text-anchor="middle">x = 0 에서 꺾인다</text>
 </svg>

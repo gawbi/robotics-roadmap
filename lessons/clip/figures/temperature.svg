@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>사진 I₁(고양이) 행의 확률. τ = 1 로 cosine 0.8, 0.5, 0.1 을 그대로 softmax 하면 0.447, 0.331, 0.222 로 평평하고, τ = 0.1 로 나눠 8, 5, 1 을 쓰면 0.952, 0.047, 0.001 로 정답에 몰린다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="16" y="16" width="300" height="268" rx="8" fill="#0e1628"/>
   <text x="166" y="42" fill="#e2e8f0" font-size="15" text-anchor="middle">τ = 1</text>
   <text x="166" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">점수 0.8, 0.5, 0.1</text>
   <line x1="46" y1="236" x2="286" y2="236" stroke="#475569" stroke-width="1.5"/>
-  <rect x="52" y="168.9" width="48" height="67.0" rx="2" fill="#34d399" fill-opacity="0.85"/>
-  <text x="76" y="160.9" fill="#34d399" font-size="13" text-anchor="middle">0.447</text>
+  <rect x="52" y="168.9" width="48" height="67.0" rx="2" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="76" y="160.9" fill="#7fc4a2" font-size="13" text-anchor="middle">0.447</text>
   <text x="76" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₁ 고양이</text>
-  <rect x="142" y="186.3" width="48" height="49.7" rx="2" fill="#f59e0b" fill-opacity="0.85"/>
-  <text x="166" y="178.3" fill="#f59e0b" font-size="13" text-anchor="middle">0.331</text>
+  <rect x="142" y="186.3" width="48" height="49.7" rx="2" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="166" y="178.3" fill="#d6aa62" font-size="13" text-anchor="middle">0.331</text>
   <text x="166" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₂ 개</text>
-  <rect x="232" y="202.7" width="48" height="33.3" rx="2" fill="#f59e0b" fill-opacity="0.85"/>
-  <text x="256" y="194.7" fill="#f59e0b" font-size="13" text-anchor="middle">0.222</text>
+  <rect x="232" y="202.7" width="48" height="33.3" rx="2" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="256" y="194.7" fill="#d6aa62" font-size="13" text-anchor="middle">0.222</text>
   <text x="256" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₃ 자동차</text>
   <line x1="46" y1="86" x2="286" y2="86" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="42" y="90" fill="#64748b" font-size="11" text-anchor="end">1</text>
@@ -21,14 +21,14 @@
   <text x="474" y="42" fill="#e2e8f0" font-size="15" text-anchor="middle">τ = 0.1</text>
   <text x="474" y="62" fill="#94a3b8" font-size="12" text-anchor="middle">점수 8, 5, 1</text>
   <line x1="354" y1="236" x2="594" y2="236" stroke="#475569" stroke-width="1.5"/>
-  <rect x="360" y="93.2" width="48" height="142.8" rx="2" fill="#34d399" fill-opacity="0.85"/>
-  <text x="384" y="85.2" fill="#34d399" font-size="13" text-anchor="middle">0.952</text>
+  <rect x="360" y="93.2" width="48" height="142.8" rx="2" fill="#7fc4a2" fill-opacity="0.85"/>
+  <text x="384" y="85.2" fill="#7fc4a2" font-size="13" text-anchor="middle">0.952</text>
   <text x="384" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₁ 고양이</text>
-  <rect x="450" y="228.9" width="48" height="7.0" rx="2" fill="#f59e0b" fill-opacity="0.85"/>
-  <text x="474" y="220.9" fill="#f59e0b" font-size="13" text-anchor="middle">0.047</text>
+  <rect x="450" y="228.9" width="48" height="7.0" rx="2" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="474" y="220.9" fill="#d6aa62" font-size="13" text-anchor="middle">0.047</text>
   <text x="474" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₂ 개</text>
-  <rect x="540" y="235.8" width="48" height="1" rx="2" fill="#f59e0b" fill-opacity="0.85"/>
-  <text x="564" y="227.8" fill="#f59e0b" font-size="13" text-anchor="middle">0.001</text>
+  <rect x="540" y="235.8" width="48" height="1" rx="2" fill="#d6aa62" fill-opacity="0.85"/>
+  <text x="564" y="227.8" fill="#d6aa62" font-size="13" text-anchor="middle">0.001</text>
   <text x="564" y="256" fill="#94a3b8" font-size="12" text-anchor="middle">T₃ 자동차</text>
   <line x1="354" y1="86" x2="594" y2="86" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="350" y="90" fill="#64748b" font-size="11" text-anchor="end">1</text>

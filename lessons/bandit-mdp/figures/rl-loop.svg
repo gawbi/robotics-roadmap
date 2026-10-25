@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>agent 가 state 를 보고 action 을 내면 environment 가 다음 state 와 reward 를 돌려주고, 이 주고받기를 되풀이한다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="40.0" y="60.0" width="170.0" height="110.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="40.0" y="60.0" width="170.0" height="110.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="125.0" y="100.0" fill="#e2e8f0" font-size="18" text-anchor="middle">agent</text>
   <text x="125.0" y="128.0" fill="#94a3b8" font-size="13" text-anchor="middle">state 를 보고</text>
   <text x="125.0" y="147.0" fill="#94a3b8" font-size="13" text-anchor="middle">action 을 고른다</text>
-  <rect x="390.0" y="60.0" width="170.0" height="110.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="390.0" y="60.0" width="170.0" height="110.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="475.0" y="100.0" fill="#e2e8f0" font-size="18" text-anchor="middle">environment</text>
   <text x="475.0" y="128.0" fill="#94a3b8" font-size="13" text-anchor="middle">다음 state 와</text>
   <text x="475.0" y="147.0" fill="#94a3b8" font-size="13" text-anchor="middle">reward 를 정한다</text>
-  <line x1="210.0" y1="85.0" x2="388.0" y2="85.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="300.0" y="75.0" fill="#f59e0b" font-size="14" text-anchor="middle">action (예: 오른쪽)</text>
-  <line x1="390.0" y1="130.0" x2="212.0" y2="130.0" stroke="#38bdf8" stroke-width="2" marker-end="url(#ar-sky)"/>
-  <text x="300.0" y="121.0" fill="#38bdf8" font-size="14" text-anchor="middle">다음 state (예: 2 번 칸)</text>
-  <line x1="390.0" y1="152.0" x2="212.0" y2="152.0" stroke="#34d399" stroke-width="2" marker-end="url(#ar-green)"/>
-  <text x="300.0" y="174.0" fill="#34d399" font-size="14" text-anchor="middle">reward (예: 0)</text>
+  <line x1="210.0" y1="85.0" x2="388.0" y2="85.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="300.0" y="75.0" fill="#d6aa62" font-size="14" text-anchor="middle">action (예: 오른쪽)</text>
+  <line x1="390.0" y1="130.0" x2="212.0" y2="130.0" stroke="#7cb4d8" stroke-width="2" marker-end="url(#ar-sky)"/>
+  <text x="300.0" y="121.0" fill="#7cb4d8" font-size="14" text-anchor="middle">다음 state (예: 2 번 칸)</text>
+  <line x1="390.0" y1="152.0" x2="212.0" y2="152.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#ar-green)"/>
+  <text x="300.0" y="174.0" fill="#7fc4a2" font-size="14" text-anchor="middle">reward (예: 0)</text>
   <text x="300.0" y="214.0" fill="#94a3b8" font-size="13" text-anchor="middle">한 번 주고받는 것이 step, 시작부터 끝까지의 step 묶음이 episode 다</text>
 </svg>

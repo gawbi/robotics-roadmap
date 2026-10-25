@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>원점, 팔꿈치, 손끝을 이은 삼각형. 세 변이 1, 1, 1.732 이고 팔꿈치의 안쪽 각은 180° − 60° = 120° 다</title>
-  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="30.0" y="30.0" width="330.0" height="330.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="87.4" y1="356.4" x2="87.4" y2="33.6" stroke="#16213a" stroke-width="1"/>
@@ -15,29 +15,29 @@
   <line x1="30.0" y1="313.4" x2="360.0" y2="313.4" stroke="#475569" stroke-width="1.5"/>
   <text x="356.0" y="306.4" fill="#94a3b8" font-size="13" text-anchor="end">x</text>
   <text x="93.4" y="47.6" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <line x1="87.4" y1="313.4" x2="211.6" y2="98.2" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <line x1="87.4" y1="313.4" x2="211.6" y2="98.2" stroke="#d6aa62" stroke-width="2.5" stroke-dasharray="7 5"/>
   <line x1="211.6" y1="241.6" x2="280.0" y2="202.2" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <polyline points="87.4,313.4 211.6,241.6 211.6,98.2" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linejoin="round"/>
-  <polyline points="246.4,221.5 245.9,220.6 245.3,219.8 244.8,218.9 244.1,218.0 243.5,217.2 242.9,216.3 242.2,215.5 241.5,214.7 240.8,214.0 240.1,213.2 239.3,212.5 238.5,211.8 237.7,211.1 236.9,210.4 236.1,209.8 235.3,209.1 234.4,208.5 233.5,207.9 232.6,207.4 231.7,206.8 230.8,206.3 229.9,205.8 228.9,205.4 228.0,204.9 227.0,204.5 226.0,204.1 225.1,203.8 224.1,203.4 223.1,203.1 222.0,202.8 221.0,202.6 220.0,202.3 219.0,202.1 217.9,202.0 216.9,201.8 215.8,201.7 214.8,201.6 213.7,201.5 212.7,201.5 211.6,201.5" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linejoin="round"/>
-  <text x="247.6" y="211.6" fill="#a78bfa" font-size="13" text-anchor="start">θ₂ = 60°</text>
-  <polyline points="211.6,217.2 210.4,217.3 209.1,217.4 207.8,217.5 206.6,217.8 205.3,218.1 204.1,218.4 202.9,218.9 201.7,219.3 200.6,219.9 199.5,220.5 198.4,221.2 197.3,221.9 196.3,222.7 195.3,223.5 194.4,224.4 193.5,225.3 192.7,226.3 191.9,227.3 191.2,228.3 190.5,229.4 189.9,230.6 189.4,231.7 188.9,232.9 188.4,234.1 188.1,235.3 187.8,236.6 187.6,237.8 187.4,239.1 187.3,240.4 187.3,241.6 187.3,242.9 187.4,244.2 187.6,245.4 187.8,246.7 188.1,247.9 188.4,249.2 188.9,250.4 189.4,251.6 189.9,252.7 190.5,253.8" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linejoin="round"/>
-  <text x="153.6" y="233.6" fill="#34d399" font-size="13" text-anchor="start">120°</text>
+  <polyline points="87.4,313.4 211.6,241.6 211.6,98.2" fill="none" stroke="#7cb4d8" stroke-width="6" stroke-linejoin="round"/>
+  <polyline points="246.4,221.5 245.9,220.6 245.3,219.8 244.8,218.9 244.1,218.0 243.5,217.2 242.9,216.3 242.2,215.5 241.5,214.7 240.8,214.0 240.1,213.2 239.3,212.5 238.5,211.8 237.7,211.1 236.9,210.4 236.1,209.8 235.3,209.1 234.4,208.5 233.5,207.9 232.6,207.4 231.7,206.8 230.8,206.3 229.9,205.8 228.9,205.4 228.0,204.9 227.0,204.5 226.0,204.1 225.1,203.8 224.1,203.4 223.1,203.1 222.0,202.8 221.0,202.6 220.0,202.3 219.0,202.1 217.9,202.0 216.9,201.8 215.8,201.7 214.8,201.6 213.7,201.5 212.7,201.5 211.6,201.5" fill="none" stroke="#a99ad6" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="247.6" y="211.6" fill="#a99ad6" font-size="13" text-anchor="start">θ₂ = 60°</text>
+  <polyline points="211.6,217.2 210.4,217.3 209.1,217.4 207.8,217.5 206.6,217.8 205.3,218.1 204.1,218.4 202.9,218.9 201.7,219.3 200.6,219.9 199.5,220.5 198.4,221.2 197.3,221.9 196.3,222.7 195.3,223.5 194.4,224.4 193.5,225.3 192.7,226.3 191.9,227.3 191.2,228.3 190.5,229.4 189.9,230.6 189.4,231.7 188.9,232.9 188.4,234.1 188.1,235.3 187.8,236.6 187.6,237.8 187.4,239.1 187.3,240.4 187.3,241.6 187.3,242.9 187.4,244.2 187.6,245.4 187.8,246.7 188.1,247.9 188.4,249.2 188.9,250.4 189.4,251.6 189.9,252.7 190.5,253.8" fill="none" stroke="#7fc4a2" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="153.6" y="233.6" fill="#7fc4a2" font-size="13" text-anchor="start">120°</text>
   <circle cx="87.4" cy="313.4" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="211.6" cy="241.6" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="211.6" cy="98.2" r="6.0" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="211.6" cy="98.2" r="6.0" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
   <text x="79.4" y="333.4" fill="#94a3b8" font-size="13" text-anchor="end">원점</text>
   <text x="221.6" y="263.6" fill="#e2e8f0" font-size="13" text-anchor="start">팔꿈치 (0.866, 0.5)</text>
-  <text x="223.6" y="92.2" fill="#f59e0b" font-size="13" text-anchor="start">손끝 (0.866, 1.5)</text>
-  <text x="157.5" y="297.5" fill="#38bdf8" font-size="13" text-anchor="start">L₁ = 1</text>
-  <text x="221.6" y="173.9" fill="#38bdf8" font-size="13" text-anchor="start">L₂ = 1</text>
-  <text x="137.5" y="201.8" fill="#f59e0b" font-size="13" text-anchor="end">d = 1.732</text>
+  <text x="223.6" y="92.2" fill="#d6aa62" font-size="13" text-anchor="start">손끝 (0.866, 1.5)</text>
+  <text x="157.5" y="297.5" fill="#7cb4d8" font-size="13" text-anchor="start">L₁ = 1</text>
+  <text x="221.6" y="173.9" fill="#7cb4d8" font-size="13" text-anchor="start">L₂ = 1</text>
+  <text x="137.5" y="201.8" fill="#d6aa62" font-size="13" text-anchor="end">d = 1.732</text>
   <text x="385.0" y="70.0" fill="#e2e8f0" font-size="14" text-anchor="start">팔의 식 (θ₂ 로)</text>
   <text x="385.0" y="96.0" fill="#94a3b8" font-size="13" text-anchor="start">d² = L₁² + L₂² + 2L₁L₂ cos θ₂</text>
-  <text x="385.0" y="118.0" fill="#f59e0b" font-size="13" text-anchor="start">   = 1 + 1 + 2 × 0.5 = 3</text>
+  <text x="385.0" y="118.0" fill="#d6aa62" font-size="13" text-anchor="start">   = 1 + 1 + 2 × 0.5 = 3</text>
   <text x="385.0" y="170.0" fill="#e2e8f0" font-size="14" text-anchor="start">코사인 법칙 (안쪽 각 C 로)</text>
   <text x="385.0" y="196.0" fill="#94a3b8" font-size="13" text-anchor="start">c² = a² + b² − 2ab cos C</text>
   <text x="385.0" y="218.0" fill="#94a3b8" font-size="13" text-anchor="start">C = 180° − θ₂ = 120°</text>
-  <text x="385.0" y="240.0" fill="#f59e0b" font-size="13" text-anchor="start">   = 1 + 1 − 2 × (−0.5) = 3</text>
+  <text x="385.0" y="240.0" fill="#d6aa62" font-size="13" text-anchor="start">   = 1 + 1 − 2 × (−0.5) = 3</text>
   <text x="385.0" y="292.0" fill="#e2e8f0" font-size="14" text-anchor="start">두 식은 같은 계산이다</text>
   <text x="385.0" y="316.0" fill="#94a3b8" font-size="13" text-anchor="start">cos 120° = −cos 60° = −0.5</text>
 </svg>

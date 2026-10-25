@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>운이 나쁜 sample 하나(B 를 골라 0 개, advantage −1.5)로 한 번 update 한 결과. learning rate 0.1 이면 B 를 고를 확률이 0.4813, 1 이면 0.3208, 10 이면 0.000553 으로 떨어진다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="340.0" y="34.0" fill="#e2e8f0" font-size="13" text-anchor="middle">θ = 0 에서 B 를 골라 0 개 (Â = −1.5, ∇ ln π(B) = 0.5) → θ 가 η × (−0.75) 만큼 바뀜</text>
   <rect x="20.0" y="52.0" width="204.0" height="260.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
@@ -9,11 +9,11 @@
   <line x1="45.0" y1="185.0" x2="200.0" y2="185.0" stroke="#475569" stroke-width="1" stroke-dasharray="4 3"/>
   <text x="206.0" y="189.0" fill="#94a3b8" font-size="10" text-anchor="start">0.5</text>
   <line x1="45.0" y1="250.0" x2="200.0" y2="250.0" stroke="#475569" stroke-width="1.5"/>
-  <rect x="65.0" y="182.6" width="46.0" height="67.4" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
-  <text x="88.0" y="176.6" fill="#38bdf8" font-size="12" text-anchor="middle">0.5187</text>
+  <rect x="65.0" y="182.6" width="46.0" height="67.4" rx="2" fill="#7cb4d8" fill-opacity="0.6" stroke="#7cb4d8" stroke-width="1"/>
+  <text x="88.0" y="176.6" fill="#7cb4d8" font-size="12" text-anchor="middle">0.5187</text>
   <text x="88.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(A)</text>
-  <rect x="135.0" y="187.4" width="46.0" height="62.6" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
-  <text x="158.0" y="181.4" fill="#f59e0b" font-size="12" text-anchor="middle">0.4813</text>
+  <rect x="135.0" y="187.4" width="46.0" height="62.6" rx="2" fill="#d6aa62" fill-opacity="0.6" stroke="#d6aa62" stroke-width="1"/>
+  <text x="158.0" y="181.4" fill="#d6aa62" font-size="12" text-anchor="middle">0.4813</text>
   <text x="158.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(B)</text>
   <text x="122.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">1000 번 중 B: 약 481 번</text>
   <rect x="238.0" y="52.0" width="204.0" height="260.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
@@ -22,24 +22,24 @@
   <line x1="263.0" y1="185.0" x2="418.0" y2="185.0" stroke="#475569" stroke-width="1" stroke-dasharray="4 3"/>
   <text x="424.0" y="189.0" fill="#94a3b8" font-size="10" text-anchor="start">0.5</text>
   <line x1="263.0" y1="250.0" x2="418.0" y2="250.0" stroke="#475569" stroke-width="1.5"/>
-  <rect x="283.0" y="161.7" width="46.0" height="88.3" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
-  <text x="306.0" y="155.7" fill="#38bdf8" font-size="12" text-anchor="middle">0.6792</text>
+  <rect x="283.0" y="161.7" width="46.0" height="88.3" rx="2" fill="#7cb4d8" fill-opacity="0.6" stroke="#7cb4d8" stroke-width="1"/>
+  <text x="306.0" y="155.7" fill="#7cb4d8" font-size="12" text-anchor="middle">0.6792</text>
   <text x="306.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(A)</text>
-  <rect x="353.0" y="208.3" width="46.0" height="41.7" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
-  <text x="376.0" y="202.3" fill="#f59e0b" font-size="12" text-anchor="middle">0.3208</text>
+  <rect x="353.0" y="208.3" width="46.0" height="41.7" rx="2" fill="#d6aa62" fill-opacity="0.6" stroke="#d6aa62" stroke-width="1"/>
+  <text x="376.0" y="202.3" fill="#d6aa62" font-size="12" text-anchor="middle">0.3208</text>
   <text x="376.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(B)</text>
   <text x="340.0" y="290.0" fill="#94a3b8" font-size="12" text-anchor="middle">1000 번 중 B: 약 321 번</text>
   <rect x="456.0" y="52.0" width="204.0" height="260.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="558.0" y="78.0" fill="#f59e0b" font-size="15" text-anchor="middle">η = 10</text>
+  <text x="558.0" y="78.0" fill="#d6aa62" font-size="15" text-anchor="middle">η = 10</text>
   <text x="558.0" y="98.0" fill="#94a3b8" font-size="12" text-anchor="middle">θ: 0 → −7.5</text>
   <line x1="481.0" y1="185.0" x2="636.0" y2="185.0" stroke="#475569" stroke-width="1" stroke-dasharray="4 3"/>
   <text x="642.0" y="189.0" fill="#94a3b8" font-size="10" text-anchor="start">0.5</text>
   <line x1="481.0" y1="250.0" x2="636.0" y2="250.0" stroke="#475569" stroke-width="1.5"/>
-  <rect x="501.0" y="120.1" width="46.0" height="129.9" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
-  <text x="524.0" y="114.1" fill="#38bdf8" font-size="12" text-anchor="middle">0.9994</text>
+  <rect x="501.0" y="120.1" width="46.0" height="129.9" rx="2" fill="#7cb4d8" fill-opacity="0.6" stroke="#7cb4d8" stroke-width="1"/>
+  <text x="524.0" y="114.1" fill="#7cb4d8" font-size="12" text-anchor="middle">0.9994</text>
   <text x="524.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(A)</text>
-  <rect x="571.0" y="248.5" width="46.0" height="1.5" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
-  <text x="594.0" y="242.5" fill="#f59e0b" font-size="12" text-anchor="middle">0.000553</text>
+  <rect x="571.0" y="248.5" width="46.0" height="1.5" rx="2" fill="#d6aa62" fill-opacity="0.6" stroke="#d6aa62" stroke-width="1"/>
+  <text x="594.0" y="242.5" fill="#d6aa62" font-size="12" text-anchor="middle">0.000553</text>
   <text x="594.0" y="266.0" fill="#94a3b8" font-size="12" text-anchor="middle">π(B)</text>
-  <text x="558.0" y="290.0" fill="#f87171" font-size="12" text-anchor="middle">1000 번 중 B: 약 0.55 번</text>
+  <text x="558.0" y="290.0" fill="#d88b8b" font-size="12" text-anchor="middle">1000 번 중 B: 약 0.55 번</text>
 </svg>

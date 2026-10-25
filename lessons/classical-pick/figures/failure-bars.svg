@@ -4,67 +4,67 @@
   <text x="360" y="34" fill="#e2e8f0" font-size="14" text-anchor="middle">무작위 배치 50 번 시도 (한 칸 = 1 번)</text>
   <!-- 50 cells, 12px each with gap -->
   <g>
-    <rect x="60" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="72" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="84" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="96" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="108" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="120" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="132" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="144" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="156" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="168" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="180" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="192" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="204" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="216" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="228" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="240" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="252" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="264" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="276" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="288" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="300" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="312" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="324" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="336" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="348" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="360" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="372" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="384" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="396" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="408" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="420" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="432" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="444" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="456" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="468" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="480" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="492" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="504" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="516" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="528" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="540" y="56" width="10" height="34" rx="2" fill="#34d399"/>
-    <rect x="552" y="56" width="10" height="34" rx="2" fill="#38bdf8"/>
-    <rect x="564" y="56" width="10" height="34" rx="2" fill="#38bdf8"/>
-    <rect x="576" y="56" width="10" height="34" rx="2" fill="#38bdf8"/>
-    <rect x="588" y="56" width="10" height="34" rx="2" fill="#38bdf8"/>
-    <rect x="600" y="56" width="10" height="34" rx="2" fill="#a78bfa"/>
-    <rect x="612" y="56" width="10" height="34" rx="2" fill="#a78bfa"/>
-    <rect x="624" y="56" width="10" height="34" rx="2" fill="#f59e0b"/>
-    <rect x="636" y="56" width="10" height="34" rx="2" fill="#f59e0b"/>
-    <rect x="648" y="56" width="10" height="34" rx="2" fill="#f87171"/>
+    <rect x="60" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="72" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="84" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="96" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="108" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="120" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="132" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="144" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="156" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="168" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="180" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="192" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="204" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="216" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="228" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="240" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="252" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="264" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="276" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="288" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="300" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="312" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="324" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="336" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="348" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="360" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="372" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="384" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="396" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="408" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="420" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="432" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="444" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="456" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="468" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="480" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="492" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="504" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="516" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="528" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="540" y="56" width="10" height="34" rx="2" fill="#7fc4a2"/>
+    <rect x="552" y="56" width="10" height="34" rx="2" fill="#7cb4d8"/>
+    <rect x="564" y="56" width="10" height="34" rx="2" fill="#7cb4d8"/>
+    <rect x="576" y="56" width="10" height="34" rx="2" fill="#7cb4d8"/>
+    <rect x="588" y="56" width="10" height="34" rx="2" fill="#7cb4d8"/>
+    <rect x="600" y="56" width="10" height="34" rx="2" fill="#a99ad6"/>
+    <rect x="612" y="56" width="10" height="34" rx="2" fill="#a99ad6"/>
+    <rect x="624" y="56" width="10" height="34" rx="2" fill="#d6aa62"/>
+    <rect x="636" y="56" width="10" height="34" rx="2" fill="#d6aa62"/>
+    <rect x="648" y="56" width="10" height="34" rx="2" fill="#d88b8b"/>
   </g>
-  <text x="306" y="110" fill="#34d399" font-size="13" text-anchor="middle">성공 41 번 = 41 ÷ 50 = 82%</text>
+  <text x="306" y="110" fill="#7fc4a2" font-size="13" text-anchor="middle">성공 41 번 = 41 ÷ 50 = 82%</text>
   <text x="600" y="110" fill="#e2e8f0" font-size="13" text-anchor="middle">실패 9 번</text>
   <text x="180" y="156" fill="#e2e8f0" font-size="13">실패 원인별 횟수</text>
   <text x="170" y="190" fill="#94a3b8" font-size="13" text-anchor="end">인식</text>
-  <rect x="180" y="176" width="200" height="20" rx="3" fill="#38bdf8"/><text x="390" y="191" fill="#38bdf8" font-size="13">4 번 (8%)  ← 먼저 고칠 곳</text>
+  <rect x="180" y="176" width="200" height="20" rx="3" fill="#7cb4d8"/><text x="390" y="191" fill="#7cb4d8" font-size="13">4 번 (8%)  ← 먼저 고칠 곳</text>
   <text x="170" y="222" fill="#94a3b8" font-size="13" text-anchor="end">IK</text>
-  <rect x="180" y="208" width="100" height="20" rx="3" fill="#a78bfa"/><text x="290" y="223" fill="#a78bfa" font-size="13">2 번 (4%)</text>
+  <rect x="180" y="208" width="100" height="20" rx="3" fill="#a99ad6"/><text x="290" y="223" fill="#a99ad6" font-size="13">2 번 (4%)</text>
   <text x="170" y="254" fill="#94a3b8" font-size="13" text-anchor="end">grasp 미끄러짐</text>
-  <rect x="180" y="240" width="100" height="20" rx="3" fill="#f59e0b"/><text x="290" y="255" fill="#f59e0b" font-size="13">2 번 (4%)</text>
+  <rect x="180" y="240" width="100" height="20" rx="3" fill="#d6aa62"/><text x="290" y="255" fill="#d6aa62" font-size="13">2 번 (4%)</text>
   <text x="170" y="286" fill="#94a3b8" font-size="13" text-anchor="end">충돌</text>
-  <rect x="180" y="272" width="50" height="20" rx="3" fill="#f87171"/><text x="240" y="287" fill="#f87171" font-size="13">1 번 (2%)</text>
+  <rect x="180" y="272" width="50" height="20" rx="3" fill="#d88b8b"/><text x="240" y="287" fill="#d88b8b" font-size="13">1 번 (2%)</text>
   <text x="360" y="322" fill="#94a3b8" font-size="12" text-anchor="middle">인식 실패 4 번을 고치면 45 ÷ 50 = 90%</text>
 </svg>

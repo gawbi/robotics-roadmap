@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>두 가지 scan matching. ICP 는 새 scan 의 점마다 지도의 가장 가까운 점과 짝지어 맞추기를 되풀이하고, correlative scan matching 은 ±0.25 m 를 2 cm 간격(26 × 26), ±20° 를 2° 간격(21 개)으로 나눈 후보 14,196 개를 모두 점수 매겨 가장 높은 자세를 고른다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="180.0" y="32.0" fill="#38bdf8" font-size="14" text-anchor="middle" font-weight="600">ICP</text>
+  <text x="180.0" y="32.0" fill="#7cb4d8" font-size="14" text-anchor="middle" font-weight="600">ICP</text>
   <text x="180.0" y="52.0" fill="#94a3b8" font-size="12" text-anchor="middle">가장 가까운 점끼리 짝짓고 옮기기를 되풀이</text>
   <line x1="56.9" y1="235.1" x2="72.0" y2="250.0" stroke="#475569" stroke-width="1"/>
   <line x1="71.7" y1="233.0" x2="72.0" y2="250.0" stroke="#475569" stroke-width="1"/>
@@ -21,47 +21,47 @@
   <line x1="163.2" y1="129.3" x2="192.0" y2="130.0" stroke="#475569" stroke-width="1"/>
   <line x1="161.1" y1="114.5" x2="192.0" y2="130.0" stroke="#475569" stroke-width="1"/>
   <line x1="159.0" y1="99.6" x2="192.0" y2="130.0" stroke="#475569" stroke-width="1"/>
-  <circle cx="72.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="87.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="102.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="117.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="132.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="147.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="162.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="177.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="250.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="235.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="220.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="205.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="190.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="175.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="160.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="145.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="192.0" cy="130.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="56.9" cy="235.1" r="3.5" fill="#f59e0b"/>
-  <circle cx="71.7" cy="233.0" r="3.5" fill="#f59e0b"/>
-  <circle cx="86.6" cy="231.0" r="3.5" fill="#f59e0b"/>
-  <circle cx="101.4" cy="228.9" r="3.5" fill="#f59e0b"/>
-  <circle cx="116.3" cy="226.8" r="3.5" fill="#f59e0b"/>
-  <circle cx="131.2" cy="224.7" r="3.5" fill="#f59e0b"/>
-  <circle cx="146.0" cy="222.6" r="3.5" fill="#f59e0b"/>
-  <circle cx="160.9" cy="220.5" r="3.5" fill="#f59e0b"/>
-  <circle cx="175.7" cy="218.4" r="3.5" fill="#f59e0b"/>
-  <circle cx="173.6" cy="203.6" r="3.5" fill="#f59e0b"/>
-  <circle cx="171.5" cy="188.7" r="3.5" fill="#f59e0b"/>
-  <circle cx="169.5" cy="173.9" r="3.5" fill="#f59e0b"/>
-  <circle cx="167.4" cy="159.0" r="3.5" fill="#f59e0b"/>
-  <circle cx="165.3" cy="144.2" r="3.5" fill="#f59e0b"/>
-  <circle cx="163.2" cy="129.3" r="3.5" fill="#f59e0b"/>
-  <circle cx="161.1" cy="114.5" r="3.5" fill="#f59e0b"/>
-  <circle cx="159.0" cy="99.6" r="3.5" fill="#f59e0b"/>
-  <circle cx="70.0" cy="286.0" r="4" fill="#38bdf8"/>
-  <text x="80.0" y="290.0" fill="#38bdf8" font-size="12" text-anchor="start">지도에 이미 있는 scan</text>
-  <circle cx="70.0" cy="308.0" r="4" fill="#f59e0b"/>
-  <text x="80.0" y="312.0" fill="#f59e0b" font-size="12" text-anchor="start">새 scan (odometry 로 놓은 자리)</text>
+  <circle cx="72.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="87.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="102.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="117.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="132.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="147.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="162.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="177.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="250.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="235.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="220.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="205.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="190.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="175.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="160.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="145.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="192.0" cy="130.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="56.9" cy="235.1" r="3.5" fill="#d6aa62"/>
+  <circle cx="71.7" cy="233.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="86.6" cy="231.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="101.4" cy="228.9" r="3.5" fill="#d6aa62"/>
+  <circle cx="116.3" cy="226.8" r="3.5" fill="#d6aa62"/>
+  <circle cx="131.2" cy="224.7" r="3.5" fill="#d6aa62"/>
+  <circle cx="146.0" cy="222.6" r="3.5" fill="#d6aa62"/>
+  <circle cx="160.9" cy="220.5" r="3.5" fill="#d6aa62"/>
+  <circle cx="175.7" cy="218.4" r="3.5" fill="#d6aa62"/>
+  <circle cx="173.6" cy="203.6" r="3.5" fill="#d6aa62"/>
+  <circle cx="171.5" cy="188.7" r="3.5" fill="#d6aa62"/>
+  <circle cx="169.5" cy="173.9" r="3.5" fill="#d6aa62"/>
+  <circle cx="167.4" cy="159.0" r="3.5" fill="#d6aa62"/>
+  <circle cx="165.3" cy="144.2" r="3.5" fill="#d6aa62"/>
+  <circle cx="163.2" cy="129.3" r="3.5" fill="#d6aa62"/>
+  <circle cx="161.1" cy="114.5" r="3.5" fill="#d6aa62"/>
+  <circle cx="159.0" cy="99.6" r="3.5" fill="#d6aa62"/>
+  <circle cx="70.0" cy="286.0" r="4" fill="#7cb4d8"/>
+  <text x="80.0" y="290.0" fill="#7cb4d8" font-size="12" text-anchor="start">지도에 이미 있는 scan</text>
+  <circle cx="70.0" cy="308.0" r="4" fill="#d6aa62"/>
+  <text x="80.0" y="312.0" fill="#d6aa62" font-size="12" text-anchor="start">새 scan (odometry 로 놓은 자리)</text>
   <text x="250.0" y="120.0" fill="#94a3b8" font-size="11" text-anchor="start">회색 선 = 지금의 짝</text>
   <line x1="360" y1="40" x2="360" y2="315" stroke="#1e293b" stroke-width="1.5"/>
-  <text x="540.0" y="32.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="600">correlative scan matching</text>
+  <text x="540.0" y="32.0" fill="#a99ad6" font-size="14" text-anchor="middle" font-weight="600">correlative scan matching</text>
   <text x="540.0" y="52.0" fill="#94a3b8" font-size="12" text-anchor="middle">범위 안의 후보 자세를 모두 점수 매기기</text>
   <circle cx="420.0" cy="76.0" r="2.2" fill="#475569"/>
   <circle cx="420.0" cy="88.0" r="2.2" fill="#475569"/>
@@ -171,7 +171,7 @@
   <circle cx="516.0" cy="88.0" r="2.2" fill="#475569"/>
   <circle cx="516.0" cy="100.0" r="2.2" fill="#475569"/>
   <circle cx="516.0" cy="112.0" r="2.2" fill="#475569"/>
-  <circle cx="516.0" cy="124.0" r="5" fill="#f59e0b"/>
+  <circle cx="516.0" cy="124.0" r="5" fill="#d6aa62"/>
   <circle cx="516.0" cy="136.0" r="2.2" fill="#475569"/>
   <circle cx="516.0" cy="148.0" r="2.2" fill="#475569"/>
   <circle cx="516.0" cy="160.0" r="2.2" fill="#475569"/>
@@ -233,7 +233,7 @@
   <circle cx="564.0" cy="208.0" r="2.2" fill="#475569"/>
   <circle cx="564.0" cy="220.0" r="2.2" fill="#475569"/>
   <text x="492.0" y="242.0" fill="#94a3b8" font-size="11" text-anchor="middle">±0.25 m, 2 cm 간격</text>
-  <text x="526.0" y="116.0" fill="#f59e0b" font-size="11" text-anchor="start">최고점</text>
+  <text x="526.0" y="116.0" fill="#d6aa62" font-size="11" text-anchor="start">최고점</text>
   <text x="590.0" y="100.0" fill="#e2e8f0" font-size="12" text-anchor="start">위치 26 × 26</text>
   <text x="590.0" y="122.0" fill="#e2e8f0" font-size="12" text-anchor="start">× 각도 21 (±20°, 2°)</text>
   <text x="590.0" y="144.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-weight="600">= 후보 14,196 개</text>

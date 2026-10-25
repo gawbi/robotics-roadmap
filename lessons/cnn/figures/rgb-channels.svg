@@ -12,7 +12,7 @@
   <text x="60.0" y="150.0" fill="#0b1220" font-size="13" text-anchor="middle">노랑</text>
   <text x="110.0" y="150.0" fill="#0b1220" font-size="13" text-anchor="middle">흰색</text>
   <line x1="150" y1="120" x2="200" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="265" y="48" fill="#f87171" font-size="14" text-anchor="middle">R (빨강 세기)</text>
+  <text x="265" y="48" fill="#d88b8b" font-size="14" text-anchor="middle">R (빨강 세기)</text>
   <rect x="215" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="240.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
   <rect x="265" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
@@ -21,7 +21,7 @@
   <text x="240.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
   <rect x="265" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="290.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
-  <text x="430" y="48" fill="#34d399" font-size="14" text-anchor="middle">G (초록 세기)</text>
+  <text x="430" y="48" fill="#7fc4a2" font-size="14" text-anchor="middle">G (초록 세기)</text>
   <rect x="380" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="405.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <rect x="430" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
@@ -30,7 +30,7 @@
   <text x="405.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
   <rect x="430" y="120" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="455.0" y="150.25" fill="#e2e8f0" font-size="15" text-anchor="middle">255</text>
-  <text x="595" y="48" fill="#38bdf8" font-size="14" text-anchor="middle">B (파랑 세기)</text>
+  <text x="595" y="48" fill="#7cb4d8" font-size="14" text-anchor="middle">B (파랑 세기)</text>
   <rect x="545" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="570.0" y="100.25" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <rect x="595" y="70" width="50" height="50" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>

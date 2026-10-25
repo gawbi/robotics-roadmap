@@ -6,7 +6,7 @@
   <rect x="1" y="1" width="598" height="448" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
   <!-- main chain: link boxes at x 40..230 -->
-  <rect x="40" y="24" width="190" height="32" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.8"/>
+  <rect x="40" y="24" width="190" height="32" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
   <text x="135" y="45" fill="#e2e8f0" font-size="14" text-anchor="middle">base_link (root)</text>
   <rect x="40" y="80" width="190" height="32" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="135" y="101" fill="#e2e8f0" font-size="14" text-anchor="middle">shoulder_link</text>
@@ -25,19 +25,19 @@
 
   <!-- joints -->
   <line x1="135" y1="56" x2="135" y2="78" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="148" y="72" fill="#38bdf8" font-size="13">shoulder_pan · revolute</text>
+  <text x="148" y="72" fill="#7cb4d8" font-size="13">shoulder_pan · revolute</text>
   <line x1="135" y1="112" x2="135" y2="134" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="148" y="128" fill="#38bdf8" font-size="13">shoulder_lift · revolute</text>
+  <text x="148" y="128" fill="#7cb4d8" font-size="13">shoulder_lift · revolute</text>
   <line x1="135" y1="168" x2="135" y2="190" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="148" y="184" fill="#38bdf8" font-size="13">elbow_flex · revolute</text>
+  <text x="148" y="184" fill="#7cb4d8" font-size="13">elbow_flex · revolute</text>
   <line x1="135" y1="224" x2="135" y2="246" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="148" y="240" fill="#38bdf8" font-size="13">wrist_flex · revolute</text>
+  <text x="148" y="240" fill="#7cb4d8" font-size="13">wrist_flex · revolute</text>
   <line x1="135" y1="280" x2="135" y2="302" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="148" y="296" fill="#38bdf8" font-size="13">wrist_roll · revolute</text>
+  <text x="148" y="296" fill="#7cb4d8" font-size="13">wrist_roll · revolute</text>
   <line x1="135" y1="336" x2="135" y2="390" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
   <text x="148" y="368" fill="#94a3b8" font-size="13">gripper_frame_joint · fixed</text>
   <path d="M230,320 L435,320 L435,390" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
-  <text x="446" y="360" fill="#38bdf8" font-size="13">gripper · revolute</text>
+  <text x="446" y="360" fill="#7cb4d8" font-size="13">gripper · revolute</text>
 
   <!-- file order note -->
   <text x="330" y="44" fill="#e2e8f0" font-size="14">URDF 파일에 적힌 joint 순서</text>
@@ -48,7 +48,7 @@
   <text x="330" y="158" fill="#94a3b8" font-size="13">5  elbow_flex</text>
   <text x="330" y="180" fill="#94a3b8" font-size="13">6  shoulder_lift</text>
   <text x="330" y="202" fill="#94a3b8" font-size="13">7  shoulder_pan</text>
-  <text x="330" y="236" fill="#f59e0b" font-size="13">gripper 쪽부터 거꾸로 적혀 있어서,</text>
-  <text x="330" y="256" fill="#f59e0b" font-size="13">pose 는 root 에서 tree 를 따라</text>
-  <text x="330" y="276" fill="#f59e0b" font-size="13">내려가며 계산한다</text>
+  <text x="330" y="236" fill="#d6aa62" font-size="13">gripper 쪽부터 거꾸로 적혀 있어서,</text>
+  <text x="330" y="256" fill="#d6aa62" font-size="13">pose 는 root 에서 tree 를 따라</text>
+  <text x="330" y="276" fill="#d6aa62" font-size="13">내려가며 계산한다</text>
 </svg>

@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>모든 parameter 의 gradient 를 구하는 데 graph 를 훑는 횟수. parameter 가 9 개면 조금 바꿔 재기 18 번, forward-mode 9 번, reverse-mode 2 번이고, 약 8천만 개(ACT)면 1억 6천만 번, 8천만 번, 2 번이다</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="320.0" y="36.0" fill="#e2e8f0" font-size="15" text-anchor="middle">gradient 를 모두 구하는 데 graph 를 훑는 횟수</text>
   <text x="390.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">parameter 9 개</text>
   <text x="540.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">약 8천만 개 (ACT)</text>
   <rect x="20.0" y="92.0" width="600.0" height="54.0" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="1"/>
-  <text x="36.0" y="116.0" fill="#f87171" font-size="14" text-anchor="start">숫자마다 조금 바꿔 재기</text>
+  <text x="36.0" y="116.0" fill="#d88b8b" font-size="14" text-anchor="start">숫자마다 조금 바꿔 재기</text>
   <text x="36.0" y="136.0" fill="#94a3b8" font-size="11" text-anchor="start">(central difference)</text>
   <text x="390.0" y="126.0" fill="#e2e8f0" font-size="16" text-anchor="middle">18 번</text>
   <text x="540.0" y="126.0" fill="#e2e8f0" font-size="16" text-anchor="middle">1억 6천만 번</text>
   <rect x="20.0" y="156.0" width="600.0" height="54.0" rx="10" fill="#111a2e" stroke="#1e293b" stroke-width="1"/>
-  <text x="36.0" y="180.0" fill="#a78bfa" font-size="14" text-anchor="start">forward-mode</text>
+  <text x="36.0" y="180.0" fill="#a99ad6" font-size="14" text-anchor="start">forward-mode</text>
   <text x="36.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="start">(parameter 하나씩 앞으로)</text>
   <text x="390.0" y="190.0" fill="#e2e8f0" font-size="16" text-anchor="middle">9 번</text>
   <text x="540.0" y="190.0" fill="#e2e8f0" font-size="16" text-anchor="middle">8천만 번</text>
-  <rect x="20.0" y="220.0" width="600.0" height="54.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="36.0" y="244.0" fill="#34d399" font-size="14" text-anchor="start">reverse-mode</text>
+  <rect x="20.0" y="220.0" width="600.0" height="54.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="36.0" y="244.0" fill="#7fc4a2" font-size="14" text-anchor="start">reverse-mode</text>
   <text x="36.0" y="264.0" fill="#94a3b8" font-size="11" text-anchor="start">(L 에서 거꾸로 한 번)</text>
-  <text x="390.0" y="254.0" fill="#34d399" font-size="16" text-anchor="middle">2 번</text>
-  <text x="540.0" y="254.0" fill="#34d399" font-size="16" text-anchor="middle">2 번</text>
+  <text x="390.0" y="254.0" fill="#7fc4a2" font-size="16" text-anchor="middle">2 번</text>
+  <text x="540.0" y="254.0" fill="#7fc4a2" font-size="16" text-anchor="middle">2 번</text>
   <text x="320.0" y="300.0" fill="#94a3b8" font-size="12" text-anchor="middle">reverse-mode 는 forward 1 번 + backward 1 번이라 parameter 개수와 상관없다</text>
 </svg>

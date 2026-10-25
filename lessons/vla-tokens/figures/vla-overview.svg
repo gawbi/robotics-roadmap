@@ -1,68 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 370" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>OpenVLA 의 계산 흐름. 224×224 사진 한 장은 SigLIP 과 DINOv2 와 2 층 MLP projector 를 지나 image token 256 개가 되고, 지시문은 Llama tokenizer 로 text token 이 된다. Llama 2 7B 가 action token 7 개를 하나씩 고르고, 7 개는 손끝 위치 변화 3 개, 회전 변화 3 개, 집게 1 개로 되돌아간다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="758" height="368" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20" y="50" width="130" height="80" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="20" y="50" width="130" height="80" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="85" y="84" fill="#e2e8f0" font-size="13" text-anchor="middle">카메라 사진</text>
   <text x="85" y="106" fill="#94a3b8" font-size="12" text-anchor="middle">224×224 한 장</text>
-  <rect x="20" y="230" width="130" height="80" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="20" y="230" width="130" height="80" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="85" y="258" fill="#e2e8f0" font-size="13" text-anchor="middle">지시문</text>
-  <text x="85" y="280" fill="#f59e0b" font-size="11.5" text-anchor="middle">"put the red cup</text>
-  <text x="85" y="297" fill="#f59e0b" font-size="11.5" text-anchor="middle">in the box"</text>
+  <text x="85" y="280" fill="#d6aa62" font-size="11.5" text-anchor="middle">"put the red cup</text>
+  <text x="85" y="297" fill="#d6aa62" font-size="11.5" text-anchor="middle">in the box"</text>
   <line x1="150" y1="90" x2="176" y2="90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <line x1="150" y1="270" x2="176" y2="270" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="180" y="40" width="140" height="100" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="250" y="70" fill="#38bdf8" font-size="13" text-anchor="middle">image encoder</text>
+  <rect x="180" y="40" width="140" height="100" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="250" y="70" fill="#7cb4d8" font-size="13" text-anchor="middle">image encoder</text>
   <text x="250" y="92" fill="#94a3b8" font-size="12" text-anchor="middle">SigLIP + DINOv2</text>
   <text x="250" y="110" fill="#94a3b8" font-size="11.5" text-anchor="middle">약 6 억 parameter</text>
   <text x="250" y="128" fill="#94a3b8" font-size="11.5" text-anchor="middle">+ 2 층 MLP projector</text>
-  <rect x="180" y="230" width="140" height="80" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="250" y="262" fill="#f59e0b" font-size="13" text-anchor="middle">Llama tokenizer</text>
+  <rect x="180" y="230" width="140" height="80" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="250" y="262" fill="#d6aa62" font-size="13" text-anchor="middle">Llama tokenizer</text>
   <text x="250" y="284" fill="#94a3b8" font-size="12" text-anchor="middle">글 → text token</text>
   <line x1="320" y1="90" x2="352" y2="152" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <line x1="320" y1="270" x2="352" y2="205" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="354" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
-  <rect x="380" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
-  <rect x="406" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
-  <rect x="432" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#38bdf8" stroke-width="1.2"/>
-  <text x="460" y="182" fill="#38bdf8" font-size="13" text-anchor="start">…</text>
-  <rect x="474" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
-  <rect x="500" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
-  <rect x="526" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="404" y="154" fill="#38bdf8" font-size="11" text-anchor="middle">image token 256 개</text>
-  <text x="512" y="154" fill="#f59e0b" font-size="11" text-anchor="middle">text token</text>
-  <rect x="352" y="220" width="198" height="64" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="451" y="248" fill="#a78bfa" font-size="15" text-anchor="middle">Llama 2 7B</text>
+  <rect x="354" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.2"/>
+  <rect x="380" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.2"/>
+  <rect x="406" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.2"/>
+  <rect x="432" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.2"/>
+  <text x="460" y="182" fill="#7cb4d8" font-size="13" text-anchor="start">…</text>
+  <rect x="474" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="1.2"/>
+  <rect x="500" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="1.2"/>
+  <rect x="526" y="162" width="22" height="30" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="1.2"/>
+  <text x="404" y="154" fill="#7cb4d8" font-size="11" text-anchor="middle">image token 256 개</text>
+  <text x="512" y="154" fill="#d6aa62" font-size="11" text-anchor="middle">text token</text>
+  <rect x="352" y="220" width="198" height="64" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
+  <text x="451" y="248" fill="#a99ad6" font-size="15" text-anchor="middle">Llama 2 7B</text>
   <text x="451" y="268" fill="#94a3b8" font-size="11.5" text-anchor="middle">token 을 하나씩 7 번 고른다</text>
   <line x1="451" y1="194" x2="451" y2="216" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-violet)"/>
   <line x1="550" y1="252" x2="574" y2="252" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <text x="660" y="32" fill="#34d399" font-size="13" text-anchor="middle">action token 7 개 → 값</text>
-  <rect x="580" y="46" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="66" fill="#34d399" font-size="11.5" text-anchor="middle">token 1</text>
+  <text x="660" y="32" fill="#7fc4a2" font-size="13" text-anchor="middle">action token 7 개 → 값</text>
+  <rect x="580" y="46" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="66" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 1</text>
   <line x1="638" y1="61" x2="654" y2="61" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="66" fill="#e2e8f0" font-size="11.5" text-anchor="start">위치 변화 x</text>
-  <rect x="580" y="88" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="108" fill="#34d399" font-size="11.5" text-anchor="middle">token 2</text>
+  <rect x="580" y="88" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="108" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 2</text>
   <line x1="638" y1="103" x2="654" y2="103" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="108" fill="#e2e8f0" font-size="11.5" text-anchor="start">위치 변화 y</text>
-  <rect x="580" y="130" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="150" fill="#34d399" font-size="11.5" text-anchor="middle">token 3</text>
+  <rect x="580" y="130" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="150" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 3</text>
   <line x1="638" y1="145" x2="654" y2="145" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="150" fill="#e2e8f0" font-size="11.5" text-anchor="start">위치 변화 z</text>
-  <rect x="580" y="172" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="192" fill="#34d399" font-size="11.5" text-anchor="middle">token 4</text>
+  <rect x="580" y="172" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="192" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 4</text>
   <line x1="638" y1="187" x2="654" y2="187" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="192" fill="#e2e8f0" font-size="11.5" text-anchor="start">회전 변화 x</text>
-  <rect x="580" y="214" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="234" fill="#34d399" font-size="11.5" text-anchor="middle">token 5</text>
+  <rect x="580" y="214" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="234" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 5</text>
   <line x1="638" y1="229" x2="654" y2="229" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="234" fill="#e2e8f0" font-size="11.5" text-anchor="start">회전 변화 y</text>
-  <rect x="580" y="256" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="276" fill="#34d399" font-size="11.5" text-anchor="middle">token 6</text>
+  <rect x="580" y="256" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="276" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 6</text>
   <line x1="638" y1="271" x2="654" y2="271" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="276" fill="#e2e8f0" font-size="11.5" text-anchor="start">회전 변화 z</text>
-  <rect x="580" y="298" width="58" height="30" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="609" y="318" fill="#34d399" font-size="11.5" text-anchor="middle">token 7</text>
+  <rect x="580" y="298" width="58" height="30" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="609" y="318" fill="#7fc4a2" font-size="11.5" text-anchor="middle">token 7</text>
   <line x1="638" y1="313" x2="654" y2="313" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
   <text x="658" y="318" fill="#e2e8f0" font-size="11.5" text-anchor="start">집게</text>
   <text x="24" y="352" fill="#94a3b8" font-size="12" text-anchor="start">칸 번호를 그 dataset 의 1% ~ 99% 분위수 범위로 되돌려 손끝을 옮길 양과 집게 값으로 바꾼다</text>

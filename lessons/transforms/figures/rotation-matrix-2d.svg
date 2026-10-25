@@ -1,35 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>rotation matrix R(θ) 의 첫째 열은 (1, 0) 이 도착하는 곳, 둘째 열은 (0, 1) 이 도착하는 곳이다. θ = 90° 와 θ = 30° 의 예</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="618" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="108.0" fill="#e2e8f0" font-size="18" text-anchor="start">R(θ) =</text>
   <path d="M90,66 L84,66 L84,138 L90,138" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
   <path d="M286,66 L292,66 L292,138 L286,138" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="140.0" y="91.0" fill="#f87171" font-size="16" text-anchor="middle">cos θ</text>
-  <text x="236.0" y="91.0" fill="#34d399" font-size="16" text-anchor="middle">−sin θ</text>
-  <text x="140.0" y="123.0" fill="#f87171" font-size="16" text-anchor="middle">sin θ</text>
-  <text x="236.0" y="123.0" fill="#34d399" font-size="16" text-anchor="middle">cos θ</text>
-  <text x="140.0" y="160.0" fill="#f87171" font-size="13" text-anchor="middle">첫째 열</text>
-  <text x="236.0" y="160.0" fill="#34d399" font-size="13" text-anchor="middle">둘째 열</text>
-  <text x="140.0" y="180.0" fill="#f87171" font-size="12" text-anchor="middle">(1, 0) 의 도착점</text>
-  <text x="236.0" y="180.0" fill="#34d399" font-size="12" text-anchor="middle">(0, 1) 의 도착점</text>
+  <text x="140.0" y="91.0" fill="#d88b8b" font-size="16" text-anchor="middle">cos θ</text>
+  <text x="236.0" y="91.0" fill="#7fc4a2" font-size="16" text-anchor="middle">−sin θ</text>
+  <text x="140.0" y="123.0" fill="#d88b8b" font-size="16" text-anchor="middle">sin θ</text>
+  <text x="236.0" y="123.0" fill="#7fc4a2" font-size="16" text-anchor="middle">cos θ</text>
+  <text x="140.0" y="160.0" fill="#d88b8b" font-size="13" text-anchor="middle">첫째 열</text>
+  <text x="236.0" y="160.0" fill="#7fc4a2" font-size="13" text-anchor="middle">둘째 열</text>
+  <text x="140.0" y="180.0" fill="#d88b8b" font-size="12" text-anchor="middle">(1, 0) 의 도착점</text>
+  <text x="236.0" y="180.0" fill="#7fc4a2" font-size="12" text-anchor="middle">(0, 1) 의 도착점</text>
   <text x="352.0" y="60.0" fill="#e2e8f0" font-size="16" text-anchor="start">R(90°) =</text>
   <path d="M436,34 L430,34 L430,98 L436,98" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
   <path d="M560,34 L566,34 L566,98 L560,98" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="468.0" y="57.0" fill="#f87171" font-size="15" text-anchor="middle">0</text>
-  <text x="528.0" y="57.0" fill="#34d399" font-size="15" text-anchor="middle">−1</text>
-  <text x="468.0" y="85.0" fill="#f87171" font-size="15" text-anchor="middle">1</text>
-  <text x="528.0" y="85.0" fill="#34d399" font-size="15" text-anchor="middle">0</text>
-  <text x="352.0" y="112.0" fill="#f87171" font-size="12" text-anchor="start">(1, 0) → (0, 1)</text>
-  <text x="470.0" y="112.0" fill="#34d399" font-size="12" text-anchor="start">(0, 1) → (−1, 0)</text>
+  <text x="468.0" y="57.0" fill="#d88b8b" font-size="15" text-anchor="middle">0</text>
+  <text x="528.0" y="57.0" fill="#7fc4a2" font-size="15" text-anchor="middle">−1</text>
+  <text x="468.0" y="85.0" fill="#d88b8b" font-size="15" text-anchor="middle">1</text>
+  <text x="528.0" y="85.0" fill="#7fc4a2" font-size="15" text-anchor="middle">0</text>
+  <text x="352.0" y="112.0" fill="#d88b8b" font-size="12" text-anchor="start">(1, 0) → (0, 1)</text>
+  <text x="470.0" y="112.0" fill="#7fc4a2" font-size="12" text-anchor="start">(0, 1) → (−1, 0)</text>
   <text x="352.0" y="172.0" fill="#e2e8f0" font-size="16" text-anchor="start">R(30°) =</text>
   <path d="M436,146 L430,146 L430,210 L436,210" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
   <path d="M560,146 L566,146 L566,210 L560,210" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="468.0" y="169.0" fill="#f87171" font-size="15" text-anchor="middle">0.866</text>
-  <text x="528.0" y="169.0" fill="#34d399" font-size="15" text-anchor="middle">−0.5</text>
-  <text x="468.0" y="197.0" fill="#f87171" font-size="15" text-anchor="middle">0.5</text>
-  <text x="528.0" y="197.0" fill="#34d399" font-size="15" text-anchor="middle">0.866</text>
-  <text x="352.0" y="224.0" fill="#f87171" font-size="12" text-anchor="start">(1, 0) → (0.866, 0.5)</text>
-  <text x="352.0" y="244.0" fill="#34d399" font-size="12" text-anchor="start">(0, 1) → (−0.5, 0.866)</text>
+  <text x="468.0" y="169.0" fill="#d88b8b" font-size="15" text-anchor="middle">0.866</text>
+  <text x="528.0" y="169.0" fill="#7fc4a2" font-size="15" text-anchor="middle">−0.5</text>
+  <text x="468.0" y="197.0" fill="#d88b8b" font-size="15" text-anchor="middle">0.5</text>
+  <text x="528.0" y="197.0" fill="#7fc4a2" font-size="15" text-anchor="middle">0.866</text>
+  <text x="352.0" y="224.0" fill="#d88b8b" font-size="12" text-anchor="start">(1, 0) → (0.866, 0.5)</text>
+  <text x="352.0" y="244.0" fill="#7fc4a2" font-size="12" text-anchor="start">(0, 1) → (−0.5, 0.866)</text>
   <text x="20.0" y="244.0" fill="#94a3b8" font-size="13" text-anchor="start">열을 읽으면 두 축 화살표가 어디로 갔는지 바로 보인다</text>
 </svg>

@@ -1,126 +1,126 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>action token 7 개의 생성 예. 단계마다 모델이 vocabulary 전체에 점수를 내고 action token 256 개 밖의 점수를 −∞ 로 막은 뒤 가장 큰 token 을 고른다. 예로 든 칸 138, 173, 97, 188, 128, 115, 121 의 token 이 차례로 나와 다음 단계 입력 끝에 붙는다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="758" height="428" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="24" y="32" fill="#e2e8f0" font-size="13" text-anchor="start">단계마다: vocabulary 전체에 점수 → action token 256 개 밖은 −∞ → 가장 큰 token 을 골라 입력 끝에 붙인다</text>
   <text x="34" y="75" fill="#94a3b8" font-size="13" text-anchor="middle">1</text>
-  <rect x="50" y="56" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="76" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="56" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="76" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="50" y="56" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="76" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="56" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="76" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
   <line x1="170" y1="71" x2="186" y2="71" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="190" y="56" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="218" y="76" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="246" y1="71" x2="260" y2="71" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="264" y="54" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="298" y="76" fill="#34d399" font-size="13" text-anchor="middle">칸 138</text>
+  <rect x="190" y="56" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="218" y="76" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="246" y1="71" x2="260" y2="71" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="264" y="54" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="298" y="76" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 138</text>
   <text x="34" y="125" fill="#94a3b8" font-size="13" text-anchor="middle">2</text>
-  <rect x="50" y="106" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="126" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="106" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="126" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="106" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="126" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="50" y="106" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="126" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="106" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="126" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="106" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="126" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
   <line x1="230" y1="121" x2="246" y2="121" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="250" y="106" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="278" y="126" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="306" y1="121" x2="320" y2="121" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="324" y="104" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="358" y="126" fill="#34d399" font-size="13" text-anchor="middle">칸 173</text>
+  <rect x="250" y="106" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="278" y="126" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="306" y1="121" x2="320" y2="121" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="324" y="104" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="358" y="126" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 173</text>
   <text x="34" y="175" fill="#94a3b8" font-size="13" text-anchor="middle">3</text>
-  <rect x="50" y="156" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="176" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="156" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="176" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="156" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="176" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
-  <rect x="228" y="156" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="256" y="176" fill="#34d399" font-size="11.5" text-anchor="middle">칸 173</text>
+  <rect x="50" y="156" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="176" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="156" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="176" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="156" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="176" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="228" y="156" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="256" y="176" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 173</text>
   <line x1="290" y1="171" x2="306" y2="171" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="310" y="156" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="338" y="176" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="366" y1="171" x2="380" y2="171" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="384" y="154" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="418" y="176" fill="#34d399" font-size="13" text-anchor="middle">칸 97</text>
+  <rect x="310" y="156" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="338" y="176" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="366" y1="171" x2="380" y2="171" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="384" y="154" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="418" y="176" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 97</text>
   <text x="34" y="225" fill="#94a3b8" font-size="13" text-anchor="middle">4</text>
-  <rect x="50" y="206" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="226" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="206" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="226" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="226" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
-  <rect x="228" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="256" y="226" fill="#34d399" font-size="11.5" text-anchor="middle">칸 173</text>
-  <rect x="288" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="316" y="226" fill="#34d399" font-size="11.5" text-anchor="middle">칸 97</text>
+  <rect x="50" y="206" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="226" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="206" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="226" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="226" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="228" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="256" y="226" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 173</text>
+  <rect x="288" y="206" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="316" y="226" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 97</text>
   <line x1="350" y1="221" x2="366" y2="221" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="370" y="206" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="398" y="226" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="426" y1="221" x2="440" y2="221" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="444" y="204" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="478" y="226" fill="#34d399" font-size="13" text-anchor="middle">칸 188</text>
+  <rect x="370" y="206" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="398" y="226" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="426" y1="221" x2="440" y2="221" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="444" y="204" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="478" y="226" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 188</text>
   <text x="34" y="275" fill="#94a3b8" font-size="13" text-anchor="middle">5</text>
-  <rect x="50" y="256" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="276" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="256" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="276" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="276" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
-  <rect x="228" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="256" y="276" fill="#34d399" font-size="11.5" text-anchor="middle">칸 173</text>
-  <rect x="288" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="316" y="276" fill="#34d399" font-size="11.5" text-anchor="middle">칸 97</text>
-  <rect x="348" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="376" y="276" fill="#34d399" font-size="11.5" text-anchor="middle">칸 188</text>
+  <rect x="50" y="256" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="276" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="256" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="276" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="276" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="228" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="256" y="276" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 173</text>
+  <rect x="288" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="316" y="276" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 97</text>
+  <rect x="348" y="256" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="376" y="276" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 188</text>
   <line x1="410" y1="271" x2="426" y2="271" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="430" y="256" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="458" y="276" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="486" y1="271" x2="500" y2="271" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="504" y="254" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="538" y="276" fill="#34d399" font-size="13" text-anchor="middle">칸 128</text>
+  <rect x="430" y="256" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="458" y="276" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="486" y1="271" x2="500" y2="271" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="504" y="254" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="538" y="276" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 128</text>
   <text x="34" y="325" fill="#94a3b8" font-size="13" text-anchor="middle">6</text>
-  <rect x="50" y="306" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="326" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="306" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="326" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="326" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
-  <rect x="228" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="256" y="326" fill="#34d399" font-size="11.5" text-anchor="middle">칸 173</text>
-  <rect x="288" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="316" y="326" fill="#34d399" font-size="11.5" text-anchor="middle">칸 97</text>
-  <rect x="348" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="376" y="326" fill="#34d399" font-size="11.5" text-anchor="middle">칸 188</text>
-  <rect x="408" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="436" y="326" fill="#34d399" font-size="11.5" text-anchor="middle">칸 128</text>
+  <rect x="50" y="306" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="326" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="306" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="326" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="326" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="228" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="256" y="326" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 173</text>
+  <rect x="288" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="316" y="326" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 97</text>
+  <rect x="348" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="376" y="326" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 188</text>
+  <rect x="408" y="306" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="436" y="326" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 128</text>
   <line x1="470" y1="321" x2="486" y2="321" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="490" y="306" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="518" y="326" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="546" y1="321" x2="560" y2="321" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="564" y="304" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="598" y="326" fill="#34d399" font-size="13" text-anchor="middle">칸 115</text>
+  <rect x="490" y="306" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="518" y="326" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="546" y1="321" x2="560" y2="321" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="564" y="304" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="598" y="326" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 115</text>
   <text x="34" y="375" fill="#94a3b8" font-size="13" text-anchor="middle">7</text>
-  <rect x="50" y="356" width="54" height="30" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="77" y="376" fill="#38bdf8" font-size="12" text-anchor="middle">사진</text>
-  <rect x="108" y="356" width="54" height="30" rx="5" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="135" y="376" fill="#f59e0b" font-size="12" text-anchor="middle">지시문</text>
-  <rect x="168" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="196" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 138</text>
-  <rect x="228" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="256" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 173</text>
-  <rect x="288" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="316" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 97</text>
-  <rect x="348" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="376" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 188</text>
-  <rect x="408" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="436" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 128</text>
-  <rect x="468" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#34d399" stroke-width="1.2"/>
-  <text x="496" y="376" fill="#34d399" font-size="11.5" text-anchor="middle">칸 115</text>
+  <rect x="50" y="356" width="54" height="30" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="77" y="376" fill="#7cb4d8" font-size="12" text-anchor="middle">사진</text>
+  <rect x="108" y="356" width="54" height="30" rx="5" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="135" y="376" fill="#d6aa62" font-size="12" text-anchor="middle">지시문</text>
+  <rect x="168" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="196" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 138</text>
+  <rect x="228" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="256" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 173</text>
+  <rect x="288" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="316" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 97</text>
+  <rect x="348" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="376" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 188</text>
+  <rect x="408" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="436" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 128</text>
+  <rect x="468" y="356" width="56" height="30" rx="5" fill="#0d2b22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="496" y="376" fill="#7fc4a2" font-size="11.5" text-anchor="middle">칸 115</text>
   <line x1="530" y1="371" x2="546" y2="371" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="550" y="356" width="56" height="30" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="578" y="376" fill="#a78bfa" font-size="12" text-anchor="middle">VLM</text>
-  <line x1="606" y1="371" x2="620" y2="371" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <rect x="624" y="354" width="68" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="658" y="376" fill="#34d399" font-size="13" text-anchor="middle">칸 121</text>
+  <rect x="550" y="356" width="56" height="30" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="578" y="376" fill="#a99ad6" font-size="12" text-anchor="middle">VLM</text>
+  <line x1="606" y1="371" x2="620" y2="371" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="624" y="354" width="68" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="658" y="376" fill="#7fc4a2" font-size="13" text-anchor="middle">칸 121</text>
   <text x="380" y="412" fill="#94a3b8" font-size="12" text-anchor="middle">예로 든 action: 고른 token 이 다음 단계 입력의 끝에 붙는다 (모두 7 번)</text>
 </svg>

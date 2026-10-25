@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>gripper 가 (0.3, 0.2) 에서 속도 (0.06, 0.08) m/s 로 2 초 움직이면 변위 (0.12, 0.16) 을 더한 (0.42, 0.36) 에 있고, 목표까지 0.3 m 가 남는다</title>
-  <defs><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="638" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="70.0" y1="330.0" x2="70.0" y2="30.0" stroke="#1e293b" stroke-width="1"/>
   <text x="70.0" y="346.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
@@ -36,25 +36,25 @@
   <text x="62.0" y="34.0" fill="#64748b" font-size="11" text-anchor="end">0.7</text>
   <line x1="70.0" y1="330.0" x2="70.0" y2="30.0" stroke="#475569" stroke-width="1.4"/>
   <line x1="70.0" y1="330.0" x2="370.0" y2="330.0" stroke="#475569" stroke-width="1.4"/>
-  <line x1="70.0" y1="330.0" x2="198.6" y2="244.3" stroke="#f59e0b" stroke-width="2" marker-end="url(#a-amber)"/>
-  <line x1="70.0" y1="330.0" x2="250.0" y2="175.7" stroke="#a78bfa" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a-violet)"/>
-  <line x1="198.6" y1="244.3" x2="250.0" y2="175.7" stroke="#34d399" stroke-width="3" marker-end="url(#a-green)"/>
+  <line x1="70.0" y1="330.0" x2="198.6" y2="244.3" stroke="#d6aa62" stroke-width="2" marker-end="url(#a-amber)"/>
+  <line x1="70.0" y1="330.0" x2="250.0" y2="175.7" stroke="#a99ad6" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a-violet)"/>
+  <line x1="198.6" y1="244.3" x2="250.0" y2="175.7" stroke="#7fc4a2" stroke-width="3" marker-end="url(#a-green)"/>
   <line x1="250.0" y1="175.7" x2="327.1" y2="72.9" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
-  <circle cx="198.6" cy="244.3" r="6" fill="#f59e0b"/>
-  <circle cx="250.0" cy="175.7" r="6" fill="#a78bfa"/>
-  <circle cx="327.1" cy="72.9" r="6" fill="#38bdf8"/>
-  <text x="206.6" y="266.3" fill="#f59e0b" font-size="12" text-anchor="start">지금 (0.3, 0.2)</text>
-  <text x="260.0" y="191.7" fill="#a78bfa" font-size="12" text-anchor="start">2 초 뒤 (0.42, 0.36)</text>
-  <text x="327.1" y="60.9" fill="#38bdf8" font-size="12" text-anchor="middle">목표 (0.6, 0.6)</text>
-  <text x="238.6" y="222.6" fill="#34d399" font-size="12" text-anchor="start" font-weight="600">2 × 속도</text>
+  <circle cx="198.6" cy="244.3" r="6" fill="#d6aa62"/>
+  <circle cx="250.0" cy="175.7" r="6" fill="#a99ad6"/>
+  <circle cx="327.1" cy="72.9" r="6" fill="#7cb4d8"/>
+  <text x="206.6" y="266.3" fill="#d6aa62" font-size="12" text-anchor="start">지금 (0.3, 0.2)</text>
+  <text x="260.0" y="191.7" fill="#a99ad6" font-size="12" text-anchor="start">2 초 뒤 (0.42, 0.36)</text>
+  <text x="327.1" y="60.9" fill="#7cb4d8" font-size="12" text-anchor="middle">목표 (0.6, 0.6)</text>
+  <text x="238.6" y="222.6" fill="#7fc4a2" font-size="12" text-anchor="start" font-weight="600">2 × 속도</text>
   <text x="280.6" y="120.3" fill="#94a3b8" font-size="12" text-anchor="end">0.3 m</text>
   <text x="370.0" y="362.0" fill="#64748b" font-size="11" text-anchor="end">x (m)</text>
   <text x="420.0" y="80.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">속도 = 0.1 m/s × unit vector</text>
   <text x="420.0" y="104.0" fill="#94a3b8" font-size="12" text-anchor="start">0.1 × (0.6, 0.8) = (0.06, 0.08)</text>
   <text x="420.0" y="152.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">2 초 동안의 변위 (scalar 곱)</text>
-  <text x="420.0" y="176.0" fill="#34d399" font-size="12" text-anchor="start">2 × (0.06, 0.08) = (0.12, 0.16)</text>
+  <text x="420.0" y="176.0" fill="#7fc4a2" font-size="12" text-anchor="start">2 × (0.06, 0.08) = (0.12, 0.16)</text>
   <text x="420.0" y="224.0" fill="#e2e8f0" font-size="13" text-anchor="start" font-weight="600">새 위치 (덧셈)</text>
   <text x="420.0" y="248.0" fill="#94a3b8" font-size="12" text-anchor="start">(0.3, 0.2) + (0.12, 0.16)</text>
-  <text x="420.0" y="268.0" fill="#a78bfa" font-size="12" text-anchor="start">= (0.42, 0.36)</text>
+  <text x="420.0" y="268.0" fill="#a99ad6" font-size="12" text-anchor="start">= (0.42, 0.36)</text>
   <text x="420.0" y="308.0" fill="#94a3b8" font-size="12" text-anchor="start">남은 거리 √(0.18² + 0.24²) = 0.3 m</text>
 </svg>

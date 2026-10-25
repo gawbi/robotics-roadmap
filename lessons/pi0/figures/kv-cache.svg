@@ -1,54 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 270" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>KV cache 가 있을 때와 없을 때의 시간 막대. 위는 image encoder 14 ms 와 사진·지시문·상태 계산 32 ms 를 한 번 한 뒤 action 계산 2.7 ms 를 10 번 해 73 ms 다. 아래는 step 마다 14 + 32 + 2.7 ms 를 되풀이해 487 ms 다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="778" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="74.0" fill="#e2e8f0" font-size="13" text-anchor="start">KV cache 사용</text>
-  <text x="20.0" y="92.0" fill="#34d399" font-size="13" text-anchor="start" font-weight="600">합 73 ms</text>
-  <rect x="150.0" y="60.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="167.4" y="60.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="207.3" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="210.6" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="214.0" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="217.3" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="220.7" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="224.1" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="227.4" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="230.8" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="234.2" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="237.5" y="60.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
+  <text x="20.0" y="92.0" fill="#7fc4a2" font-size="13" text-anchor="start" font-weight="600">합 73 ms</text>
+  <rect x="150.0" y="60.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="167.4" y="60.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="207.3" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="210.6" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="214.0" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="217.3" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="220.7" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="224.1" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="227.4" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="230.8" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="234.2" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="237.5" y="60.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
   <text x="248.9" y="80.0" fill="#e2e8f0" font-size="12" text-anchor="start">image encoder 14 + 사진·지시문·상태 32 + action 2.7 × 10</text>
   <text x="20.0" y="154.0" fill="#e2e8f0" font-size="13" text-anchor="start">cache 없음</text>
-  <text x="20.0" y="172.0" fill="#f87171" font-size="13" text-anchor="start" font-weight="600">합 약 487 ms</text>
-  <rect x="150.0" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="167.4" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="207.3" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="210.6" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="228.1" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="267.9" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="271.3" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="288.7" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="328.5" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="331.9" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="349.3" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="389.1" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="392.5" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="409.9" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="449.8" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="453.1" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="470.6" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="510.4" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="513.8" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="531.2" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="571.0" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="574.4" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="591.8" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="631.7" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="635.0" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="652.4" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="692.3" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
-  <rect x="695.6" y="140.0" width="16.4" height="30.0" rx="2" fill="#a78bfa"/>
-  <rect x="713.1" y="140.0" width="38.8" height="30.0" rx="2" fill="#38bdf8"/>
-  <rect x="752.9" y="140.0" width="2.4" height="30.0" rx="2" fill="#f59e0b"/>
+  <text x="20.0" y="172.0" fill="#d88b8b" font-size="13" text-anchor="start" font-weight="600">합 약 487 ms</text>
+  <rect x="150.0" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="167.4" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="207.3" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="210.6" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="228.1" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="267.9" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="271.3" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="288.7" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="328.5" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="331.9" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="349.3" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="389.1" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="392.5" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="409.9" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="449.8" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="453.1" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="470.6" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="510.4" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="513.8" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="531.2" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="571.0" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="574.4" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="591.8" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="631.7" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="635.0" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="652.4" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="692.3" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
+  <rect x="695.6" y="140.0" width="16.4" height="30.0" rx="2" fill="#a99ad6"/>
+  <rect x="713.1" y="140.0" width="38.8" height="30.0" rx="2" fill="#7cb4d8"/>
+  <rect x="752.9" y="140.0" width="2.4" height="30.0" rx="2" fill="#d6aa62"/>
   <text x="180.3" y="190.0" fill="#94a3b8" font-size="11" text-anchor="start">step 하나 = 14 + 32 + 2.7 = 48.7 ms</text>
   <line x1="150.0" y1="222.0" x2="756.3" y2="222.0" stroke="#64748b" stroke-width="1"/>
   <line x1="150.0" y1="218.0" x2="150.0" y2="226.0" stroke="#64748b" stroke-width="1"/>
@@ -64,10 +64,10 @@
   <line x1="756.3" y1="218.0" x2="756.3" y2="226.0" stroke="#64748b" stroke-width="1"/>
   <text x="756.3" y="242.0" fill="#94a3b8" font-size="11" text-anchor="middle">487</text>
   <text x="758.3" y="258.0" fill="#94a3b8" font-size="11" text-anchor="end">ms</text>
-  <rect x="160.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#a78bfa"/>
+  <rect x="160.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#a99ad6"/>
   <text x="180.0" y="31.0" fill="#94a3b8" font-size="11" text-anchor="start">image encoder</text>
-  <rect x="300.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#38bdf8"/>
+  <rect x="300.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#7cb4d8"/>
   <text x="320.0" y="31.0" fill="#94a3b8" font-size="11" text-anchor="start">사진·지시문·상태 token</text>
-  <rect x="500.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#f59e0b"/>
+  <rect x="500.0" y="20.0" width="14.0" height="12.0" rx="2" fill="#d6aa62"/>
   <text x="520.0" y="31.0" fill="#94a3b8" font-size="11" text-anchor="start">action token (action expert)</text>
 </svg>

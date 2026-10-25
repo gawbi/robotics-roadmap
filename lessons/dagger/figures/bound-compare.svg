@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>ε = 0.1, u = 2 일 때 episode 길이 T 에 따른 두 상한. behavior cloning 의 T²ε 는 0.4, 1.6, 3.6, 6.4, 10 으로 제곱으로 늘고, DAgger 의 uTε 는 0.4, 0.8, 1.2, 1.6, 2.0 으로 일정하게 는다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="40.0" width="400.0" height="250.0" rx="0" fill="#0e1628"/>
   <line x1="70.0" y1="290.0" x2="470.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
@@ -25,33 +25,33 @@
   <text x="470.0" y="308.0" fill="#64748b" font-size="12" text-anchor="middle">10</text>
   <text x="470.0" y="328.0" fill="#94a3b8" font-size="13" text-anchor="end">episode 길이 T</text>
   <text x="62.0" y="30.0" fill="#94a3b8" font-size="12" text-anchor="start">추가로 틀릴 수 있는 step 수</text>
-  <polyline points="70.0,290.0 74.0,290.0 78.0,289.9 82.0,289.8 86.0,289.6 90.0,289.4 94.0,289.1 98.0,288.8 102.0,288.4 106.0,288.0 110.0,287.5 114.0,287.0 118.0,286.4 122.0,285.8 126.0,285.1 130.0,284.4 134.0,283.6 138.0,282.8 142.0,281.9 146.0,281.0 150.0,280.0 154.0,279.0 158.0,277.9 162.0,276.8 166.0,275.6 170.0,274.4 174.0,273.1 178.0,271.8 182.0,270.4 186.0,269.0 190.0,267.5 194.0,266.0 198.0,264.4 202.0,262.8 206.0,261.1 210.0,259.4 214.0,257.6 218.0,255.8 222.0,253.9 226.0,252.0 230.0,250.0 234.0,248.0 238.0,245.9 242.0,243.8 246.0,241.6 250.0,239.4 254.0,237.1 258.0,234.8 262.0,232.4 266.0,230.0 270.0,227.5 274.0,225.0 278.0,222.4 282.0,219.8 286.0,217.1 290.0,214.4 294.0,211.6 298.0,208.8 302.0,205.9 306.0,203.0 310.0,200.0 314.0,197.0 318.0,193.9 322.0,190.8 326.0,187.6 330.0,184.4 334.0,181.1 338.0,177.8 342.0,174.4 346.0,171.0 350.0,167.5 354.0,164.0 358.0,160.4 362.0,156.8 366.0,153.1 370.0,149.4 374.0,145.6 378.0,141.8 382.0,137.9 386.0,134.0 390.0,130.0 394.0,126.0 398.0,121.9 402.0,117.8 406.0,113.6 410.0,109.4 414.0,105.1 418.0,100.8 422.0,96.4 426.0,92.0 430.0,87.5 434.0,83.0 438.0,78.4 442.0,73.8 446.0,69.1 450.0,64.4 454.0,59.6 458.0,54.8 462.0,49.9 466.0,45.0 470.0,40.0" fill="none" stroke="#f87171" stroke-width="2.5"/>
-  <polyline points="70.0,290.0 470.0,240.0" fill="none" stroke="#34d399" stroke-width="2.5"/>
-  <circle cx="150.0" cy="280.0" r="5" fill="#f87171"/>
-  <circle cx="150.0" cy="280.0" r="5" fill="#34d399"/>
-  <text x="144.0" y="272.0" fill="#f87171" font-size="12" text-anchor="end">0.4</text>
-  <text x="164.0" y="298.0" fill="#34d399" font-size="12" text-anchor="start">0.4</text>
-  <circle cx="230.0" cy="250.0" r="5" fill="#f87171"/>
-  <circle cx="230.0" cy="270.0" r="5" fill="#34d399"/>
-  <text x="224.0" y="242.0" fill="#f87171" font-size="12" text-anchor="end">1.6</text>
-  <text x="238.0" y="288.0" fill="#34d399" font-size="12" text-anchor="start">0.8</text>
-  <circle cx="310.0" cy="200.0" r="5" fill="#f87171"/>
-  <circle cx="310.0" cy="260.0" r="5" fill="#34d399"/>
-  <text x="304.0" y="192.0" fill="#f87171" font-size="12" text-anchor="end">3.6</text>
-  <text x="318.0" y="278.0" fill="#34d399" font-size="12" text-anchor="start">1.2</text>
-  <circle cx="390.0" cy="130.0" r="5" fill="#f87171"/>
-  <circle cx="390.0" cy="250.0" r="5" fill="#34d399"/>
-  <text x="384.0" y="122.0" fill="#f87171" font-size="12" text-anchor="end">6.4</text>
-  <text x="398.0" y="268.0" fill="#34d399" font-size="12" text-anchor="start">1.6</text>
-  <circle cx="470.0" cy="40.0" r="5" fill="#f87171"/>
-  <circle cx="470.0" cy="240.0" r="5" fill="#34d399"/>
-  <text x="464.0" y="32.0" fill="#f87171" font-size="12" text-anchor="end">10</text>
-  <text x="462.0" y="260.0" fill="#34d399" font-size="12" text-anchor="end">2</text>
-  <line x1="490.0" y1="100.0" x2="512.0" y2="100.0" stroke="#f87171" stroke-width="2.5"/>
-  <text x="518.0" y="104.0" fill="#f87171" font-size="13" text-anchor="start">BC: T²ε</text>
+  <polyline points="70.0,290.0 74.0,290.0 78.0,289.9 82.0,289.8 86.0,289.6 90.0,289.4 94.0,289.1 98.0,288.8 102.0,288.4 106.0,288.0 110.0,287.5 114.0,287.0 118.0,286.4 122.0,285.8 126.0,285.1 130.0,284.4 134.0,283.6 138.0,282.8 142.0,281.9 146.0,281.0 150.0,280.0 154.0,279.0 158.0,277.9 162.0,276.8 166.0,275.6 170.0,274.4 174.0,273.1 178.0,271.8 182.0,270.4 186.0,269.0 190.0,267.5 194.0,266.0 198.0,264.4 202.0,262.8 206.0,261.1 210.0,259.4 214.0,257.6 218.0,255.8 222.0,253.9 226.0,252.0 230.0,250.0 234.0,248.0 238.0,245.9 242.0,243.8 246.0,241.6 250.0,239.4 254.0,237.1 258.0,234.8 262.0,232.4 266.0,230.0 270.0,227.5 274.0,225.0 278.0,222.4 282.0,219.8 286.0,217.1 290.0,214.4 294.0,211.6 298.0,208.8 302.0,205.9 306.0,203.0 310.0,200.0 314.0,197.0 318.0,193.9 322.0,190.8 326.0,187.6 330.0,184.4 334.0,181.1 338.0,177.8 342.0,174.4 346.0,171.0 350.0,167.5 354.0,164.0 358.0,160.4 362.0,156.8 366.0,153.1 370.0,149.4 374.0,145.6 378.0,141.8 382.0,137.9 386.0,134.0 390.0,130.0 394.0,126.0 398.0,121.9 402.0,117.8 406.0,113.6 410.0,109.4 414.0,105.1 418.0,100.8 422.0,96.4 426.0,92.0 430.0,87.5 434.0,83.0 438.0,78.4 442.0,73.8 446.0,69.1 450.0,64.4 454.0,59.6 458.0,54.8 462.0,49.9 466.0,45.0 470.0,40.0" fill="none" stroke="#d88b8b" stroke-width="2.5"/>
+  <polyline points="70.0,290.0 470.0,240.0" fill="none" stroke="#7fc4a2" stroke-width="2.5"/>
+  <circle cx="150.0" cy="280.0" r="5" fill="#d88b8b"/>
+  <circle cx="150.0" cy="280.0" r="5" fill="#7fc4a2"/>
+  <text x="144.0" y="272.0" fill="#d88b8b" font-size="12" text-anchor="end">0.4</text>
+  <text x="164.0" y="298.0" fill="#7fc4a2" font-size="12" text-anchor="start">0.4</text>
+  <circle cx="230.0" cy="250.0" r="5" fill="#d88b8b"/>
+  <circle cx="230.0" cy="270.0" r="5" fill="#7fc4a2"/>
+  <text x="224.0" y="242.0" fill="#d88b8b" font-size="12" text-anchor="end">1.6</text>
+  <text x="238.0" y="288.0" fill="#7fc4a2" font-size="12" text-anchor="start">0.8</text>
+  <circle cx="310.0" cy="200.0" r="5" fill="#d88b8b"/>
+  <circle cx="310.0" cy="260.0" r="5" fill="#7fc4a2"/>
+  <text x="304.0" y="192.0" fill="#d88b8b" font-size="12" text-anchor="end">3.6</text>
+  <text x="318.0" y="278.0" fill="#7fc4a2" font-size="12" text-anchor="start">1.2</text>
+  <circle cx="390.0" cy="130.0" r="5" fill="#d88b8b"/>
+  <circle cx="390.0" cy="250.0" r="5" fill="#7fc4a2"/>
+  <text x="384.0" y="122.0" fill="#d88b8b" font-size="12" text-anchor="end">6.4</text>
+  <text x="398.0" y="268.0" fill="#7fc4a2" font-size="12" text-anchor="start">1.6</text>
+  <circle cx="470.0" cy="40.0" r="5" fill="#d88b8b"/>
+  <circle cx="470.0" cy="240.0" r="5" fill="#7fc4a2"/>
+  <text x="464.0" y="32.0" fill="#d88b8b" font-size="12" text-anchor="end">10</text>
+  <text x="462.0" y="260.0" fill="#7fc4a2" font-size="12" text-anchor="end">2</text>
+  <line x1="490.0" y1="100.0" x2="512.0" y2="100.0" stroke="#d88b8b" stroke-width="2.5"/>
+  <text x="518.0" y="104.0" fill="#d88b8b" font-size="13" text-anchor="start">BC: T²ε</text>
   <text x="518.0" y="122.0" fill="#94a3b8" font-size="12" text-anchor="start">제곱으로 증가</text>
-  <line x1="490.0" y1="160.0" x2="512.0" y2="160.0" stroke="#34d399" stroke-width="2.5"/>
-  <text x="518.0" y="164.0" fill="#34d399" font-size="13" text-anchor="start">DAgger: uTε</text>
+  <line x1="490.0" y1="160.0" x2="512.0" y2="160.0" stroke="#7fc4a2" stroke-width="2.5"/>
+  <text x="518.0" y="164.0" fill="#7fc4a2" font-size="13" text-anchor="start">DAgger: uTε</text>
   <text x="518.0" y="182.0" fill="#94a3b8" font-size="12" text-anchor="start">T 에 비례</text>
   <text x="490.0" y="236.0" fill="#94a3b8" font-size="12" text-anchor="start">T = 10 에서</text>
   <text x="490.0" y="254.0" fill="#94a3b8" font-size="12" text-anchor="start">10 ÷ 2 = 5 배</text>

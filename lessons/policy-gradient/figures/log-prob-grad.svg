@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>왼쪽은 θ = 0 에서 두 확률이 0.5 씩이고 B 의 log-probability gradient 가 +0.5, A 의 것이 −0.5 인 모습. 오른쪽은 θ = 2 에서 B 가 0.8808, A 가 0.1192 이고 gradient 가 +0.1192 와 −0.8808 이라 드문 action 인 A 쪽 화살표가 더 길다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="20.0" width="310.0" height="272.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
   <text x="175.0" y="46.0" fill="#e2e8f0" font-size="15" text-anchor="middle">θ = 0</text>
-  <rect x="70.0" y="145.0" width="50.0" height="55.0" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="70.0" y="145.0" width="50.0" height="55.0" rx="2" fill="#7cb4d8" fill-opacity="0.6" stroke="#7cb4d8" stroke-width="1"/>
   <text x="95.0" y="137.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
   <text x="95.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="middle">A 의 확률</text>
-  <line x1="95.0" y1="248.0" x2="60.0" y2="248.0" stroke="#f87171" stroke-width="3" marker-end="url(#ar-red)"/>
-  <text x="95.0" y="270.0" fill="#f87171" font-size="12" text-anchor="middle">∇ ln π(A) = −0.5</text>
-  <rect x="190.0" y="145.0" width="50.0" height="55.0" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <line x1="95.0" y1="248.0" x2="60.0" y2="248.0" stroke="#d88b8b" stroke-width="3" marker-end="url(#ar-red)"/>
+  <text x="95.0" y="270.0" fill="#d88b8b" font-size="12" text-anchor="middle">∇ ln π(A) = −0.5</text>
+  <rect x="190.0" y="145.0" width="50.0" height="55.0" rx="2" fill="#d6aa62" fill-opacity="0.6" stroke="#d6aa62" stroke-width="1"/>
   <text x="215.0" y="137.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.5</text>
   <text x="215.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="middle">B 의 확률</text>
-  <line x1="215.0" y1="248.0" x2="250.0" y2="248.0" stroke="#34d399" stroke-width="3" marker-end="url(#ar-green)"/>
-  <text x="215.0" y="270.0" fill="#34d399" font-size="12" text-anchor="middle">∇ ln π(B) = +0.5</text>
+  <line x1="215.0" y1="248.0" x2="250.0" y2="248.0" stroke="#7fc4a2" stroke-width="3" marker-end="url(#ar-green)"/>
+  <text x="215.0" y="270.0" fill="#7fc4a2" font-size="12" text-anchor="middle">∇ ln π(B) = +0.5</text>
   <line x1="40.0" y1="200.0" x2="310.0" y2="200.0" stroke="#475569" stroke-width="1.5"/>
   <rect x="350.0" y="20.0" width="310.0" height="272.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
   <text x="505.0" y="46.0" fill="#e2e8f0" font-size="15" text-anchor="middle">θ = 2</text>
-  <rect x="400.0" y="186.9" width="50.0" height="13.1" rx="2" fill="#38bdf8" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="400.0" y="186.9" width="50.0" height="13.1" rx="2" fill="#7cb4d8" fill-opacity="0.6" stroke="#7cb4d8" stroke-width="1"/>
   <text x="425.0" y="178.9" fill="#94a3b8" font-size="12" text-anchor="middle">0.1192</text>
   <text x="425.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="middle">A 의 확률</text>
-  <line x1="425.0" y1="248.0" x2="363.3" y2="248.0" stroke="#f87171" stroke-width="3" marker-end="url(#ar-red)"/>
-  <text x="425.0" y="270.0" fill="#f87171" font-size="12" text-anchor="middle">∇ ln π(A) = −0.8808</text>
-  <rect x="520.0" y="103.1" width="50.0" height="96.9" rx="2" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1"/>
+  <line x1="425.0" y1="248.0" x2="363.3" y2="248.0" stroke="#d88b8b" stroke-width="3" marker-end="url(#ar-red)"/>
+  <text x="425.0" y="270.0" fill="#d88b8b" font-size="12" text-anchor="middle">∇ ln π(A) = −0.8808</text>
+  <rect x="520.0" y="103.1" width="50.0" height="96.9" rx="2" fill="#d6aa62" fill-opacity="0.6" stroke="#d6aa62" stroke-width="1"/>
   <text x="545.0" y="95.1" fill="#94a3b8" font-size="12" text-anchor="middle">0.8808</text>
   <text x="545.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="middle">B 의 확률</text>
-  <line x1="545.0" y1="248.0" x2="553.3" y2="248.0" stroke="#34d399" stroke-width="3" marker-end="url(#ar-green)"/>
-  <text x="545.0" y="270.0" fill="#34d399" font-size="12" text-anchor="middle">∇ ln π(B) = +0.1192</text>
+  <line x1="545.0" y1="248.0" x2="553.3" y2="248.0" stroke="#7fc4a2" stroke-width="3" marker-end="url(#ar-green)"/>
+  <text x="545.0" y="270.0" fill="#7fc4a2" font-size="12" text-anchor="middle">∇ ln π(B) = +0.1192</text>
   <line x1="370.0" y1="200.0" x2="640.0" y2="200.0" stroke="#475569" stroke-width="1.5"/>
   <text x="340.0" y="312.0" fill="#94a3b8" font-size="11" text-anchor="middle">화살표: 그 action 의 확률을 올리려면 θ 를 움직여야 하는 방향과 크기 (오른쪽이 θ 를 늘리는 쪽)</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>F(x) 와 x 를 같은 자리끼리 더하고 ReLU 를 거친다</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="228" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="88" y="50" fill="#e2e8f0" font-size="14" text-anchor="middle">F(x)</text>
   <rect x="40" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
@@ -12,34 +12,34 @@
   <rect x="88" y="118" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="112.0" y="147.0" fill="#e2e8f0" font-size="16" text-anchor="middle">2</text>
   <text x="168" y="124" fill="#94a3b8" font-size="22" text-anchor="middle">+</text>
-  <text x="258" y="50" fill="#f59e0b" font-size="14" text-anchor="middle">x</text>
+  <text x="258" y="50" fill="#d6aa62" font-size="14" text-anchor="middle">x</text>
   <rect x="210" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="234.0" y="99.0" fill="#f59e0b" font-size="16" text-anchor="middle">3</text>
+  <text x="234.0" y="99.0" fill="#d6aa62" font-size="16" text-anchor="middle">3</text>
   <rect x="258" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="282.0" y="99.0" fill="#f59e0b" font-size="16" text-anchor="middle">1</text>
+  <text x="282.0" y="99.0" fill="#d6aa62" font-size="16" text-anchor="middle">1</text>
   <rect x="210" y="118" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="234.0" y="147.0" fill="#f59e0b" font-size="16" text-anchor="middle">0</text>
+  <text x="234.0" y="147.0" fill="#d6aa62" font-size="16" text-anchor="middle">0</text>
   <rect x="258" y="118" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="282.0" y="147.0" fill="#f59e0b" font-size="16" text-anchor="middle">2</text>
+  <text x="282.0" y="147.0" fill="#d6aa62" font-size="16" text-anchor="middle">2</text>
   <text x="338" y="124" fill="#94a3b8" font-size="22" text-anchor="middle">=</text>
-  <text x="428" y="50" fill="#38bdf8" font-size="14" text-anchor="middle">F(x) + x</text>
+  <text x="428" y="50" fill="#7cb4d8" font-size="14" text-anchor="middle">F(x) + x</text>
   <rect x="380" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="404.0" y="99.0" fill="#38bdf8" font-size="16" text-anchor="middle">4</text>
+  <text x="404.0" y="99.0" fill="#7cb4d8" font-size="16" text-anchor="middle">4</text>
   <rect x="428" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="452.0" y="99.0" fill="#38bdf8" font-size="16" text-anchor="middle">1</text>
-  <rect x="380" y="118" width="48" height="48" fill="#3a1414" stroke="#f87171" stroke-width="1"/>
-  <text x="404.0" y="147.0" fill="#38bdf8" font-size="16" text-anchor="middle">−1</text>
+  <text x="452.0" y="99.0" fill="#7cb4d8" font-size="16" text-anchor="middle">1</text>
+  <rect x="380" y="118" width="48" height="48" fill="#3a1414" stroke="#d88b8b" stroke-width="1"/>
+  <text x="404.0" y="147.0" fill="#7cb4d8" font-size="16" text-anchor="middle">−1</text>
   <rect x="428" y="118" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="452.0" y="147.0" fill="#38bdf8" font-size="16" text-anchor="middle">4</text>
+  <text x="452.0" y="147.0" fill="#7cb4d8" font-size="16" text-anchor="middle">4</text>
   <text x="508" y="124" fill="#94a3b8" font-size="22" text-anchor="middle">→</text>
-  <text x="608" y="50" fill="#34d399" font-size="14" text-anchor="middle">ReLU</text>
+  <text x="608" y="50" fill="#7fc4a2" font-size="14" text-anchor="middle">ReLU</text>
   <rect x="560" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="584.0" y="99.0" fill="#34d399" font-size="16" text-anchor="middle">4</text>
+  <text x="584.0" y="99.0" fill="#7fc4a2" font-size="16" text-anchor="middle">4</text>
   <rect x="608" y="70" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="632.0" y="99.0" fill="#34d399" font-size="16" text-anchor="middle">1</text>
-  <rect x="560" y="118" width="48" height="48" fill="#0f2e22" stroke="#34d399" stroke-width="1"/>
-  <text x="584.0" y="147.0" fill="#34d399" font-size="16" text-anchor="middle">0</text>
+  <text x="632.0" y="99.0" fill="#7fc4a2" font-size="16" text-anchor="middle">1</text>
+  <rect x="560" y="118" width="48" height="48" fill="#0f2e22" stroke="#7fc4a2" stroke-width="1"/>
+  <text x="584.0" y="147.0" fill="#7fc4a2" font-size="16" text-anchor="middle">0</text>
   <rect x="608" y="118" width="48" height="48" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <text x="632.0" y="147.0" fill="#34d399" font-size="16" text-anchor="middle">4</text>
+  <text x="632.0" y="147.0" fill="#7fc4a2" font-size="16" text-anchor="middle">4</text>
   <text x="360" y="200" fill="#94a3b8" font-size="13" text-anchor="middle">왼쪽 위 1 + 3 = 4, 오른쪽 위 0 + 1 = 1, 왼쪽 아래 −1 + 0 = −1, 오른쪽 아래 2 + 2 = 4</text>
 </svg>

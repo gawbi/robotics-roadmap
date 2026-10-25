@@ -1,47 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>on-policy 와 off-policy 의 데이터 흐름. on-policy 는 지금 policy 의 rollout 으로 update 한 뒤 버리고 다시 모으며, SimpleVLA-RL·πRL 처럼 simulation 에서 쓴다. off-policy 는 시연·개입·지난 rollout 을 replay buffer 에 쌓아 되풀이해 쓰며, DSRL·HIL-SERL 처럼 실물 로봇에서 쓴다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker></defs>
   <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="360.0" y1="20" x2="360.0" y2="340" stroke="#1e293b" stroke-dasharray="4 4"/>
-  <text x="180.0" y="36" fill="#38bdf8" font-size="15" text-anchor="middle">on-policy (PPO · GRPO)</text>
-  <rect x="30" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="180.0" y="36" fill="#7cb4d8" font-size="15" text-anchor="middle">on-policy (PPO · GRPO)</text>
+  <rect x="30" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="95.0" y="81.0" fill="#e2e8f0" font-size="13" text-anchor="middle">지금 policy</text>
   <text x="95.0" y="99.0" fill="#94a3b8" font-size="11" text-anchor="middle">iteration k</text>
-  <rect x="200" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="200" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="265.0" y="81.0" fill="#e2e8f0" font-size="13" text-anchor="middle">rollout 모으기</text>
   <text x="265.0" y="99.0" fill="#94a3b8" font-size="11" text-anchor="middle">지금 policy 로만</text>
-  <rect x="200" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="200" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="265.0" y="171.0" fill="#e2e8f0" font-size="13" text-anchor="middle">update 몇 번</text>
   <text x="265.0" y="189.0" fill="#94a3b8" font-size="11" text-anchor="middle">ratio 로 범위 제한</text>
-  <rect x="30" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
-  <text x="95.0" y="171.0" fill="#f87171" font-size="13" text-anchor="middle">데이터 버림</text>
+  <rect x="30" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
+  <text x="95.0" y="171.0" fill="#d88b8b" font-size="13" text-anchor="middle">데이터 버림</text>
   <text x="95.0" y="189.0" fill="#94a3b8" font-size="11" text-anchor="middle">다음 iteration 에 안 씀</text>
   <line x1="162" y1="85" x2="198" y2="85" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="265" y1="112" x2="265" y2="148" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <line x1="198" y1="175" x2="162" y2="175" stroke="#f87171" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+  <line x1="198" y1="175" x2="162" y2="175" stroke="#d88b8b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
   <line x1="95" y1="148" x2="95" y2="112" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <text x="87" y="134" fill="#94a3b8" font-size="11" text-anchor="end">새 policy</text>
   <text x="180.0" y="240" fill="#e2e8f0" font-size="13" text-anchor="middle">시도가 싼 simulation 에 맞다</text>
   <text x="180.0" y="262" fill="#94a3b8" font-size="12" text-anchor="middle">예: SimpleVLA-RL, πRL, RL4VLA</text>
   <text x="180.0" y="282" fill="#94a3b8" font-size="12" text-anchor="middle">RL4VLA 는 A100 한 장으로 약 42 시간 학습</text>
-  <text x="540.0" y="36" fill="#34d399" font-size="15" text-anchor="middle">off-policy (SAC · RLPD)</text>
-  <rect x="390.0" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="540.0" y="36" fill="#7fc4a2" font-size="15" text-anchor="middle">off-policy (SAC · RLPD)</text>
+  <rect x="390.0" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="455.0" y="81.0" fill="#e2e8f0" font-size="13" text-anchor="middle">지금 policy</text>
   <text x="455.0" y="99.0" fill="#94a3b8" font-size="11" text-anchor="middle">실물에서 실행</text>
-  <rect x="560.0" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="560.0" y="60" width="130" height="50" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="625.0" y="81.0" fill="#e2e8f0" font-size="13" text-anchor="middle">rollout 모으기</text>
   <text x="625.0" y="99.0" fill="#94a3b8" font-size="11" text-anchor="middle">사람 개입 포함</text>
-  <rect x="540.0" y="140" width="170" height="74" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="625.0" y="162" fill="#f59e0b" font-size="13" text-anchor="middle">replay buffer</text>
+  <rect x="540.0" y="140" width="170" height="74" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="625.0" y="162" fill="#d6aa62" font-size="13" text-anchor="middle">replay buffer</text>
   <text x="625.0" y="182" fill="#94a3b8" font-size="11" text-anchor="middle">시연 · 사람 개입</text>
   <text x="625.0" y="199" fill="#94a3b8" font-size="11" text-anchor="middle">지난 rollout 모두 쌓기</text>
-  <rect x="390.0" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="390.0" y="150" width="130" height="50" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="455.0" y="171.0" fill="#e2e8f0" font-size="13" text-anchor="middle">update 여러 번</text>
   <text x="455.0" y="189.0" fill="#94a3b8" font-size="11" text-anchor="middle">buffer 에서 꺼내 씀</text>
-  <line x1="522.0" y1="85" x2="558.0" y2="85" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-green)"/>
-  <line x1="625.0" y1="112" x2="625.0" y2="138" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-green)"/>
-  <line x1="538.0" y1="177" x2="522.0" y2="177" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-green)"/>
-  <line x1="455.0" y1="148" x2="455.0" y2="112" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <line x1="522.0" y1="85" x2="558.0" y2="85" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <line x1="625.0" y1="112" x2="625.0" y2="138" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <line x1="538.0" y1="177" x2="522.0" y2="177" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <line x1="455.0" y1="148" x2="455.0" y2="112" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#arrow-green)"/>
   <text x="540.0" y="240" fill="#e2e8f0" font-size="13" text-anchor="middle">시도가 비싼 실물 로봇에 맞다</text>
   <text x="540.0" y="262" fill="#94a3b8" font-size="12" text-anchor="middle">예: DSRL, HIL-SERL, ConRFT</text>
   <text x="540.0" y="282" fill="#94a3b8" font-size="12" text-anchor="middle">DSRL 은 토스터 작업에 episode 80 개</text>

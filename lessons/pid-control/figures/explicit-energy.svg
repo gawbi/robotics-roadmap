@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>같은 P 제어를 두 계산 순서로 계산한 결과. 속도를 먼저 고치면 위치가 0 과 2 사이를 오가고 energy 가 2 와 4 사이에 머물지만, 위치를 먼저 옮기면 진폭이 커지고 energy 가 step 마다 두 배가 된다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="50.0" y="50.0" width="230.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="50.0" y1="200.0" x2="280.0" y2="200.0" stroke="#475569" stroke-width="1.5"/>
@@ -20,22 +20,22 @@
   <text x="280.0" y="284.0" fill="#94a3b8" font-size="13" text-anchor="end">step</text>
   <text x="50.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">위치 x (m)</text>
   <line x1="50.0" y1="175.0" x2="280.0" y2="175.0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <polyline points="50.0,200.0 88.3,175.0 126.7,150.0 165.0,150.0 203.3,175.0 241.7,200.0 280.0,200.0" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="50.0" cy="200.0" r="4" fill="#38bdf8"/>
-  <circle cx="88.3" cy="175.0" r="4" fill="#38bdf8"/>
-  <circle cx="126.7" cy="150.0" r="4" fill="#38bdf8"/>
-  <circle cx="165.0" cy="150.0" r="4" fill="#38bdf8"/>
-  <circle cx="203.3" cy="175.0" r="4" fill="#38bdf8"/>
-  <circle cx="241.7" cy="200.0" r="4" fill="#38bdf8"/>
-  <circle cx="280.0" cy="200.0" r="4" fill="#38bdf8"/>
-  <polyline points="50.0,200.0 88.3,200.0 126.7,175.0 165.0,125.0 203.3,75.0 241.7,75.0 280.0,175.0" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="50.0" cy="200.0" r="4" fill="#f87171"/>
-  <circle cx="88.3" cy="200.0" r="4" fill="#f87171"/>
-  <circle cx="126.7" cy="175.0" r="4" fill="#f87171"/>
-  <circle cx="165.0" cy="125.0" r="4" fill="#f87171"/>
-  <circle cx="203.3" cy="75.0" r="4" fill="#f87171"/>
-  <circle cx="241.7" cy="75.0" r="4" fill="#f87171"/>
-  <circle cx="280.0" cy="175.0" r="4" fill="#f87171"/>
+  <polyline points="50.0,200.0 88.3,175.0 126.7,150.0 165.0,150.0 203.3,175.0 241.7,200.0 280.0,200.0" fill="none" stroke="#7cb4d8" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="50.0" cy="200.0" r="4" fill="#7cb4d8"/>
+  <circle cx="88.3" cy="175.0" r="4" fill="#7cb4d8"/>
+  <circle cx="126.7" cy="150.0" r="4" fill="#7cb4d8"/>
+  <circle cx="165.0" cy="150.0" r="4" fill="#7cb4d8"/>
+  <circle cx="203.3" cy="175.0" r="4" fill="#7cb4d8"/>
+  <circle cx="241.7" cy="200.0" r="4" fill="#7cb4d8"/>
+  <circle cx="280.0" cy="200.0" r="4" fill="#7cb4d8"/>
+  <polyline points="50.0,200.0 88.3,200.0 126.7,175.0 165.0,125.0 203.3,75.0 241.7,75.0 280.0,175.0" fill="none" stroke="#d88b8b" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="50.0" cy="200.0" r="4" fill="#d88b8b"/>
+  <circle cx="88.3" cy="200.0" r="4" fill="#d88b8b"/>
+  <circle cx="126.7" cy="175.0" r="4" fill="#d88b8b"/>
+  <circle cx="165.0" cy="125.0" r="4" fill="#d88b8b"/>
+  <circle cx="203.3" cy="75.0" r="4" fill="#d88b8b"/>
+  <circle cx="241.7" cy="75.0" r="4" fill="#d88b8b"/>
+  <circle cx="280.0" cy="175.0" r="4" fill="#d88b8b"/>
   <rect x="345.0" y="50.0" width="230.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="345.0" y1="250.0" x2="575.0" y2="250.0" stroke="#475569" stroke-width="1.5"/>
   <line x1="345.0" y1="50.0" x2="345.0" y2="250.0" stroke="#475569" stroke-width="1.5"/>
@@ -52,26 +52,26 @@
   <text x="338.0" y="54.0" fill="#64748b" font-size="12" text-anchor="end">64</text>
   <text x="575.0" y="284.0" fill="#94a3b8" font-size="13" text-anchor="end">step</text>
   <text x="345.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">energy (J)</text>
-  <rect x="350.4" y="243.8" width="13.0" height="6.2" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="364.9" y="243.8" width="13.0" height="6.2" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="371.4" y="238.8" fill="#f87171" font-size="11" text-anchor="middle">2</text>
-  <rect x="388.7" y="243.8" width="13.0" height="6.2" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="403.3" y="237.5" width="13.0" height="12.5" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="409.8" y="232.5" fill="#f87171" font-size="11" text-anchor="middle">4</text>
-  <rect x="427.0" y="237.5" width="13.0" height="12.5" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="441.6" y="225.0" width="13.0" height="25.0" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="448.1" y="220.0" fill="#f87171" font-size="11" text-anchor="middle">8</text>
-  <rect x="465.4" y="243.8" width="13.0" height="6.2" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="479.9" y="200.0" width="13.0" height="50.0" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="486.4" y="195.0" fill="#f87171" font-size="11" text-anchor="middle">16</text>
-  <rect x="503.7" y="243.8" width="13.0" height="6.2" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="518.3" y="150.0" width="13.0" height="100.0" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="524.8" y="145.0" fill="#f87171" font-size="11" text-anchor="middle">32</text>
-  <rect x="542.0" y="237.5" width="13.0" height="12.5" rx="1" fill="#38bdf8" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="556.6" y="50.0" width="13.0" height="200.0" rx="1" fill="#f87171" fill-opacity="0.85" stroke="#f87171" stroke-width="1"/>
-  <text x="563.1" y="45.0" fill="#f87171" font-size="11" text-anchor="middle">64</text>
-  <line x1="120.0" y1="296.0" x2="142.0" y2="296.0" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="350.4" y="243.8" width="13.0" height="6.2" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="364.9" y="243.8" width="13.0" height="6.2" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="371.4" y="238.8" fill="#d88b8b" font-size="11" text-anchor="middle">2</text>
+  <rect x="388.7" y="243.8" width="13.0" height="6.2" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="403.3" y="237.5" width="13.0" height="12.5" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="409.8" y="232.5" fill="#d88b8b" font-size="11" text-anchor="middle">4</text>
+  <rect x="427.0" y="237.5" width="13.0" height="12.5" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="441.6" y="225.0" width="13.0" height="25.0" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="448.1" y="220.0" fill="#d88b8b" font-size="11" text-anchor="middle">8</text>
+  <rect x="465.4" y="243.8" width="13.0" height="6.2" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="479.9" y="200.0" width="13.0" height="50.0" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="486.4" y="195.0" fill="#d88b8b" font-size="11" text-anchor="middle">16</text>
+  <rect x="503.7" y="243.8" width="13.0" height="6.2" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="518.3" y="150.0" width="13.0" height="100.0" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="524.8" y="145.0" fill="#d88b8b" font-size="11" text-anchor="middle">32</text>
+  <rect x="542.0" y="237.5" width="13.0" height="12.5" rx="1" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="556.6" y="50.0" width="13.0" height="200.0" rx="1" fill="#d88b8b" fill-opacity="0.85" stroke="#d88b8b" stroke-width="1"/>
+  <text x="563.1" y="45.0" fill="#d88b8b" font-size="11" text-anchor="middle">64</text>
+  <line x1="120.0" y1="296.0" x2="142.0" y2="296.0" stroke="#7cb4d8" stroke-width="3"/>
   <text x="148.0" y="300.0" fill="#e2e8f0" font-size="12" text-anchor="start">속도 먼저 (semi-implicit Euler)</text>
-  <line x1="340.0" y1="296.0" x2="362.0" y2="296.0" stroke="#f87171" stroke-width="3"/>
+  <line x1="340.0" y1="296.0" x2="362.0" y2="296.0" stroke="#d88b8b" stroke-width="3"/>
   <text x="368.0" y="300.0" fill="#e2e8f0" font-size="12" text-anchor="start">위치 먼저 (explicit Euler)</text>
 </svg>

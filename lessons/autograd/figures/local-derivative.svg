@@ -1,56 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>덧셈과 곱셈의 local derivative. 덧셈 d = p + c 에서 p 를 −6 에서 −5.99 로 늘리면 d 가 4 에서 4.01 로 0.01 늘어 비율 1, 곱셈 L = d × f 에서 d 를 4 에서 4.01 로 늘리면 L 이 −8 에서 −8.02 로 0.02 줄어 비율 −2 로 다른 입력 f 와 같다</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="958" height="468" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="480.0" y1="30.0" x2="480.0" y2="440.0" stroke="#1e293b" stroke-width="1.5"/>
   <text x="240.0" y="40.0" fill="#e2e8f0" font-size="16" text-anchor="middle">덧셈 d = p + c</text>
-  <rect x="20.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="115.0" y="88.0" fill="#38bdf8" font-size="15" text-anchor="middle">p</text>
+  <rect x="20.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="115.0" y="88.0" fill="#7cb4d8" font-size="15" text-anchor="middle">p</text>
   <line x1="32.0" y1="100.0" x2="198.0" y2="100.0" stroke="#1e293b" stroke-width="1"/>
   <text x="34.0" y="122.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 전</text>
   <text x="115.0" y="142.0" fill="#e2e8f0" font-size="14" text-anchor="middle">p = −6</text>
   <text x="34.0" y="170.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 후</text>
   <text x="115.0" y="190.0" fill="#e2e8f0" font-size="14" text-anchor="middle">p = −5.99</text>
   <text x="34.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="start">변화량</text>
-  <text x="115.0" y="238.0" fill="#38bdf8" font-size="14" text-anchor="middle">−5.99 − (−6) = +0.01</text>
-  <rect x="270.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="365.0" y="88.0" fill="#38bdf8" font-size="15" text-anchor="middle">d = p + c</text>
+  <text x="115.0" y="238.0" fill="#7cb4d8" font-size="14" text-anchor="middle">−5.99 − (−6) = +0.01</text>
+  <rect x="270.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="365.0" y="88.0" fill="#7cb4d8" font-size="15" text-anchor="middle">d = p + c</text>
   <line x1="282.0" y1="100.0" x2="448.0" y2="100.0" stroke="#1e293b" stroke-width="1"/>
   <text x="284.0" y="122.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 전</text>
   <text x="365.0" y="142.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−6 + 10 = 4</text>
   <text x="284.0" y="170.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 후</text>
   <text x="365.0" y="190.0" fill="#e2e8f0" font-size="14" text-anchor="middle">−5.99 + 10 = 4.01</text>
   <text x="284.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="start">변화량</text>
-  <text x="365.0" y="238.0" fill="#38bdf8" font-size="14" text-anchor="middle">4.01 − 4 = +0.01</text>
+  <text x="365.0" y="238.0" fill="#7cb4d8" font-size="14" text-anchor="middle">4.01 − 4 = +0.01</text>
   <line x1="215.0" y1="162.0" x2="265.0" y2="162.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-gray)"/>
   <text x="115.0" y="292.0" fill="#94a3b8" font-size="13" text-anchor="middle">c = 10 (그대로)</text>
-  <rect x="40.0" y="320.0" width="400.0" height="100.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="40.0" y="320.0" width="400.0" height="100.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="240.0" y="350.0" fill="#94a3b8" font-size="12" text-anchor="middle">p → d 의 비율</text>
-  <text x="240.0" y="376.0" fill="#34d399" font-size="16" text-anchor="middle">+0.01 ÷ +0.01 = 1</text>
+  <text x="240.0" y="376.0" fill="#7fc4a2" font-size="16" text-anchor="middle">+0.01 ÷ +0.01 = 1</text>
   <text x="240.0" y="402.0" fill="#94a3b8" font-size="13" text-anchor="middle">덧셈은 어느 입력이든 1</text>
   <text x="720.0" y="40.0" fill="#e2e8f0" font-size="16" text-anchor="middle">곱셈 L = d × f</text>
-  <rect x="500.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="595.0" y="88.0" fill="#f59e0b" font-size="15" text-anchor="middle">d</text>
+  <rect x="500.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="595.0" y="88.0" fill="#d6aa62" font-size="15" text-anchor="middle">d</text>
   <line x1="512.0" y1="100.0" x2="678.0" y2="100.0" stroke="#1e293b" stroke-width="1"/>
   <text x="514.0" y="122.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 전</text>
   <text x="595.0" y="142.0" fill="#e2e8f0" font-size="14" text-anchor="middle">d = 4</text>
   <text x="514.0" y="170.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 후</text>
   <text x="595.0" y="190.0" fill="#e2e8f0" font-size="14" text-anchor="middle">d = 4.01</text>
   <text x="514.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="start">변화량</text>
-  <text x="595.0" y="238.0" fill="#f59e0b" font-size="14" text-anchor="middle">4.01 − 4 = +0.01</text>
-  <rect x="750.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="845.0" y="88.0" fill="#f59e0b" font-size="15" text-anchor="middle">L = d × f</text>
+  <text x="595.0" y="238.0" fill="#d6aa62" font-size="14" text-anchor="middle">4.01 − 4 = +0.01</text>
+  <rect x="750.0" y="62.0" width="190.0" height="200.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="845.0" y="88.0" fill="#d6aa62" font-size="15" text-anchor="middle">L = d × f</text>
   <line x1="762.0" y1="100.0" x2="928.0" y2="100.0" stroke="#1e293b" stroke-width="1"/>
   <text x="764.0" y="122.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 전</text>
   <text x="845.0" y="142.0" fill="#e2e8f0" font-size="14" text-anchor="middle">4 × (−2) = −8</text>
   <text x="764.0" y="170.0" fill="#94a3b8" font-size="12" text-anchor="start">변화 후</text>
   <text x="845.0" y="190.0" fill="#e2e8f0" font-size="14" text-anchor="middle">4.01 × (−2) = −8.02</text>
   <text x="764.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="start">변화량</text>
-  <text x="845.0" y="238.0" fill="#f59e0b" font-size="14" text-anchor="middle">−8.02 − (−8) = −0.02</text>
+  <text x="845.0" y="238.0" fill="#d6aa62" font-size="14" text-anchor="middle">−8.02 − (−8) = −0.02</text>
   <line x1="695.0" y1="162.0" x2="745.0" y2="162.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-gray)"/>
   <text x="595.0" y="292.0" fill="#94a3b8" font-size="13" text-anchor="middle">f = −2 (그대로)</text>
-  <rect x="520.0" y="320.0" width="400.0" height="100.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="520.0" y="320.0" width="400.0" height="100.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="720.0" y="350.0" fill="#94a3b8" font-size="12" text-anchor="middle">d → L 의 비율</text>
-  <text x="720.0" y="376.0" fill="#34d399" font-size="16" text-anchor="middle">−0.02 ÷ +0.01 = −2</text>
+  <text x="720.0" y="376.0" fill="#7fc4a2" font-size="16" text-anchor="middle">−0.02 ÷ +0.01 = −2</text>
   <text x="720.0" y="402.0" fill="#94a3b8" font-size="13" text-anchor="middle">곱셈은 다른 입력 f 의 값</text>
 </svg>

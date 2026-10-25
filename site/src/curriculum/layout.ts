@@ -61,6 +61,8 @@ export interface Sector {
   y: number
   width: number
   height: number
+  /** the tree's picture: a square of side `size` centred on x, y */
+  art: { x: number; y: number; size: number }
   start: number
   end: number
 }
@@ -574,49 +576,24 @@ export async function computeLayout(c: Curriculum): Promise<Layout> {
   )
   const dividers = [...after.values()].map((a) => ({ from: turn({ x: 0, y: -outer }, a), to: turn({ x: 0, y: -reach }, a) }))
 
-  // each tree's area is the wedge between the line before it and the line after it; its name is written large and faint
-  // like a background, as near as it can to the middle of the tree's lessons (the middle of their distances from the
-  // centre) without covering a lesson, kept inside the wedge and off the hub; if no spot is free of lessons, it sits
-  // behind them at the nearest spot in the wedge
+  // each tree's area is the wedge between the line before it and the line after it. The tree's picture is drawn faint
+  // in the middle of the wedge: on the line that halves it, as far out as the middle of the tree's lessons, and large
+  // enough to hold all of them. Its name, fainter still, sits in the middle of the picture
   const sectors: Sector[] = []
   const S = CONFIG.sector
   for (const [i, t] of around.entries()) {
     const start = after.get(around[(i + around.length - 1) % around.length].id)!
     const end = after.get(t.id)!
-    const lo = ((start - t.angle + 540) % 360) - 180
-    const hi = ((end - t.angle + 540) % 360) - 180
     const lines = t.title.split(' · ')
     const width = Math.max(...lines.map((l) => l.length)) * S.charWidth
     const height = lines.length * S.lineHeight
-    const fits = (x: number, y: number) => {
-      const [hw, hh] = [width / 2, height / 2]
-      for (const [dx, dy] of [[-hw, -hh], [hw, -hh], [-hw, hh], [hw, hh]]) {
-        const off = ((deg({ x: x + dx, y: y + dy }) - t.angle + 540) % 360) - 180
-        if (off < lo + S.angleGap || off > hi - S.angleGap) return false
-      }
-      return Math.hypot(Math.max(Math.abs(x) - hw, 0), Math.max(Math.abs(y) - hh, 0)) >= outer + S.gap
-    }
-    const bare = (x: number, y: number) =>
-      [...nodes.values()].every(
-        (n) =>
-          x + width / 2 + S.gap < n.x + n.box.left ||
-          x - width / 2 - S.gap > n.x + n.box.right ||
-          y + height / 2 + S.gap < n.y + n.box.top ||
-          y - height / 2 - S.gap > n.y + n.box.bottom,
-      )
-    const dists = [...nodes.values()].filter((n) => n.tree === t.id).map((n) => Math.hypot(n.x, n.y)).sort((a, b) => a - b)
-    const anchor = turn({ x: 0, y: -(dists[Math.floor(dists.length / 2)] ?? outer * 2) }, t.angle)
-    const nearest = (ok: (x: number, y: number) => boolean) => {
-      for (let r = 0; r <= S.searchRadius; r += S.searchStep) {
-        for (let a = 0; a < 360; a += r ? Math.max(5, (S.searchStep / r) * (180 / Math.PI)) : 360) {
-          const p = { x: anchor.x + r * Math.sin((a * Math.PI) / 180), y: anchor.y - r * Math.cos((a * Math.PI) / 180) }
-          if (ok(p.x, p.y)) return p
-        }
-      }
-      return undefined
-    }
-    const spot = nearest((x, y) => fits(x, y) && bare(x, y)) ?? nearest(fits) ?? anchor
-    sectors.push({ tree: t.id, lines, ...spot, width, height, start, end: start + ((((end - start) % 360) + 360) % 360) })
+    const own = [...nodes.values()].filter((n) => n.tree === t.id)
+    const span = (((end - start) % 360) + 360) % 360
+    const far = (Math.min(...own.map((n) => Math.hypot(n.x, n.y))) + Math.max(...own.map((n) => Math.hypot(n.x, n.y)))) / 2
+    const centre = turn({ x: 0, y: -far }, start + span / 2)
+    const reach = Math.max(...own.map((n) => Math.max(Math.abs(n.x - centre.x), Math.abs(n.y - centre.y))))
+    const art = { ...centre, size: 2 * reach * S.artScale }
+    sectors.push({ tree: t.id, lines, x: art.x, y: art.y, width, height, art, start, end: start + span })
   }
 
   const xs: number[] = []

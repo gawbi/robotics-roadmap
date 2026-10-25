@@ -20,7 +20,7 @@ frontmatter 를 읽어 선수 관계 지도를 그린다. 공부하는 법은 [R
 3. 본문을 쓴다. 서론 → 학습 목표 → 개념마다 한 절(직관 → 그림 → 숫자 예시 → 실제 로봇·논문·제품 사례) → 정리 → 참고 자료 순서이고,
    일반 식·유도·긴 손계산은 "심화" 블록에 접는다. 심화 밖 본문은 15k ~ 22k 자, 전체는 20k ~ 28k 자 안팎이다
 4. 그림을 그린다. SVG 로 `figures/` 에 두고 [PID Control 의 그림](lessons/pid-control/figures/control-loop.svg) 과 같은 어두운 카드와
-   색(배경 `#0b1220`, 글자 `#e2e8f0`, 강조 `#38bdf8`·`#34d399`·`#f59e0b`·`#f87171`·`#a78bfa`, 보조 `#94a3b8`)을 쓴다. 그림을 만드는
+   색(배경 `#0b1220`, 글자 `#e2e8f0`, 강조 `#7cb4d8`·`#7fc4a2`·`#d6aa62`·`#d88b8b`·`#a99ad6`·`#cf96b8`, 보조 `#94a3b8`)을 쓴다. 그림을 만드는
    script 는 리포에 넣지 않는다. 넣기 전에 PNG 로 렌더해(headless Chrome `--headless=new --screenshot`) 글자 겹침과 잘림을 눈으로 확인하고,
    그림 속 숫자를 본문 예시와 맞춘다
 5. 퀴즈를 쓴다. [lessons/kalman-filter/quiz.yaml](lessons/kalman-filter/quiz.yaml) 과 같은 모양으로 topic 6 ~ 8개, topic 마다 variant

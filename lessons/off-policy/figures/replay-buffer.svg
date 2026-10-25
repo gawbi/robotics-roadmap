@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>capacity 5 인 replay buffer 에 transition 7 개를 차례로 넣은 모습. 6 번째와 7 번째가 가장 오래된 1 번째와 2 번째 자리를 덮어썼고, 학습할 때는 칸 가운데 무작위로 batch 를 뽑는다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="658" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="330.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">transition 이 들어온 순서: 1, 2, 3, 4, 5, 6, 7</text>
-  <rect x="150.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="150.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="183.0" y="124.0" fill="#e2e8f0" font-size="13" text-anchor="middle">6 번째</text>
   <text x="183.0" y="166.0" fill="#64748b" font-size="11" text-anchor="middle">칸 1</text>
-  <rect x="222.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="222.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="255.0" y="124.0" fill="#e2e8f0" font-size="13" text-anchor="middle">7 번째</text>
   <text x="255.0" y="166.0" fill="#64748b" font-size="11" text-anchor="middle">칸 2</text>
   <rect x="294.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
@@ -18,17 +18,17 @@
   <rect x="438.0" y="90.0" width="66.0" height="56.0" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="471.0" y="124.0" fill="#e2e8f0" font-size="13" text-anchor="middle">5 번째</text>
   <text x="471.0" y="166.0" fill="#64748b" font-size="11" text-anchor="middle">칸 5</text>
-  <text x="136.0" y="124.0" fill="#38bdf8" font-size="13" text-anchor="end">buffer</text>
-  <text x="183.0" y="62.0" fill="#34d399" font-size="11" text-anchor="middle">1 번째를 덮어씀</text>
-  <text x="255.0" y="78.0" fill="#34d399" font-size="11" text-anchor="middle">2 번째를 덮어씀</text>
-  <line x1="327.0" y1="60.0" x2="327.0" y2="86.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="327.0" y="54.0" fill="#f59e0b" font-size="11" text-anchor="middle">다음(8 번째)은 여기</text>
-  <path d="M255,174 C255,220 300,210 300,240" fill="none" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
-  <path d="M399,174 C399,220 360,210 360,240" fill="none" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
-  <rect x="250.0" y="244.0" width="160.0" height="48.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="330.0" y="265.0" fill="#38bdf8" font-size="13" text-anchor="middle">무작위 batch</text>
+  <text x="136.0" y="124.0" fill="#7cb4d8" font-size="13" text-anchor="end">buffer</text>
+  <text x="183.0" y="62.0" fill="#7fc4a2" font-size="11" text-anchor="middle">1 번째를 덮어씀</text>
+  <text x="255.0" y="78.0" fill="#7fc4a2" font-size="11" text-anchor="middle">2 번째를 덮어씀</text>
+  <line x1="327.0" y1="60.0" x2="327.0" y2="86.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="327.0" y="54.0" fill="#d6aa62" font-size="11" text-anchor="middle">다음(8 번째)은 여기</text>
+  <path d="M255,174 C255,220 300,210 300,240" fill="none" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <path d="M399,174 C399,220 360,210 360,240" fill="none" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#ar-sky)"/>
+  <rect x="250.0" y="244.0" width="160.0" height="48.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="330.0" y="265.0" fill="#7cb4d8" font-size="13" text-anchor="middle">무작위 batch</text>
   <text x="330.0" y="284.0" fill="#e2e8f0" font-size="12" text-anchor="middle">7 번째, 4 번째</text>
   <line x1="410.0" y1="268.0" x2="470.0" y2="268.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-muted)"/>
-  <rect x="476.0" y="244.0" width="120.0" height="48.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="536.0" y="273.0" fill="#34d399" font-size="13" text-anchor="middle">network 학습</text>
+  <rect x="476.0" y="244.0" width="120.0" height="48.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="536.0" y="273.0" fill="#7fc4a2" font-size="13" text-anchor="middle">network 학습</text>
 </svg>

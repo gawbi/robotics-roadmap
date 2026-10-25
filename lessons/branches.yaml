@@ -25,7 +25,7 @@ trees:
     angle: 300
     branches: [grasping, kinematics, motion]
   - id: mobile
-    title: Mobile Robotics · Autonomous Driving
+    title: Mobile Autonomy
     color: "#fbbf24"
     angle: 60
     branches: [estimation, navigation, driving]

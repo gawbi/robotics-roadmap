@@ -2,7 +2,7 @@
   <title>latent action 을 만드는 VQ-VAE. 지금 장면 x_t 와 H step 뒤 장면 x_{t+H} 가 encoder 에 들어가 e = (0.8, 0.3) 이 나오고, codebook 의 세 vector 중 가장 가까운 c₁ = (1, 0) 으로 바뀐다. decoder 는 x_t 와 c₁ 을 받아 x_{t+H} 를 되살린다. 학습이 끝나면 encoder 의 출력 e 를 latent action 정답으로 쓴다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
   </defs>
   <rect x="1" y="1" width="858" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
@@ -13,22 +13,22 @@
   <line x1="132" y1="75" x2="168" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="132" y1="145" x2="168" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="170" y="80" width="110" height="60" rx="10" fill="#0c1f33" stroke="#38bdf8" stroke-width="2"/>
-  <text x="225" y="115" fill="#38bdf8" font-size="14" text-anchor="middle">encoder</text>
+  <rect x="170" y="80" width="110" height="60" rx="10" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="225" y="115" fill="#7cb4d8" font-size="14" text-anchor="middle">encoder</text>
   <line x1="282" y1="110" x2="318" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="365" y="104" fill="#e2e8f0" font-size="13" text-anchor="middle">e = (0.8, 0.3)</text>
   <line x1="412" y1="110" x2="448" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <rect x="450" y="40" width="200" height="140" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="550" y="62" fill="#a78bfa" font-size="13" text-anchor="middle">codebook (가장 가까운 것)</text>
-  <rect x="466" y="74" width="168" height="28" rx="6" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
-  <text x="474" y="93" fill="#34d399" font-size="12">c₁ = (1, 0)   거리 0.13</text>
+  <rect x="450" y="40" width="200" height="140" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
+  <text x="550" y="62" fill="#a99ad6" font-size="13" text-anchor="middle">codebook (가장 가까운 것)</text>
+  <rect x="466" y="74" width="168" height="28" rx="6" fill="#0f2a22" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="474" y="93" fill="#7fc4a2" font-size="12">c₁ = (1, 0)   거리 0.13</text>
   <text x="474" y="125" fill="#94a3b8" font-size="12">c₂ = (−1, 0)  거리 3.33</text>
   <text x="474" y="153" fill="#94a3b8" font-size="12">c₃ = (0, 1)   거리 1.13</text>
 
-  <line x1="652" y1="88" x2="688" y2="110" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-g)"/>
-  <rect x="690" y="80" width="150" height="60" rx="10" fill="#0c1f33" stroke="#38bdf8" stroke-width="2"/>
-  <text x="765" y="106" fill="#38bdf8" font-size="14" text-anchor="middle">decoder</text>
+  <line x1="652" y1="88" x2="688" y2="110" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-g)"/>
+  <rect x="690" y="80" width="150" height="60" rx="10" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="765" y="106" fill="#7cb4d8" font-size="14" text-anchor="middle">decoder</text>
   <text x="765" y="126" fill="#94a3b8" font-size="11" text-anchor="middle">xₜ 와 c₁ 을 받음</text>
   <line x1="765" y1="142" x2="765" y2="178" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="765" y="198" fill="#e2e8f0" font-size="13" text-anchor="middle">H 뒤 장면 되살리기</text>
@@ -40,11 +40,11 @@
   <rect x="120" y="290" width="200" height="50" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="220" y="320" fill="#e2e8f0" font-size="13" text-anchor="middle">사람 영상의 두 장면</text>
   <line x1="322" y1="315" x2="358" y2="315" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="360" y="290" width="110" height="50" rx="10" fill="#0c1f33" stroke="#38bdf8" stroke-width="2"/>
-  <text x="415" y="320" fill="#38bdf8" font-size="13" text-anchor="middle">encoder</text>
+  <rect x="360" y="290" width="110" height="50" rx="10" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="415" y="320" fill="#7cb4d8" font-size="13" text-anchor="middle">encoder</text>
   <line x1="472" y1="315" x2="508" y2="315" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="510" y="290" width="230" height="50" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
-  <text x="625" y="312" fill="#34d399" font-size="13" text-anchor="middle">latent action (0.8, 0.3)</text>
+  <rect x="510" y="290" width="230" height="50" rx="10" fill="#0f2a22" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="625" y="312" fill="#7fc4a2" font-size="13" text-anchor="middle">latent action (0.8, 0.3)</text>
   <text x="625" y="330" fill="#94a3b8" font-size="11" text-anchor="middle">codebook 으로 바꾸기 전 값</text>
   <text x="430" y="372" fill="#94a3b8" font-size="12" text-anchor="middle">이 값을 flow matching 의 정답으로 쓰고, "LAPA" 라는 몸의 encoder·decoder 로 학습한다</text>
 </svg>

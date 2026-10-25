@@ -80,14 +80,14 @@ git merge upstream/main
 
 ## 커리큘럼
 
-![커리큘럼 지도. 가운데 동심원에 공통 기초가 놓이고, 점선으로 나뉜 세 구역으로 Robot Learning·Manipulation·Mobile Robotics 트리가 뻗습니다](docs/map.png)
+![커리큘럼 지도. 가운데 동심원에 공통 기초가 놓이고, 점선으로 나뉜 세 구역으로 Robot Learning·Manipulation·Mobile Autonomy 트리가 뻗습니다](docs/map.png)
 
 | 영역 | 다루는 것 |
 | --- | --- |
 | 공통 기초 | vector·행렬, 미분·gradient, 확률·Gaussian, ROS 2(node·topic·tf2), 좌표 변환, PID 제어, 카메라 geometry |
 | Robot Learning | linear regression 에서 PyTorch 까지의 신경망 기초, CNN·ViT·CLIP, Transformer·GPT-2, VAE·diffusion·flow matching, 강화학습(DQN·SAC·PPO·sim-to-real), imitation learning(behavior cloning·DAgger·ACT·Diffusion Policy), VLA(RT-2·OpenVLA·π0·GR00T N1), world model |
 | Manipulation | forward·inverse kinematics, MuJoCo simulation, force·impedance control, ros2_control, trajectory generation, motion planning(RRT·OMPL·MoveIt 2), hand-eye calibration, pick-and-place, grasp planning |
-| Mobile Robotics · 자율주행 | Kalman filter, particle filter, LiDAR·visual SLAM, path planning(A*·Nav2), path tracking(pure pursuit·MPC), LiDAR perception, 자율주행 stack(Autoware) |
+| Mobile Autonomy(이동 로봇·자율주행) | Kalman filter, particle filter, LiDAR·visual SLAM, path planning(A*·Nav2), path tracking(pure pursuit·MPC), LiDAR perception, 자율주행 stack(Autoware) |
 
 원 하나가 강의 하나이고, 선은 먼저 읽어 두면 좋은 강의를 잇습니다. 가운데의 Vectors & Matrices 에서 시작해 공통 기초를 읽고,
 지원하려는 직무의 영역을 따라 바깥으로 나아가면 됩니다. 선수 관계는 권장 순서일 뿐이라 어떤 강의든 바로 열 수 있습니다.
@@ -135,3 +135,6 @@ robotics-roadmap/
 - 강의(`lessons/`)와 문서 이미지(`docs/`): [CC BY-NC-SA 4.0](lessons/LICENSE.md). 출처를 밝히면 비영리 목적으로 자유롭게 쓰고 고칠 수
   있고, 고친 자료도 같은 조건으로 공유해야 합니다
 - 지도 사이트(`site/`): [MIT](LICENSE)
+- 지도의 트리 그림: 로봇팔("mechanical-arm", Lorc)과 주행 로봇("mars-curiosity", Delapouite)은 [game-icons.net](https://game-icons.net) 의
+  그림으로 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), 전자 두뇌("brain-circuit")는
+  [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) 의 그림으로 MIT 입니다

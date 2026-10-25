@@ -2,11 +2,11 @@
   <title>MPC 의 네 step. 매 step 실제 칸에서 w = 1.5 로 계획을 세우고(점선 원은 계획한 예측 위치) 첫 action 만 실행한다. 실제 칸은 1 → 2 → 3 → 4 → 4 로 충전기에 도착한다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="638" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="132.0" y="40.0" fill="#64748b" font-size="12" text-anchor="middle">칸 0</text>
@@ -26,13 +26,13 @@
   <rect x="330.0" y="66.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="374.0" y="66.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="418.0" y="66.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
-  <circle cx="242.0" cy="84.0" r="9" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="308.0" cy="84.0" r="9" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="242.0" cy="84.0" r="9" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="308.0" cy="84.0" r="9" fill="none" stroke="#d6aa62" stroke-width="2"/>
   <g stroke-dasharray="3 3"></g>
-  <line x1="188.0" y1="122.0" x2="208.0" y2="122.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <circle cx="176.0" cy="84.0" r="11" fill="#38bdf8"/>
-  <text x="476.0" y="80.0" fill="#f59e0b" font-size="12" text-anchor="start">후보 B · 예측 2.5, 4, 4</text>
-  <text x="476.0" y="98.0" fill="#34d399" font-size="12" text-anchor="start">실행 +1 → 실제 칸 2</text>
+  <line x1="188.0" y1="122.0" x2="208.0" y2="122.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <circle cx="176.0" cy="84.0" r="11" fill="#7cb4d8"/>
+  <text x="476.0" y="80.0" fill="#d6aa62" font-size="12" text-anchor="start">후보 B · 예측 2.5, 4, 4</text>
+  <text x="476.0" y="98.0" fill="#7fc4a2" font-size="12" text-anchor="start">실행 +1 → 실제 칸 2</text>
   <text x="24.0" y="162.0" fill="#e2e8f0" font-size="14" text-anchor="start">step 1</text>
   <rect x="110.0" y="142.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="154.0" y="142.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
@@ -42,12 +42,12 @@
   <rect x="330.0" y="142.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="374.0" y="142.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="418.0" y="142.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
-  <circle cx="286.0" cy="160.0" r="9" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="286.0" cy="160.0" r="9" fill="none" stroke="#d6aa62" stroke-width="2"/>
   <g stroke-dasharray="3 3"></g>
-  <line x1="232.0" y1="198.0" x2="252.0" y2="198.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <circle cx="220.0" cy="160.0" r="11" fill="#38bdf8"/>
-  <text x="476.0" y="156.0" fill="#f59e0b" font-size="12" text-anchor="start">후보 C · 예측 3.5, 3.5, 3.5</text>
-  <text x="476.0" y="174.0" fill="#34d399" font-size="12" text-anchor="start">실행 +1 → 실제 칸 3</text>
+  <line x1="232.0" y1="198.0" x2="252.0" y2="198.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <circle cx="220.0" cy="160.0" r="11" fill="#7cb4d8"/>
+  <text x="476.0" y="156.0" fill="#d6aa62" font-size="12" text-anchor="start">후보 C · 예측 3.5, 3.5, 3.5</text>
+  <text x="476.0" y="174.0" fill="#7fc4a2" font-size="12" text-anchor="start">실행 +1 → 실제 칸 3</text>
   <text x="24.0" y="238.0" fill="#e2e8f0" font-size="14" text-anchor="start">step 2</text>
   <rect x="110.0" y="218.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="154.0" y="218.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
@@ -57,12 +57,12 @@
   <rect x="330.0" y="218.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="374.0" y="218.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="418.0" y="218.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
-  <circle cx="330.0" cy="236.0" r="9" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="330.0" cy="236.0" r="9" fill="none" stroke="#d6aa62" stroke-width="2"/>
   <g stroke-dasharray="3 3"></g>
-  <line x1="276.0" y1="274.0" x2="296.0" y2="274.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <circle cx="264.0" cy="236.0" r="11" fill="#38bdf8"/>
-  <text x="476.0" y="232.0" fill="#f59e0b" font-size="12" text-anchor="start">후보 C · 예측 4.5, 4.5, 4.5</text>
-  <text x="476.0" y="250.0" fill="#34d399" font-size="12" text-anchor="start">실행 +1 → 실제 칸 4</text>
+  <line x1="276.0" y1="274.0" x2="296.0" y2="274.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <circle cx="264.0" cy="236.0" r="11" fill="#7cb4d8"/>
+  <text x="476.0" y="232.0" fill="#d6aa62" font-size="12" text-anchor="start">후보 C · 예측 4.5, 4.5, 4.5</text>
+  <text x="476.0" y="250.0" fill="#7fc4a2" font-size="12" text-anchor="start">실행 +1 → 실제 칸 4</text>
   <text x="24.0" y="314.0" fill="#e2e8f0" font-size="14" text-anchor="start">step 3</text>
   <rect x="110.0" y="294.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="154.0" y="294.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
@@ -72,10 +72,10 @@
   <rect x="330.0" y="294.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="374.0" y="294.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
   <rect x="418.0" y="294.0" width="44.0" height="36.0" rx="0" fill="#0e1628" stroke="#334155" stroke-width="1"/>
-  <circle cx="308.0" cy="312.0" r="9" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="308.0" cy="312.0" r="9" fill="none" stroke="#d6aa62" stroke-width="2"/>
   <g stroke-dasharray="3 3"></g>
-  <circle cx="308.0" cy="312.0" r="11" fill="#38bdf8"/>
-  <text x="476.0" y="308.0" fill="#f59e0b" font-size="12" text-anchor="start">후보 D · 예측 4, 4, 4</text>
-  <text x="476.0" y="326.0" fill="#34d399" font-size="12" text-anchor="start">실행 0 → 실제 칸 4</text>
+  <circle cx="308.0" cy="312.0" r="11" fill="#7cb4d8"/>
+  <text x="476.0" y="308.0" fill="#d6aa62" font-size="12" text-anchor="start">후보 D · 예측 4, 4, 4</text>
+  <text x="476.0" y="326.0" fill="#7fc4a2" font-size="12" text-anchor="start">실행 0 → 실제 칸 4</text>
   <text x="320.0" y="382.0" fill="#94a3b8" font-size="12" text-anchor="middle">파란 원: 실제 칸 · 주황 원: 계획이 예측한 위치(w = 1.5) · 초록 화살표: 실제로 실행한 첫 action</text>
 </svg>

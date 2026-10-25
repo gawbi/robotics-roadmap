@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>IoU 와 중심 거리. 4 × 2 m 차 상자가 0.5 m 어긋나면 IoU 0.78 로 KITTI 기준 0.7 을 넘지만 1.0 m 어긋나면 0.60 으로 탈락한다. 0.6 × 0.6 m 사람 상자는 0.3 m 만 어긋나도 IoU 가 0.33 이지만 중심 거리 0.3 m 로는 nuScenes 의 0.5 m 기준을 통과한다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="758" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="380.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle">위에서 본 정답 상자(회색)와 예측 상자(색)</text>
   <rect x="40" y="90" width="160.0" height="80.0" fill="#94a3b8" fill-opacity="0.18" stroke="#94a3b8" stroke-width="1.5"/>
-  <rect x="60.0" y="90" width="160.0" height="80.0" fill="none" stroke="#34d399" stroke-width="2"/>
+  <rect x="60.0" y="90" width="160.0" height="80.0" fill="none" stroke="#7fc4a2" stroke-width="2"/>
   <text x="130.0" y="66.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">차, 0.5 m 어긋남</text>
-  <text x="130.0" y="200.0" fill="#34d399" font-size="12" text-anchor="middle">겹침 7 ÷ 합집합 9 = 0.78</text>
-  <text x="130.0" y="220.0" fill="#34d399" font-size="12" text-anchor="middle">KITTI 차 기준 0.7 → 통과</text>
+  <text x="130.0" y="200.0" fill="#7fc4a2" font-size="12" text-anchor="middle">겹침 7 ÷ 합집합 9 = 0.78</text>
+  <text x="130.0" y="220.0" fill="#7fc4a2" font-size="12" text-anchor="middle">KITTI 차 기준 0.7 → 통과</text>
   <rect x="290" y="90" width="160.0" height="80.0" fill="#94a3b8" fill-opacity="0.18" stroke="#94a3b8" stroke-width="1.5"/>
-  <rect x="330.0" y="90" width="160.0" height="80.0" fill="none" stroke="#f87171" stroke-width="2"/>
+  <rect x="330.0" y="90" width="160.0" height="80.0" fill="none" stroke="#d88b8b" stroke-width="2"/>
   <text x="390.0" y="66.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">차, 1.0 m 어긋남</text>
-  <text x="390.0" y="200.0" fill="#f87171" font-size="12" text-anchor="middle">겹침 6 ÷ 합집합 10 = 0.60</text>
-  <text x="390.0" y="220.0" fill="#f87171" font-size="12" text-anchor="middle">KITTI 차 기준 0.7 → 탈락</text>
+  <text x="390.0" y="200.0" fill="#d88b8b" font-size="12" text-anchor="middle">겹침 6 ÷ 합집합 10 = 0.60</text>
+  <text x="390.0" y="220.0" fill="#d88b8b" font-size="12" text-anchor="middle">KITTI 차 기준 0.7 → 탈락</text>
   <rect x="560" y="95" width="60.0" height="60.0" fill="#94a3b8" fill-opacity="0.18" stroke="#94a3b8" stroke-width="1.5"/>
-  <rect x="590.0" y="95" width="60.0" height="60.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="590.0" y="95" width="60.0" height="60.0" fill="none" stroke="#d6aa62" stroke-width="2"/>
   <text x="605.0" y="66.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">사람, 0.3 m 어긋남</text>
-  <text x="605.0" y="200.0" fill="#f59e0b" font-size="12" text-anchor="middle">IoU 0.18 ÷ 0.54 = 0.33</text>
-  <text x="605.0" y="220.0" fill="#f59e0b" font-size="12" text-anchor="middle">IoU 0.5 기준 → 탈락</text>
-  <text x="605.0" y="240.0" fill="#f59e0b" font-size="12" text-anchor="middle">중심 거리 0.3 m → nuScenes 0.5 m 기준 통과</text>
+  <text x="605.0" y="200.0" fill="#d6aa62" font-size="12" text-anchor="middle">IoU 0.18 ÷ 0.54 = 0.33</text>
+  <text x="605.0" y="220.0" fill="#d6aa62" font-size="12" text-anchor="middle">IoU 0.5 기준 → 탈락</text>
+  <text x="605.0" y="240.0" fill="#d6aa62" font-size="12" text-anchor="middle">중심 거리 0.3 m → nuScenes 0.5 m 기준 통과</text>
   <text x="380.0" y="278.0" fill="#94a3b8" font-size="11" text-anchor="middle">IoU(Intersection over Union) = 두 상자가 겹친 넓이 ÷ 둘 중 하나라도 덮은 넓이. 작은 물체일수록 같은 거리 오차에 IoU 가 크게 떨어진다</text>
 </svg>

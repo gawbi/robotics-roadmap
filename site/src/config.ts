@@ -13,7 +13,7 @@ export const CONFIG = {
     image: 'og.png', // site/public/og.png
     imageWidth: 1200,
     imageHeight: 630,
-    imageAlt: 'Robotics Roadmap 커리큘럼 지도. 가운데 공통 기초 동심원에서 Robot Learning, Manipulation, Mobile Robotics 트리가 뻗는다',
+    imageAlt: 'Robotics Roadmap 커리큘럼 지도. 가운데 공통 기초 동심원에서 Robot Learning, Manipulation, Mobile Autonomy 트리가 뻗는다',
     locale: 'ko_KR',
   },
 
@@ -83,12 +83,41 @@ export const CONFIG = {
   },
 
   sector: {
-    charWidth: 46, // JetBrains Mono advance at the name's 64px, with its letter spacing
-    lineHeight: 74,
-    gap: 40, // least px between a tree's name and the hub
-    angleGap: 3, // least degrees between a tree's name and the lines that mark off its area
-    searchStep: 16, // px between the spots tried for a name, outward from the middle of its tree
-    searchRadius: 1200,
+    charWidth: 66, // px each character of the name may take, letter spacing included (styles.css .hg-sector)
+    lineHeight: 96,
+    artScale: 1.15, // the tree's picture is this many times the least square, centred on it, that holds its lessons
+  },
+
+  // the WebGL layer under the map (components/MapScene.tsx): clouds in each tree's colour
+  scene: {
+    fps: 30, // the clouds drift slowly, so they are drawn at most this often
+    maxPixelRatio: 2, // caps the canvas resolution on high-density screens
+    nebulaScale: 700, // px of the layout per noise cell of the clouds
+    nebulaStrength: 0.3,
+    // trees whose clouds are thinned near the hub, by this share at the rim easing to none at three times its radius:
+    // amber reads much brighter than the other trees' colours there
+    innerCut: { mobile: 0.6 } as Record<string, number>,
+    treeDensity: { mobile: 0.7 } as Record<string, number>, // a tree's clouds, as a share of the others' brightness
+    nebulaSpread: 1.7, // the clouds fade out by this many times the distance from the centre to the map's farthest point
+    // stars behind the clouds, scattered over the same square; most are small, a few large
+    stars: { count: 1400, seed: 7, minSize: 1.6, maxSize: 4.4, color: '#dbe7ff', brightness: 1.5, blinkShare: 0.06 },
+    // a shooting star every `every` seconds (a random wait between the two), `duration` seconds long, crossing `travel`
+    // screen px at `angle`±`angleSpread` degrees below the horizontal, left or right
+    meteors: {
+      firstAfter: 3,
+      every: [6, 14],
+      duration: 0.9,
+      travel: 520,
+      length: 180, // screen px of the streak
+      width: 3,
+      angle: 30,
+      angleSpread: 12,
+      color: '#e6f4ff',
+      brightness: 2,
+    },
+    accent: '#22d3ee', // the hovered hub's light, in the site's accent colour (styles.css --accent)
+    focusGain: 1.2, // how much brighter the hovered area's clouds get (1.2: 2.2 times)
+    focusEase: 6, // how fast an area's light follows the pointer, per second
   },
 
   zoom: {

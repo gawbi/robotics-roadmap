@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>관절 6 개와 집게의 시연 목표와 head 출력, 칸마다 오차와 MSE 17</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="50.0" width="500.0" height="220.0" rx="0" fill="#0e1628"/>
   <line x1="60.0" y1="251.7" x2="560.0" y2="251.7" stroke="#1e293b" stroke-width="1"/>
@@ -12,38 +12,38 @@
   <line x1="60.0" y1="86.7" x2="560.0" y2="86.7" stroke="#1e293b" stroke-width="1"/>
   <text x="52.0" y="90.7" fill="#64748b" font-size="12" text-anchor="end">60</text>
   <line x1="60.0" y1="196.7" x2="560.0" y2="196.7" stroke="#475569" stroke-width="1.5"/>
-  <rect x="73.7" y="178.3" width="20.0" height="18.3" rx="2" fill="#f59e0b"/>
-  <rect x="96.7" y="174.7" width="20.0" height="22.0" rx="2" fill="#38bdf8"/>
+  <rect x="73.7" y="178.3" width="20.0" height="18.3" rx="2" fill="#d6aa62"/>
+  <rect x="96.7" y="174.7" width="20.0" height="22.0" rx="2" fill="#7cb4d8"/>
   <text x="95.7" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 1</text>
   <text x="95.7" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">+2</text>
-  <rect x="145.1" y="114.2" width="20.0" height="82.5" rx="2" fill="#f59e0b"/>
-  <rect x="168.1" y="116.0" width="20.0" height="80.7" rx="2" fill="#38bdf8"/>
+  <rect x="145.1" y="114.2" width="20.0" height="82.5" rx="2" fill="#d6aa62"/>
+  <rect x="168.1" y="116.0" width="20.0" height="80.7" rx="2" fill="#7cb4d8"/>
   <text x="167.1" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 2</text>
   <text x="167.1" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">−1</text>
-  <rect x="216.6" y="196.7" width="20.0" height="55.0" rx="2" fill="#f59e0b"/>
-  <rect x="239.6" y="196.7" width="20.0" height="49.5" rx="2" fill="#38bdf8"/>
+  <rect x="216.6" y="196.7" width="20.0" height="55.0" rx="2" fill="#d6aa62"/>
+  <rect x="239.6" y="196.7" width="20.0" height="49.5" rx="2" fill="#7cb4d8"/>
   <text x="238.6" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 3</text>
   <text x="238.6" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">+3</text>
-  <rect x="288.0" y="86.7" width="20.0" height="110.0" rx="2" fill="#f59e0b"/>
-  <rect x="311.0" y="86.7" width="20.0" height="110.0" rx="2" fill="#38bdf8"/>
+  <rect x="288.0" y="86.7" width="20.0" height="110.0" rx="2" fill="#d6aa62"/>
+  <rect x="311.0" y="86.7" width="20.0" height="110.0" rx="2" fill="#7cb4d8"/>
   <text x="310.0" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 4</text>
   <text x="310.0" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">0</text>
-  <rect x="359.4" y="196.7" width="20.0" height="1.5" rx="2" fill="#f59e0b"/>
-  <rect x="382.4" y="194.8" width="20.0" height="1.8" rx="2" fill="#38bdf8"/>
+  <rect x="359.4" y="196.7" width="20.0" height="1.5" rx="2" fill="#d6aa62"/>
+  <rect x="382.4" y="194.8" width="20.0" height="1.8" rx="2" fill="#7cb4d8"/>
   <text x="381.4" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 5</text>
   <text x="381.4" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">+1</text>
-  <rect x="430.9" y="169.2" width="20.0" height="27.5" rx="2" fill="#f59e0b"/>
-  <rect x="453.9" y="172.8" width="20.0" height="23.8" rx="2" fill="#38bdf8"/>
+  <rect x="430.9" y="169.2" width="20.0" height="27.5" rx="2" fill="#d6aa62"/>
+  <rect x="453.9" y="172.8" width="20.0" height="23.8" rx="2" fill="#7cb4d8"/>
   <text x="452.9" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">관절 6</text>
   <text x="452.9" y="308.0" fill="#e2e8f0" font-size="13" text-anchor="middle">−2</text>
-  <rect x="502.3" y="141.7" width="20.0" height="55.0" rx="2" fill="#f59e0b"/>
-  <rect x="525.3" y="160.0" width="20.0" height="36.7" rx="2" fill="#38bdf8"/>
+  <rect x="502.3" y="141.7" width="20.0" height="55.0" rx="2" fill="#d6aa62"/>
+  <rect x="525.3" y="160.0" width="20.0" height="36.7" rx="2" fill="#7cb4d8"/>
   <text x="524.3" y="288.0" fill="#94a3b8" font-size="12" text-anchor="middle">집게</text>
-  <text x="524.3" y="308.0" fill="#f87171" font-size="13" text-anchor="middle">−10</text>
+  <text x="524.3" y="308.0" fill="#d88b8b" font-size="13" text-anchor="middle">−10</text>
   <text x="52.0" y="308.0" fill="#94a3b8" font-size="12" text-anchor="end">오차</text>
-  <rect x="70.0" y="60.0" width="12.0" height="12.0" rx="2" fill="#f59e0b"/>
+  <rect x="70.0" y="60.0" width="12.0" height="12.0" rx="2" fill="#d6aa62"/>
   <text x="88.0" y="71.0" fill="#e2e8f0" font-size="12" text-anchor="start">시연 목표 a (도)</text>
-  <rect x="210.0" y="60.0" width="12.0" height="12.0" rx="2" fill="#38bdf8"/>
+  <rect x="210.0" y="60.0" width="12.0" height="12.0" rx="2" fill="#7cb4d8"/>
   <text x="228.0" y="71.0" fill="#e2e8f0" font-size="12" text-anchor="start">head 출력 â (도)</text>
-  <text x="300.0" y="336.0" fill="#34d399" font-size="13" text-anchor="middle">MSE = (4 + 1 + 9 + 0 + 1 + 4 + 100) ÷ 7 = 119 ÷ 7 = 17</text>
+  <text x="300.0" y="336.0" fill="#7fc4a2" font-size="13" text-anchor="middle">MSE = (4 + 1 + 9 + 0 + 1 + 4 + 100) ÷ 7 = 119 ÷ 7 = 17</text>
 </svg>

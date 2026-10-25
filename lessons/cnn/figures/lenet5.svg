@@ -5,41 +5,41 @@
   <text x="350" y="30" fill="#e2e8f0" font-size="14" text-anchor="middle">LeNet — 층마다 나오는 숫자 판의 크기 (장 수 × 세로 × 가로)</text>
   <rect x="20" y="55" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="85.0" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">입력 사진</text>
-  <text x="85.0" y="99" fill="#38bdf8" font-size="14" text-anchor="middle">1×28×28</text>
+  <text x="85.0" y="99" fill="#7cb4d8" font-size="14" text-anchor="middle">1×28×28</text>
   <rect x="285" y="55" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="350.0" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">C1</text>
-  <text x="350.0" y="99" fill="#38bdf8" font-size="14" text-anchor="middle">6×28×28</text>
+  <text x="350.0" y="99" fill="#7cb4d8" font-size="14" text-anchor="middle">6×28×28</text>
   <rect x="550" y="55" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="615.0" y="78" fill="#e2e8f0" font-size="14" text-anchor="middle">S2</text>
-  <text x="615.0" y="99" fill="#38bdf8" font-size="14" text-anchor="middle">6×14×14</text>
+  <text x="615.0" y="99" fill="#7cb4d8" font-size="14" text-anchor="middle">6×14×14</text>
   <rect x="550" y="200" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="615.0" y="223" fill="#e2e8f0" font-size="14" text-anchor="middle">C3</text>
-  <text x="615.0" y="244" fill="#38bdf8" font-size="14" text-anchor="middle">16×10×10</text>
+  <text x="615.0" y="244" fill="#7cb4d8" font-size="14" text-anchor="middle">16×10×10</text>
   <rect x="285" y="200" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="350.0" y="223" fill="#e2e8f0" font-size="14" text-anchor="middle">S4</text>
-  <text x="350.0" y="244" fill="#38bdf8" font-size="14" text-anchor="middle">16×5×5</text>
+  <text x="350.0" y="244" fill="#7cb4d8" font-size="14" text-anchor="middle">16×5×5</text>
   <rect x="20" y="200" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="85.0" y="223" fill="#e2e8f0" font-size="14" text-anchor="middle">펼친 숫자</text>
-  <text x="85.0" y="244" fill="#38bdf8" font-size="14" text-anchor="middle">400</text>
+  <text x="85.0" y="244" fill="#7cb4d8" font-size="14" text-anchor="middle">400</text>
   <rect x="20" y="345" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="85.0" y="368" fill="#e2e8f0" font-size="14" text-anchor="middle">F5</text>
-  <text x="85.0" y="389" fill="#38bdf8" font-size="14" text-anchor="middle">120</text>
+  <text x="85.0" y="389" fill="#7cb4d8" font-size="14" text-anchor="middle">120</text>
   <rect x="285" y="345" width="130" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="350.0" y="368" fill="#e2e8f0" font-size="14" text-anchor="middle">F6</text>
-  <text x="350.0" y="389" fill="#38bdf8" font-size="14" text-anchor="middle">84</text>
-  <rect x="550" y="345" width="130" height="56" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="350.0" y="389" fill="#7cb4d8" font-size="14" text-anchor="middle">84</text>
+  <rect x="550" y="345" width="130" height="56" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="615.0" y="368" fill="#e2e8f0" font-size="14" text-anchor="middle">출력</text>
-  <text x="615.0" y="389" fill="#f59e0b" font-size="14" text-anchor="middle">10</text>
+  <text x="615.0" y="389" fill="#d6aa62" font-size="14" text-anchor="middle">10</text>
   <line x1="152" y1="83.0" x2="283" y2="83.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="217.5" y="57.0" fill="#e2e8f0" font-size="12" text-anchor="middle">conv 5×5, filter 6 개</text>
   <text x="217.5" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">padding 2, ReLU</text>
-  <text x="217.5" y="105.0" fill="#34d399" font-size="12" text-anchor="middle">parameter 156</text>
+  <text x="217.5" y="105.0" fill="#7fc4a2" font-size="12" text-anchor="middle">parameter 156</text>
   <line x1="417" y1="83.0" x2="548" y2="83.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="482.5" y="57.0" fill="#e2e8f0" font-size="12" text-anchor="middle">max pooling</text>
   <text x="482.5" y="73.0" fill="#94a3b8" font-size="12" text-anchor="middle">2×2</text>
   <line x1="615.0" y1="113" x2="615.0" y2="198" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="605.0" y="141" fill="#e2e8f0" font-size="12" text-anchor="end">conv 5×5, filter 16 개, ReLU</text>
-  <text x="605.0" y="159" fill="#34d399" font-size="12" text-anchor="end">parameter 2,416</text>
+  <text x="605.0" y="159" fill="#7fc4a2" font-size="12" text-anchor="end">parameter 2,416</text>
   <line x1="548" y1="228.0" x2="417" y2="228.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="482.5" y="216.0" fill="#e2e8f0" font-size="12" text-anchor="middle">max pooling 2×2</text>
   <line x1="283" y1="228.0" x2="152" y2="228.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
@@ -47,14 +47,14 @@
   <text x="217.5" y="250.0" fill="#94a3b8" font-size="12" text-anchor="middle">16 × 5 × 5 = 400</text>
   <line x1="85.0" y1="258" x2="85.0" y2="343" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="95.0" y="286" fill="#e2e8f0" font-size="12" text-anchor="start">Linear, ReLU</text>
-  <text x="95.0" y="304" fill="#34d399" font-size="12" text-anchor="start">parameter 48,120</text>
+  <text x="95.0" y="304" fill="#7fc4a2" font-size="12" text-anchor="start">parameter 48,120</text>
   <line x1="152" y1="373.0" x2="283" y2="373.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="217.5" y="347.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Linear</text>
   <text x="217.5" y="363.0" fill="#94a3b8" font-size="12" text-anchor="middle">ReLU</text>
-  <text x="217.5" y="395.0" fill="#34d399" font-size="12" text-anchor="middle">parameter 10,164</text>
+  <text x="217.5" y="395.0" fill="#7fc4a2" font-size="12" text-anchor="middle">parameter 10,164</text>
   <line x1="417" y1="373.0" x2="548" y2="373.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="482.5" y="347.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Linear</text>
   <text x="482.5" y="363.0" fill="#94a3b8" font-size="12" text-anchor="middle"></text>
-  <text x="482.5" y="395.0" fill="#34d399" font-size="12" text-anchor="middle">parameter 850</text>
+  <text x="482.5" y="395.0" fill="#7fc4a2" font-size="12" text-anchor="middle">parameter 850</text>
   <text x="350" y="450" fill="#94a3b8" font-size="13" text-anchor="middle">앞 4 층(C1~S4)은 사진을 요약하는 부분, 뒤 3 층(F5~출력)은 요약을 보고 숫자를 고르는 부분</text>
 </svg>

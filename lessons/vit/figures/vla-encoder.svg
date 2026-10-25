@@ -39,34 +39,34 @@
   <line x1="132.5" y1="50" x2="132.5" y2="170" stroke="#64748b" stroke-width="0.7"/>
   <line x1="20" y1="162.5" x2="140" y2="162.5" stroke="#64748b" stroke-width="0.7"/>
   <text x="80" y="192" fill="#94a3b8" font-size="12" text-anchor="middle">224×224, patch 14</text>
-  <text x="80" y="208" fill="#38bdf8" font-size="12" text-anchor="middle">16 × 16 = 256 개</text>
+  <text x="80" y="208" fill="#7cb4d8" font-size="12" text-anchor="middle">16 × 16 = 256 개</text>
   <line x1="146" y1="110" x2="176" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="182" y="70" width="120" height="80" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="242" y="104" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">SigLIP</text>
+  <rect x="182" y="70" width="120" height="80" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="242" y="104" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">SigLIP</text>
   <text x="242" y="126" fill="#e2e8f0" font-size="13" text-anchor="middle">ViT encoder</text>
   <line x1="306" y1="110" x2="336" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="342" y="62" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <rect x="342" y="78" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <rect x="342" y="94" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <rect x="342" y="110" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <rect x="342" y="126" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <rect x="342" y="142" width="90" height="11" rx="2" fill="#38bdf8" fill-opacity="0.6"/>
-  <text x="387" y="172" fill="#38bdf8" font-size="12" text-anchor="middle">출력 vector 256 개</text>
+  <rect x="342" y="62" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <rect x="342" y="78" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <rect x="342" y="94" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <rect x="342" y="110" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <rect x="342" y="126" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <rect x="342" y="142" width="90" height="11" rx="2" fill="#7cb4d8" fill-opacity="0.6"/>
+  <text x="387" y="172" fill="#7cb4d8" font-size="12" text-anchor="middle">출력 vector 256 개</text>
   <text x="387" y="188" fill="#94a3b8" font-size="12" text-anchor="middle">([CLS] 하나가 아니라 전부)</text>
   <line x1="436" y1="110" x2="466" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="472" y="50" width="210" height="130" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="577" y="76" fill="#34d399" font-size="14" text-anchor="middle" font-weight="bold">언어 모델 (Gemma)</text>
-  <rect x="486" y="92" width="86" height="22" rx="3" fill="#38bdf8" fill-opacity="0.6"/>
+  <rect x="472" y="50" width="210" height="130" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="577" y="76" fill="#7fc4a2" font-size="14" text-anchor="middle" font-weight="bold">언어 모델 (Gemma)</text>
+  <rect x="486" y="92" width="86" height="22" rx="3" fill="#7cb4d8" fill-opacity="0.6"/>
   <text x="529" y="108" fill="#e2e8f0" font-size="12" text-anchor="middle">image 256</text>
-  <rect x="578" y="92" width="90" height="22" rx="3" fill="#a78bfa" fill-opacity="0.6"/>
+  <rect x="578" y="92" width="90" height="22" rx="3" fill="#a99ad6" fill-opacity="0.6"/>
   <text x="623" y="108" fill="#e2e8f0" font-size="12" text-anchor="middle">지시문 token</text>
   <text x="577" y="140" fill="#94a3b8" font-size="12" text-anchor="middle">image token 과 지시문 token 을</text>
   <text x="577" y="156" fill="#94a3b8" font-size="12" text-anchor="middle">한 sequence 로 함께 읽는다</text>
-  <rect x="486" y="236" width="182" height="40" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="486" y="236" width="182" height="40" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="577" y="261" fill="#e2e8f0" font-size="14" text-anchor="middle">"빨간 컵 집어"</text>
   <line x1="577" y1="232" x2="577" y2="184" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="492" y1="182" x2="446" y2="232" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="320" y="236" width="130" height="40" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
-  <text x="385" y="261" fill="#f87171" font-size="14" text-anchor="middle">로봇 행동</text>
+  <rect x="320" y="236" width="130" height="40" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
+  <text x="385" y="261" fill="#d88b8b" font-size="14" text-anchor="middle">로봇 행동</text>
   <text x="350" y="316" fill="#94a3b8" font-size="12" text-anchor="middle">π0 는 PaliGemma(SigLIP + Gemma)의 weight 에서 출발하고, 행동은 따로 붙인 action expert 가 낸다</text>
 </svg>

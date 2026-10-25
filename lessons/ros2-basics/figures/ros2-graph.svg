@@ -1,38 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>작은 이동 로봇의 node 와 topic. camera_driver 가 /camera/image_raw(Image, 30 Hz)를 publish 하면 policy 가 받아 /cmd_vel(Twist, 20 Hz)을 내고, base_controller 가 바퀴를 돌린 뒤 /joint_states(JointState, 50 Hz)를 낸다. robot_state_publisher 는 /joint_states 로 /tf 를 계산하고, ros2 bag 은 /camera/image_raw 와 /cmd_vel 을 함께 받아 녹화한다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="948" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <ellipse cx="95.0" cy="160.0" rx="80.0" ry="26.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="95.0" y="164.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-family="Menlo, monospace">camera_driver</text>
-  <rect x="213.0" y="134.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="295.0" y="156.0" fill="#38bdf8" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/camera/image_raw</text>
+  <rect x="213.0" y="134.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="295.0" y="156.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/camera/image_raw</text>
   <text x="295.0" y="175.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Image · 30 Hz</text>
   <ellipse cx="475.0" cy="160.0" rx="56.0" ry="26.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="475.0" y="164.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-family="Menlo, monospace">policy</text>
-  <rect x="573.0" y="134.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="655.0" y="156.0" fill="#f59e0b" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/cmd_vel</text>
+  <rect x="573.0" y="134.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="655.0" y="156.0" fill="#d6aa62" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/cmd_vel</text>
   <text x="655.0" y="175.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Twist · 20 Hz</text>
   <ellipse cx="850.0" cy="160.0" rx="84.0" ry="26.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="850.0" y="164.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-family="Menlo, monospace">base_controller</text>
-  <rect x="768.0" y="264.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="850.0" y="286.0" fill="#34d399" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/joint_states</text>
+  <rect x="768.0" y="264.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="850.0" y="286.0" fill="#7fc4a2" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/joint_states</text>
   <text x="850.0" y="305.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">JointState · 50 Hz</text>
   <ellipse cx="605.0" cy="290.0" rx="112.0" ry="26.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="605.0" y="294.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-family="Menlo, monospace">robot_state_publisher</text>
-  <rect x="288.0" y="264.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="370.0" y="286.0" fill="#a78bfa" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/tf</text>
+  <rect x="288.0" y="264.0" width="164.0" height="52.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="370.0" y="286.0" fill="#a99ad6" font-size="12.5" text-anchor="middle" font-family="Menlo, monospace">/tf</text>
   <text x="370.0" y="305.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">TFMessage</text>
   <ellipse cx="475.0" cy="55.0" rx="86.0" ry="26.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="475.0" y="59.0" fill="#94a3b8" font-size="13" text-anchor="middle" font-family="Menlo, monospace">ros2 bag record</text>
   <line x1="176.0" y1="160.0" x2="210.0" y2="160.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <line x1="378.0" y1="160.0" x2="416.0" y2="160.0" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#as)"/>
+  <line x1="378.0" y1="160.0" x2="416.0" y2="160.0" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#as)"/>
   <line x1="532.0" y1="160.0" x2="570.0" y2="160.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <line x1="738.0" y1="160.0" x2="763.0" y2="160.0" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#aa)"/>
+  <line x1="738.0" y1="160.0" x2="763.0" y2="160.0" stroke="#d6aa62" stroke-width="1.8" marker-end="url(#aa)"/>
   <line x1="850.0" y1="187.0" x2="850.0" y2="261.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <line x1="767.0" y1="290.0" x2="720.0" y2="290.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
+  <line x1="767.0" y1="290.0" x2="720.0" y2="290.0" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#ag)"/>
   <line x1="492.0" y1="290.0" x2="455.0" y2="290.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <line x1="310.0" y1="133.0" x2="415.0" y2="72.0" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#as)"/>
-  <line x1="640.0" y1="133.0" x2="535.0" y2="72.0" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#aa)"/>
+  <line x1="310.0" y1="133.0" x2="415.0" y2="72.0" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#as)"/>
+  <line x1="640.0" y1="133.0" x2="535.0" y2="72.0" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#aa)"/>
   <ellipse cx="48.0" cy="365.0" rx="18.0" ry="10.0" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="74.0" y="369.0" fill="#94a3b8" font-size="12" text-anchor="start">node</text>
   <rect x="130.0" y="356.0" width="30.0" height="18.0" rx="4" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>

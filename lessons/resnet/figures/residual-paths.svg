@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>residual block 두 개를 지나는 gradient 의 길 네 개</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="360" y="30" fill="#e2e8f0" font-size="14" text-anchor="middle">∂x₂/∂x₀ = (1 + b)(1 + a) = 1 + a + b + ab,  a = b = 0.1</text>
   <text x="30" y="92" fill="#e2e8f0" font-size="13" text-anchor="start">두 block 모두 shortcut</text>
@@ -10,11 +10,11 @@
   <text x="400" y="92" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
   <circle cx="580" cy="87" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="580" y="92" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
-  <line x1="235" y1="87" x2="385" y2="87" stroke="#34d399" stroke-width="2.2"/>
-  <text x="310.0" y="80" fill="#34d399" font-size="11" text-anchor="middle">shortcut × 1</text>
-  <line x1="415" y1="87" x2="565" y2="87" stroke="#34d399" stroke-width="2.2"/>
-  <text x="490.0" y="80" fill="#34d399" font-size="11" text-anchor="middle">shortcut × 1</text>
-  <text x="650" y="92" fill="#34d399" font-size="14" text-anchor="start">1 = 1</text>
+  <line x1="235" y1="87" x2="385" y2="87" stroke="#7fc4a2" stroke-width="2.2"/>
+  <text x="310.0" y="80" fill="#7fc4a2" font-size="11" text-anchor="middle">shortcut × 1</text>
+  <line x1="415" y1="87" x2="565" y2="87" stroke="#7fc4a2" stroke-width="2.2"/>
+  <text x="490.0" y="80" fill="#7fc4a2" font-size="11" text-anchor="middle">shortcut × 1</text>
+  <text x="650" y="92" fill="#7fc4a2" font-size="14" text-anchor="start">1 = 1</text>
   <text x="30" y="154" fill="#e2e8f0" font-size="13" text-anchor="start">첫 block 만 F</text>
   <circle cx="220" cy="149" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="220" y="154" fill="#e2e8f0" font-size="12" text-anchor="middle">x₀</text>
@@ -22,11 +22,11 @@
   <text x="400" y="154" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
   <circle cx="580" cy="149" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="580" y="154" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
-  <path d="M235,149 Q310.0,184 385,149" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
-  <text x="310.0" y="180" fill="#38bdf8" font-size="11" text-anchor="middle">F × a = 0.1</text>
-  <line x1="415" y1="149" x2="565" y2="149" stroke="#38bdf8" stroke-width="2.2"/>
-  <text x="490.0" y="142" fill="#38bdf8" font-size="11" text-anchor="middle">shortcut × 1</text>
-  <text x="650" y="154" fill="#38bdf8" font-size="14" text-anchor="start">a = 0.1</text>
+  <path d="M235,149 Q310.0,184 385,149" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <text x="310.0" y="180" fill="#7cb4d8" font-size="11" text-anchor="middle">F × a = 0.1</text>
+  <line x1="415" y1="149" x2="565" y2="149" stroke="#7cb4d8" stroke-width="2.2"/>
+  <text x="490.0" y="142" fill="#7cb4d8" font-size="11" text-anchor="middle">shortcut × 1</text>
+  <text x="650" y="154" fill="#7cb4d8" font-size="14" text-anchor="start">a = 0.1</text>
   <text x="30" y="216" fill="#e2e8f0" font-size="13" text-anchor="start">둘째 block 만 F</text>
   <circle cx="220" cy="211" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="220" y="216" fill="#e2e8f0" font-size="12" text-anchor="middle">x₀</text>
@@ -34,11 +34,11 @@
   <text x="400" y="216" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
   <circle cx="580" cy="211" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="580" y="216" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
-  <line x1="235" y1="211" x2="385" y2="211" stroke="#38bdf8" stroke-width="2.2"/>
-  <text x="310.0" y="204" fill="#38bdf8" font-size="11" text-anchor="middle">shortcut × 1</text>
-  <path d="M415,211 Q490.0,246 565,211" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
-  <text x="490.0" y="242" fill="#38bdf8" font-size="11" text-anchor="middle">F × b = 0.1</text>
-  <text x="650" y="216" fill="#38bdf8" font-size="14" text-anchor="start">b = 0.1</text>
+  <line x1="235" y1="211" x2="385" y2="211" stroke="#7cb4d8" stroke-width="2.2"/>
+  <text x="310.0" y="204" fill="#7cb4d8" font-size="11" text-anchor="middle">shortcut × 1</text>
+  <path d="M415,211 Q490.0,246 565,211" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <text x="490.0" y="242" fill="#7cb4d8" font-size="11" text-anchor="middle">F × b = 0.1</text>
+  <text x="650" y="216" fill="#7cb4d8" font-size="14" text-anchor="start">b = 0.1</text>
   <text x="30" y="278" fill="#e2e8f0" font-size="13" text-anchor="start">두 block 모두 F</text>
   <circle cx="220" cy="273" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="220" y="278" fill="#e2e8f0" font-size="12" text-anchor="middle">x₀</text>
@@ -46,10 +46,10 @@
   <text x="400" y="278" fill="#e2e8f0" font-size="12" text-anchor="middle">x₁</text>
   <circle cx="580" cy="273" r="15" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="580" y="278" fill="#e2e8f0" font-size="12" text-anchor="middle">x₂</text>
-  <path d="M235,273 Q310.0,308 385,273" fill="none" stroke="#f87171" stroke-width="2.2"/>
-  <text x="310.0" y="304" fill="#f87171" font-size="11" text-anchor="middle">F × a = 0.1</text>
-  <path d="M415,273 Q490.0,308 565,273" fill="none" stroke="#f87171" stroke-width="2.2"/>
-  <text x="490.0" y="304" fill="#f87171" font-size="11" text-anchor="middle">F × b = 0.1</text>
-  <text x="650" y="278" fill="#f87171" font-size="14" text-anchor="start">ab = 0.01</text>
-  <text x="360" y="335" fill="#34d399" font-size="14" text-anchor="middle">합: 1 + 0.1 + 0.1 + 0.01 = 1.21 = 1.1 × 1.1</text>
+  <path d="M235,273 Q310.0,308 385,273" fill="none" stroke="#d88b8b" stroke-width="2.2"/>
+  <text x="310.0" y="304" fill="#d88b8b" font-size="11" text-anchor="middle">F × a = 0.1</text>
+  <path d="M415,273 Q490.0,308 565,273" fill="none" stroke="#d88b8b" stroke-width="2.2"/>
+  <text x="490.0" y="304" fill="#d88b8b" font-size="11" text-anchor="middle">F × b = 0.1</text>
+  <text x="650" y="278" fill="#d88b8b" font-size="14" text-anchor="start">ab = 0.01</text>
+  <text x="360" y="335" fill="#7fc4a2" font-size="14" text-anchor="middle">합: 1 + 0.1 + 0.1 + 0.01 = 1.21 = 1.1 × 1.1</text>
 </svg>

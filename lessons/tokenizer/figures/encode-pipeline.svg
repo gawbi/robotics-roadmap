@@ -13,8 +13,8 @@
   <text x="24" y="114" fill="#e2e8f0" font-size="14">① special token 분리</text>
   <rect x="196" y="94" width="137" height="30" rx="6" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="264.5" y="114" fill="#e2e8f0" font-size="14" text-anchor="middle">Hello world&#x27;s</text>
-  <rect x="341" y="94" width="137" height="30" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="409.5" y="114" fill="#f59e0b" font-size="14" text-anchor="middle">&lt;|endoftext|&gt;</text>
+  <rect x="341" y="94" width="137" height="30" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="409.5" y="114" fill="#d6aa62" font-size="14" text-anchor="middle">&lt;|endoftext|&gt;</text>
   <line x1="90" y1="126" x2="90" y2="148" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="24" y="180" fill="#e2e8f0" font-size="14">② GPT-2 정규식 조각</text>
   <rect x="196" y="160" width="65" height="30" rx="6" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -23,17 +23,17 @@
   <text x="306.0" y="180" fill="#e2e8f0" font-size="14" text-anchor="middle">␣world</text>
   <rect x="351" y="160" width="44" height="30" rx="6" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="373.0" y="180" fill="#e2e8f0" font-size="14" text-anchor="middle">&#x27;s</text>
-  <rect x="403" y="160" width="137" height="30" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="471.5" y="180" fill="#f59e0b" font-size="14" text-anchor="middle">&lt;|endoftext|&gt;</text>
+  <rect x="403" y="160" width="137" height="30" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="471.5" y="180" fill="#d6aa62" font-size="14" text-anchor="middle">&lt;|endoftext|&gt;</text>
   <line x1="90" y1="192" x2="90" y2="214" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="24" y="246" fill="#e2e8f0" font-size="14">③ 조각마다 byte → merge</text>
-  <rect x="196" y="226" width="65" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="228.5" y="246" fill="#38bdf8" font-size="14" text-anchor="middle">15496</text>
-  <rect x="269" y="226" width="47" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="292.5" y="246" fill="#38bdf8" font-size="14" text-anchor="middle">995</text>
-  <rect x="324" y="226" width="47" height="30" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="347.5" y="246" fill="#38bdf8" font-size="14" text-anchor="middle">338</text>
-  <rect x="379" y="226" width="65" height="30" rx="6" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="411.5" y="246" fill="#f59e0b" font-size="14" text-anchor="middle">50256</text>
+  <rect x="196" y="226" width="65" height="30" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="228.5" y="246" fill="#7cb4d8" font-size="14" text-anchor="middle">15496</text>
+  <rect x="269" y="226" width="47" height="30" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="292.5" y="246" fill="#7cb4d8" font-size="14" text-anchor="middle">995</text>
+  <rect x="324" y="226" width="47" height="30" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="347.5" y="246" fill="#7cb4d8" font-size="14" text-anchor="middle">338</text>
+  <rect x="379" y="226" width="65" height="30" rx="6" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="411.5" y="246" fill="#d6aa62" font-size="14" text-anchor="middle">50256</text>
   <text x="24" y="300" fill="#94a3b8" font-size="13">special token 은 정규식과 merge 를 거치지 않고 id 하나(50256)가 된다. 숫자는 tiktoken gpt2 의 id 다.</text>
 </svg>

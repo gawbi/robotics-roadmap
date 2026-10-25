@@ -6,8 +6,8 @@
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="438" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="170" y="20" width="120" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="230.0" y="39.0" fill="#38bdf8" font-size="14" text-anchor="middle">x</text>
+  <rect x="170" y="20" width="120" height="44" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="230.0" y="39.0" fill="#7cb4d8" font-size="14" text-anchor="middle">x</text>
   <text x="230.0" y="56.0" fill="#94a3b8" font-size="13" text-anchor="middle">784 개, pixel 0~1</text>
   <line x1="230" y1="64" x2="230" y2="82" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="150" y="84" width="160" height="46" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -23,12 +23,12 @@
   <text x="284.0" y="187.0" fill="#94a3b8" font-size="13" text-anchor="middle">z_dim 개</text>
   <line x1="178" y1="194" x2="178" y2="224" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="284" y1="194" x2="284" y2="224" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="130" y="226" width="202" height="46" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="130" y="226" width="202" height="46" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="231.0" y="246.0" fill="#e2e8f0" font-size="14" text-anchor="middle">z = μ + σ ⊙ ε</text>
   <text x="231.0" y="263.0" fill="#94a3b8" font-size="13" text-anchor="middle">σ = exp(½ · logσ²)</text>
-  <rect x="20" y="230" width="90" height="38" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="65.0" y="253.9" fill="#f59e0b" font-size="14" text-anchor="middle">ε ~ N(0, I)</text>
-  <line x1="110" y1="249" x2="127" y2="249" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <rect x="20" y="230" width="90" height="38" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="65.0" y="253.9" fill="#d6aa62" font-size="14" text-anchor="middle">ε ~ N(0, I)</text>
+  <line x1="110" y1="249" x2="127" y2="249" stroke="#d6aa62" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
   <text x="20" y="292" fill="#94a3b8" font-size="13">ε 는 바깥에서 뽑아</text>
   <text x="20" y="310" fill="#94a3b8" font-size="13">넣는 입력이다</text>
   <line x1="230" y1="272" x2="230" y2="298" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
@@ -41,15 +41,15 @@
   <text x="230.0" y="409.0" fill="#94a3b8" font-size="13" text-anchor="middle">784 개, sigmoid 출력</text>
   <line x1="332" y1="173" x2="388" y2="173" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="338" y="165" fill="#94a3b8" font-size="13">μ, logσ²</text>
-  <rect x="390" y="152" width="150" height="42" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="390" y="152" width="150" height="42" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="465.0" y="177.9" fill="#e2e8f0" font-size="14" text-anchor="middle">KL(q ‖ N(0, I))</text>
   <line x1="310" y1="395" x2="388" y2="395" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="390" y="372" width="190" height="46" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="485.0" y="392.0" fill="#e2e8f0" font-size="14" text-anchor="middle">reconstruction</text>
   <text x="485.0" y="409.0" fill="#94a3b8" font-size="13" text-anchor="middle">BCE(p, x) 의 pixel 합</text>
-  <path d="M290,42 L560,42 L560,370" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
-  <text x="372" y="34" fill="#38bdf8" font-size="13">x (정답)</text>
-  <rect x="390" y="262" width="150" height="46" rx="8" fill="#111a2e" stroke="#f87171" stroke-width="1.5"/>
+  <path d="M290,42 L560,42 L560,370" fill="none" stroke="#7cb4d8" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="372" y="34" fill="#7cb4d8" font-size="13">x (정답)</text>
+  <rect x="390" y="262" width="150" height="46" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.5"/>
   <text x="465.0" y="282.0" fill="#e2e8f0" font-size="14" text-anchor="middle">loss</text>
   <text x="465.0" y="299.0" fill="#94a3b8" font-size="13" text-anchor="middle">BCE 합 + β · KL</text>
   <line x1="465" y1="194" x2="465" y2="260" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>

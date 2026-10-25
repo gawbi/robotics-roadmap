@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>backbone 과 head. 사진 3×224×224 를 stem, layer1 ~ 4, global average pooling 이 숫자 512 개로 바꾸는 부분이 backbone(parameter 11,176,512 개)이고, 512 개를 점수로 바꾸는 fc 가 head 다. ImageNet 용 head 512 → 1000(513,000 개)을 떼고 물체 10 종류용 head 512 → 10(5,130 개)을 붙인다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="120" width="100" height="56" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="70" y="145.0" fill="#e2e8f0" font-size="14" text-anchor="middle">사진</text>
-  <text x="70" y="163.0" fill="#38bdf8" font-size="12" text-anchor="middle">3×224×224</text>
+  <text x="70" y="163.0" fill="#7cb4d8" font-size="12" text-anchor="middle">3×224×224</text>
   <line x1="122" y1="148" x2="152" y2="148" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="156" y="96" width="250" height="104" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="281" y="124" fill="#38bdf8" font-size="15" text-anchor="middle">backbone</text>
+  <rect x="156" y="96" width="250" height="104" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="281" y="124" fill="#7cb4d8" font-size="15" text-anchor="middle">backbone</text>
   <text x="281" y="148" fill="#e2e8f0" font-size="12" text-anchor="middle">stem → layer1 ~ 4 → global avg pool</text>
-  <text x="281" y="172" fill="#38bdf8" font-size="13" text-anchor="middle">parameter 11,176,512 개</text>
+  <text x="281" y="172" fill="#7cb4d8" font-size="13" text-anchor="middle">parameter 11,176,512 개</text>
   <line x1="408" y1="148" x2="432" y2="148" stroke="#94a3b8" stroke-width="1.8"/>
-  <text x="420" y="140" fill="#34d399" font-size="13" text-anchor="middle">512</text>
+  <text x="420" y="140" fill="#7fc4a2" font-size="13" text-anchor="middle">512</text>
   <rect x="452" y="60" width="220" height="60" rx="8" fill="#111a2e" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
   <text x="562" y="85" fill="#94a3b8" font-size="13" text-anchor="middle">ImageNet head: fc 512 → 1000</text>
-  <text x="562" y="105" fill="#f87171" font-size="12" text-anchor="middle">513,000 개 (뗀다)</text>
-  <line x1="456" y1="66" x2="668" y2="114" stroke="#f87171" stroke-width="1.5"/>
-  <rect x="452" y="170" width="220" height="60" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="562" y="195" fill="#f59e0b" font-size="13" text-anchor="middle">새 head: fc 512 → 10</text>
-  <text x="562" y="215" fill="#f59e0b" font-size="12" text-anchor="middle">512 × 10 + 10 = 5,130 개</text>
-  <path d="M432,148 L432,200 L448,200" fill="none" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+  <text x="562" y="105" fill="#d88b8b" font-size="12" text-anchor="middle">513,000 개 (뗀다)</text>
+  <line x1="456" y1="66" x2="668" y2="114" stroke="#d88b8b" stroke-width="1.5"/>
+  <rect x="452" y="170" width="220" height="60" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="562" y="195" fill="#d6aa62" font-size="13" text-anchor="middle">새 head: fc 512 → 10</text>
+  <text x="562" y="215" fill="#d6aa62" font-size="12" text-anchor="middle">512 × 10 + 10 = 5,130 개</text>
+  <path d="M432,148 L432,200 L448,200" fill="none" stroke="#d6aa62" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
   <path d="M432,148 L432,90 L448,90" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <text x="40" y="268" fill="#e2e8f0" font-size="13" text-anchor="start">freeze: backbone 은 고정하고 새 head 5,130 개만 학습</text>
   <text x="40" y="294" fill="#e2e8f0" font-size="13" text-anchor="start">fine-tuning: backbone 도 작은 learning rate 로 함께 고쳐 11,181,642 개를 학습</text>

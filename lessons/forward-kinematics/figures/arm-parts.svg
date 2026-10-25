@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>관절 두 개짜리 평면 팔의 부품. 바닥에 고정된 base, joint 1, link 1, joint 2, link 2, 손끝(end-effector)</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="250.0" width="120.0" height="14.0" rx="0" fill="#1f2a44" stroke="#64748b" stroke-width="1"/>
   <text x="120.0" y="284.0" fill="#94a3b8" font-size="13" text-anchor="middle">base (바닥에 고정)</text>
   <line x1="249.9" y1="175.0" x2="301.9" y2="145.0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
   <line x1="120.0" y1="250.0" x2="195.0" y2="250.0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <path d="M168.0,250.0 A48.0,48.0 0 0,0 161.6,226.0" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
-  <path d="M282.4,156.2 A37.5,37.5 0 0,0 249.9,137.5" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
-  <line x1="120.0" y1="250.0" x2="249.9" y2="175.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
-  <line x1="249.9" y1="175.0" x2="249.9" y2="25.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M168.0,250.0 A48.0,48.0 0 0,0 161.6,226.0" fill="none" stroke="#d6aa62" stroke-width="1.8"/>
+  <path d="M282.4,156.2 A37.5,37.5 0 0,0 249.9,137.5" fill="none" stroke="#a99ad6" stroke-width="1.8"/>
+  <line x1="120.0" y1="250.0" x2="249.9" y2="175.0" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="249.9" y1="175.0" x2="249.9" y2="25.0" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
   <circle cx="120.0" cy="250.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="249.9" cy="175.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="249.9" cy="25.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <text x="106.0" y="238.0" fill="#38bdf8" font-size="13" text-anchor="end">joint 1</text>
-  <text x="176.2" y="242.0" fill="#f59e0b" font-size="14" text-anchor="start">θ₁</text>
+  <circle cx="249.9" cy="25.0" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <text x="106.0" y="238.0" fill="#7cb4d8" font-size="13" text-anchor="end">joint 1</text>
+  <text x="176.2" y="242.0" fill="#d6aa62" font-size="14" text-anchor="start">θ₁</text>
   <text x="189.0" y="234.5" fill="#e2e8f0" font-size="13" text-anchor="start">link 1 (길이 L₁)</text>
-  <text x="263.9" y="193.0" fill="#38bdf8" font-size="13" text-anchor="start">joint 2</text>
-  <text x="276.4" y="136.0" fill="#a78bfa" font-size="14" text-anchor="start">θ₂</text>
+  <text x="263.9" y="193.0" fill="#7cb4d8" font-size="13" text-anchor="start">joint 2</text>
+  <text x="276.4" y="136.0" fill="#a99ad6" font-size="14" text-anchor="start">θ₂</text>
   <text x="237.9" y="104.0" fill="#e2e8f0" font-size="13" text-anchor="end">link 2 (길이 L₂)</text>
-  <text x="263.9" y="30.0" fill="#f59e0b" font-size="13" text-anchor="start">손끝 (end-effector)</text>
+  <text x="263.9" y="30.0" fill="#d6aa62" font-size="13" text-anchor="start">손끝 (end-effector)</text>
   <text x="400.0" y="120.0" fill="#e2e8f0" font-size="13" text-anchor="start">link: 휘지 않는 막대</text>
   <text x="400.0" y="146.0" fill="#e2e8f0" font-size="13" text-anchor="start">joint: link 를 잇고 돌아가는 곳</text>
   <text x="400.0" y="172.0" fill="#e2e8f0" font-size="13" text-anchor="start">θ: joint 가 돌아간 각도</text>

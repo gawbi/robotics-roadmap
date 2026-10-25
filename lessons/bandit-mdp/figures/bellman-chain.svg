@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>가장 짧은 길 7 → 4 → 1 → 2 → 3 을 따라 놓인 value 0.729, 0.81, 0.9, 1, 0. 앞 칸의 value 는 reward 에 0.9 × 다음 칸의 value 를 더한 값이다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="698" height="228" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="30.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="30.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="80.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">칸 7</text>
   <text x="80.0" y="104.0" fill="#e2e8f0" font-size="15" text-anchor="middle">V = 0.729</text>
-  <line x1="130.0" y1="85.0" x2="164.0" y2="85.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="147.0" y="76.0" fill="#f59e0b" font-size="11" text-anchor="middle">r = 0</text>
+  <line x1="130.0" y1="85.0" x2="164.0" y2="85.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="147.0" y="76.0" fill="#d6aa62" font-size="11" text-anchor="middle">r = 0</text>
   <text x="80.0" y="148.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 0 + 0.9 × 0.81</text>
-  <rect x="166.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="166.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="216.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">칸 4</text>
   <text x="216.0" y="104.0" fill="#e2e8f0" font-size="15" text-anchor="middle">V = 0.81</text>
-  <line x1="266.0" y1="85.0" x2="300.0" y2="85.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="283.0" y="76.0" fill="#f59e0b" font-size="11" text-anchor="middle">r = 0</text>
+  <line x1="266.0" y1="85.0" x2="300.0" y2="85.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="283.0" y="76.0" fill="#d6aa62" font-size="11" text-anchor="middle">r = 0</text>
   <text x="216.0" y="148.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 0 + 0.9 × 0.9</text>
-  <rect x="302.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="302.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="352.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">칸 1</text>
   <text x="352.0" y="104.0" fill="#e2e8f0" font-size="15" text-anchor="middle">V = 0.9</text>
-  <line x1="402.0" y1="85.0" x2="436.0" y2="85.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="419.0" y="76.0" fill="#f59e0b" font-size="11" text-anchor="middle">r = 0</text>
+  <line x1="402.0" y1="85.0" x2="436.0" y2="85.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="419.0" y="76.0" fill="#d6aa62" font-size="11" text-anchor="middle">r = 0</text>
   <text x="352.0" y="148.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 0 + 0.9 × 1</text>
-  <rect x="438.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="438.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="488.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">칸 2</text>
   <text x="488.0" y="104.0" fill="#e2e8f0" font-size="15" text-anchor="middle">V = 1</text>
-  <line x1="538.0" y1="85.0" x2="572.0" y2="85.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <text x="555.0" y="76.0" fill="#f59e0b" font-size="11" text-anchor="middle">r = +1</text>
+  <line x1="538.0" y1="85.0" x2="572.0" y2="85.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="555.0" y="76.0" fill="#d6aa62" font-size="11" text-anchor="middle">r = +1</text>
   <text x="488.0" y="148.0" fill="#94a3b8" font-size="12" text-anchor="middle">= 1 + 0.9 × 0</text>
-  <rect x="574.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="574.0" y="50.0" width="100.0" height="70.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="624.0" y="76.0" fill="#94a3b8" font-size="13" text-anchor="middle">칸 3 충전기</text>
   <text x="624.0" y="104.0" fill="#e2e8f0" font-size="15" text-anchor="middle">V = 0</text>
   <text x="350.0" y="195.0" fill="#e2e8f0" font-size="13" text-anchor="middle">한 칸의 value = 그 step 의 reward + γ × 다음 칸의 value (γ = 0.9, terminal state 의 value 는 0)</text>

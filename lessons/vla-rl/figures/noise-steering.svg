@@ -7,8 +7,8 @@
   </defs>
   <rect x="1" y="1" width="698" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
-  <rect x="24" y="40" width="170" height="80" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="109" y="66" fill="#38bdf8" font-size="14" text-anchor="middle">noise policy</text>
+  <rect x="24" y="40" width="170" height="80" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="109" y="66" fill="#7cb4d8" font-size="14" text-anchor="middle">noise policy</text>
   <text x="109" y="88" fill="#e2e8f0" font-size="12" text-anchor="middle">관측을 보고 noise w 를</text>
   <text x="109" y="106" fill="#e2e8f0" font-size="12" text-anchor="middle">고른다 (학습한다)</text>
 
@@ -20,11 +20,11 @@
   <text x="345" y="88" fill="#94a3b8" font-size="12" text-anchor="middle">Euler 10 step</text>
   <text x="345" y="106" fill="#94a3b8" font-size="12" text-anchor="middle">같은 w → 같은 chunk</text>
 
-  <line x1="432" y1="66" x2="500" y2="48" stroke="#34d399" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="432" y1="96" x2="500" y2="114" stroke="#f87171" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="508" y="46" fill="#34d399" font-size="13">w &gt; 0 → 오른쪽 길 +2</text>
+  <line x1="432" y1="66" x2="500" y2="48" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="432" y1="96" x2="500" y2="114" stroke="#d88b8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="508" y="46" fill="#7fc4a2" font-size="13">w &gt; 0 → 오른쪽 길 +2</text>
   <text x="508" y="64" fill="#94a3b8" font-size="12">성공률 90%</text>
-  <text x="508" y="114" fill="#f87171" font-size="13">w &lt; 0 → 왼쪽 길 −2</text>
+  <text x="508" y="114" fill="#d88b8b" font-size="13">w &lt; 0 → 왼쪽 길 −2</text>
   <text x="508" y="132" fill="#94a3b8" font-size="12">성공률 60%</text>
 
   <!-- two gaussians: x = 350 + 60*w, baseline y=290 -->
@@ -36,10 +36,10 @@
   <text x="590" y="308" fill="#94a3b8" font-size="12" text-anchor="end">w</text>
   <!-- N(0,1): peak height 100 at x=350 ; approx with path -->
   <path d="M170,289 C230,285 270,230 300,210 C330,190 340,190 350,190 C360,190 370,190 400,210 C430,230 470,285 530,289" fill="none" stroke="#94a3b8" stroke-width="2"/>
-  <path d="M230,289 C290,285 330,230 360,210 C390,190 400,190 410,190 C420,190 430,190 460,210 C490,230 530,285 590,289" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+  <path d="M230,289 C290,285 330,230 360,210 C390,190 400,190 410,190 C420,190 430,190 460,210 C490,230 530,285 590,289" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
   <text x="250" y="200" fill="#94a3b8" font-size="12" text-anchor="end">기본: N(0, 1)</text>
   <text x="250" y="216" fill="#94a3b8" font-size="12" text-anchor="end">w &gt; 0 확률 50% → 성공 75%</text>
-  <text x="470" y="182" fill="#38bdf8" font-size="12">noise policy: N(1, 1)</text>
-  <text x="470" y="198" fill="#38bdf8" font-size="12">w &gt; 0 확률 84.1% → 성공 85.2%</text>
+  <text x="470" y="182" fill="#7cb4d8" font-size="12">noise policy: N(1, 1)</text>
+  <text x="470" y="198" fill="#7cb4d8" font-size="12">w &gt; 0 확률 84.1% → 성공 85.2%</text>
   <text x="350" y="330" fill="#94a3b8" font-size="12" text-anchor="middle">VLA 의 weight 는 그대로이고, 어느 봉우리로 갈지만 noise 로 고른다</text>
 </svg>

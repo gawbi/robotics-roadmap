@@ -1,38 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>LiDAR perception pipeline. point cloud 를 전처리한 뒤, ground removal 과 clustering 으로 상자를 만드는 규칙 기반 경로나 PointPillars 같은 학습한 detector 로 3D box 를 얻고, multi-object tracking 이 frame 사이의 상자를 이어 위치·크기·속도·ID 를 가진 물체 목록을 낸다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="838" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20.0" y="140.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="85.0" y="165.0" fill="#38bdf8" font-size="13" text-anchor="middle" font-weight="600">point cloud</text>
+  <rect x="20.0" y="140.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="85.0" y="165.0" fill="#7cb4d8" font-size="13" text-anchor="middle" font-weight="600">point cloud</text>
   <text x="85.0" y="185.0" fill="#94a3b8" font-size="11" text-anchor="middle">30,000 점 / scan</text>
   <line x1="152.0" y1="170.0" x2="178.0" y2="170.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <rect x="180.0" y="140.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="245.0" y="165.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">전처리</text>
   <text x="245.0" y="185.0" fill="#94a3b8" font-size="11" text-anchor="middle">범위 자르기 · voxel</text>
   <line x1="312.0" y1="160.0" x2="338.0" y2="85.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="340.0" y="50.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="405.0" y="75.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">ground removal</text>
+  <rect x="340.0" y="50.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="405.0" y="75.0" fill="#d6aa62" font-size="13" text-anchor="middle" font-weight="600">ground removal</text>
   <text x="405.0" y="95.0" fill="#94a3b8" font-size="11" text-anchor="middle">RANSAC 평면</text>
   <line x1="472.0" y1="80.0" x2="498.0" y2="80.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="500.0" y="50.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="565.0" y="75.0" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="600">clustering · box</text>
+  <rect x="500.0" y="50.0" width="130.0" height="60.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="565.0" y="75.0" fill="#d6aa62" font-size="13" text-anchor="middle" font-weight="600">clustering · box</text>
   <text x="565.0" y="95.0" fill="#94a3b8" font-size="11" text-anchor="middle">점 무리 → 상자</text>
-  <text x="485.0" y="36.0" fill="#f59e0b" font-size="12" text-anchor="middle">규칙 기반</text>
+  <text x="485.0" y="36.0" fill="#d6aa62" font-size="12" text-anchor="middle">규칙 기반</text>
   <line x1="312.0" y1="180.0" x2="338.0" y2="255.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="340.0" y="230.0" width="290.0" height="60.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="485.0" y="255.0" fill="#a78bfa" font-size="13" text-anchor="middle" font-weight="600">PointPillars (학습한 detector)</text>
+  <rect x="340.0" y="230.0" width="290.0" height="60.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="485.0" y="255.0" fill="#a99ad6" font-size="13" text-anchor="middle" font-weight="600">PointPillars (학습한 detector)</text>
   <text x="485.0" y="275.0" fill="#94a3b8" font-size="11" text-anchor="middle">pillar → pseudo-image → 2D CNN → 3D box + class</text>
-  <text x="485.0" y="316.0" fill="#a78bfa" font-size="12" text-anchor="middle">학습 기반</text>
+  <text x="485.0" y="316.0" fill="#a99ad6" font-size="12" text-anchor="middle">학습 기반</text>
   <rect x="180.0" y="290.0" width="130.0" height="50.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
   <text x="245.0" y="312.0" fill="#e2e8f0" font-size="12" text-anchor="middle">camera image</text>
   <text x="245.0" y="329.0" fill="#94a3b8" font-size="11" text-anchor="middle">class 점수</text>
   <line x1="312.0" y1="300.0" x2="338.0" y2="280.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="632.0" y1="80.0" x2="668.0" y2="155.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="632.0" y1="260.0" x2="668.0" y2="185.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="670.0" y="140.0" width="150.0" height="60.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="745.0" y="165.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">multi-object tracking</text>
+  <rect x="670.0" y="140.0" width="150.0" height="60.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="745.0" y="165.0" fill="#7fc4a2" font-size="12" text-anchor="middle" font-weight="600">multi-object tracking</text>
   <text x="745.0" y="185.0" fill="#94a3b8" font-size="11" text-anchor="middle">Kalman + association</text>
-  <line x1="745.0" y1="202.0" x2="745.0" y2="238.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
+  <line x1="745.0" y1="202.0" x2="745.0" y2="238.0" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#ag)"/>
   <text x="745.0" y="256.0" fill="#e2e8f0" font-size="12" text-anchor="middle">물체 목록</text>
   <text x="745.0" y="274.0" fill="#94a3b8" font-size="11" text-anchor="middle">위치·크기·속도·ID</text>
   <text x="745.0" y="292.0" fill="#94a3b8" font-size="11" text-anchor="middle">→ 예측·계획</text>

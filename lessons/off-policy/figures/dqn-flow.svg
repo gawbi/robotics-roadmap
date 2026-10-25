@@ -5,20 +5,20 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
   <!-- action loop on top -->
-  <path d="M500 76 V40 H100 V76" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <text x="300" y="32" fill="#f59e0b" font-size="14" text-anchor="middle">ε-greedy 로 고른 action</text>
+  <path d="M500 76 V40 H100 V76" fill="none" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="300" y="32" fill="#d6aa62" font-size="14" text-anchor="middle">ε-greedy 로 고른 action</text>
 
   <!-- environment -->
-  <rect x="30" y="80" width="140" height="64" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="30" y="80" width="140" height="64" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="100" y="108" fill="#e2e8f0" font-size="16" text-anchor="middle">environment</text>
   <text x="100" y="129" fill="#94a3b8" font-size="13" text-anchor="middle">CartPole-v1</text>
 
@@ -31,11 +31,11 @@
     <rect x="286" y="116" width="18" height="16"/><rect x="306" y="116" width="18" height="16"/>
     <rect x="326" y="116" width="18" height="16"/><rect x="346" y="116" width="18" height="16"/>
   </g>
-  <rect x="306" y="116" width="18" height="16" fill="#38bdf8" fill-opacity="0.5" stroke="#38bdf8"/>
+  <rect x="306" y="116" width="18" height="16" fill="#7cb4d8" fill-opacity="0.5" stroke="#7cb4d8"/>
   <text x="200" y="164" fill="#94a3b8" font-size="13" text-anchor="middle">(s, a, r, s′, d)</text>
 
   <!-- online network -->
-  <rect x="430" y="80" width="140" height="64" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="430" y="80" width="140" height="64" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="500" y="108" fill="#e2e8f0" font-size="16" text-anchor="middle">Q<tspan baseline-shift="sub" font-size="12">θ</tspan></text>
   <text x="500" y="129" fill="#94a3b8" font-size="13" text-anchor="middle">online network</text>
 
@@ -54,9 +54,9 @@
 
   <!-- loss -->
   <line x1="420" y1="242" x2="446" y2="242" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="450" y="210" width="125" height="64" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
+  <rect x="450" y="210" width="125" height="64" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
   <text x="512" y="236" fill="#e2e8f0" font-size="14" text-anchor="middle">loss</text>
   <text x="512" y="258" fill="#e2e8f0" font-size="13" text-anchor="middle">(y − Q<tspan baseline-shift="sub" font-size="12">θ</tspan>(s, a))²</text>
-  <path d="M575 242 H588 V112 H574" fill="none" stroke="#f87171" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <path d="M575 242 H588 V112 H574" fill="none" stroke="#d88b8b" stroke-width="2" marker-end="url(#arrow-red)"/>
   <text x="300" y="312" fill="#94a3b8" font-size="13" text-anchor="middle">gradient 는 Q<tspan baseline-shift="sub" font-size="12">θ</tspan> 로만 흐르고, target network 는 복사될 때만 바뀐다</text>
 </svg>

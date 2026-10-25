@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>zero-shot 분류. 처음 보는 고양이 사진의 embedding 을 "고양이 사진", "개 사진", "자동차 사진", "새 사진" 네 문장의 embedding 과 비교해 cosine 0.30, 0.27, 0.18, 0.22 를 얻고, 100 을 곱해 softmax 하면 고양이가 0.952 로 가장 크다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20" y="120" width="110" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="20" y="120" width="110" height="50" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="75" y="141" fill="#e2e8f0" font-size="13" text-anchor="middle">처음 보는</text>
   <text x="75" y="160" fill="#e2e8f0" font-size="13" text-anchor="middle">고양이 사진</text>
-  <line x1="130" y1="145" x2="156" y2="145" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
-  <rect x="160" y="120" width="92" height="50" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="206" y="141" fill="#38bdf8" font-size="13" text-anchor="middle">image</text>
-  <text x="206" y="160" fill="#38bdf8" font-size="13" text-anchor="middle">encoder</text>
-  <line x1="252" y1="145" x2="280" y2="145" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
-  <text x="330" y="34" fill="#f59e0b" font-size="13" text-anchor="middle">class 이름을 문장에 넣기</text>
+  <line x1="130" y1="145" x2="156" y2="145" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+  <rect x="160" y="120" width="92" height="50" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="206" y="141" fill="#7cb4d8" font-size="13" text-anchor="middle">image</text>
+  <text x="206" y="160" fill="#7cb4d8" font-size="13" text-anchor="middle">encoder</text>
+  <line x1="252" y1="145" x2="280" y2="145" stroke="#7cb4d8" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+  <text x="330" y="34" fill="#d6aa62" font-size="13" text-anchor="middle">class 이름을 문장에 넣기</text>
   <text x="400" y="64" fill="#94a3b8" font-size="12" text-anchor="middle">cosine</text>
   <text x="470" y="64" fill="#94a3b8" font-size="12" text-anchor="middle">× 100</text>
   <text x="560" y="64" fill="#94a3b8" font-size="12" text-anchor="middle">확률</text>
-  <rect x="284" y="44" width="90" height="262" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="329" y="290" fill="#f59e0b" font-size="12" text-anchor="middle">text encoder</text>
+  <rect x="284" y="44" width="90" height="262" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="329" y="290" fill="#d6aa62" font-size="12" text-anchor="middle">text encoder</text>
   <text x="329" y="102" fill="#e2e8f0" font-size="12" text-anchor="middle">"고양이 사진"</text>
   <rect x="376" y="84" width="48" height="30" rx="6" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="400" y="104" fill="#e2e8f0" font-size="14" text-anchor="middle">0.30</text>
   <rect x="446" y="84" width="48" height="30" rx="6" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="470" y="104" fill="#e2e8f0" font-size="14" text-anchor="middle">30</text>
-  <rect x="528" y="84" width="64" height="30" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="560" y="104" fill="#34d399" font-size="14" text-anchor="middle">0.952</text>
+  <rect x="528" y="84" width="64" height="30" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="560" y="104" fill="#7fc4a2" font-size="14" text-anchor="middle">0.952</text>
   <text x="329" y="154" fill="#94a3b8" font-size="12" text-anchor="middle">"개 사진"</text>
   <rect x="376" y="136" width="48" height="30" rx="6" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <text x="400" y="156" fill="#e2e8f0" font-size="14" text-anchor="middle">0.27</text>
@@ -47,5 +47,5 @@
   <text x="75" y="230" fill="#94a3b8" font-size="12" text-anchor="middle">template</text>
   <text x="75" y="248" fill="#94a3b8" font-size="12" text-anchor="middle">"a photo of a {}."</text>
   <text x="75" y="266" fill="#94a3b8" font-size="12" text-anchor="middle">를 우리말로 옮김</text>
-  <text x="560" y="300" fill="#34d399" font-size="15" text-anchor="middle">→ 고양이</text>
+  <text x="560" y="300" fill="#7fc4a2" font-size="15" text-anchor="middle">→ 고양이</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>속도가 시각에 따라 v = 2t 로 커질 때의 Euler 법. 실제 위치는 초록 점선 x = t² 를 따라 t = 1 에 1 에 닿는다. Euler 법은 step 시작의 속도로 직진해서 step 1 번이면 0, 2 번이면 0.5, 4 번이면 0.75, 10 번이면 0.9 에 닿고, step 이 많을수록 실제 곡선에 가까워진다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="30.0" width="400.0" height="280.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
   <line x1="60.0" y1="297.8" x2="460.0" y2="297.8" stroke="#1e293b" stroke-width="1"/>
@@ -23,49 +23,49 @@
   <text x="360.0" y="329.0" fill="#94a3b8" font-size="12" text-anchor="middle">0.75</text>
   <line x1="460.0" y1="310.0" x2="460.0" y2="315.0" stroke="#475569" stroke-width="1.5"/>
   <text x="460.0" y="329.0" fill="#94a3b8" font-size="12" text-anchor="middle">1</text>
-  <polyline points="60.0,297.8 64.0,297.8 68.0,297.7 72.0,297.6 76.0,297.4 80.0,297.2 84.0,296.9 88.0,296.6 92.0,296.3 96.0,295.9 100.0,295.4 104.0,294.9 108.0,294.3 112.0,293.7 116.0,293.1 120.0,292.3 124.0,291.6 128.0,290.8 132.0,289.9 136.0,289.0 140.0,288.1 144.0,287.1 148.0,286.0 152.0,284.9 156.0,283.8 160.0,282.6 164.0,281.4 168.0,280.1 172.0,278.7 176.0,277.3 180.0,275.9 184.0,274.4 188.0,272.9 192.0,271.3 196.0,269.7 200.0,268.0 204.0,266.3 208.0,264.5 212.0,262.7 216.0,260.8 220.0,258.9 224.0,256.9 228.0,254.9 232.0,252.8 236.0,250.7 240.0,248.5 244.0,246.3 248.0,244.0 252.0,241.7 256.0,239.4 260.0,237.0 264.0,234.5 268.0,232.0 272.0,229.4 276.0,226.8 280.0,224.2 284.0,221.5 288.0,218.7 292.0,215.9 296.0,213.1 300.0,210.2 304.0,207.2 308.0,204.2 312.0,201.2 316.0,198.1 320.0,195.0 324.0,191.8 328.0,188.5 332.0,185.2 336.0,181.9 340.0,178.5 344.0,175.1 348.0,171.6 352.0,168.1 356.0,164.5 360.0,160.9 364.0,157.2 368.0,153.5 372.0,149.7 376.0,145.9 380.0,142.0 384.0,138.1 388.0,134.1 392.0,130.1 396.0,126.0 400.0,121.9 404.0,117.7 408.0,113.5 412.0,109.3 416.0,105.0 420.0,100.6 424.0,96.2 428.0,91.7 432.0,87.2 436.0,82.7 440.0,78.1 444.0,73.4 448.0,68.7 452.0,64.0 456.0,59.2 460.0,54.3" fill="none" stroke="#34d399" stroke-width="2.2" stroke-dasharray="6 4"/>
-  <polyline points="60.0,297.8 460.0,297.8" fill="none" stroke="#f87171" stroke-width="2.2"/>
-  <circle cx="60.0" cy="297.8" r="3.2" fill="#f87171" stroke="none" stroke-width="1.5"/>
-  <circle cx="460.0" cy="297.8" r="3.2" fill="#f87171" stroke="none" stroke-width="1.5"/>
-  <polyline points="60.0,297.8 260.0,297.8 460.0,176.1" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
-  <circle cx="60.0" cy="297.8" r="3.2" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="260.0" cy="297.8" r="3.2" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="460.0" cy="176.1" r="3.2" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <polyline points="60.0,297.8 160.0,297.8 260.0,267.4 360.0,206.5 460.0,115.2" fill="none" stroke="#a78bfa" stroke-width="2.2"/>
-  <circle cx="60.0" cy="297.8" r="3.2" fill="#a78bfa" stroke="none" stroke-width="1.5"/>
-  <circle cx="160.0" cy="297.8" r="3.2" fill="#a78bfa" stroke="none" stroke-width="1.5"/>
-  <circle cx="260.0" cy="267.4" r="3.2" fill="#a78bfa" stroke="none" stroke-width="1.5"/>
-  <circle cx="360.0" cy="206.5" r="3.2" fill="#a78bfa" stroke="none" stroke-width="1.5"/>
-  <circle cx="460.0" cy="115.2" r="3.2" fill="#a78bfa" stroke="none" stroke-width="1.5"/>
-  <polyline points="60.0,297.8 100.0,297.8 140.0,293.0 180.0,283.2 220.0,268.6 260.0,249.1 300.0,224.8 340.0,195.6 380.0,161.5 420.0,122.5 460.0,78.7" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
-  <circle cx="60.0" cy="297.8" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="100.0" cy="297.8" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="140.0" cy="293.0" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="180.0" cy="283.2" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="220.0" cy="268.6" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="260.0" cy="249.1" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="300.0" cy="224.8" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="340.0" cy="195.6" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="380.0" cy="161.5" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="420.0" cy="122.5" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
-  <circle cx="460.0" cy="78.7" r="3.2" fill="#38bdf8" stroke="none" stroke-width="1.5"/>
+  <polyline points="60.0,297.8 64.0,297.8 68.0,297.7 72.0,297.6 76.0,297.4 80.0,297.2 84.0,296.9 88.0,296.6 92.0,296.3 96.0,295.9 100.0,295.4 104.0,294.9 108.0,294.3 112.0,293.7 116.0,293.1 120.0,292.3 124.0,291.6 128.0,290.8 132.0,289.9 136.0,289.0 140.0,288.1 144.0,287.1 148.0,286.0 152.0,284.9 156.0,283.8 160.0,282.6 164.0,281.4 168.0,280.1 172.0,278.7 176.0,277.3 180.0,275.9 184.0,274.4 188.0,272.9 192.0,271.3 196.0,269.7 200.0,268.0 204.0,266.3 208.0,264.5 212.0,262.7 216.0,260.8 220.0,258.9 224.0,256.9 228.0,254.9 232.0,252.8 236.0,250.7 240.0,248.5 244.0,246.3 248.0,244.0 252.0,241.7 256.0,239.4 260.0,237.0 264.0,234.5 268.0,232.0 272.0,229.4 276.0,226.8 280.0,224.2 284.0,221.5 288.0,218.7 292.0,215.9 296.0,213.1 300.0,210.2 304.0,207.2 308.0,204.2 312.0,201.2 316.0,198.1 320.0,195.0 324.0,191.8 328.0,188.5 332.0,185.2 336.0,181.9 340.0,178.5 344.0,175.1 348.0,171.6 352.0,168.1 356.0,164.5 360.0,160.9 364.0,157.2 368.0,153.5 372.0,149.7 376.0,145.9 380.0,142.0 384.0,138.1 388.0,134.1 392.0,130.1 396.0,126.0 400.0,121.9 404.0,117.7 408.0,113.5 412.0,109.3 416.0,105.0 420.0,100.6 424.0,96.2 428.0,91.7 432.0,87.2 436.0,82.7 440.0,78.1 444.0,73.4 448.0,68.7 452.0,64.0 456.0,59.2 460.0,54.3" fill="none" stroke="#7fc4a2" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <polyline points="60.0,297.8 460.0,297.8" fill="none" stroke="#d88b8b" stroke-width="2.2"/>
+  <circle cx="60.0" cy="297.8" r="3.2" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="460.0" cy="297.8" r="3.2" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <polyline points="60.0,297.8 260.0,297.8 460.0,176.1" fill="none" stroke="#d6aa62" stroke-width="2.2"/>
+  <circle cx="60.0" cy="297.8" r="3.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="260.0" cy="297.8" r="3.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="460.0" cy="176.1" r="3.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <polyline points="60.0,297.8 160.0,297.8 260.0,267.4 360.0,206.5 460.0,115.2" fill="none" stroke="#a99ad6" stroke-width="2.2"/>
+  <circle cx="60.0" cy="297.8" r="3.2" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <circle cx="160.0" cy="297.8" r="3.2" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <circle cx="260.0" cy="267.4" r="3.2" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <circle cx="360.0" cy="206.5" r="3.2" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <circle cx="460.0" cy="115.2" r="3.2" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <polyline points="60.0,297.8 100.0,297.8 140.0,293.0 180.0,283.2 220.0,268.6 260.0,249.1 300.0,224.8 340.0,195.6 380.0,161.5 420.0,122.5 460.0,78.7" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <circle cx="60.0" cy="297.8" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="100.0" cy="297.8" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="140.0" cy="293.0" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="180.0" cy="283.2" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220.0" cy="268.6" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="260.0" cy="249.1" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="300.0" cy="224.8" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="340.0" cy="195.6" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="380.0" cy="161.5" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="420.0" cy="122.5" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="460.0" cy="78.7" r="3.2" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
   <text x="260.0" y="346.0" fill="#94a3b8" font-size="12" text-anchor="middle">시각 t</text>
   <text x="490.0" y="60.0" fill="#e2e8f0" font-size="14" text-anchor="start">t = 1 에서의 위치</text>
-  <line x1="490.0" y1="88.0" x2="514.0" y2="88.0" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <line x1="490.0" y1="88.0" x2="514.0" y2="88.0" stroke="#7fc4a2" stroke-width="2.5" stroke-dasharray="6 4"/>
   <text x="522.0" y="92.0" fill="#e2e8f0" font-size="12" text-anchor="start">실제 (x = t²)</text>
-  <text x="690.0" y="92.0" fill="#34d399" font-size="12" text-anchor="end">1</text>
-  <line x1="490.0" y1="116.0" x2="514.0" y2="116.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="690.0" y="92.0" fill="#7fc4a2" font-size="12" text-anchor="end">1</text>
+  <line x1="490.0" y1="116.0" x2="514.0" y2="116.0" stroke="#7cb4d8" stroke-width="2.5"/>
   <text x="522.0" y="120.0" fill="#e2e8f0" font-size="12" text-anchor="start">Euler 10 step</text>
-  <text x="690.0" y="120.0" fill="#38bdf8" font-size="12" text-anchor="end">0.9</text>
-  <line x1="490.0" y1="144.0" x2="514.0" y2="144.0" stroke="#a78bfa" stroke-width="2.5"/>
+  <text x="690.0" y="120.0" fill="#7cb4d8" font-size="12" text-anchor="end">0.9</text>
+  <line x1="490.0" y1="144.0" x2="514.0" y2="144.0" stroke="#a99ad6" stroke-width="2.5"/>
   <text x="522.0" y="148.0" fill="#e2e8f0" font-size="12" text-anchor="start">Euler 4 step</text>
-  <text x="690.0" y="148.0" fill="#a78bfa" font-size="12" text-anchor="end">0.75</text>
-  <line x1="490.0" y1="172.0" x2="514.0" y2="172.0" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="690.0" y="148.0" fill="#a99ad6" font-size="12" text-anchor="end">0.75</text>
+  <line x1="490.0" y1="172.0" x2="514.0" y2="172.0" stroke="#d6aa62" stroke-width="2.5"/>
   <text x="522.0" y="176.0" fill="#e2e8f0" font-size="12" text-anchor="start">Euler 2 step</text>
-  <text x="690.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="end">0.5</text>
-  <line x1="490.0" y1="200.0" x2="514.0" y2="200.0" stroke="#f87171" stroke-width="2.5"/>
+  <text x="690.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="end">0.5</text>
+  <line x1="490.0" y1="200.0" x2="514.0" y2="200.0" stroke="#d88b8b" stroke-width="2.5"/>
   <text x="522.0" y="204.0" fill="#e2e8f0" font-size="12" text-anchor="start">Euler 1 step</text>
-  <text x="690.0" y="204.0" fill="#f87171" font-size="12" text-anchor="end">0</text>
+  <text x="690.0" y="204.0" fill="#d88b8b" font-size="12" text-anchor="end">0</text>
   <text x="490.0" y="250.0" fill="#94a3b8" font-size="12" text-anchor="start">step 시작의 속도로 직진하므로</text>
   <text x="490.0" y="270.0" fill="#94a3b8" font-size="12" text-anchor="start">속도가 커지는 동안 뒤처진다</text>
 </svg>

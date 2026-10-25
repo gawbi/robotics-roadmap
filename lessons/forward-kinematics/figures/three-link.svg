@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>link 길이 1 인 관절 세 개짜리 팔, 각도 30°, 30°, 30°. link 방향은 30°, 60°, 90° 로 쌓이고 손끝은 (1.366, 2.366)</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="638" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="48.0" width="270.0" height="330.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="60.0" y1="48.0" x2="60.0" y2="378.0" stroke="#16213a" stroke-width="1"/>
@@ -24,24 +24,24 @@
   <text x="83.0" y="376.0" fill="#64748b" font-size="12" text-anchor="end">0</text>
   <text x="336.0" y="365.0" fill="#94a3b8" font-size="13" text-anchor="start">x</text>
   <text x="95.0" y="42.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <line x1="90.0" y1="360.0" x2="193.9" y2="300.0" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
-  <line x1="193.9" y1="300.0" x2="253.9" y2="196.1" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
-  <line x1="253.9" y1="196.1" x2="253.9" y2="76.1" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="90.0" y1="360.0" x2="193.9" y2="300.0" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="193.9" y1="300.0" x2="253.9" y2="196.1" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="253.9" y1="196.1" x2="253.9" y2="76.1" stroke="#7cb4d8" stroke-width="6" stroke-linecap="round"/>
   <circle cx="90.0" cy="360.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="193.9" cy="300.0" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="253.9" cy="196.1" r="7" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="253.9" cy="76.1" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <path d="M132.0,360.0 A42.0,42.0 0 0,0 126.4,339.0" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
-  <text x="139.0" y="354.0" fill="#f59e0b" font-size="12" text-anchor="start">30°</text>
+  <circle cx="253.9" cy="76.1" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <path d="M132.0,360.0 A42.0,42.0 0 0,0 126.4,339.0" fill="none" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="139.0" y="354.0" fill="#d6aa62" font-size="12" text-anchor="start">30°</text>
   <line x1="193.9" y1="300.0" x2="245.9" y2="270.0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <path d="M233.4,277.2 A45.6,45.6 0 0,0 216.7,260.5" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="231.6" y="266.4" fill="#a78bfa" font-size="12" text-anchor="start">30°</text>
+  <path d="M233.4,277.2 A45.6,45.6 0 0,0 216.7,260.5" fill="none" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="231.6" y="266.4" fill="#a99ad6" font-size="12" text-anchor="start">30°</text>
   <line x1="253.9" y1="196.1" x2="283.9" y2="144.1" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <path d="M276.7,156.6 A45.6,45.6 0 0,0 253.9,150.5" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
-  <text x="269.0" y="149.4" fill="#a78bfa" font-size="12" text-anchor="start">30°</text>
+  <path d="M276.7,156.6 A45.6,45.6 0 0,0 253.9,150.5" fill="none" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="269.0" y="149.4" fill="#a99ad6" font-size="12" text-anchor="start">30°</text>
   <text x="199.9" y="324.0" fill="#e2e8f0" font-size="13" text-anchor="start">(0.866, 0.5)</text>
   <text x="265.9" y="218.1" fill="#e2e8f0" font-size="13" text-anchor="start">(1.366, 1.366)</text>
-  <text x="265.9" y="80.1" fill="#f59e0b" font-size="13" text-anchor="start">손끝 (1.366, 2.366)</text>
+  <text x="265.9" y="80.1" fill="#d6aa62" font-size="13" text-anchor="start">손끝 (1.366, 2.366)</text>
   <text x="400.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">link</text>
   <text x="448.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">방향</text>
   <text x="510.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">더할 이동량</text>
@@ -55,8 +55,8 @@
   <text x="448.0" y="126.0" fill="#e2e8f0" font-size="13" text-anchor="start">60+30 = 90°</text>
   <text x="540.0" y="126.0" fill="#e2e8f0" font-size="13" text-anchor="start">(0, 1)</text>
   <line x1="400.0" y1="162.0" x2="630.0" y2="162.0" stroke="#1e293b" stroke-width="1"/>
-  <text x="400.0" y="186.0" fill="#f59e0b" font-size="13" text-anchor="start">x 합: 0.866 + 0.5 + 0 = 1.366</text>
-  <text x="400.0" y="210.0" fill="#f59e0b" font-size="13" text-anchor="start">y 합: 0.5 + 0.866 + 1 = 2.366</text>
+  <text x="400.0" y="186.0" fill="#d6aa62" font-size="13" text-anchor="start">x 합: 0.866 + 0.5 + 0 = 1.366</text>
+  <text x="400.0" y="210.0" fill="#d6aa62" font-size="13" text-anchor="start">y 합: 0.5 + 0.866 + 1 = 2.366</text>
   <text x="400.0" y="250.0" fill="#94a3b8" font-size="13" text-anchor="start">joint 가 하나 늘면</text>
   <text x="400.0" y="272.0" fill="#94a3b8" font-size="13" text-anchor="start">방향이 하나 더 쌓이고</text>
   <text x="400.0" y="294.0" fill="#94a3b8" font-size="13" text-anchor="start">더할 이동량이 하나 는다</text>

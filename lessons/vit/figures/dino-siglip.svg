@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>OpenVLA 의 image encoder. 224×224 사진의 같은 patch 가 SigLIP 과 DINOv2 를 각각 지나 숫자 1,152 개와 1,024 개의 출력이 되고, 둘을 이어 붙인 2,176 개짜리 vector 256 개가 MLP projector 를 지나 Llama 2 의 token 길이 4,096 으로 바뀐다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="24" y="64" width="9" height="9" fill="#1e3a5f" stroke="#334155" stroke-width="0.5"/>
   <rect x="33" y="64" width="9" height="9" fill="#17304f" stroke="#334155" stroke-width="0.5"/>
@@ -258,36 +258,36 @@
   <rect x="141" y="199" width="9" height="9" fill="#1e3a5f" stroke="#334155" stroke-width="0.5"/>
   <rect x="150" y="199" width="9" height="9" fill="#17304f" stroke="#334155" stroke-width="0.5"/>
   <rect x="159" y="199" width="9" height="9" fill="#1e3a5f" stroke="#334155" stroke-width="0.5"/>
-  <rect x="78" y="109" width="9" height="9" fill="#f59e0b" stroke="#f59e0b"/>
+  <rect x="78" y="109" width="9" height="9" fill="#d6aa62" stroke="#d6aa62"/>
   <text x="96" y="48" fill="#e2e8f0" font-size="14" text-anchor="middle">사진 224×224</text>
   <text x="96" y="230" fill="#94a3b8" font-size="12" text-anchor="middle">patch 14×14 pixel</text>
-  <text x="96" y="248" fill="#38bdf8" font-size="12" text-anchor="middle">16 × 16 = 256 개</text>
-  <rect x="200" y="60" width="135" height="46" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="96" y="248" fill="#7cb4d8" font-size="12" text-anchor="middle">16 × 16 = 256 개</text>
+  <rect x="200" y="60" width="135" height="46" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="267.5" y="88.0" fill="#e2e8f0" font-size="13" text-anchor="middle">SigLIP So400m/14</text>
-  <rect x="200" y="160" width="135" height="46" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="200" y="160" width="135" height="46" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="267.5" y="188.0" fill="#e2e8f0" font-size="13" text-anchor="middle">DINOv2 ViT-L/14</text>
   <line x1="87" y1="113" x2="197" y2="83" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="87" y1="115" x2="197" y2="183" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="365" y="72" width="92" height="22" rx="3" fill="#f59e0b" opacity="0.85"/>
+  <rect x="365" y="72" width="92" height="22" rx="3" fill="#d6aa62" opacity="0.85"/>
   <text x="411" y="88" fill="#0b1220" font-size="13" text-anchor="middle">1,152</text>
-  <rect x="365" y="172" width="82" height="22" rx="3" fill="#a78bfa" opacity="0.85"/>
+  <rect x="365" y="172" width="82" height="22" rx="3" fill="#a99ad6" opacity="0.85"/>
   <text x="406" y="188" fill="#0b1220" font-size="13" text-anchor="middle">1,024</text>
   <line x1="337" y1="83" x2="362" y2="83" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="337" y1="183" x2="362" y2="183" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <text x="411" y="60" fill="#94a3b8" font-size="11" text-anchor="middle">끝에서 둘째 층의 출력</text>
-  <rect x="500" y="122" width="92" height="22" rx="3" fill="#f59e0b" opacity="0.85"/>
-  <rect x="592" y="122" width="82" height="22" rx="3" fill="#a78bfa" opacity="0.85"/>
+  <rect x="500" y="122" width="92" height="22" rx="3" fill="#d6aa62" opacity="0.85"/>
+  <rect x="592" y="122" width="82" height="22" rx="3" fill="#a99ad6" opacity="0.85"/>
   <text x="587" y="138" fill="#0b1220" font-size="13" text-anchor="middle">2,176</text>
   <text x="587" y="100" fill="#94a3b8" font-size="12" text-anchor="middle">patch 마다 이어 붙인 vector</text>
-  <text x="587" y="115" fill="#38bdf8" font-size="12" text-anchor="middle">256 개</text>
+  <text x="587" y="115" fill="#7cb4d8" font-size="12" text-anchor="middle">256 개</text>
   <line x1="459" y1="83" x2="497" y2="128" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
   <line x1="449" y1="183" x2="497" y2="138" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="517" y="186" width="140" height="46" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="517" y="186" width="140" height="46" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="587.0" y="205.0" fill="#e2e8f0" font-size="13" text-anchor="middle">MLP projector</text>
-  <text x="587.0" y="223.0" fill="#38bdf8" font-size="12" text-anchor="middle">2,176 → 4,096</text>
+  <text x="587.0" y="223.0" fill="#7cb4d8" font-size="12" text-anchor="middle">2,176 → 4,096</text>
   <line x1="587" y1="146" x2="587" y2="183" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
-  <rect x="517" y="262" width="140" height="46" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="517" y="262" width="140" height="46" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="587.0" y="281.0" fill="#e2e8f0" font-size="13" text-anchor="middle">Llama 2 7B</text>
-  <text x="587.0" y="299.0" fill="#34d399" font-size="12" text-anchor="middle">image token 256 개</text>
+  <text x="587.0" y="299.0" fill="#7fc4a2" font-size="12" text-anchor="middle">image token 256 개</text>
   <line x1="587" y1="234" x2="587" y2="259" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
 </svg>

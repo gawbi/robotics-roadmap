@@ -169,6 +169,17 @@ describe('curriculum', () => {
     }
   })
 
+  it('centres each tree name on its picture, and the picture on the tree lessons', async () => {
+    const layout = await computeLayout(c)
+    for (const r of layout.sectors) {
+      expect([r.x, r.y], r.tree).toEqual([r.art.x, r.art.y])
+      for (const n of [...layout.nodes.values()].filter((n) => n.tree === r.tree)) {
+        expect(Math.abs(n.x - r.art.x), `${n.id} inside ${r.tree} picture`).toBeLessThanOrEqual(r.art.size / 2)
+        expect(Math.abs(n.y - r.art.y), `${n.id} inside ${r.tree} picture`).toBeLessThanOrEqual(r.art.size / 2)
+      }
+    }
+  })
+
   it('sets every hub lesson on its ring, and every tree outside the rim', async () => {
     const layout = await computeLayout(c)
     const outer = layout.rim

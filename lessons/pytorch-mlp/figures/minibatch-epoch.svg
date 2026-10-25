@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>사진 12 장을 epoch 마다 섞어 4 장씩 mini-batch 로 나누는 모습</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">사진 12 장</text>
   <rect x="110.0" y="22.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
@@ -29,67 +29,67 @@
   <text x="521.0" y="42.0" fill="#e2e8f0" font-size="13" text-anchor="middle">12</text>
   <text x="20.0" y="130.0" fill="#e2e8f0" font-size="14" text-anchor="start">epoch 1</text>
   <text x="20.0" y="148.0" fill="#94a3b8" font-size="11" text-anchor="start">섞은 순서</text>
-  <rect x="104.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="110.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="104.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="110.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="125.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">7</text>
-  <rect x="146.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="146.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="161.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">2</text>
-  <rect x="182.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="182.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="197.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">11</text>
-  <rect x="218.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="218.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="233.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">4</text>
-  <text x="180.0" y="166.0" fill="#38bdf8" font-size="12" text-anchor="middle">step 1</text>
-  <rect x="304.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="310.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="180.0" y="166.0" fill="#7cb4d8" font-size="12" text-anchor="middle">step 1</text>
+  <rect x="304.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="310.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="325.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">9</text>
-  <rect x="346.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="346.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="361.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">1</text>
-  <rect x="382.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="382.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="397.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">12</text>
-  <rect x="418.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="418.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="433.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">5</text>
-  <text x="380.0" y="166.0" fill="#34d399" font-size="12" text-anchor="middle">step 2</text>
-  <rect x="504.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="510.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="380.0" y="166.0" fill="#7fc4a2" font-size="12" text-anchor="middle">step 2</text>
+  <rect x="504.0" y="102.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#a99ad6" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="510.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="525.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">3</text>
-  <rect x="546.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="546.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="561.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">10</text>
-  <rect x="582.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="582.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="597.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">6</text>
-  <rect x="618.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="618.0" y="110.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="633.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="middle">8</text>
-  <text x="580.0" y="166.0" fill="#a78bfa" font-size="12" text-anchor="middle">step 3</text>
+  <text x="580.0" y="166.0" fill="#a99ad6" font-size="12" text-anchor="middle">step 3</text>
   <text x="20.0" y="220.0" fill="#e2e8f0" font-size="14" text-anchor="start">epoch 2</text>
   <text x="20.0" y="238.0" fill="#94a3b8" font-size="11" text-anchor="start">섞은 순서</text>
-  <rect x="104.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="110.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="104.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="110.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="125.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">5</text>
-  <rect x="146.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="146.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="161.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">12</text>
-  <rect x="182.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="182.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="197.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">3</text>
-  <rect x="218.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="218.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="233.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">8</text>
-  <text x="180.0" y="256.0" fill="#38bdf8" font-size="12" text-anchor="middle">step 4</text>
-  <rect x="304.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="310.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="180.0" y="256.0" fill="#7cb4d8" font-size="12" text-anchor="middle">step 4</text>
+  <rect x="304.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="310.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="325.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">1</text>
-  <rect x="346.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="346.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="361.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">6</text>
-  <rect x="382.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="382.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="397.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">10</text>
-  <rect x="418.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="418.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="433.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">2</text>
-  <text x="380.0" y="256.0" fill="#34d399" font-size="12" text-anchor="middle">step 5</text>
-  <rect x="504.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="510.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="380.0" y="256.0" fill="#7fc4a2" font-size="12" text-anchor="middle">step 5</text>
+  <rect x="504.0" y="192.0" width="150.0" height="46.0" rx="8" fill="none" stroke="#a99ad6" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="510.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="525.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">11</text>
-  <rect x="546.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="546.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="561.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">4</text>
-  <rect x="582.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="582.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="597.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">9</text>
-  <rect x="618.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="618.0" y="200.0" width="30.0" height="30.0" rx="4" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="633.0" y="220.0" fill="#e2e8f0" font-size="13" text-anchor="middle">7</text>
-  <text x="580.0" y="256.0" fill="#a78bfa" font-size="12" text-anchor="middle">step 6</text>
+  <text x="580.0" y="256.0" fill="#a99ad6" font-size="12" text-anchor="middle">step 6</text>
   <text x="360.0" y="288.0" fill="#94a3b8" font-size="13" text-anchor="middle">batch 크기 4 → epoch 하나에 12 ÷ 4 = 3 step.  epoch 마다 shuffle 해서 짝이 바뀐다</text>
 </svg>

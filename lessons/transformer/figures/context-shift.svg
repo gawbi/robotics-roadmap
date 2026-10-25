@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>embedding 의 점들을 좌표평면에 찍은 그림. 배 [1, 1] 은 배 를 먹었다 에서 먹었다 쪽인 [1.404, 0.468] 로 옮겨 가고, 배 를 탔다 에서는 탔다 쪽인 [0.468, 1.404] 로 옮겨 간다</title>
-  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="458" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="70.0" y1="350.0" x2="382.0" y2="350.0" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="70.0" y1="350.0" x2="70.0" y2="38.0" stroke="#94a3b8" stroke-width="1.5"/>
@@ -23,12 +23,12 @@
   <text x="330.0" y="338.0" fill="#e2e8f0" font-size="13" text-anchor="middle">먹었다 [2, 0]</text>
   <circle cx="70" cy="90" r="6" fill="#94a3b8"/>
   <text x="80.0" y="94.0" fill="#e2e8f0" font-size="13" text-anchor="start">탔다 [0, 2]</text>
-  <line x1="200.0" y1="220.0" x2="245.2" y2="279.5" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#af59e0b)"/>
-  <circle cx="252.51999999999998" cy="289.15999999999997" r="6" fill="#f59e0b"/>
-  <line x1="200.0" y1="220.0" x2="140.5" y2="174.8" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#a38bdf8)"/>
-  <circle cx="130.84" cy="167.48000000000002" r="6" fill="#38bdf8"/>
-  <text x="262.5" y="293.2" fill="#f59e0b" font-size="13" text-anchor="start">[1.404, 0.468]</text>
-  <text x="262.5" y="310.2" fill="#f59e0b" font-size="12" text-anchor="start">배 를 먹었다 의 배</text>
-  <text x="122.8" y="137.5" fill="#38bdf8" font-size="13" text-anchor="start">[0.468, 1.404]</text>
-  <text x="122.8" y="154.5" fill="#38bdf8" font-size="12" text-anchor="start">배 를 탔다 의 배</text>
+  <line x1="200.0" y1="220.0" x2="245.2" y2="279.5" stroke="#d6aa62" stroke-width="2.5" marker-end="url(#af59e0b)"/>
+  <circle cx="252.51999999999998" cy="289.15999999999997" r="6" fill="#d6aa62"/>
+  <line x1="200.0" y1="220.0" x2="140.5" y2="174.8" stroke="#7cb4d8" stroke-width="2.5" marker-end="url(#a38bdf8)"/>
+  <circle cx="130.84" cy="167.48000000000002" r="6" fill="#7cb4d8"/>
+  <text x="262.5" y="293.2" fill="#d6aa62" font-size="13" text-anchor="start">[1.404, 0.468]</text>
+  <text x="262.5" y="310.2" fill="#d6aa62" font-size="12" text-anchor="start">배 를 먹었다 의 배</text>
+  <text x="122.8" y="137.5" fill="#7cb4d8" font-size="13" text-anchor="start">[0.468, 1.404]</text>
+  <text x="122.8" y="154.5" fill="#7cb4d8" font-size="12" text-anchor="start">배 를 탔다 의 배</text>
 </svg>

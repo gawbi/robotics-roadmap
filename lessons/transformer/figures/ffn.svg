@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 228" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>FFN 이 x = [1, 2] 를 W_1 로 [1, 2, −1, 1] 로 늘리고, ReLU 로 [1, 2, 0, 1] 로 바꾸고, W_2 로 [1, 3] 으로 되돌리는 흐름</title>
-  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="618" height="226" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20.0" y="30.0" fill="#e2e8f0" font-size="15" text-anchor="start">token 하나의 FFN 계산</text>
   <rect x="20.0" y="70.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="75.0" y="100.9" fill="#e2e8f0" font-size="14" text-anchor="middle">[1, 2]</text>
   <text x="75.0" y="145.0" fill="#94a3b8" font-size="12" text-anchor="middle">x</text>
   <line x1="132.0" y1="96.0" x2="173.0" y2="96.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
-  <rect x="175.0" y="70.0" width="140.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="245.0" y="100.9" fill="#f59e0b" font-size="14" text-anchor="middle">[1, 2, −1, 1]</text>
+  <rect x="175.0" y="70.0" width="140.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="245.0" y="100.9" fill="#d6aa62" font-size="14" text-anchor="middle">[1, 2, −1, 1]</text>
   <text x="245.0" y="145.0" fill="#94a3b8" font-size="12" text-anchor="middle">W₁ 곱하기</text>
   <line x1="317.0" y1="96.0" x2="348.0" y2="96.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
-  <rect x="350.0" y="70.0" width="120.0" height="52.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="410.0" y="100.9" fill="#34d399" font-size="14" text-anchor="middle">[1, 2, 0, 1]</text>
+  <rect x="350.0" y="70.0" width="120.0" height="52.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="410.0" y="100.9" fill="#7fc4a2" font-size="14" text-anchor="middle">[1, 2, 0, 1]</text>
   <text x="410.0" y="145.0" fill="#94a3b8" font-size="12" text-anchor="middle">ReLU</text>
   <line x1="472.0" y1="96.0" x2="503.0" y2="96.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a94a3b8)"/>
-  <rect x="505.0" y="70.0" width="100.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="555.0" y="100.9" fill="#38bdf8" font-size="14" text-anchor="middle">[1, 3]</text>
+  <rect x="505.0" y="70.0" width="100.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="555.0" y="100.9" fill="#7cb4d8" font-size="14" text-anchor="middle">[1, 3]</text>
   <text x="555.0" y="145.0" fill="#94a3b8" font-size="12" text-anchor="middle">W₂ 곱하기</text>
   <text x="240.0" y="175.0" fill="#94a3b8" font-size="12" text-anchor="middle">2칸 → 4칸</text>
   <text x="410.0" y="175.0" fill="#94a3b8" font-size="12" text-anchor="middle">음수 −1 → 0</text>

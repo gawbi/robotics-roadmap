@@ -1,60 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>sigmoid neuron 하나의 computational graph 와 forward 값, backward gradient</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="14.0" y="40.0" width="86.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="57.0" y="60.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w₁ = 0.5</text>
-  <text x="57.0" y="79.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
+  <text x="57.0" y="79.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
   <rect x="14.0" y="98.0" width="86.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="57.0" y="127.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₁ = 1</text>
   <rect x="14.0" y="168.0" width="86.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="57.0" y="188.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w₂ = 0.5</text>
-  <text x="57.0" y="207.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
+  <text x="57.0" y="207.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
   <rect x="14.0" y="226.0" width="86.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="57.0" y="255.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₂ = 1</text>
   <rect x="14.0" y="282.0" width="86.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="57.0" y="302.0" fill="#e2e8f0" font-size="14" text-anchor="middle">b = −1</text>
-  <text x="57.0" y="321.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
-  <circle cx="140.0" cy="96.0" r="15" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="140.0" y="101.0" fill="#38bdf8" font-size="16" text-anchor="middle">×</text>
-  <circle cx="140.0" cy="224.0" r="15" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="140.0" y="229.0" fill="#38bdf8" font-size="16" text-anchor="middle">×</text>
+  <text x="57.0" y="321.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
+  <circle cx="140.0" cy="96.0" r="15" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="140.0" y="101.0" fill="#7cb4d8" font-size="16" text-anchor="middle">×</text>
+  <circle cx="140.0" cy="224.0" r="15" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="140.0" y="229.0" fill="#7cb4d8" font-size="16" text-anchor="middle">×</text>
   <line x1="100.0" y1="64.0" x2="127.0" y2="88.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="100.0" y1="122.0" x2="127.0" y2="104.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="100.0" y1="192.0" x2="127.0" y2="216.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="100.0" y1="250.0" x2="127.0" y2="232.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <rect x="170.0" y="72.0" width="100.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="220.0" y="92.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w₁x₁ = 0.5</text>
-  <text x="220.0" y="111.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
+  <text x="220.0" y="111.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
   <rect x="170.0" y="200.0" width="100.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="220.0" y="220.0" fill="#e2e8f0" font-size="14" text-anchor="middle">w₂x₂ = 0.5</text>
-  <text x="220.0" y="239.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
+  <text x="220.0" y="239.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
   <line x1="155.0" y1="96.0" x2="168.0" y2="96.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="155.0" y1="224.0" x2="168.0" y2="224.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <circle cx="305.0" cy="166.0" r="16" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="305.0" y="172.0" fill="#38bdf8" font-size="18" text-anchor="middle">+</text>
+  <circle cx="305.0" cy="166.0" r="16" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="305.0" y="172.0" fill="#7cb4d8" font-size="18" text-anchor="middle">+</text>
   <line x1="270.0" y1="102.0" x2="292.0" y2="154.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="270.0" y1="222.0" x2="292.0" y2="178.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <path d="M 100 306 L 296 306 L 303 184" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <rect x="336.0" y="142.0" width="80.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="376.0" y="162.0" fill="#e2e8f0" font-size="14" text-anchor="middle">z = 0</text>
-  <text x="376.0" y="181.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −0.25</text>
+  <text x="376.0" y="181.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −0.25</text>
   <line x1="321.0" y1="166.0" x2="334.0" y2="166.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <circle cx="446.0" cy="166.0" r="16" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="446.0" y="172.0" fill="#38bdf8" font-size="17" text-anchor="middle">σ</text>
+  <circle cx="446.0" cy="166.0" r="16" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="446.0" y="172.0" fill="#7cb4d8" font-size="17" text-anchor="middle">σ</text>
   <line x1="416.0" y1="166.0" x2="429.0" y2="166.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <rect x="476.0" y="142.0" width="80.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="516.0" y="162.0" fill="#e2e8f0" font-size="14" text-anchor="middle">ŷ = 0.5</text>
-  <text x="516.0" y="181.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad −1</text>
+  <text x="516.0" y="181.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad −1</text>
   <line x1="462.0" y1="166.0" x2="474.0" y2="166.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <circle cx="588.0" cy="166.0" r="20" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="588.0" y="171.0" fill="#38bdf8" font-size="11" text-anchor="middle">(·−y)²</text>
+  <circle cx="588.0" cy="166.0" r="20" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="588.0" y="171.0" fill="#7cb4d8" font-size="11" text-anchor="middle">(·−y)²</text>
   <line x1="556.0" y1="166.0" x2="567.0" y2="166.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <text x="588.0" y="216.0" fill="#94a3b8" font-size="13" text-anchor="middle">y = 1</text>
   <line x1="588.0" y1="202.0" x2="588.0" y2="188.0" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#ar-gray)"/>
   <rect x="618.0" y="142.0" width="92.0" height="48.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="664.0" y="162.0" fill="#e2e8f0" font-size="14" text-anchor="middle">L = 0.25</text>
-  <text x="664.0" y="181.0" fill="#f59e0b" font-size="13" text-anchor="middle">grad 1</text>
+  <text x="664.0" y="181.0" fill="#d6aa62" font-size="13" text-anchor="middle">grad 1</text>
   <line x1="608.0" y1="166.0" x2="616.0" y2="166.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <text x="360.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="middle">흰 숫자는 forward 값, 주황 숫자는 gradient ∂L/∂(그 값)</text>
   <text x="530.0" y="252.0" fill="#94a3b8" font-size="12" text-anchor="middle">σ 의 비율: 0.5 × 0.5 = 0.25</text>

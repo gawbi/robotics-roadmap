@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>VAE 는 z 하나를 decoder 에 한 번 넣어 그림을 만들고, DDPM 은 noise 이미지에서 시작해 noise 를 조금씩 걷어 내는 step 을 여러 번 거쳐 그림을 만든다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="28.0" y="36.0" fill="#f59e0b" font-size="14" text-anchor="start">VAE: decoder 를 한 번 지나 바로 그림</text>
-  <rect x="40.0" y="62.0" width="120.0" height="64.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="28.0" y="36.0" fill="#d6aa62" font-size="14" text-anchor="start">VAE: decoder 를 한 번 지나 바로 그림</text>
+  <rect x="40.0" y="62.0" width="120.0" height="64.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="100.0" y="90.0" fill="#e2e8f0" font-size="14" text-anchor="middle">z</text>
   <text x="100.0" y="108.0" fill="#94a3b8" font-size="12" text-anchor="middle">N(0, I) 에서 뽑음</text>
-  <line x1="162.0" y1="94.0" x2="250.0" y2="94.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <rect x="254.0" y="66.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <line x1="162.0" y1="94.0" x2="250.0" y2="94.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="254.0" y="66.0" width="120.0" height="56.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="314.0" y="90.0" fill="#e2e8f0" font-size="14" text-anchor="middle">decoder</text>
   <text x="314.0" y="108.0" fill="#94a3b8" font-size="12" text-anchor="middle">한 번</text>
-  <line x1="376.0" y1="94.0" x2="456.0" y2="94.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <line x1="376.0" y1="94.0" x2="456.0" y2="94.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
   <rect x="462.0" y="58.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="471.0" y="58.0" width="9.0" height="9.0" fill="#333333"/>
   <rect x="480.0" y="58.0" width="9.0" height="9.0" fill="#333333"/>
@@ -79,7 +79,7 @@
   <text x="574.0" y="90.0" fill="#94a3b8" font-size="12" text-anchor="start">평균에 가까워</text>
   <text x="574.0" y="108.0" fill="#94a3b8" font-size="12" text-anchor="start">흐릿한 그림</text>
   <line x1="24.0" y1="152.0" x2="656.0" y2="152.0" stroke="#1e293b" stroke-width="1"/>
-  <text x="28.0" y="182.0" fill="#34d399" font-size="14" text-anchor="start">DDPM: noise 를 조금씩 걷어 내는 step 을 여러 번</text>
+  <text x="28.0" y="182.0" fill="#7fc4a2" font-size="14" text-anchor="start">DDPM: noise 를 조금씩 걷어 내는 step 을 여러 번</text>
   <rect x="40.0" y="200.0" width="9.0" height="9.0" fill="#5e5e5e"/>
   <rect x="49.0" y="200.0" width="9.0" height="9.0" fill="#c0c0c0"/>
   <rect x="58.0" y="200.0" width="9.0" height="9.0" fill="#626262"/>
@@ -146,7 +146,7 @@
   <rect x="103.0" y="263.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="40.0" y="200.0" width="72.0" height="72.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="76.0" y="300.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_1000</text>
-  <line x1="116.0" y1="236.0" x2="166.0" y2="236.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="116.0" y1="236.0" x2="166.0" y2="236.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
   <rect x="170.0" y="200.0" width="9.0" height="9.0" fill="#3c3c3c"/>
   <rect x="179.0" y="200.0" width="9.0" height="9.0" fill="#9a9a9a"/>
   <rect x="188.0" y="200.0" width="9.0" height="9.0" fill="#404040"/>
@@ -213,7 +213,7 @@
   <rect x="233.0" y="263.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="170.0" y="200.0" width="72.0" height="72.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="206.0" y="300.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_500</text>
-  <line x1="246.0" y1="236.0" x2="296.0" y2="236.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="246.0" y1="236.0" x2="296.0" y2="236.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
   <rect x="300.0" y="200.0" width="9.0" height="9.0" fill="#0d0d0d"/>
   <rect x="309.0" y="200.0" width="9.0" height="9.0" fill="#505050"/>
   <rect x="318.0" y="200.0" width="9.0" height="9.0" fill="#0f0f0f"/>
@@ -280,7 +280,7 @@
   <rect x="363.0" y="263.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="300.0" y="200.0" width="72.0" height="72.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="336.0" y="300.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_250</text>
-  <line x1="376.0" y1="236.0" x2="426.0" y2="236.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="376.0" y1="236.0" x2="426.0" y2="236.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
   <rect x="430.0" y="200.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="439.0" y="200.0" width="9.0" height="9.0" fill="#1c1c1c"/>
   <rect x="448.0" y="200.0" width="9.0" height="9.0" fill="#000000"/>
@@ -347,7 +347,7 @@
   <rect x="493.0" y="263.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="430.0" y="200.0" width="72.0" height="72.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="466.0" y="300.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_100</text>
-  <line x1="506.0" y1="236.0" x2="556.0" y2="236.0" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="506.0" y1="236.0" x2="556.0" y2="236.0" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)"/>
   <rect x="560.0" y="200.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="569.0" y="200.0" width="9.0" height="9.0" fill="#000000"/>
   <rect x="578.0" y="200.0" width="9.0" height="9.0" fill="#000000"/>

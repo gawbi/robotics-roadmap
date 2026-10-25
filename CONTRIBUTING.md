@@ -111,7 +111,9 @@ dev server 는 기본으로 localhost 에서만 받는다. 다른 기기(같은 
 원이나 그 안쪽에 있어야 한다. 강의는 원 위에서 자기가 이어지는 트리 쪽을 향하고, 같은 원 위의 선수 관계는 원을 따라 잇는다. hub
 강의에서 트리로 가는 선은 그리지 않고, 가장 바깥의 테두리 원에서 트리의 강의로 선을 잇는다. 그 테두리 밖으로 `trees`(직무별 트리)마다
 트리 하나를 그 트리의 `angle` 방향으로 뻗는다([`site/src/curriculum/layout.ts`](site/src/curriculum/layout.ts)). 이웃한 두 트리 사이에는
-테두리에서 바깥으로 점선을 그어 구역을 나누고, 구역마다 그 트리의 `title` 을 크게 쓴다. 트리 하나는 시작 강의와 그
+테두리에서 바깥으로 점선을 그어 구역을 나누고, 구역마다 그 트리의 그림([`site/src/components/treeArt.ts`](site/src/components/treeArt.ts))을
+옅게 깔고 그 가운데에 트리의 `title` 을 쓴다. 구역의 배경은 트리 색의 성운과 별을 WebGL(three.js)로 그리는
+[`site/src/components/MapScene.tsx`](site/src/components/MapScene.tsx) 가 맡고, 마우스를 올린 구역의 성운이 밝아진다. 트리 하나는 시작 강의와 그
 트리의 강의만으로 만든 layered 배치다. [`site/src/curriculum/order.ts`](site/src/curriculum/order.ts) 가 선 교차가 가장 적은 층과 층 안의
 순서를 찾고, [ELK](https://eclipse.dev/elk/) 가 그 순서를 지키며 위치를 잡는다. 트리를 아래로 자라게 배치한 뒤 제 방향으로 돌리고,
 이름표는 수평을 유지한 채 위로 자라는 트리에서는 원 위에 놓는다. 다른 트리의 강의가 선수 강의인 선과, 트리 안에도 선수 강의가 있는 강의로

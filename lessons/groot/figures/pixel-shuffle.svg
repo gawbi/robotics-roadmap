@@ -15,10 +15,10 @@
     <rect x="150" y="170" width="50" height="50" fill="#22183a"/><rect x="200" y="170" width="50" height="50" fill="#22183a"/>
     <rect x="150" y="220" width="50" height="50" fill="#22183a"/><rect x="200" y="220" width="50" height="50" fill="#22183a"/>
   </g>
-  <rect x="50" y="70" width="100" height="100" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <rect x="150" y="70" width="100" height="100" fill="none" stroke="#34d399" stroke-width="2.5"/>
-  <rect x="50" y="170" width="100" height="100" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="150" y="170" width="100" height="100" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+  <rect x="50" y="70" width="100" height="100" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <rect x="150" y="70" width="100" height="100" fill="none" stroke="#7fc4a2" stroke-width="2.5"/>
+  <rect x="50" y="170" width="100" height="100" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="150" y="170" width="100" height="100" fill="none" stroke="#a99ad6" stroke-width="2.5"/>
   <text x="75" y="100" fill="#e2e8f0" font-size="13" text-anchor="middle">1</text><text x="125" y="100" fill="#e2e8f0" font-size="13" text-anchor="middle">2</text>
   <text x="75" y="150" fill="#e2e8f0" font-size="13" text-anchor="middle">3</text><text x="125" y="150" fill="#e2e8f0" font-size="13" text-anchor="middle">4</text>
 
@@ -27,14 +27,14 @@
 
   <text x="430" y="36" fill="#e2e8f0" font-size="14" text-anchor="middle">합친 뒤: token 4 개</text>
   <text x="430" y="56" fill="#94a3b8" font-size="12" text-anchor="middle">token 하나 = 숫자 4 × 2 = 8 개</text>
-  <rect x="360" y="100" width="70" height="70" fill="#0c1f33" stroke="#38bdf8" stroke-width="2.5"/>
-  <rect x="430" y="100" width="70" height="70" fill="#0f2a22" stroke="#34d399" stroke-width="2.5"/>
-  <rect x="360" y="170" width="70" height="70" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="430" y="170" width="70" height="70" fill="#22183a" stroke="#a78bfa" stroke-width="2.5"/>
+  <rect x="360" y="100" width="70" height="70" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2.5"/>
+  <rect x="430" y="100" width="70" height="70" fill="#0f2a22" stroke="#7fc4a2" stroke-width="2.5"/>
+  <rect x="360" y="170" width="70" height="70" fill="#2a1a0c" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="430" y="170" width="70" height="70" fill="#22183a" stroke="#a99ad6" stroke-width="2.5"/>
   <text x="395" y="140" fill="#e2e8f0" font-size="12" text-anchor="middle">1+2+3+4</text>
 
-  <rect x="530" y="96" width="210" height="148" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="635" y="122" fill="#38bdf8" font-size="13" text-anchor="middle">파란 묶음의 새 token</text>
+  <rect x="530" y="96" width="210" height="148" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="635" y="122" fill="#7cb4d8" font-size="13" text-anchor="middle">파란 묶음의 새 token</text>
   <text x="635" y="150" fill="#e2e8f0" font-size="12" text-anchor="middle">(a₁, b₁, a₂, b₂,</text>
   <text x="635" y="170" fill="#e2e8f0" font-size="12" text-anchor="middle">a₃, b₃, a₄, b₄)</text>
   <text x="635" y="198" fill="#94a3b8" font-size="12" text-anchor="middle">숫자는 그대로 16 × 2 = 32 개</text>

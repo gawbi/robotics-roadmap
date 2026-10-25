@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>1 초 동안 앞으로 1 만큼 가면서 동시에 90° 도는 로봇은 반지름 2/π ≈ 0.637 인 사분원을 그리며 (0.637, 0.637) 에 도착한다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="45.0" y1="270.0" x2="357.5" y2="270.0" stroke="#475569" stroke-width="1.5"/>
   <line x1="70.0" y1="295.0" x2="70.0" y2="57.5" stroke="#475569" stroke-width="1.5"/>
   <text x="195.0" y="286.0" fill="#64748b" font-size="12" text-anchor="middle">0.5</text>
   <text x="320.0" y="286.0" fill="#64748b" font-size="12" text-anchor="middle">1</text>
   <text x="63.0" y="149.0" fill="#64748b" font-size="12" text-anchor="end">0.5</text>
-  <path d="M70.0,270.0 L76.2,269.9 L82.5,269.5 L88.7,268.9 L94.9,268.0 L101.0,266.9 L107.2,265.6 L113.2,264.0 L119.2,262.2 L125.1,260.2 L130.9,257.9 L136.6,255.4 L142.3,252.7 L147.8,249.7 L153.2,246.5 L158.4,243.2 L163.5,239.6 L168.5,235.8 L173.4,231.9 L178.0,227.7 L182.5,223.4 L186.9,218.9 L191.0,214.2 L195.0,209.4 L198.8,204.4 L202.3,199.3 L205.7,194.0 L208.9,188.6 L211.8,183.1 L214.5,177.5 L217.0,171.8 L219.3,165.9 L221.4,160.0 L223.2,154.0 L224.8,148.0 L226.1,141.9 L227.2,135.7 L228.1,129.6 L228.7,123.3 L229.0,117.1 L229.2,110.8" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M70.0,270.0 L76.2,269.9 L82.5,269.5 L88.7,268.9 L94.9,268.0 L101.0,266.9 L107.2,265.6 L113.2,264.0 L119.2,262.2 L125.1,260.2 L130.9,257.9 L136.6,255.4 L142.3,252.7 L147.8,249.7 L153.2,246.5 L158.4,243.2 L163.5,239.6 L168.5,235.8 L173.4,231.9 L178.0,227.7 L182.5,223.4 L186.9,218.9 L191.0,214.2 L195.0,209.4 L198.8,204.4 L202.3,199.3 L205.7,194.0 L208.9,188.6 L211.8,183.1 L214.5,177.5 L217.0,171.8 L219.3,165.9 L221.4,160.0 L223.2,154.0 L224.8,148.0 L226.1,141.9 L227.2,135.7 L228.1,129.6 L228.7,123.3 L229.0,117.1 L229.2,110.8" fill="none" stroke="#d6aa62" stroke-width="3"/>
   <line x1="70.0" y1="270.0" x2="320.0" y2="270.0" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arrow-gray)"/>
   <text x="320.0" y="292.0" fill="#94a3b8" font-size="13" text-anchor="middle">(1, 0)</text>
   <text x="320.0" y="258.0" fill="#94a3b8" font-size="12" text-anchor="middle">돌지 않고 직진했을 때</text>
-  <circle cx="229.2" cy="110.8" r="7" fill="#f59e0b"/>
-  <text x="239.2" y="104.8" fill="#f59e0b" font-size="14" text-anchor="start">(0.637, 0.637)</text>
-  <line x1="70.0" y1="110.8" x2="229.2" y2="110.8" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="3 4"/>
-  <line x1="70.0" y1="110.8" x2="70.0" y2="270.0" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="3 4"/>
-  <circle cx="70.0" cy="110.8" r="4" fill="#a78bfa"/>
-  <text x="78.0" y="102.8" fill="#a78bfa" font-size="12" text-anchor="start">원의 중심 (0, 0.637)</text>
-  <text x="58.0" y="194.4" fill="#a78bfa" font-size="13" text-anchor="start">r</text>
-  <line x1="70.0" y1="270.0" x2="115.0" y2="270.0" stroke="#f87171" stroke-width="3" marker-end="url(#arrow-red)"/>
-  <line x1="229.2" y1="110.8" x2="229.2" y2="65.8" stroke="#f87171" stroke-width="3" marker-end="url(#arrow-red)"/>
-  <text x="92.5" y="292.0" fill="#f87171" font-size="12" text-anchor="middle">처음 방향</text>
-  <text x="237.2" y="65.8" fill="#f87171" font-size="12" text-anchor="start">끝 방향</text>
+  <circle cx="229.2" cy="110.8" r="7" fill="#d6aa62"/>
+  <text x="239.2" y="104.8" fill="#d6aa62" font-size="14" text-anchor="start">(0.637, 0.637)</text>
+  <line x1="70.0" y1="110.8" x2="229.2" y2="110.8" stroke="#a99ad6" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="70.0" y1="110.8" x2="70.0" y2="270.0" stroke="#a99ad6" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <circle cx="70.0" cy="110.8" r="4" fill="#a99ad6"/>
+  <text x="78.0" y="102.8" fill="#a99ad6" font-size="12" text-anchor="start">원의 중심 (0, 0.637)</text>
+  <text x="58.0" y="194.4" fill="#a99ad6" font-size="13" text-anchor="start">r</text>
+  <line x1="70.0" y1="270.0" x2="115.0" y2="270.0" stroke="#d88b8b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <line x1="229.2" y1="110.8" x2="229.2" y2="65.8" stroke="#d88b8b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <text x="92.5" y="292.0" fill="#d88b8b" font-size="12" text-anchor="middle">처음 방향</text>
+  <text x="237.2" y="65.8" fill="#d88b8b" font-size="12" text-anchor="start">끝 방향</text>
   <text x="400.0" y="56.0" fill="#94a3b8" font-size="13" text-anchor="start">1 초 동안</text>
   <text x="400.0" y="80.0" fill="#e2e8f0" font-size="14" text-anchor="start">앞으로 1 만큼 + 90° 회전</text>
   <text x="400.0" y="120.0" fill="#e2e8f0" font-size="14" text-anchor="start">사분원 둘레 = 1</text>
   <text x="400.0" y="144.0" fill="#e2e8f0" font-size="14" text-anchor="start">2πr ÷ 4 = 1</text>
-  <text x="400.0" y="168.0" fill="#f59e0b" font-size="14" text-anchor="start">r = 2/π ≈ 0.637</text>
-  <text x="400.0" y="212.0" fill="#f59e0b" font-size="14" text-anchor="start">도착점 (r, r)</text>
-  <text x="400.0" y="236.0" fill="#f59e0b" font-size="14" text-anchor="start">= (0.637, 0.637)</text>
+  <text x="400.0" y="168.0" fill="#d6aa62" font-size="14" text-anchor="start">r = 2/π ≈ 0.637</text>
+  <text x="400.0" y="212.0" fill="#d6aa62" font-size="14" text-anchor="start">도착점 (r, r)</text>
+  <text x="400.0" y="236.0" fill="#d6aa62" font-size="14" text-anchor="start">= (0.637, 0.637)</text>
 </svg>

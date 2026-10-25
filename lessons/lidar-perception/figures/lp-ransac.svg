@@ -1,67 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>RANSAC 으로 땅 평면 찾기. 땅 점과 차 점을 섞어 뽑은 후보 ① 은 평면에서 0.1 m 안에 드는 점이 6개뿐이고, 땅 점만 뽑은 후보 ② 는 33개라서 후보 ② 를 땅으로 채택한다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="360.0" y="28.0" fill="#e2e8f0" font-size="13" text-anchor="middle">옆에서 본 point cloud: 땅의 점과 차 옆면의 점</text>
-  <rect x="50.0" y="224.0" width="615.0" height="12.0" fill="#34d399" fill-opacity="0.12"/>
-  <line x1="65.0" y1="242.4" x2="440.0" y2="154.7" stroke="#f87171" stroke-width="1.8" stroke-dasharray="5 4"/>
-  <line x1="50.0" y1="232.0" x2="665.0" y2="231.8" stroke="#34d399" stroke-width="1.8"/>
-  <circle cx="66.4" cy="231.7" r="3" fill="#38bdf8"/>
-  <circle cx="87.4" cy="232.1" r="3" fill="#38bdf8"/>
-  <circle cx="104.3" cy="230.6" r="3" fill="#38bdf8"/>
-  <circle cx="118.0" cy="230.0" r="3" fill="#38bdf8"/>
-  <circle cx="135.8" cy="230.3" r="3" fill="#38bdf8"/>
-  <circle cx="154.1" cy="232.0" r="3" fill="#38bdf8"/>
-  <circle cx="175.3" cy="228.4" r="3" fill="#38bdf8"/>
-  <circle cx="190.6" cy="231.3" r="3" fill="#38bdf8"/>
-  <circle cx="213.1" cy="227.9" r="3" fill="#38bdf8"/>
-  <circle cx="230.7" cy="230.5" r="3" fill="#38bdf8"/>
-  <circle cx="252.3" cy="232.2" r="3" fill="#38bdf8"/>
-  <circle cx="269.2" cy="231.0" r="3" fill="#38bdf8"/>
-  <circle cx="280.8" cy="231.8" r="3" fill="#38bdf8"/>
-  <circle cx="300.3" cy="228.5" r="3" fill="#38bdf8"/>
-  <circle cx="317.1" cy="229.6" r="3" fill="#38bdf8"/>
-  <circle cx="339.3" cy="230.6" r="3" fill="#38bdf8"/>
-  <circle cx="356.4" cy="232.1" r="3" fill="#38bdf8"/>
-  <circle cx="370.0" cy="231.4" r="3" fill="#38bdf8"/>
-  <circle cx="393.6" cy="230.3" r="3" fill="#38bdf8"/>
-  <circle cx="408.3" cy="229.6" r="3" fill="#38bdf8"/>
-  <circle cx="427.6" cy="231.0" r="3" fill="#38bdf8"/>
-  <circle cx="448.6" cy="229.0" r="3" fill="#38bdf8"/>
-  <circle cx="461.7" cy="229.6" r="3" fill="#38bdf8"/>
-  <circle cx="482.2" cy="228.2" r="3" fill="#38bdf8"/>
-  <circle cx="502.1" cy="231.0" r="3" fill="#38bdf8"/>
-  <circle cx="522.3" cy="231.8" r="3" fill="#38bdf8"/>
-  <circle cx="535.3" cy="228.8" r="3" fill="#38bdf8"/>
-  <circle cx="550.9" cy="230.1" r="3" fill="#38bdf8"/>
-  <circle cx="567.9" cy="229.2" r="3" fill="#38bdf8"/>
-  <circle cx="592.4" cy="229.6" r="3" fill="#38bdf8"/>
-  <circle cx="611.4" cy="230.9" r="3" fill="#38bdf8"/>
-  <circle cx="627.8" cy="229.5" r="3" fill="#38bdf8"/>
-  <circle cx="644.7" cy="230.2" r="3" fill="#38bdf8"/>
-  <circle cx="413.8" cy="215.0" r="3" fill="#38bdf8"/>
-  <circle cx="414.3" cy="206.0" r="3" fill="#38bdf8"/>
-  <circle cx="412.1" cy="197.0" r="3" fill="#38bdf8"/>
-  <circle cx="413.0" cy="188.0" r="3" fill="#38bdf8"/>
-  <circle cx="410.3" cy="179.0" r="3" fill="#38bdf8"/>
-  <circle cx="413.2" cy="170.0" r="3" fill="#38bdf8"/>
-  <circle cx="412.9" cy="161.0" r="3" fill="#38bdf8"/>
-  <circle cx="414.5" cy="152.0" r="3" fill="#38bdf8"/>
-  <circle cx="413.7" cy="143.0" r="3" fill="#38bdf8"/>
-  <circle cx="419.0" cy="143.8" r="3" fill="#38bdf8"/>
-  <circle cx="428.0" cy="143.4" r="3" fill="#38bdf8"/>
-  <circle cx="437.0" cy="142.4" r="3" fill="#38bdf8"/>
-  <circle cx="446.0" cy="144.7" r="3" fill="#38bdf8"/>
-  <circle cx="455.0" cy="143.1" r="3" fill="#38bdf8"/>
-  <circle cx="464.0" cy="144.2" r="3" fill="#38bdf8"/>
-  <circle cx="118.0" cy="230.0" r="6" fill="none" stroke="#f87171" stroke-width="2"/>
-  <circle cx="412.9" cy="161.0" r="6" fill="none" stroke="#f87171" stroke-width="2"/>
-  <circle cx="154.1" cy="232.0" r="6" fill="none" stroke="#34d399" stroke-width="2"/>
-  <circle cx="522.3" cy="231.8" r="6" fill="none" stroke="#34d399" stroke-width="2"/>
+  <rect x="50.0" y="224.0" width="615.0" height="12.0" fill="#7fc4a2" fill-opacity="0.12"/>
+  <line x1="65.0" y1="242.4" x2="440.0" y2="154.7" stroke="#d88b8b" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <line x1="50.0" y1="232.0" x2="665.0" y2="231.8" stroke="#7fc4a2" stroke-width="1.8"/>
+  <circle cx="66.4" cy="231.7" r="3" fill="#7cb4d8"/>
+  <circle cx="87.4" cy="232.1" r="3" fill="#7cb4d8"/>
+  <circle cx="104.3" cy="230.6" r="3" fill="#7cb4d8"/>
+  <circle cx="118.0" cy="230.0" r="3" fill="#7cb4d8"/>
+  <circle cx="135.8" cy="230.3" r="3" fill="#7cb4d8"/>
+  <circle cx="154.1" cy="232.0" r="3" fill="#7cb4d8"/>
+  <circle cx="175.3" cy="228.4" r="3" fill="#7cb4d8"/>
+  <circle cx="190.6" cy="231.3" r="3" fill="#7cb4d8"/>
+  <circle cx="213.1" cy="227.9" r="3" fill="#7cb4d8"/>
+  <circle cx="230.7" cy="230.5" r="3" fill="#7cb4d8"/>
+  <circle cx="252.3" cy="232.2" r="3" fill="#7cb4d8"/>
+  <circle cx="269.2" cy="231.0" r="3" fill="#7cb4d8"/>
+  <circle cx="280.8" cy="231.8" r="3" fill="#7cb4d8"/>
+  <circle cx="300.3" cy="228.5" r="3" fill="#7cb4d8"/>
+  <circle cx="317.1" cy="229.6" r="3" fill="#7cb4d8"/>
+  <circle cx="339.3" cy="230.6" r="3" fill="#7cb4d8"/>
+  <circle cx="356.4" cy="232.1" r="3" fill="#7cb4d8"/>
+  <circle cx="370.0" cy="231.4" r="3" fill="#7cb4d8"/>
+  <circle cx="393.6" cy="230.3" r="3" fill="#7cb4d8"/>
+  <circle cx="408.3" cy="229.6" r="3" fill="#7cb4d8"/>
+  <circle cx="427.6" cy="231.0" r="3" fill="#7cb4d8"/>
+  <circle cx="448.6" cy="229.0" r="3" fill="#7cb4d8"/>
+  <circle cx="461.7" cy="229.6" r="3" fill="#7cb4d8"/>
+  <circle cx="482.2" cy="228.2" r="3" fill="#7cb4d8"/>
+  <circle cx="502.1" cy="231.0" r="3" fill="#7cb4d8"/>
+  <circle cx="522.3" cy="231.8" r="3" fill="#7cb4d8"/>
+  <circle cx="535.3" cy="228.8" r="3" fill="#7cb4d8"/>
+  <circle cx="550.9" cy="230.1" r="3" fill="#7cb4d8"/>
+  <circle cx="567.9" cy="229.2" r="3" fill="#7cb4d8"/>
+  <circle cx="592.4" cy="229.6" r="3" fill="#7cb4d8"/>
+  <circle cx="611.4" cy="230.9" r="3" fill="#7cb4d8"/>
+  <circle cx="627.8" cy="229.5" r="3" fill="#7cb4d8"/>
+  <circle cx="644.7" cy="230.2" r="3" fill="#7cb4d8"/>
+  <circle cx="413.8" cy="215.0" r="3" fill="#7cb4d8"/>
+  <circle cx="414.3" cy="206.0" r="3" fill="#7cb4d8"/>
+  <circle cx="412.1" cy="197.0" r="3" fill="#7cb4d8"/>
+  <circle cx="413.0" cy="188.0" r="3" fill="#7cb4d8"/>
+  <circle cx="410.3" cy="179.0" r="3" fill="#7cb4d8"/>
+  <circle cx="413.2" cy="170.0" r="3" fill="#7cb4d8"/>
+  <circle cx="412.9" cy="161.0" r="3" fill="#7cb4d8"/>
+  <circle cx="414.5" cy="152.0" r="3" fill="#7cb4d8"/>
+  <circle cx="413.7" cy="143.0" r="3" fill="#7cb4d8"/>
+  <circle cx="419.0" cy="143.8" r="3" fill="#7cb4d8"/>
+  <circle cx="428.0" cy="143.4" r="3" fill="#7cb4d8"/>
+  <circle cx="437.0" cy="142.4" r="3" fill="#7cb4d8"/>
+  <circle cx="446.0" cy="144.7" r="3" fill="#7cb4d8"/>
+  <circle cx="455.0" cy="143.1" r="3" fill="#7cb4d8"/>
+  <circle cx="464.0" cy="144.2" r="3" fill="#7cb4d8"/>
+  <circle cx="118.0" cy="230.0" r="6" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="412.9" cy="161.0" r="6" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="154.1" cy="232.0" r="6" fill="none" stroke="#7fc4a2" stroke-width="2"/>
+  <circle cx="522.3" cy="231.8" r="6" fill="none" stroke="#7fc4a2" stroke-width="2"/>
   <text x="425.0" y="129.0" fill="#94a3b8" font-size="12" text-anchor="middle">차</text>
-  <text x="140.0" y="134.0" fill="#f87171" font-size="13" text-anchor="start" font-weight="600">후보 ①: inlier 6개</text>
+  <text x="140.0" y="134.0" fill="#d88b8b" font-size="13" text-anchor="start" font-weight="600">후보 ①: inlier 6개</text>
   <text x="140.0" y="152.0" fill="#94a3b8" font-size="11" text-anchor="start">땅 점 하나와 차 점 하나를 뽑아 기울어진 평면</text>
-  <text x="485.0" y="185.0" fill="#34d399" font-size="13" text-anchor="start" font-weight="600">후보 ②: inlier 33개</text>
+  <text x="485.0" y="185.0" fill="#7fc4a2" font-size="13" text-anchor="start" font-weight="600">후보 ②: inlier 33개</text>
   <text x="485.0" y="203.0" fill="#94a3b8" font-size="11" text-anchor="start">땅 점만 뽑은 평면 → 채택</text>
   <text x="360.0" y="290.0" fill="#94a3b8" font-size="11" text-anchor="middle">평면에서 0.1 m 안에 드는 점(초록 띠)을 inlier 로 센다. 실제로는 3D 점 3개로 평면을 정하고, 그림은 그 평면을 옆에서 본 선이다</text>
   <text x="360.0" y="308.0" fill="#94a3b8" font-size="11" text-anchor="middle">채택한 평면의 inlier 는 땅으로 지우고, 나머지 점(차)만 다음 단계로 넘긴다</text>

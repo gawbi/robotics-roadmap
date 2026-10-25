@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>네 설정의 확률 구간과 random number 0.75</title>
   <defs>
-<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+<marker id="a38bdf8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+<marker id="af59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+<marker id="a34d399" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+<marker id="af87171" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+<marker id="aa78bfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
 <marker id="a94a3b8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
 <marker id="ae2e8f0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
   </defs>
@@ -24,49 +24,49 @@
   <line x1="430.0" y1="210.0" x2="430.0" y2="216.0" stroke="#e2e8f0" stroke-width="1.8"/>
   <line x1="430.0" y1="240.0" x2="430.0" y2="246.0" stroke="#e2e8f0" stroke-width="1.8"/>
   <text x="88.0" y="60.0" fill="#e2e8f0" font-size="13" text-anchor="end">τ = 1</text>
-  <rect x="100.0" y="36.0" width="268.0" height="36.0" rx="0" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="100.0" y="36.0" width="268.0" height="36.0" rx="0" fill="#7cb4d8" fill-opacity="0.3" stroke="#7cb4d8" stroke-width="1"/>
   <text x="234.0" y="52.0" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
   <text x="234.0" y="66.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.609</text>
-  <rect x="368.0" y="36.0" width="98.6" height="36.0" rx="0" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="368.0" y="36.0" width="98.6" height="36.0" rx="0" fill="#d6aa62" fill-opacity="0.3" stroke="#d6aa62" stroke-width="1"/>
   <text x="417.2" y="52.0" fill="#e2e8f0" font-size="12" text-anchor="middle">놓아</text>
   <text x="417.2" y="66.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.224</text>
-  <rect x="466.5" y="36.0" width="59.8" height="36.0" rx="0" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <rect x="466.5" y="36.0" width="59.8" height="36.0" rx="0" fill="#7fc4a2" fill-opacity="0.3" stroke="#7fc4a2" stroke-width="1"/>
   <text x="496.4" y="52.0" fill="#e2e8f0" font-size="12" text-anchor="middle">밀어</text>
   <text x="496.4" y="66.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.136</text>
-  <rect x="526.4" y="36.0" width="13.2" height="36.0" rx="0" fill="#f87171" fill-opacity="0.3" stroke="#f87171" stroke-width="1"/>
-  <text x="554.0" y="60.0" fill="#34d399" font-size="13" text-anchor="start">→ 놓아</text>
+  <rect x="526.4" y="36.0" width="13.2" height="36.0" rx="0" fill="#d88b8b" fill-opacity="0.3" stroke="#d88b8b" stroke-width="1"/>
+  <text x="554.0" y="60.0" fill="#7fc4a2" font-size="13" text-anchor="start">→ 놓아</text>
   <text x="88.0" y="118.0" fill="#e2e8f0" font-size="13" text-anchor="end">τ = 0.5</text>
-  <rect x="100.0" y="94.0" width="370.5" height="36.0" rx="0" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="100.0" y="94.0" width="370.5" height="36.0" rx="0" fill="#7cb4d8" fill-opacity="0.3" stroke="#7cb4d8" stroke-width="1"/>
   <text x="285.2" y="110.0" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
   <text x="285.2" y="124.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.842</text>
-  <rect x="470.5" y="94.0" width="50.2" height="36.0" rx="0" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="470.5" y="94.0" width="50.2" height="36.0" rx="0" fill="#d6aa62" fill-opacity="0.3" stroke="#d6aa62" stroke-width="1"/>
   <text x="495.6" y="110.0" fill="#e2e8f0" font-size="12" text-anchor="middle">놓아</text>
   <text x="495.6" y="124.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.114</text>
-  <rect x="520.6" y="94.0" width="18.5" height="36.0" rx="0" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
-  <rect x="539.1" y="94.0" width="0.9" height="36.0" rx="0" fill="#f87171" fill-opacity="0.3" stroke="#f87171" stroke-width="1"/>
-  <text x="554.0" y="118.0" fill="#34d399" font-size="13" text-anchor="start">→ 집어</text>
+  <rect x="520.6" y="94.0" width="18.5" height="36.0" rx="0" fill="#7fc4a2" fill-opacity="0.3" stroke="#7fc4a2" stroke-width="1"/>
+  <rect x="539.1" y="94.0" width="0.9" height="36.0" rx="0" fill="#d88b8b" fill-opacity="0.3" stroke="#d88b8b" stroke-width="1"/>
+  <text x="554.0" y="118.0" fill="#7fc4a2" font-size="13" text-anchor="start">→ 집어</text>
   <text x="88.0" y="176.0" fill="#e2e8f0" font-size="13" text-anchor="end">τ = 2</text>
-  <rect x="100.0" y="152.0" width="191.0" height="36.0" rx="0" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="100.0" y="152.0" width="191.0" height="36.0" rx="0" fill="#7cb4d8" fill-opacity="0.3" stroke="#7cb4d8" stroke-width="1"/>
   <text x="195.5" y="168.0" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
   <text x="195.5" y="182.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.434</text>
-  <rect x="291.0" y="152.0" width="115.7" height="36.0" rx="0" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="291.0" y="152.0" width="115.7" height="36.0" rx="0" fill="#d6aa62" fill-opacity="0.3" stroke="#d6aa62" stroke-width="1"/>
   <text x="348.8" y="168.0" fill="#e2e8f0" font-size="12" text-anchor="middle">놓아</text>
   <text x="348.8" y="182.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.263</text>
-  <rect x="406.7" y="152.0" width="90.2" height="36.0" rx="0" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1"/>
+  <rect x="406.7" y="152.0" width="90.2" height="36.0" rx="0" fill="#7fc4a2" fill-opacity="0.3" stroke="#7fc4a2" stroke-width="1"/>
   <text x="451.8" y="168.0" fill="#e2e8f0" font-size="12" text-anchor="middle">밀어</text>
   <text x="451.8" y="182.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.205</text>
-  <rect x="496.9" y="152.0" width="42.7" height="36.0" rx="0" fill="#f87171" fill-opacity="0.3" stroke="#f87171" stroke-width="1"/>
+  <rect x="496.9" y="152.0" width="42.7" height="36.0" rx="0" fill="#d88b8b" fill-opacity="0.3" stroke="#d88b8b" stroke-width="1"/>
   <text x="518.2" y="168.0" fill="#e2e8f0" font-size="12" text-anchor="middle">던져</text>
   <text x="518.2" y="182.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.097</text>
-  <text x="554.0" y="176.0" fill="#34d399" font-size="13" text-anchor="start">→ 밀어</text>
+  <text x="554.0" y="176.0" fill="#7fc4a2" font-size="13" text-anchor="start">→ 밀어</text>
   <text x="88.0" y="234.0" fill="#e2e8f0" font-size="13" text-anchor="end">top-2</text>
-  <rect x="100.0" y="210.0" width="321.6" height="36.0" rx="0" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="100.0" y="210.0" width="321.6" height="36.0" rx="0" fill="#7cb4d8" fill-opacity="0.3" stroke="#7cb4d8" stroke-width="1"/>
   <text x="260.8" y="226.0" fill="#e2e8f0" font-size="12" text-anchor="middle">집어</text>
   <text x="260.8" y="240.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.731</text>
-  <rect x="421.6" y="210.0" width="118.4" height="36.0" rx="0" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="421.6" y="210.0" width="118.4" height="36.0" rx="0" fill="#d6aa62" fill-opacity="0.3" stroke="#d6aa62" stroke-width="1"/>
   <text x="480.8" y="226.0" fill="#e2e8f0" font-size="12" text-anchor="middle">놓아</text>
   <text x="480.8" y="240.0" fill="#94a3b8" font-size="10" text-anchor="middle">0.269</text>
-  <text x="554.0" y="234.0" fill="#34d399" font-size="13" text-anchor="start">→ 놓아</text>
+  <text x="554.0" y="234.0" fill="#7fc4a2" font-size="13" text-anchor="start">→ 놓아</text>
   <text x="430.0" y="288.0" fill="#e2e8f0" font-size="12" text-anchor="middle">random number 0.75</text>
   <text x="100.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">0</text>
   <text x="320.0" y="288.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>

@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>impedance control 과 admittance control 의 구조. impedance control 은 잰 위치와 속도로 낼 힘을 계산해 τ = JᵀF 로 joint torque 를 내고, admittance control 은 손목 F/T sensor 로 잰 힘으로 움직일 위치를 계산해 position controller 에 넘긴다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="360.0" y="30.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">impedance control 과 admittance control</text>
-  <text x="30.0" y="58.0" fill="#34d399" font-size="13" text-anchor="start" font-weight="600">impedance control (Franka 처럼 torque 를 직접 내는 팔)</text>
-  <rect x="30" y="80" width="120" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="30.0" y="58.0" fill="#7fc4a2" font-size="13" text-anchor="start" font-weight="600">impedance control (Franka 처럼 torque 를 직접 내는 팔)</text>
+  <rect x="30" y="80" width="120" height="44" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="90.0" y="107.0" fill="#e2e8f0" font-size="12" text-anchor="middle">목표 x_d, K, D</text>
-  <rect x="184" y="80" width="160" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="184" y="80" width="160" height="44" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="264.0" y="107.0" fill="#e2e8f0" font-size="12" text-anchor="middle">F = K(x_d − x) − Dẋ</text>
-  <rect x="378" y="80" width="140" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="378" y="80" width="140" height="44" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="448.0" y="107.0" fill="#e2e8f0" font-size="12" text-anchor="middle">τ = JᵀF + gravity</text>
-  <rect x="552" y="80" width="120" height="44" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="552" y="80" width="120" height="44" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="612.0" y="107.0" fill="#e2e8f0" font-size="12" text-anchor="middle">팔과 환경</text>
   <line x1="150.0" y1="102.0" x2="182.0" y2="102.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="344.0" y1="102.0" x2="376.0" y2="102.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="518.0" y1="102.0" x2="550.0" y2="102.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <path d="M612.0,124 L612.0,144 L90.0,144 L90.0,126" fill="none" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
   <text x="391.0" y="160.0" fill="#94a3b8" font-size="11" text-anchor="middle">encoder 로 잰 위치 x 와 속도 ẋ 를 되돌린다 (움직임 → 힘)</text>
-  <text x="30.0" y="193.0" fill="#38bdf8" font-size="13" text-anchor="start" font-weight="600">admittance control (position 제어 팔 + F/T sensor)</text>
-  <rect x="30" y="215" width="150" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="30.0" y="193.0" fill="#7cb4d8" font-size="13" text-anchor="start" font-weight="600">admittance control (position 제어 팔 + F/T sensor)</text>
+  <rect x="30" y="215" width="150" height="44" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="105.0" y="242.0" fill="#e2e8f0" font-size="12" text-anchor="middle">F/T sensor 가 잰 힘 F</text>
-  <rect x="214" y="215" width="180" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="214" y="215" width="180" height="44" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="304.0" y="242.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Mẍ + Dẋ + K(x − x_d) = F</text>
-  <rect x="428" y="215" width="140" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="428" y="215" width="140" height="44" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="498.0" y="242.0" fill="#e2e8f0" font-size="12" text-anchor="middle">position controller</text>
-  <rect x="602" y="215" width="100" height="44" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="602" y="215" width="100" height="44" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="652.0" y="242.0" fill="#e2e8f0" font-size="12" text-anchor="middle">팔과 환경</text>
   <line x1="180.0" y1="237.0" x2="212.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="394.0" y1="237.0" x2="426.0" y2="237.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>

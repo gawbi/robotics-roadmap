@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>SAC 의 target 계산 예. 다음 state 에서 actor 가 확률 0.5 인 action 을 뽑고, target critic 두 개의 값 1.0 과 0.9 가운데 작은 0.9 에 entropy bonus 0.069 를 더한 0.969 를 γ = 0.9 로 깎아 reward 0 에 더하면 target 은 0.872 다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="678" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="20.0" y="40.0" width="190.0" height="92.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="115.0" y="64.0" fill="#f59e0b" font-size="14" text-anchor="middle">① 다음 action 뽑기</text>
+  <rect x="20.0" y="40.0" width="190.0" height="92.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="115.0" y="64.0" fill="#d6aa62" font-size="14" text-anchor="middle">① 다음 action 뽑기</text>
   <text x="115.0" y="86.0" fill="#e2e8f0" font-size="12" text-anchor="middle">actor 가 s′ 에서 a′ 를 뽑음</text>
-  <text x="115.0" y="108.0" fill="#f59e0b" font-size="12" text-anchor="middle">π(a′ | s′) = 0.5</text>
-  <rect x="245.0" y="40.0" width="200.0" height="92.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="345.0" y="64.0" fill="#38bdf8" font-size="14" text-anchor="middle">② target critic 두 개</text>
+  <text x="115.0" y="108.0" fill="#d6aa62" font-size="12" text-anchor="middle">π(a′ | s′) = 0.5</text>
+  <rect x="245.0" y="40.0" width="200.0" height="92.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="345.0" y="64.0" fill="#7cb4d8" font-size="14" text-anchor="middle">② target critic 두 개</text>
   <text x="345.0" y="86.0" fill="#e2e8f0" font-size="12" text-anchor="middle"><tspan text-decoration="overline">Q</tspan>₁ = 1.0, <tspan text-decoration="overline">Q</tspan>₂ = 0.9</text>
-  <text x="345.0" y="108.0" fill="#38bdf8" font-size="12" text-anchor="middle">작은 값 0.9</text>
-  <rect x="480.0" y="40.0" width="180.0" height="92.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
-  <text x="570.0" y="64.0" fill="#a78bfa" font-size="14" text-anchor="middle">③ entropy bonus</text>
+  <text x="345.0" y="108.0" fill="#7cb4d8" font-size="12" text-anchor="middle">작은 값 0.9</text>
+  <rect x="480.0" y="40.0" width="180.0" height="92.0" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
+  <text x="570.0" y="64.0" fill="#a99ad6" font-size="14" text-anchor="middle">③ entropy bonus</text>
   <text x="570.0" y="86.0" fill="#e2e8f0" font-size="12" text-anchor="middle">−α log π(a′ | s′)</text>
-  <text x="570.0" y="108.0" fill="#a78bfa" font-size="12" text-anchor="middle">−0.1 × (−0.693) = 0.069</text>
+  <text x="570.0" y="108.0" fill="#a99ad6" font-size="12" text-anchor="middle">−0.1 × (−0.693) = 0.069</text>
   <line x1="212.0" y1="86.0" x2="241.0" y2="86.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
   <line x1="570.0" y1="134.0" x2="420.0" y2="176.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
   <line x1="345.0" y1="134.0" x2="345.0" y2="172.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
   <rect x="230.0" y="176.0" width="230.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="345.0" y="201.0" fill="#e2e8f0" font-size="12" text-anchor="middle">다음 state 의 값 0.9 + 0.069 = 0.969</text>
   <line x1="345.0" y1="218.0" x2="345.0" y2="236.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-muted)"/>
-  <rect x="150.0" y="240.0" width="390.0" height="44.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
-  <text x="345.0" y="267.0" fill="#34d399" font-size="14" text-anchor="middle">y = r + γ × 0.969 = 0 + 0.9 × 0.969 = 0.872</text>
+  <rect x="150.0" y="240.0" width="390.0" height="44.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="345.0" y="267.0" fill="#7fc4a2" font-size="14" text-anchor="middle">y = r + γ × 0.969 = 0 + 0.9 × 0.969 = 0.872</text>
 </svg>

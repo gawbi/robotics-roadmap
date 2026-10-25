@@ -2,37 +2,37 @@
   <title>min-max 정규화. 시연의 최솟값 −20° 를 −1, 최댓값 +20° 를 +1 로 옮기면 10° 는 0.5, 0° 는 0 이 된다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
     <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="208" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <line x1="70.0" y1="60.0" x2="530.0" y2="60.0" stroke="#f59e0b" stroke-width="2"/>
-  <line x1="70.0" y1="54.0" x2="70.0" y2="66.0" stroke="#f59e0b" stroke-width="2"/>
-  <text x="70.0" y="46.0" fill="#f59e0b" font-size="13" text-anchor="middle">−20°</text>
-  <line x1="185.0" y1="54.0" x2="185.0" y2="66.0" stroke="#f59e0b" stroke-width="2"/>
-  <text x="185.0" y="46.0" fill="#f59e0b" font-size="13" text-anchor="middle">−10°</text>
-  <line x1="300.0" y1="54.0" x2="300.0" y2="66.0" stroke="#f59e0b" stroke-width="2"/>
-  <text x="300.0" y="46.0" fill="#f59e0b" font-size="13" text-anchor="middle">0°</text>
-  <line x1="415.0" y1="54.0" x2="415.0" y2="66.0" stroke="#f59e0b" stroke-width="2"/>
-  <text x="415.0" y="46.0" fill="#f59e0b" font-size="13" text-anchor="middle">+10°</text>
-  <line x1="530.0" y1="54.0" x2="530.0" y2="66.0" stroke="#f59e0b" stroke-width="2"/>
-  <text x="530.0" y="46.0" fill="#f59e0b" font-size="13" text-anchor="middle">+20°</text>
-  <text x="40.0" y="64.0" fill="#f59e0b" font-size="12" text-anchor="end">각도</text>
-  <line x1="70.0" y1="130.0" x2="530.0" y2="130.0" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="70.0" y1="124.0" x2="70.0" y2="136.0" stroke="#38bdf8" stroke-width="2"/>
-  <text x="70.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="middle">−1</text>
-  <line x1="185.0" y1="124.0" x2="185.0" y2="136.0" stroke="#38bdf8" stroke-width="2"/>
-  <text x="185.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="middle">−0.5</text>
-  <line x1="300.0" y1="124.0" x2="300.0" y2="136.0" stroke="#38bdf8" stroke-width="2"/>
-  <text x="300.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="middle">0</text>
-  <line x1="415.0" y1="124.0" x2="415.0" y2="136.0" stroke="#38bdf8" stroke-width="2"/>
-  <text x="415.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="middle">+0.5</text>
-  <line x1="530.0" y1="124.0" x2="530.0" y2="136.0" stroke="#38bdf8" stroke-width="2"/>
-  <text x="530.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="middle">+1</text>
-  <text x="40.0" y="134.0" fill="#38bdf8" font-size="12" text-anchor="end">정규화</text>
+  <line x1="70.0" y1="60.0" x2="530.0" y2="60.0" stroke="#d6aa62" stroke-width="2"/>
+  <line x1="70.0" y1="54.0" x2="70.0" y2="66.0" stroke="#d6aa62" stroke-width="2"/>
+  <text x="70.0" y="46.0" fill="#d6aa62" font-size="13" text-anchor="middle">−20°</text>
+  <line x1="185.0" y1="54.0" x2="185.0" y2="66.0" stroke="#d6aa62" stroke-width="2"/>
+  <text x="185.0" y="46.0" fill="#d6aa62" font-size="13" text-anchor="middle">−10°</text>
+  <line x1="300.0" y1="54.0" x2="300.0" y2="66.0" stroke="#d6aa62" stroke-width="2"/>
+  <text x="300.0" y="46.0" fill="#d6aa62" font-size="13" text-anchor="middle">0°</text>
+  <line x1="415.0" y1="54.0" x2="415.0" y2="66.0" stroke="#d6aa62" stroke-width="2"/>
+  <text x="415.0" y="46.0" fill="#d6aa62" font-size="13" text-anchor="middle">+10°</text>
+  <line x1="530.0" y1="54.0" x2="530.0" y2="66.0" stroke="#d6aa62" stroke-width="2"/>
+  <text x="530.0" y="46.0" fill="#d6aa62" font-size="13" text-anchor="middle">+20°</text>
+  <text x="40.0" y="64.0" fill="#d6aa62" font-size="12" text-anchor="end">각도</text>
+  <line x1="70.0" y1="130.0" x2="530.0" y2="130.0" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="70.0" y1="124.0" x2="70.0" y2="136.0" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="70.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="middle">−1</text>
+  <line x1="185.0" y1="124.0" x2="185.0" y2="136.0" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="185.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="middle">−0.5</text>
+  <line x1="300.0" y1="124.0" x2="300.0" y2="136.0" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="300.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="middle">0</text>
+  <line x1="415.0" y1="124.0" x2="415.0" y2="136.0" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="415.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="middle">+0.5</text>
+  <line x1="530.0" y1="124.0" x2="530.0" y2="136.0" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="530.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="middle">+1</text>
+  <text x="40.0" y="134.0" fill="#7cb4d8" font-size="12" text-anchor="end">정규화</text>
   <line x1="70.0" y1="68.0" x2="70.0" y2="122.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
   <line x1="185.0" y1="68.0" x2="185.0" y2="122.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
   <line x1="300.0" y1="68.0" x2="300.0" y2="122.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4 4"/>

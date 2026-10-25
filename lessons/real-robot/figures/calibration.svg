@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>예로 든 calibration 두 번. 처음에는 shoulder_pan 의 범위가 raw 1000 ~ 3000 으로 기록되어 가운데 2000 이 0° 이고, 다시 할 때 한쪽 끝을 100 칸 덜 돌려 1000 ~ 2900 이 기록되면 가운데가 1950 으로 옮겨 간다. 같은 자세 raw 2500 이 43.96° 와 48.35° 로 4.4° 다르게 읽히고, 30 cm 떨어진 집게 끝에서는 약 2.3 cm 차이다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="20" y="30" fill="#94a3b8" font-size="13" text-anchor="start">shoulder_pan 의 encoder 값 (raw 0 ~ 4095, 한 바퀴)</text>
-  <text x="20" y="64" fill="#38bdf8" font-size="13" text-anchor="start" font-weight="600">처음 calibration</text>
+  <text x="20" y="64" fill="#7cb4d8" font-size="13" text-anchor="start" font-weight="600">처음 calibration</text>
   <rect x="70" y="78" width="520" height="22" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-  <rect x="196.984126984127" y="78" width="253.96825396825398" height="22" rx="4" fill="#38bdf833" stroke="#38bdf8" stroke-width="1.8"/>
-  <text x="196.984126984127" y="118" fill="#38bdf8" font-size="11.5" text-anchor="middle">1000</text>
-  <text x="450.95238095238096" y="118" fill="#38bdf8" font-size="11.5" text-anchor="middle">3000</text>
-  <line x1="323.968253968254" y1="72" x2="323.968253968254" y2="106" stroke="#38bdf8" stroke-width="2"/>
-  <text x="323.968253968254" y="118" fill="#38bdf8" font-size="11.5" text-anchor="middle">가운데 2000 = 0°</text>
+  <rect x="196.984126984127" y="78" width="253.96825396825398" height="22" rx="4" fill="#38bdf833" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="196.984126984127" y="118" fill="#7cb4d8" font-size="11.5" text-anchor="middle">1000</text>
+  <text x="450.95238095238096" y="118" fill="#7cb4d8" font-size="11.5" text-anchor="middle">3000</text>
+  <line x1="323.968253968254" y1="72" x2="323.968253968254" y2="106" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="323.968253968254" y="118" fill="#7cb4d8" font-size="11.5" text-anchor="middle">가운데 2000 = 0°</text>
   <text x="395.46031746031747" y="70" fill="#e2e8f0" font-size="12.5" text-anchor="start">읽은 값 43.96°</text>
-  <text x="20" y="164" fill="#f59e0b" font-size="13" text-anchor="start" font-weight="600">다시 한 calibration</text>
+  <text x="20" y="164" fill="#d6aa62" font-size="13" text-anchor="start" font-weight="600">다시 한 calibration</text>
   <rect x="70" y="178" width="520" height="22" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-  <rect x="196.984126984127" y="178" width="241.26984126984127" height="22" rx="4" fill="#f59e0b33" stroke="#f59e0b" stroke-width="1.8"/>
-  <text x="196.984126984127" y="218" fill="#f59e0b" font-size="11.5" text-anchor="middle">1000</text>
-  <text x="438.25396825396825" y="218" fill="#f59e0b" font-size="11.5" text-anchor="end">2900</text>
-  <line x1="317.6190476190476" y1="172" x2="317.6190476190476" y2="206" stroke="#f59e0b" stroke-width="2"/>
-  <text x="317.6190476190476" y="218" fill="#f59e0b" font-size="11.5" text-anchor="middle">가운데 1950 = 0°</text>
+  <rect x="196.984126984127" y="178" width="241.26984126984127" height="22" rx="4" fill="#f59e0b33" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="196.984126984127" y="218" fill="#d6aa62" font-size="11.5" text-anchor="middle">1000</text>
+  <text x="438.25396825396825" y="218" fill="#d6aa62" font-size="11.5" text-anchor="end">2900</text>
+  <line x1="317.6190476190476" y1="172" x2="317.6190476190476" y2="206" stroke="#d6aa62" stroke-width="2"/>
+  <text x="317.6190476190476" y="218" fill="#d6aa62" font-size="11.5" text-anchor="middle">가운데 1950 = 0°</text>
   <text x="395.46031746031747" y="170" fill="#e2e8f0" font-size="12.5" text-anchor="start">읽은 값 48.35°</text>
-  <line x1="387.46031746031747" y1="60" x2="387.46031746031747" y2="210" stroke="#34d399" stroke-width="2" stroke-dasharray="5 4"/>
-  <text x="387.46031746031747" y="54" fill="#34d399" font-size="12" text-anchor="middle">같은 자세 (raw 2500)</text>
-  <rect x="438.25396825396825" y="178" width="12.69841269841271" height="22" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <text x="452.25396825396825" y="218" fill="#f59e0b" font-size="11.5" text-anchor="start">← 끝을 100 칸(약 8.8°) 덜 돌림</text>
+  <line x1="387.46031746031747" y1="60" x2="387.46031746031747" y2="210" stroke="#7fc4a2" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="387.46031746031747" y="54" fill="#7fc4a2" font-size="12" text-anchor="middle">같은 자세 (raw 2500)</text>
+  <rect x="438.25396825396825" y="178" width="12.69841269841271" height="22" rx="3" fill="none" stroke="#d6aa62" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="452.25396825396825" y="218" fill="#d6aa62" font-size="11.5" text-anchor="start">← 끝을 100 칸(약 8.8°) 덜 돌림</text>
   <text x="320.0" y="270" fill="#e2e8f0" font-size="13" text-anchor="middle">같은 자세가 43.96° 와 48.35° 로 4.4° 다르게 읽힌다</text>
   <text x="320.0" y="293" fill="#94a3b8" font-size="12" text-anchor="middle">(raw − 가운데) × 360 ÷ 4095 · 30 cm 떨어진 집게 끝에서 약 2.3 cm</text>
 </svg>

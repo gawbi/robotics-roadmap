@@ -10,7 +10,7 @@
   </g>
 
   <text x="24" y="92" fill="#94a3b8" font-size="13">예측 V(s)</text>
-  <g font-size="15" fill="#38bdf8" text-anchor="middle">
+  <g font-size="15" fill="#7cb4d8" text-anchor="middle">
     <text x="170" y="92">0.3</text><text x="310" y="92">0.3</text><text x="450" y="92">0.8</text><text x="590" y="92">0.9</text>
   </g>
   <text x="24" y="124" fill="#94a3b8" font-size="13">reward</text>
@@ -26,10 +26,10 @@
   <line x1="110" y1="300" x2="670" y2="300" stroke="#475569" stroke-width="1.5"/>
   <text x="24" y="250" fill="#94a3b8" font-size="13">GAE</text>
   <text x="24" y="268" fill="#94a3b8" font-size="13">γλ = 0.5</text>
-  <rect x="140" y="254" width="60" height="46" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
-  <rect x="280" y="208" width="60" height="92" rx="3" fill="#f59e0b"/>
-  <rect x="420" y="276" width="60" height="24" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
-  <rect x="560" y="284" width="60" height="16" rx="3" fill="#f59e0b" fill-opacity="0.8"/>
+  <rect x="140" y="254" width="60" height="46" rx="3" fill="#d6aa62" fill-opacity="0.8"/>
+  <rect x="280" y="208" width="60" height="92" rx="3" fill="#d6aa62"/>
+  <rect x="420" y="276" width="60" height="24" rx="3" fill="#d6aa62" fill-opacity="0.8"/>
+  <rect x="560" y="284" width="60" height="16" rx="3" fill="#d6aa62" fill-opacity="0.8"/>
   <g font-size="14" fill="#e2e8f0" text-anchor="middle">
     <text x="170" y="246">0.2875</text><text x="310" y="200">0.575</text><text x="450" y="268">0.15</text><text x="590" y="276">0.1</text>
   </g>

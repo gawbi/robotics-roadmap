@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>미끄러운 바닥에서 target 이 1, 1, −1, 1, 1 로 들어올 때의 Q. α = 1 은 마지막 target 으로 매번 뛰고, α = 0.5 는 덜 흔들리며, α = 1/n 은 다섯 target 의 평균 0.6 이 된다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="638" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="74.0" y1="250.8" x2="480.0" y2="250.8" stroke="#1e293b" stroke-width="1"/>
   <text x="68.0" y="254.8" fill="#64748b" font-size="12" text-anchor="end">−1</text>
@@ -19,43 +19,43 @@
   <text x="392.0" y="292.0" fill="#94a3b8" font-size="12" text-anchor="middle">4</text>
   <text x="470.0" y="292.0" fill="#94a3b8" font-size="12" text-anchor="middle">5</text>
   <text x="275.0" y="314.0" fill="#94a3b8" font-size="12" text-anchor="middle">겪은 순서</text>
-  <circle cx="158.0" cy="59.2" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="236.0" cy="59.2" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="314.0" cy="250.8" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="392.0" cy="59.2" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="470.0" cy="59.2" r="7" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <polyline points="80.0,155.0 158.0,59.2 236.0,59.2 314.0,250.8 392.0,59.2 470.0,59.2" fill="none" stroke="#f87171" stroke-width="2.2"/>
-  <circle cx="80.0" cy="155.0" r="3.5" fill="#f87171"/>
-  <circle cx="158.0" cy="59.2" r="3.5" fill="#f87171"/>
-  <circle cx="236.0" cy="59.2" r="3.5" fill="#f87171"/>
-  <circle cx="314.0" cy="250.8" r="3.5" fill="#f87171"/>
-  <circle cx="392.0" cy="59.2" r="3.5" fill="#f87171"/>
-  <circle cx="470.0" cy="59.2" r="3.5" fill="#f87171"/>
-  <polyline points="80.0,155.0 158.0,107.1 236.0,83.1 314.0,167.0 392.0,113.1 470.0,86.1" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
-  <circle cx="80.0" cy="155.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="158.0" cy="107.1" r="3.5" fill="#38bdf8"/>
-  <circle cx="236.0" cy="83.1" r="3.5" fill="#38bdf8"/>
-  <circle cx="314.0" cy="167.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="392.0" cy="113.1" r="3.5" fill="#38bdf8"/>
-  <circle cx="470.0" cy="86.1" r="3.5" fill="#38bdf8"/>
-  <polyline points="80.0,155.0 158.0,59.2 236.0,59.2 314.0,123.1 392.0,107.1 470.0,97.5" fill="none" stroke="#34d399" stroke-width="2.2" stroke-dasharray="6 4"/>
-  <circle cx="80.0" cy="155.0" r="3.5" fill="#34d399"/>
-  <circle cx="158.0" cy="59.2" r="3.5" fill="#34d399"/>
-  <circle cx="236.0" cy="59.2" r="3.5" fill="#34d399"/>
-  <circle cx="314.0" cy="123.1" r="3.5" fill="#34d399"/>
-  <circle cx="392.0" cy="107.1" r="3.5" fill="#34d399"/>
-  <circle cx="470.0" cy="97.5" r="3.5" fill="#34d399"/>
+  <circle cx="158.0" cy="59.2" r="7" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="236.0" cy="59.2" r="7" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="314.0" cy="250.8" r="7" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="392.0" cy="59.2" r="7" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="470.0" cy="59.2" r="7" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <polyline points="80.0,155.0 158.0,59.2 236.0,59.2 314.0,250.8 392.0,59.2 470.0,59.2" fill="none" stroke="#d88b8b" stroke-width="2.2"/>
+  <circle cx="80.0" cy="155.0" r="3.5" fill="#d88b8b"/>
+  <circle cx="158.0" cy="59.2" r="3.5" fill="#d88b8b"/>
+  <circle cx="236.0" cy="59.2" r="3.5" fill="#d88b8b"/>
+  <circle cx="314.0" cy="250.8" r="3.5" fill="#d88b8b"/>
+  <circle cx="392.0" cy="59.2" r="3.5" fill="#d88b8b"/>
+  <circle cx="470.0" cy="59.2" r="3.5" fill="#d88b8b"/>
+  <polyline points="80.0,155.0 158.0,107.1 236.0,83.1 314.0,167.0 392.0,113.1 470.0,86.1" fill="none" stroke="#7cb4d8" stroke-width="2.2"/>
+  <circle cx="80.0" cy="155.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="158.0" cy="107.1" r="3.5" fill="#7cb4d8"/>
+  <circle cx="236.0" cy="83.1" r="3.5" fill="#7cb4d8"/>
+  <circle cx="314.0" cy="167.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="392.0" cy="113.1" r="3.5" fill="#7cb4d8"/>
+  <circle cx="470.0" cy="86.1" r="3.5" fill="#7cb4d8"/>
+  <polyline points="80.0,155.0 158.0,59.2 236.0,59.2 314.0,123.1 392.0,107.1 470.0,97.5" fill="none" stroke="#7fc4a2" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <circle cx="80.0" cy="155.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="158.0" cy="59.2" r="3.5" fill="#7fc4a2"/>
+  <circle cx="236.0" cy="59.2" r="3.5" fill="#7fc4a2"/>
+  <circle cx="314.0" cy="123.1" r="3.5" fill="#7fc4a2"/>
+  <circle cx="392.0" cy="107.1" r="3.5" fill="#7fc4a2"/>
+  <circle cx="470.0" cy="97.5" r="3.5" fill="#7fc4a2"/>
   <rect x="490.0" y="60.0" width="135.0" height="120.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.5"/>
-  <circle cx="506.0" cy="82.0" r="6" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <text x="520.0" y="86.0" fill="#f59e0b" font-size="12" text-anchor="start">target</text>
-  <line x1="500.0" y1="106.0" x2="520.0" y2="106.0" stroke="#f87171" stroke-width="2.5"/>
+  <circle cx="506.0" cy="82.0" r="6" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <text x="520.0" y="86.0" fill="#d6aa62" font-size="12" text-anchor="start">target</text>
+  <line x1="500.0" y1="106.0" x2="520.0" y2="106.0" stroke="#d88b8b" stroke-width="2.5"/>
   <text x="528.0" y="110.0" fill="#e2e8f0" font-size="12" text-anchor="start">α = 1</text>
-  <line x1="500.0" y1="130.0" x2="520.0" y2="130.0" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="500.0" y1="130.0" x2="520.0" y2="130.0" stroke="#7cb4d8" stroke-width="2.5"/>
   <text x="528.0" y="134.0" fill="#e2e8f0" font-size="12" text-anchor="start">α = 0.5</text>
-  <line x1="500.0" y1="154.0" x2="520.0" y2="154.0" stroke="#34d399" stroke-width="2.5"/>
+  <line x1="500.0" y1="154.0" x2="520.0" y2="154.0" stroke="#7fc4a2" stroke-width="2.5"/>
   <text x="528.0" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="start">α = 1/n</text>
   <text x="557.0" y="212.0" fill="#94a3b8" font-size="12" text-anchor="middle">5 번째 뒤 Q</text>
-  <text x="557.0" y="232.0" fill="#f87171" font-size="12" text-anchor="middle">α = 1: 1</text>
-  <text x="557.0" y="250.0" fill="#38bdf8" font-size="12" text-anchor="middle">α = 0.5: 0.72</text>
-  <text x="557.0" y="268.0" fill="#34d399" font-size="12" text-anchor="middle">α = 1/n: 0.6</text>
+  <text x="557.0" y="232.0" fill="#d88b8b" font-size="12" text-anchor="middle">α = 1: 1</text>
+  <text x="557.0" y="250.0" fill="#7cb4d8" font-size="12" text-anchor="middle">α = 0.5: 0.72</text>
+  <text x="557.0" y="268.0" fill="#7fc4a2" font-size="12" text-anchor="middle">α = 1/n: 0.6</text>
 </svg>

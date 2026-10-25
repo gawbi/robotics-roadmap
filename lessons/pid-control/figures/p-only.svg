@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>P 제어만 쓴 카트의 위치. Kp = 4 이면 0, 1, 2, 2, 1, 0 을 되풀이하며 목표 1 을 사이에 두고 끝없이 진동하고, Kp = 1 이면 더 느리게 같은 폭으로 진동한다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="308" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="40.0" width="450.0" height="200.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="60.0" y1="206.7" x2="510.0" y2="206.7" stroke="#475569" stroke-width="1.5"/>
@@ -20,40 +20,40 @@
   <text x="60.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="start">위치 x (m)</text>
   <line x1="60.0" y1="140.0" x2="510.0" y2="140.0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 5"/>
   <text x="518.0" y="144.0" fill="#94a3b8" font-size="12" text-anchor="start">목표 1</text>
-  <polyline points="60.0,206.7 92.1,190.0 124.3,160.8 156.4,126.5 188.6,95.5 220.7,75.6 252.9,71.9 285.0,85.1 317.1,112.1 349.3,146.1 381.4,178.5 413.6,201.3 445.7,208.8 477.9,199.1 510.0,174.6" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="206.7" r="3" fill="#a78bfa"/>
-  <circle cx="92.1" cy="190.0" r="3" fill="#a78bfa"/>
-  <circle cx="124.3" cy="160.8" r="3" fill="#a78bfa"/>
-  <circle cx="156.4" cy="126.5" r="3" fill="#a78bfa"/>
-  <circle cx="188.6" cy="95.5" r="3" fill="#a78bfa"/>
-  <circle cx="220.7" cy="75.6" r="3" fill="#a78bfa"/>
-  <circle cx="252.9" cy="71.9" r="3" fill="#a78bfa"/>
-  <circle cx="285.0" cy="85.1" r="3" fill="#a78bfa"/>
-  <circle cx="317.1" cy="112.1" r="3" fill="#a78bfa"/>
-  <circle cx="349.3" cy="146.1" r="3" fill="#a78bfa"/>
-  <circle cx="381.4" cy="178.5" r="3" fill="#a78bfa"/>
-  <circle cx="413.6" cy="201.3" r="3" fill="#a78bfa"/>
-  <circle cx="445.7" cy="208.8" r="3" fill="#a78bfa"/>
-  <circle cx="477.9" cy="199.1" r="3" fill="#a78bfa"/>
-  <circle cx="510.0" cy="174.6" r="3" fill="#a78bfa"/>
-  <polyline points="60.0,206.7 92.1,140.0 124.3,73.3 156.4,73.3 188.6,140.0 220.7,206.7 252.9,206.7 285.0,140.0 317.1,73.3 349.3,73.3 381.4,140.0 413.6,206.7 445.7,206.7 477.9,140.0 510.0,73.3" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="206.7" r="4" fill="#f59e0b"/>
-  <circle cx="92.1" cy="140.0" r="4" fill="#f59e0b"/>
-  <circle cx="124.3" cy="73.3" r="4" fill="#f59e0b"/>
-  <circle cx="156.4" cy="73.3" r="4" fill="#f59e0b"/>
-  <circle cx="188.6" cy="140.0" r="4" fill="#f59e0b"/>
-  <circle cx="220.7" cy="206.7" r="4" fill="#f59e0b"/>
-  <circle cx="252.9" cy="206.7" r="4" fill="#f59e0b"/>
-  <circle cx="285.0" cy="140.0" r="4" fill="#f59e0b"/>
-  <circle cx="317.1" cy="73.3" r="4" fill="#f59e0b"/>
-  <circle cx="349.3" cy="73.3" r="4" fill="#f59e0b"/>
-  <circle cx="381.4" cy="140.0" r="4" fill="#f59e0b"/>
-  <circle cx="413.6" cy="206.7" r="4" fill="#f59e0b"/>
-  <circle cx="445.7" cy="206.7" r="4" fill="#f59e0b"/>
-  <circle cx="477.9" cy="140.0" r="4" fill="#f59e0b"/>
-  <circle cx="510.0" cy="73.3" r="4" fill="#f59e0b"/>
-  <line x1="150.0" y1="282.0" x2="172.0" y2="282.0" stroke="#f59e0b" stroke-width="3"/>
+  <polyline points="60.0,206.7 92.1,190.0 124.3,160.8 156.4,126.5 188.6,95.5 220.7,75.6 252.9,71.9 285.0,85.1 317.1,112.1 349.3,146.1 381.4,178.5 413.6,201.3 445.7,208.8 477.9,199.1 510.0,174.6" fill="none" stroke="#a99ad6" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="206.7" r="3" fill="#a99ad6"/>
+  <circle cx="92.1" cy="190.0" r="3" fill="#a99ad6"/>
+  <circle cx="124.3" cy="160.8" r="3" fill="#a99ad6"/>
+  <circle cx="156.4" cy="126.5" r="3" fill="#a99ad6"/>
+  <circle cx="188.6" cy="95.5" r="3" fill="#a99ad6"/>
+  <circle cx="220.7" cy="75.6" r="3" fill="#a99ad6"/>
+  <circle cx="252.9" cy="71.9" r="3" fill="#a99ad6"/>
+  <circle cx="285.0" cy="85.1" r="3" fill="#a99ad6"/>
+  <circle cx="317.1" cy="112.1" r="3" fill="#a99ad6"/>
+  <circle cx="349.3" cy="146.1" r="3" fill="#a99ad6"/>
+  <circle cx="381.4" cy="178.5" r="3" fill="#a99ad6"/>
+  <circle cx="413.6" cy="201.3" r="3" fill="#a99ad6"/>
+  <circle cx="445.7" cy="208.8" r="3" fill="#a99ad6"/>
+  <circle cx="477.9" cy="199.1" r="3" fill="#a99ad6"/>
+  <circle cx="510.0" cy="174.6" r="3" fill="#a99ad6"/>
+  <polyline points="60.0,206.7 92.1,140.0 124.3,73.3 156.4,73.3 188.6,140.0 220.7,206.7 252.9,206.7 285.0,140.0 317.1,73.3 349.3,73.3 381.4,140.0 413.6,206.7 445.7,206.7 477.9,140.0 510.0,73.3" fill="none" stroke="#d6aa62" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="206.7" r="4" fill="#d6aa62"/>
+  <circle cx="92.1" cy="140.0" r="4" fill="#d6aa62"/>
+  <circle cx="124.3" cy="73.3" r="4" fill="#d6aa62"/>
+  <circle cx="156.4" cy="73.3" r="4" fill="#d6aa62"/>
+  <circle cx="188.6" cy="140.0" r="4" fill="#d6aa62"/>
+  <circle cx="220.7" cy="206.7" r="4" fill="#d6aa62"/>
+  <circle cx="252.9" cy="206.7" r="4" fill="#d6aa62"/>
+  <circle cx="285.0" cy="140.0" r="4" fill="#d6aa62"/>
+  <circle cx="317.1" cy="73.3" r="4" fill="#d6aa62"/>
+  <circle cx="349.3" cy="73.3" r="4" fill="#d6aa62"/>
+  <circle cx="381.4" cy="140.0" r="4" fill="#d6aa62"/>
+  <circle cx="413.6" cy="206.7" r="4" fill="#d6aa62"/>
+  <circle cx="445.7" cy="206.7" r="4" fill="#d6aa62"/>
+  <circle cx="477.9" cy="140.0" r="4" fill="#d6aa62"/>
+  <circle cx="510.0" cy="73.3" r="4" fill="#d6aa62"/>
+  <line x1="150.0" y1="282.0" x2="172.0" y2="282.0" stroke="#d6aa62" stroke-width="3"/>
   <text x="178.0" y="286.0" fill="#e2e8f0" font-size="12" text-anchor="start">Kp = 4 (3 초마다 반복)</text>
-  <line x1="350.0" y1="282.0" x2="372.0" y2="282.0" stroke="#a78bfa" stroke-width="3"/>
+  <line x1="350.0" y1="282.0" x2="372.0" y2="282.0" stroke="#a99ad6" stroke-width="3"/>
   <text x="378.0" y="286.0" fill="#e2e8f0" font-size="12" text-anchor="start">Kp = 1 (약 6 초마다 반복)</text>
 </svg>

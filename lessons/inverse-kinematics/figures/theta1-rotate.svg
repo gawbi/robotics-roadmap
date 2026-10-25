@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>θ₁ 구하기. θ₁ = 0 인 팔(점선)의 손끝 (1.5, 0.866) 은 30° 방향, 목표 (0.866, 1.5) 는 60° 방향이라 팔 전체를 30° 돌린다</title>
-  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="658" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="30.0" y="30.0" width="390.0" height="330.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="72.5" y1="358.1" x2="72.5" y2="31.9" stroke="#16213a" stroke-width="1"/>
@@ -17,33 +17,33 @@
   <line x1="30.0" y1="315.5" x2="420.0" y2="315.5" stroke="#475569" stroke-width="1.5"/>
   <text x="416.0" y="308.5" fill="#94a3b8" font-size="13" text-anchor="end">x</text>
   <text x="78.5" y="45.9" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
-  <line x1="72.5" y1="315.5" x2="310.8" y2="178.0" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3 4"/>
-  <line x1="72.5" y1="315.5" x2="213.8" y2="70.9" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="72.5" y1="315.5" x2="310.8" y2="178.0" stroke="#7fc4a2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="72.5" y1="315.5" x2="213.8" y2="70.9" stroke="#d6aa62" stroke-width="1.2" stroke-dasharray="3 4"/>
   <polyline points="72.5,315.5 214.4,315.5 285.3,192.7" fill="none" stroke="#64748b" stroke-width="5" stroke-dasharray="8 6" stroke-linejoin="round"/>
   <circle cx="72.5" cy="315.5" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="214.4" cy="315.5" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="285.3" cy="192.7" r="5.0" fill="#64748b" stroke="#64748b" stroke-width="1"/>
-  <polyline points="72.5,315.5 195.4,244.6 195.4,102.8" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linejoin="round"/>
+  <polyline points="72.5,315.5 195.4,244.6 195.4,102.8" fill="none" stroke="#7cb4d8" stroke-width="6" stroke-linejoin="round"/>
   <circle cx="72.5" cy="315.5" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
   <circle cx="195.4" cy="244.6" r="6.0" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
-  <circle cx="195.4" cy="102.8" r="5.0" fill="#38bdf8" stroke="#38bdf8" stroke-width="1"/>
-  <polyline points="160.5,315.5 160.5,314.4 160.4,313.2 160.4,312.1 160.4,310.9 160.3,309.8 160.2,308.6 160.1,307.5 160.0,306.4 159.9,305.2 159.7,304.1 159.6,302.9 159.4,301.8 159.2,300.7 159.0,299.5 158.8,298.4 158.6,297.3 158.3,296.1 158.0,295.0 157.8,293.9 157.5,292.8 157.2,291.7 156.9,290.6 156.5,289.5 156.2,288.4 155.8,287.3 155.4,286.2 155.0,285.1 154.6,284.0 154.2,283.0 153.8,281.9 153.3,280.8 152.9,279.8 152.4,278.7 151.9,277.7 151.4,276.7 150.9,275.6 150.4,274.6 149.8,273.6 149.3,272.6 148.7,271.6" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linejoin="round"/>
-  <text x="163.3" y="301.4" fill="#34d399" font-size="12" text-anchor="start">β = 30°</text>
-  <polyline points="126.4,315.5 126.4,314.1 126.4,312.7 126.3,311.3 126.1,309.9 126.0,308.5 125.8,307.1 125.5,305.7 125.3,304.3 124.9,303.0 124.6,301.6 124.2,300.2 123.8,298.9 123.3,297.6 122.9,296.2 122.3,294.9 121.8,293.6 121.2,292.3 120.6,291.1 119.9,289.8 119.2,288.6 118.5,287.4 117.7,286.2 117.0,285.0 116.1,283.9 115.3,282.7 114.4,281.6 113.5,280.5 112.6,279.5 111.6,278.4 110.7,277.4 109.6,276.5 108.6,275.5 107.5,274.6 106.5,273.7 105.4,272.8 104.2,271.9 103.1,271.1 101.9,270.3 100.7,269.6 99.5,268.9" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
-  <text x="91.5" y="268.7" fill="#f59e0b" font-size="12" text-anchor="end">φ = 60°</text>
-  <polyline points="285.3,192.7 283.6,190.0 282.0,187.2 280.3,184.5 278.6,181.8 276.8,179.1 275.0,176.4 273.1,173.8 271.3,171.2 269.4,168.6 267.4,166.0 265.4,163.5 263.4,161.0 261.4,158.5 259.3,156.0 257.2,153.6 255.1,151.2 252.9,148.8 250.7,146.5 248.5,144.1 246.2,141.9 243.9,139.6 241.6,137.4 239.3,135.2 236.9,133.0 234.5,130.9 232.1,128.8 229.6,126.7 227.1,124.7 224.6,122.6 222.1,120.7 219.5,118.7 216.9,116.8 214.3,114.9 211.7,113.1 209.0,111.3 206.3,109.5 203.6,107.8 200.9,106.1 198.1,104.4 195.4,102.8" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linejoin="round"/>
-  <text x="256.2" y="141.9" fill="#a78bfa" font-size="13" text-anchor="start">θ₁ = 30°</text>
+  <circle cx="195.4" cy="102.8" r="5.0" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="1"/>
+  <polyline points="160.5,315.5 160.5,314.4 160.4,313.2 160.4,312.1 160.4,310.9 160.3,309.8 160.2,308.6 160.1,307.5 160.0,306.4 159.9,305.2 159.7,304.1 159.6,302.9 159.4,301.8 159.2,300.7 159.0,299.5 158.8,298.4 158.6,297.3 158.3,296.1 158.0,295.0 157.8,293.9 157.5,292.8 157.2,291.7 156.9,290.6 156.5,289.5 156.2,288.4 155.8,287.3 155.4,286.2 155.0,285.1 154.6,284.0 154.2,283.0 153.8,281.9 153.3,280.8 152.9,279.8 152.4,278.7 151.9,277.7 151.4,276.7 150.9,275.6 150.4,274.6 149.8,273.6 149.3,272.6 148.7,271.6" fill="none" stroke="#7fc4a2" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="163.3" y="301.4" fill="#7fc4a2" font-size="12" text-anchor="start">β = 30°</text>
+  <polyline points="126.4,315.5 126.4,314.1 126.4,312.7 126.3,311.3 126.1,309.9 126.0,308.5 125.8,307.1 125.5,305.7 125.3,304.3 124.9,303.0 124.6,301.6 124.2,300.2 123.8,298.9 123.3,297.6 122.9,296.2 122.3,294.9 121.8,293.6 121.2,292.3 120.6,291.1 119.9,289.8 119.2,288.6 118.5,287.4 117.7,286.2 117.0,285.0 116.1,283.9 115.3,282.7 114.4,281.6 113.5,280.5 112.6,279.5 111.6,278.4 110.7,277.4 109.6,276.5 108.6,275.5 107.5,274.6 106.5,273.7 105.4,272.8 104.2,271.9 103.1,271.1 101.9,270.3 100.7,269.6 99.5,268.9" fill="none" stroke="#d6aa62" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="91.5" y="268.7" fill="#d6aa62" font-size="12" text-anchor="end">φ = 60°</text>
+  <polyline points="285.3,192.7 283.6,190.0 282.0,187.2 280.3,184.5 278.6,181.8 276.8,179.1 275.0,176.4 273.1,173.8 271.3,171.2 269.4,168.6 267.4,166.0 265.4,163.5 263.4,161.0 261.4,158.5 259.3,156.0 257.2,153.6 255.1,151.2 252.9,148.8 250.7,146.5 248.5,144.1 246.2,141.9 243.9,139.6 241.6,137.4 239.3,135.2 236.9,133.0 234.5,130.9 232.1,128.8 229.6,126.7 227.1,124.7 224.6,122.6 222.1,120.7 219.5,118.7 216.9,116.8 214.3,114.9 211.7,113.1 209.0,111.3 206.3,109.5 203.6,107.8 200.9,106.1 198.1,104.4 195.4,102.8" fill="none" stroke="#a99ad6" stroke-width="2.4" stroke-linejoin="round"/>
+  <text x="256.2" y="141.9" fill="#a99ad6" font-size="13" text-anchor="start">θ₁ = 30°</text>
   <circle cx="285.3" cy="192.7" r="6.0" fill="#64748b" stroke="#64748b" stroke-width="2"/>
   <text x="297.3" y="214.7" fill="#94a3b8" font-size="12" text-anchor="start">θ₁ = 0 일 때 손끝</text>
   <text x="297.3" y="230.7" fill="#94a3b8" font-size="12" text-anchor="start">(1.5, 0.866)</text>
-  <circle cx="195.4" cy="102.8" r="11.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
-  <text x="209.4" y="92.8" fill="#f59e0b" font-size="13" text-anchor="start">목표 (0.866, 1.5)</text>
+  <circle cx="195.4" cy="102.8" r="11.0" fill="none" stroke="#d6aa62" stroke-width="2"/>
+  <text x="209.4" y="92.8" fill="#d6aa62" font-size="13" text-anchor="start">목표 (0.866, 1.5)</text>
   <text x="440.0" y="70.0" fill="#e2e8f0" font-size="14" text-anchor="start">① θ₂ = 60° 로 접은 팔을</text>
   <text x="440.0" y="92.0" fill="#e2e8f0" font-size="14" text-anchor="start">    θ₁ = 0 으로 놓는다 (점선)</text>
-  <text x="440.0" y="118.0" fill="#34d399" font-size="13" text-anchor="start">손끝 방향 β = 30°</text>
+  <text x="440.0" y="118.0" fill="#7fc4a2" font-size="13" text-anchor="start">손끝 방향 β = 30°</text>
   <text x="440.0" y="168.0" fill="#e2e8f0" font-size="14" text-anchor="start">② 목표의 방향</text>
-  <text x="440.0" y="194.0" fill="#f59e0b" font-size="13" text-anchor="start">φ = 60°</text>
+  <text x="440.0" y="194.0" fill="#d6aa62" font-size="13" text-anchor="start">φ = 60°</text>
   <text x="440.0" y="244.0" fill="#e2e8f0" font-size="14" text-anchor="start">③ 팔 전체를 돌린다 (실선)</text>
-  <text x="440.0" y="270.0" fill="#a78bfa" font-size="13" text-anchor="start">θ₁ = φ − β = 60° − 30° = 30°</text>
+  <text x="440.0" y="270.0" fill="#a99ad6" font-size="13" text-anchor="start">θ₁ = φ − β = 60° − 30° = 30°</text>
   <text x="440.0" y="320.0" fill="#e2e8f0" font-size="14" text-anchor="start">답 (θ₁, θ₂) = (30°, 60°)</text>
 </svg>

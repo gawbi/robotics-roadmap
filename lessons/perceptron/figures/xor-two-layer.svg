@@ -13,9 +13,9 @@
   <text x="510" y="30" fill="#94a3b8" font-size="13" text-anchor="middle">둘째 층 (출력)</text>
 
   <!-- inputs -->
-  <circle cx="70" cy="90" r="24" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="70" cy="90" r="24" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="70" y="96" fill="#e2e8f0" font-size="17" text-anchor="middle">x₁</text>
-  <circle cx="70" cy="200" r="24" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="70" cy="200" r="24" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="70" y="206" fill="#e2e8f0" font-size="17" text-anchor="middle">x₂</text>
 
   <!-- edges input -> hidden -->
@@ -23,10 +23,10 @@
   <line x1="92" y1="100" x2="270" y2="190" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="92" y1="190" x2="270" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="94" y1="200" x2="268" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="150" y="82" fill="#38bdf8" font-size="14" text-anchor="middle">1</text>
-  <text x="150" y="218" fill="#38bdf8" font-size="14" text-anchor="middle">−1</text>
-  <text x="146" y="114" fill="#38bdf8" font-size="14" text-anchor="middle">−1</text>
-  <text x="146" y="188" fill="#38bdf8" font-size="14" text-anchor="middle">1</text>
+  <text x="150" y="82" fill="#7cb4d8" font-size="14" text-anchor="middle">1</text>
+  <text x="150" y="218" fill="#7cb4d8" font-size="14" text-anchor="middle">−1</text>
+  <text x="146" y="114" fill="#7cb4d8" font-size="14" text-anchor="middle">−1</text>
+  <text x="146" y="188" fill="#7cb4d8" font-size="14" text-anchor="middle">1</text>
 
   <!-- hidden units -->
   <rect x="270" y="62" width="64" height="56" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
@@ -39,11 +39,11 @@
   <!-- edges hidden -> output -->
   <line x1="334" y1="90" x2="476" y2="138" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="334" y1="200" x2="476" y2="152" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="408" y="104" fill="#38bdf8" font-size="14" text-anchor="middle">1</text>
-  <text x="408" y="196" fill="#38bdf8" font-size="14" text-anchor="middle">1</text>
+  <text x="408" y="104" fill="#7cb4d8" font-size="14" text-anchor="middle">1</text>
+  <text x="408" y="196" fill="#7cb4d8" font-size="14" text-anchor="middle">1</text>
 
   <!-- output unit -->
-  <rect x="478" y="117" width="64" height="56" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="478" y="117" width="64" height="56" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="510" y="151" fill="#e2e8f0" font-size="17" text-anchor="middle">ŷ</text>
   <text x="510" y="195" fill="#94a3b8" font-size="12" text-anchor="middle">AND · b = −1.5</text>
 

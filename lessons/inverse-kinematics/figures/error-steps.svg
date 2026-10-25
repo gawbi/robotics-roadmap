@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>step 마다 남은 거리. pseudo-inverse 는 step 3 에 거의 0 이 되고, Jacobian transpose 는 α = 0.5 에서 천천히 줄며, α = 1 에서는 오르내리고 α = 2 에서는 커진다</title>
-  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="638" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60.0" y="46.0" width="400.0" height="260.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="60.0" y1="251.8" x2="460.0" y2="251.8" stroke="#16213a" stroke-width="1"/>
@@ -20,56 +20,56 @@
   <text x="460.0" y="324.0" fill="#64748b" font-size="12" text-anchor="middle">10</text>
   <text x="260.0" y="346.0" fill="#94a3b8" font-size="13" text-anchor="middle">step</text>
   <text x="60.0" y="32.0" fill="#94a3b8" font-size="13" text-anchor="start">남은 거리 ‖e‖</text>
-  <polyline points="60.0,229.4 100.0,100.0 140.0,75.8 180.0,139.3 213.6,46.0" fill="none" stroke="#f87171" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#a-red)" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="229.4" r="3.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
-  <circle cx="100.0" cy="100.0" r="3.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
-  <circle cx="140.0" cy="75.8" r="3.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
-  <circle cx="180.0" cy="139.3" r="3.5" fill="#f87171" stroke="#f87171" stroke-width="1"/>
-  <polyline points="60.0,229.4 100.0,184.3 140.0,193.4 180.0,136.5 220.0,242.1 260.0,258.0 300.0,230.2 340.0,189.8 380.0,120.9 420.0,228.7 460.0,239.4" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="229.4" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="100.0" cy="184.3" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="140.0" cy="193.4" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="180.0" cy="136.5" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="220.0" cy="242.1" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="260.0" cy="258.0" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="300.0" cy="230.2" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="340.0" cy="189.8" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="380.0" cy="120.9" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="420.0" cy="228.7" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <circle cx="460.0" cy="239.4" r="3.5" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
-  <polyline points="60.0,229.4 100.0,260.6 140.0,279.5 180.0,285.8 220.0,290.0 260.0,293.0 300.0,295.4 340.0,297.2 380.0,298.7 420.0,299.9 460.0,300.9" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="229.4" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="100.0" cy="260.6" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="140.0" cy="279.5" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="180.0" cy="285.8" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="220.0" cy="290.0" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="260.0" cy="293.0" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="300.0" cy="295.4" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="340.0" cy="297.2" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="380.0" cy="298.7" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="420.0" cy="299.9" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <circle cx="460.0" cy="300.9" r="3.5" fill="#34d399" stroke="#34d399" stroke-width="1"/>
-  <polyline points="60.0,229.4 100.0,287.0 140.0,304.6 180.0,306.0 220.0,306.0 260.0,306.0 300.0,306.0 340.0,306.0 380.0,306.0 420.0,306.0 460.0,306.0" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
-  <circle cx="60.0" cy="229.4" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="100.0" cy="287.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="140.0" cy="304.6" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="180.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="220.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="260.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="300.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="340.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="380.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="420.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="460.0" cy="306.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <line x1="482.0" y1="66.0" x2="508.0" y2="66.0" stroke="#f59e0b" stroke-width="2.4"/>
+  <polyline points="60.0,229.4 100.0,100.0 140.0,75.8 180.0,139.3 213.6,46.0" fill="none" stroke="#d88b8b" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#a-red)" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="229.4" r="3.5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1"/>
+  <circle cx="100.0" cy="100.0" r="3.5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1"/>
+  <circle cx="140.0" cy="75.8" r="3.5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1"/>
+  <circle cx="180.0" cy="139.3" r="3.5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1"/>
+  <polyline points="60.0,229.4 100.0,184.3 140.0,193.4 180.0,136.5 220.0,242.1 260.0,258.0 300.0,230.2 340.0,189.8 380.0,120.9 420.0,228.7 460.0,239.4" fill="none" stroke="#a99ad6" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="229.4" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="100.0" cy="184.3" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="140.0" cy="193.4" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="180.0" cy="136.5" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="220.0" cy="242.1" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="260.0" cy="258.0" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="300.0" cy="230.2" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="340.0" cy="189.8" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="380.0" cy="120.9" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="420.0" cy="228.7" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <circle cx="460.0" cy="239.4" r="3.5" fill="#a99ad6" stroke="#a99ad6" stroke-width="1"/>
+  <polyline points="60.0,229.4 100.0,260.6 140.0,279.5 180.0,285.8 220.0,290.0 260.0,293.0 300.0,295.4 340.0,297.2 380.0,298.7 420.0,299.9 460.0,300.9" fill="none" stroke="#7fc4a2" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="229.4" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="100.0" cy="260.6" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="140.0" cy="279.5" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="180.0" cy="285.8" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="220.0" cy="290.0" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="260.0" cy="293.0" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="300.0" cy="295.4" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="340.0" cy="297.2" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="380.0" cy="298.7" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="420.0" cy="299.9" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <circle cx="460.0" cy="300.9" r="3.5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1"/>
+  <polyline points="60.0,229.4 100.0,287.0 140.0,304.6 180.0,306.0 220.0,306.0 260.0,306.0 300.0,306.0 340.0,306.0 380.0,306.0 420.0,306.0 460.0,306.0" fill="none" stroke="#d6aa62" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="60.0" cy="229.4" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="100.0" cy="287.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="140.0" cy="304.6" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="180.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="220.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="260.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="300.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="340.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="380.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="420.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <circle cx="460.0" cy="306.0" r="3.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <line x1="482.0" y1="66.0" x2="508.0" y2="66.0" stroke="#d6aa62" stroke-width="2.4"/>
   <text x="516.0" y="70.0" fill="#e2e8f0" font-size="13" text-anchor="start">pseudo-inverse</text>
-  <line x1="482.0" y1="96.0" x2="508.0" y2="96.0" stroke="#34d399" stroke-width="2.4"/>
+  <line x1="482.0" y1="96.0" x2="508.0" y2="96.0" stroke="#7fc4a2" stroke-width="2.4"/>
   <text x="516.0" y="100.0" fill="#e2e8f0" font-size="13" text-anchor="start">transpose α = 0.5</text>
-  <line x1="482.0" y1="126.0" x2="508.0" y2="126.0" stroke="#a78bfa" stroke-width="2.4"/>
+  <line x1="482.0" y1="126.0" x2="508.0" y2="126.0" stroke="#a99ad6" stroke-width="2.4"/>
   <text x="516.0" y="130.0" fill="#e2e8f0" font-size="13" text-anchor="start">transpose α = 1</text>
-  <line x1="482.0" y1="156.0" x2="508.0" y2="156.0" stroke="#f87171" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <line x1="482.0" y1="156.0" x2="508.0" y2="156.0" stroke="#d88b8b" stroke-width="2.4" stroke-dasharray="6 4"/>
   <text x="516.0" y="160.0" fill="#e2e8f0" font-size="13" text-anchor="start">transpose α = 2</text>
-  <text x="482.0" y="210.0" fill="#f87171" font-size="12" text-anchor="start">α = 2 는 step 4 에서</text>
-  <text x="482.0" y="228.0" fill="#f87171" font-size="12" text-anchor="start">2.6, step 5 에서 3.4</text>
-  <text x="482.0" y="246.0" fill="#f87171" font-size="12" text-anchor="start">로 계속 커진다</text>
+  <text x="482.0" y="210.0" fill="#d88b8b" font-size="12" text-anchor="start">α = 2 는 step 4 에서</text>
+  <text x="482.0" y="228.0" fill="#d88b8b" font-size="12" text-anchor="start">2.6, step 5 에서 3.4</text>
+  <text x="482.0" y="246.0" fill="#d88b8b" font-size="12" text-anchor="start">로 계속 커진다</text>
 </svg>

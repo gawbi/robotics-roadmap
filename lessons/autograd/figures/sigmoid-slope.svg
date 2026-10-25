@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>sigmoid 의 기울기</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="60" y="40" width="380" height="220" fill="#0e1628" stroke="#1e293b"/>
   <line x1="60.0" y1="223.3" x2="440.0" y2="223.3" stroke="#475569" stroke-width="1.5"/>
@@ -18,26 +18,26 @@
   <text x="54.0" y="74.6" fill="#64748b" font-size="12" text-anchor="end">0.25</text>
   <text x="66.0" y="56.0" fill="#94a3b8" font-size="13" text-anchor="start">σ'(z)</text>
   <text x="452.0" y="228.3" fill="#94a3b8" font-size="14" text-anchor="start">z</text>
-  <polyline points="60.0,212.5 63.2,211.8 66.3,211.1 69.5,210.3 72.7,209.4 75.8,208.5 79.0,207.5 82.2,206.5 85.3,205.4 88.5,204.2 91.7,203.0 94.8,201.7 98.0,200.3 101.2,198.9 104.3,197.3 107.5,195.7 110.7,194.0 113.8,192.2 117.0,190.3 120.2,188.3 123.3,186.2 126.5,184.0 129.7,181.7 132.8,179.3 136.0,176.7 139.2,174.1 142.3,171.3 145.5,168.5 148.7,165.5 151.8,162.4 155.0,159.2 158.2,155.9 161.3,152.4 164.5,148.9 167.7,145.3 170.8,141.7 174.0,137.9 177.2,134.1 180.3,130.3 183.5,126.4 186.7,122.4 189.8,118.5 193.0,114.6 196.2,110.7 199.3,106.9 202.5,103.2 205.7,99.5 208.8,96.0 212.0,92.6 215.2,89.4 218.3,86.3 221.5,83.5 224.7,80.9 227.8,78.6 231.0,76.5 234.2,74.7 237.3,73.2 240.5,72.1 243.7,71.2 246.8,70.7 250.0,70.6 253.2,70.7 256.3,71.2 259.5,72.1 262.7,73.2 265.8,74.7 269.0,76.5 272.2,78.6 275.3,80.9 278.5,83.5 281.7,86.3 284.8,89.4 288.0,92.6 291.2,96.0 294.3,99.5 297.5,103.2 300.7,106.9 303.8,110.7 307.0,114.6 310.2,118.5 313.3,122.4 316.5,126.4 319.7,130.3 322.8,134.1 326.0,137.9 329.2,141.7 332.3,145.3 335.5,148.9 338.7,152.4 341.8,155.9 345.0,159.2 348.2,162.4 351.3,165.5 354.5,168.5 357.7,171.3 360.8,174.1 364.0,176.7 367.2,179.3 370.3,181.7 373.5,184.0 376.7,186.2 379.8,188.3 383.0,190.3 386.2,192.2 389.3,194.0 392.5,195.7 395.7,197.3 398.8,198.9 402.0,200.3 405.2,201.7 408.3,203.0 411.5,204.2 414.7,205.4 417.8,206.5 421.0,207.5 424.2,208.5 427.3,209.4 430.5,210.3 433.7,211.1 436.8,211.8 440.0,212.5" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <polyline points="60.0,223.3 247.6,223.3" fill="none" stroke="#f59e0b" stroke-width="3"/>
-  <polyline points="252.4,223.3 440.0,223.3" fill="none" stroke="#f59e0b" stroke-width="3"/>
-  <circle cx="155.0" cy="159.2" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="202.5" cy="103.2" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="250.0" cy="70.6" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="297.5" cy="103.2" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="345.0" cy="159.2" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="440.0" cy="212.5" r="4.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <text x="250.0" y="60.6" fill="#38bdf8" font-size="12" text-anchor="middle">0.25</text>
-  <text x="305.5" y="99.2" fill="#38bdf8" font-size="12" text-anchor="start">0.1966</text>
-  <text x="353.0" y="155.2" fill="#38bdf8" font-size="12" text-anchor="start">0.1050</text>
-  <text x="436.0" y="202.5" fill="#38bdf8" font-size="12" text-anchor="end">0.0177</text>
-  <text x="64.8" y="245.3" fill="#f59e0b" font-size="13" text-anchor="start">step 의 기울기: 0 (z = 0 을 뺀 모든 곳)</text>
+  <polyline points="60.0,212.5 63.2,211.8 66.3,211.1 69.5,210.3 72.7,209.4 75.8,208.5 79.0,207.5 82.2,206.5 85.3,205.4 88.5,204.2 91.7,203.0 94.8,201.7 98.0,200.3 101.2,198.9 104.3,197.3 107.5,195.7 110.7,194.0 113.8,192.2 117.0,190.3 120.2,188.3 123.3,186.2 126.5,184.0 129.7,181.7 132.8,179.3 136.0,176.7 139.2,174.1 142.3,171.3 145.5,168.5 148.7,165.5 151.8,162.4 155.0,159.2 158.2,155.9 161.3,152.4 164.5,148.9 167.7,145.3 170.8,141.7 174.0,137.9 177.2,134.1 180.3,130.3 183.5,126.4 186.7,122.4 189.8,118.5 193.0,114.6 196.2,110.7 199.3,106.9 202.5,103.2 205.7,99.5 208.8,96.0 212.0,92.6 215.2,89.4 218.3,86.3 221.5,83.5 224.7,80.9 227.8,78.6 231.0,76.5 234.2,74.7 237.3,73.2 240.5,72.1 243.7,71.2 246.8,70.7 250.0,70.6 253.2,70.7 256.3,71.2 259.5,72.1 262.7,73.2 265.8,74.7 269.0,76.5 272.2,78.6 275.3,80.9 278.5,83.5 281.7,86.3 284.8,89.4 288.0,92.6 291.2,96.0 294.3,99.5 297.5,103.2 300.7,106.9 303.8,110.7 307.0,114.6 310.2,118.5 313.3,122.4 316.5,126.4 319.7,130.3 322.8,134.1 326.0,137.9 329.2,141.7 332.3,145.3 335.5,148.9 338.7,152.4 341.8,155.9 345.0,159.2 348.2,162.4 351.3,165.5 354.5,168.5 357.7,171.3 360.8,174.1 364.0,176.7 367.2,179.3 370.3,181.7 373.5,184.0 376.7,186.2 379.8,188.3 383.0,190.3 386.2,192.2 389.3,194.0 392.5,195.7 395.7,197.3 398.8,198.9 402.0,200.3 405.2,201.7 408.3,203.0 411.5,204.2 414.7,205.4 417.8,206.5 421.0,207.5 424.2,208.5 427.3,209.4 430.5,210.3 433.7,211.1 436.8,211.8 440.0,212.5" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <polyline points="60.0,223.3 247.6,223.3" fill="none" stroke="#d6aa62" stroke-width="3"/>
+  <polyline points="252.4,223.3 440.0,223.3" fill="none" stroke="#d6aa62" stroke-width="3"/>
+  <circle cx="155.0" cy="159.2" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="202.5" cy="103.2" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="250.0" cy="70.6" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="297.5" cy="103.2" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="345.0" cy="159.2" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="440.0" cy="212.5" r="4.5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="250.0" y="60.6" fill="#7cb4d8" font-size="12" text-anchor="middle">0.25</text>
+  <text x="305.5" y="99.2" fill="#7cb4d8" font-size="12" text-anchor="start">0.1966</text>
+  <text x="353.0" y="155.2" fill="#7cb4d8" font-size="12" text-anchor="start">0.1050</text>
+  <text x="436.0" y="202.5" fill="#7cb4d8" font-size="12" text-anchor="end">0.0177</text>
+  <text x="64.8" y="245.3" fill="#d6aa62" font-size="13" text-anchor="start">step 의 기울기: 0 (z = 0 을 뺀 모든 곳)</text>
   <text x="465.0" y="70.0" fill="#e2e8f0" font-size="14" text-anchor="start">σ'(z) = σ(z) × (1 − σ(z))</text>
-  <text x="465.0" y="110.0" fill="#38bdf8" font-size="13" text-anchor="start">z = 0: 0.5 × 0.5 = 0.25</text>
-  <text x="465.0" y="134.0" fill="#38bdf8" font-size="13" text-anchor="start">z = 1: 0.7311 × 0.2689</text>
-  <text x="517.0" y="154.0" fill="#38bdf8" font-size="13" text-anchor="start">= 0.1966</text>
-  <text x="465.0" y="178.0" fill="#38bdf8" font-size="13" text-anchor="start">z = 2: 0.8808 × 0.1192</text>
-  <text x="517.0" y="198.0" fill="#38bdf8" font-size="13" text-anchor="start">= 0.1050</text>
+  <text x="465.0" y="110.0" fill="#7cb4d8" font-size="13" text-anchor="start">z = 0: 0.5 × 0.5 = 0.25</text>
+  <text x="465.0" y="134.0" fill="#7cb4d8" font-size="13" text-anchor="start">z = 1: 0.7311 × 0.2689</text>
+  <text x="517.0" y="154.0" fill="#7cb4d8" font-size="13" text-anchor="start">= 0.1966</text>
+  <text x="465.0" y="178.0" fill="#7cb4d8" font-size="13" text-anchor="start">z = 2: 0.8808 × 0.1192</text>
+  <text x="517.0" y="198.0" fill="#7cb4d8" font-size="13" text-anchor="start">= 0.1050</text>
   <text x="465.0" y="236.0" fill="#94a3b8" font-size="13" text-anchor="start">가장 커도 0.25</text>
   <text x="465.0" y="258.0" fill="#94a3b8" font-size="13" text-anchor="start">0 에 가까워질 뿐 0 은 아님</text>
 </svg>

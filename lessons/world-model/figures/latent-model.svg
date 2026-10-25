@@ -2,11 +2,11 @@
   <title>Pendulum 의 world model. 64×64×3 이미지 o_t 를 encoder 가 수십 차원 latent z_t 로 줄이고, dynamics model f 와 reward model g 가 z_t 와 action a_t 로 다음 latent 와 reward 를 예측한다. 예측한 latent 에 다시 f 를 적용해 여러 step 을 이어 간다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="638" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="24.0" y="60.0" width="80.0" height="80.0" rx="4" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
@@ -15,27 +15,27 @@
   <text x="64.0" y="162.0" fill="#e2e8f0" font-size="14" text-anchor="middle">o<tspan baseline-shift="sub" font-size="11">t</tspan></text>
   <text x="64.0" y="180.0" fill="#94a3b8" font-size="13" text-anchor="middle">64×64×3</text>
   <line x1="104.0" y1="100.0" x2="136.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <path d="M140,64 L204,84 L204,116 L140,136 Z" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M140,64 L204,84 L204,116 L140,136 Z" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="172.0" y="105.0" fill="#e2e8f0" font-size="13" text-anchor="middle">encoder</text>
   <text x="172.0" y="158.0" fill="#94a3b8" font-size="12" text-anchor="middle">weight φ</text>
   <line x1="204.0" y1="100.0" x2="236.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <rect x="240.0" y="80.0" width="56.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="268.0" y="105.0" fill="#e2e8f0" font-size="15" text-anchor="middle">z<tspan baseline-shift="sub" font-size="11">t</tspan></text>
   <text x="268.0" y="70.0" fill="#94a3b8" font-size="12" text-anchor="middle">수십 개</text>
-  <text x="358.0" y="40.0" fill="#f59e0b" font-size="14" text-anchor="middle">a<tspan baseline-shift="sub" font-size="11">t</tspan></text>
-  <line x1="358.0" y1="46.0" x2="358.0" y2="76.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="358.0" y="40.0" fill="#d6aa62" font-size="14" text-anchor="middle">a<tspan baseline-shift="sub" font-size="11">t</tspan></text>
+  <line x1="358.0" y1="46.0" x2="358.0" y2="76.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
   <line x1="296.0" y1="100.0" x2="326.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="330.0" y="80.0" width="56.0" height="40.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="330.0" y="80.0" width="56.0" height="40.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="358.0" y="105.0" fill="#e2e8f0" font-size="15" text-anchor="middle">f<tspan baseline-shift="sub" font-size="11">ψ</tspan></text>
   <line x1="386.0" y1="100.0" x2="416.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
   <rect x="420.0" y="80.0" width="64.0" height="40.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="452.0" y="105.0" fill="#e2e8f0" font-size="15" text-anchor="middle">ẑ<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
   <line x1="484.0" y1="100.0" x2="508.0" y2="100.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <rect x="512.0" y="80.0" width="44.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="512.0" y="80.0" width="44.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="534.0" y="105.0" fill="#e2e8f0" font-size="15" text-anchor="middle">g<tspan baseline-shift="sub" font-size="11">ψ</tspan></text>
-  <line x1="534.0" y1="120.0" x2="534.0" y2="146.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
-  <rect x="502.0" y="150.0" width="64.0" height="40.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="534.0" y="175.0" fill="#f59e0b" font-size="15" text-anchor="middle">r̂<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
+  <line x1="534.0" y1="120.0" x2="534.0" y2="146.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="502.0" y="150.0" width="64.0" height="40.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="534.0" y="175.0" fill="#d6aa62" font-size="15" text-anchor="middle">r̂<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
   <path d="M452,120 V226 H358 V124" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
   <text x="405.0" y="246.0" fill="#94a3b8" font-size="13" text-anchor="middle">예측한 ẑ<tspan baseline-shift="sub" font-size="11">t+1</tspan> 을 다시 f<tspan baseline-shift="sub" font-size="11">ψ</tspan> 에 넣어 다음 step 을 예측한다</text>
   <text x="320.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="middle">이미지은 처음 한 번만 encoder 에 넣고, 그 뒤 예측은 latent 안에서만 한다</text>

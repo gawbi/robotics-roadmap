@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>큐브 위 12 cm 에서 내려가는 세 시연과 셋의 평균 10, 6, 2, 0</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="80.0" y="50.0" width="360.0" height="240.0" rx="0" fill="#0e1628"/>
   <line x1="80.0" y1="290.0" x2="440.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
@@ -22,37 +22,37 @@
   <line x1="80.0" y1="290.0" x2="80.0" y2="50.0" stroke="#475569" stroke-width="1.5"/>
   <text x="440.0" y="326.0" fill="#94a3b8" font-size="13" text-anchor="end">step</text>
   <text x="72.0" y="40.0" fill="#94a3b8" font-size="13" text-anchor="start">집게 높이 (cm)</text>
-  <polyline points="80.0,65.5 170.0,176.2 260.0,287.0 350.0,287.0 440.0,287.0" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="80.0" cy="65.5" r="3.5" fill="#34d399"/>
-  <circle cx="170.0" cy="176.2" r="3.5" fill="#34d399"/>
-  <circle cx="260.0" cy="287.0" r="3.5" fill="#34d399"/>
-  <circle cx="350.0" cy="287.0" r="3.5" fill="#34d399"/>
-  <circle cx="440.0" cy="287.0" r="3.5" fill="#34d399"/>
-  <polyline points="80.0,68.5 170.0,68.5 260.0,179.2 350.0,290.0 440.0,290.0" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="80.0" cy="68.5" r="3.5" fill="#38bdf8"/>
-  <circle cx="170.0" cy="68.5" r="3.5" fill="#38bdf8"/>
-  <circle cx="260.0" cy="179.2" r="3.5" fill="#38bdf8"/>
-  <circle cx="350.0" cy="290.0" r="3.5" fill="#38bdf8"/>
-  <circle cx="440.0" cy="290.0" r="3.5" fill="#38bdf8"/>
-  <polyline points="80.0,71.5 170.0,71.5 260.0,71.5 350.0,182.2 440.0,293.0" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="80.0" cy="71.5" r="3.5" fill="#f59e0b"/>
-  <circle cx="170.0" cy="71.5" r="3.5" fill="#f59e0b"/>
-  <circle cx="260.0" cy="71.5" r="3.5" fill="#f59e0b"/>
-  <circle cx="350.0" cy="182.2" r="3.5" fill="#f59e0b"/>
-  <circle cx="440.0" cy="293.0" r="3.5" fill="#f59e0b"/>
-  <polyline points="80.0,68.5 170.0,105.4 260.0,179.2 350.0,253.1 440.0,290.0" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 5"/>
-  <text x="178.0" y="99.4" fill="#f87171" font-size="12" text-anchor="start">10</text>
-  <text x="268.0" y="173.2" fill="#f87171" font-size="12" text-anchor="start">6</text>
-  <text x="358.0" y="247.1" fill="#f87171" font-size="12" text-anchor="start">2</text>
-  <text x="448.0" y="284.0" fill="#f87171" font-size="12" text-anchor="start">0</text>
-  <line x1="460.0" y1="80.0" x2="484.0" y2="80.0" stroke="#34d399" stroke-width="3"/>
-  <text x="492.0" y="85.0" fill="#34d399" font-size="13" text-anchor="start">바로 내려감</text>
-  <line x1="460.0" y1="110.0" x2="484.0" y2="110.0" stroke="#38bdf8" stroke-width="3"/>
-  <text x="492.0" y="115.0" fill="#38bdf8" font-size="13" text-anchor="start">1 step 멈춤</text>
-  <line x1="460.0" y1="140.0" x2="484.0" y2="140.0" stroke="#f59e0b" stroke-width="3"/>
-  <text x="492.0" y="145.0" fill="#f59e0b" font-size="13" text-anchor="start">2 step 멈춤</text>
-  <line x1="460.0" y1="170.0" x2="484.0" y2="170.0" stroke="#f87171" stroke-width="2.5" stroke-dasharray="6 5"/>
-  <text x="492.0" y="175.0" fill="#f87171" font-size="13" text-anchor="start">세 시연의 평균</text>
+  <polyline points="80.0,65.5 170.0,176.2 260.0,287.0 350.0,287.0 440.0,287.0" fill="none" stroke="#7fc4a2" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="65.5" r="3.5" fill="#7fc4a2"/>
+  <circle cx="170.0" cy="176.2" r="3.5" fill="#7fc4a2"/>
+  <circle cx="260.0" cy="287.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="350.0" cy="287.0" r="3.5" fill="#7fc4a2"/>
+  <circle cx="440.0" cy="287.0" r="3.5" fill="#7fc4a2"/>
+  <polyline points="80.0,68.5 170.0,68.5 260.0,179.2 350.0,290.0 440.0,290.0" fill="none" stroke="#7cb4d8" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="68.5" r="3.5" fill="#7cb4d8"/>
+  <circle cx="170.0" cy="68.5" r="3.5" fill="#7cb4d8"/>
+  <circle cx="260.0" cy="179.2" r="3.5" fill="#7cb4d8"/>
+  <circle cx="350.0" cy="290.0" r="3.5" fill="#7cb4d8"/>
+  <circle cx="440.0" cy="290.0" r="3.5" fill="#7cb4d8"/>
+  <polyline points="80.0,71.5 170.0,71.5 260.0,71.5 350.0,182.2 440.0,293.0" fill="none" stroke="#d6aa62" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="80.0" cy="71.5" r="3.5" fill="#d6aa62"/>
+  <circle cx="170.0" cy="71.5" r="3.5" fill="#d6aa62"/>
+  <circle cx="260.0" cy="71.5" r="3.5" fill="#d6aa62"/>
+  <circle cx="350.0" cy="182.2" r="3.5" fill="#d6aa62"/>
+  <circle cx="440.0" cy="293.0" r="3.5" fill="#d6aa62"/>
+  <polyline points="80.0,68.5 170.0,105.4 260.0,179.2 350.0,253.1 440.0,290.0" fill="none" stroke="#d88b8b" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 5"/>
+  <text x="178.0" y="99.4" fill="#d88b8b" font-size="12" text-anchor="start">10</text>
+  <text x="268.0" y="173.2" fill="#d88b8b" font-size="12" text-anchor="start">6</text>
+  <text x="358.0" y="247.1" fill="#d88b8b" font-size="12" text-anchor="start">2</text>
+  <text x="448.0" y="284.0" fill="#d88b8b" font-size="12" text-anchor="start">0</text>
+  <line x1="460.0" y1="80.0" x2="484.0" y2="80.0" stroke="#7fc4a2" stroke-width="3"/>
+  <text x="492.0" y="85.0" fill="#7fc4a2" font-size="13" text-anchor="start">바로 내려감</text>
+  <line x1="460.0" y1="110.0" x2="484.0" y2="110.0" stroke="#7cb4d8" stroke-width="3"/>
+  <text x="492.0" y="115.0" fill="#7cb4d8" font-size="13" text-anchor="start">1 step 멈춤</text>
+  <line x1="460.0" y1="140.0" x2="484.0" y2="140.0" stroke="#d6aa62" stroke-width="3"/>
+  <text x="492.0" y="145.0" fill="#d6aa62" font-size="13" text-anchor="start">2 step 멈춤</text>
+  <line x1="460.0" y1="170.0" x2="484.0" y2="170.0" stroke="#d88b8b" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <text x="492.0" y="175.0" fill="#d88b8b" font-size="13" text-anchor="start">세 시연의 평균</text>
   <text x="460.0" y="210.0" fill="#94a3b8" font-size="12" text-anchor="start">step 0 은 출발</text>
   <text x="460.0" y="228.0" fill="#94a3b8" font-size="12" text-anchor="start">높이 12 cm</text>
 </svg>

@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>actor-critic 의 한 step. actor 가 state 에서 action 을 뽑고, environment 가 reward 와 다음 state 를 돌려주며, critic 이 두 state 의 value 로 advantage 0.405 를 계산해 actor 와 critic 을 함께 고친다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="40.0" y="40.0" width="170.0" height="70.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="125.0" y="68.0" fill="#38bdf8" font-size="15" text-anchor="middle">actor (policy)</text>
+  <rect x="40.0" y="40.0" width="170.0" height="70.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="125.0" y="68.0" fill="#7cb4d8" font-size="15" text-anchor="middle">actor (policy)</text>
   <text x="125.0" y="92.0" fill="#94a3b8" font-size="11" text-anchor="middle">π(오른쪽 | s) = 0.5</text>
-  <rect x="470.0" y="40.0" width="170.0" height="70.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="555.0" y="68.0" fill="#f59e0b" font-size="15" text-anchor="middle">environment</text>
+  <rect x="470.0" y="40.0" width="170.0" height="70.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="555.0" y="68.0" fill="#d6aa62" font-size="15" text-anchor="middle">environment</text>
   <text x="555.0" y="92.0" fill="#94a3b8" font-size="11" text-anchor="middle">r = 1, 다음 state s′</text>
   <line x1="210.0" y1="75.0" x2="465.0" y2="75.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
   <text x="338.0" y="66.0" fill="#e2e8f0" font-size="12" text-anchor="middle">action: 오른쪽</text>
-  <rect x="255.0" y="185.0" width="170.0" height="80.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="340.0" y="210.0" fill="#34d399" font-size="14" text-anchor="middle">critic (value network)</text>
+  <rect x="255.0" y="185.0" width="170.0" height="80.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="340.0" y="210.0" fill="#7fc4a2" font-size="14" text-anchor="middle">critic (value network)</text>
   <text x="340.0" y="232.0" fill="#94a3b8" font-size="11" text-anchor="middle">V(s) = 10, V(s′) = 9.5</text>
   <text x="340.0" y="252.0" fill="#94a3b8" font-size="11" text-anchor="middle">γ = 0.99</text>
   <path d="M555,110 V225 H430" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="431.0" y1="225.0" x2="426.0" y2="225.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
   <text x="560.0" y="170.0" fill="#94a3b8" font-size="12" text-anchor="start">r, s′</text>
-  <path d="M255,225 H125 V116" fill="none" stroke="#a78bfa" stroke-width="2"/>
-  <line x1="125.0" y1="118.0" x2="125.0" y2="113.0" stroke="#a78bfa" stroke-width="2" marker-end="url(#ar-purple)"/>
-  <text x="140.0" y="250.0" fill="#a78bfa" font-size="12" text-anchor="middle">advantage</text>
-  <text x="140.0" y="268.0" fill="#a78bfa" font-size="12" text-anchor="middle">1 + 0.99 × 9.5 − 10 = 0.405</text>
-  <text x="140.0" y="150.0" fill="#38bdf8" font-size="12" text-anchor="start">actor: θ 가 0.1 × 0.405 × 0.5 = 0.02025 만큼 커짐</text>
-  <text x="340.0" y="300.0" fill="#34d399" font-size="12" text-anchor="middle">critic: V(s) 가 10 + 0.1 × 0.405 = 10.0405 로 바뀜</text>
+  <path d="M255,225 H125 V116" fill="none" stroke="#a99ad6" stroke-width="2"/>
+  <line x1="125.0" y1="118.0" x2="125.0" y2="113.0" stroke="#a99ad6" stroke-width="2" marker-end="url(#ar-purple)"/>
+  <text x="140.0" y="250.0" fill="#a99ad6" font-size="12" text-anchor="middle">advantage</text>
+  <text x="140.0" y="268.0" fill="#a99ad6" font-size="12" text-anchor="middle">1 + 0.99 × 9.5 − 10 = 0.405</text>
+  <text x="140.0" y="150.0" fill="#7cb4d8" font-size="12" text-anchor="start">actor: θ 가 0.1 × 0.405 × 0.5 = 0.02025 만큼 커짐</text>
+  <text x="340.0" y="300.0" fill="#7fc4a2" font-size="12" text-anchor="middle">critic: V(s) 가 10 + 0.1 × 0.405 = 10.0405 로 바뀜</text>
 </svg>

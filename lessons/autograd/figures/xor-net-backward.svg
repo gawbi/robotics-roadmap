@@ -1,42 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>XOR network 에 입력 [1, 0] 을 넣은 backward</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <circle cx="60.0" cy="110.0" r="26" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="60.0" cy="110.0" r="26" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="60.0" y="108.0" fill="#e2e8f0" font-size="15" text-anchor="middle">x₁</text>
   <text x="60.0" y="126.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1</text>
-  <circle cx="60.0" cy="260.0" r="26" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="60.0" cy="260.0" r="26" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="60.0" y="258.0" fill="#e2e8f0" font-size="15" text-anchor="middle">x₂</text>
   <text x="60.0" y="276.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
   <line x1="86.0" y1="110.0" x2="204.0" y2="110.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="86.0" y1="260.0" x2="204.0" y2="137.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="86.0" y1="110.0" x2="204.0" y2="233.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
   <line x1="86.0" y1="260.0" x2="204.0" y2="260.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <text x="140.0" y="98.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₁₁: −0.0429</text>
-  <text x="112.0" y="162.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₁₂: 0</text>
-  <text x="112.0" y="214.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₂₁: 0.0546</text>
-  <text x="140.0" y="280.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₂₂: 0</text>
-  <rect x="206.0" y="78.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="270.0" y="104.0" fill="#f59e0b" font-size="14" text-anchor="middle">z₁: −0.0429</text>
-  <text x="270.0" y="128.0" fill="#f59e0b" font-size="14" text-anchor="middle">h₁: −0.2183</text>
-  <text x="270.0" y="162.0" fill="#f59e0b" font-size="13" text-anchor="middle">b₁: −0.0429</text>
+  <text x="140.0" y="98.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₁₁: −0.0429</text>
+  <text x="112.0" y="162.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₁₂: 0</text>
+  <text x="112.0" y="214.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₂₁: 0.0546</text>
+  <text x="140.0" y="280.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">w₂₂: 0</text>
+  <rect x="206.0" y="78.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="270.0" y="104.0" fill="#d6aa62" font-size="14" text-anchor="middle">z₁: −0.0429</text>
+  <text x="270.0" y="128.0" fill="#d6aa62" font-size="14" text-anchor="middle">h₁: −0.2183</text>
+  <text x="270.0" y="162.0" fill="#d6aa62" font-size="13" text-anchor="middle">b₁: −0.0429</text>
   <line x1="334.0" y1="110.0" x2="414.0" y2="170.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="206.0" y="228.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="270.0" y="254.0" fill="#f59e0b" font-size="14" text-anchor="middle">z₂: 0.0546</text>
-  <text x="270.0" y="278.0" fill="#f59e0b" font-size="14" text-anchor="middle">h₂: +0.2183</text>
-  <text x="270.0" y="312.0" fill="#f59e0b" font-size="13" text-anchor="middle">b₂: 0.0546</text>
+  <rect x="206.0" y="228.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="270.0" y="254.0" fill="#d6aa62" font-size="14" text-anchor="middle">z₂: 0.0546</text>
+  <text x="270.0" y="278.0" fill="#d6aa62" font-size="14" text-anchor="middle">h₂: +0.2183</text>
+  <text x="270.0" y="312.0" fill="#d6aa62" font-size="13" text-anchor="middle">b₂: 0.0546</text>
   <line x1="334.0" y1="260.0" x2="414.0" y2="200.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <text x="385.0" y="128.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">v₁: −0.1596</text>
-  <text x="385.0" y="258.0" fill="#f59e0b" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">v₂: −0.1092</text>
-  <rect x="416.0" y="153.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
-  <text x="480.0" y="179.0" fill="#f59e0b" font-size="14" text-anchor="middle">z₃: −0.2183</text>
-  <text x="480.0" y="203.0" fill="#f59e0b" font-size="14" text-anchor="middle">ŷ: −0.8850</text>
-  <text x="480.0" y="237.0" fill="#f59e0b" font-size="13" text-anchor="middle">b₃: −0.2183</text>
+  <text x="385.0" y="128.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">v₁: −0.1596</text>
+  <text x="385.0" y="258.0" fill="#d6aa62" font-size="13" text-anchor="middle" stroke="#0b1220" stroke-width="5" stroke-linejoin="round" paint-order="stroke">v₂: −0.1092</text>
+  <rect x="416.0" y="153.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
+  <text x="480.0" y="179.0" fill="#d6aa62" font-size="14" text-anchor="middle">z₃: −0.2183</text>
+  <text x="480.0" y="203.0" fill="#d6aa62" font-size="14" text-anchor="middle">ŷ: −0.8850</text>
+  <text x="480.0" y="237.0" fill="#d6aa62" font-size="13" text-anchor="middle">b₃: −0.2183</text>
   <line x1="544.0" y1="185.0" x2="574.0" y2="185.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#ar-gray)"/>
-  <rect x="576.0" y="153.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="576.0" y="153.0" width="128.0" height="64.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="640.0" y="179.0" fill="#e2e8f0" font-size="14" text-anchor="middle">(ŷ − y)²</text>
-  <text x="640.0" y="203.0" fill="#f59e0b" font-size="14" text-anchor="middle">grad 1</text>
+  <text x="640.0" y="203.0" fill="#d6aa62" font-size="14" text-anchor="middle">grad 1</text>
   <text x="360.0" y="30.0" fill="#94a3b8" font-size="13" text-anchor="middle">주황 숫자: 그 값의 gradient (∂ℓ/∂값)</text>
   <text x="270.0" y="345.0" fill="#94a3b8" font-size="12" text-anchor="middle">h 의 gradient × σ'(z): −0.2183 × 0.1966, 0.2183 × 0.25</text>
-  <line x1="690.0" y1="368.0" x2="30.0" y2="368.0" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#ar-amber)" stroke-dasharray="6 5"/>
+  <line x1="690.0" y1="368.0" x2="30.0" y2="368.0" stroke="#d6aa62" stroke-width="1.6" marker-end="url(#ar-amber)" stroke-dasharray="6 5"/>
 </svg>

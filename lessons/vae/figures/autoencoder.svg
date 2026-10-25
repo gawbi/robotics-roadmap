@@ -5,13 +5,13 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="698" height="218" rx="12" fill="#0b1220" stroke="#1e293b"/>
@@ -27,9 +27,9 @@
   <text x="245.0" y="99.0" fill="#e2e8f0" font-size="14" text-anchor="middle">encoder</text>
   <text x="245.0" y="116.0" fill="#94a3b8" font-size="12" text-anchor="middle">세 칸의 평균</text>
   <line x1="300.0" y1="102.0" x2="324.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <circle cx="354.0" cy="102.0" r="26" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <circle cx="354.0" cy="102.0" r="26" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="354.0" y="107.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0.5</text>
-  <text x="354.0" y="160.0" fill="#34d399" font-size="13" text-anchor="middle">z (숫자 하나)</text>
+  <text x="354.0" y="160.0" fill="#7fc4a2" font-size="13" text-anchor="middle">z (숫자 하나)</text>
   <line x1="380.0" y1="102.0" x2="404.0" y2="102.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="408.0" y="76.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="463.0" y="99.0" fill="#e2e8f0" font-size="14" text-anchor="middle">decoder</text>

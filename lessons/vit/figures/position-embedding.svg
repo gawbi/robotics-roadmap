@@ -11,63 +11,63 @@
   <text x="410.0" y="44" fill="#94a3b8" font-size="13" text-anchor="middle">자리 2</text>
   <text x="510.0" y="44" fill="#94a3b8" font-size="13" text-anchor="middle">자리 3</text>
   <text x="610.0" y="44" fill="#94a3b8" font-size="13" text-anchor="middle">자리 4</text>
-  <text x="148" y="80" fill="#38bdf8" font-size="13" text-anchor="end">사진 A token</text>
-  <rect x="168" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <text x="148" y="80" fill="#7cb4d8" font-size="13" text-anchor="end">사진 A token</text>
+  <rect x="168" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="210.0" y="80" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
-  <rect x="268" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="268" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="310.0" y="80" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −2]</text>
-  <rect x="368" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="368" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="410.0" y="80" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 2]</text>
-  <rect x="468" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="468" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="510.0" y="80" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
-  <rect x="568" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="568" y="61" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="610.0" y="80" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 0]</text>
-  <text x="148" y="118" fill="#38bdf8" font-size="13" text-anchor="end">사진 B token</text>
-  <rect x="168" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <text x="148" y="118" fill="#7cb4d8" font-size="13" text-anchor="end">사진 B token</text>
+  <rect x="168" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="210.0" y="118" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
-  <rect x="268" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="268" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="310.0" y="118" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 0]</text>
-  <rect x="368" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="368" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="410.0" y="118" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 2]</text>
-  <rect x="468" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="468" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="510.0" y="118" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
-  <rect x="568" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#38bdf8" stroke-width="1.4"/>
+  <rect x="568" y="99" width="84" height="28" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.4"/>
   <text x="610.0" y="118" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −2]</text>
-  <text x="148" y="156" fill="#a78bfa" font-size="13" text-anchor="end">position embedding</text>
-  <rect x="168" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <text x="148" y="156" fill="#a99ad6" font-size="13" text-anchor="end">position embedding</text>
+  <rect x="168" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
   <text x="210.0" y="156" fill="#e2e8f0" font-size="13" text-anchor="middle">[1, 0]</text>
-  <rect x="268" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <rect x="268" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
   <text x="310.0" y="156" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 1]</text>
-  <rect x="368" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <rect x="368" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
   <text x="410.0" y="156" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, −1]</text>
-  <rect x="468" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <rect x="468" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
   <text x="510.0" y="156" fill="#e2e8f0" font-size="13" text-anchor="middle">[−1, 0]</text>
-  <rect x="568" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <rect x="568" y="137" width="84" height="28" rx="5" fill="#111a2e" stroke="#a99ad6" stroke-width="1.4"/>
   <text x="610.0" y="156" fill="#e2e8f0" font-size="13" text-anchor="middle">[0, 0]</text>
   <line x1="160" y1="170" x2="660" y2="170" stroke="#64748b" stroke-width="1" stroke-dasharray="4 3"/>
-  <text x="148" y="194" fill="#34d399" font-size="13" text-anchor="end">사진 A 의 z₀</text>
-  <rect x="168" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <text x="148" y="194" fill="#7fc4a2" font-size="13" text-anchor="end">사진 A 의 z₀</text>
+  <rect x="168" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="210.0" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">[1, 0]</text>
-  <rect x="268" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="268" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="310.0" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −1]</text>
-  <rect x="368" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="368" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="410.0" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 1]</text>
-  <rect x="468" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="468" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="510.0" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">[−1, 0]</text>
-  <rect x="568" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="568" y="175" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="610.0" y="194" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 0]</text>
-  <text x="148" y="232" fill="#34d399" font-size="13" text-anchor="end">사진 B 의 z₀</text>
-  <rect x="168" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <text x="148" y="232" fill="#7fc4a2" font-size="13" text-anchor="end">사진 B 의 z₀</text>
+  <rect x="168" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="210.0" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">[1, 0]</text>
-  <rect x="268" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="268" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="310.0" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">[4, 1]</text>
-  <rect x="368" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="368" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="410.0" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, 1]</text>
-  <rect x="468" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="468" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="510.0" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">[−1, 0]</text>
-  <rect x="568" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#34d399" stroke-width="1.4"/>
+  <rect x="568" y="213" width="84" height="28" rx="5" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.4"/>
   <text x="610.0" y="232" fill="#e2e8f0" font-size="13" text-anchor="middle">[2, −2]</text>
-  <text x="350" y="270" fill="#34d399" font-size="14" text-anchor="middle">사진 A 의 [CLS] 출력 [3.454, 0]</text>
-  <text x="350" y="296" fill="#34d399" font-size="14" text-anchor="middle">사진 B 의 [CLS] 출력 [3.454, 0.651]</text>
+  <text x="350" y="270" fill="#7fc4a2" font-size="14" text-anchor="middle">사진 A 의 [CLS] 출력 [3.454, 0]</text>
+  <text x="350" y="296" fill="#7fc4a2" font-size="14" text-anchor="middle">사진 B 의 [CLS] 출력 [3.454, 0.651]</text>
   <text x="350" y="318" fill="#94a3b8" font-size="12" text-anchor="middle">z₀ = token + position embedding</text>
 </svg>

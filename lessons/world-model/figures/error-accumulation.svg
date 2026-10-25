@@ -2,11 +2,11 @@
   <title>실제 칸(초록)은 1, 2, 3, 4 이고 w = 1.5 로 예측한 latent(주황)는 1, 2.5, 4, 5.5 다. 둘 사이의 오차가 0.5, 1, 1.5 로 step 마다 커진다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="338" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="40.0" width="420.0" height="230.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
@@ -25,23 +25,23 @@
   <text x="62.0" y="44.0" fill="#64748b" font-size="13" text-anchor="end">6</text>
   <text x="500.0" y="275.0" fill="#94a3b8" font-size="14" text-anchor="start">step</text>
   <text x="62.0" y="26.0" fill="#94a3b8" font-size="14" text-anchor="end">칸</text>
-  <line x1="210.0" y1="193.3" x2="210.0" y2="174.2" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="200.0" y="164.2" fill="#f87171" font-size="13" text-anchor="end">오차 0.5</text>
-  <line x1="350.0" y1="155.0" x2="350.0" y2="116.7" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="358.0" y="140.8" fill="#f87171" font-size="13" text-anchor="start">오차 1</text>
-  <line x1="490.0" y1="116.7" x2="490.0" y2="59.2" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="498.0" y="92.9" fill="#f87171" font-size="13" text-anchor="start">오차 1.5</text>
-  <polyline points="70.0,231.7 210.0,193.3 350.0,155.0 490.0,116.7" fill="none" stroke="#34d399" stroke-width="2.5"/>
-  <polyline points="70.0,231.7 210.0,174.2 350.0,116.7 490.0,59.2" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <circle cx="70.0" cy="231.7" r="4.5" fill="#34d399"/>
-  <circle cx="70.0" cy="231.7" r="4.5" fill="#f59e0b"/>
-  <circle cx="210.0" cy="193.3" r="4.5" fill="#34d399"/>
-  <circle cx="210.0" cy="174.2" r="4.5" fill="#f59e0b"/>
-  <circle cx="350.0" cy="155.0" r="4.5" fill="#34d399"/>
-  <circle cx="350.0" cy="116.7" r="4.5" fill="#f59e0b"/>
-  <circle cx="490.0" cy="116.7" r="4.5" fill="#34d399"/>
-  <circle cx="490.0" cy="59.2" r="4.5" fill="#f59e0b"/>
-  <text x="480.0" y="49.2" fill="#f59e0b" font-size="13" text-anchor="end">예측 5.5</text>
-  <text x="500.0" y="136.7" fill="#34d399" font-size="13" text-anchor="start">실제 4</text>
+  <line x1="210.0" y1="193.3" x2="210.0" y2="174.2" stroke="#d88b8b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="200.0" y="164.2" fill="#d88b8b" font-size="13" text-anchor="end">오차 0.5</text>
+  <line x1="350.0" y1="155.0" x2="350.0" y2="116.7" stroke="#d88b8b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="358.0" y="140.8" fill="#d88b8b" font-size="13" text-anchor="start">오차 1</text>
+  <line x1="490.0" y1="116.7" x2="490.0" y2="59.2" stroke="#d88b8b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="498.0" y="92.9" fill="#d88b8b" font-size="13" text-anchor="start">오차 1.5</text>
+  <polyline points="70.0,231.7 210.0,193.3 350.0,155.0 490.0,116.7" fill="none" stroke="#7fc4a2" stroke-width="2.5"/>
+  <polyline points="70.0,231.7 210.0,174.2 350.0,116.7 490.0,59.2" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <circle cx="70.0" cy="231.7" r="4.5" fill="#7fc4a2"/>
+  <circle cx="70.0" cy="231.7" r="4.5" fill="#d6aa62"/>
+  <circle cx="210.0" cy="193.3" r="4.5" fill="#7fc4a2"/>
+  <circle cx="210.0" cy="174.2" r="4.5" fill="#d6aa62"/>
+  <circle cx="350.0" cy="155.0" r="4.5" fill="#7fc4a2"/>
+  <circle cx="350.0" cy="116.7" r="4.5" fill="#d6aa62"/>
+  <circle cx="490.0" cy="116.7" r="4.5" fill="#7fc4a2"/>
+  <circle cx="490.0" cy="59.2" r="4.5" fill="#d6aa62"/>
+  <text x="480.0" y="49.2" fill="#d6aa62" font-size="13" text-anchor="end">예측 5.5</text>
+  <text x="500.0" y="136.7" fill="#7fc4a2" font-size="13" text-anchor="start">실제 4</text>
   <text x="300.0" y="316.0" fill="#94a3b8" font-size="13" text-anchor="middle">초록: 실제 칸 (w = 1) · 주황: open-loop 예측 (w = 1.5) · action 은 +1 세 번</text>
 </svg>

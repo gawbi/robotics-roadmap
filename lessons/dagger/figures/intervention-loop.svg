@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>LeRobot 의 DAgger 수집 상태. AUTONOMOUS 에서 pause_resume 을 누르면 PAUSED 가 되어 leader 팔이 follower 자세로 움직이고, correction 을 누르면 CORRECTING 에서 사람이 넘겨받은 구간을 intervention = True 로 기록한다. correction 을 다시 누르면 PAUSED 로 돌아가고, 거기서 pause_resume 을 누르면 AUTONOMOUS 로 돌아간다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="30" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
-  <text x="110.0" y="138.0" fill="#38bdf8" font-size="14" text-anchor="middle" font-weight="bold">AUTONOMOUS</text>
+  <rect x="30" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="110.0" y="138.0" fill="#7cb4d8" font-size="14" text-anchor="middle" font-weight="bold">AUTONOMOUS</text>
   <text x="110.0" y="166.0" fill="#e2e8f0" font-size="12" text-anchor="middle">policy 가 팔을</text>
   <text x="110.0" y="187.0" fill="#e2e8f0" font-size="12" text-anchor="middle">움직인다</text>
   <text x="110.0" y="208.0" fill="#94a3b8" font-size="12" text-anchor="middle">기본 설정: 기록 안 함</text>
-  <rect x="220" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-  <text x="300.0" y="138.0" fill="#a78bfa" font-size="14" text-anchor="middle" font-weight="bold">PAUSED</text>
+  <rect x="220" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#a99ad6" stroke-width="2"/>
+  <text x="300.0" y="138.0" fill="#a99ad6" font-size="14" text-anchor="middle" font-weight="bold">PAUSED</text>
   <text x="300.0" y="166.0" fill="#e2e8f0" font-size="12" text-anchor="middle">follower 팔이 멈추고</text>
   <text x="300.0" y="187.0" fill="#e2e8f0" font-size="12" text-anchor="middle">leader 팔이 그 자세로</text>
   <text x="300.0" y="208.0" fill="#e2e8f0" font-size="12" text-anchor="middle">움직여 맞춘다</text>
   <text x="300.0" y="229.0" fill="#94a3b8" font-size="12" text-anchor="middle">기록 안 함</text>
-  <rect x="410" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-  <text x="490.0" y="138.0" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="bold">CORRECTING</text>
+  <rect x="410" y="110" width="160" height="132" rx="10" fill="#0f172a" stroke="#d6aa62" stroke-width="2"/>
+  <text x="490.0" y="138.0" fill="#d6aa62" font-size="14" text-anchor="middle" font-weight="bold">CORRECTING</text>
   <text x="490.0" y="166.0" fill="#e2e8f0" font-size="12" text-anchor="middle">사람이 leader 팔로</text>
   <text x="490.0" y="187.0" fill="#e2e8f0" font-size="12" text-anchor="middle">recovery·correction</text>
   <text x="490.0" y="208.0" fill="#94a3b8" font-size="12" text-anchor="middle">기록, intervention = True</text>

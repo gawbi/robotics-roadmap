@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>iteration 마다 다시 학습한 policy 의 rollout. BC policy 는 step 7 에 차선을 벗어나고 iteration 3 의 policy 는 step 14 에 벗어나며, iteration 4 의 policy 는 15 step 동안 차선 안에 남는다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="598" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="50.0" width="390.0" height="260.0" rx="0" fill="#0e1628"/>
-  <line x1="70.0" y1="135.0" x2="460.0" y2="135.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <text x="76.0" y="129.0" fill="#f87171" font-size="12" text-anchor="start">차선 경계 1.75 m</text>
+  <line x1="70.0" y1="135.0" x2="460.0" y2="135.0" stroke="#d88b8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="76.0" y="129.0" fill="#d88b8b" font-size="12" text-anchor="start">차선 경계 1.75 m</text>
   <line x1="70.0" y1="310.0" x2="460.0" y2="310.0" stroke="#475569" stroke-width="1.5"/>
   <line x1="70.0" y1="310.0" x2="70.0" y2="50.0" stroke="#475569" stroke-width="1.5"/>
   <text x="70.0" y="328.0" fill="#64748b" font-size="12" text-anchor="middle">0</text>
@@ -23,27 +23,27 @@
   <text x="62.0" y="64.0" fill="#64748b" font-size="12" text-anchor="end">2.5</text>
   <text x="460.0" y="348.0" fill="#94a3b8" font-size="13" text-anchor="end">step</text>
   <text x="62.0" y="36.0" fill="#94a3b8" font-size="13" text-anchor="start">벗어난 거리 y (m)</text>
-  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,250.0 226.0,210.0 252.0,130.0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <circle cx="252.0" cy="130.0" r="6" fill="#38bdf8" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="261.0" y="134.0" fill="#38bdf8" font-size="12" text-anchor="start">1.8 이탈</text>
-  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,260.0 226.0,250.0 252.0,240.0 278.0,230.0 304.0,220.0 330.0,210.0 356.0,200.0 382.0,180.0 408.0,140.0 434.0,60.0" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-  <circle cx="434.0" cy="60.0" r="6" fill="#a78bfa" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="443.0" y="64.0" fill="#a78bfa" font-size="12" text-anchor="start">2.5 이탈</text>
-  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,260.0 226.0,250.0 252.0,240.0 278.0,230.0 304.0,220.0 330.0,210.0 356.0,200.0 382.0,190.0 408.0,180.0 434.0,170.0 460.0,160.0" fill="none" stroke="#34d399" stroke-width="2.5"/>
-  <circle cx="460.0" cy="160.0" r="5" fill="#34d399"/>
-  <text x="469.0" y="164.0" fill="#34d399" font-size="12" text-anchor="start">1.5</text>
+  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,250.0 226.0,210.0 252.0,130.0" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <circle cx="252.0" cy="130.0" r="6" fill="#7cb4d8" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="261.0" y="134.0" fill="#7cb4d8" font-size="12" text-anchor="start">1.8 이탈</text>
+  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,260.0 226.0,250.0 252.0,240.0 278.0,230.0 304.0,220.0 330.0,210.0 356.0,200.0 382.0,180.0 408.0,140.0 434.0,60.0" fill="none" stroke="#a99ad6" stroke-width="2.5"/>
+  <circle cx="434.0" cy="60.0" r="6" fill="#a99ad6" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="443.0" y="64.0" fill="#a99ad6" font-size="12" text-anchor="start">2.5 이탈</text>
+  <polyline points="70.0,310.0 96.0,300.0 122.0,290.0 148.0,280.0 174.0,270.0 200.0,260.0 226.0,250.0 252.0,240.0 278.0,230.0 304.0,220.0 330.0,210.0 356.0,200.0 382.0,190.0 408.0,180.0 434.0,170.0 460.0,160.0" fill="none" stroke="#7fc4a2" stroke-width="2.5"/>
+  <circle cx="460.0" cy="160.0" r="5" fill="#7fc4a2"/>
+  <text x="469.0" y="164.0" fill="#7fc4a2" font-size="12" text-anchor="start">1.5</text>
   <text x="480.0" y="80.0" fill="#94a3b8" font-size="13" text-anchor="start">policy</text>
-  <line x1="480.0" y1="104.0" x2="502.0" y2="104.0" stroke="#38bdf8" stroke-width="3"/>
-  <text x="510.0" y="108.0" fill="#38bdf8" font-size="14">π<tspan font-size="10.1" dy="4.2">2</tspan><tspan font-size="14" dy="-4.2"> (BC)</tspan></text>
-  <text x="514.2" y="101.7" fill="#38bdf8" font-size="11.2" text-anchor="middle">^</text>
+  <line x1="480.0" y1="104.0" x2="502.0" y2="104.0" stroke="#7cb4d8" stroke-width="3"/>
+  <text x="510.0" y="108.0" fill="#7cb4d8" font-size="14">π<tspan font-size="10.1" dy="4.2">2</tspan><tspan font-size="14" dy="-4.2"> (BC)</tspan></text>
+  <text x="514.2" y="101.7" fill="#7cb4d8" font-size="11.2" text-anchor="middle">^</text>
   <text x="510.0" y="126.0" fill="#94a3b8" font-size="12" text-anchor="start">아는 범위 0.3</text>
-  <line x1="480.0" y1="156.0" x2="502.0" y2="156.0" stroke="#a78bfa" stroke-width="3"/>
-  <text x="510.0" y="160.0" fill="#a78bfa" font-size="14">π<tspan font-size="10.1" dy="4.2">3</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
-  <text x="514.2" y="153.7" fill="#a78bfa" font-size="11.2" text-anchor="middle">^</text>
+  <line x1="480.0" y1="156.0" x2="502.0" y2="156.0" stroke="#a99ad6" stroke-width="3"/>
+  <text x="510.0" y="160.0" fill="#a99ad6" font-size="14">π<tspan font-size="10.1" dy="4.2">3</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
+  <text x="514.2" y="153.7" fill="#a99ad6" font-size="11.2" text-anchor="middle">^</text>
   <text x="510.0" y="178.0" fill="#94a3b8" font-size="12" text-anchor="start">아는 범위 1.0</text>
-  <line x1="480.0" y1="208.0" x2="502.0" y2="208.0" stroke="#34d399" stroke-width="3"/>
-  <text x="510.0" y="212.0" fill="#34d399" font-size="14">π<tspan font-size="10.1" dy="4.2">4</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
-  <text x="514.2" y="205.7" fill="#34d399" font-size="11.2" text-anchor="middle">^</text>
+  <line x1="480.0" y1="208.0" x2="502.0" y2="208.0" stroke="#7fc4a2" stroke-width="3"/>
+  <text x="510.0" y="212.0" fill="#7fc4a2" font-size="14">π<tspan font-size="10.1" dy="4.2">4</tspan><tspan font-size="14" dy="-4.2"></tspan></text>
+  <text x="514.2" y="205.7" fill="#7fc4a2" font-size="11.2" text-anchor="middle">^</text>
   <text x="510.0" y="230.0" fill="#94a3b8" font-size="12" text-anchor="start">아는 범위 1.7</text>
   <text x="480.0" y="286.0" fill="#94a3b8" font-size="12" text-anchor="start">모두 아는 범위</text>
   <text x="480.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="start">안에서는 0.1 씩</text>

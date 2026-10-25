@@ -1,39 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>VIO 의 측정 주기. EuRoC dataset 에서 카메라는 50 ms 마다(20 Hz), IMU 는 5 ms 마다(200 Hz) 측정한다. 사진 두 장 사이의 IMU 측정 10 개를 미리 적분해 상대 움직임 하나로 묶은 것이 preintegration 이다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="698" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="20.0" y="54.0" fill="#f59e0b" font-size="12" text-anchor="start" font-weight="600">카메라 20 Hz (50 ms 마다)</text>
-  <text x="20.0" y="154.0" fill="#38bdf8" font-size="12" text-anchor="start" font-weight="600">IMU 200 Hz (5 ms 마다)</text>
+  <text x="20.0" y="54.0" fill="#d6aa62" font-size="12" text-anchor="start" font-weight="600">카메라 20 Hz (50 ms 마다)</text>
+  <text x="20.0" y="154.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-weight="600">IMU 200 Hz (5 ms 마다)</text>
   <line x1="80.0" y1="80.0" x2="650.0" y2="80.0" stroke="#475569" stroke-width="1.8"/>
   <line x1="80.0" y1="180.0" x2="650.0" y2="180.0" stroke="#475569" stroke-width="1.8"/>
-  <rect x="68.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="68.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="80.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">0 ms</text>
-  <rect x="348.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="348.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="360.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">50 ms</text>
-  <rect x="628.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="628.0" y="66" width="24" height="28" rx="3" fill="#111a2e" stroke="#d6aa62" stroke-width="2"/>
   <text x="640.0" y="112.0" fill="#94a3b8" font-size="11" text-anchor="middle">100 ms</text>
-  <line x1="80.0" y1="170" x2="80.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="108.0" y1="170" x2="108.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="136.0" y1="170" x2="136.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="164.0" y1="170" x2="164.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="192.0" y1="170" x2="192.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="220.0" y1="170" x2="220.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="248.0" y1="170" x2="248.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="276.0" y1="170" x2="276.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="304.0" y1="170" x2="304.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="332.0" y1="170" x2="332.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="360.0" y1="170" x2="360.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="388.0" y1="170" x2="388.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="416.0" y1="170" x2="416.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="444.0" y1="170" x2="444.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="472.0" y1="170" x2="472.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="500.0" y1="170" x2="500.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="528.0" y1="170" x2="528.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="556.0" y1="170" x2="556.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="584.0" y1="170" x2="584.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="612.0" y1="170" x2="612.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="640.0" y1="170" x2="640.0" y2="190" stroke="#38bdf8" stroke-width="2"/>
-  <path d="M108.0,202 L108.0,210 L360.0,210 L360.0,202" fill="none" stroke="#34d399" stroke-width="1.8"/>
-  <text x="234.0" y="230.0" fill="#34d399" font-size="12" text-anchor="middle" font-weight="600">IMU 측정 10 개 → 상대 움직임 하나로 미리 적분 (preintegration)</text>
+  <line x1="80.0" y1="170" x2="80.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="108.0" y1="170" x2="108.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="136.0" y1="170" x2="136.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="164.0" y1="170" x2="164.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="192.0" y1="170" x2="192.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="220.0" y1="170" x2="220.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="248.0" y1="170" x2="248.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="276.0" y1="170" x2="276.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="304.0" y1="170" x2="304.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="332.0" y1="170" x2="332.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="360.0" y1="170" x2="360.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="388.0" y1="170" x2="388.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="416.0" y1="170" x2="416.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="444.0" y1="170" x2="444.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="472.0" y1="170" x2="472.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="500.0" y1="170" x2="500.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="528.0" y1="170" x2="528.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="556.0" y1="170" x2="556.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="584.0" y1="170" x2="584.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="612.0" y1="170" x2="612.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="640.0" y1="170" x2="640.0" y2="190" stroke="#7cb4d8" stroke-width="2"/>
+  <path d="M108.0,202 L108.0,210 L360.0,210 L360.0,202" fill="none" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="234.0" y="230.0" fill="#7fc4a2" font-size="12" text-anchor="middle" font-weight="600">IMU 측정 10 개 → 상대 움직임 하나로 미리 적분 (preintegration)</text>
   <text x="350.0" y="272.0" fill="#94a3b8" font-size="11" text-anchor="middle">카메라: 방향과 모양은 알지만 scale 을 모른다 · IMU: m/s² 실제 크기, 오래 쌓으면 bias 로 어긋난다</text>
 </svg>

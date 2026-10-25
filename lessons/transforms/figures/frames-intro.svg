@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>같은 컵을 두 frame 에서 잰 좌표. frame a 에서는 (5, 2), frame a 의 (3, 1) 에 놓인 frame b 에서는 (2, 1) 이다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="598" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="50.0" y1="270.0" x2="50.0" y2="45.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="95.0" y1="270.0" x2="95.0" y2="45.0" stroke="#1e293b" stroke-width="1"/>
@@ -35,23 +35,23 @@
   <circle cx="50.0" cy="270.0" r="4" fill="#0b1220" stroke="#94a3b8" stroke-width="2"/>
   <text x="90.0" y="262.0" fill="#94a3b8" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">a</tspan><tspan dy="-4">​</tspan></text>
   <text x="58.0" y="234.0" fill="#94a3b8" font-size="13" text-anchor="start">y<tspan dy="4" font-size="10">a</tspan><tspan dy="-4">​</tspan></text>
-  <line x1="185.0" y1="225.0" x2="221.0" y2="225.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="185.0" y1="225.0" x2="185.0" y2="189.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
-  <circle cx="185.0" cy="225.0" r="4" fill="#0b1220" stroke="#f87171" stroke-width="2"/>
-  <text x="225.0" y="217.0" fill="#f87171" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
-  <text x="193.0" y="189.0" fill="#34d399" font-size="13" text-anchor="start">y<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
-  <line x1="223.2" y1="225.0" x2="275.0" y2="225.0" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <line x1="275.0" y1="225.0" x2="275.0" y2="180.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="185.0" y1="225.0" x2="221.0" y2="225.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="185.0" y1="225.0" x2="185.0" y2="189.0" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="185.0" cy="225.0" r="4" fill="#0b1220" stroke="#d88b8b" stroke-width="2"/>
+  <text x="225.0" y="217.0" fill="#d88b8b" font-size="13" text-anchor="start">x<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
+  <text x="193.0" y="189.0" fill="#7fc4a2" font-size="13" text-anchor="start">y<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan></text>
+  <line x1="223.2" y1="225.0" x2="275.0" y2="225.0" stroke="#d88b8b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="275.0" y1="225.0" x2="275.0" y2="180.0" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="4 4"/>
   <line x1="275.0" y1="180.0" x2="275.0" y2="270.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 4"/>
   <line x1="275.0" y1="180.0" x2="50.0" y2="180.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 4"/>
-  <circle cx="275.0" cy="180.0" r="7" fill="#f59e0b"/>
-  <text x="285.0" y="172.0" fill="#f59e0b" font-size="14" text-anchor="start">컵</text>
+  <circle cx="275.0" cy="180.0" r="7" fill="#d6aa62"/>
+  <text x="285.0" y="172.0" fill="#d6aa62" font-size="14" text-anchor="start">컵</text>
   <text x="171.0" y="243.0" fill="#e2e8f0" font-size="15" text-anchor="start">b</text>
   <text x="34.0" y="288.0" fill="#e2e8f0" font-size="15" text-anchor="start">a</text>
   <text x="395.0" y="60.0" fill="#94a3b8" font-size="14" text-anchor="start">frame a 에서 잰 컵</text>
-  <text x="395.0" y="84.0" fill="#f59e0b" font-size="17" text-anchor="start">(5, 2)</text>
+  <text x="395.0" y="84.0" fill="#d6aa62" font-size="17" text-anchor="start">(5, 2)</text>
   <text x="395.0" y="130.0" fill="#94a3b8" font-size="14" text-anchor="start">frame b 에서 잰 컵</text>
-  <text x="395.0" y="154.0" fill="#f59e0b" font-size="17" text-anchor="start">(2, 1)</text>
+  <text x="395.0" y="154.0" fill="#d6aa62" font-size="17" text-anchor="start">(2, 1)</text>
   <text x="395.0" y="200.0" fill="#94a3b8" font-size="13" text-anchor="start">frame b 의 원점은</text>
   <text x="395.0" y="220.0" fill="#94a3b8" font-size="13" text-anchor="start">frame a 의 (3, 1)</text>
   <text x="395.0" y="260.0" fill="#64748b" font-size="12" text-anchor="start">점선: frame b 의 축을 따라</text>

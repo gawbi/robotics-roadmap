@@ -1,38 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>action 지연 k = 2. step t 에 고른 action 이 두 step 뒤인 t + 2 에 적용되고, 50 Hz 에서 0.04 초의 지연이다. 처음 두 step 에는 정해 둔 action 을 넣는다</title>
-  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="638" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="30" y="40" fill="#e2e8f0" font-size="14" text-anchor="start">policy 가 고른 action</text>
   <text x="30" y="150" fill="#e2e8f0" font-size="14" text-anchor="start">env 에 적용되는 action</text>
   <text x="120" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">step 0</text>
-  <rect x="92" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="92" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="120" y="74" fill="#e2e8f0" font-size="14" text-anchor="middle">a₀</text>
   <rect x="92" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="120" y="184" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
   <text x="220" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">step 1</text>
-  <rect x="192" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="192" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="220" y="74" fill="#e2e8f0" font-size="14" text-anchor="middle">a₁</text>
   <rect x="192" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="2"/>
   <text x="220" y="184" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
   <text x="320" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">step 2</text>
-  <rect x="292" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="292" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="320" y="74" fill="#e2e8f0" font-size="14" text-anchor="middle">a₂</text>
-  <rect x="292" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="292" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="320" y="184" fill="#e2e8f0" font-size="14" text-anchor="middle">a₀</text>
   <text x="420" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">step 3</text>
-  <rect x="392" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="392" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="420" y="74" fill="#e2e8f0" font-size="14" text-anchor="middle">a₃</text>
-  <rect x="392" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="392" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="420" y="184" fill="#e2e8f0" font-size="14" text-anchor="middle">a₁</text>
   <text x="520" y="214" fill="#94a3b8" font-size="13" text-anchor="middle">step 4</text>
-  <rect x="492" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="492" y="52" width="56" height="34" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="520" y="74" fill="#e2e8f0" font-size="14" text-anchor="middle">a₄</text>
-  <rect x="492" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="492" y="162" width="56" height="34" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="520" y="184" fill="#e2e8f0" font-size="14" text-anchor="middle">a₂</text>
   <line x1="80" y1="198" x2="560" y2="198" stroke="#475569" stroke-width="1"/>
-  <line x1="132" y1="88" x2="310" y2="158" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="232" y1="88" x2="410" y2="158" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#ar-amber)" stroke-dasharray="5 4"/>
-  <text x="300" y="114" fill="#f59e0b" font-size="13" text-anchor="start">k = 2 step 늦게</text>
+  <line x1="132" y1="88" x2="310" y2="158" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="232" y1="88" x2="410" y2="158" stroke="#d6aa62" stroke-width="1.5" marker-end="url(#ar-amber)" stroke-dasharray="5 4"/>
+  <text x="300" y="114" fill="#d6aa62" font-size="13" text-anchor="start">k = 2 step 늦게</text>
   <text x="170" y="234" fill="#94a3b8" font-size="12" text-anchor="middle">처음 두 step 은 정해 둔 값(0)</text>
   <text x="320" y="262" fill="#94a3b8" font-size="13" text-anchor="middle">50 Hz 에서 1 step 은 0.02 초라서 k = 2 는 0.04 초의 지연이다</text>
 </svg>

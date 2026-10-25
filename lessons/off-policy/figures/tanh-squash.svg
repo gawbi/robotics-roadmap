@@ -7,15 +7,15 @@
   </defs>
   <rect x="1" y="1" width="598" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
-  <rect x="20" y="50" width="120" height="84" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="20" y="50" width="120" height="84" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="80" y="76" fill="#e2e8f0" font-size="14" text-anchor="middle">actor network</text>
-  <text x="80" y="100" fill="#38bdf8" font-size="14" text-anchor="middle">μ = 0.2</text>
-  <text x="80" y="121" fill="#38bdf8" font-size="14" text-anchor="middle">σ = 0.5</text>
+  <text x="80" y="100" fill="#7cb4d8" font-size="14" text-anchor="middle">μ = 0.2</text>
+  <text x="80" y="121" fill="#7cb4d8" font-size="14" text-anchor="middle">σ = 0.5</text>
 
   <line x1="140" y1="92" x2="174" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="178" y="50" width="120" height="84" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="238" y="76" fill="#e2e8f0" font-size="14" text-anchor="middle">u = μ + σ·ε</text>
-  <text x="238" y="100" fill="#f59e0b" font-size="13" text-anchor="middle">ε = 0.6 ~ N(0, 1)</text>
+  <text x="238" y="100" fill="#d6aa62" font-size="13" text-anchor="middle">ε = 0.6 ~ N(0, 1)</text>
   <text x="238" y="121" fill="#e2e8f0" font-size="14" text-anchor="middle">u = 0.5</text>
 
   <line x1="298" y1="92" x2="332" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
@@ -25,10 +25,10 @@
   <text x="391" y="121" fill="#e2e8f0" font-size="14" text-anchor="middle">a = 0.462</text>
 
   <line x1="446" y1="92" x2="480" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="484" y="50" width="100" height="84" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="484" y="50" width="100" height="84" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="534" y="76" fill="#e2e8f0" font-size="14" text-anchor="middle">env 범위</text>
   <text x="534" y="100" fill="#94a3b8" font-size="13" text-anchor="middle">[−2, 2] 이면 ×2</text>
-  <text x="534" y="121" fill="#34d399" font-size="14" text-anchor="middle">0.924</text>
+  <text x="534" y="121" fill="#7fc4a2" font-size="14" text-anchor="middle">0.924</text>
 
   <text x="238" y="166" fill="#94a3b8" font-size="13" text-anchor="middle">ε 만 무작위라서</text>
   <text x="238" y="185" fill="#94a3b8" font-size="13" text-anchor="middle">gradient 가 μ, σ 로 흐른다</text>

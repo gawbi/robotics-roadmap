@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 310" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>momentum buffer 의 변화</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-fg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="718" height="308" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <line x1="60.0" y1="240.0" x2="340.0" y2="240.0" stroke="#1e293b" stroke-width="1"/>
   <line x1="60.0" y1="207.3" x2="340.0" y2="207.3" stroke="#1e293b" stroke-width="1"/>
@@ -16,26 +16,26 @@
   <text x="52.0" y="145.8" fill="#94a3b8" font-size="12" text-anchor="end">6</text>
   <text x="52.0" y="113.1" fill="#94a3b8" font-size="12" text-anchor="end">8</text>
   <text x="52.0" y="80.4" fill="#94a3b8" font-size="12" text-anchor="end">10</text>
-  <rect x="69.3" y="223.6" width="28.0" height="16.4" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="83.3" y="217.6" fill="#38bdf8" font-size="11" text-anchor="middle">1</text>
+  <rect x="69.3" y="223.6" width="28.0" height="16.4" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="83.3" y="217.6" fill="#7cb4d8" font-size="11" text-anchor="middle">1</text>
   <text x="83.3" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <rect x="116.0" y="208.9" width="28.0" height="31.1" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="130.0" y="202.9" fill="#38bdf8" font-size="11" text-anchor="middle">1.9</text>
+  <rect x="116.0" y="208.9" width="28.0" height="31.1" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="130.0" y="202.9" fill="#7cb4d8" font-size="11" text-anchor="middle">1.9</text>
   <text x="130.0" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">2</text>
-  <rect x="162.7" y="195.7" width="28.0" height="44.3" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="176.7" y="189.7" fill="#38bdf8" font-size="11" text-anchor="middle">2.71</text>
+  <rect x="162.7" y="195.7" width="28.0" height="44.3" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="176.7" y="189.7" fill="#7cb4d8" font-size="11" text-anchor="middle">2.71</text>
   <text x="176.7" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">3</text>
-  <rect x="209.3" y="183.7" width="28.0" height="56.3" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="223.3" y="177.7" fill="#38bdf8" font-size="11" text-anchor="middle">3.439</text>
+  <rect x="209.3" y="183.7" width="28.0" height="56.3" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="223.3" y="177.7" fill="#7cb4d8" font-size="11" text-anchor="middle">3.439</text>
   <text x="223.3" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">4</text>
-  <rect x="256.0" y="173.0" width="28.0" height="67.0" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="270.0" y="167.0" fill="#38bdf8" font-size="11" text-anchor="middle">4.095</text>
+  <rect x="256.0" y="173.0" width="28.0" height="67.0" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="270.0" y="167.0" fill="#7cb4d8" font-size="11" text-anchor="middle">4.095</text>
   <text x="270.0" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">5</text>
-  <rect x="302.7" y="163.3" width="28.0" height="76.7" rx="3" fill="#38bdf8" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="316.7" y="157.3" fill="#38bdf8" font-size="11" text-anchor="middle">4.686</text>
+  <rect x="302.7" y="163.3" width="28.0" height="76.7" rx="3" fill="#7cb4d8" fill-opacity="0.35" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="316.7" y="157.3" fill="#7cb4d8" font-size="11" text-anchor="middle">4.686</text>
   <text x="316.7" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">6</text>
-  <line x1="60.0" y1="76.4" x2="340.0" y2="76.4" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="338.0" y="70.4" fill="#f59e0b" font-size="11" text-anchor="end">다가가는 값 10</text>
+  <line x1="60.0" y1="76.4" x2="340.0" y2="76.4" stroke="#d6aa62" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="338.0" y="70.4" fill="#d6aa62" font-size="11" text-anchor="end">다가가는 값 10</text>
   <text x="200.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">gradient 가 매번 1</text>
   <text x="200.0" y="278.0" fill="#94a3b8" font-size="12" text-anchor="middle">step</text>
   <line x1="420.0" y1="225.0" x2="700.0" y2="225.0" stroke="#1e293b" stroke-width="1"/>
@@ -47,23 +47,23 @@
   <text x="412.0" y="154.0" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
   <text x="412.0" y="79.0" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
   <line x1="420.0" y1="150.0" x2="700.0" y2="150.0" stroke="#94a3b8" stroke-width="1.2"/>
-  <rect x="429.3" y="75.0" width="28.0" height="75.0" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="443.3" y="69.0" fill="#a78bfa" font-size="11" text-anchor="middle">1</text>
+  <rect x="429.3" y="75.0" width="28.0" height="75.0" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="443.3" y="69.0" fill="#a99ad6" font-size="11" text-anchor="middle">1</text>
   <text x="443.3" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <rect x="476.0" y="150.0" width="28.0" height="7.5" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="490.0" y="171.5" fill="#a78bfa" font-size="11" text-anchor="middle">−0.1</text>
+  <rect x="476.0" y="150.0" width="28.0" height="7.5" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="490.0" y="171.5" fill="#a99ad6" font-size="11" text-anchor="middle">−0.1</text>
   <text x="490.0" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">2</text>
-  <rect x="522.7" y="81.8" width="28.0" height="68.2" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="536.7" y="75.8" fill="#a78bfa" font-size="11" text-anchor="middle">0.91</text>
+  <rect x="522.7" y="81.8" width="28.0" height="68.2" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="536.7" y="75.8" fill="#a99ad6" font-size="11" text-anchor="middle">0.91</text>
   <text x="536.7" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">3</text>
-  <rect x="569.3" y="150.0" width="28.0" height="13.6" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="583.3" y="177.6" fill="#a78bfa" font-size="11" text-anchor="middle">−0.181</text>
+  <rect x="569.3" y="150.0" width="28.0" height="13.6" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="583.3" y="177.6" fill="#a99ad6" font-size="11" text-anchor="middle">−0.181</text>
   <text x="583.3" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">4</text>
-  <rect x="616.0" y="87.2" width="28.0" height="62.8" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="630.0" y="81.2" fill="#a78bfa" font-size="11" text-anchor="middle">0.837</text>
+  <rect x="616.0" y="87.2" width="28.0" height="62.8" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="630.0" y="81.2" fill="#a99ad6" font-size="11" text-anchor="middle">0.837</text>
   <text x="630.0" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">5</text>
-  <rect x="662.7" y="150.0" width="28.0" height="18.5" rx="3" fill="#a78bfa" fill-opacity="0.35" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="676.7" y="182.5" fill="#a78bfa" font-size="11" text-anchor="middle">−0.247</text>
+  <rect x="662.7" y="150.0" width="28.0" height="18.5" rx="3" fill="#a99ad6" fill-opacity="0.35" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="676.7" y="182.5" fill="#a99ad6" font-size="11" text-anchor="middle">−0.247</text>
   <text x="676.7" y="258.0" fill="#94a3b8" font-size="11" text-anchor="middle">6</text>
   <text x="560.0" y="36.0" fill="#e2e8f0" font-size="14" text-anchor="middle">gradient 가 +1, −1 로 번갈아</text>
   <text x="560.0" y="278.0" fill="#94a3b8" font-size="12" text-anchor="middle">step</text>

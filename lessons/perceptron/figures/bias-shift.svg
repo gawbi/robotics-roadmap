@@ -20,11 +20,11 @@
   <text x="114" y="276" fill="#64748b" font-size="13" text-anchor="end">0</text>
 
   <!-- x1 + x2 = 0.5  (b = -0.5) -->
-  <line x1="60" y1="105" x2="285" y2="330" stroke="#34d399" stroke-width="2.5"/>
+  <line x1="60" y1="105" x2="285" y2="330" stroke="#7fc4a2" stroke-width="2.5"/>
   <!-- x1 + x2 = 1.5  (b = -1.5) -->
-  <line x1="135" y1="30" x2="360" y2="255" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="135" y1="30" x2="360" y2="255" stroke="#7cb4d8" stroke-width="2.5"/>
   <!-- x1 + x2 = 2.5  (b = -2.5) -->
-  <line x1="285" y1="30" x2="360" y2="105" stroke="#f87171" stroke-width="2.5"/>
+  <line x1="285" y1="30" x2="360" y2="105" stroke="#d88b8b" stroke-width="2.5"/>
 
   <!-- direction in which the line moves as b decreases -->
   <line x1="200" y1="310" x2="330" y2="180" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
@@ -44,15 +44,15 @@
   <text x="386" y="56" fill="#e2e8f0" font-size="14">w = [1, 1] 고정</text>
   <text x="386" y="78" fill="#94a3b8" font-size="13">z = x₁ + x₂ + b</text>
 
-  <line x1="386" y1="114" x2="406" y2="114" stroke="#34d399" stroke-width="2.5"/>
+  <line x1="386" y1="114" x2="406" y2="114" stroke="#7fc4a2" stroke-width="2.5"/>
   <text x="414" y="119" fill="#e2e8f0" font-size="14">b = −0.5 → OR</text>
   <text x="414" y="138" fill="#94a3b8" font-size="12">threshold 0.5, 세 점이 1</text>
 
-  <line x1="386" y1="170" x2="406" y2="170" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="386" y1="170" x2="406" y2="170" stroke="#7cb4d8" stroke-width="2.5"/>
   <text x="414" y="175" fill="#e2e8f0" font-size="14">b = −1.5 → AND</text>
   <text x="414" y="194" fill="#94a3b8" font-size="12">threshold 1.5, (1, 1) 만 1</text>
 
-  <line x1="386" y1="226" x2="406" y2="226" stroke="#f87171" stroke-width="2.5"/>
+  <line x1="386" y1="226" x2="406" y2="226" stroke="#d88b8b" stroke-width="2.5"/>
   <text x="414" y="231" fill="#e2e8f0" font-size="14">b = −2.5 → 항상 0</text>
   <text x="414" y="250" fill="#94a3b8" font-size="12">threshold 2.5, 1 인 점 없음</text>
 

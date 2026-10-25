@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 250" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>8×8 그림 하나에 같은 noise ε 를 T = 1000 linear schedule 의 t = 0, 100, 250, 500, 1000 계수로 섞은 모습. t 가 커질수록 그림이 흐려지고 t = 1000 에서는 noise 만 남는다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="658" height="248" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="30.0" y="30.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="40.0" y="30.0" width="10.0" height="10.0" fill="#000000"/>
@@ -68,8 +68,8 @@
   <rect x="100.0" y="100.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="30.0" y="30.0" width="80.0" height="80.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="70.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 0</text>
-  <text x="70.0" y="158.0" fill="#38bdf8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 1.000</text>
-  <text x="70.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.000</text>
+  <text x="70.0" y="158.0" fill="#7cb4d8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 1.000</text>
+  <text x="70.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.000</text>
   <rect x="160.0" y="30.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="170.0" y="30.0" width="10.0" height="10.0" fill="#1c1c1c"/>
   <rect x="180.0" y="30.0" width="10.0" height="10.0" fill="#000000"/>
@@ -136,8 +136,8 @@
   <rect x="230.0" y="100.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="160.0" y="30.0" width="80.0" height="80.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="200.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 100</text>
-  <text x="200.0" y="158.0" fill="#38bdf8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.947</text>
-  <text x="200.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.321</text>
+  <text x="200.0" y="158.0" fill="#7cb4d8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.947</text>
+  <text x="200.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.321</text>
   <rect x="290.0" y="30.0" width="10.0" height="10.0" fill="#0d0d0d"/>
   <rect x="300.0" y="30.0" width="10.0" height="10.0" fill="#505050"/>
   <rect x="310.0" y="30.0" width="10.0" height="10.0" fill="#0f0f0f"/>
@@ -204,8 +204,8 @@
   <rect x="360.0" y="100.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="290.0" y="30.0" width="80.0" height="80.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="330.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 250</text>
-  <text x="330.0" y="158.0" fill="#38bdf8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.724</text>
-  <text x="330.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.690</text>
+  <text x="330.0" y="158.0" fill="#7cb4d8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.724</text>
+  <text x="330.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.690</text>
   <rect x="420.0" y="30.0" width="10.0" height="10.0" fill="#3c3c3c"/>
   <rect x="430.0" y="30.0" width="10.0" height="10.0" fill="#9a9a9a"/>
   <rect x="440.0" y="30.0" width="10.0" height="10.0" fill="#404040"/>
@@ -272,8 +272,8 @@
   <rect x="490.0" y="100.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="420.0" y="30.0" width="80.0" height="80.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="460.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 500</text>
-  <text x="460.0" y="158.0" fill="#38bdf8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.280</text>
-  <text x="460.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.960</text>
+  <text x="460.0" y="158.0" fill="#7cb4d8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.280</text>
+  <text x="460.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 0.960</text>
   <rect x="550.0" y="30.0" width="10.0" height="10.0" fill="#5e5e5e"/>
   <rect x="560.0" y="30.0" width="10.0" height="10.0" fill="#c0c0c0"/>
   <rect x="570.0" y="30.0" width="10.0" height="10.0" fill="#626262"/>
@@ -340,8 +340,8 @@
   <rect x="620.0" y="100.0" width="10.0" height="10.0" fill="#000000"/>
   <rect x="550.0" y="30.0" width="80.0" height="80.0" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
   <text x="590.0" y="136.0" fill="#e2e8f0" font-size="14" text-anchor="middle">t = 1000</text>
-  <text x="590.0" y="158.0" fill="#38bdf8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.006</text>
-  <text x="590.0" y="176.0" fill="#f59e0b" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 1.000</text>
+  <text x="590.0" y="158.0" fill="#7cb4d8" font-size="12" text-anchor="middle">√<tspan text-decoration="overline">α</tspan> = 0.006</text>
+  <text x="590.0" y="176.0" fill="#d6aa62" font-size="12" text-anchor="middle">√(1−<tspan text-decoration="overline">α</tspan>) = 1.000</text>
   <text x="330.0" y="212.0" fill="#94a3b8" font-size="12" text-anchor="middle">pixel 마다 x_t = √<tspan text-decoration="overline">α</tspan> × (원래 밝기) + √(1−<tspan text-decoration="overline">α</tspan>) × ε. 밝기 −1 은 검정, +1 은 흰색</text>
   <text x="330.0" y="232.0" fill="#94a3b8" font-size="12" text-anchor="middle">다섯 그림 모두 같은 원래 그림과 같은 ε 를 쓰고 계수만 다르다</text>
 </svg>

@@ -6,12 +6,12 @@
   <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <!-- inputs -->
   <text x="100" y="40" fill="#e2e8f0" font-size="14" text-anchor="middle">입력</text>
-  <rect x="20" y="60" width="160" height="50" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="2"/>
+  <rect x="20" y="60" width="160" height="50" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="2"/>
   <text x="100" y="82" fill="#94a3b8" font-size="12" text-anchor="middle">찾을 이름</text>
-  <text x="100" y="101" fill="#a78bfa" font-size="15" text-anchor="middle">"red cube"</text>
-  <rect x="20" y="130" width="160" height="50" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
+  <text x="100" y="101" fill="#a99ad6" font-size="15" text-anchor="middle">"red cube"</text>
+  <rect x="20" y="130" width="160" height="50" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
   <text x="100" y="152" fill="#94a3b8" font-size="12" text-anchor="middle">카메라 사진</text>
-  <text x="100" y="171" fill="#38bdf8" font-size="14" text-anchor="middle">640 × 480</text>
+  <text x="100" y="171" fill="#7cb4d8" font-size="14" text-anchor="middle">640 × 480</text>
   <line x1="182" y1="120" x2="206" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="210" y="85" width="80" height="70" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="250" y="116" fill="#e2e8f0" font-size="13" text-anchor="middle">인식기</text>
@@ -23,9 +23,9 @@
   <text x="638" y="294" fill="#64748b" font-size="10" text-anchor="end">(640, 480)</text>
   <rect x="425" y="153" width="14" height="14" fill="#c0392b" transform="rotate(10 432 160)"/>
   <rect x="560" y="200" width="20" height="26" rx="3" fill="#3b82f6"/>
-  <rect x="422" y="150" width="20" height="20" fill="none" stroke="#a78bfa" stroke-width="2"/>
-  <circle cx="432" cy="160" r="2.5" fill="#f59e0b"/>
-  <text x="446" y="146" fill="#a78bfa" font-size="12">red cube 0.91</text>
+  <rect x="422" y="150" width="20" height="20" fill="none" stroke="#a99ad6" stroke-width="2"/>
+  <circle cx="432" cy="160" r="2.5" fill="#d6aa62"/>
+  <text x="446" y="146" fill="#a99ad6" font-size="12">red cube 0.91</text>
   <line x1="422" y1="150" x2="392" y2="124" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="390" y="120" fill="#e2e8f0" font-size="11" text-anchor="end">(200, 220)</text>
   <line x1="442" y1="170" x2="470" y2="200" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
@@ -36,6 +36,6 @@
   <text x="40" y="252" fill="#94a3b8" font-size="13">bounding box 왼쪽 위 (200, 220)</text>
   <text x="40" y="274" fill="#94a3b8" font-size="13">bounding box 오른쪽 아래 (240, 260)</text>
   <text x="40" y="296" fill="#94a3b8" font-size="13">점수 0.91</text>
-  <text x="40" y="330" fill="#f59e0b" font-size="14">가운데 = ((200 + 240) ÷ 2, (220 + 260) ÷ 2) = (220, 240)</text>
+  <text x="40" y="330" fill="#d6aa62" font-size="14">가운데 = ((200 + 240) ÷ 2, (220 + 260) ÷ 2) = (220, 240)</text>
   <text x="482" y="310" fill="#64748b" font-size="11" text-anchor="middle">사진은 절반 크기로 그렸다</text>
 </svg>

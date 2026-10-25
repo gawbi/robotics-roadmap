@@ -2,41 +2,41 @@
   <title>ACT 의 temporal ensembling 은 같은 step 에 대한 예측 +20°, −20°, +20° 를 weight 1, 0.990, 0.980 으로 평균해 6.67° 를 실행하고, Diffusion Policy 의 receding horizon 은 실행 중인 chunk 하나의 +20° 를 그대로 실행한다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
     <marker id="arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="14.0" y="30.0" width="572.0" height="150.0" rx="10" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
-  <text x="28.0" y="52.0" fill="#f59e0b" font-size="13" text-anchor="start">ACT: 매 step 새 chunk, 겹친 예측의 가중 평균</text>
+  <text x="28.0" y="52.0" fill="#d6aa62" font-size="13" text-anchor="start">ACT: 매 step 새 chunk, 겹친 예측의 가중 평균</text>
   <text x="28.0" y="81.0" fill="#94a3b8" font-size="12" text-anchor="start">step t − 2 의 chunk: +20°, w = 1</text>
-  <rect x="290.0" y="66.0" width="160.0" height="20.0" rx="4" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
-  <rect x="323.0" y="67.0" width="14.0" height="18.0" rx="3" fill="#f59e0b" fill-opacity="0.9" stroke="#f59e0b" stroke-width="0"/>
+  <rect x="290.0" y="66.0" width="160.0" height="20.0" rx="4" fill="#d6aa62" fill-opacity="0.25" stroke="#d6aa62" stroke-width="1"/>
+  <rect x="323.0" y="67.0" width="14.0" height="18.0" rx="3" fill="#d6aa62" fill-opacity="0.9" stroke="#d6aa62" stroke-width="0"/>
   <text x="28.0" y="111.0" fill="#94a3b8" font-size="12" text-anchor="start">step t − 1 의 chunk: −20°, w = 0.990</text>
-  <rect x="306.0" y="96.0" width="160.0" height="20.0" rx="4" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
-  <rect x="323.0" y="97.0" width="14.0" height="18.0" rx="3" fill="#f59e0b" fill-opacity="0.9" stroke="#f59e0b" stroke-width="0"/>
+  <rect x="306.0" y="96.0" width="160.0" height="20.0" rx="4" fill="#d6aa62" fill-opacity="0.25" stroke="#d6aa62" stroke-width="1"/>
+  <rect x="323.0" y="97.0" width="14.0" height="18.0" rx="3" fill="#d6aa62" fill-opacity="0.9" stroke="#d6aa62" stroke-width="0"/>
   <text x="28.0" y="141.0" fill="#94a3b8" font-size="12" text-anchor="start">step t 의 chunk: +20°, w = 0.980</text>
-  <rect x="322.0" y="126.0" width="160.0" height="20.0" rx="4" fill="#f59e0b" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
-  <rect x="323.0" y="127.0" width="14.0" height="18.0" rx="3" fill="#f59e0b" fill-opacity="0.9" stroke="#f59e0b" stroke-width="0"/>
+  <rect x="322.0" y="126.0" width="160.0" height="20.0" rx="4" fill="#d6aa62" fill-opacity="0.25" stroke="#d6aa62" stroke-width="1"/>
+  <rect x="323.0" y="127.0" width="14.0" height="18.0" rx="3" fill="#d6aa62" fill-opacity="0.9" stroke="#d6aa62" stroke-width="0"/>
   <line x1="330.0" y1="60.0" x2="330.0" y2="160.0" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3 3"/>
   <text x="330.0" y="174.0" fill="#e2e8f0" font-size="11" text-anchor="middle">step t</text>
-  <text x="500.0" y="168.0" fill="#f87171" font-size="13" text-anchor="middle">실행: 19.8 ÷ 2.970 = 6.67°</text>
+  <text x="500.0" y="168.0" fill="#d88b8b" font-size="13" text-anchor="middle">실행: 19.8 ÷ 2.970 = 6.67°</text>
   <rect x="14.0" y="190.0" width="572.0" height="130.0" rx="10" fill="#0e1628" stroke="#334155" stroke-width="1.5"/>
-  <text x="28.0" y="212.0" fill="#34d399" font-size="13" text-anchor="start">Diffusion Policy: 8 step 실행 뒤 새 chunk, 평균 없음</text>
+  <text x="28.0" y="212.0" fill="#7fc4a2" font-size="13" text-anchor="start">Diffusion Policy: 8 step 실행 뒤 새 chunk, 평균 없음</text>
   <text x="28.0" y="243.0" fill="#94a3b8" font-size="12" text-anchor="start">step t − 2 의 chunk: +20°</text>
-  <rect x="290.0" y="228.0" width="256.0" height="20.0" rx="4" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
-  <rect x="291.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="307.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="323.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#34d399" fill-opacity="0.9" stroke="#34d399" stroke-width="0"/>
-  <rect x="339.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="355.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="371.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="387.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
-  <rect x="403.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#38bdf8" fill-opacity="0.9" stroke="#38bdf8" stroke-width="0"/>
+  <rect x="290.0" y="228.0" width="256.0" height="20.0" rx="4" fill="#7cb4d8" fill-opacity="0.15" stroke="#7cb4d8" stroke-width="1"/>
+  <rect x="291.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="307.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="323.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7fc4a2" fill-opacity="0.9" stroke="#7fc4a2" stroke-width="0"/>
+  <rect x="339.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="355.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="371.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="387.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
+  <rect x="403.0" y="229.0" width="14.0" height="18.0" rx="3" fill="#7cb4d8" fill-opacity="0.9" stroke="#7cb4d8" stroke-width="0"/>
   <line x1="330.0" y1="222.0" x2="330.0" y2="256.0" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3 3"/>
   <text x="330.0" y="270.0" fill="#e2e8f0" font-size="11" text-anchor="middle">step t</text>
-  <text x="500.0" y="276.0" fill="#34d399" font-size="13" text-anchor="middle">실행: +20° 그대로</text>
+  <text x="500.0" y="276.0" fill="#7fc4a2" font-size="13" text-anchor="middle">실행: +20° 그대로</text>
   <text x="300.0" y="306.0" fill="#94a3b8" font-size="12" text-anchor="middle">다른 봉우리에서 나온 chunk 끼리 섞지 않는다</text>
 </svg>

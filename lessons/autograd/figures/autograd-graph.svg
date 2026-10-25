@@ -1,52 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>PyTorch 가 L = (a × b + c) × f 를 계산하며 기록한 graph. L 의 grad_fn 인 MulBackward0 이 d = 4, f = −2 를 저장하고, AddBackward0, a = 2 와 b = −3 을 저장한 MulBackward0 을 거쳐 leaf 마다 붙은 AccumulateGrad 가 a.grad = 6, b.grad = −4, c.grad = −2, f.grad = 4 를 쌓는다</title>
-  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="898" height="498" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="450.0" y="34.0" fill="#e2e8f0" font-size="15" text-anchor="middle">forward 중에 기록한 graph 를 L.backward() 가 거꾸로 따라간다</text>
-  <rect x="700.0" y="70.0" width="170.0" height="62.0" rx="10" fill="#111a2e" stroke="#34d399" stroke-width="2"/>
+  <rect x="700.0" y="70.0" width="170.0" height="62.0" rx="10" fill="#111a2e" stroke="#7fc4a2" stroke-width="2"/>
   <text x="785.0" y="96.0" fill="#e2e8f0" font-size="15" text-anchor="middle">L = −8</text>
-  <text x="785.0" y="120.0" fill="#34d399" font-size="12" text-anchor="middle">L.backward() 시작: 1</text>
-  <rect x="470.0" y="66.0" width="190.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="565.0" y="94.0" fill="#38bdf8" font-size="15" text-anchor="middle">MulBackward0</text>
+  <text x="785.0" y="120.0" fill="#7fc4a2" font-size="12" text-anchor="middle">L.backward() 시작: 1</text>
+  <rect x="470.0" y="66.0" width="190.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="565.0" y="94.0" fill="#7cb4d8" font-size="15" text-anchor="middle">MulBackward0</text>
   <text x="565.0" y="120.0" fill="#94a3b8" font-size="12" text-anchor="middle">저장: d = 4, f = −2</text>
-  <rect x="250.0" y="160.0" width="190.0" height="48.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="345.0" y="188.0" fill="#38bdf8" font-size="15" text-anchor="middle">AddBackward0</text>
-  <rect x="20.0" y="248.0" width="190.0" height="70.0" rx="10" fill="#111a2e" stroke="#38bdf8" stroke-width="2"/>
-  <text x="115.0" y="276.0" fill="#38bdf8" font-size="15" text-anchor="middle">MulBackward0</text>
+  <rect x="250.0" y="160.0" width="190.0" height="48.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="345.0" y="188.0" fill="#7cb4d8" font-size="15" text-anchor="middle">AddBackward0</text>
+  <rect x="20.0" y="248.0" width="190.0" height="70.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="115.0" y="276.0" fill="#7cb4d8" font-size="15" text-anchor="middle">MulBackward0</text>
   <text x="115.0" y="302.0" fill="#94a3b8" font-size="12" text-anchor="middle">저장: a = 2, b = −3</text>
-  <line x1="698.0" y1="101.0" x2="662.0" y2="101.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="520.0" y1="136.0" x2="400.0" y2="160.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="600.0" y1="136.0" x2="600.0" y2="184.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="290.0" y1="208.0" x2="170.0" y2="246.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="400.0" y1="208.0" x2="420.0" y2="264.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="90.0" y1="318.0" x2="90.0" y2="364.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <line x1="170.0" y1="318.0" x2="245.0" y2="364.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
-  <rect x="525.0" y="186.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.6"/>
-  <text x="600.0" y="209.0" fill="#a78bfa" font-size="13" text-anchor="middle">AccumulateGrad</text>
-  <line x1="600.0" y1="222.0" x2="600.0" y2="238.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="698.0" y1="101.0" x2="662.0" y2="101.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="520.0" y1="136.0" x2="400.0" y2="160.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="600.0" y1="136.0" x2="600.0" y2="184.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="290.0" y1="208.0" x2="170.0" y2="246.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="400.0" y1="208.0" x2="420.0" y2="264.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="90.0" y1="318.0" x2="90.0" y2="364.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <line x1="170.0" y1="318.0" x2="245.0" y2="364.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <rect x="525.0" y="186.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="600.0" y="209.0" fill="#a99ad6" font-size="13" text-anchor="middle">AccumulateGrad</text>
+  <line x1="600.0" y1="222.0" x2="600.0" y2="238.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
   <rect x="525.0" y="240.0" width="150.0" height="62.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
   <text x="600.0" y="266.0" fill="#e2e8f0" font-size="14" text-anchor="middle">f = −2 (leaf)</text>
-  <text x="600.0" y="290.0" fill="#f59e0b" font-size="14" text-anchor="middle">f.grad = 4</text>
-  <rect x="345.0" y="266.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.6"/>
-  <text x="420.0" y="289.0" fill="#a78bfa" font-size="13" text-anchor="middle">AccumulateGrad</text>
-  <line x1="420.0" y1="302.0" x2="420.0" y2="318.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="600.0" y="290.0" fill="#d6aa62" font-size="14" text-anchor="middle">f.grad = 4</text>
+  <rect x="345.0" y="266.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="420.0" y="289.0" fill="#a99ad6" font-size="13" text-anchor="middle">AccumulateGrad</text>
+  <line x1="420.0" y1="302.0" x2="420.0" y2="318.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
   <rect x="345.0" y="320.0" width="150.0" height="62.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
   <text x="420.0" y="346.0" fill="#e2e8f0" font-size="14" text-anchor="middle">c = 10 (leaf)</text>
-  <text x="420.0" y="370.0" fill="#f59e0b" font-size="14" text-anchor="middle">c.grad = −2</text>
-  <rect x="15.0" y="366.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.6"/>
-  <text x="90.0" y="389.0" fill="#a78bfa" font-size="13" text-anchor="middle">AccumulateGrad</text>
-  <line x1="90.0" y1="402.0" x2="90.0" y2="418.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="420.0" y="370.0" fill="#d6aa62" font-size="14" text-anchor="middle">c.grad = −2</text>
+  <rect x="15.0" y="366.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="90.0" y="389.0" fill="#a99ad6" font-size="13" text-anchor="middle">AccumulateGrad</text>
+  <line x1="90.0" y1="402.0" x2="90.0" y2="418.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
   <rect x="15.0" y="420.0" width="150.0" height="62.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
   <text x="90.0" y="446.0" fill="#e2e8f0" font-size="14" text-anchor="middle">a = 2 (leaf)</text>
-  <text x="90.0" y="470.0" fill="#f59e0b" font-size="14" text-anchor="middle">a.grad = 6</text>
-  <rect x="175.0" y="366.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a78bfa" stroke-width="1.6"/>
-  <text x="250.0" y="389.0" fill="#a78bfa" font-size="13" text-anchor="middle">AccumulateGrad</text>
-  <line x1="250.0" y1="402.0" x2="250.0" y2="418.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar-amber)"/>
+  <text x="90.0" y="470.0" fill="#d6aa62" font-size="14" text-anchor="middle">a.grad = 6</text>
+  <rect x="175.0" y="366.0" width="150.0" height="36.0" rx="10" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="250.0" y="389.0" fill="#a99ad6" font-size="13" text-anchor="middle">AccumulateGrad</text>
+  <line x1="250.0" y1="402.0" x2="250.0" y2="418.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#ar-amber)"/>
   <rect x="175.0" y="420.0" width="150.0" height="62.0" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.6"/>
   <text x="250.0" y="446.0" fill="#e2e8f0" font-size="14" text-anchor="middle">b = −3 (leaf)</text>
-  <text x="250.0" y="470.0" fill="#f59e0b" font-size="14" text-anchor="middle">b.grad = −4</text>
-  <text x="540.0" y="400.0" fill="#38bdf8" font-size="12" text-anchor="start">파랑: 연산마다 남긴 grad_fn (local derivative 규칙)</text>
-  <text x="540.0" y="424.0" fill="#a78bfa" font-size="12" text-anchor="start">보라: leaf 의 .grad 에 더해 쌓는 자리</text>
-  <text x="540.0" y="448.0" fill="#f59e0b" font-size="12" text-anchor="start">주황 화살표: backward 가 gradient 를 보내는 방향</text>
+  <text x="250.0" y="470.0" fill="#d6aa62" font-size="14" text-anchor="middle">b.grad = −4</text>
+  <text x="540.0" y="400.0" fill="#7cb4d8" font-size="12" text-anchor="start">파랑: 연산마다 남긴 grad_fn (local derivative 규칙)</text>
+  <text x="540.0" y="424.0" fill="#a99ad6" font-size="12" text-anchor="start">보라: leaf 의 .grad 에 더해 쌓는 자리</text>
+  <text x="540.0" y="448.0" fill="#d6aa62" font-size="12" text-anchor="start">주황 화살표: backward 가 gradient 를 보내는 방향</text>
   <text x="540.0" y="472.0" fill="#94a3b8" font-size="12" text-anchor="start">backward 가 끝나면 저장한 값은 지운다</text>
 </svg>

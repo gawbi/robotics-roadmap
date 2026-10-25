@@ -6,32 +6,32 @@
   <!-- baseline y=230, scale 150 per 1.0 -->
   <line x1="40" y1="230" x2="460" y2="230" stroke="#475569" stroke-width="1.5"/>
   <!-- slot 1 -->
-  <rect x="60" y="155" width="40" height="75" fill="#38bdf8" fill-opacity="0.85"/>
-  <rect x="104" y="140" width="40" height="90" fill="#f59e0b" fill-opacity="0.9"/>
+  <rect x="60" y="155" width="40" height="75" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="104" y="140" width="40" height="90" fill="#d6aa62" fill-opacity="0.9"/>
   <text x="80" y="148" fill="#e2e8f0" font-size="13" text-anchor="middle">0.5</text>
   <text x="124" y="133" fill="#e2e8f0" font-size="13" text-anchor="middle">0.6</text>
   <text x="102" y="252" fill="#e2e8f0" font-size="13" text-anchor="middle">관절 1 token</text>
-  <text x="102" y="274" fill="#f59e0b" font-size="13" text-anchor="middle">ratio 1.2</text>
+  <text x="102" y="274" fill="#d6aa62" font-size="13" text-anchor="middle">ratio 1.2</text>
   <!-- slot 2 -->
-  <rect x="200" y="110" width="40" height="120" fill="#38bdf8" fill-opacity="0.85"/>
-  <rect x="244" y="110" width="40" height="120" fill="#f59e0b" fill-opacity="0.9"/>
+  <rect x="200" y="110" width="40" height="120" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="244" y="110" width="40" height="120" fill="#d6aa62" fill-opacity="0.9"/>
   <text x="220" y="103" fill="#e2e8f0" font-size="13" text-anchor="middle">0.8</text>
   <text x="264" y="103" fill="#e2e8f0" font-size="13" text-anchor="middle">0.8</text>
   <text x="242" y="252" fill="#e2e8f0" font-size="13" text-anchor="middle">관절 2 token</text>
-  <text x="242" y="274" fill="#f59e0b" font-size="13" text-anchor="middle">ratio 1</text>
+  <text x="242" y="274" fill="#d6aa62" font-size="13" text-anchor="middle">ratio 1</text>
   <!-- slot 3 -->
-  <rect x="340" y="192.5" width="40" height="37.5" fill="#38bdf8" fill-opacity="0.85"/>
-  <rect x="384" y="192.5" width="40" height="37.5" fill="#f59e0b" fill-opacity="0.9"/>
+  <rect x="340" y="192.5" width="40" height="37.5" fill="#7cb4d8" fill-opacity="0.85"/>
+  <rect x="384" y="192.5" width="40" height="37.5" fill="#d6aa62" fill-opacity="0.9"/>
   <text x="360" y="185" fill="#e2e8f0" font-size="13" text-anchor="middle">0.25</text>
   <text x="404" y="185" fill="#e2e8f0" font-size="13" text-anchor="middle">0.25</text>
   <text x="382" y="252" fill="#e2e8f0" font-size="13" text-anchor="middle">관절 3 token</text>
-  <text x="382" y="274" fill="#f59e0b" font-size="13" text-anchor="middle">ratio 1</text>
+  <text x="382" y="274" fill="#d6aa62" font-size="13" text-anchor="middle">ratio 1</text>
 
   <!-- product box -->
   <rect x="490" y="70" width="190" height="200" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="585" y="98" fill="#e2e8f0" font-size="14" text-anchor="middle">action 하나의 확률</text>
-  <text x="585" y="130" fill="#38bdf8" font-size="14" text-anchor="middle">옛: 0.5×0.8×0.25 = 0.1</text>
-  <text x="585" y="158" fill="#f59e0b" font-size="14" text-anchor="middle">새: 0.6×0.8×0.25 = 0.12</text>
+  <text x="585" y="130" fill="#7cb4d8" font-size="14" text-anchor="middle">옛: 0.5×0.8×0.25 = 0.1</text>
+  <text x="585" y="158" fill="#d6aa62" font-size="14" text-anchor="middle">새: 0.6×0.8×0.25 = 0.12</text>
   <line x1="510" y1="176" x2="660" y2="176" stroke="#1e293b"/>
   <text x="585" y="204" fill="#e2e8f0" font-size="14" text-anchor="middle">ratio = 0.12 ÷ 0.1 = 1.2</text>
   <text x="585" y="230" fill="#94a3b8" font-size="12" text-anchor="middle">자리별 ratio 의 곱</text>

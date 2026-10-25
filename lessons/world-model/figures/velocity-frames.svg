@@ -2,11 +2,11 @@
   <title>같은 지금 이미지(칸 2)이라도 앞 이미지이 칸 1 이면 다음은 칸 3, 앞 이미지이 칸 3 이면 다음은 칸 1 이다. 이미지 한 장으로는 둘을 가를 수 없다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="638" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="100.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="middle">앞 이미지</text>
@@ -45,8 +45,8 @@
   <text x="345.0" y="90.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
   <rect x="354.0" y="58.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="363.0" y="90.0" fill="#64748b" font-size="11" text-anchor="middle">7</text>
-  <rect x="222.0" y="52.0" width="156.0" height="44.0" rx="4" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <line x1="380.0" y1="67.0" x2="440.0" y2="67.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="222.0" y="52.0" width="156.0" height="44.0" rx="4" fill="none" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="380.0" y1="67.0" x2="440.0" y2="67.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
   <rect x="448.0" y="58.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="457.0" y="90.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
   <rect x="466.0" y="58.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
@@ -63,7 +63,7 @@
   <text x="565.0" y="90.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
   <rect x="574.0" y="58.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="583.0" y="90.0" fill="#64748b" font-size="11" text-anchor="middle">7</text>
-  <text x="410.0" y="54.0" fill="#f59e0b" font-size="13" text-anchor="middle">속도 +1</text>
+  <text x="410.0" y="54.0" fill="#d6aa62" font-size="13" text-anchor="middle">속도 +1</text>
   <rect x="30.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="39.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
   <rect x="48.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
@@ -97,8 +97,8 @@
   <text x="345.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
   <rect x="354.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="363.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">7</text>
-  <rect x="222.0" y="144.0" width="156.0" height="44.0" rx="4" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <line x1="380.0" y1="159.0" x2="440.0" y2="159.0" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="222.0" y="144.0" width="156.0" height="44.0" rx="4" fill="none" stroke="#7cb4d8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="380.0" y1="159.0" x2="440.0" y2="159.0" stroke="#d6aa62" stroke-width="2" marker-end="url(#arrow-amber)"/>
   <rect x="448.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="457.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">0</text>
   <rect x="466.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
@@ -115,6 +115,6 @@
   <text x="565.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">6</text>
   <rect x="574.0" y="150.0" width="18.0" height="18.0" rx="0" fill="#000000" stroke="#334155" stroke-width="1"/>
   <text x="583.0" y="182.0" fill="#64748b" font-size="11" text-anchor="middle">7</text>
-  <text x="410.0" y="146.0" fill="#f59e0b" font-size="13" text-anchor="middle">속도 −1</text>
+  <text x="410.0" y="146.0" fill="#d6aa62" font-size="13" text-anchor="middle">속도 −1</text>
   <text x="320.0" y="240.0" fill="#94a3b8" font-size="13" text-anchor="middle">점선 안의 지금 이미지은 두 줄이 똑같지만 다음 이미지은 다르다</text>
 </svg>

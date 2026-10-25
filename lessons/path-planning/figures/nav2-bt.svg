@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>Nav2 의 behavior tree 구조. BT navigator 가 NavigateToPose goal 을 받아 1초에 한 번 planner server 에 경로를 요청하고, controller server 는 그 경로를 1초에 20 번 속도 명령으로 바꾼다. 실패하면 costmap 지우기, 제자리 회전, 대기, 후진 순서로 recovery 를 한다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker></defs>
   <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20" y="40" width="170" height="56" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="105.0" y="63.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">NavigateToPose</text>
   <text x="105.0" y="82.0" fill="#94a3b8" font-size="11" text-anchor="middle">action goal (목표 위치)</text>
   <line x1="192.0" y1="68.0" x2="238.0" y2="68.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="240" y="40" width="180" height="56" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
-  <text x="330.0" y="63.0" fill="#a78bfa" font-size="13" text-anchor="middle" font-weight="600">BT navigator</text>
+  <rect x="240" y="40" width="180" height="56" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
+  <text x="330.0" y="63.0" fill="#a99ad6" font-size="13" text-anchor="middle" font-weight="600">BT navigator</text>
   <text x="330.0" y="82.0" fill="#94a3b8" font-size="11" text-anchor="middle">behavior tree 를 tick</text>
   <line x1="300.0" y1="98.0" x2="170.0" y2="138.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="360.0" y1="98.0" x2="520.0" y2="138.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="40" y="140" width="260" height="60" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="170.0" y="164.0" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="600">RateController 1 Hz → ComputePathToPose</text>
+  <rect x="40" y="140" width="260" height="60" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="170.0" y="164.0" fill="#d6aa62" font-size="12" text-anchor="middle" font-weight="600">RateController 1 Hz → ComputePathToPose</text>
   <text x="170.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="middle">1초에 한 번 경로를 다시 요청</text>
-  <rect x="400" y="140" width="260" height="60" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="530.0" y="164.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">FollowPath</text>
+  <rect x="400" y="140" width="260" height="60" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="530.0" y="164.0" fill="#7cb4d8" font-size="12" text-anchor="middle" font-weight="600">FollowPath</text>
   <text x="530.0" y="184.0" fill="#94a3b8" font-size="11" text-anchor="middle">새 경로가 올 때까지 이전 경로를 따라감</text>
   <line x1="170.0" y1="202.0" x2="170.0" y2="228.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
   <line x1="530.0" y1="202.0" x2="530.0" y2="228.0" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#am)"/>
-  <rect x="40" y="230" width="260" height="56" rx="8" fill="#1a1408" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="40" y="230" width="260" height="56" rx="8" fill="#1a1408" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="170.0" y="253.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">planner server</text>
   <text x="170.0" y="272.0" fill="#94a3b8" font-size="11" text-anchor="middle">global costmap 에서 NavFn·Smac 으로 탐색</text>
-  <rect x="400" y="230" width="260" height="56" rx="8" fill="#0b1a26" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="400" y="230" width="260" height="56" rx="8" fill="#0b1a26" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="530.0" y="253.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">controller server (20 Hz)</text>
   <text x="530.0" y="272.0" fill="#94a3b8" font-size="11" text-anchor="middle">local costmap 을 보며 cmd_vel 출력</text>
-  <line x1="302.0" y1="258.0" x2="398.0" y2="258.0" stroke="#34d399" stroke-width="1.8" marker-end="url(#ag)"/>
-  <text x="350.0" y="250.0" fill="#34d399" font-size="11" text-anchor="middle">path</text>
+  <line x1="302.0" y1="258.0" x2="398.0" y2="258.0" stroke="#7fc4a2" stroke-width="1.8" marker-end="url(#ag)"/>
+  <text x="350.0" y="250.0" fill="#7fc4a2" font-size="11" text-anchor="middle">path</text>
   <text x="360.0" y="318.0" fill="#94a3b8" font-size="11" text-anchor="middle">실패하면 costmap 지우기 → 제자리 회전 1.57 rad → 5 초 대기 → 0.30 m 후진 순서로 recovery 를 하고,</text>
   <text x="360.0" y="336.0" fill="#94a3b8" font-size="11" text-anchor="middle">전체 navigation 을 최대 6 번 다시 시도한다 (navigate_to_pose_w_replanning_and_recovery.xml)</text>
 </svg>

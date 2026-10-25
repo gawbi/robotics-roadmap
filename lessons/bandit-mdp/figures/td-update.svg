@@ -2,7 +2,7 @@
   <title>Q-learning update 한 번: Q(s, a) = 0.5 가 target 0.9 쪽으로 TD error 0.4 의 α = 0.1 배인 0.04 만큼 움직인다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
@@ -14,7 +14,7 @@
   <circle cx="70" cy="52" r="20" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="70" y="57" fill="#e2e8f0" font-size="15" text-anchor="middle">s</text>
   <line x1="90" y1="52" x2="186" y2="52" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-muted)"/>
-  <text x="138" y="43" fill="#f59e0b" font-size="14" text-anchor="middle">a</text>
+  <text x="138" y="43" fill="#d6aa62" font-size="14" text-anchor="middle">a</text>
   <text x="138" y="73" fill="#94a3b8" font-size="13" text-anchor="middle">r = 0</text>
   <circle cx="210" cy="52" r="20" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="210" y="57" fill="#e2e8f0" font-size="15" text-anchor="middle">s′</text>
@@ -40,11 +40,11 @@
   <text x="300" y="145" fill="#94a3b8" font-size="13" text-anchor="middle">TD error = 0.9 − 0.5 = 0.4</text>
 
   <!-- move -->
-  <line x1="140" y1="182" x2="170" y2="182" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="140" y1="182" x2="170" y2="182" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow)"/>
   <circle cx="140" cy="200" r="7" fill="#e2e8f0"/>
-  <circle cx="172" cy="200" r="7" fill="#34d399"/>
-  <circle cx="460" cy="200" r="7" fill="#f59e0b"/>
+  <circle cx="172" cy="200" r="7" fill="#7fc4a2"/>
+  <circle cx="460" cy="200" r="7" fill="#d6aa62"/>
   <text x="140" y="250" fill="#e2e8f0" font-size="13" text-anchor="middle">Q = 0.5</text>
-  <text x="200" y="250" fill="#34d399" font-size="13">새 Q = 0.5 + 0.1 × 0.4 = 0.54</text>
-  <text x="460" y="250" fill="#f59e0b" font-size="13" text-anchor="middle">target</text>
+  <text x="200" y="250" fill="#7fc4a2" font-size="13">새 Q = 0.5 + 0.1 × 0.4 = 0.54</text>
+  <text x="460" y="250" fill="#d6aa62" font-size="13" text-anchor="middle">target</text>
 </svg>

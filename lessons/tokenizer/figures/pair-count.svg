@@ -2,9 +2,9 @@
   <title>cat hat cat that 의 첫 회차 쌍 빈도. (a, t) 가 4번으로 가장 많다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="314" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="24" y="34" fill="#94a3b8" font-size="13" text-anchor="start">이웃한 두 token 의 쌍과 나온 횟수 (첫 회차)</text>
@@ -21,9 +21,9 @@
   <rect x="78" y="150" width="44" height="90" rx="4" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
   <text x="100" y="142" fill="#e2e8f0" font-size="14" text-anchor="middle">2</text>
   <text x="100" y="264" fill="#e2e8f0" font-size="14" text-anchor="middle">c a</text>
-  <rect x="141" y="60" width="44" height="180" rx="4" fill="#0f2a3d" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="163" y="52" fill="#38bdf8" font-size="14" text-anchor="middle">4</text>
-  <text x="163" y="264" fill="#38bdf8" font-size="14" text-anchor="middle">a t</text>
+  <rect x="141" y="60" width="44" height="180" rx="4" fill="#0f2a3d" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="163" y="52" fill="#7cb4d8" font-size="14" text-anchor="middle">4</text>
+  <text x="163" y="264" fill="#7cb4d8" font-size="14" text-anchor="middle">a t</text>
   <rect x="204" y="105" width="44" height="135" rx="4" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
   <text x="226" y="97" fill="#e2e8f0" font-size="14" text-anchor="middle">3</text>
   <text x="226" y="264" fill="#e2e8f0" font-size="14" text-anchor="middle">t ␣</text>

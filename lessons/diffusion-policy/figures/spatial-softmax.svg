@@ -5,71 +5,71 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/>
     </marker>
     <marker id="arrow-acc2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-acc3" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-err" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
     <marker id="arrow-txt" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="598" height="268" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <text x="93.0" y="44.0" fill="#38bdf8" font-size="14" text-anchor="middle">feature map 한 channel</text>
-  <rect x="30" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <text x="93.0" y="44.0" fill="#7cb4d8" font-size="14" text-anchor="middle">feature map 한 channel</text>
+  <rect x="30" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="51.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="72" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="72" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="93.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="114" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="114" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="135.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">2</text>
-  <rect x="30" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="30" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="51.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="72" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="72" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="93.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="114" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="114" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="135.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="30" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="30" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="51.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="72" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="72" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="93.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
-  <rect x="114" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.00" stroke="#334155"/>
+  <rect x="114" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.00" stroke="#334155"/>
   <text x="135.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0</text>
   <line x1="162.0" y1="119.0" x2="210.0" y2="119.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="186.0" y="106.0" fill="#94a3b8" font-size="13" text-anchor="middle">softmax</text>
-  <text x="279.0" y="44.0" fill="#38bdf8" font-size="14" text-anchor="middle">위치별 확률</text>
-  <rect x="216" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <text x="279.0" y="44.0" fill="#7cb4d8" font-size="14" text-anchor="middle">위치별 확률</text>
+  <rect x="216" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="237.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="258" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="258" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="279.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="300" y="56" width="42" height="42" fill="#38bdf8" fill-opacity="0.48" stroke="#334155"/>
+  <rect x="300" y="56" width="42" height="42" fill="#7cb4d8" fill-opacity="0.48" stroke="#334155"/>
   <text x="321.0" y="82.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.480</text>
-  <rect x="216" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="216" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="237.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="258" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="258" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="279.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="300" y="98" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="300" y="98" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="321.0" y="124.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="216" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="216" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="237.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="258" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="258" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="279.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
-  <rect x="300" y="140" width="42" height="42" fill="#38bdf8" fill-opacity="0.17" stroke="#334155"/>
+  <rect x="300" y="140" width="42" height="42" fill="#7cb4d8" fill-opacity="0.17" stroke="#334155"/>
   <text x="321.0" y="166.0" fill="#e2e8f0" font-size="14" text-anchor="middle">0.065</text>
   <line x1="348.0" y1="119.0" x2="396.0" y2="119.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="372.0" y="106.0" fill="#94a3b8" font-size="13" text-anchor="middle">기댓값</text>
   <rect x="424" y="59" width="120" height="120" fill="#0e1628" stroke="#334155"/>
   <line x1="424" y1="119" x2="544" y2="119" stroke="#475569"/>
   <line x1="484" y1="59" x2="484" y2="179" stroke="#475569"/>
-  <text x="484.0" y="47.0" fill="#f59e0b" font-size="14" text-anchor="middle">keypoint 좌표</text>
+  <text x="484.0" y="47.0" fill="#d6aa62" font-size="14" text-anchor="middle">keypoint 좌표</text>
   <circle cx="544" cy="59" r="4" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-  <circle cx="508.9" cy="94.1" r="7" fill="#f59e0b"/>
-  <text x="508.9" y="80.1" fill="#f59e0b" font-size="13" text-anchor="middle">(0.415, −0.415)</text>
+  <circle cx="508.9" cy="94.1" r="7" fill="#d6aa62"/>
+  <text x="508.9" y="80.1" fill="#d6aa62" font-size="13" text-anchor="middle">(0.415, −0.415)</text>
   <text x="424.0" y="197.0" fill="#94a3b8" font-size="13" text-anchor="middle">−1</text>
   <text x="544.0" y="197.0" fill="#94a3b8" font-size="13" text-anchor="middle">1</text>
   <text x="30.0" y="228.0" fill="#94a3b8" font-size="13" text-anchor="start">칸의 x, y 좌표를 왼쪽 위 (−1, −1) 부터 오른쪽 아래 (1, 1) 까지 두면</text>

@@ -2,11 +2,11 @@
   <title>step 0 부터 3 까지 네 후보의 예측 위치. A 는 2, 3, 4 로 충전기에 닿아 합 −3, B 는 3 에서 멈춰 −4, C 는 2 에 머물러 −6, D 는 1 에 머물러 −9 다. 가장 큰 합 −3 의 A 를 고른다</title>
   <defs>
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker>
-    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker>
   </defs>
   <rect x="1" y="1" width="598" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="70.0" y="40.0" width="380.0" height="240.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
@@ -24,31 +24,31 @@
   <text x="62.0" y="44.0" fill="#64748b" font-size="13" text-anchor="end">5</text>
   <text x="460.0" y="285.0" fill="#94a3b8" font-size="14" text-anchor="start">step</text>
   <text x="62.0" y="26.0" fill="#94a3b8" font-size="14" text-anchor="end">예측 칸</text>
-  <line x1="70.0" y1="88.0" x2="450.0" y2="88.0" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <text x="76.0" y="80.0" fill="#34d399" font-size="12" text-anchor="start">충전기 (칸 4)</text>
+  <line x1="70.0" y1="88.0" x2="450.0" y2="88.0" stroke="#7fc4a2" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="76.0" y="80.0" fill="#7fc4a2" font-size="12" text-anchor="start">충전기 (칸 4)</text>
   <polyline points="70.0,232.0 196.7,232.0 323.3,232.0 450.0,232.0" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
   <circle cx="70.0" cy="232.0" r="4.5" fill="#94a3b8"/>
   <circle cx="196.7" cy="232.0" r="4.5" fill="#94a3b8"/>
   <circle cx="323.3" cy="232.0" r="4.5" fill="#94a3b8"/>
   <circle cx="450.0" cy="232.0" r="4.5" fill="#94a3b8"/>
   <text x="462.0" y="237.0" fill="#94a3b8" font-size="13" text-anchor="start">D (0,0,0) 합 −9</text>
-  <polyline points="70.0,232.0 196.7,184.0 323.3,184.0 450.0,184.0" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-  <circle cx="70.0" cy="232.0" r="4.5" fill="#a78bfa"/>
-  <circle cx="196.7" cy="184.0" r="4.5" fill="#a78bfa"/>
-  <circle cx="323.3" cy="184.0" r="4.5" fill="#a78bfa"/>
-  <circle cx="450.0" cy="184.0" r="4.5" fill="#a78bfa"/>
-  <text x="462.0" y="189.0" fill="#a78bfa" font-size="13" text-anchor="start">C (+1,0,0) 합 −6</text>
-  <polyline points="70.0,232.0 196.7,184.0 323.3,136.0 450.0,136.0" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <circle cx="70.0" cy="232.0" r="4.5" fill="#38bdf8"/>
-  <circle cx="196.7" cy="184.0" r="4.5" fill="#38bdf8"/>
-  <circle cx="323.3" cy="136.0" r="4.5" fill="#38bdf8"/>
-  <circle cx="450.0" cy="136.0" r="4.5" fill="#38bdf8"/>
-  <text x="462.0" y="141.0" fill="#38bdf8" font-size="13" text-anchor="start">B (+1,+1,0) 합 −4</text>
-  <polyline points="70.0,232.0 196.7,184.0 323.3,136.0 450.0,88.0" fill="none" stroke="#f59e0b" stroke-width="4"/>
-  <circle cx="70.0" cy="232.0" r="4.5" fill="#f59e0b"/>
-  <circle cx="196.7" cy="184.0" r="4.5" fill="#f59e0b"/>
-  <circle cx="323.3" cy="136.0" r="4.5" fill="#f59e0b"/>
-  <circle cx="450.0" cy="88.0" r="4.5" fill="#f59e0b"/>
-  <text x="462.0" y="93.0" fill="#f59e0b" font-size="13" text-anchor="start" font-weight="700">A (+1,+1,+1) 합 −3</text>
+  <polyline points="70.0,232.0 196.7,184.0 323.3,184.0 450.0,184.0" fill="none" stroke="#a99ad6" stroke-width="2.5"/>
+  <circle cx="70.0" cy="232.0" r="4.5" fill="#a99ad6"/>
+  <circle cx="196.7" cy="184.0" r="4.5" fill="#a99ad6"/>
+  <circle cx="323.3" cy="184.0" r="4.5" fill="#a99ad6"/>
+  <circle cx="450.0" cy="184.0" r="4.5" fill="#a99ad6"/>
+  <text x="462.0" y="189.0" fill="#a99ad6" font-size="13" text-anchor="start">C (+1,0,0) 합 −6</text>
+  <polyline points="70.0,232.0 196.7,184.0 323.3,136.0 450.0,136.0" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <circle cx="70.0" cy="232.0" r="4.5" fill="#7cb4d8"/>
+  <circle cx="196.7" cy="184.0" r="4.5" fill="#7cb4d8"/>
+  <circle cx="323.3" cy="136.0" r="4.5" fill="#7cb4d8"/>
+  <circle cx="450.0" cy="136.0" r="4.5" fill="#7cb4d8"/>
+  <text x="462.0" y="141.0" fill="#7cb4d8" font-size="13" text-anchor="start">B (+1,+1,0) 합 −4</text>
+  <polyline points="70.0,232.0 196.7,184.0 323.3,136.0 450.0,88.0" fill="none" stroke="#d6aa62" stroke-width="4"/>
+  <circle cx="70.0" cy="232.0" r="4.5" fill="#d6aa62"/>
+  <circle cx="196.7" cy="184.0" r="4.5" fill="#d6aa62"/>
+  <circle cx="323.3" cy="136.0" r="4.5" fill="#d6aa62"/>
+  <circle cx="450.0" cy="88.0" r="4.5" fill="#d6aa62"/>
+  <text x="462.0" y="93.0" fill="#d6aa62" font-size="13" text-anchor="start" font-weight="700">A (+1,+1,+1) 합 −3</text>
   <text x="300.0" y="326.0" fill="#94a3b8" font-size="13" text-anchor="middle">세 step 을 world model 로 예측해 reward 합을 비교한다. 합이 가장 큰 A 를 고른다</text>
 </svg>

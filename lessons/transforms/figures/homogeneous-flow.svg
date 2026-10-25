@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 290" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>3×3 homogeneous transform T 와 (2, 1, 1) 의 곱. 각 행과의 곱을 더하면 (2, 3, 1) 이 나와 회전과 이동을 한 번에 계산한다</title>
-  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="618" height="288" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="110.0" y="36.0" fill="#94a3b8" font-size="15" text-anchor="middle">T<tspan dy="4" font-size="10">ab</tspan><tspan dy="-4">​</tspan></text>
   <text x="250.0" y="36.0" fill="#94a3b8" font-size="15" text-anchor="middle">p<tspan dy="4" font-size="10">b</tspan><tspan dy="-4">​</tspan> 끝에 1</text>
   <text x="540.0" y="36.0" fill="#94a3b8" font-size="15" text-anchor="middle">결과</text>
-  <rect x="40.0" y="48.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="40.0" y="48.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="63.0" y="70.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <text x="110.0" y="70.0" fill="#e2e8f0" font-size="15" text-anchor="middle">−1</text>
   <text x="157.0" y="70.0" fill="#e2e8f0" font-size="15" text-anchor="middle">3</text>
-  <text x="390.0" y="70.0" fill="#38bdf8" font-size="14" text-anchor="middle">0·2 + (−1)·1 + 3·1 = 2</text>
-  <rect x="510.0" y="48.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="390.0" y="70.0" fill="#7cb4d8" font-size="14" text-anchor="middle">0·2 + (−1)·1 + 3·1 = 2</text>
+  <rect x="510.0" y="48.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="540.0" y="70.0" fill="#e2e8f0" font-size="15" text-anchor="middle">2</text>
-  <rect x="40.0" y="92.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="40.0" y="92.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="63.0" y="114.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
   <text x="110.0" y="114.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <text x="157.0" y="114.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
-  <text x="390.0" y="114.0" fill="#f59e0b" font-size="14" text-anchor="middle">1·2 + 0·1 + 1·1 = 3</text>
-  <rect x="510.0" y="92.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="390.0" y="114.0" fill="#d6aa62" font-size="14" text-anchor="middle">1·2 + 0·1 + 1·1 = 3</text>
+  <rect x="510.0" y="92.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="540.0" y="114.0" fill="#e2e8f0" font-size="15" text-anchor="middle">3</text>
-  <rect x="40.0" y="136.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="40.0" y="136.0" width="140.0" height="34.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="63.0" y="158.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <text x="110.0" y="158.0" fill="#e2e8f0" font-size="15" text-anchor="middle">0</text>
   <text x="157.0" y="158.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
-  <text x="390.0" y="158.0" fill="#a78bfa" font-size="14" text-anchor="middle">0·2 + 0·1 + 1·1 = 1</text>
-  <rect x="510.0" y="136.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="390.0" y="158.0" fill="#a99ad6" font-size="14" text-anchor="middle">0·2 + 0·1 + 1·1 = 1</text>
+  <rect x="510.0" y="136.0" width="60.0" height="34.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.5"/>
   <text x="540.0" y="158.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
-  <rect x="225.0" y="48.0" width="50.0" height="122.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="225.0" y="48.0" width="50.0" height="122.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="250.0" y="70.0" fill="#e2e8f0" font-size="15" text-anchor="middle">2</text>
   <text x="250.0" y="114.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
   <text x="250.0" y="158.0" fill="#e2e8f0" font-size="15" text-anchor="middle">1</text>
   <text x="203.0" y="115.0" fill="#94a3b8" font-size="18" text-anchor="middle">×</text>
   <text x="490.0" y="115.0" fill="#94a3b8" font-size="18" text-anchor="middle">=</text>
-  <path d="M34,43 L138,43 L138,130 L34,130 Z" fill="none" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="4 4"/>
-  <text x="40.0" y="206.0" fill="#f59e0b" font-size="13" text-anchor="start">점선 안 2×2 = R(90°): 회전</text>
-  <text x="40.0" y="228.0" fill="#a78bfa" font-size="13" text-anchor="start">셋째 열 위 두 칸 (3, 1) = p<tspan dy="4" font-size="10">ab</tspan><tspan dy="-4">​</tspan>: 이동</text>
+  <path d="M34,43 L138,43 L138,130 L34,130 Z" fill="none" stroke="#d6aa62" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <text x="40.0" y="206.0" fill="#d6aa62" font-size="13" text-anchor="start">점선 안 2×2 = R(90°): 회전</text>
+  <text x="40.0" y="228.0" fill="#a99ad6" font-size="13" text-anchor="start">셋째 열 위 두 칸 (3, 1) = p<tspan dy="4" font-size="10">ab</tspan><tspan dy="-4">​</tspan>: 이동</text>
   <text x="40.0" y="250.0" fill="#94a3b8" font-size="13" text-anchor="start">마지막 행 0 0 1: 끝의 1 을 그대로 1 로 둔다</text>
   <text x="40.0" y="272.0" fill="#e2e8f0" font-size="13" text-anchor="start">결과의 앞 두 칸 (2, 3) 이 p<tspan dy="4" font-size="10">a</tspan><tspan dy="-4">​</tspan> 다</text>
 </svg>

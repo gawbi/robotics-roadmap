@@ -3,15 +3,15 @@
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
   <rect x="1" y="1" width="858" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
 
-  <rect x="20" y="40" width="140" height="70" rx="10" fill="#2a1a0c" stroke="#f59e0b" stroke-width="2"/>
-  <text x="90" y="68" fill="#f59e0b" font-size="13" text-anchor="middle">GR-1 조종 데이터</text>
+  <rect x="20" y="40" width="140" height="70" rx="10" fill="#2a1a0c" stroke="#d6aa62" stroke-width="2"/>
+  <text x="90" y="68" fill="#d6aa62" font-size="13" text-anchor="middle">GR-1 조종 데이터</text>
   <text x="90" y="92" fill="#e2e8f0" font-size="14" text-anchor="middle">88 시간</text>
   <line x1="162" y1="75" x2="198" y2="75" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="180" y="130" fill="#94a3b8" font-size="11" text-anchor="middle">fine-tuning</text>
 
-  <rect x="200" y="40" width="150" height="70" rx="10" fill="#22183a" stroke="#a78bfa" stroke-width="2"/>
-  <text x="275" y="68" fill="#a78bfa" font-size="13" text-anchor="middle">image-to-video</text>
-  <text x="275" y="90" fill="#a78bfa" font-size="13" text-anchor="middle">모델</text>
+  <rect x="200" y="40" width="150" height="70" rx="10" fill="#22183a" stroke="#a99ad6" stroke-width="2"/>
+  <text x="275" y="68" fill="#a99ad6" font-size="13" text-anchor="middle">image-to-video</text>
+  <text x="275" y="90" fill="#a99ad6" font-size="13" text-anchor="middle">모델</text>
 
   <rect x="200" y="160" width="150" height="80" rx="10" fill="#111a2e" stroke="#e2e8f0" stroke-width="2"/>
   <text x="275" y="186" fill="#e2e8f0" font-size="12" text-anchor="middle">첫 장면 +</text>
@@ -20,19 +20,19 @@
   <line x1="275" y1="158" x2="275" y2="112" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
 
   <line x1="352" y1="75" x2="388" y2="75" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="390" y="40" width="130" height="70" rx="10" fill="#0c1f33" stroke="#38bdf8" stroke-width="2"/>
-  <text x="455" y="68" fill="#38bdf8" font-size="13" text-anchor="middle">생성 영상</text>
+  <rect x="390" y="40" width="130" height="70" rx="10" fill="#0c1f33" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="455" y="68" fill="#7cb4d8" font-size="13" text-anchor="middle">생성 영상</text>
   <text x="455" y="92" fill="#e2e8f0" font-size="14" text-anchor="middle">827 시간</text>
 
   <line x1="522" y1="75" x2="558" y2="75" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="560" y="40" width="130" height="70" rx="10" fill="#111a2e" stroke="#f87171" stroke-width="2"/>
-  <text x="625" y="66" fill="#f87171" font-size="13" text-anchor="middle">걸러 내기</text>
+  <rect x="560" y="40" width="130" height="70" rx="10" fill="#111a2e" stroke="#d88b8b" stroke-width="2"/>
+  <text x="625" y="66" fill="#d88b8b" font-size="13" text-anchor="middle">걸러 내기</text>
   <text x="625" y="88" fill="#94a3b8" font-size="11" text-anchor="middle">LLM 이 8 장을 보고</text>
   <text x="625" y="102" fill="#94a3b8" font-size="11" text-anchor="middle">지시대로인지 판정</text>
 
   <line x1="692" y1="75" x2="718" y2="75" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="720" y="40" width="120" height="70" rx="10" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
-  <text x="780" y="66" fill="#34d399" font-size="13" text-anchor="middle">action 붙이기</text>
+  <rect x="720" y="40" width="120" height="70" rx="10" fill="#0f2a22" stroke="#7fc4a2" stroke-width="2"/>
+  <text x="780" y="66" fill="#7fc4a2" font-size="13" text-anchor="middle">action 붙이기</text>
   <text x="780" y="88" fill="#94a3b8" font-size="11" text-anchor="middle">latent action</text>
   <text x="780" y="102" fill="#94a3b8" font-size="11" text-anchor="middle">IDM pseudo-action</text>
 

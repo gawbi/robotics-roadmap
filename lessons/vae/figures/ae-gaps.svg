@@ -5,13 +5,13 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
     </marker>
     <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/>
     </marker>
     <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/>
     </marker>
     <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/>
     </marker>
   </defs>
   <rect x="1" y="1" width="658" height="228" rx="12" fill="#0b1220" stroke="#1e293b"/>
@@ -35,16 +35,16 @@
   <line x1="610.0" y1="146.0" x2="610.0" y2="154.0" stroke="#475569" stroke-width="1.5"/>
   <text x="610.0" y="172.0" fill="#94a3b8" font-size="12" text-anchor="middle">12</text>
   <text x="610.0" y="194.0" fill="#94a3b8" font-size="13" text-anchor="end">z</text>
-  <circle cx="102.7" cy="150.0" r="5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="110.9" cy="150.0" r="5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="119.2" cy="150.0" r="5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="124.1" cy="150.0" r="5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="114.2" cy="150.0" r="5" fill="#38bdf8" stroke="#38bdf8" stroke-width="2"/>
-  <circle cx="336.6" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="344.8" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="353.1" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="358.0" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="348.1" cy="150.0" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="102.7" cy="150.0" r="5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="110.9" cy="150.0" r="5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="119.2" cy="150.0" r="5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="124.1" cy="150.0" r="5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="114.2" cy="150.0" r="5" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="336.6" cy="150.0" r="5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="344.8" cy="150.0" r="5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="353.1" cy="150.0" r="5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="358.0" cy="150.0" r="5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <circle cx="348.1" cy="150.0" r="5" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
   <rect x="95.9" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="103.9" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="111.9" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
@@ -75,8 +75,8 @@
   <rect x="111.9" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="119.9" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="127.9" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
-  <rect x="95.9" y="40.0" width="40.0" height="48.0" rx="0" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
-  <text x="115.9" y="110.0" fill="#38bdf8" font-size="13" text-anchor="middle">숫자 0 그림들</text>
+  <rect x="95.9" y="40.0" width="40.0" height="48.0" rx="0" fill="none" stroke="#7cb4d8" stroke-width="1.2"/>
+  <text x="115.9" y="110.0" fill="#7cb4d8" font-size="13" text-anchor="middle">숫자 0 그림들</text>
   <rect x="326.5" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="334.5" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="342.5" y="40.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
@@ -107,16 +107,16 @@
   <rect x="342.5" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="350.5" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
   <rect x="358.5" y="80.0" width="8.0" height="8.0" rx="0" fill="#000000" stroke="#1f2937" stroke-width="0.5"/>
-  <rect x="326.5" y="40.0" width="40.0" height="48.0" rx="0" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="346.5" y="110.0" fill="#f59e0b" font-size="13" text-anchor="middle">숫자 1 그림들</text>
-  <circle cx="231.2" cy="150.0" r="6" fill="none" stroke="#f87171" stroke-width="2"/>
-  <text x="231.2" y="72.0" fill="#f87171" font-size="26" text-anchor="middle">?</text>
-  <text x="231.2" y="110.0" fill="#f87171" font-size="13" text-anchor="middle">빈 곳</text>
-  <line x1="231.2" y1="118.0" x2="231.2" y2="140.0" stroke="#f87171" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <circle cx="544.1" cy="150.0" r="6" fill="none" stroke="#f87171" stroke-width="2"/>
-  <text x="544.1" y="72.0" fill="#f87171" font-size="26" text-anchor="middle">?</text>
-  <text x="544.1" y="110.0" fill="#f87171" font-size="13" text-anchor="middle">범위 밖</text>
-  <line x1="544.1" y1="118.0" x2="544.1" y2="140.0" stroke="#f87171" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <text x="231.2" y="200.0" fill="#f87171" font-size="12" text-anchor="middle">z = 0.5</text>
-  <text x="544.1" y="200.0" fill="#f87171" font-size="12" text-anchor="middle">z = 10</text>
+  <rect x="326.5" y="40.0" width="40.0" height="48.0" rx="0" fill="none" stroke="#d6aa62" stroke-width="1.2"/>
+  <text x="346.5" y="110.0" fill="#d6aa62" font-size="13" text-anchor="middle">숫자 1 그림들</text>
+  <circle cx="231.2" cy="150.0" r="6" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <text x="231.2" y="72.0" fill="#d88b8b" font-size="26" text-anchor="middle">?</text>
+  <text x="231.2" y="110.0" fill="#d88b8b" font-size="13" text-anchor="middle">빈 곳</text>
+  <line x1="231.2" y1="118.0" x2="231.2" y2="140.0" stroke="#d88b8b" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <circle cx="544.1" cy="150.0" r="6" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <text x="544.1" y="72.0" fill="#d88b8b" font-size="26" text-anchor="middle">?</text>
+  <text x="544.1" y="110.0" fill="#d88b8b" font-size="13" text-anchor="middle">범위 밖</text>
+  <line x1="544.1" y1="118.0" x2="544.1" y2="140.0" stroke="#d88b8b" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="231.2" y="200.0" fill="#d88b8b" font-size="12" text-anchor="middle">z = 0.5</text>
+  <text x="544.1" y="200.0" fill="#d88b8b" font-size="12" text-anchor="middle">z = 10</text>
 </svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>link 마다 붙은 frame. 손끝은 frame 2 에서 보면 언제나 (1, 0) 이고, base frame 에서 보면 (0.866, 1.5) 다</title>
-  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <defs><marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
   <rect x="1" y="1" width="658" height="378" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="48.0" y="50.0" width="266.0" height="301.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1"/>
   <line x1="48.0" y1="50.0" x2="48.0" y2="351.0" stroke="#16213a" stroke-width="1"/>
@@ -23,29 +23,29 @@
   <text x="95.0" y="44.0" fill="#94a3b8" font-size="13" text-anchor="start">y</text>
   <line x1="90.0" y1="330.0" x2="211.2" y2="260.0" stroke="#1e3a5f" stroke-width="10" stroke-linecap="round"/>
   <line x1="211.2" y1="260.0" x2="211.2" y2="120.0" stroke="#1e3a5f" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="211.2" cy="120.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/>
-  <line x1="90.0" y1="330.0" x2="153.0" y2="330.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="90.0" y1="330.0" x2="90.0" y2="267.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <circle cx="211.2" cy="120.0" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="2"/>
+  <line x1="90.0" y1="330.0" x2="153.0" y2="330.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="90.0" y1="330.0" x2="90.0" y2="267.0" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow-green)"/>
   <circle cx="90.0" cy="330.0" r="3.5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="90.0" y1="330.0" x2="162.7" y2="288.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="90.0" y1="330.0" x2="48.0" y2="257.3" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <line x1="90.0" y1="330.0" x2="162.7" y2="288.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="90.0" y1="330.0" x2="48.0" y2="257.3" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow-green)"/>
   <circle cx="90.0" cy="330.0" r="3.5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="211.2" y1="260.0" x2="211.2" y2="197.0" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow-red)"/>
-  <line x1="211.2" y1="260.0" x2="148.2" y2="260.0" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <line x1="211.2" y1="260.0" x2="211.2" y2="197.0" stroke="#d88b8b" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <line x1="211.2" y1="260.0" x2="148.2" y2="260.0" stroke="#7fc4a2" stroke-width="2.5" marker-end="url(#arrow-green)"/>
   <circle cx="211.2" cy="260.0" r="3.5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1"/>
   <text x="94.0" y="360.0" fill="#e2e8f0" font-size="12" text-anchor="start">base frame (frame 0)</text>
-  <text x="173.2" y="312.6" fill="#38bdf8" font-size="12" text-anchor="start">frame 1 (link 1 에 붙음)</text>
-  <text x="225.2" y="234.0" fill="#a78bfa" font-size="12" text-anchor="start">frame 2 (link 2 에 붙음)</text>
-  <circle cx="211.2" cy="120.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
-  <text x="223.2" y="125.0" fill="#f59e0b" font-size="13" text-anchor="start">손끝</text>
+  <text x="173.2" y="312.6" fill="#7cb4d8" font-size="12" text-anchor="start">frame 1 (link 1 에 붙음)</text>
+  <text x="225.2" y="234.0" fill="#a99ad6" font-size="12" text-anchor="start">frame 2 (link 2 에 붙음)</text>
+  <circle cx="211.2" cy="120.0" r="7" fill="#d6aa62" stroke="#d6aa62" stroke-width="1"/>
+  <text x="223.2" y="125.0" fill="#d6aa62" font-size="13" text-anchor="start">손끝</text>
   <text x="420.0" y="50.0" fill="#e2e8f0" font-size="14" text-anchor="start">같은 손끝의 좌표</text>
-  <text x="420.0" y="84.0" fill="#a78bfa" font-size="13" text-anchor="start">frame 2 에서 보면</text>
+  <text x="420.0" y="84.0" fill="#a99ad6" font-size="13" text-anchor="start">frame 2 에서 보면</text>
   <text x="440.0" y="106.0" fill="#e2e8f0" font-size="14" text-anchor="start">(1, 0)</text>
   <text x="440.0" y="128.0" fill="#94a3b8" font-size="12" text-anchor="start">x 축 방향으로 1 (link 2 길이)</text>
-  <text x="420.0" y="166.0" fill="#38bdf8" font-size="13" text-anchor="start">frame 1 에서 보면</text>
+  <text x="420.0" y="166.0" fill="#7cb4d8" font-size="13" text-anchor="start">frame 1 에서 보면</text>
   <text x="440.0" y="188.0" fill="#e2e8f0" font-size="14" text-anchor="start">(1.5, 0.866)</text>
   <text x="420.0" y="226.0" fill="#e2e8f0" font-size="13" text-anchor="start">base frame 에서 보면</text>
-  <text x="440.0" y="248.0" fill="#f59e0b" font-size="14" text-anchor="start">(0.866, 1.5)</text>
+  <text x="440.0" y="248.0" fill="#d6aa62" font-size="14" text-anchor="start">(0.866, 1.5)</text>
   <text x="420.0" y="292.0" fill="#94a3b8" font-size="12" text-anchor="start">각도가 바뀌어도 frame 2 에서의</text>
   <text x="420.0" y="312.0" fill="#94a3b8" font-size="12" text-anchor="start">좌표 (1, 0) 은 바뀌지 않는다</text>
 </svg>

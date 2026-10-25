@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>noise 를 맞히는 network 의 입력과 출력. 숫자 하나면 숫자 하나, 2 차원 점이면 숫자 두 개, 32×32 이미지면 32×32 noise 이미지를 내서 출력의 모양이 입력 x_t 와 같다. 어느 경우든 step 번호 t 를 함께 받는다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="698" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="24.0" y="66.0" fill="#94a3b8" font-size="13" text-anchor="start">숫자 하나</text>
-  <rect x="130.0" y="40.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="130.0" y="40.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="215.0" y="71.0" fill="#e2e8f0" font-size="13" text-anchor="middle">x_t = 1.77</text>
   <line x1="302.0" y1="66.0" x2="360.0" y2="66.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="364.0" y="40.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="364.0" y="40.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="419.0" y="71.0" fill="#e2e8f0" font-size="14" text-anchor="middle">MLP</text>
   <line x1="476.0" y1="66.0" x2="520.0" y2="66.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="524.0" y="40.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="524.0" y="40.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="602.0" y="71.0" fill="#e2e8f0" font-size="13" text-anchor="middle">예측 noise 0.3</text>
-  <text x="331.0" y="88.0" fill="#a78bfa" font-size="11" text-anchor="middle">+ step 번호 t</text>
+  <text x="331.0" y="88.0" fill="#a99ad6" font-size="11" text-anchor="middle">+ step 번호 t</text>
   <text x="24.0" y="146.0" fill="#94a3b8" font-size="13" text-anchor="start">2 차원 점</text>
-  <rect x="130.0" y="120.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="130.0" y="120.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="215.0" y="151.0" fill="#e2e8f0" font-size="13" text-anchor="middle">(x, y) = (1.2, −0.4)</text>
   <line x1="302.0" y1="146.0" x2="360.0" y2="146.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="364.0" y="120.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="364.0" y="120.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="419.0" y="151.0" fill="#e2e8f0" font-size="14" text-anchor="middle">MLP</text>
   <line x1="476.0" y1="146.0" x2="520.0" y2="146.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="524.0" y="120.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="524.0" y="120.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="602.0" y="151.0" fill="#e2e8f0" font-size="13" text-anchor="middle">예측 noise (0.5, −0.1)</text>
-  <text x="331.0" y="168.0" fill="#a78bfa" font-size="11" text-anchor="middle">+ step 번호 t</text>
+  <text x="331.0" y="168.0" fill="#a99ad6" font-size="11" text-anchor="middle">+ step 번호 t</text>
   <text x="24.0" y="226.0" fill="#94a3b8" font-size="13" text-anchor="start">32×32 이미지</text>
-  <rect x="130.0" y="200.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="130.0" y="200.0" width="170.0" height="52.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="215.0" y="231.0" fill="#e2e8f0" font-size="13" text-anchor="middle">pixel 1024 개</text>
   <line x1="302.0" y1="226.0" x2="360.0" y2="226.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="364.0" y="200.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="364.0" y="200.0" width="110.0" height="52.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="419.0" y="231.0" fill="#e2e8f0" font-size="14" text-anchor="middle">U-Net</text>
   <line x1="476.0" y1="226.0" x2="520.0" y2="226.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="524.0" y="200.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="524.0" y="200.0" width="156.0" height="52.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="602.0" y="231.0" fill="#e2e8f0" font-size="13" text-anchor="middle">noise 이미지 32×32</text>
-  <text x="331.0" y="248.0" fill="#a78bfa" font-size="11" text-anchor="middle">+ step 번호 t</text>
+  <text x="331.0" y="248.0" fill="#a99ad6" font-size="11" text-anchor="middle">+ step 번호 t</text>
   <text x="350.0" y="286.0" fill="#94a3b8" font-size="12" text-anchor="middle">U-Net 은 이미지를 줄였다가 원래 크기로 되살리는 convolution network 다</text>
 </svg>

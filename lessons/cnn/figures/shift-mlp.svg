@@ -28,17 +28,17 @@
   <rect x="138" y="192" width="34" height="34" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
   <rect x="172" y="192" width="34" height="34" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
   <rect x="206" y="192" width="34" height="34" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
-  <rect x="141" y="59" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="107" y="93" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="141" y="93" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="141" y="127" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="141" y="161" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="107" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="141" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="175" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <rect x="141" y="59" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="107" y="93" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="141" y="93" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="141" y="127" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="141" y="161" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="107" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="141" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="175" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
   <text x="155" y="255" fill="#e2e8f0" font-size="14" text-anchor="middle">weight 1 인 칸 중 흰 칸: 8 개</text>
   <text x="155" y="280" fill="#94a3b8" font-size="13" text-anchor="middle">bias −6 을 더하면 z = 8 − 6 = 2 &gt; 0</text>
-  <text x="155" y="305" fill="#34d399" font-size="15" text-anchor="middle">'1' 이다</text>
+  <text x="155" y="305" fill="#7fc4a2" font-size="15" text-anchor="middle">'1' 이다</text>
   <text x="505" y="40" fill="#e2e8f0" font-size="14" text-anchor="middle">오른쪽으로 한 칸 옮긴 사진</text>
   <rect x="420" y="56" width="34" height="34" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
   <rect x="454" y="56" width="34" height="34" rx="0" fill="#111a2e" stroke="#475569" stroke-width="1"/>
@@ -65,16 +65,16 @@
   <rect x="488" y="192" width="34" height="34" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
   <rect x="522" y="192" width="34" height="34" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
   <rect x="556" y="192" width="34" height="34" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
-  <rect x="491" y="59" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="457" y="93" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="491" y="93" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="491" y="127" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="491" y="161" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="457" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="491" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <rect x="525" y="195" width="28" height="28" rx="0" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <rect x="491" y="59" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="457" y="93" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="491" y="93" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="491" y="127" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="491" y="161" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="457" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="491" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <rect x="525" y="195" width="28" height="28" rx="0" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
   <text x="505" y="255" fill="#e2e8f0" font-size="14" text-anchor="middle">weight 1 인 칸 중 흰 칸: 3 개</text>
   <text x="505" y="280" fill="#94a3b8" font-size="13" text-anchor="middle">bias −6 을 더하면 z = 3 − 6 = −3 ≤ 0</text>
-  <text x="505" y="305" fill="#f87171" font-size="15" text-anchor="middle">'1' 이 아니다</text>
-  <text x="360" y="340" fill="#f59e0b" font-size="13" text-anchor="middle">주황 테두리 = weight 1 인 8 칸, 나머지 17 칸의 weight 는 0</text>
+  <text x="505" y="305" fill="#d88b8b" font-size="15" text-anchor="middle">'1' 이 아니다</text>
+  <text x="360" y="340" fill="#d6aa62" font-size="13" text-anchor="middle">주황 테두리 = weight 1 인 8 칸, 나머지 17 칸의 weight 는 0</text>
 </svg>

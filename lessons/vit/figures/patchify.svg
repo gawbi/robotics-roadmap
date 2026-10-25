@@ -39,8 +39,8 @@
   <text x="130.0" y="207.76" fill="#0b1220" font-size="16" text-anchor="middle">1</text>
   <rect x="150" y="182" width="40" height="40" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
   <text x="170.0" y="207.76" fill="#0b1220" font-size="16" text-anchor="middle">1</text>
-  <line x1="110" y1="56" x2="110" y2="228" stroke="#f59e0b" stroke-width="3"/>
-  <line x1="24" y1="142" x2="196" y2="142" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="110" y1="56" x2="110" y2="228" stroke="#d6aa62" stroke-width="3"/>
+  <line x1="24" y1="142" x2="196" y2="142" stroke="#d6aa62" stroke-width="3"/>
   <text x="110" y="254" fill="#94a3b8" font-size="13" text-anchor="middle">2×2 경계로 나눈 사진</text>
   <line x1="206" y1="142" x2="246" y2="142" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="370" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">patch 4 개</text>
@@ -52,7 +52,7 @@
   <text x="303.0" y="111.68" fill="#94a3b8" font-size="13" text-anchor="middle">0</text>
   <rect x="318" y="92" width="30" height="30" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
   <text x="333.0" y="111.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
-  <text x="274" y="98" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">1</text>
+  <text x="274" y="98" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">1</text>
   <rect x="428" y="62" width="30" height="30" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
   <text x="443.0" y="81.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
   <rect x="458" y="62" width="30" height="30" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
@@ -61,7 +61,7 @@
   <text x="443.0" y="111.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
   <rect x="458" y="92" width="30" height="30" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
   <text x="473.0" y="111.68" fill="#94a3b8" font-size="13" text-anchor="middle">0</text>
-  <text x="414" y="98" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">2</text>
+  <text x="414" y="98" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">2</text>
   <rect x="288" y="152" width="30" height="30" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
   <text x="303.0" y="171.68" fill="#94a3b8" font-size="13" text-anchor="middle">0</text>
   <rect x="318" y="152" width="30" height="30" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
@@ -70,7 +70,7 @@
   <text x="303.0" y="201.68" fill="#94a3b8" font-size="13" text-anchor="middle">0</text>
   <rect x="318" y="182" width="30" height="30" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
   <text x="333.0" y="201.68" fill="#94a3b8" font-size="13" text-anchor="middle">0</text>
-  <text x="274" y="188" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">3</text>
+  <text x="274" y="188" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">3</text>
   <rect x="428" y="152" width="30" height="30" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
   <text x="443.0" y="171.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
   <rect x="458" y="152" width="30" height="30" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
@@ -79,21 +79,21 @@
   <text x="443.0" y="201.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
   <rect x="458" y="182" width="30" height="30" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
   <text x="473.0" y="201.68" fill="#0b1220" font-size="13" text-anchor="middle">1</text>
-  <text x="414" y="188" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">4</text>
+  <text x="414" y="188" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">4</text>
   <text x="370" y="254" fill="#94a3b8" font-size="13" text-anchor="middle">번호는 읽는 순서 (왼쪽 위부터)</text>
   <line x1="492" y1="142" x2="520" y2="142" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <text x="590" y="34" fill="#e2e8f0" font-size="15" text-anchor="middle">펼친 숫자</text>
-  <text x="540" y="85" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">1</text>
-  <rect x="556" y="66" width="106" height="28" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="540" y="85" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">1</text>
+  <rect x="556" y="66" width="106" height="28" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="609" y="85" fill="#e2e8f0" font-size="14" text-anchor="middle">[0, 1, 0, 1]</text>
-  <text x="540" y="129" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">2</text>
-  <rect x="556" y="110" width="106" height="28" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="540" y="129" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">2</text>
+  <rect x="556" y="110" width="106" height="28" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="609" y="129" fill="#e2e8f0" font-size="14" text-anchor="middle">[1, 0, 1, 0]</text>
-  <text x="540" y="173" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">3</text>
-  <rect x="556" y="154" width="106" height="28" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="540" y="173" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">3</text>
+  <rect x="556" y="154" width="106" height="28" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="609" y="173" fill="#e2e8f0" font-size="14" text-anchor="middle">[0, 0, 0, 0]</text>
-  <text x="540" y="217" fill="#f59e0b" font-size="15" text-anchor="middle" font-weight="bold">4</text>
-  <rect x="556" y="198" width="106" height="28" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="540" y="217" fill="#d6aa62" font-size="15" text-anchor="middle" font-weight="bold">4</text>
+  <rect x="556" y="198" width="106" height="28" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="609" y="217" fill="#e2e8f0" font-size="14" text-anchor="middle">[1, 1, 1, 1]</text>
   <text x="590" y="254" fill="#94a3b8" font-size="13" text-anchor="middle">patch 하나 = 숫자 4 개</text>
 </svg>

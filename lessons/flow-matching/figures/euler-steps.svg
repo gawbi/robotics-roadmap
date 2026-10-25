@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>데이터가 +2 와 −2 반반일 때 noise ε = 0.5 에서 출발한 Euler sampling. 점선은 step 을 아주 잘게 나눈 실제 경로로 +2 에 닿는다. step 1 번이면 0, 2 번이면 1.52, 4 번이면 2.00, 10 번이면 2.00 에 닿는다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="120.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1 step</text>
   <rect x="50.0" y="44.0" width="140.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
@@ -16,13 +16,13 @@
   <text x="120.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
   <line x1="190.0" y1="264.0" x2="190.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
   <text x="190.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <line x1="50.0" y1="69.4" x2="190.0" y2="69.4" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="50.0" y1="238.6" x2="190.0" y2="238.6" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="50.0" y1="69.4" x2="190.0" y2="69.4" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="50.0" y1="238.6" x2="190.0" y2="238.6" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
   <polyline points="50.0,132.8 51.4,133.1 52.8,133.3 54.2,133.4 55.6,133.6 57.0,133.8 58.4,134.0 59.8,134.1 61.2,134.2 62.6,134.4 64.0,134.5 65.4,134.6 66.8,134.7 68.2,134.8 69.6,134.8 71.0,134.9 72.4,134.9 73.8,134.9 75.2,134.9 76.6,134.9 78.0,134.9 79.4,134.8 80.8,134.7 82.2,134.6 83.6,134.5 85.0,134.3 86.4,134.1 87.8,133.9 89.2,133.6 90.6,133.3 92.0,133.0 93.4,132.6 94.8,132.2 96.2,131.7 97.6,131.2 99.0,130.7 100.4,130.1 101.8,129.4 103.2,128.7 104.6,128.0 106.0,127.2 107.4,126.4 108.8,125.5 110.2,124.6 111.6,123.7 113.0,122.8 114.4,121.9 115.8,120.9 117.2,119.9 118.6,119.0 120.0,118.0 121.4,117.0 122.8,116.1 124.2,115.1 125.6,114.1 127.0,113.2 128.4,112.2 129.8,111.2 131.2,110.2 132.6,109.3 134.0,108.3 135.4,107.3 136.8,106.3 138.2,105.4 139.6,104.4 141.0,103.4 142.4,102.5 143.8,101.5 145.2,100.5 146.6,99.5 148.0,98.6 149.4,97.6 150.8,96.6 152.2,95.6 153.6,94.7 155.0,93.7 156.4,92.7 157.8,91.8 159.2,90.8 160.6,89.8 162.0,88.8 163.4,87.9 164.8,86.9 166.2,85.9 167.6,84.9 169.0,84.0 170.4,83.0 171.8,82.0 173.2,81.1 174.6,80.1 176.0,79.1 177.4,78.1 178.8,77.2 180.2,76.2 181.6,75.2 183.0,74.2 184.4,73.3 185.8,72.3 187.2,71.3 188.6,70.4 190.0,69.4" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
-  <polyline points="50.0,132.8 190.0,154.0" fill="none" stroke="#f59e0b" stroke-width="2.3"/>
-  <circle cx="50.0" cy="132.8" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="190.0" cy="154.0" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <text x="120.0" y="302.0" fill="#f59e0b" font-size="13" text-anchor="middle">끝: 0.00</text>
+  <polyline points="50.0,132.8 190.0,154.0" fill="none" stroke="#d6aa62" stroke-width="2.3"/>
+  <circle cx="50.0" cy="132.8" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="190.0" cy="154.0" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <text x="120.0" y="302.0" fill="#d6aa62" font-size="13" text-anchor="middle">끝: 0.00</text>
   <text x="292.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="middle">2 step</text>
   <rect x="222.0" y="44.0" width="140.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
   <line x1="222.0" y1="264.0" x2="222.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
@@ -31,14 +31,14 @@
   <text x="292.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
   <line x1="362.0" y1="264.0" x2="362.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
   <text x="362.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <line x1="222.0" y1="69.4" x2="362.0" y2="69.4" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="222.0" y1="238.6" x2="362.0" y2="238.6" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="222.0" y1="69.4" x2="362.0" y2="69.4" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="222.0" y1="238.6" x2="362.0" y2="238.6" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
   <polyline points="222.0,132.8 223.4,133.1 224.8,133.3 226.2,133.4 227.6,133.6 229.0,133.8 230.4,134.0 231.8,134.1 233.2,134.2 234.6,134.4 236.0,134.5 237.4,134.6 238.8,134.7 240.2,134.8 241.6,134.8 243.0,134.9 244.4,134.9 245.8,134.9 247.2,134.9 248.6,134.9 250.0,134.9 251.4,134.8 252.8,134.7 254.2,134.6 255.6,134.5 257.0,134.3 258.4,134.1 259.8,133.9 261.2,133.6 262.6,133.3 264.0,133.0 265.4,132.6 266.8,132.2 268.2,131.7 269.6,131.2 271.0,130.7 272.4,130.1 273.8,129.4 275.2,128.7 276.6,128.0 278.0,127.2 279.4,126.4 280.8,125.5 282.2,124.6 283.6,123.7 285.0,122.8 286.4,121.9 287.8,120.9 289.2,119.9 290.6,119.0 292.0,118.0 293.4,117.0 294.8,116.1 296.2,115.1 297.6,114.1 299.0,113.2 300.4,112.2 301.8,111.2 303.2,110.2 304.6,109.3 306.0,108.3 307.4,107.3 308.8,106.3 310.2,105.4 311.6,104.4 313.0,103.4 314.4,102.5 315.8,101.5 317.2,100.5 318.6,99.5 320.0,98.6 321.4,97.6 322.8,96.6 324.2,95.6 325.6,94.7 327.0,93.7 328.4,92.7 329.8,91.8 331.2,90.8 332.6,89.8 334.0,88.8 335.4,87.9 336.8,86.9 338.2,85.9 339.6,84.9 341.0,84.0 342.4,83.0 343.8,82.0 345.2,81.1 346.6,80.1 348.0,79.1 349.4,78.1 350.8,77.2 352.2,76.2 353.6,75.2 355.0,74.2 356.4,73.3 357.8,72.3 359.2,71.3 360.6,70.4 362.0,69.4" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
-  <polyline points="222.0,132.8 292.0,143.4 362.0,89.6" fill="none" stroke="#f59e0b" stroke-width="2.3"/>
-  <circle cx="222.0" cy="132.8" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="292.0" cy="143.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="362.0" cy="89.6" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <text x="292.0" y="302.0" fill="#f59e0b" font-size="13" text-anchor="middle">끝: 1.52</text>
+  <polyline points="222.0,132.8 292.0,143.4 362.0,89.6" fill="none" stroke="#d6aa62" stroke-width="2.3"/>
+  <circle cx="222.0" cy="132.8" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="292.0" cy="143.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="362.0" cy="89.6" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <text x="292.0" y="302.0" fill="#d6aa62" font-size="13" text-anchor="middle">끝: 1.52</text>
   <text x="464.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="middle">4 step</text>
   <rect x="394.0" y="44.0" width="140.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
   <line x1="394.0" y1="264.0" x2="394.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
@@ -47,16 +47,16 @@
   <text x="464.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
   <line x1="534.0" y1="264.0" x2="534.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
   <text x="534.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <line x1="394.0" y1="69.4" x2="534.0" y2="69.4" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="394.0" y1="238.6" x2="534.0" y2="238.6" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="394.0" y1="69.4" x2="534.0" y2="69.4" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="394.0" y1="238.6" x2="534.0" y2="238.6" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
   <polyline points="394.0,132.8 395.4,133.1 396.8,133.3 398.2,133.4 399.6,133.6 401.0,133.8 402.4,134.0 403.8,134.1 405.2,134.2 406.6,134.4 408.0,134.5 409.4,134.6 410.8,134.7 412.2,134.8 413.6,134.8 415.0,134.9 416.4,134.9 417.8,134.9 419.2,134.9 420.6,134.9 422.0,134.9 423.4,134.8 424.8,134.7 426.2,134.6 427.6,134.5 429.0,134.3 430.4,134.1 431.8,133.9 433.2,133.6 434.6,133.3 436.0,133.0 437.4,132.6 438.8,132.2 440.2,131.7 441.6,131.2 443.0,130.7 444.4,130.1 445.8,129.4 447.2,128.7 448.6,128.0 450.0,127.2 451.4,126.4 452.8,125.5 454.2,124.6 455.6,123.7 457.0,122.8 458.4,121.9 459.8,120.9 461.2,119.9 462.6,119.0 464.0,118.0 465.4,117.0 466.8,116.1 468.2,115.1 469.6,114.1 471.0,113.2 472.4,112.2 473.8,111.2 475.2,110.2 476.6,109.3 478.0,108.3 479.4,107.3 480.8,106.3 482.2,105.4 483.6,104.4 485.0,103.4 486.4,102.5 487.8,101.5 489.2,100.5 490.6,99.5 492.0,98.6 493.4,97.6 494.8,96.6 496.2,95.6 497.6,94.7 499.0,93.7 500.4,92.7 501.8,91.8 503.2,90.8 504.6,89.8 506.0,88.8 507.4,87.9 508.8,86.9 510.2,85.9 511.6,84.9 513.0,84.0 514.4,83.0 515.8,82.0 517.2,81.1 518.6,80.1 520.0,79.1 521.4,78.1 522.8,77.2 524.2,76.2 525.6,75.2 527.0,74.2 528.4,73.3 529.8,72.3 531.2,71.3 532.6,70.4 534.0,69.4" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
-  <polyline points="394.0,132.8 429.0,138.1 464.0,134.4 499.0,103.9 534.0,69.4" fill="none" stroke="#f59e0b" stroke-width="2.3"/>
-  <circle cx="394.0" cy="132.8" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="429.0" cy="138.1" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="464.0" cy="134.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="499.0" cy="103.9" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="534.0" cy="69.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <text x="464.0" y="302.0" fill="#f59e0b" font-size="13" text-anchor="middle">끝: 2.00</text>
+  <polyline points="394.0,132.8 429.0,138.1 464.0,134.4 499.0,103.9 534.0,69.4" fill="none" stroke="#d6aa62" stroke-width="2.3"/>
+  <circle cx="394.0" cy="132.8" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="429.0" cy="138.1" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="464.0" cy="134.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="499.0" cy="103.9" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="534.0" cy="69.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <text x="464.0" y="302.0" fill="#d6aa62" font-size="13" text-anchor="middle">끝: 2.00</text>
   <text x="636.0" y="30.0" fill="#e2e8f0" font-size="14" text-anchor="middle">10 step</text>
   <rect x="566.0" y="44.0" width="140.0" height="220.0" rx="0" fill="#0e1628" stroke="#1e293b" stroke-width="1.5"/>
   <line x1="566.0" y1="264.0" x2="566.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
@@ -65,21 +65,21 @@
   <text x="636.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">0.5</text>
   <line x1="706.0" y1="264.0" x2="706.0" y2="269.0" stroke="#475569" stroke-width="1.5"/>
   <text x="706.0" y="283.0" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
-  <line x1="566.0" y1="69.4" x2="706.0" y2="69.4" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="566.0" y1="238.6" x2="706.0" y2="238.6" stroke="#34d399" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="566.0" y1="69.4" x2="706.0" y2="69.4" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="566.0" y1="238.6" x2="706.0" y2="238.6" stroke="#7fc4a2" stroke-width="1" stroke-dasharray="4 3"/>
   <polyline points="566.0,132.8 567.4,133.1 568.8,133.3 570.2,133.4 571.6,133.6 573.0,133.8 574.4,134.0 575.8,134.1 577.2,134.2 578.6,134.4 580.0,134.5 581.4,134.6 582.8,134.7 584.2,134.8 585.6,134.8 587.0,134.9 588.4,134.9 589.8,134.9 591.2,134.9 592.6,134.9 594.0,134.9 595.4,134.8 596.8,134.7 598.2,134.6 599.6,134.5 601.0,134.3 602.4,134.1 603.8,133.9 605.2,133.6 606.6,133.3 608.0,133.0 609.4,132.6 610.8,132.2 612.2,131.7 613.6,131.2 615.0,130.7 616.4,130.1 617.8,129.4 619.2,128.7 620.6,128.0 622.0,127.2 623.4,126.4 624.8,125.5 626.2,124.6 627.6,123.7 629.0,122.8 630.4,121.9 631.8,120.9 633.2,119.9 634.6,119.0 636.0,118.0 637.4,117.0 638.8,116.1 640.2,115.1 641.6,114.1 643.0,113.2 644.4,112.2 645.8,111.2 647.2,110.2 648.6,109.3 650.0,108.3 651.4,107.3 652.8,106.3 654.2,105.4 655.6,104.4 657.0,103.4 658.4,102.5 659.8,101.5 661.2,100.5 662.6,99.5 664.0,98.6 665.4,97.6 666.8,96.6 668.2,95.6 669.6,94.7 671.0,93.7 672.4,92.7 673.8,91.8 675.2,90.8 676.6,89.8 678.0,88.8 679.4,87.9 680.8,86.9 682.2,85.9 683.6,84.9 685.0,84.0 686.4,83.0 687.8,82.0 689.2,81.1 690.6,80.1 692.0,79.1 693.4,78.1 694.8,77.2 696.2,76.2 697.6,75.2 699.0,74.2 700.4,73.3 701.8,72.3 703.2,71.3 704.6,70.4 706.0,69.4" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
-  <polyline points="566.0,132.8 580.0,135.0 594.0,136.0 608.0,135.5 622.0,132.3 636.0,124.4 650.0,113.5 664.0,102.5 678.0,91.5 692.0,80.4 706.0,69.4" fill="none" stroke="#f59e0b" stroke-width="2.3"/>
-  <circle cx="566.0" cy="132.8" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="580.0" cy="135.0" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="594.0" cy="136.0" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="608.0" cy="135.5" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="622.0" cy="132.3" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="636.0" cy="124.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="650.0" cy="113.5" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="664.0" cy="102.5" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="678.0" cy="91.5" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="692.0" cy="80.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <circle cx="706.0" cy="69.4" r="3.5" fill="#f59e0b" stroke="none" stroke-width="1.5"/>
-  <text x="636.0" y="302.0" fill="#f59e0b" font-size="13" text-anchor="middle">끝: 2.00</text>
+  <polyline points="566.0,132.8 580.0,135.0 594.0,136.0 608.0,135.5 622.0,132.3 636.0,124.4 650.0,113.5 664.0,102.5 678.0,91.5 692.0,80.4 706.0,69.4" fill="none" stroke="#d6aa62" stroke-width="2.3"/>
+  <circle cx="566.0" cy="132.8" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="580.0" cy="135.0" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="594.0" cy="136.0" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="608.0" cy="135.5" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="622.0" cy="132.3" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="636.0" cy="124.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="650.0" cy="113.5" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="664.0" cy="102.5" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="678.0" cy="91.5" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="692.0" cy="80.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="706.0" cy="69.4" r="3.5" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <text x="636.0" y="302.0" fill="#d6aa62" font-size="13" text-anchor="middle">끝: 2.00</text>
   <text x="360.0" y="322.0" fill="#94a3b8" font-size="12" text-anchor="middle">점선: 실제 경로(+2 에 닿음), 주황: Euler 법으로 걸은 경로</text>
 </svg>

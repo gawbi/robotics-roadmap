@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>IK 의 한 step. 지금 joint angle 로 FK 를 계산해 오차를 재고, 같은 자리의 Jacobian 으로 Δq 를 구해 joint angle 을 고친다</title>
-  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+  <defs><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="a-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="a-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="a-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="a-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
   <rect x="1" y="1" width="638" height="318" rx="12" fill="#0b1220" stroke="#1e293b"/>
-  <rect x="30.0" y="40.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="30.0" y="40.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="115.0" y="66.0" fill="#e2e8f0" font-size="14" text-anchor="middle">① joint angle q</text>
   <text x="115.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">(0°, 90°)</text>
   <rect x="235.0" y="40.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="320.0" y="66.0" fill="#e2e8f0" font-size="14" text-anchor="middle">② FK 로 손끝 p</text>
   <text x="320.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">(1, 1)</text>
-  <rect x="440.0" y="40.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="440.0" y="40.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
   <text x="525.0" y="66.0" fill="#e2e8f0" font-size="14" text-anchor="middle">③ 오차 e = p<tspan dy="4" font-size="10">d</tspan><tspan dy="-4"> − p</tspan></text>
   <text x="525.0" y="88.0" fill="#94a3b8" font-size="13" text-anchor="middle">(−0.5, 0.5)</text>
   <rect x="440.0" y="196.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="525.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">④ Jacobian J(q)</text>
   <text x="525.0" y="244.0" fill="#94a3b8" font-size="13" text-anchor="middle">열 (−1, 1), (−1, 0)</text>
-  <rect x="235.0" y="196.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="235.0" y="196.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
   <text x="320.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">⑤ J Δq = e 풀기</text>
   <text x="320.0" y="244.0" fill="#94a3b8" font-size="13" text-anchor="middle">Δq = (0.5, 0)</text>
-  <rect x="30.0" y="196.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="30.0" y="196.0" width="170.0" height="64.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="115.0" y="222.0" fill="#e2e8f0" font-size="14" text-anchor="middle">⑥ q ← q + Δq</text>
   <text x="115.0" y="244.0" fill="#94a3b8" font-size="13" text-anchor="middle">(0.5 rad, 90°)</text>
   <line x1="204.0" y1="72.0" x2="231.0" y2="72.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a-gray)"/>
@@ -27,6 +27,6 @@
   <line x1="231.0" y1="228.0" x2="204.0" y2="228.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a-gray)"/>
   <line x1="115.0" y1="192.0" x2="115.0" y2="108.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#a-gray)"/>
   <text x="125.0" y="156.0" fill="#94a3b8" font-size="13" text-anchor="start">다시</text>
-  <text x="320.0" y="150.0" fill="#f59e0b" font-size="14" text-anchor="middle">목표 p<tspan dy="4" font-size="10">d</tspan><tspan dy="-4"> = (0.5, 1.5)</tspan></text>
+  <text x="320.0" y="150.0" fill="#d6aa62" font-size="14" text-anchor="middle">목표 p<tspan dy="4" font-size="10">d</tspan><tspan dy="-4"> = (0.5, 1.5)</tspan></text>
   <text x="320.0" y="290.0" fill="#94a3b8" font-size="13" text-anchor="middle">남은 거리 ‖e‖ 가 충분히 작아질 때까지 되풀이한다</text>
 </svg>

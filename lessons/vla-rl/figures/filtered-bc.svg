@@ -4,8 +4,8 @@
   <!-- plot area: x 90..630 for round 0..5 (108 per round); y: 0.65 -> 270, 1.0 -> 60 ; scale 600 per 1 -->
   <line x1="80" y1="270" x2="650" y2="270" stroke="#475569" stroke-width="1.5"/>
   <line x1="80" y1="60" x2="80" y2="270" stroke="#475569" stroke-width="1.5"/>
-  <line x1="80" y1="90" x2="650" y2="90" stroke="#34d399" stroke-dasharray="5 4"/>
-  <text x="646" y="124" fill="#34d399" font-size="12" text-anchor="end">가운데만 잡을 때 95%</text>
+  <line x1="80" y1="90" x2="650" y2="90" stroke="#7fc4a2" stroke-dasharray="5 4"/>
+  <text x="646" y="124" fill="#7fc4a2" font-size="12" text-anchor="end">가운데만 잡을 때 95%</text>
   <g font-size="12" fill="#94a3b8" text-anchor="end">
     <text x="72" y="274">0.65</text><text x="72" y="214">0.75</text><text x="72" y="154">0.85</text><text x="72" y="94">0.95</text>
   </g>
@@ -15,13 +15,13 @@
   <text x="370" y="316" fill="#94a3b8" font-size="13" text-anchor="middle">filtered BC 를 되풀이한 횟수 (round)</text>
 
   <!-- center fraction: 0.7,0.816,0.894,0.941,0.968,0.983 -> y=270-600*(v-0.65) -->
-  <polyline points="110,240 214,170.4 318,123.6 422,95.4 526,79.2 630,70.2" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-  <g fill="#38bdf8">
+  <polyline points="110,240 214,170.4 318,123.6 422,95.4 526,79.2 630,70.2" fill="none" stroke="#7cb4d8" stroke-width="2.5"/>
+  <g fill="#7cb4d8">
     <circle cx="110" cy="240" r="5"/><circle cx="214" cy="170.4" r="5"/><circle cx="318" cy="123.6" r="5"/><circle cx="422" cy="95.4" r="5"/><circle cx="526" cy="79.2" r="5"/><circle cx="630" cy="70.2" r="5"/>
   </g>
   <!-- success: .815,.867,.902,.924,.936,.942 -->
-  <polyline points="110,171 214,139.8 318,118.8 422,105.6 526,98.4 630,94.8" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <g fill="#f59e0b">
+  <polyline points="110,171 214,139.8 318,118.8 422,105.6 526,98.4 630,94.8" fill="none" stroke="#d6aa62" stroke-width="2.5"/>
+  <g fill="#d6aa62">
     <circle cx="110" cy="171" r="5"/><circle cx="214" cy="139.8" r="5"/><circle cx="318" cy="118.8" r="5"/><circle cx="422" cy="105.6" r="5"/><circle cx="526" cy="98.4" r="5"/><circle cx="630" cy="94.8" r="5"/>
   </g>
   <g font-size="12" fill="#e2e8f0">
@@ -29,8 +29,8 @@
     <text x="118" y="163">81.5%</text><text x="222" y="132">86.7%</text><text x="326" y="112">90.2%</text>
   </g>
   <rect x="380" y="180" width="250" height="60" rx="8" fill="#111a2e" stroke="#475569"/>
-  <line x1="394" y1="200" x2="420" y2="200" stroke="#38bdf8" stroke-width="2.5"/>
+  <line x1="394" y1="200" x2="420" y2="200" stroke="#7cb4d8" stroke-width="2.5"/>
   <text x="428" y="204" fill="#e2e8f0" font-size="13">가운데를 잡는 비율</text>
-  <line x1="394" y1="224" x2="420" y2="224" stroke="#f59e0b" stroke-width="2.5"/>
+  <line x1="394" y1="224" x2="420" y2="224" stroke="#d6aa62" stroke-width="2.5"/>
   <text x="428" y="228" fill="#e2e8f0" font-size="13">성공률</text>
 </svg>

@@ -1,41 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>문 감지기의 Bayes rule 을 1000 곳으로 센 그림. 1000 곳 중 문은 100 곳, 벽은 900 곳이다. 문 100 곳 중 90 곳에서 감지가 뜨고, 벽 900 곳 중 45 곳에서 오경보가 뜬다. 감지가 뜬 135 곳 중 실제 문은 90 곳이라 확률은 0.67 이다</title>
-  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f472b6"/></marker></defs>
+  <defs><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker></defs>
   <rect x="1" y="1" width="678" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <rect x="20.0" y="135.0" width="120.0" height="56.0" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="80.0" y="157.0" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="600">복도 위치</text>
   <text x="80.0" y="176.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1000 곳</text>
-  <rect x="200.0" y="60.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="265.0" y="82.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">문</text>
+  <rect x="200.0" y="60.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="265.0" y="82.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">문</text>
   <text x="265.0" y="101.0" fill="#e2e8f0" font-size="12" text-anchor="middle">100 곳 (10%)</text>
   <rect x="200.0" y="210.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="265.0" y="232.0" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="600">벽</text>
   <text x="265.0" y="251.0" fill="#e2e8f0" font-size="12" text-anchor="middle">900 곳 (90%)</text>
   <line x1="142.0" y1="155.0" x2="197.0" y2="95.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
   <line x1="142.0" y1="172.0" x2="197.0" y2="235.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#am)"/>
-  <rect x="400.0" y="20.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="465.0" y="42.0" fill="#34d399" font-size="13" text-anchor="middle" font-weight="600">감지</text>
+  <rect x="400.0" y="20.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="465.0" y="42.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">감지</text>
   <text x="465.0" y="61.0" fill="#e2e8f0" font-size="12" text-anchor="middle">90 곳 (90%)</text>
   <rect x="400.0" y="95.0" width="130.0" height="50.0" rx="6" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
   <text x="465.0" y="117.0" fill="#64748b" font-size="13" text-anchor="middle" font-weight="600">놓침</text>
   <text x="465.0" y="136.0" fill="#e2e8f0" font-size="12" text-anchor="middle">10 곳</text>
-  <rect x="400.0" y="170.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#f472b6" stroke-width="1.5"/>
-  <text x="465.0" y="192.0" fill="#f472b6" font-size="13" text-anchor="middle" font-weight="600">오경보</text>
+  <rect x="400.0" y="170.0" width="130.0" height="56.0" rx="6" fill="#111a2e" stroke="#cf96b8" stroke-width="1.5"/>
+  <text x="465.0" y="192.0" fill="#cf96b8" font-size="13" text-anchor="middle" font-weight="600">오경보</text>
   <text x="465.0" y="211.0" fill="#e2e8f0" font-size="12" text-anchor="middle">45 곳 (5%)</text>
   <rect x="400.0" y="250.0" width="130.0" height="50.0" rx="6" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
   <text x="465.0" y="272.0" fill="#64748b" font-size="13" text-anchor="middle" font-weight="600">조용</text>
   <text x="465.0" y="291.0" fill="#e2e8f0" font-size="12" text-anchor="middle">855 곳</text>
-  <line x1="332.0" y1="80.0" x2="397.0" y2="50.0" stroke="#34d399" stroke-width="1.6" marker-end="url(#ag)"/>
+  <line x1="332.0" y1="80.0" x2="397.0" y2="50.0" stroke="#7fc4a2" stroke-width="1.6" marker-end="url(#ag)"/>
   <line x1="332.0" y1="95.0" x2="397.0" y2="118.0" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#am)"/>
-  <line x1="332.0" y1="230.0" x2="397.0" y2="200.0" stroke="#f472b6" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="332.0" y1="230.0" x2="397.0" y2="200.0" stroke="#cf96b8" stroke-width="1.6" marker-end="url(#ar)"/>
   <line x1="332.0" y1="245.0" x2="397.0" y2="272.0" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#am)"/>
-  <rect x="560.0" y="95.0" width="105.0" height="120.0" rx="6" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="612.0" y="120.0" fill="#38bdf8" font-size="12" text-anchor="middle" font-weight="600">감지가 뜬 곳</text>
+  <rect x="560.0" y="95.0" width="105.0" height="120.0" rx="6" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="612.0" y="120.0" fill="#7cb4d8" font-size="12" text-anchor="middle" font-weight="600">감지가 뜬 곳</text>
   <text x="612.0" y="142.0" fill="#e2e8f0" font-size="12" text-anchor="middle">90 + 45 = 135</text>
-  <text x="612.0" y="166.0" fill="#38bdf8" font-size="12" text-anchor="middle">그중 문</text>
+  <text x="612.0" y="166.0" fill="#7cb4d8" font-size="12" text-anchor="middle">그중 문</text>
   <text x="612.0" y="188.0" fill="#e2e8f0" font-size="12" text-anchor="middle">90 ÷ 135</text>
-  <text x="612.0" y="206.0" fill="#38bdf8" font-size="13" text-anchor="middle" font-weight="600">= 0.67</text>
-  <line x1="532.0" y1="50.0" x2="575.0" y2="92.0" stroke="#34d399" stroke-width="1.2" stroke-dasharray="4 3"/>
-  <line x1="532.0" y1="198.0" x2="575.0" y2="214.0" stroke="#f472b6" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="612.0" y="206.0" fill="#7cb4d8" font-size="13" text-anchor="middle" font-weight="600">= 0.67</text>
+  <line x1="532.0" y1="50.0" x2="575.0" y2="92.0" stroke="#7fc4a2" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="532.0" y1="198.0" x2="575.0" y2="214.0" stroke="#cf96b8" stroke-width="1.2" stroke-dasharray="4 3"/>
   <text x="340.0" y="318.0" fill="#94a3b8" font-size="12" text-anchor="middle">감지기가 "문" 이라고 해도 실제로 문인 곳은 3 곳 중 2 곳이다</text>
 </svg>

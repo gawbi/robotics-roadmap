@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 230" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>x₃ = 1.77 에서 섞인 noise 0.70 × 0.5 = 0.35 를 빼면 1.42 가 남고, 이것을 0.71 로 나누면 x₀ = 2.00 으로 돌아간다</title>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f87171"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker></defs>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker><marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
   <rect x="1" y="1" width="678" height="228" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="24.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="start">forward 로 만든 값: x₃ = 0.71 × 2 + 0.70 × 0.5 = 1.42 + 0.35 = 1.77</text>
-  <rect x="24.0" y="70.0" width="110.0" height="56.0" rx="8" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <rect x="24.0" y="70.0" width="110.0" height="56.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
   <text x="79.0" y="103.0" fill="#e2e8f0" font-size="14" text-anchor="middle">x₃ = 1.77</text>
   <line x1="136.0" y1="98.0" x2="196.0" y2="98.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="200.0" y="62.0" width="150.0" height="72.0" rx="8" fill="#111a2e" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="275.0" y="85.0" fill="#f59e0b" font-size="13" text-anchor="middle">noise 빼기</text>
+  <rect x="200.0" y="62.0" width="150.0" height="72.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.5"/>
+  <text x="275.0" y="85.0" fill="#d6aa62" font-size="13" text-anchor="middle">noise 빼기</text>
   <text x="275.0" y="103.0" fill="#94a3b8" font-size="12" text-anchor="middle">− 0.70 × 0.5</text>
   <text x="275.0" y="121.0" fill="#94a3b8" font-size="12" text-anchor="middle">= − 0.35</text>
   <line x1="352.0" y1="98.0" x2="392.0" y2="98.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="396.0" y="70.0" width="70.0" height="56.0" rx="8" fill="#111a2e" stroke="#e2e8f0" stroke-width="1.5"/>
   <text x="431.0" y="103.0" fill="#e2e8f0" font-size="14" text-anchor="middle">1.42</text>
   <line x1="468.0" y1="98.0" x2="508.0" y2="98.0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="512.0" y="62.0" width="140.0" height="72.0" rx="8" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="582.0" y="85.0" fill="#34d399" font-size="13" text-anchor="middle">÷ 0.71</text>
+  <rect x="512.0" y="62.0" width="140.0" height="72.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="582.0" y="85.0" fill="#7fc4a2" font-size="13" text-anchor="middle">÷ 0.71</text>
   <text x="582.0" y="103.0" fill="#94a3b8" font-size="11" text-anchor="middle">(남은 몫으로 나누기)</text>
   <text x="582.0" y="121.0" fill="#e2e8f0" font-size="14" text-anchor="middle">= 2.00</text>
   <text x="340.0" y="176.0" fill="#e2e8f0" font-size="13" text-anchor="middle">섞인 noise ε = 0.5 를 알면 원래 값 x₀ 를 그대로 되찾는다</text>

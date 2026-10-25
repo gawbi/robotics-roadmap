@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
   <title>vocabulary 크기를 키울 때 맞바꾸는 두 양. 왼쪽은 Tiny Shakespeare 뒤 10% 에서 잰 token 하나의 평균 byte 수로, 256 은 1.00, 512 는 1.88, 1024 는 2.26, GPT-2 의 50257 은 3.09 다. 오른쪽은 token 하나를 768 개의 숫자로 바꾸는 embedding 표의 숫자 개수로, 256 이면 약 20만 개, GPT-2 의 50257 이면 약 3,860만 개다</title>
-  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker></defs>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker></defs>
   <rect x="1" y="1" width="598" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
   <text x="24.0" y="34.0" fill="#94a3b8" font-size="13" text-anchor="start">bytes per token (Tiny Shakespeare 뒤 10%)</text>
   <line x1="50.0" y1="240.0" x2="290.0" y2="240.0" stroke="#1e293b" stroke-width="1"/>
@@ -15,14 +15,14 @@
   <text x="82.0" y="177.0" fill="#64748b" font-size="13" text-anchor="middle">1.00</text>
   <text x="82.0" y="260.0" fill="#e2e8f0" font-size="12" text-anchor="middle">256</text>
   <text x="82.0" y="276.0" fill="#94a3b8" font-size="11" text-anchor="middle">(byte만)</text>
-  <rect x="120.0" y="136.6" width="40.0" height="103.4" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="140.0" y="128.6" fill="#38bdf8" font-size="13" text-anchor="middle">1.88</text>
+  <rect x="120.0" y="136.6" width="40.0" height="103.4" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="140.0" y="128.6" fill="#7cb4d8" font-size="13" text-anchor="middle">1.88</text>
   <text x="140.0" y="260.0" fill="#e2e8f0" font-size="12" text-anchor="middle">512</text>
-  <rect x="178.0" y="115.7" width="40.0" height="124.3" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="198.0" y="107.7" fill="#38bdf8" font-size="13" text-anchor="middle">2.26</text>
+  <rect x="178.0" y="115.7" width="40.0" height="124.3" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="198.0" y="107.7" fill="#7cb4d8" font-size="13" text-anchor="middle">2.26</text>
   <text x="198.0" y="260.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1024</text>
-  <rect x="236.0" y="70.1" width="40.0" height="169.9" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="256.0" y="62.1" fill="#34d399" font-size="13" text-anchor="middle">3.09</text>
+  <rect x="236.0" y="70.1" width="40.0" height="169.9" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="256.0" y="62.1" fill="#7fc4a2" font-size="13" text-anchor="middle">3.09</text>
   <text x="256.0" y="260.0" fill="#e2e8f0" font-size="12" text-anchor="middle">50257</text>
   <text x="256.0" y="276.0" fill="#94a3b8" font-size="11" text-anchor="middle">(GPT-2)</text>
   <line x1="318.0" y1="24.0" x2="318.0" y2="280.0" stroke="#1e293b" stroke-width="1"/>
@@ -31,14 +31,14 @@
   <rect x="388.0" y="62.0" width="3.0" height="22.0" rx="4" fill="#111a2e" stroke="#64748b" stroke-width="1.5"/>
   <text x="399.0" y="78.0" fill="#64748b" font-size="12" text-anchor="start">약 20만</text>
   <text x="338.0" y="125.0" fill="#e2e8f0" font-size="12" text-anchor="start">512</text>
-  <rect x="388.0" y="110.0" width="3.0" height="22.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="399.0" y="126.0" fill="#38bdf8" font-size="12" text-anchor="start">약 39만</text>
+  <rect x="388.0" y="110.0" width="3.0" height="22.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="399.0" y="126.0" fill="#7cb4d8" font-size="12" text-anchor="start">약 39만</text>
   <text x="338.0" y="173.0" fill="#e2e8f0" font-size="12" text-anchor="start">1024</text>
-  <rect x="388.0" y="158.0" width="3.0" height="22.0" rx="4" fill="#111a2e" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="399.0" y="174.0" fill="#38bdf8" font-size="12" text-anchor="start">약 79만</text>
+  <rect x="388.0" y="158.0" width="3.0" height="22.0" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.5"/>
+  <text x="399.0" y="174.0" fill="#7cb4d8" font-size="12" text-anchor="start">약 79만</text>
   <text x="338.0" y="221.0" fill="#e2e8f0" font-size="12" text-anchor="start">50257</text>
-  <rect x="388.0" y="206.0" width="120.0" height="22.0" rx="4" fill="#111a2e" stroke="#34d399" stroke-width="1.5"/>
-  <text x="516.0" y="222.0" fill="#34d399" font-size="12" text-anchor="start">약 3,860만</text>
+  <rect x="388.0" y="206.0" width="120.0" height="22.0" rx="4" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.5"/>
+  <text x="516.0" y="222.0" fill="#7fc4a2" font-size="12" text-anchor="start">약 3,860만</text>
   <text x="338.0" y="268.0" fill="#94a3b8" font-size="12" text-anchor="start">token 이 길어져 sequence 는 짧아지지만</text>
   <text x="338.0" y="286.0" fill="#94a3b8" font-size="12" text-anchor="start">token 마다 학습할 숫자 묶음이 늘어난다</text>
 </svg>
