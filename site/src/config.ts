@@ -31,10 +31,10 @@ export const CONFIG = {
     title: 'Robotics Roadmap · gawbi',
     description: 'Robot Learning·Manipulation 을 준비하며 공부한 기록. 강의 지도 위에 퀴즈 통과 기록, 직접 쓴 노트, 직접 구현한 코드를 남깁니다.',
     // site/public/og.png. Link previews are cached by the image's URL, so bump `v` whenever the picture changes
-    image: 'og.png?v=2',
+    image: 'og.png?v=3',
     imageWidth: 1200,
     imageHeight: 630,
-    imageAlt: 'Robotics Roadmap 커리큘럼 지도. 가운데 공통 기초 동심원에서 Robot Learning, Manipulation, Mobile Autonomy 트리가 뻗는다',
+    imageAlt: 'Robotics Roadmap · gawbi. 로보틱스를 직접 공부한 기록, Robot Learning · Manipulation. 퀴즈 통과 기록, 내 말로 쓴 노트, 직접 구현한 코드',
     locale: 'ko_KR',
   },
 
