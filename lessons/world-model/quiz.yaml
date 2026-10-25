@@ -3,6 +3,7 @@
 
 - topic: world-model-definition
   title: world model 의 입력과 출력
+  section: world-model-의-입력과-출력
   variants:
     - question: |
         로봇 학습에서 말하는 world model 은 무엇을 입력으로 받아 무엇을 예측하는 모델인가?
@@ -43,6 +44,7 @@
 
 - topic: model-based
   title: model-free 와 model-based
+  section: model-free-와-model-based
   variants:
     - question: |
         model-based RL 이 model-free RL 보다 실제 환경 데이터를 적게 쓰는 이유는 무엇인가?
@@ -83,6 +85,7 @@
 
 - topic: latent-rssm
   title: latent 와 RSSM
+  section: latent-와-encoder
   variants:
     - question: |
         카메라 이미지를 쓰는 world model 이 pixel 을 직접 예측하지 않고 encoder 로 만든 latent 위에서 예측하는 이유는 무엇인가?
@@ -123,6 +126,7 @@
 
 - topic: cem-planning
   title: 상상 속 planning 과 CEM
+  section: 상상-속-planning
   variants:
     - question: |
         world model 로 계획할 때 CEM(cross-entropy method)이 반복마다 고치는 것은 무엇인가?
@@ -162,6 +166,7 @@
 
 - topic: compounding-error
   title: 예측 오차의 누적과 model exploitation
+  section: 예측-오차의-누적
   variants:
     - question: |
         한 step 예측 오차가 작은 world model 도 여러 step 을 rollout 하면 크게 틀어지는 이유는 무엇인가?
@@ -203,6 +208,7 @@
 
 - topic: mpc
   title: MPC
+  section: mpc
   variants:
     - question: |
         MPC 가 길이 H 의 행동열을 계획하고도 첫 action 하나만 실행하는 이유는 무엇인가?
@@ -244,6 +250,7 @@
 
 - topic: dreamer-data
   title: Dreamer 와 데이터 수집 반복
+  section: 상상-속-policy-학습과-dreamer
   variants:
     - question: |
         PlaNet 은 매 step CEM 으로 계획하고 Dreamer 는 그렇지 않다. Dreamer 는 어떻게 행동을 고르는가?
@@ -285,6 +292,7 @@
 
 - topic: video-latent-models
   title: 영상 world model 과 representation 예측
+  section: 영상-world-model
   variants:
     - question: |
         decoder 없이 다음 latent 만 맞히도록 world model 을 학습하면 어떤 문제가 생길 수 있고, 그 문제는 어떻게 막는가?

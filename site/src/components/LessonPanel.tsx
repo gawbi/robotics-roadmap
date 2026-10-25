@@ -1,14 +1,14 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
-import { ArrowDown, BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, NotebookPen, X } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, ListChecks, NotebookPen, X } from 'lucide-react'
 import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import { hasNote, labsFor, loadBody, loadNote } from '../curriculum/load'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
-import { Markdown, scrollToSettled } from './Markdown'
-import { QuizSection } from './Quiz'
+import { Markdown } from './Markdown'
+import { QuizReturn, QuizSection, useQuizNav } from './Quiz'
 
 /** the lecture, the learner's note on it, or the code they wrote for it */
 export type LessonTab = 'lecture' | 'note' | 'lab'
@@ -65,8 +65,8 @@ function statusText(status: Status, passedDate: string | undefined, tries: numbe
   return quiz ? '강의를 끝까지 읽고 퀴즈로 마무리' : '퀴즈 준비 중'
 }
 
-/** Where the learner stands on this lesson, with a jump to the quiz at the end of the lecture. */
-function StatusCard({ progressFile, lessonId, onJump }: { progressFile: ProgressFile; lessonId: string; onJump(): void }) {
+/** Where the learner stands on this lesson, with a button that opens its quiz. */
+function StatusCard({ progressFile, lessonId, onTake }: { progressFile: ProgressFile; lessonId: string; onTake(): void }) {
   const status = statusOf(progressFile, lessonId)
   const quiz = hasQuiz(lessonId)
   const attempts = attemptsOf(progressFile, lessonId)
@@ -75,10 +75,17 @@ function StatusCard({ progressFile, lessonId, onJump }: { progressFile: Progress
       <h3 id="record-title">
         <ClipboardCheck size={15} aria-hidden="true" /> 진행 상태
       </h3>
-      <p className="record-status">
-        <span className="record-dot" aria-hidden="true" />
-        {statusText(status, passedOn(progressFile, lessonId), attempts.length, quiz)}
-      </p>
+      <div className="record-row">
+        <p className="record-status">
+          <span className="record-dot" aria-hidden="true" />
+          {statusText(status, passedOn(progressFile, lessonId), attempts.length, quiz)}
+        </p>
+        {quiz && (
+          <button type="button" className="text-button record-quiz" onClick={onTake}>
+            <ListChecks size={15} aria-hidden="true" /> 퀴즈 풀기
+          </button>
+        )}
+      </div>
       {attempts.length > 0 && (
         <ol className="record-history" aria-label="퀴즈 응시 기록">
           {attempts.map((a, i) => {
@@ -93,11 +100,6 @@ function StatusCard({ progressFile, lessonId, onJump }: { progressFile: Progress
             )
           })}
         </ol>
-      )}
-      {quiz && (
-        <button type="button" className="text-button record-jump" onClick={onJump}>
-          <ArrowDown size={15} aria-hidden="true" /> 퀴즈로 이동
-        </button>
       )}
     </section>
   )
@@ -269,7 +271,8 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
   const [failed, setFailed] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
-  const quizRef = useRef<HTMLDivElement>(null)
+  const quiz = useQuizNav(lessonId)
+  const attempts = attemptsOf(progressFile, lessonId)
   const tabsAnchor = useRef<HTMLDivElement>(null)
   const firstTab = useRef(true)
 
@@ -301,7 +304,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
   }, [tab])
 
   return (
-    <aside className="panel" aria-labelledby="panel-title" style={{ ['--branch' as string]: branch.color }}>
+    <aside className={`panel ${quiz.back ? 'has-quiz-return' : ''}`} aria-labelledby="panel-title" style={{ ['--branch' as string]: branch.color }}>
       <div className="panel-scroll" ref={scrollRef}>
         <header className="panel-head">
           <div className="panel-topline">
@@ -325,9 +328,10 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           <StatusCard
             progressFile={progressFile}
             lessonId={lessonId}
-            onJump={() => {
+            onTake={() => {
+              // the quiz's explanations link into the lecture, so it has to be the tab on show
               onTab('lecture')
-              requestAnimationFrame(() => scrollToSettled(quizRef.current))
+              quiz.take()
             }}
           />
 
@@ -388,7 +392,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
         <div ref={tabsAnchor} />
         {tabs.length > 1 && <TabBar lessonId={lessonId} tabs={tabs} tab={tab} onTab={onTab} />}
 
-        {/* the lecture stays mounted behind the other tabs, so a quiz in progress survives a look at the note */}
+        {/* the lecture stays mounted behind the other tabs, so the quiz's links into it keep their targets */}
         <div role="tabpanel" id="tabpanel-lecture" aria-labelledby={tabs.length > 1 ? 'tab-lecture' : undefined} hidden={tab !== 'lecture'}>
           {body !== null ? (
             <Markdown lessonId={lessonId} source={body} />
@@ -400,8 +404,8 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
             <Loading label="강의 불러오는 중" />
           )}
 
-          <div ref={quizRef} className="panel-quiz">
-            <QuizSection lessonId={lessonId} title={lesson.title} attempts={attemptsOf(progressFile, lessonId)} />
+          <div className="panel-quiz">
+            <QuizSection lessonId={lessonId} title={lesson.title} attempts={attempts} nav={quiz} />
           </div>
 
           <footer className="panel-foot">
@@ -422,6 +426,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           </div>
         )}
       </div>
+      <QuizReturn attempts={attempts} nav={quiz} />
     </aside>
   )
 })

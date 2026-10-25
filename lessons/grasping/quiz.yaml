@@ -3,6 +3,7 @@
 
 - topic: grasp-representation
   title: grasp 표현
+  section: grasp-표현
   variants:
     - question: |
         parallel-jaw gripper 의 grasp 하나를 숫자로 적으려면 무엇을 정해야 하는가?
@@ -42,6 +43,7 @@
 
 - topic: friction-cone
   title: friction cone
+  section: friction-cone
   variants:
     - question: |
         마찰 계수 μ 인 접촉에서 friction cone 은 무엇을 뜻하는가?
@@ -79,6 +81,7 @@
 
 - topic: antipodal
   title: antipodal grasp
+  section: antipodal-grasp
   variants:
     - question: |
         antipodal grasp 의 조건은 무엇인가?
@@ -119,6 +122,7 @@
 
 - topic: force-closure
   title: force closure
+  section: force-closure
   variants:
     - question: |
         force closure grasp 의 정의는 무엇인가?
@@ -158,6 +162,7 @@
 
 - topic: grip-force
   title: grip force
+  section: grip-force
   variants:
     - question: |
         parallel-jaw gripper 로 물체를 들 때 grip force 는 어떻게 정하는가?
@@ -198,6 +203,7 @@
 
 - topic: epsilon-quality
   title: Ferrari-Canny ε
+  section: grasp-quality-metric
   variants:
     - question: |
         Ferrari-Canny metric 의 ε 은 무엇을 재는가?
@@ -235,6 +241,7 @@
 
 - topic: data-driven
   title: 학습 기반 grasp 계획
+  section: analytic-과-data-driven
   variants:
     - question: |
         Dex-Net 2.0 의 GQ-CNN 은 무엇을 입력받아 무엇을 내는가?
@@ -275,6 +282,7 @@
 
 - topic: pipeline-failures
   title: 실행 pipeline 과 실패 원인
+  section: 실행까지의-pipeline
   variants:
     - question: |
         grasp network 가 낸 최고 점수 grasp 를 바로 실행하지 않고 거치는 단계는 무엇인가?

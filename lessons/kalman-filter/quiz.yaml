@@ -3,6 +3,7 @@
 
 - topic: predict-update
   title: 예측과 보정의 반복
+  section: 예측과-보정
   variants:
     - question: |
         Kalman filter 의 한 cycle 은 어떤 두 단계로 이루어지고, 각 단계에서 불확실성은 어떻게 변하는가?
@@ -40,6 +41,7 @@
 
 - topic: kalman-gain
   title: Kalman gain
+  section: kalman-gain
   variants:
     - question: |
         Kalman gain 이 1 에 가까워지는 것은 어떤 상황인가?
@@ -77,6 +79,7 @@
 
 - topic: uncertainty
   title: 값과 불확실성을 함께 추정하는 이유
+  section: 위치와-불확실성
   variants:
     - question: |
         Kalman filter 가 상태의 추정값뿐 아니라 공분산(불확실성)까지 함께 들고 다니는 이유는 무엇인가?
@@ -114,6 +117,7 @@
 
 - topic: ekf
   title: 비선형 시스템과 EKF·UKF
+  section: 직선이-아닌-움직임과-ekf
   variants:
     - question: |
         바닥 위를 도는 mobile robot 의 위치 추정에 기본 Kalman filter 대신 EKF 를 쓰는 이유는 무엇인가?
@@ -152,6 +156,7 @@
 
 - topic: sensor-fusion
   title: 센서 퓨전
+  section: 실제-로봇의-센서-퓨전
   variants:
     - question: |
         wheel odometry 와 GPS 를 함께 fusion 하는 이유는 무엇인가?
@@ -189,8 +194,10 @@
 
 - topic: kf-limits
   title: Kalman filter 의 한계
+  section: 센서-퓨전-설정
   variants:
-    - question: |
+    - section: 정리
+      question: |
         똑같이 생긴 복도가 두 개인 건물에서 로봇이 자기 위치를 전혀 모르는 상태로 시작한다. 기본 Kalman filter 가 이 상황에 맞지 않는 이유는?
       choices:
         - 'GPS 같은 절대 측정이 있어야 Kalman filter 가 돌아가서, 실내에서는 동작하지 않기 때문이다'
@@ -201,7 +208,8 @@
       explanation: |
         Kalman filter 는 믿음을 Gaussian 하나로 두므로 봉우리가 여럿인 믿음을 표현할 수 없다. 이런 global localization 에는 sample 을 많이 뿌려
         어떤 모양의 분포든 표현하는 particle filter 를 쓴다. 실내외나 센서 종류, 직선 복도는 문제의 원인이 아니다.
-    - question: |
+    - section: q-와-r
+      question: |
         Kalman filter 의 Q(process noise)를 실제보다 아주 작게 잡으면 어떤 일이 생기는가?
       choices:
         - '예측을 지나치게 믿어 측정을 거의 반영하지 않고, 실제 움직임이 모델과 다르면 추정이 뒤처진다'

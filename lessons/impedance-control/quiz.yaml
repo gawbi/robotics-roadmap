@@ -3,6 +3,7 @@
 
 - topic: contact-stiffness
   title: 접촉과 position 제어
+  section: 접촉과-position-제어
   variants:
     - question: |
         PD position 제어로 움직이는 팔의 목표 위치가 실수로 단단한 책상 표면보다 조금 아래에 찍혔다. 손끝이 책상에 닿은 뒤 어떤 일이 생기는가?
@@ -40,6 +41,7 @@
 
 - topic: jacobian-transpose
   title: 손끝 힘과 joint torque
+  section: 손끝-힘과-joint-torque
   variants:
     - question: |
         손끝으로 원하는 힘 F 를 내려면 joint torque 를 어떻게 계산하는가?
@@ -79,6 +81,7 @@
 
 - topic: computed-torque
   title: computed-torque control
+  section: computed-torque-control
   variants:
     - question: |
         computed-torque control 의 τ = M(q)(q̈_d + K_d ė + K_p e) + c(q, q̇) 는 무엇을 하는 식인가?
@@ -118,6 +121,7 @@
 
 - topic: impedance
   title: impedance control
+  section: impedance-control
   variants:
     - question: |
         impedance control 에서 손끝 stiffness 를 K = 400 N/m 로 두고 목표를 책상 윗면보다 2 cm 아래에 두었다. 손끝이 윗면에서 멈췄을 때 누르는 힘은?
@@ -154,6 +158,7 @@
 
 - topic: damping-mass
   title: damping ratio 와 effective mass
+  section: damping-ratio-와-effective-mass
   variants:
     - question: |
         손끝 effective mass 가 2 kg 인 방향에 K = 800 N/m 를 걸었다. damping ratio ζ = 1 이 되는 D 는? (D = 2ζ√(K m))
@@ -192,6 +197,7 @@
 
 - topic: admittance
   title: impedance 와 admittance
+  section: admittance-control
   variants:
     - question: |
         impedance control 과 admittance control 의 차이는 무엇인가?
@@ -231,6 +237,7 @@
 
 - topic: hybrid
   title: hybrid force/position control
+  section: hybrid-forceposition-control
   variants:
     - question: |
         로봇으로 책상을 일정한 힘으로 닦게 하려면 hybrid force/position control 의 축을 어떻게 나누는가?
@@ -270,6 +277,7 @@
 
 - topic: collision-residual
   title: torque residual 과 충돌 감지
+  section: torque-residual-과-충돌-감지
   variants:
     - question: |
         joint torque 센서가 있는 협동 로봇은 별도 외부 센서 없이 어떻게 충돌을 감지하는가?

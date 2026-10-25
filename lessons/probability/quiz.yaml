@@ -3,6 +3,7 @@
 
 - topic: mean-std
   title: 평균·분산·표준편차
+  section: 평균과-표준편차
   variants:
     - question: |
         센서 값의 흔들림을 표준편차로 나타낼 때, 편차를 그냥 평균하지 않고 제곱해서 평균한 뒤 제곱근을 씌우는 이유는 무엇인가?
@@ -41,6 +42,7 @@
 
 - topic: gaussian-rule
   title: Gaussian 과 68-95-99.7 규칙
+  section: 68-95-997-규칙과-안전-여유
   variants:
     - question: |
         센서 noise 가 평균 0, 표준편차 σ 인 Gaussian 이라면, 한 번 읽은 값이 평균에서 ±3σ 밖으로 나갈 확률은 대략 얼마인가?
@@ -78,6 +80,7 @@
 
 - topic: averaging-bias
   title: 평균 내기와 bias
+  section: 평균-내기와-bias
   variants:
     - question: |
         표준편차 2 cm 인 거리 센서의 독립인 측정 4 개를 평균하면, 평균값의 표준편차는 얼마가 되는가?
@@ -116,6 +119,7 @@
 
 - topic: covariance
   title: 공분산과 상관계수
+  section: 공분산과-상관계수
   variants:
     - question: |
         GPS 위치의 x 오차와 y 오차 사이의 공분산이 양수라는 것은 무슨 뜻인가?
@@ -153,6 +157,7 @@
 
 - topic: covariance-matrix
   title: 공분산 행렬과 오차 타원
+  section: 공분산-행렬과-오차-타원
   variants:
     - question: |
         2차원 위치의 불확실성을 x·y 의 분산 두 개가 아니라 2 × 2 공분산 행렬로 나타내는 이유는 무엇인가?
@@ -193,6 +198,7 @@
 
 - topic: bayes-rule
   title: 조건부 확률과 Bayes rule
+  section: 조건부-확률과-bayes-rule
   variants:
     - question: |
         문이 있는 위치가 10% 인 복도에서, 문 앞에서는 90% 로 감지하고 벽 앞에서는 5% 로 오경보를 내는 감지기가 문이라고 했다. 실제로 문일 확률은 대략 얼마인가?
@@ -230,6 +236,7 @@
 
 - topic: bayes-update
   title: 반복 측정과 Bayes filter
+  section: 반복-측정과-믿음
   variants:
     - question: |
         같은 자리에서 문 감지가 두 번 연달아 떴다. 두 번째 측정을 Bayes rule 로 반영할 때 prior 로 무엇을 쓰는가?
@@ -270,6 +277,7 @@
 
 - topic: expected-value-sampling
   title: 기댓값과 sampling
+  section: 기댓값
   variants:
     - question: |
         집기 방법 A 는 90% 로 성공해 보상 10, 10% 로 물건을 떨어뜨려 보상 −50 이고, B 는 70% 로 성공해 보상 10, 30% 는 보상 0 이다. 기댓값으로 고르면?

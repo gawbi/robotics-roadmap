@@ -3,6 +3,7 @@
 
 - topic: token-unit
   title: token 단위와 vocabulary·sequence
+  section: 자르는-단위
   variants:
     - question: |
         text 를 자르는 단위를 글자 → subword → 단어 순서로 키우면 vocabulary 크기와 sequence 길이는 어떻게 변하는가?
@@ -46,6 +47,7 @@
 
 - topic: byte-level
   title: byte 에서 시작하는 vocabulary
+  section: 자르는-단위
   variants:
     - question: |
         GPT-2 의 BPE 가 Unicode 글자가 아니라 byte 256 개를 처음 vocabulary 로 쓰는 이유는 무엇인가?
@@ -88,6 +90,7 @@
 
 - topic: bpe-merge
   title: BPE 학습과 merge
+  section: bpe-학습
   variants:
     - question: |
         BPE 학습의 한 회차에서는 무엇을 하는가?
@@ -131,6 +134,7 @@
 
 - topic: encode-decode
   title: 배운 merge 로 하는 encode·decode
+  section: encode-와-decode
   variants:
     - question: |
         학습한 BPE 로 새 text 를 encode 할 때 merge 를 학습에서 배운 순서대로 적용해야 하는 이유는 무엇인가?
@@ -171,6 +175,7 @@
 
 - topic: pretokenization
   title: pre-tokenization 과 special token
+  section: pre-tokenization-과-special-token
   variants:
     - question: |
         GPT-2 가 BPE 를 하기 전에 text 를 단어·숫자·기호 조각으로 먼저 나누는 이유는 무엇인가?
@@ -212,6 +217,7 @@
 
 - topic: vocab-size
   title: vocabulary 크기와 한국어의 token 수
+  section: vocabulary-크기
   variants:
     - question: |
         vocabulary 를 키우면 sequence 가 짧아지는데, 그렇다면 vocabulary 를 무조건 크게 잡지 않는 이유는 무엇인가?
@@ -254,6 +260,7 @@
 
 - topic: action-token
   title: action token 과 256 bin
+  section: action-token
   variants:
     - question: |
         RT-2·OpenVLA 같은 VLA 가 로봇 행동 값을 실수로 바로 내지 않고 bin 번호에 짝지은 token 으로 내는 이유는 무엇인가?
@@ -297,6 +304,7 @@
 
 - topic: fast
   title: FAST action tokenization
+  section: fast-tokenizer
   variants:
     - question: |
         1 초에 50 번 행동을 내는 로봇에서 값마다 bin 하나를 쓰는 action tokenization 이 잘 안 되는 이유는 무엇인가?

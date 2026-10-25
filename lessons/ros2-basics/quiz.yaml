@@ -3,6 +3,7 @@
 
 - topic: node-topic
   title: node 와 topic 으로 나누는 이유
+  section: 로봇-프로그램과-middleware
   variants:
     - question: |
         로봇 소프트웨어를 프로그램 하나로 짜지 않고 camera driver, policy, motor controller 를 각각 다른 node 로 나누는 이유는 무엇인가?
@@ -42,6 +43,7 @@
 
 - topic: bandwidth
   title: message 크기와 bandwidth
+  section: bandwidth-계산
   variants:
     - question: |
         압축하지 않은 640 × 480 컬러 사진(픽셀마다 3 byte)을 30 Hz 로 publish 한다. 이 topic 의 bandwidth 로 가장 가까운 것은? (1 byte = 8 bit)
@@ -82,6 +84,7 @@
 
 - topic: service-action
   title: topic, service, action 의 선택
+  section: service-와-action
   variants:
     - question: |
         이동 로봇을 30 m 떨어진 목표까지 보내는 기능을 만들려고 한다. topic, service, action 가운데 무엇을 쓰고, 왜 그런가?
@@ -121,6 +124,7 @@
 
 - topic: qos-reliability
   title: reliability 와 history
+  section: qos
   variants:
     - question: |
         카메라나 LiDAR 같은 센서 데이터 topic 에 best effort QoS 를 쓰는 이유는 무엇인가?
@@ -160,6 +164,7 @@
 
 - topic: qos-compat
   title: QoS 호환과 durability
+  section: qos-호환
   variants:
     - question: |
         카메라 driver 는 best effort 로 publish 하고, 새로 만든 node 는 기본 QoS(reliable)로 subscribe 했다. 어떤 일이 생기는가?
@@ -199,6 +204,7 @@
 
 - topic: timing
   title: timer, executor 와 제어 loop
+  section: executor-와-timer
   variants:
     - question: |
         single-threaded executor 에서 10 ms 간격(100 Hz) timer 의 callback 이 매번 25 ms 걸린다. 실제로 어떻게 동작하는가?
@@ -239,6 +245,7 @@
 
 - topic: tf-frames
   title: tf2 와 map·odom·base_link
+  section: tf2-와-frame-tree
   variants:
     - question: |
         REP-105 에서 map 과 odom frame 을 따로 두는 이유는 무엇인가?

@@ -3,6 +3,7 @@
 
 - topic: fk-problem
   title: forward kinematics 의 입력과 출력
+  section: forward-kinematics-1
   variants:
     - question: |
         로봇 팔은 encoder 로 관절 각도를 늘 아는데, forward kinematics 를 따로 계산해야 하는 이유는 무엇인가?
@@ -42,6 +43,7 @@
 
 - topic: relative-angle
   title: 상대 각도로 쌓이는 link 방향
+  section: 2-관절-평면-팔
   variants:
     - question: |
         평면 2 관절 팔에서 joint 2 의 각도는 바닥이 아니라 link 1 이 뻗은 방향을 기준으로 잰다. 왜 그렇게 정하는가?
@@ -82,6 +84,7 @@
 
 - topic: pose
   title: 같은 손끝을 만드는 여러 자세와 pose
+  section: 같은-손끝을-만드는-여러-자세와-pose
   variants:
     - question: |
         평면 2 관절 팔의 두 자세가 손끝 위치는 같다. 두 자세를 같은 상태로 봐도 되는가?
@@ -122,6 +125,7 @@
 
 - topic: transform-chain
   title: joint transform 의 곱과 순서
+  section: joint-transform-의-곱
   variants:
     - question: |
         joint 가 6 개인 3 차원 팔의 FK 를 계산하는 일반적인 방법은 무엇인가?
@@ -162,6 +166,7 @@
 
 - topic: urdf-joint
   title: URDF 의 joint 와 FK 의 재료
+  section: urdf
   variants:
     - question: |
         URDF 의 joint 하나는 FK 에서 어떤 transform 이 되고, 그중 로봇이 움직이는 동안 바뀌는 부분은 무엇인가?
@@ -201,6 +206,7 @@
 
 - topic: tree-tf2
   title: kinematic tree 와 ROS 2 의 robot_state_publisher·tf2
+  section: kinematic-tree-와-so-101
   variants:
     - question: |
         손목에서 두 손가락이 갈라지는 gripper 에서 왼쪽 손가락 끝의 pose 를 구할 때, 오른쪽 손가락 joint 의 transform 도 곱해야 하는가?
@@ -244,6 +250,7 @@
 
 - topic: dh-poe
   title: DH parameter 와 product of exponentials
+  section: dh-parameter
   variants:
     - question: |
         DH parameter 는 joint 하나를 숫자 4 개로 적는데 URDF 는 6 개를 쓴다. 이 차이는 어디서 오는가?
@@ -284,6 +291,7 @@
 
 - topic: real-error
   title: 계산과 실물의 차이
+  section: 계산과-실물의-차이
   variants:
     - question: |
         FK 계산이 맞는데도 실제 로봇의 손끝이 계산한 자리에서 몇 mm 어긋난다. 원인으로 무엇을 꼽을 수 있는가?

@@ -3,6 +3,7 @@
 
 - topic: p-control
   title: P 항과 진동
+  section: p-항
   variants:
     - question: |
         마찰이 거의 없는 관절을 P 제어만으로 목표 각도에 보내면 어떻게 움직이고, 그 이유는 무엇인가?
@@ -42,6 +43,7 @@
 
 - topic: steady-state-error
   title: steady-state error
+  section: i-항과-windup
   variants:
     - question: |
         로봇 팔의 어깨 관절이 PD 제어로 목표 각도보다 늘 조금 아래에서 멈춘다. 원인과 해결책은?
@@ -81,6 +83,7 @@
 
 - topic: d-term
   title: D 항의 역할과 함정
+  section: d-항
   variants:
     - question: |
         PD 제어에서 D 항이 하는 일은 무엇인가?
@@ -120,6 +123,7 @@
 
 - topic: i-term
   title: I 항과 windup
+  section: i-항과-windup
   variants:
     - question: |
         integral windup 은 무엇이고 어떻게 막는가?
@@ -160,6 +164,7 @@
 
 - topic: tuning
   title: gain 을 맞추는 순서
+  section: 계산-주기와-gain
   variants:
     - question: |
         새 관절의 PID gain 을 손으로 맞춘다면 보통 어떤 순서로 하는가?
@@ -198,6 +203,7 @@
 
 - topic: control-layers
   title: policy 와 저수준 controller
+  section: 학습한-policy-아래의-pid
   variants:
     - question: |
         VLA 같은 학습한 policy 를 쓰는 로봇 팔에서, motor 에 들어가는 전류는 보통 누가 정하는가?

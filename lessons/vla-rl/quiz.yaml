@@ -3,6 +3,7 @@
 
 - topic: demo-ceiling
   title: 시연의 질이 정하는 상한
+  section: 시연의-질이-정하는-상한
   variants:
     - question: |
         시연자들의 컵 잡는 법이 둘로 갈렸다. 대부분은 잘 성공하는 가운데 잡기를 했고, 일부는 자주 놓치는 가장자리 잡기를 했다. 이
@@ -47,6 +48,7 @@
 
 - topic: recovery
   title: 회복 동작이 없는 시연과 쌓이는 실수
+  section: 회복-동작이-없는-시연
   variants:
     - question: |
         chunk 를 하나 실행할 때마다 작은 확률로 컵이 미끄러지고, 한 번 미끄러지면 끝까지 실패하는 policy 가 있다. 작업이 길어져
@@ -92,6 +94,7 @@
 
 - topic: sparse-reward
   title: sparse reward 와 advantage
+  section: sparse-reward-와-advantage
   variants:
     - question: |
         성공하면 episode 끝에 reward 1, 아니면 0 을 주고, batch 의 평균 reward 를 baseline 으로 빼서 advantage 를 만든다. 한 batch
@@ -136,6 +139,7 @@
 
 - topic: reward-source
   title: reward 의 출처와 reward hacking
+  section: reward-의-출처
   variants:
     - question: |
         컵을 상자에 넣는 작업에 '컵을 쥐고 있는 step 마다 작은 점수' 를 더하고, 놓으면 큰 점수를 주는 reward 를 설계했다. 쥐고
@@ -180,6 +184,7 @@
 
 - topic: token-ratio
   title: token VLA 의 ratio
+  section: token-vla-의-ratio
   variants:
     - question: |
         OpenVLA 처럼 action 을 token 으로 내는 VLA 에는 PPO 를 바로 쓸 수 있다. 그 이유는 무엇인가?
@@ -220,6 +225,7 @@
 
 - topic: flow-likelihood
   title: flow matching VLA 의 확률과 우회 방법
+  section: flow-matching-vla-의-확률
   variants:
     - question: |
         π0 처럼 flow matching 으로 action chunk 를 만드는 VLA 에는 PPO 의 ratio 를 바로 쓰기 어렵다. 그 이유는 무엇인가?
@@ -264,6 +270,7 @@
 
 - topic: on-off-policy
   title: on-policy 와 off-policy
+  section: on-policy-와-off-policy
   variants:
     - question: |
         PPO 같은 on-policy 방법과 SAC 같은 off-policy 방법은 모은 데이터를 쓰는 방식이 어떻게 다른가?
@@ -307,6 +314,7 @@
 
 - topic: real-robot
   title: 실물 로봇의 비용·안전·사람의 개입
+  section: 실물-로봇의-비용과-안전
   variants:
     - question: |
         실물 로봇에서 RL 을 하던 중 컵이 미끄러지려 하자 사람이 로봇을 넘겨받아 다시 잡아 준 뒤 돌려주었다. 이 episode 의 데이터는

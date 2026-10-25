@@ -3,6 +3,7 @@
 
 - topic: embedding
   title: token id 와 embedding
+  section: embedding
   variants:
     - question: |
         Transformer 가 token id 를 그대로 입력 숫자로 쓰지 않고 embedding 표에서 vector 를 꺼내 쓰는 이유는 무엇인가?
@@ -44,6 +45,7 @@
 
 - topic: query-key-value
   title: query·key·value 와 self-attention
+  section: querykeyvalue
   variants:
     - question: |
         self-attention 에서 token 하나의 출력은 어떻게 계산되는가?
@@ -85,6 +87,7 @@
 
 - topic: scaling
   title: √d_k 로 나누는 scaling
+  section: d-로-나누는-scaling
   variants:
     - question: |
         scaled dot-product attention 에서 점수를 $\sqrt{d_k}$ 로 나누는 이유는 무엇인가?
@@ -125,6 +128,7 @@
 
 - topic: multi-head
   title: multi-head attention
+  section: multi-head-attention
   variants:
     - question: |
         attention 을 head 하나로만 하면 어떤 한계가 있는가?
@@ -166,6 +170,7 @@
 
 - topic: positional-encoding
   title: positional encoding
+  section: positional-encoding
   variants:
     - question: |
         위치 정보를 더하지 않은 self-attention 에 'dog bites man' 과 'man bites dog' 를 넣으면 bites 의 출력은 어떻게 되는가?
@@ -208,6 +213,7 @@
 
 - topic: residual-layernorm
   title: residual connection 과 LayerNorm
+  section: residual-connection-과-layernorm
   variants:
     - question: |
         Transformer block 에서 sub-layer 출력에 입력을 더해 넘기는 residual connection 은 어떤 역할을 하는가?
@@ -249,6 +255,7 @@
 
 - topic: causal-mask
   title: causal mask 와 teacher forcing
+  section: causal-mask
   variants:
     - question: |
         decoder 를 teacher forcing 으로 학습할 때 causal mask 를 쓰는 이유는 무엇인가?
@@ -291,6 +298,7 @@
 
 - topic: encoder-decoder
   title: cross-attention 과 ACT 의 encoder-decoder
+  section: encoder-와-decoder
   variants:
     - question: |
         encoder-decoder Transformer 의 cross-attention 은 query, key, value 를 각각 어디서 만드는가?

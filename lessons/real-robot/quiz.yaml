@@ -3,6 +3,7 @@
 
 - topic: loop-timing
   title: 제어 주기와 action chunk queue
+  section: 제어-주기와-추론-loop
   variants:
     - question: |
         30 fps 로 기록한 시연으로 학습한 policy 를 실물 팔에서 실행할 때, 목표 각도를 보내는 주기를 시연 기록 주기와 같게 맞춰야 하는
@@ -45,6 +46,7 @@
 
 - topic: async-inference
   title: 동기 추론과 비동기 추론
+  section: 비동기-추론
   variants:
     - question: |
         추론에 300 ms 가 걸리는 VLA 를 30 Hz 로봇에서 chunk 단위로 실행한다. queue 가 완전히 빈 뒤에 다음 추론을 시작하면 어떤
@@ -88,6 +90,7 @@
 
 - topic: chunk-merge
   title: 늦게 도착한 chunk 의 합치기와 blending
+  section: 늦게-도착한-chunk-의-이어-붙이기
   variants:
     - question: |
         비동기 추론에서 추론에 9 tick 이 걸렸다. 새 chunk 를 남은 queue 에 aligned 방식으로 합치면 어떻게 되는가?
@@ -129,6 +132,7 @@
 
 - topic: model-size
   title: 메모리와 memory bandwidth
+  section: 노트북에서의-모델-크기
   variants:
     - question: |
         parameter 70 억 개짜리 VLA 가 36 GB 노트북 메모리에 들어간다. 그러면 이 노트북에서 실시간으로 실행할 수 있다고 말할 수
@@ -171,6 +175,7 @@
 
 - topic: setup-consistency
   title: calibration·카메라·조명의 일관성
+  section: calibration
   variants:
     - question: |
         시연을 기록한 뒤 팔을 다시 calibration 했더니, 같은 policy 가 물체 옆을 몇 cm 씩 빗나간다. 가장 먼저 의심할 원인은
@@ -213,6 +218,7 @@
 
 - topic: safety
   title: 비상 정지와 이동량·힘 제한
+  section: 안전-장치
   variants:
     - question: |
         학습한 policy 를 실물 팔에서 처음 실행할 때 servo 전원 스위치를 손 닿는 곳에 두고 팔 아래를 비워 두는 이유는 무엇인가?
@@ -256,6 +262,7 @@
 
 - topic: evaluation
   title: 성공률과 신뢰 구간, 두 policy 의 비교
+  section: 성공률과-신뢰-구간
   variants:
     - question: |
         실물 팔에서 policy 를 10 번 시도해 9 번 성공했다. 이 policy 의 성공률이 90% 라고 보고해도 되는가?
@@ -297,6 +304,7 @@
 
 - topic: failure-analysis
   title: 실패 분석과 시연 범위
+  section: 실패-분석
   variants:
     - question: |
         policy 를 끄고 고정 목표 하나만 보냈는데도 팔이 일정한 주기로 떤다. 이 확인으로 무엇을 알 수 있는가?

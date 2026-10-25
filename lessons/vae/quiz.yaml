@@ -3,6 +3,7 @@
 
 - topic: average-of-answers
   title: 갈라진 정답과 MSE 의 평균
+  section: 정답-하나를-내는-모델의-평균
   variants:
     - question: |
         정면의 장애물을 절반은 왼쪽으로, 절반은 오른쪽으로 피한 시연이 있다. 행동 하나를 내는 policy 를 MSE 로 학습하면
@@ -44,6 +45,7 @@
 
 - topic: autoencoder-gap
   title: autoencoder 와 latent space 의 빈 곳
+  section: autoencoder
   variants:
     - question: |
         잘 학습한 보통의 autoencoder 에서 latent 를 무작위로 골라 decoder 에 넣으면 그럴듯한 새 데이터가 나온다는 보장이 없다.
@@ -84,6 +86,7 @@
 
 - topic: gaussian-encoder
   title: 평균과 분산을 내는 encoder
+  section: gaussian-encoder
   variants:
     - question: |
         VAE 의 encoder 가 latent 의 점 하나 대신 평균과 표준편차를 내는 이유는 무엇인가?
@@ -124,6 +127,7 @@
 
 - topic: reparameterization
   title: reparameterization trick
+  section: reparameterization-trick
   variants:
     - question: |
         VAE 에서 reparameterization trick 이 필요한 이유는 무엇인가?
@@ -164,6 +168,7 @@
 
 - topic: kl-elbo
   title: KL 항과 ELBO
+  section: kl-항과-elbo
   variants:
     - question: |
         VAE loss 의 KL 항은 encoder 가 내는 μ 와 σ 를 각각 어느 쪽으로 끌어당기는가? prior 는 N(0, 1) 이다.
@@ -204,6 +209,7 @@
 
 - topic: beta-collapse
   title: β 와 posterior collapse
+  section: β-와-posterior-collapse
   variants:
     - question: |
         VAE loss 에서 KL 항의 weight β 를 아주 크게 하면 어떤 일이 생기는가?
@@ -245,6 +251,7 @@
 
 - topic: sampling
   title: sampling, interpolation, 흐릿한 sample
+  section: sampling-과-latent-space-의-사용
   variants:
     - question: |
         학습을 마친 VAE 로 새 데이터를 만들 때는 어떻게 하는가?
@@ -285,6 +292,7 @@
 
 - topic: act-cvae
   title: CVAE 와 ACT 의 z = 0
+  section: cvae-와-act
   variants:
     - question: |
         ACT 는 CVAE 로 학습하는데, 로봇을 실제로 움직일 때 latent z 는 어떻게 정하는가?

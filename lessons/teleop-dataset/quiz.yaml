@@ -3,6 +3,7 @@
 
 - topic: teleop-mapping
   title: joint-space 와 task-space 입력 장치
+  section: teleoperation-과-입력-장치
   variants:
     - question: |
         leader-follower 팔과 VR 조종기는 사람의 움직임을 로봇 명령으로 바꾸는 방식이 어떻게 다른가?
@@ -43,6 +44,7 @@
 
 - topic: leader-action
   title: leader 각도를 action 으로 적는 이유와 calibration
+  section: leader-follower-팔과-calibration
   variants:
     - question: |
         leader-follower 로 시연을 모을 때 action 에 follower 의 관절 각도가 아니라 leader 의 관절 각도를 적는 이유는 무엇인가?
@@ -82,6 +84,7 @@
 
 - topic: obs-action-order
   title: 관측과 action 의 기록 순서
+  section: action-과-state-의-시간-차이
   variants:
     - question: |
         teleop 기록 loop 에서 frame 하나의 관측은 왜 그 frame 의 action 을 보내기 전에 읽어야 하는가?
@@ -122,6 +125,7 @@
 
 - topic: recording-timing
   title: timestamp 와 기록 주기
+  section: 기록-loop-와-주기
   variants:
     - question: |
         LeRobot 처럼 frame 번호를 fps 로 나눠 timestamp 를 적는 기록에서, loop 한 번이 목표 주기보다 오래 걸리면 어떤 문제가 생기는가?
@@ -161,6 +165,7 @@
 
 - topic: sensor-sync
   title: 주기가 다른 센서의 시각 맞추기
+  section: 주기가-다른-센서의-시각-맞추기
   variants:
     - question: |
         카메라는 30 Hz, 관절 센서는 100 Hz 로 값을 낸다. 두 기록을 frame 하나로 묶는 방법으로 알맞은 것은 무엇인가?
@@ -199,6 +204,7 @@
 
 - topic: dataset-format
   title: LeRobotDataset 의 표·영상·meta
+  section: lerobotdataset-의-표와-영상
   variants:
     - question: |
         LeRobotDataset 은 관절 값과 action 은 Parquet 표에, 카메라 사진은 MP4 영상에 따로 저장한다. 이렇게 나누는 이유는 무엇인가?
@@ -239,6 +245,7 @@
 
 - topic: stats-boundaries
   title: stats 와 episode 경계의 쓰임
+  section: meta-폴더와-stats
   variants:
     - question: |
         LeRobotDataset 의 meta 에 있는 stats(최솟값·최댓값·평균·표준편차)는 학습에서 어디에 쓰이는가?
@@ -277,6 +284,7 @@
 
 - topic: demo-quality
   title: 시연의 품질과 수
+  section: 머뭇거림과-정지-구간
   variants:
     - question: |
         시연 10 개 가운데 3 개에서 사람이 물체 위에서 한참 멈췄다 내려갔다. MSE 로 학습한 policy 에 이 머뭇거림이 크게 영향을 주는 이유는 무엇인가?

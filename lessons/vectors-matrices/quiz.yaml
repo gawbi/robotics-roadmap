@@ -3,6 +3,7 @@
 
 - topic: vector-ops
   title: vector 의 덧셈·scalar 곱·norm
+  section: vector-덧셈과-scalar-곱
   variants:
     - question: |
         gripper 가 $(0.3, 0.2)$ m 에, 목표가 $(0.6, 0.6)$ m 에 있다. gripper 에서 목표까지의 거리는?
@@ -43,6 +44,7 @@
 
 - topic: dot-product
   title: dot product 와 projection
+  section: dot-product
   variants:
     - question: |
         unit vector $\mathbf{u}$ 와 힘 $\mathbf{F}$ 의 dot product $\mathbf{F} \cdot \mathbf{u}$ 는 물리적으로 무엇을 뜻하는가?
@@ -83,6 +85,7 @@
 
 - topic: matrix-vector
   title: 행렬과 vector 의 곱
+  section: 행렬과-vector-의-곱
   variants:
     - question: |
         2×2 행렬 $A$ 의 첫째 열과 둘째 열은 기하학적으로 무엇을 뜻하는가?
@@ -123,6 +126,7 @@
 
 - topic: matrix-order
   title: 행렬 곱의 순서
+  section: 행렬과-행렬의-곱
   variants:
     - question: |
         점 $p$ 에 $ABp$ 를 계산하면 어떤 변환이 먼저 적용되는가? 순서를 바꿔 $BAp$ 로 하면 결과가 같은가?
@@ -162,6 +166,7 @@
 
 - topic: shape
   title: 행렬의 모양과 transpose
+  section: 행렬의-모양과-transpose
   variants:
     - question: |
         2×3 행렬과 3×64 행렬을 곱하면 결과의 모양은 무엇이고, 곱할 수 있는 조건은 무엇인가?
@@ -202,6 +207,7 @@
 
 - topic: inverse
   title: inverse 와 $A\mathbf{x} = \mathbf{b}$
+  section: 연립방정식과-inverse
   variants:
     - question: |
         회전 행렬 $R$ 의 inverse 는 어떻게 구하는가?
@@ -242,6 +248,7 @@
 
 - topic: singular
   title: inverse 가 없는 행렬과 singularity
+  section: inverse-가-없는-행렬
   variants:
     - question: |
         행렬 $\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$ 에 inverse 가 없는 이유는 무엇인가?

@@ -58,6 +58,7 @@ export const CONFIG = {
     progressDir: 'progress', // <repo>/progress/<id>.json, kept apart from lessons/ so a fork commits only its own records
     endpoint: '/__quiz', // POST /__quiz/<id>, served by the dev server only
     choiceCount: 4,
+    reviewFocusGap: 16, // px of the review left above the explanation a learner comes back to from the lecture
   },
 
   // when the dev server starts it checks the original repository (repoUrl) for commits the fork does not have yet, and

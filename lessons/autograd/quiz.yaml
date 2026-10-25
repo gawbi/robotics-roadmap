@@ -3,6 +3,7 @@
 
 - topic: sigmoid-slope
   title: step function 과 sigmoid 의 기울기
+  section: sigmoid-와-기울기
   variants:
     - question: |
         activation function 으로 step function(입력이 0 을 넘으면 1, 아니면 0)을 쓴 network 를 gradient descent 로 학습시키기 어려운 이유는
@@ -44,6 +45,7 @@
 
 - topic: local-derivative
   title: local derivative 와 backward
+  section: backward
   variants:
     - question: |
         곱셈 $p = a \times b$ 의 backward 에서 $a$ 와 $b$ 가 받는 gradient 는 어떻게 구하는가? $p$ 의 gradient 를 $g$ 라고 하자.
@@ -86,6 +88,7 @@
 
 - topic: fan-out
   title: 여러 곳에 쓰인 값의 gradient
+  section: 여러-곳에-쓰인-값과-backward-순서
   variants:
     - question: |
         값 $a$ 가 두 연산의 입력으로 쓰여 서로 다른 두 길로 loss 에 닿는다. backward 에서 $a$ 의 gradient 는 어떻게 구하는가?
@@ -127,6 +130,7 @@
 
 - topic: reverse-mode
   title: backward 의 순서와 reverse-mode
+  section: reverse-mode-automatic-differentiation
   variants:
     - question: |
         backward 를 forward 의 계산 순서(topological order)를 뒤집은 순서로 처리하는 이유는 무엇인가?
@@ -168,6 +172,7 @@
 
 - topic: hidden-gradient
   title: hidden neuron 으로 전해지는 gradient
+  section: xor-network-의-forward-와-backward
   variants:
     - question: |
         학습 데이터에는 출력의 정답만 있고 hidden neuron 의 정답은 없다. backpropagation 은 hidden neuron 의 weight 를 어떻게 고치는가?
@@ -211,6 +216,7 @@
 
 - topic: vanishing-gradient
   title: vanishing gradient
+  section: vanishing-gradient
   variants:
     - question: |
         sigmoid 를 activation function 으로 쓴 층을 여러 개 쌓으면 입력에 가까운 층이 잘 학습되지 않는 이유는 무엇인가?
@@ -250,6 +256,7 @@
 
 - topic: symmetry
   title: 처음 숫자를 서로 다르게 두는 이유
+  section: 처음-숫자를-서로-다르게-두는-이유
   variants:
     - question: |
         hidden neuron 두 개의 weight 와 bias, 그리고 두 neuron 에서 출력으로 가는 weight 까지 똑같은 값에서 출발시켜 학습하면 어떻게 되는가?
@@ -291,6 +298,7 @@
 
 - topic: pytorch-autograd
   title: PyTorch autograd
+  section: pytorch-autograd
   variants:
     - question: |
         PyTorch 에서 `loss.backward()` 를 부를 수 있으려면 forward 때 autograd 가 무엇을 해 두어야 하는가?

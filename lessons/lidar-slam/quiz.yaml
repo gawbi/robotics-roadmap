@@ -3,6 +3,7 @@
 
 - topic: slam-problem
   title: 지도와 위치를 함께 추정하는 이유
+  section: 지도와-위치의-순환
   variants:
     - question: |
         SLAM 이 localization 이나 mapping 하나만 푸는 것보다 어려운 이유는 무엇인가?
@@ -40,6 +41,7 @@
 
 - topic: odometry-drift
   title: odometry 오차의 누적
+  section: odometry-오차의-누적
   variants:
     - question: |
         바퀴 odometry 로 지도를 그릴 때 거리 오차보다 방향 오차가 더 위험한 이유는 무엇인가?
@@ -78,6 +80,7 @@
 
 - topic: occupancy-logodds
   title: occupancy grid 와 log-odds 갱신
+  section: occupancy-grid
   variants:
     - question: |
         occupancy grid 를 확률 대신 log-odds 로 갱신하는 이유는 무엇인가?
@@ -115,6 +118,7 @@
 
 - topic: scan-matching
   title: scan matching
+  section: scan-matching
   variants:
     - question: |
         ICP 로 두 scan 을 맞출 때 odometry 로 구한 initial guess 가 중요한 이유는 무엇인가?
@@ -153,6 +157,7 @@
 
 - topic: loop-closure
   title: pose graph 와 loop closure
+  section: pose-graph-와-loop-closure
   variants:
     - question: |
         pose graph 에 loop closure edge 를 넣고 최적화하면 무엇이 달라지는가?
@@ -190,6 +195,7 @@
 
 - topic: slam-toolbox
   title: slam_toolbox 와 ROS 2 의 tf
+  section: slam_toolbox-와-cartographer
   variants:
     - question: |
         Nav2 와 slam_toolbox 를 함께 쓸 때 tf 는 누가 무엇을 내는가?
@@ -228,6 +234,7 @@
 
 - topic: map-saving
   title: 지도 해상도와 저장
+  section: 지도-해상도와-저장
   variants:
     - question: |
         SLAM 지도의 칸 크기를 5 cm 에서 2.5 cm 로 줄이면 무엇이 달라지는가?

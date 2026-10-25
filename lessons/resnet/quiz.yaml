@@ -3,6 +3,7 @@
 
 - topic: degradation
   title: 깊은 plain network 의 degradation
+  section: degradation
   variants:
     - question: |
         conv 층을 차례로 쌓기만 한 CNN 을 18 층에서 34 층으로 깊게 했더니 test error 는 물론 training error 까지 올랐다.
@@ -49,6 +50,7 @@
 
 - topic: residual-gradient
   title: residual block 의 gradient
+  section: shortcut-을-지나는-gradient
   variants:
     - question: |
         residual block $y = \mathcal F(x) + x$ 에서 입력이 출력에 주는 영향의 비율 $\frac{\partial y}{\partial x}$ 로 옳은 것은?
@@ -94,6 +96,7 @@
 
 - topic: residual-identity
   title: residual block 과 identity
+  section: residual-block
   variants:
     - question: |
         block 안 층들의 weight 가 모두 0 이라 층들의 출력 $\mathcal F(x)$ 가 0 이다. residual block $y = \mathcal F(x) + x$ 와 plain block
@@ -138,6 +141,7 @@
 
 - topic: bn-train-eval
   title: 학습 때와 평가 때의 BatchNorm
+  section: 학습-때와-평가-때의-통계
   variants:
     - question: |
         BatchNorm 이 들어간 모델을 평가 모드로 두고 로봇에서 카메라 사진을 한 장씩 넣는다. 이때 BatchNorm 은 어떤 평균과
@@ -180,6 +184,7 @@
 
 - topic: small-batch-norm
   title: 작은 batch 와 FrozenBatchNorm·GroupNorm
+  section: 작은-batch-의-문제
   variants:
     - question: |
         로봇 policy 를 GPU 하나에 batch 2 로 학습하면 BatchNorm 에 어떤 문제가 생기는가?
@@ -225,6 +230,7 @@
 
 - topic: bottleneck
   title: bottleneck block 과 ResNet-50
+  section: bottleneck-block
   variants:
     - question: |
         ResNet-50 의 bottleneck block 에서 앞뒤의 1×1 conv 는 무슨 일을 하는가?
@@ -267,6 +273,7 @@
 
 - topic: feature-map-gap
   title: feature map 과 global average pooling
+  section: global-average-pooling-과-fc
   variants:
     - question: |
         ImageNet 용 ResNet-18 은 224×224 사진을 layer4 에서 7×7 로 줄인다. 같은 network 에 448×448 사진을 넣으면 layer4 의
@@ -312,6 +319,7 @@
 
 - topic: backbone-head-finetune
   title: pretrained backbone, head, fine-tuning
+  section: pretrained-backbone-과-fine-tuning
   variants:
     - question: |
         물체 10 종류를 가려내는 로봇에 ImageNet 1000 class 로 pretraining 한 ResNet-18 을 쓰려 한다. 어떻게 해야 하는가?

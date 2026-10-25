@@ -3,6 +3,7 @@
 
 - topic: point-density
   title: 거리와 point cloud 밀도
+  section: point-cloud
   variants:
     - question: |
         회전형 LiDAR 의 point cloud 에서 먼 물체일수록 점이 적게 찍히는 이유는 무엇인가?
@@ -42,6 +43,7 @@
 
 - topic: voxel-downsampling
   title: voxel downsampling
+  section: voxel-downsampling
   variants:
     - question: |
         voxel downsampling 은 point cloud 를 어떻게 줄이는가?
@@ -80,6 +82,7 @@
 
 - topic: ransac-ground
   title: RANSAC ground removal
+  section: ransac-ground-removal
   variants:
     - question: |
         땅 평면을 찾을 때 least squares 대신 RANSAC 을 쓰는 이유는 무엇인가?
@@ -119,6 +122,7 @@
 
 - topic: euclidean-clustering
   title: Euclidean clustering 과 상자
+  section: euclidean-clustering
   variants:
     - question: |
         Euclidean clustering 의 tolerance 를 줄이면 결과가 어떻게 바뀌는가?
@@ -157,6 +161,7 @@
 
 - topic: pointpillars
   title: PointPillars
+  section: pointpillars
   variants:
     - question: |
         PointPillars 가 VoxelNet 보다 훨씬 빠른 이유는 무엇인가?
@@ -194,6 +199,7 @@
 
 - topic: detection-metrics
   title: detection 지표 (IoU, AP, NDS)
+  section: detection-benchmark
   variants:
     - question: |
         KITTI 는 IoU 로, nuScenes 는 중심 거리로 예측과 정답을 짝짓는다. nuScenes 가 중심 거리를 쓰는 이유는 무엇인가?
@@ -232,6 +238,7 @@
 
 - topic: mot-association
   title: multi-object tracking 과 data association
+  section: multi-object-tracking
   variants:
     - question: |
         detector 가 매 scan 상자를 내는데 왜 tracking 이 따로 필요한가?
@@ -270,6 +277,7 @@
 
 - topic: camera-lidar-fusion
   title: camera-LiDAR fusion
+  section: camera-lidar-fusion
   variants:
     - question: |
         PointPainting 은 카메라와 LiDAR 를 어떻게 합치는가?

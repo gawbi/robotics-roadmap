@@ -3,6 +3,7 @@
 
 - topic: big-step
   title: 한 번에 크게 바꾼 update
+  section: 한-번에-크게-바꾼-update
   variants:
     - question: |
         reinforcement learning 에서 policy 를 한 번에 크게 바꾸는 것이 supervised learning 에서 모델을 크게 바꾸는 것보다 더 위험한 이유는 무엇인가?
@@ -49,6 +50,7 @@
 
 - topic: ratio
   title: probability ratio 와 importance sampling
+  section: probability-ratio
   variants:
     - question: |
         PPO 의 probability ratio $r_t(\theta) = \pi_\theta(a_t \mid s_t) / \pi_{\theta_\text{old}}(a_t \mid s_t)$ 는 무엇을 나타내는가?
@@ -95,6 +97,7 @@
 
 - topic: clip-term
   title: clipped surrogate 와 TRPO
+  section: clipped-surrogate
   variants:
     - question: |
         PPO 의 clipped surrogate 는 sample 마다 자르지 않은 항 $r\hat A$ 와 자른 항 $\operatorname{clip}(r, 1-\epsilon, 1+\epsilon)\hat A$ 가운데 작은 값을 고른다. 작은 값을 고르는 이유는 무엇인가?
@@ -141,6 +144,7 @@
 
 - topic: clip-cases
   title: advantage 부호별 clip 의 동작
+  section: clipped-surrogate
   variants:
     - question: |
         PPO($\epsilon = 0.2$)에서 advantage 가 양수인 sample 의 ratio 가 1.3 이 되었다. 이 sample 은 policy 를 어떻게 움직이는가?
@@ -186,6 +190,7 @@
 
 - topic: gae
   title: GAE 와 λ
+  section: gae
   variants:
     - question: |
         GAE 의 $\lambda$ 를 0 과 1 로 두면 advantage 추정은 각각 어떻게 되는가?
@@ -232,6 +237,7 @@
 
 - topic: bootstrap
   title: rollout 의 끝과 time-out
+  section: rollout-이-중간에-끊긴-경우
   variants:
     - question: |
         PPO 의 rollout 이 episode 가 끝나지 않은 채 정해진 step 수에서 멈췄다. 마지막 step 의 advantage 는 어떻게 계산하는가?
@@ -277,6 +283,7 @@
 
 - topic: ppo-iteration
   title: PPO 의 한 iteration 과 loss
+  section: ppo-의-한-iteration
   variants:
     - question: |
         PPO 의 한 iteration 은 어떤 순서로 진행되는가?
@@ -323,6 +330,7 @@
 
 - topic: parallel-sim
   title: 대규모 병렬 simulation 과 PPO 설정
+  section: 대규모-병렬-simulation-의-ppo-설정
   variants:
     - question: |
         PPO 는 데이터를 한 iteration 만 쓰고 버리는데도, Isaac Gym 이나 Isaac Lab 같은 GPU 병렬 simulation 에서 보행 학습에 많이 쓰인다. 왜 잘 맞는가?

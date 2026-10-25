@@ -3,6 +3,7 @@
 
 - topic: vla-definition
   title: VLA 의 정의와 바탕 VLM
+  section: vlm-과-vla
   variants:
     - question: |
         VLA(Vision-Language-Action model)를 한 문장으로 정의하면 무엇인가?
@@ -47,6 +48,7 @@
 
 - topic: action-token
   title: 연속 action 의 256 칸 token
+  section: action-token
   variants:
     - question: |
         RT-2 와 OpenVLA 가 연속된 action 값을 칸(bin) 번호로 바꿔야 했던 이유는 무엇인가?
@@ -89,6 +91,7 @@
 
 - topic: generation-training
   title: action token 의 생성과 학습
+  section: action-token-의-생성과-학습
   variants:
     - question: |
         RT-2 는 로봇 action 을 물을 때 출력할 수 있는 token 을 action token 으로 제한했다. 이 제한이 필요한 이유는 무엇인가?
@@ -132,6 +135,7 @@
 
 - topic: co-fine-tuning
   title: 인터넷 데이터를 섞는 co-fine-tuning
+  section: co-fine-tuning
   variants:
     - question: |
         RT-2 의 co-fine-tuning 은 무엇이고, 왜 했는가?
@@ -176,6 +180,7 @@
 
 - topic: generalization-scope
   title: 인터넷 지식으로 일반화되는 범위
+  section: 인터넷-지식으로-일반화되는-지시
   variants:
     - question: |
         시연에 '사과를 집어' 와 '상자 위에서 놓아' 는 있고 '망고' 는 한 번도 없다. VLA 가 해낼 가능성이 가장 높은 지시는?
@@ -220,6 +225,7 @@
 
 - topic: openvla-architecture
   title: OpenVLA 의 구조와 학습 데이터
+  section: openvla-의-구조와-학습-데이터
   variants:
     - question: |
         OpenVLA 의 구조로 옳은 것은?
@@ -261,6 +267,7 @@
 
 - topic: finetune-lora
   title: 새 로봇 fine-tuning 과 LoRA
+  section: 새-로봇-fine-tuning-과-lora
   variants:
     - question: |
         여러 로봇의 데이터로 학습한 OpenVLA 를 처음 보는 로봇에 그대로 올리면 잘 움직이지 않는 이유는 무엇인가?
@@ -303,6 +310,7 @@
 
 - topic: token-weakness
   title: 정밀도·속도·한 step 출력의 한계
+  section: action-token-방식의-약점
   variants:
     - question: |
         OpenVLA 를 더 빠른 GPU 에 올려도 action token 7 개를 한 번에 낼 수 없는 이유는?

@@ -3,6 +3,7 @@
 
 - topic: sim-step
   title: simulation step 과 상태
+  section: step-계산과-상태
   variants:
     - question: |
         physics engine 이 상태(state)로 위치뿐 아니라 속도까지 저장해야 하는 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: multi-joint
   title: mass matrix 와 bias force
+  section: 여러-joint-의-equation-of-motion
   variants:
     - question: |
         두 joint 팔에서 팔꿈치 motor 는 아무 torque 도 내지 않는데 어깨에만 torque 를 주면 팔꿈치도 움직인다. equation of motion 에서 이 현상을 만드는 것은 무엇인가?
@@ -83,6 +85,7 @@
 
 - topic: model-file
   title: MJCF 모델 파일
+  section: mjcf-모델-파일
   variants:
     - question: |
         forward kinematics 만 할 때는 없어도 되지만 physics simulation 에는 꼭 필요한 모델 정보는 무엇인가?
@@ -123,6 +126,7 @@
 
 - topic: soft-contact
   title: soft contact 와 solref
+  section: 접촉과-soft-contact
   variants:
     - question: |
         MuJoCo 가 접촉을 soft contact 로 계산한다는 것은 무슨 뜻인가?
@@ -163,6 +167,7 @@
 
 - topic: friction-grasp
   title: 마찰과 grasp
+  section: 마찰과-grasp
   variants:
     - question: |
         바닥에 놓인 상자를 마찰 힘의 한계 μ × (normal force) 보다 약한 힘으로 옆에서 밀면 마찰 힘은 얼마인가?
@@ -203,6 +208,7 @@
 
 - topic: timestep-stability
   title: timestep 과 발산
+  section: timestep-과-안정성
   variants:
     - question: |
         멀쩡하던 simulation 에서 timestep 만 키웠더니 물체가 갑자기 하늘로 튀어 올랐다. 가장 그럴듯한 원인은 무엇인가?
@@ -242,6 +248,7 @@
 
 - topic: actuator
   title: torque 제어와 position 제어
+  section: actuator-와-제어
   variants:
     - question: |
         MuJoCo 의 position actuator 에 목표 각도를 명령하면 joint 는 어떻게 움직이는가?
@@ -281,6 +288,7 @@
 
 - topic: sim-to-real
   title: sim-to-real gap
+  section: sim-to-real-gap
   variants:
     - question: |
         domain randomization 으로 집기 policy 를 학습하면서 마찰 계수를 실물보다 높은 좁은 범위에서만 뽑았다. 실제 물체가 그보다 훨씬 미끄럽다면 어떻게 될까?

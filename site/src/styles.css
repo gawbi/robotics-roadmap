@@ -845,11 +845,7 @@ code {
 }
 
 .record {
-  margin: 0 0 16px;
-  padding: 12px 14px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--bg);
+  margin: 0 0 20px;
 }
 
 .record-status {
@@ -902,9 +898,19 @@ code {
   min-height: 32px;
 }
 
-.record-jump {
-  margin-top: 8px;
+/* the status on the left, the quiz button at the right end of the same line */
+.record-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.record-quiz {
+  flex: none;
   gap: 6px;
+  min-height: 40px;
 }
 
 .soft-note {
@@ -1429,10 +1435,8 @@ code {
 
 .quiz-card {
   margin: 0 0 16px;
-  padding: 12px 14px 14px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--bg);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
 
 .quiz-card h3 {
@@ -1451,10 +1455,9 @@ code {
   color: var(--text-muted);
 }
 
-/* the quiz closes the lecture; scrollIntoView stops here with a little air above */
+/* the quiz closes the lecture */
 .panel-quiz {
   margin-top: 32px;
-  scroll-margin-top: 16px;
 }
 
 .quiz-card-last {
@@ -1666,24 +1669,16 @@ code {
   color: var(--text-muted);
 }
 
+/* answers sit flat on the dialog, split by a rule; the icon in the title tells right from wrong */
 .quiz-review {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 12px;
 }
 
 .quiz-review > li {
-  padding: 14px 16px 2px;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--success);
-  border-radius: 0 12px 12px 0;
-  background: var(--bg);
-}
-
-.quiz-review > li.is-wrong {
-  border-left-color: var(--danger);
+  padding: 18px 0 4px;
+  border-top: 1px solid var(--border);
 }
 
 .quiz-review-title {
@@ -1720,6 +1715,230 @@ code {
 
 .quiz-review .markdown {
   font-size: 15px;
+}
+
+.quiz-card-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-history {
+  justify-content: center;
+  gap: 8px;
+}
+
+/* one chip per attempt; the pressed one is the attempt on screen */
+.quiz-attempts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+
+.quiz-attempt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 150ms var(--ease), border-color 150ms var(--ease), color 150ms var(--ease);
+}
+
+.quiz-attempt::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+.quiz-attempt.is-pass::before {
+  background: var(--success);
+}
+
+.quiz-attempt:hover {
+  border-color: var(--text-dim);
+  color: var(--text);
+}
+
+.quiz-attempt[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: rgba(34, 211, 238, 0.08);
+  color: var(--text);
+}
+
+.quiz-attempt-score {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.quiz-attempt-date {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.quiz-reread {
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.quiz-reread svg {
+  flex: none;
+  color: var(--accent);
+}
+
+.quiz-reread-heading {
+  font-weight: 600;
+}
+
+.quiz-reread.is-read {
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.quiz-reread-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  margin-left: 4px;
+  font-size: 13px;
+  color: var(--success);
+}
+
+.quiz-reread-done svg {
+  color: inherit;
+}
+
+.quiz-right {
+  margin-top: 16px;
+}
+
+.quiz-right > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.quiz-right > summary {
+  gap: 6px;
+  list-style: none;
+}
+
+.quiz-right > summary::-webkit-details-marker {
+  display: none;
+}
+
+.quiz-right > summary svg {
+  transition: transform 150ms var(--ease);
+}
+
+.quiz-right[open] > summary svg {
+  transform: rotate(90deg);
+}
+
+.quiz-right > summary:hover {
+  color: var(--text);
+}
+
+/* the way back to the review, over the bottom of the lecture after "강의에서 읽기" */
+.quiz-return {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 4px 4px 0;
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--branch);
+  border-radius: 12px;
+  background: var(--surface-raised);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  animation: quiz-return-in 220ms var(--ease);
+}
+
+@keyframes quiz-return-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.quiz-return-main {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms var(--ease);
+}
+
+.quiz-return-main:hover {
+  background: var(--surface-solid);
+}
+
+.quiz-return-main svg {
+  flex: none;
+  color: var(--branch);
+}
+
+.quiz-return-main strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.quiz-return-meta {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* the bar must not cover the last lines of the lecture */
+.panel.has-quiz-return .panel-scroll {
+  padding-bottom: 112px;
+}
+
+/* the heading a "강의에서 읽기" landed on lights up once in the branch colour */
+.markdown .is-quiz-target {
+  border-radius: 6px;
+  outline: none;
+  animation: quiz-target 2400ms var(--ease);
+}
+
+@keyframes quiz-target {
+  0%,
+  50% {
+    background: color-mix(in srgb, var(--branch) 22%, transparent);
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--branch) 22%, transparent);
+  }
+}
+
+.markdown :is(h2, h3, h4)[tabindex='-1']:focus {
+  outline: none;
 }
 
 /* ---------- small screens ---------- */

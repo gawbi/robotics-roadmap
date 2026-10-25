@@ -3,6 +3,7 @@
 
 - topic: configuration-space
   title: configuration space 와 C-obstacle
+  section: configuration-space
   variants:
     - question: |
         로봇팔 motion planning 에서 configuration space 의 점 하나는 무엇을 뜻하는가?
@@ -42,6 +43,7 @@
 
 - topic: dimensionality
   title: 관절 수와 grid 의 크기
+  section: 관절-수와-grid-의-크기
   variants:
     - question: |
         2 관절 팔은 C-space 를 grid 로 나눠 A* 로 풀 수 있는데, 7 관절 팔에서는 왜 그렇게 하지 않는가?
@@ -79,6 +81,7 @@
 
 - topic: collision-checking
   title: collision checking 의 모양과 padding
+  section: collision-checking
   variants:
     - question: |
         URDF 에서 visual mesh 와 별도로 단순한 collision mesh 나 primitive 를 쓰는 이유는 무엇인가?
@@ -117,6 +120,7 @@
 
 - topic: allowed-collision-matrix
   title: self-collision 과 allowed collision matrix
+  section: self-collision-과-allowed-collision-matrix
   variants:
     - question: |
         SRDF 의 disable_collisions(allowed collision matrix)는 무엇을 위해 쓰는가?
@@ -155,6 +159,7 @@
 
 - topic: prm-and-rrt
   title: PRM 과 RRT
+  section: prm
   variants:
     - question: |
         같은 작업 셀에서 장애물은 거의 그대로이고 출발·목표만 바꿔 가며 수백 번 planning 해야 한다. PRM 과 RRT 중 어느 쪽이 유리하고, 그 이유는 무엇인가?
@@ -192,6 +197,7 @@
 
 - topic: completeness-and-quality
   title: probabilistic completeness 와 경로 품질
+  section: probabilistic-completeness-와-rrt
   variants:
     - question: |
         RRT 가 probabilistically complete 하다는 것은 무슨 뜻이고, 실무에서 어떤 한계가 있는가?
@@ -230,6 +236,7 @@
 
 - topic: moveit-pipeline
   title: MoveIt 2 의 planning pipeline
+  section: ompl-과-moveit-2-의-planning-pipeline
   variants:
     - question: |
         MoveIt 2 의 move_group 이 돌려주는 결과는 path 인가, trajectory 인가? 시간 정보는 어디서 붙는가?

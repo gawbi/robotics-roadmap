@@ -3,6 +3,7 @@
 
 - topic: kinematics
   title: differential drive 와 bicycle model
+  section: differential-drive
   variants:
     - question: |
         바퀴 간격이 0.2 m 인 differential drive 로봇의 오른쪽 바퀴가 0.5 m/s, 왼쪽 바퀴가 0.3 m/s 로 돈다. 로봇 중심의 직진 속도와 회전 속도는?
@@ -42,6 +43,7 @@
 
 - topic: pid-cross-track
   title: cross-track error 에 건 PID 의 한계
+  section: cross-track-error-에-건-pid
   variants:
     - question: |
         회전 속도를 cross-track error 에 비례하게만 주었더니 로봇이 경로를 사이에 두고 계속 좌우로 흔들린다. 왜 그런가?
@@ -82,6 +84,7 @@
 
 - topic: pure-pursuit
   title: pure pursuit 의 곡률 계산
+  section: pure-pursuit
   variants:
     - question: |
         pure pursuit 에서 lookahead 거리 $L = 2$ m 앞의 경로 점이 로봇 기준으로 옆으로 0.5 m 에 있다. 로봇이 따라갈 원호의 곡률과 반지름은?
@@ -120,6 +123,7 @@
 
 - topic: lookahead
   title: lookahead 거리의 선택
+  section: lookahead-거리
   variants:
     - question: |
         pure pursuit 의 lookahead 거리를 아주 짧게 줄이면 실제 로봇에서 어떤 일이 생기는가?
@@ -158,6 +162,7 @@
 
 - topic: stanley
   title: Stanley 방법
+  section: stanley
   variants:
     - question: |
         Stanley 의 조향 식 $\delta = \theta_e + \arctan(k e / v)$ 에서 두 항은 각각 무슨 일을 하는가?
@@ -197,6 +202,7 @@
 
 - topic: mpc
   title: MPC 의 horizon·제약·비용
+  section: mpc
   variants:
     - question: |
         MPC 가 매 주기 하는 일은 무엇인가?
@@ -237,6 +243,7 @@
 
 - topic: nav2-controller
   title: Nav2 controller 와 제어 주기
+  section: nav2-controller
   variants:
     - question: |
         Nav2 의 DWB 가 다음 명령의 후보로 삼는 속도는 어떻게 정해지는가?

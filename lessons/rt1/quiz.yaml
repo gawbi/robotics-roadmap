@@ -3,6 +3,7 @@
 
 - topic: bins-vs-regression
   title: 숫자 하나 대신 칸별 확률
+  section: 칸별-확률
   variants:
     - question: |
         같은 장면의 시연이 절반은 장애물을 왼쪽으로, 절반은 오른쪽으로 피했다. 핸들 각도의 범위를 칸 여러 개로 나눠
@@ -46,6 +47,7 @@
 
 - topic: cross-entropy
   title: cross-entropy 와 두 봉우리
+  section: cross-entropy-와-두-봉우리
   variants:
     - question: |
         시연이 절반은 왼쪽 칸, 절반은 오른쪽 칸을 정답으로 갖는다. 모델 A 는 두 정답 칸에 확률을 나눠 주고, 모델 B 는 두 칸
@@ -88,6 +90,7 @@
 
 - topic: binning-error
   title: binning 과 칸 개수
+  section: action-binning
   variants:
     - question: |
         action 범위는 그대로 두고 칸 개수만 두 배로 늘리면, 칸의 가운데 값으로 되돌렸을 때의 최대 오차는 어떻게 되는가?
@@ -128,6 +131,7 @@
 
 - topic: per-dimension
   title: 차원마다 따로 고르는 선택
+  section: 차원마다-따로-고르는-선택
   variants:
     - question: |
         시연의 절반은 손끝을 왼쪽 위로, 절반은 오른쪽 아래로 옮겼다. 모델이 x 와 y 의 칸 확률을 따로 내고 차원마다 따로
@@ -172,6 +176,7 @@
 
 - topic: film
   title: FiLM 과 identity 초기화
+  section: film
   variants:
     - question: |
         FiLM 은 지시 문장을 CNN 의 사진 처리에 어떻게 섞는가?
@@ -213,6 +218,7 @@
 
 - topic: tokenlearner-latency
   title: TokenLearner 와 계산 시간
+  section: tokenlearner
   variants:
     - question: |
         Transformer 에 넣는 token 수를 약 10 분의 1 로 줄이면, self-attention 이 층마다 매기는 점수의 개수는 대략 어떻게 되는가?
@@ -254,6 +260,7 @@
 
 - topic: data-diversity
   title: 데이터의 양과 다양성
+  section: 시연-데이터와-일반화
   variants:
     - question: |
         지시를 따르는 로봇 policy 의 시연을 1 만 개 더 모을 수 있다. 처음 보는 지시에서의 일반화를 높이려면 어떻게 모으는
@@ -299,6 +306,7 @@
 
 - topic: generalization-limit
   title: 처음 보는 지시와 시연에 없는 동작
+  section: 시연에-없는-동작의-한계
   variants:
     - question: |
         집기와 서랍 열기 동작은 시연에 있고 병뚜껑 돌려 열기는 한 번도 없다. 이 시연으로 behavior cloning 학습한 RT-1 같은

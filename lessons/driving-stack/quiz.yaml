@@ -3,6 +3,7 @@
 
 - topic: stack-modules
   title: module 구성과 계산 주기
+  section: 자율주행-stack-의-module
   variants:
     - question: |
         자율주행 stack 에서 LiDAR 는 1초에 10 번 scan 을 내는데 localization 은 50 Hz 로 pose 를 낸다. 어떻게 가능한가?
@@ -43,6 +44,7 @@
 
 - topic: ndt
   title: NDT scan matching
+  section: ndt-scan-matching-과-localization
   variants:
     - question: |
         LiDAR localization 에서 NDT scan matching 은 ICP 와 무엇이 다른가?
@@ -83,6 +85,7 @@
 
 - topic: hd-map
   title: HD map 과 Lanelet2
+  section: hd-map-과-lanelet2
   variants:
     - question: |
         Lanelet2 지도에서 lanelet 은 어떻게 정의되는가?
@@ -121,6 +124,7 @@
 
 - topic: prediction
   title: map 기반 prediction
+  section: perception-과-prediction
   variants:
     - question: |
         교차로에 다가오는 차량의 미래 경로를 지금 속도로 직선을 그어 예측하면 어떤 문제가 있는가?
@@ -160,6 +164,7 @@
 
 - topic: planning-layers
   title: behavior planning 과 motion planning
+  section: behavior-planning-과-motion-planning
   variants:
     - question: |
         behavior planning 과 motion planning 은 각각 무엇을 정하는가?
@@ -198,6 +203,7 @@
 
 - topic: latency
   title: latency budget
+  section: latency-budget
   variants:
     - question: |
         72 km/h(20 m/s)로 달리는 차의 sensing 부터 actuation 까지의 지연이 0.25 초다. 지연 동안 차가 가는 거리는?
@@ -236,6 +242,7 @@
 
 - topic: sae-odd
   title: SAE level 과 ODD
+  section: sae-level-과-odd
   variants:
     - question: |
         SAE J3016 의 level 3 과 level 4 는 무엇이 다른가?
@@ -275,6 +282,7 @@
 
 - topic: modular-vs-e2e
   title: modular 와 end-to-end
+  section: modular-와-end-to-end
   variants:
     - question: |
         modular stack 대신 UniAD 같은 end-to-end 방식을 쓰려는 이유는?

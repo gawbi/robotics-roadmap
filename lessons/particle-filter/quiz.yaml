@@ -3,6 +3,7 @@
 
 - topic: multimodal-belief
   title: 봉우리가 여럿인 belief
+  section: 봉우리가-여럿인-믿음
   variants:
     - question: |
         양쪽 끝이 똑같이 생긴 복도에서 로봇이 자기 위치를 전혀 모르는 채로 출발한다. Kalman filter 대신 particle filter 를 쓰는 이유는 무엇인가?
@@ -43,6 +44,7 @@
 
 - topic: motion-noise
   title: 예측과 motion noise
+  section: motion-model-과-noise
   variants:
     - question: |
         particle filter 의 예측 단계에서 odometry 이동량을 모든 particle 에 똑같이 더하지 않고 particle 마다 무작위 noise 를 섞는 이유는 무엇인가?
@@ -83,6 +85,7 @@
 
 - topic: likelihood-field
   title: Likelihood field 로 매기는 가중치
+  section: likelihood-field
   variants:
     - question: |
         AMCL 의 likelihood field 모델은 LiDAR scan 으로 particle 의 가중치를 어떻게 매기는가?
@@ -123,6 +126,7 @@
 
 - topic: resampling
   title: Resampling
+  section: resampling-과-degeneracy
   variants:
     - question: |
         particle filter 의 resampling 단계는 무엇을 하는가?
@@ -163,6 +167,7 @@
 
 - topic: degeneracy
   title: Degeneracy 와 effective sample size
+  section: resampling-과-degeneracy
   variants:
     - question: |
         particle filter 에서 degeneracy 란 무엇인가?
@@ -201,6 +206,7 @@
 
 - topic: particle-count
   title: Particle 수와 KLD sampling
+  section: particle-수와-계산량
   variants:
     - question: |
         particle 수를 계속 늘리면 위치 추정이 계속 정확해지는가?
@@ -240,6 +246,7 @@
 
 - topic: amcl-nav2
   title: Nav2 의 AMCL 운용
+  section: nav2-의-amcl
   variants:
     - question: |
         Nav2 의 AMCL 은 무엇을 입력으로 받고 위치를 어떤 형태로 내보내는가?

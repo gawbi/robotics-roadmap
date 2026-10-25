@@ -3,6 +3,7 @@
 
 - topic: predict
   title: weighted sum 과 step function
+  section: step-function-과-예측
   variants:
     - question: |
         perceptron 은 weighted sum $z = w_1 x_1 + w_2 x_2 + b$ 가 0 보다 크면 1 을 내고, 0 보다 크지 않으면 0 을 낸다. 어떤 입력에서
@@ -45,6 +46,7 @@
 
 - topic: threshold-bias
   title: threshold 와 bias 의 관계
+  section: threshold-와-bias
   variants:
     - question: |
         '입력에 weight 를 곱해 더한 값이 문턱 $\theta$ 를 넘으면 1' 로 적은 perceptron 을 '$z = w_1 x_1 + w_2 x_2 + b$ 가 0 을 넘으면
@@ -86,6 +88,7 @@
 
 - topic: boundary
   title: decision boundary
+  section: decision-boundary
   variants:
     - question: |
         입력이 두 개인 perceptron 의 decision boundary $w_1 x_1 + w_2 x_2 + b = 0$ 은 평면 위의 직선이다. weight 와 bias 는 이
@@ -127,6 +130,7 @@
 
 - topic: update-rule
   title: perceptron 학습 규칙
+  section: perceptron-학습-규칙
   variants:
     - question: |
         perceptron 학습 규칙은 $w_i \leftarrow w_i + \eta(y - \hat y)x_i$, $b \leftarrow b + \eta(y - \hat y)$ 이다. 예측이 정답과
@@ -169,6 +173,7 @@
 
 - topic: online-update
   title: epoch 와 online update
+  section: epoch-와-online-update
   variants:
     - question: |
         perceptron 학습이 쓰는 online update 는 batch update 와 무엇이 다른가?
@@ -210,6 +215,7 @@
 
 - topic: lr-scale
   title: learning rate 의 크기와 학습 결과
+  section: learning-rate-의-영향
   variants:
     - question: |
         $w = [0, 0]$, $b = 0$ 에서 시작하는 perceptron 학습에서 learning rate 를 0.1 에서 1.0 으로 10 배 키웠다. sample
@@ -253,6 +259,7 @@
 
 - topic: xor
   title: linearly separable 과 XOR
+  section: linearly-separable-과-xor
   variants:
     - question: |
         데이터가 linearly separable 하다는 것은 무슨 뜻이고, perceptron 학습과는 어떤 관계가 있는가?
@@ -296,6 +303,7 @@
 
 - topic: multilayer
   title: hidden layer, activation function, MLP
+  section: hidden-layer-학습과-activation-function
   variants:
     - question: |
         perceptron 하나로는 풀 수 없는 XOR 를 perceptron 을 두 층으로 쌓으면 표현할 수 있다. 왜 그런가?

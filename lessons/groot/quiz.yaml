@@ -3,6 +3,7 @@
 
 - topic: data-pyramid
   title: humanoid 데이터와 data pyramid
+  section: humanoid-데이터와-data-pyramid
   variants:
     - question: |
         직접 조종한 humanoid 데이터가 수십 시간뿐일 때, GR00T N1 은 학습 데이터를 어떻게 구성했는가?
@@ -47,6 +48,7 @@
 
 - topic: dual-system
   title: System 2 와 System 1
+  section: system-2-와-system-1
   variants:
     - question: |
         GR00T N1 의 System 2 와 System 1 은 각각 무엇이고, 왜 주기가 다른가?
@@ -90,6 +92,7 @@
 
 - topic: cross-attention
   title: cross-attention 연결
+  section: cross-attention-으로-읽는-vlm-출력
   variants:
     - question: |
         GR00T N1 의 diffusion transformer 는 VLM 출력을 어떻게 읽는가?
@@ -133,6 +136,7 @@
 
 - topic: embodiment
   title: 로봇별 encoder 와 decoder
+  section: 로봇마다-다른-encoder-와-decoder
   variants:
     - question: |
         관절 수가 다른 여러 로봇을 GR00T N1 한 모델로 학습할 때, 상태와 action 의 길이 차이는 어떻게 처리하는가?
@@ -176,6 +180,7 @@
 
 - topic: flow-matching
   title: flow matching 과 Euler step
+  section: flow-matching-으로-만드는-action-chunk
   variants:
     - question: |
         섞은 점을 $A^\tau = \tau A + (1 - \tau)\epsilon$ 으로 두고 $\tau = 0$ 의 noise 에서 Euler step 으로 속도를 더해 가는 flow matching 에서, network 가 맞혀야 할 정답 속도는 무엇인가? $A$ 는 시연 action 이고, $\epsilon$ 은 noise 다.
@@ -219,6 +224,7 @@
 
 - topic: chunk-timing
   title: 덩어리 실행과 추론 시간
+  section: 덩어리-실행과-추론-시간
   variants:
     - question: |
         action 덩어리의 앞부분만 실행하고 다시 추론할 때, 실행하는 action 수를 너무 줄이면 어떤 문제가 생기는가? 실행하는 동안 다음 덩어리를 계산한다고 하자.
@@ -262,6 +268,7 @@
 
 - topic: actionless-data
   title: action 이 없는 영상의 학습
+  section: action-이-없는-데이터
   variants:
     - question: |
         GR00T N1 은 관절 값이 적혀 있지 않은 사람 영상을 어떻게 flow matching 학습에 쓰는가?
@@ -305,6 +312,7 @@
 
 - topic: pretraining-effect
   title: pretraining 의 효과와 post-training
+  section: pretraining-과-post-training
   variants:
     - question: |
         GR00T N1 같은 pretrained 모델의 이점이 가장 크게 보이는 것은 post-training 데이터가 어떤 경우인가?

@@ -3,6 +3,7 @@
 
 - topic: contrastive-objective
   title: 짝 고르기로 하는 학습
+  section: 유사도-행렬과-contrastive-learning
   variants:
     - question: |
         CLIP 은 사진에 붙은 설명 글로 학습하는데, 설명을 한 단어씩 생성하게 하지 않고 여러 설명 가운데 짝을 고르게 했다. 왜 그렇게 했는가?
@@ -47,6 +48,7 @@
 
 - topic: similarity-matrix
   title: 두 encoder 와 유사도 행렬
+  section: 두-encoder-와-embedding-공간
   variants:
     - question: |
         CLIP 이 사진과 문장의 짝이 맞는 정도를 점수로 내는 과정으로 맞는 것은?
@@ -89,6 +91,7 @@
 
 - topic: infonce-negatives
   title: InfoNCE loss 와 in-batch negative
+  section: 행마다-softmax-와-cross-entropy
   variants:
     - question: |
         CLIP 은 짝이 아닌 설명(negative)을 어디서 얻는가?
@@ -132,6 +135,7 @@
 
 - topic: temperature
   title: temperature 와 logit scale
+  section: temperature
   variants:
     - question: |
         CLIP 이 cosine similarity 를 그대로 softmax 에 넣지 않고 temperature 로 나누는 이유는 무엇인가?
@@ -173,6 +177,7 @@
 
 - topic: zero-shot
   title: zero-shot 분류와 prompt
+  section: zero-shot-분류
   variants:
     - question: |
         CLIP 의 분류를 zero-shot 이라고 부를 때 0 개인 것은 무엇인가?
@@ -214,6 +219,7 @@
 
 - topic: limits
   title: 개수·위치 관계·세밀한 구분의 한계
+  section: 개수위치-관계세밀한-구분의-한계
   variants:
     - question: |
         "말이 풀을 먹는다" 와 "풀이 말을 먹는다" 중 사진에 맞는 설명을 고르는 시험에서 CLIP 이 무작위(50%)와 비슷하게 맞힌 이유는 무엇인가?
@@ -255,6 +261,7 @@
 
 - topic: siglip
   title: 칸마다 판정하는 SigLIP
+  section: siglip
   variants:
     - question: |
         SigLIP 의 loss 는 CLIP 의 loss 와 무엇이 다른가?
@@ -297,6 +304,7 @@
 
 - topic: robot-use
   title: 로봇에서의 CLIP 과 SigLIP
+  section: 로봇에서의-쓰임
   variants:
     - question: |
         YOLO-World 같은 open-vocabulary detector 로 로봇이 찾을 물체를 "cup" 에서 "screwdriver" 로 바꾸려면 무엇을 해야 하는가?
