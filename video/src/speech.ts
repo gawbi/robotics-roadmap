@@ -3,6 +3,8 @@
 
 /** marks a word this module put in, so a particle the captions keep apart ("policy 는") can join it when spoken */
 const JOIN = '\u0002'
+/** marks the start of a number read aloud, so its first syllable ("이" for 2) is never taken for a particle */
+const NUM = '\u0003'
 const PARTICLE = /\u0002 (은|는|이|가|을|를|의|에|와|과|로|으로|에서|도|만|까지|보다|이고|이면|이라|이라서|입니다|이다|이며)(?=[\s.,?!]|$)/g
 
 /** longest first, so "compounding error" wins over "error" */
@@ -71,22 +73,28 @@ function readNumber(s: string): string {
 
 const UNIT_WORD: Record<string, string> = { ms: '밀리초', m: '미터', hz: '헤르츠', '°': '도', '%': '퍼센트' }
 
-export function speakable(text: string): string {
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')
+
+/** `extra`: a video's own readings, applied before the shared list */
+export function speakable(text: string, extra: [string, string][] = []): string {
   let s = text
-  for (const [re, ko] of TERMS) s = s.replace(re, ko)
-  // numbers, with the sign before them and the unit after them
+  const own: [RegExp, string][] = [...extra]
+    .sort((a, b) => b[0].length - a[0].length)
+    .map(([en, ko]) => [new RegExp(/^[A-Za-z]/.test(en) ? `(?<![A-Za-z])${escape(en)}(?![A-Za-z])` : escape(en), 'gi'), `${ko}${JOIN}`])
+  for (const [re, ko] of [...own, ...TERMS]) s = s.replace(re, ko)
+  // numbers, with the sign before them and the unit after them; a comma counts only as a thousands separator (1,190)
   s = s.replace(
-    /(±|[−-](?=\d)|\+(?=\d))?(\d[\d,]*(?:\.\d+)?)(?:\s?(ms|m|Hz)(?![A-Za-z])|(°)|\s?(%))?/g,
+    /(±|[−-](?=\d)|\+(?=\d))?(\d(?:\d|,(?=\d{3}))*(?:\.\d+)?)(?:\s?(ms|m|Hz)(?![A-Za-z])|(°)|\s?(%))?/g,
     (_m, sign: string | undefined, num: string, unit?: string, deg?: string, pct?: string) => {
       const signWord = sign === '±' ? '플러스 마이너스 ' : sign === '+' ? '플러스 ' : sign ? '마이너스 ' : ''
       const u = unit ?? deg ?? pct
-      return `${signWord}${readNumber(num)}${u ? ` ${UNIT_WORD[u.toLowerCase()]}${JOIN}` : ''}`
+      return `${NUM}${signWord}${readNumber(num)}${u ? ` ${UNIT_WORD[u.toLowerCase()]}${JOIN}` : ''}`
     },
   )
   s = s.replace(/×/g, ' 곱하기 ').replace(/÷/g, ' 나누기 ').replace(/²/g, ' 제곱').replace(/ε/g, '엡실론').replace(/→/g, ', ').replace(/·/g, ', ')
   // single Latin letters left over (y, z) are read as letter names
   s = s.replace(/(?<![A-Za-z])([A-Za-z])(?![A-Za-z])/g, (_m, l: string) => `${LETTERS[l.toLowerCase()]}${JOIN}`)
-  return s.replace(/\s+/g, ' ').replace(PARTICLE, '$1').replaceAll(JOIN, '').replace(/ ([.,?!])/g, '$1').trim()
+  return s.replace(/\s+/g, ' ').replace(PARTICLE, '$1').replaceAll(JOIN, '').replaceAll(NUM, '').replace(/ ([.,?!])/g, '$1').trim()
 }
 
 /** English words the term list does not cover yet, so they can be added before a render */

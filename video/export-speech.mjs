@@ -7,7 +7,7 @@ import { speakable, unknownWords } from './src/speech.ts'
 mkdirSync('tts/jobs', { recursive: true })
 for (const id of process.argv.slice(2)) {
   const { script } = await import(`./src/lessons/${id}.script.ts`)
-  const lines = script.scenes.flatMap((scene) => scene.cues.map(([, , caption, spoken], i) => ({ key: cueKey(scene.id, i), text: speakable(spoken ?? caption) })))
+  const lines = script.scenes.flatMap((scene) => scene.cues.map(([, , caption, spoken], i) => ({ key: cueKey(scene.id, i), text: speakable(spoken ?? caption, script.terms ?? []) })))
   const unknown = unknownWords(lines.map((l) => l.text).join(' '))
   if (unknown.length) console.warn(`${id}: English words with no Korean reading yet (src/speech.ts TERMS): ${unknown.join(', ')}`)
   writeFileSync(`tts/jobs/${id}.json`, `${JSON.stringify({ id, lines }, null, 2)}\n`)

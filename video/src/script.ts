@@ -23,6 +23,8 @@ export interface VideoScript {
   lessonUrl: string
   sections: string[]
   scenes: SceneScript[]
+  /** this video's own readings for the voice, e.g. ['β', '베타'], on top of the shared list in speech.ts */
+  terms?: [string, string][]
 }
 
 export const totalSeconds = (s: VideoScript) => s.scenes.reduce((a, x) => a + x.seconds, 0)
