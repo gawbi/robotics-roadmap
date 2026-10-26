@@ -5,7 +5,7 @@ import { useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } f
 import { CONFIG } from '../config'
 import type { Layout } from '../curriculum/layout'
 import { ancestors } from '../curriculum/parse'
-import { hasNote, labsFor } from '../curriculum/load'
+import { hasNoteIn, labsIn, useLearner } from '../curriculum/learner'
 import { nodeState, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState } from '../curriculum/types'
 import { MapScene, type SceneHandle } from './MapScene'
@@ -60,6 +60,7 @@ export function Holygraph({
   onHover,
   ref,
 }: Props) {
+  const learnerState = useLearner()
   const svgRef = useRef<SVGSVGElement>(null)
   const viewportRef = useRef<SVGGElement>(null)
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null)
@@ -284,8 +285,8 @@ export function Holygraph({
               const state = states.get(n.id)!
               const dim = emphasis ? !emphasis.has(n.id) : false
               const selected = selectedId === n.id
-              const note = hasNote(n.id)
-              const labCount = labsFor(n.id).length
+              const note = hasNoteIn(learnerState, n.id)
+              const labCount = labsIn(learnerState, n.id).length
               const record = [note && '내 노트 있음', labCount > 0 && `구현 ${labCount}개`].filter(Boolean).join(', ')
               // a label above the circle ends just over it; one below starts just under it
               const labelY = n.labelAbove

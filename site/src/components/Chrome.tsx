@@ -1,5 +1,6 @@
-import { HelpCircle, IdCard, Maximize2, Minus, Plus } from 'lucide-react'
+import { HelpCircle, IdCard, LogIn, Maximize2, Minus, Plus, UserRound } from 'lucide-react'
 import { CONFIG } from '../config'
+import { CONNECTABLE, learner, SITE_REPO, useLearner } from '../curriculum/learner'
 import { nodeState, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum } from '../curriculum/types'
 import type { GraphControls } from './Holygraph'
@@ -9,12 +10,15 @@ export function TopBar({
   progressFile,
   onHelp,
   onPortfolio,
+  onConnect,
 }: {
   curriculum: Curriculum
   progressFile: ProgressFile
   onHelp(): void
   onPortfolio(): void
+  onConnect(): void
 }) {
+  const s = useLearner()
   const done = c.lessons.filter((p) => statusOf(progressFile, p.id) === 'done')
   const total = c.lessons.length
   const hoursDone = done.reduce((a, p) => a + p.hours, 0)
@@ -48,10 +52,22 @@ export function TopBar({
       </div>
 
       <nav className="topbar-actions" aria-label="도구">
-        <button type="button" className="text-button topbar-me" onClick={onPortfolio}>
+        <button type="button" className="text-button topbar-me" onClick={onPortfolio} aria-label="공부 기록">
           <IdCard size={18} aria-hidden="true" />
           <span>공부 기록</span>
         </button>
+        {CONNECTABLE &&
+          (s.writable && s.login ? (
+            <button type="button" className="text-button topbar-me" onClick={onConnect} aria-label={`@${s.login} 으로 연결됨, 연결 관리`}>
+              <UserRound size={18} aria-hidden="true" />
+              <span>@{s.login}</span>
+            </button>
+          ) : (
+            <button type="button" className="primary-button topbar-start" onClick={onConnect} aria-label="내 공부 시작">
+              <LogIn size={17} aria-hidden="true" />
+              <span>내 공부 시작</span>
+            </button>
+          ))}
         <button type="button" className="icon-button" onClick={onHelp} aria-label="사용 안내">
           <HelpCircle size={20} aria-hidden="true" />
         </button>
@@ -194,6 +210,36 @@ export function ZoomControls({ controls }: { controls: React.RefObject<GraphCont
       <button type="button" className="icon-button" onClick={() => controls.current?.fit()} aria-label="전체 보기">
         <Maximize2 size={16} aria-hidden="true" />
       </button>
+    </div>
+  )
+}
+
+/** Says whose record is on show when it is not the site owner's, and when it is still loading or failed to. */
+export function RecordBanner({ onConnect }: { onConnect(): void }) {
+  const s = useLearner()
+  if (!CONNECTABLE) return null
+  const other = s.repo !== SITE_REPO && !s.writable
+  if (s.status === 'ready' && !other) return null
+  return (
+    <div className={`record-banner ${s.status === 'error' ? 'is-error' : ''}`} role="status">
+      <span>
+        {s.status === 'loading'
+          ? `${s.repo} 의 기록을 GitHub 에서 불러오는 중…`
+          : s.status === 'error'
+            ? `${s.repo} 의 기록을 불러오지 못했습니다. ${s.message ?? ''}`
+            : `${s.repo} 의 기록을 보고 있습니다.`}
+      </span>
+      {s.status === 'error' && s.writable ? (
+        <button type="button" className="text-button" onClick={onConnect}>
+          연결 확인
+        </button>
+      ) : (
+        (other || s.status === 'error') && (
+          <button type="button" className="text-button" onClick={() => learner.showOwn()}>
+            {s.login ? '내 기록으로' : `${CONFIG.owner.name} 의 기록으로`}
+          </button>
+        )
+      )}
     </div>
   )
 }

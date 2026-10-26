@@ -149,6 +149,9 @@ export function grade(bank: Topic[], picks: Pick[], choices: number[]): Answer[]
 }
 
 /** Read progress/<id>.json, keeping only well-formed attempts. */
+/** progress/<id>.json as the dev server and the published site both write it */
+export const formatResult = (attempts: readonly Attempt[]) => `${JSON.stringify({ attempts }, null, 2)}\n`
+
 export function parseResult(source: string | null): QuizResult {
   if (!source) return { attempts: [] }
   let doc: unknown

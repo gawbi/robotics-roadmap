@@ -1,0 +1,16 @@
+{
+  "name": "Robotics Roadmap · gawbi",
+  "short_name": "Roadmap",
+  "description": "로보틱스 강의 지도를 따라 공부하고, 퀴즈와 노트를 내 GitHub 리포에 기록합니다.",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#05080f",
+  "theme_color": "#070b14",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

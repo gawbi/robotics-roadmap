@@ -13,6 +13,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { CONFIG } from '../config'
+import { SITE_REPO } from '../curriculum/learner'
 import { assetUrl, recordAssetUrl } from '../curriculum/load'
 
 const LANGUAGES = { bash, json, python, yaml }
@@ -123,6 +124,8 @@ interface Props {
   lessonId?: string
   /** or the repo path of the note or lab file it comes from (e.g. notes/pid-control.md), for links and images there */
   file?: string
+  /** owner/name of the learner's repository the file was read from on GitHub; its links and images point there */
+  remote?: string
   source: string
   /** render inside phrasing content (a quiz choice label): paragraphs become spans */
   inline?: boolean
@@ -132,8 +135,11 @@ interface Props {
  * Render a subject body. The `# Title` is not drawn because the panel header shows it, but it stays in the source so the
  * headings after it get the same slugs as on GitHub (a `## X` under `# X` is `x-1` there).
  */
-export function Markdown({ lessonId, file, source, inline = false }: Props) {
+export function Markdown({ lessonId, file, remote, source, inline = false }: Props) {
   const dir = lessonId ? `lessons/${lessonId}/` : (file ?? '').replace(/[^/]*$/, '')
+  // raw HTML only from this site's own repository: a note read from someone else's could carry a frame or a form that
+  // runs on this origin, where a visitor's GitHub token is kept
+  const html = !remote || remote === SITE_REPO
   /** repo path a relative link points at */
   const resolve = (href: string) => decodeURIComponent(new URL(href, `https://repo.invalid/${dir}`).pathname.slice(1))
 
@@ -164,14 +170,24 @@ export function Markdown({ lessonId, file, source, inline = false }: Props) {
         )
       }
       return (
-        <a href={`${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/${resolve(href)}${href.includes('#') ? href.slice(href.indexOf('#')) : ''}`} target="_blank" rel="noreferrer">
+        <a
+          href={`${remote ? `https://github.com/${remote}/blob/HEAD` : `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}`}/${resolve(href)}${href.includes('#') ? href.slice(href.indexOf('#')) : ''}`}
+          target="_blank"
+          rel="noreferrer"
+        >
           {children}
         </a>
       )
     },
     img({ src = '', alt = '' }) {
       const local = typeof src === 'string' && !/^[a-z]+:/i.test(src)
-      const resolved = !local ? src : lessonId ? assetUrl(lessonId, src) : recordAssetUrl(resolve(src))
+      const resolved = !local
+        ? src
+        : lessonId
+          ? assetUrl(lessonId, src)
+          : remote
+            ? `https://raw.githubusercontent.com/${remote}/HEAD/${resolve(src)}`
+            : recordAssetUrl(resolve(src))
       return <img src={resolved as string} alt={alt} loading="lazy" />
     },
     h1: () => null,
@@ -219,7 +235,7 @@ export function Markdown({ lessonId, file, source, inline = false }: Props) {
       <ReactMarkdown
         // a single ~ is a range ("10~50 Hz"), so only ~~text~~ strikes through
         remarkPlugins={[[remarkGfm, { singleTilde: false }], remarkMath]}
-        rehypePlugins={[rehypeRaw, rehypeLessonBlocks, [rehypeSlug, { prefix: SECTION_ID_PREFIX }], rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
+        rehypePlugins={[...(html ? [rehypeRaw] : []), rehypeLessonBlocks, [rehypeSlug, { prefix: SECTION_ID_PREFIX }], rehypeKatex, [rehypeHighlight, { detect: false, languages: LANGUAGES, aliases: { bash: ['sh', 'shell'] } }]]}
         components={components}
       >
         {source}

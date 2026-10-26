@@ -1,9 +1,12 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
-import { BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, ListChecks, NotebookPen, X } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, ListChecks, NotebookPen, Pencil, X } from 'lucide-react'
 import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
-import { hasNote, labsFor, loadBody, loadNote } from '../curriculum/load'
+import noteTemplateSource from '../../../docs/templates/note.md?raw'
+import { blobUrl, hasNoteIn, historyUrl, labsIn, learner, SITE_REPO, treeUrl, useLearner, type LearnerState } from '../curriculum/learner'
+import { loadBody } from '../curriculum/load'
+import { noteTemplate } from '../curriculum/record'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
 import type { Curriculum, NodeState, Status } from '../curriculum/types'
@@ -23,9 +26,6 @@ interface Props {
   onSelect(id: string): void
 }
 
-const blobUrl = (path: string) => `${CONFIG.repoUrl}/blob/${CONFIG.repoBranch}/${path}`
-const treeUrl = (path: string) => `${CONFIG.repoUrl}/tree/${CONFIG.repoBranch}/${path}`
-const historyUrl = (path: string) => `${CONFIG.repoUrl}/commits/${CONFIG.repoBranch}/${path}`
 
 const STATE_TEXT: Record<NodeState, string> = {
   done: '완료',
@@ -105,16 +105,17 @@ function StatusCard({ progressFile, lessonId, onTake }: { progressFile: Progress
   )
 }
 
-/** In dev the note and lab tabs always show, to say where the files go; the published site shows only what exists. */
-function tabsFor(lessonId: string): LessonTab[] {
+/** In dev the note and lab tabs always show, to say where the files go; the published site shows what exists, and the
+ * note tab to a learner who can write one. */
+function tabsFor(s: LearnerState, lessonId: string): LessonTab[] {
   const tabs: LessonTab[] = ['lecture']
-  if (hasNote(lessonId) || import.meta.env.DEV) tabs.push('note')
-  if (labsFor(lessonId).length > 0 || import.meta.env.DEV) tabs.push('lab')
+  if (hasNoteIn(s, lessonId) || s.writable || import.meta.env.DEV) tabs.push('note')
+  if (labsIn(s, lessonId).length > 0 || import.meta.env.DEV) tabs.push('lab')
   return tabs
 }
 
-function TabBar({ lessonId, tabs, tab, onTab }: { lessonId: string; tabs: LessonTab[]; tab: LessonTab; onTab(t: LessonTab): void }) {
-  const labCount = labsFor(lessonId).length
+function TabBar({ s, lessonId, tabs, tab, onTab }: { s: LearnerState; lessonId: string; tabs: LessonTab[]; tab: LessonTab; onTab(t: LessonTab): void }) {
+  const labCount = labsIn(s, lessonId).length
   const label: Record<LessonTab, React.ReactNode> = {
     lecture: (
       <>
@@ -123,7 +124,7 @@ function TabBar({ lessonId, tabs, tab, onTab }: { lessonId: string; tabs: Lesson
     ),
     note: (
       <>
-        <NotebookPen size={15} aria-hidden="true" /> 내 노트{!hasNote(lessonId) && <span className="tab-empty"> · 없음</span>}
+        <NotebookPen size={15} aria-hidden="true" /> 내 노트{!hasNoteIn(s, lessonId) && <span className="tab-empty"> · 없음</span>}
       </>
     ),
     lab: (
@@ -162,36 +163,157 @@ function Loading({ label }: { label: string }) {
   )
 }
 
-/** The learner's own explanation of the lesson, with a link to its edit history so a reader can see when it was written. */
-function NoteTab({ lessonId }: { lessonId: string }) {
-  const [note, setNote] = useState<string | null>(null)
+const draftKey = (lessonId: string) => `${CONFIG.storage.noteDraftKey}.${lessonId}`
+
+function readDraft(lessonId: string): string | null {
+  try {
+    return localStorage.getItem(draftKey(lessonId))
+  } catch {
+    return null
+  }
+}
+
+function writeDraft(lessonId: string, text: string | null) {
+  try {
+    if (text === null) localStorage.removeItem(draftKey(lessonId))
+    else localStorage.setItem(draftKey(lessonId), text)
+  } catch {
+    // storage unavailable: the draft lives until the page closes
+  }
+}
+
+/** Write a note in the page and commit it to the learner's repository. The draft survives a reload on this device. */
+function NoteEditor({ lessonId, title, initial, onDone }: { lessonId: string; title: string; initial: string | null; onDone(): void }) {
+  const [draft] = useState(() => readDraft(lessonId))
+  const [text, setText] = useState(() => draft ?? initial ?? noteTemplate(noteTemplateSource, title))
+  const [preview, setPreview] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
   const path = `${CONFIG.record.notesDir}/${lessonId}.md`
-  const exists = hasNote(lessonId)
+
+  // the editor opens below the lesson's header; bring it up so the text box is where the eye goes
+  useEffect(() => {
+    rootRef.current?.scrollIntoView({ block: 'start' })
+  }, [])
+
+  async function save() {
+    setSaving(true)
+    setError(null)
+    try {
+      await learner.saveNote(lessonId, text)
+      writeDraft(lessonId, null)
+      onDone()
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="note-editor" ref={rootRef}>
+      <div className="note-editor-bar">
+        <div className="note-editor-modes" role="tablist" aria-label="노트 편집">
+          <button type="button" role="tab" aria-selected={!preview} className={`panel-tab ${!preview ? 'is-active' : ''}`} onClick={() => setPreview(false)}>
+            쓰기
+          </button>
+          <button type="button" role="tab" aria-selected={preview} className={`panel-tab ${preview ? 'is-active' : ''}`} onClick={() => setPreview(true)}>
+            미리보기
+          </button>
+        </div>
+        <div className="note-editor-actions">
+          <button
+            type="button"
+            className="text-button"
+            onClick={() => {
+              writeDraft(lessonId, null)
+              onDone()
+            }}
+            disabled={saving}
+          >
+            취소
+          </button>
+          <button type="button" className="primary-button" onClick={save} disabled={saving || !text.trim() || text === initial}>
+            {saving ? '저장 중…' : 'GitHub 에 저장'}
+          </button>
+        </div>
+      </div>
+      {draft !== null && draft !== initial && <p className="soft-note">이 기기에 저장하지 않은 초안이 있어 이어서 엽니다.</p>}
+      {error && (
+        <p className="quiz-error" role="alert">
+          {error}
+        </p>
+      )}
+      {preview ? (
+        <Markdown file={path} remote={learner.get().repo} source={text} />
+      ) : (
+        <textarea
+          className="note-input"
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value)
+            writeDraft(lessonId, e.target.value)
+          }}
+          aria-label={`${title} 노트`}
+          spellCheck={false}
+        />
+      )}
+      <p className="note-editor-hint">
+        강의를 덮고 내 말로 씁니다. 저장하면 <code>{path}</code> 에 커밋되고, 쓰는 중인 글은 이 기기에 초안으로 남습니다.
+      </p>
+    </div>
+  )
+}
+
+/** The learner's own explanation of the lesson, with a link to its edit history so a reader can see when it was written. */
+function NoteTab({ s, lessonId, title }: { s: LearnerState; lessonId: string; title: string }) {
+  const [note, setNote] = useState<string | null | undefined>(undefined)
+  const [editing, setEditing] = useState(false)
+  const path = `${CONFIG.record.notesDir}/${lessonId}.md`
+  const exists = hasNoteIn(s, lessonId)
+  const remote = s.source === 'github' ? s.repo : undefined
+
   useEffect(() => {
     let live = true
-    if (exists) loadNote(lessonId).then((text) => live && setNote(text))
+    setNote(undefined)
+    if (exists) learner.loadNote(lessonId).then((text) => live && setNote(text), () => live && setNote(null))
+    else setNote(null)
     return () => {
       live = false
     }
-  }, [lessonId, exists])
+  }, [lessonId, exists, s.repo, editing])
 
-  if (!exists) {
-    return (
+  if (editing) return <NoteEditor lessonId={lessonId} title={title} initial={note ?? null} onDone={() => setEditing(false)} />
+  if (note === undefined) return <Loading label="노트 불러오는 중" />
+
+  if (note === null) {
+    return s.writable ? (
+      <div className="note-empty">
+        <p>아직 이 강의의 노트가 없습니다. 강의를 덮고 내 말로 정리해 봅니다.</p>
+        <button type="button" className="primary-button" onClick={() => setEditing(true)}>
+          <NotebookPen size={16} aria-hidden="true" /> 노트 쓰기
+        </button>
+      </div>
+    ) : (
       <p className="soft-note">
-        아직 이 강의의 노트가 없습니다. <code>{path}</code> 를 만들면 여기에 나타납니다. 형식은{' '}
-        <code>docs/templates/note.md</code> 를 복사해서 씁니다.
+        아직 이 강의의 노트가 없습니다. <code>{path}</code> 를 만들면 여기에 나타납니다. 형식은 <code>docs/templates/note.md</code> 를 복사해서
+        씁니다.
       </p>
     )
   }
-  if (note === null) return <Loading label="노트 불러오는 중" />
   return (
     <>
-      <Markdown file={path} source={note} />
+      <Markdown file={path} remote={remote} source={note} />
       <p className="record-links">
-        <a href={blobUrl(path)} target="_blank" rel="noreferrer">
+        {s.writable && (
+          <button type="button" className="text-button" onClick={() => setEditing(true)}>
+            <Pencil size={14} aria-hidden="true" /> 고치기
+          </button>
+        )}
+        <a href={blobUrl(s.repo, path)} target="_blank" rel="noreferrer">
           GitHub 에서 보기 <ExternalLink size={14} aria-hidden="true" />
         </a>
-        <a href={historyUrl(path)} target="_blank" rel="noreferrer">
+        <a href={historyUrl(s.repo, path)} target="_blank" rel="noreferrer">
           <History size={14} aria-hidden="true" /> 작성 이력
         </a>
       </p>
@@ -200,8 +322,9 @@ function NoteTab({ lessonId }: { lessonId: string }) {
 }
 
 /** Code the learner wrote for this lesson: each lab's write-up, with links to its folder and history. */
-function LabTab({ c, lessonId, onSelect }: { c: Curriculum; lessonId: string; onSelect(id: string): void }) {
-  const list = labsFor(lessonId)
+function LabTab({ c, s, lessonId, onSelect }: { c: Curriculum; s: LearnerState; lessonId: string; onSelect(id: string): void }) {
+  const list = labsIn(s, lessonId)
+  const remote = s.source === 'github' ? s.repo : undefined
   if (list.length === 0) {
     return (
       <p className="soft-note">
@@ -223,8 +346,8 @@ function LabTab({ c, lessonId, onSelect }: { c: Curriculum; lessonId: string; on
               <p>{lab.summary}</p>
               {lab.stack.length > 0 && (
                 <ul className="lab-stack" aria-label="사용 기술">
-                  {lab.stack.map((s) => (
-                    <li key={s}>{s}</li>
+                  {lab.stack.map((st) => (
+                    <li key={st}>{st}</li>
                   ))}
                 </ul>
               )}
@@ -242,15 +365,15 @@ function LabTab({ c, lessonId, onSelect }: { c: Curriculum; lessonId: string; on
                 </p>
               )}
               <p className="record-links">
-                <a href={treeUrl(dir)} target="_blank" rel="noreferrer">
+                <a href={treeUrl(s.repo, dir)} target="_blank" rel="noreferrer">
                   코드 보기 <ExternalLink size={14} aria-hidden="true" />
                 </a>
-                <a href={historyUrl(dir)} target="_blank" rel="noreferrer">
+                <a href={historyUrl(s.repo, dir)} target="_blank" rel="noreferrer">
                   <History size={14} aria-hidden="true" /> 커밋 이력
                 </a>
               </p>
             </header>
-            <Markdown file={`${dir}/README.md`} source={lab.body} />
+            <Markdown file={`${dir}/README.md`} remote={remote} source={lab.body} />
           </article>
         )
       })}
@@ -260,7 +383,8 @@ function LabTab({ c, lessonId, onSelect }: { c: Curriculum; lessonId: string; on
 
 // memo: hovering the graph re-renders the app, and the lesson body is costly to render again
 export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFile, lessonId, tab: asked, onTab, onClose, onSelect }: Props) {
-  const tabs = tabsFor(lessonId)
+  const learnerState = useLearner()
+  const tabs = tabsFor(learnerState, lessonId)
   const tab = tabs.includes(asked) ? asked : 'lecture'
   const lesson = c.byId.get(lessonId)!
   const branch = c.branches.find((b) => b.id === lesson.branch)!
@@ -390,7 +514,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
         </header>
 
         <div ref={tabsAnchor} />
-        {tabs.length > 1 && <TabBar lessonId={lessonId} tabs={tabs} tab={tab} onTab={onTab} />}
+        {tabs.length > 1 && <TabBar s={learnerState} lessonId={lessonId} tabs={tabs} tab={tab} onTab={onTab} />}
 
         {/* the lecture stays mounted behind the other tabs, so the quiz's links into it keep their targets */}
         <div role="tabpanel" id="tabpanel-lecture" aria-labelledby={tabs.length > 1 ? 'tab-lecture' : undefined} hidden={tab !== 'lecture'}>
@@ -409,7 +533,7 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
           </div>
 
           <footer className="panel-foot">
-            <a href={blobUrl(lesson.path)} target="_blank" rel="noreferrer">
+            <a href={blobUrl(SITE_REPO, lesson.path)} target="_blank" rel="noreferrer">
               GitHub 에서 보기 <ExternalLink size={14} aria-hidden="true" />
             </a>
           </footer>
@@ -417,12 +541,12 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
 
         {tab === 'note' && (
           <div role="tabpanel" id="tabpanel-note" aria-labelledby="tab-note" className="record-tab">
-            <NoteTab lessonId={lessonId} />
+            <NoteTab s={learnerState} lessonId={lessonId} title={lesson.title} />
           </div>
         )}
         {tab === 'lab' && (
           <div role="tabpanel" id="tabpanel-lab" aria-labelledby="tab-lab" className="record-tab">
-            <LabTab c={c} lessonId={lessonId} onSelect={onSelect} />
+            <LabTab c={c} s={learnerState} lessonId={lessonId} onSelect={onSelect} />
           </div>
         )}
       </div>

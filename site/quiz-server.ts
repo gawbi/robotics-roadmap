@@ -3,7 +3,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http'
 import path from 'node:path'
 import type { Plugin } from 'vite'
 import { CONFIG } from './src/config.ts'
-import { grade, parseBank, parseResult, type Attempt, type Pick } from './src/curriculum/quiz.ts'
+import { formatResult, grade, parseBank, parseResult, type Attempt, type Pick } from './src/curriculum/quiz.ts'
 
 const LESSON_ID = /^[a-z0-9-]+$/
 
@@ -53,7 +53,7 @@ export function quizServer(repoRoot: string): Plugin {
     const attempt: Attempt = { date: today(), answers: graded }
     const file = path.join(progressDir, `${id}.json`)
     const attempts = [...parseResult(await readText(file)).attempts, attempt]
-    await writeFile(file, `${JSON.stringify({ attempts }, null, 2)}\n`)
+    await writeFile(file, formatResult(attempts))
     return attempt
   }
 

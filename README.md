@@ -10,7 +10,7 @@
 [![Site license](https://img.shields.io/badge/site-MIT-blue)](LICENSE)
 
 **[공부 기록 보기](https://gawbi.github.io/robotics-roadmap/#/me)** · [커리큘럼 지도](https://gawbi.github.io/robotics-roadmap/) ·
-[기록 방식](#공부한-것을-남기는-방식) · [원본에 더한 것](#원본에-더한-것) · [실행](#설치와-실행) · [라이선스](#라이선스)
+[기록 방식](#공부한-것을-남기는-방식) · [웹·앱으로 공부하기](#웹앱으로-공부하기) · [원본에 더한 것](#원본에-더한-것) · [라이선스](#라이선스)
 
 <img src="docs/map.png" alt="커리큘럼 지도. 가운데 동심원에 공통 기초가 놓이고, 점선으로 나뉜 세 구역으로 Robot Learning·Manipulation·Mobile Autonomy 트리가 뻗습니다" width="960">
 
@@ -34,7 +34,8 @@
    통과입니다
 3. **노트를 쓴다**: 강의를 덮고 내 말로 요약, 직접 해 본 계산, 헷갈렸던 점, 면접 질문에 대한 답을 씁니다
 4. **구현한다**: 강의 하나를 코드 하나로 옮기거나, 여러 강의를 잇는 프로젝트를 만들고 결과를 그래프·숫자로 남깁니다
-5. **커밋한다**: push 하면 GitHub Pages 가 다시 배포되어 공개 지도에 바로 반영됩니다
+5. **커밋한다**: 사이트에서 푼 퀴즈와 쓴 노트는 바로 커밋되고, 구현 코드는 직접 push 합니다. GitHub Pages 가 다시 배포되어 공개 지도에
+   반영됩니다
 
 | 기록 | 리포의 위치 | 사이트에서 보이는 곳 |
 | --- | --- | --- |
@@ -66,7 +67,29 @@
 - 공부 기록 페이지 `#/me`: 퀴즈 통과 강의 수, 공부한 날 heatmap, 영역별 진행, 구현 프로젝트, 노트 목록
 - `progress/`·`notes/`·`labs/` 가 바뀌어도 GitHub Pages 를 다시 배포
 
-## 설치와 실행
+## 웹·앱으로 공부하기
+
+설치 없이 [사이트](https://gawbi.github.io/robotics-roadmap/)에서 공부하고, 기록은 내 GitHub 리포에 남깁니다. 서버는 없고, 브라우저가
+GitHub API 로 바로 커밋합니다.
+
+1. 사이트 오른쪽 위의 **내 공부 시작** 을 누릅니다
+2. 기록을 둘 리포를 만듭니다. 이 리포의 주인은 `gawbi/robotics-roadmap` 을 그대로 쓰고, 다른 사람은 자기 계정에 `robotics-study`
+   같은 public 리포를 만듭니다
+3. [Fine-grained token](https://github.com/settings/personal-access-tokens/new) 을 만듭니다. Repository access 는 2 의 리포 하나만,
+   Permissions 의 **Contents** 는 **Read and write** 로 줍니다
+4. 토큰을 붙여넣고 연결합니다. 이제 퀴즈를 제출하면 `progress/<강의>.json` 이, 강의 창의 **내 노트** 탭에서 저장하면
+   `notes/<강의>.md` 가 그 리포에 커밋되고, 그 커밋이 내 잔디가 됩니다
+
+토큰은 그 브라우저에만 저장되고 GitHub 말고는 어디로도 보내지 않습니다. 다른 기기에서는 한 번 더 연결합니다.
+
+**앱처럼 쓰기**: 휴대폰 브라우저의 "홈 화면에 추가"(iPhone Safari 는 공유 → 홈 화면에 추가, Android Chrome 은 메뉴 → 앱 설치)로 앱처럼
+설치됩니다. 한 번 연 강의는 오프라인에서도 읽을 수 있습니다. 홈 화면 앱은 브라우저와 저장 공간이 따로라서 앱 안에서 한 번 더
+연결합니다.
+
+**기록 보여 주기**: 연결한 뒤 **공부 기록** 페이지에 나오는 링크(`?u=<아이디>/<리포>#/me`)를 보내면, 받은 사람이 같은 지도 위에서 내
+기록을 봅니다. 연결하지 않은 방문자에게는 이 리포 주인(gawbi)의 기록이 보입니다.
+
+## 로컬에서 실행
 
 [Node.js](https://nodejs.org/) 20.19 이상(또는 22.12 이상)과 git 이 필요합니다.
 
@@ -77,10 +100,11 @@ npm install
 npm run dev     # http://localhost:5173
 ```
 
-퀴즈는 `npm run dev` 로 띄운 지도에서 풉니다. dev server 가 답안을 채점해 `progress/<강의>.json` 에 저장하고, 공개 사이트에서 푼
-퀴즈는 새로고침하면 사라집니다. 공부를 마치면 기록을 커밋합니다.
+로컬 지도에서는 dev server 가 퀴즈 답안을 채점해 이 폴더의 `progress/<강의>.json` 에 저장합니다. 사이트에서 커밋한 기록이 있으니
+시작하기 전에 `git pull` 로 받아 두고, 마치면 커밋합니다.
 
 ```bash
+git pull
 git add progress notes labs
 git commit -m "Study kalman-filter: quiz, note, 1D filter lab"
 git push

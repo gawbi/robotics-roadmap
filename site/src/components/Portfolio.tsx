@@ -1,7 +1,7 @@
-import { ArrowLeft, ExternalLink, FlaskConical, NotebookPen } from 'lucide-react'
+import { ArrowLeft, ExternalLink, FlaskConical, LogIn, NotebookPen } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { CONFIG } from '../config'
-import { commitDays, hasNote, labs } from '../curriculum/load'
+import { CONNECTABLE, hasNoteIn, repoUrl, shareUrl, SITE_REPO, treeUrl, useLearner, type LearnerState } from '../curriculum/learner'
 import { passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
 import { activityLevel, heatmapWeeks, longestStreak, studyDays, type DayActivity } from '../curriculum/record'
 import type { Curriculum, Lesson } from '../curriculum/types'
@@ -12,6 +12,7 @@ interface Props {
   progressFile: ProgressFile
   onClose(): void
   onSelect(id: string, tab?: LessonTab): void
+  onConnect(): void
 }
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토']
@@ -164,7 +165,8 @@ function TrackProgress({ c, progressFile }: { c: Curriculum; progressFile: Progr
   )
 }
 
-function Projects({ c, onSelect }: { c: Curriculum; onSelect: Props['onSelect'] }) {
+function Projects({ c, s, onSelect }: { c: Curriculum; s: LearnerState; onSelect: Props['onSelect'] }) {
+  const labs = s.labs
   return (
     <section className="pf-section" aria-labelledby="pf-labs-title">
       <div className="pf-section-head">
@@ -206,7 +208,7 @@ function Projects({ c, onSelect }: { c: Curriculum; onSelect: Props['onSelect'] 
                       </button>
                     ))}
                 </span>
-                <a href={`${CONFIG.repoUrl}/tree/${CONFIG.repoBranch}/${CONFIG.record.labsDir}/${lab.id}`} target="_blank" rel="noreferrer">
+                <a href={treeUrl(s.repo, `${CONFIG.record.labsDir}/${lab.id}`)} target="_blank" rel="noreferrer">
                   코드 <ExternalLink size={13} aria-hidden="true" />
                 </a>
               </div>
@@ -218,8 +220,8 @@ function Projects({ c, onSelect }: { c: Curriculum; onSelect: Props['onSelect'] 
   )
 }
 
-function Notes({ c, progressFile, onSelect }: { c: Curriculum; progressFile: ProgressFile; onSelect: Props['onSelect'] }) {
-  const noted = c.lessons.filter((p) => hasNote(p.id))
+function Notes({ c, s, progressFile, onSelect }: { c: Curriculum; s: LearnerState; progressFile: ProgressFile; onSelect: Props['onSelect'] }) {
+  const noted = c.lessons.filter((p) => hasNoteIn(s, p.id))
   return (
     <section className="pf-section" aria-labelledby="pf-notes-title">
       <div className="pf-section-head">
@@ -260,13 +262,17 @@ function Notes({ c, progressFile, onSelect }: { c: Curriculum; progressFile: Pro
 }
 
 /** #/me: the study record at a glance, for the learner and for anyone the link is sent to. */
-export function Portfolio({ curriculum: c, progressFile, onClose, onSelect }: Props) {
+export function Portfolio({ curriculum: c, progressFile, onClose, onSelect, onConnect }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const s = useLearner()
   const done = c.lessons.filter((p) => statusOf(progressFile, p.id) === 'done')
   const hoursDone = done.reduce((a, p) => a + p.hours, 0)
   const hoursTotal = c.lessons.reduce((a, p) => a + p.hours, 0)
-  const days = useMemo(() => studyDays(commitDays, progressFile), [progressFile])
-  const noteCount = c.lessons.filter((p) => hasNote(p.id)).length
+  const days = useMemo(() => studyDays(s.commitDays, progressFile), [s.commitDays, progressFile])
+  const noteCount = c.lessons.filter((p) => hasNoteIn(s, p.id)).length
+  // the site owner introduces themselves in CONFIG.owner; anyone else is named by their repository
+  const site = s.repo === SITE_REPO
+  const ownerLogin = s.repo.split('/')[0]
 
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true })
@@ -281,37 +287,59 @@ export function Portfolio({ curriculum: c, progressFile, onClose, onSelect }: Pr
           </button>
           <p className="intro-kicker">study record</p>
           <h2 id="pf-title" ref={headingRef} tabIndex={-1}>
-            {CONFIG.owner.name}
+            {site ? CONFIG.owner.name : ownerLogin}
           </h2>
-          <p className="pf-tagline">{CONFIG.owner.tagline}</p>
+          <p className="pf-tagline">{site ? CONFIG.owner.tagline : '이 지도를 따라 로보틱스를 공부한 기록'}</p>
           <p className="pf-links">
-            <a href={CONFIG.owner.githubUrl} target="_blank" rel="noreferrer">
+            <a href={site ? CONFIG.owner.githubUrl : `https://github.com/${ownerLogin}`} target="_blank" rel="noreferrer">
               GitHub <ExternalLink size={13} aria-hidden="true" />
             </a>
-            <a href={CONFIG.repoUrl} target="_blank" rel="noreferrer">
-              이 리포 <ExternalLink size={13} aria-hidden="true" />
+            <a href={repoUrl(s.repo)} target="_blank" rel="noreferrer">
+              기록 리포 <ExternalLink size={13} aria-hidden="true" />
             </a>
           </p>
+          {s.status === 'ready' && (
+            <p className="pf-share">
+              이 기록의 링크 <code>{shareUrl(s.repo)}</code>
+            </p>
+          )}
         </header>
 
         <section className="pf-stats" aria-label="요약">
           <Stat label="퀴즈 통과 강의" value={`${done.length} / ${c.lessons.length}`} />
           <Stat label="통과한 강의 분량" value={`${hoursDone}h`} sub={`전체 ${hoursTotal}h`} />
           <Stat label="직접 쓴 노트" value={noteCount} />
-          <Stat label="구현 프로젝트" value={labs.length} />
+          <Stat label="구현 프로젝트" value={s.labs.length} />
           <Stat label="공부한 날" value={`${days.size}일`} sub={`최장 ${longestStreak(days.keys())}일 연속`} />
         </section>
 
         <Heatmap days={days} />
         <TrackProgress c={c} progressFile={progressFile} />
-        <Projects c={c} onSelect={onSelect} />
-        <Notes c={c} progressFile={progressFile} onSelect={onSelect} />
+        <Projects c={c} s={s} onSelect={onSelect} />
+        <Notes c={c} s={s} progressFile={progressFile} onSelect={onSelect} />
+
+        {CONNECTABLE && !s.writable && (
+          <section className="pf-section pf-cta">
+            <h3>이 지도로 나도 공부하기</h3>
+            <p>
+              GitHub 를 연결하면 이 사이트에서 푼 퀴즈와 쓴 노트가 내 GitHub 리포에 커밋되고, 이런 기록 페이지가 나에게도 생깁니다. 설치할 것은
+              없고 폰에서도 됩니다.
+            </p>
+            <button type="button" className="primary-button" onClick={onConnect}>
+              <LogIn size={16} aria-hidden="true" /> 내 공부 시작
+            </button>
+          </section>
+        )}
 
         <footer className="pf-section pf-verify">
           <h3>기록을 확인하는 법</h3>
           <ul>
             <li>
-              퀴즈 기록은 리포의 <code>progress/&lt;강의&gt;.json</code> 에 응시 날짜와 문항별 정답 여부로 남습니다. 퀴즈는 강의의 원리마다
+              퀴즈 기록은{' '}
+              <a href={treeUrl(s.repo, CONFIG.quiz.progressDir)} target="_blank" rel="noreferrer">
+                기록 리포
+              </a>
+              의 <code>progress/&lt;강의&gt;.json</code> 에 응시 날짜와 문항별 정답 여부로 남습니다. 퀴즈는 강의의 원리마다
               한 문항을 묻고, 다시 풀 때는 틀린 원리만 다른 문항으로 묻습니다.
             </li>
             <li>

@@ -13,7 +13,8 @@ frontmatter 를 읽어 선수 관계 지도를 그린다. 공부하는 법은 [R
 
 - 노트 본문과 구현 코드를 대신 써 주지 않는다. 요청을 받으면 질문을 던지거나, 이미 쓴 노트의 사실 오류를 짚거나, 막힌 코드의 원인을
   같이 찾는다. 템플릿([docs/templates/](docs/templates/))이나 사이트 기능은 고쳐도 된다
-- `progress/` 는 손으로 고치지 않는다. 퀴즈는 `npm run dev` 로 띄운 지도에서 푼다
+- `progress/` 는 손으로 고치지 않는다. 퀴즈는 `npm run dev` 로 띄운 지도나, GitHub 를 연결한 공개 사이트에서 푼다(사이트는
+  `site/src/curriculum/learner.ts` 로 결과와 노트를 연결한 리포에 커밋한다). 사이트에서 커밋한 기록이 있으니 로컬 작업 전에 `git pull` 한다
 - 노트·구현 파일 이름과 frontmatter 형식은 `site/test/record.test.ts` 가 검사한다
 
 ## 먼저 읽을 문서

@@ -103,3 +103,11 @@ export function longestStreak(dates: Iterable<string>): number {
   }
   return best
 }
+
+/** docs/templates/note.md for a new note written on the site: the lesson's title in, the copying instructions out */
+export function noteTemplate(template: string, title: string): string {
+  return template
+    .replace(/<!--[\s\S]*?-->\n*/g, '')
+    .replace('<강의 제목>', title)
+    .trimStart()
+}

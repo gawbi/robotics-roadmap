@@ -1,6 +1,7 @@
 import { X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { CONFIG } from '../config'
+import { CONNECTABLE } from '../curriculum/learner'
 
 interface Props {
   firstLessonId: string
@@ -8,9 +9,10 @@ interface Props {
   onClose(): void
   onStart(id: string): void
   onPortfolio(): void
+  onConnect(): void
 }
 
-export function Intro({ firstLessonId, lessonCount, onClose, onStart, onPortfolio }: Props) {
+export function Intro({ firstLessonId, lessonCount, onClose, onStart, onPortfolio, onConnect }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -49,13 +51,13 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart, onPortfoli
           <strong>강의 끝의 퀴즈 풀기</strong>
           <span>
             틀린 문항은 해설을 보여 주고, 틀린 문항만 같은 원리의 다른 문항으로 다시 풉니다. 틀린 문항이 남지 않으면 통과이고 이어지는 강의가 밝아집니다.
-            답안은 <code>progress/&lt;강의&gt;.json</code> 에 저장되고, 커밋해서 push 하면 공개 사이트의 지도에도 칠해집니다.
+            GitHub 를 연결하면 답안이 내 리포의 <code>progress/&lt;강의&gt;.json</code> 에 커밋되고, 통과한 강의가 지도에 칠해집니다.
           </span>
         </li>
       </ol>
       <p className="intro-note">
-        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. 공개 사이트에서 푼 퀴즈는 새로고침하면 사라지고, 기록은 리포의 <code>site/</code>{' '}
-        에서 <code>npm run dev</code> 로 띄운 지도에서만 남습니다. 커리큘럼은{' '}
+        선수 관계는 권장 순서일 뿐 잠금이 아닙니다. GitHub 를 연결하지 않고 푼 퀴즈는 새로고침하면 사라집니다. <b>내 공부 시작</b> 으로 내
+        GitHub 리포를 연결하면 퀴즈와 노트가 그 리포에 커밋되어 내 잔디가 되고, 폰에서도 이어서 공부할 수 있습니다. 커리큘럼은{' '}
         <a href={CONFIG.upstreamUrl} target="_blank" rel="noreferrer">
           {CONFIG.upstreamUrl.replace('https://github.com/', '')}
         </a>{' '}
@@ -65,6 +67,11 @@ export function Intro({ firstLessonId, lessonCount, onClose, onStart, onPortfoli
         <button type="button" className="primary-button" onClick={onPortfolio}>
           공부 기록 보기
         </button>
+        {CONNECTABLE && (
+          <button type="button" className="text-button" onClick={onConnect}>
+            내 공부 시작
+          </button>
+        )}
         <button type="button" className="text-button" onClick={() => onStart(firstLessonId)}>
           첫 강의 열기
         </button>

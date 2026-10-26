@@ -20,6 +20,11 @@ export const progress = {
     current = { ...current, [id]: [...(current[id] ?? []), attempt] }
     listeners.forEach((l) => l())
   },
+  /** show another learner's record, read from their repository (curriculum/learner.ts) */
+  replace(file: ProgressFile) {
+    current = file
+    listeners.forEach((l) => l())
+  },
 }
 
 export function useProgress(): ProgressFile {

@@ -1,5 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
-import { Legend, NextUp, TopBar, ZoomControls } from './components/Chrome'
+import { Legend, NextUp, RecordBanner, TopBar, ZoomControls } from './components/Chrome'
+import { Connect } from './components/Connect'
 import { Holygraph, type GraphControls, type Insets } from './components/Holygraph'
 import { Intro } from './components/Intro'
 import { PanelResizer, usePanelWidth } from './components/PanelResizer'
@@ -7,6 +8,7 @@ import { UpdateBanner } from './components/UpdateBanner'
 import { CONFIG } from './config'
 import { computeLayout, type Layout } from './curriculum/layout'
 import { curriculum } from './curriculum/load'
+import { learner } from './curriculum/learner'
 import { useProgress } from './curriculum/progress'
 import type { LessonTab } from './components/LessonPanel'
 
@@ -17,6 +19,8 @@ const Portfolio = lazy(() => import('./components/Portfolio').then((m) => ({ def
 // #/p/<lesson> opens a lecture, #/p/<lesson>/note and /lab the learner's note and code for it; #/me the portfolio page
 const ROUTE = /^#\/p\/([a-z0-9-]+)(?:\/(note|lab))?$/
 const PORTFOLIO_ROUTE = '#/me'
+// connecting a GitHub repository to keep one's own record (components/Connect.tsx)
+const CONNECT_ROUTE = '#/connect'
 
 function readRoute(): { id: string; tab: LessonTab } | null {
   const m = ROUTE.exec(window.location.hash)
@@ -24,6 +28,7 @@ function readRoute(): { id: string; tab: LessonTab } | null {
 }
 
 const readPortfolio = () => window.location.hash === PORTFOLIO_ROUTE
+const readConnect = () => window.location.hash === CONNECT_ROUTE
 
 function useMediaQuery(query: string): boolean {
   const [match, setMatch] = useState(() => window.matchMedia(query).matches)
@@ -57,9 +62,13 @@ export function App() {
   const [route, setRoute] = useState(readRoute)
   const selectedId = route?.id ?? null
   const [portfolio, setPortfolio] = useState(readPortfolio)
+  const [connect, setConnect] = useState(readConnect)
+
+  // whose record to show: the site owner's, a shared one (?u=), or this browser's connected repository
+  useEffect(() => learner.init(), [])
   const [hoverId, setHoverId] = useState<string | null>(null)
   const [hoverBranch, setHoverBranch] = useState<string | null>(null)
-  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute() && !readPortfolio())
+  const [showIntro, setShowIntro] = useState(() => !introSeen() && !readRoute() && !readPortfolio() && !readConnect())
   const controls = useRef<GraphControls>(null)
   const wide = useMediaQuery('(min-width: 960px)')
   const sidebarInset = wide ? 280 : 0
@@ -70,6 +79,7 @@ export function App() {
     const onHash = () => {
       setRoute(readRoute())
       setPortfolio(readPortfolio())
+      setConnect(readConnect())
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
@@ -82,6 +92,7 @@ export function App() {
     history.pushState(null, '', window.location.pathname + window.location.search + '#/')
     setRoute(null)
     setPortfolio(false)
+    setConnect(false)
   }, [])
   // switching tabs keeps the lesson's place in history: Back returns to the map, not to the previous tab
   const showTab = useCallback((tab: LessonTab) => {
@@ -91,6 +102,9 @@ export function App() {
   }, [selectedId])
   const openPortfolio = useCallback(() => {
     window.location.hash = PORTFOLIO_ROUTE
+  }, [])
+  const openConnect = useCallback(() => {
+    window.location.hash = CONNECT_ROUTE
   }, [])
 
   useEffect(() => {
@@ -146,7 +160,10 @@ export function App() {
         progressFile={progressFile}
         onHelp={() => setShowIntro(true)}
         onPortfolio={openPortfolio}
+        onConnect={openConnect}
       />
+
+      <RecordBanner onConnect={openConnect} />
 
       <UpdateBanner />
 
@@ -176,9 +193,11 @@ export function App() {
 
       {portfolio && (
         <Suspense fallback={<main className="portfolio" aria-busy="true" />}>
-          <Portfolio curriculum={curriculum} progressFile={progressFile} onClose={close} onSelect={select} />
+          <Portfolio curriculum={curriculum} progressFile={progressFile} onClose={close} onSelect={select} onConnect={openConnect} />
         </Suspense>
       )}
+
+      {connect && <Connect onClose={close} onPortfolio={openPortfolio} />}
 
       {showIntro && (
         <Intro
@@ -192,6 +211,10 @@ export function App() {
           onPortfolio={() => {
             closeIntro()
             openPortfolio()
+          }}
+          onConnect={() => {
+            closeIntro()
+            openConnect()
           }}
         />
       )}

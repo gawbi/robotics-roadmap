@@ -22,6 +22,9 @@ export const CONFIG = {
     labsDir: 'labs', // labs/<name>/README.md: code the learner wrote, with frontmatter naming the lessons it implements
     activityDirs: ['notes', 'labs', 'progress'], // commits touching these count as study days on the portfolio page
     heatmapWeeks: 53,
+    // a learner who is not the site's owner keeps their record in their own repository, by default <login>/<this>
+    studyRepoName: 'robotics-study',
+    viewParam: 'u', // ?u=<owner>/<repo> shows that repository's record, read-only unless it is the connected one
   },
 
   // link previews on LinkedIn, KakaoTalk and Slack (Open Graph). Crawlers need absolute URLs, so they point at the
@@ -41,6 +44,9 @@ export const CONFIG = {
   storage: {
     introSeenKey: 'pafs.intro-seen.v1',
     panelWidthKey: 'pafs.panel-width.v1',
+    // the GitHub token and repository a learner connected; kept in this browser only (curriculum/learner.ts)
+    connectionKey: 'pafs.github-connection.v1',
+    noteDraftKey: 'pafs.note-draft.v1', // + `.<lesson id>`: a note being written, so a reload does not lose it
   },
 
   // lesson panel on wide screens; its left edge drags to resize

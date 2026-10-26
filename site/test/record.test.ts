@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { CONFIG } from '../src/config'
-import { activityLevel, heatmapWeeks, longestStreak, parseLab, studyDays } from '../src/curriculum/record'
+import { activityLevel, heatmapWeeks, longestStreak, noteTemplate, parseLab, studyDays } from '../src/curriculum/record'
 
 const REPO = join(__dirname, '..', '..')
 const lessonIds = new Set(readdirSync(join(REPO, 'lessons'), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name))
@@ -71,5 +71,15 @@ describe('study days', () => {
     expect(longestStreak([])).toBe(0)
     expect(longestStreak(['2026-10-01', '2026-10-03', '2026-10-04', '2026-10-05', '2026-10-07'])).toBe(3)
     expect(longestStreak(['2026-02-28', '2026-03-01', '2026-03-01'])).toBe(2)
+  })
+})
+
+describe('noteTemplate', () => {
+  it('fills in the lesson title and drops the instructions for copying the file', () => {
+    const template = readFileSync(join(REPO, 'docs', 'templates', 'note.md'), 'utf8')
+    const note = noteTemplate(template, 'Kalman Filter')
+    expect(note.startsWith('# Kalman Filter 노트')).toBe(true)
+    expect(note).not.toContain('<!--')
+    expect(note).toContain('## 한 문장 요약')
   })
 })

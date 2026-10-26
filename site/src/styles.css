@@ -2494,6 +2494,224 @@ code {
   color: var(--text-dim);
 }
 
+
+/* ---------- studying from the web: connect dialog, record banner, note editor ---------- */
+
+.topbar-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 0 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.record-banner {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  max-width: min(640px, calc(100vw - 32px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.record-banner.is-error {
+  border-color: color-mix(in srgb, var(--danger) 60%, transparent);
+}
+
+.record-banner .text-button {
+  flex: none;
+  min-height: 34px;
+  font-size: 13px;
+}
+
+.connect strong {
+  color: var(--text);
+}
+
+.connect .intro-steps a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.connect-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.connect-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.connect-form input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+
+.connect-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.connect-form .primary-button {
+  justify-self: start;
+}
+
+.connect-share,
+.pf-share {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.connect-share code,
+.pf-share code {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.pf-share {
+  margin: 14px 0 0;
+}
+
+.pf-cta {
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.pf-cta p {
+  margin: 8px 0 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.pf-cta .primary-button,
+.note-empty .primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note-empty {
+  padding: 20px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.note-empty p {
+  margin: 0 0 14px;
+}
+
+.record-links .text-button {
+  gap: 6px;
+}
+
+.note-editor {
+  display: grid;
+  gap: 10px;
+  scroll-margin-top: 64px; /* clear of the sticky tab bar */
+}
+
+.note-editor-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.note-editor-modes {
+  display: flex;
+  gap: 4px;
+}
+
+.note-input {
+  width: 100%;
+  min-height: 60vh;
+  padding: 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.note-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.note-editor-actions {
+  display: flex;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.note-editor-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 959px) {
+  .record-banner {
+    top: 72px;
+  }
+
+  .note-input {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar-start span {
+    display: none;
+  }
+
+  .topbar-start {
+    padding: 0 10px;
+  }
+}
+
 @media (max-width: 959px) {
   .topbar-me span {
     display: none;

@@ -77,6 +77,9 @@ const notePath = (id: string) => `../../../notes/${id}.md`
 /** Whether the learner has written a note for a lesson. */
 export const hasNote = (id: string) => notePath(id) in notes
 
+/** lessons with a note in the build */
+export const noteIds: ReadonlySet<string> = new Set(Object.keys(notes).map((f) => f.split('/').at(-1)!.replace(/\.md$/, '')))
+
 /** notes/<id>.md, fetched when its tab opens. */
 export async function loadNote(id: string): Promise<string> {
   return notes[notePath(id)]()

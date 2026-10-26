@@ -1,6 +1,7 @@
 import { BookOpen, Check, ChevronRight, CornerUpLeft, History, ListChecks, X } from 'lucide-react'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { CONFIG } from '../config'
+import { CONNECTABLE, learner, useLearner } from '../curriculum/learner'
 import { hasQuiz, loadBank } from '../curriculum/load'
 import { progress } from '../curriculum/progress'
 import {
@@ -16,6 +17,7 @@ import {
   type Pick,
   type Topic,
 } from '../curriculum/quiz'
+import { dayKey } from '../curriculum/record'
 import { Markdown, scrollToSettled, sectionElement } from './Markdown'
 
 const url = (id: string) => `${CONFIG.quiz.endpoint}/${id}`
@@ -111,6 +113,7 @@ interface QuizProps {
 
 /** Quiz card at the end of a lecture, with the dialog it opens. Renders nothing for lessons without a bank. */
 export function QuizSection({ lessonId, title, attempts, nav }: QuizProps) {
+  const learnerState = useLearner()
   if (!hasQuiz(lessonId)) return null
   const last = attempts.at(-1)
   const cleared = clearedAt(attempts) >= 0
@@ -131,10 +134,18 @@ export function QuizSection({ lessonId, title, attempts, nav }: QuizProps) {
           마지막 응시 {last.date} · {score(last)} 정답{wrong > 0 && ` · 남은 문항 ${wrong}개`}
         </p>
       )}
-      {!import.meta.env.DEV && (
+      {CONNECTABLE && (
         <p className="quiz-card-text">
-          이 사이트에서는 풀어 볼 수만 있고 결과는 새로고침하면 사라집니다. 기록을 남기려면 리포를 fork 해 <code>site/</code> 에서{' '}
-          <code>npm run dev</code> 로 띄웁니다.
+          {learnerState.writable ? (
+            <>
+              제출한 결과는 <code>{learnerState.repo}</code> 의 <code>progress/{lessonId}.json</code> 에 커밋됩니다.
+            </>
+          ) : (
+            <>
+              GitHub 를 연결하지 않고 푼 결과는 새로고침하면 사라집니다. 기록을 남기려면 위쪽의 <b>내 공부 시작</b> 으로 내 GitHub 리포를
+              연결합니다.
+            </>
+          )}
         </p>
       )}
       <div className="quiz-card-actions">
@@ -295,9 +306,12 @@ function TakeDialog({ lessonId, title, attempts: opened, onClose, onSubmitted }:
     setSending(true)
     setSendError(null)
     try {
-      // a built site has no dev server: grade in the page and keep the result only until reload
+      // a built site has no dev server: grade in the page, then commit to the learner's repository if this browser is
+      // connected to it; otherwise the result lasts until reload. The date is local, as the dev server writes it
       if (!import.meta.env.DEV) {
-        onSubmitted({ date: new Date().toISOString().slice(0, 10), answers: grade(bank!, picks, choices as number[]) })
+        const attempt: Attempt = { date: dayKey(new Date()), answers: grade(bank!, picks, choices as number[]) }
+        if (learner.get().writable) await learner.recordAttempt(lessonId, attempt)
+        onSubmitted(attempt)
         return
       }
       const attempt = await request<Attempt>(lessonId, {
@@ -330,7 +344,7 @@ function TakeDialog({ lessonId, title, attempts: opened, onClose, onSubmitted }:
           </button>
           {isLast ? (
             <button type="button" className="primary-button" onClick={submit} disabled={chosen == null || sending}>
-              {sending ? '제출 중…' : '제출'}
+              {sending ? (CONNECTABLE && learner.get().writable ? 'GitHub 에 저장 중…' : '제출 중…') : '제출'}
             </button>
           ) : (
             <button type="button" className="primary-button" onClick={() => setStep(step + 1)} disabled={chosen == null || !variant}>
