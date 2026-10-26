@@ -2853,3 +2853,34 @@ code {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- a lesson's summary video (video/published) ---------- */
+
+.lesson-video {
+  margin: 0 0 24px;
+  padding: 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.lesson-video h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+
+.lesson-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background: #000;
+}
+
+.lesson-video p {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}

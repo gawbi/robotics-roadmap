@@ -111,3 +111,9 @@ export function recordAssetUrl(repoPath: string): string | undefined {
 
 /** commits per day that touched the record, read from git when the site was built (vite.config.ts) */
 export { default as commitDays } from 'virtual:study-activity'
+
+// Summary videos rendered from the lessons (video/, published to video/published/<lesson id>.mp4)
+const videos = import.meta.glob('../../../video/published/*.mp4', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+
+/** the lesson's summary video, if one has been published */
+export const videoUrl = (lessonId: string): string | undefined => videos[`../../../video/published/${lessonId}.mp4`]

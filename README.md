@@ -63,6 +63,7 @@
 **사이트**
 
 - 강의 창의 **강의 · 내 노트 · 구현** 탭, 강의마다의 퀴즈 응시 이력
+- 강의의 핵심 절을 애니메이션과 한국어 음성으로 줄인 **요약 영상**(`video/`, Remotion + MeloTTS). 절마다 "멈추고 적어 보기" 화면이 있다
 - 지도에서 노트(점)와 구현(마름모)이 있는 강의 표시
 - 공부 기록 페이지 `#/me`: 퀴즈 통과 강의 수, 공부한 날 heatmap, 영역별 진행, 구현 프로젝트, 노트 목록
 - `progress/`·`notes/`·`labs/` 가 바뀌어도 GitHub Pages 를 다시 배포
@@ -139,6 +140,7 @@ robotics-roadmap/
 ├── labs/                 # 직접 구현한 코드와 결과
 ├── docs/templates/       # 노트·구현 README 템플릿
 ├── site/                 # 지도·강의·공부 기록 페이지를 보여 주는 Vite + React 앱
+├── video/                # 요약 영상의 대본·애니메이션(Remotion)과 음성 생성(tts/), 공개본은 video/published/
 ├── CONTRIBUTING.md       # 강의·퀴즈·지도 규칙
 └── CLAUDE.md             # Claude Code 로 강의를 쓸 때의 규칙과, 기록을 대신 쓰지 않는다는 원칙
 ```

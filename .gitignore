@@ -25,3 +25,8 @@ MUJOCO_LOG.TXT
 .DS_Store
 .idea/
 .vscode/
+
+# video renders (video/render.mjs)
+video/out/
+video/public/audio/
+video/tts/jobs/

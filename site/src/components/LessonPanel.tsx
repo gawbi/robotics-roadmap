@@ -1,11 +1,11 @@
 import 'highlight.js/styles/github-dark.css'
 import 'katex/dist/katex.min.css'
-import { BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, ListChecks, NotebookPen, Pencil, X } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Clock, ExternalLink, FlaskConical, History, ListChecks, NotebookPen, Pencil, Video, X } from 'lucide-react'
 import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import noteTemplateSource from '../../../docs/templates/note.md?raw'
 import { blobUrl, hasNoteIn, historyUrl, labsIn, learner, SITE_REPO, treeUrl, useLearner, type LearnerState } from '../curriculum/learner'
-import { loadBody } from '../curriculum/load'
+import { loadBody, videoUrl } from '../curriculum/load'
 import { noteTemplate } from '../curriculum/record'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
@@ -518,6 +518,18 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
 
         {/* the lecture stays mounted behind the other tabs, so the quiz's links into it keep their targets */}
         <div role="tabpanel" id="tabpanel-lecture" aria-labelledby={tabs.length > 1 ? 'tab-lecture' : undefined} hidden={tab !== 'lecture'}>
+          {videoUrl(lessonId) && (
+            <section className="lesson-video" aria-labelledby="lesson-video-title">
+              <h3 id="lesson-video-title">
+                <Video size={15} aria-hidden="true" /> 요약 영상
+              </h3>
+              <video src={videoUrl(lessonId)} controls preload="metadata" playsInline />
+              <p>
+                이 강의의 핵심 절만 애니메이션으로 줄인 영상입니다. 중간의 "멈추고 적어 보기"에서 영상을 멈추고 직접 적어 본 뒤, 아래 본문에서
+                자세히 읽습니다.
+              </p>
+            </section>
+          )}
           {body !== null ? (
             <Markdown lessonId={lessonId} source={body} />
           ) : failed ? (
