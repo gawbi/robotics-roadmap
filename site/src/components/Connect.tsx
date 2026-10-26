@@ -6,9 +6,10 @@ import { learner, repoUrl, shareUrl, SITE_REPO, useLearner } from '../curriculum
 const NEW_REPO = `https://github.com/new?name=${CONFIG.record.studyRepoName}&visibility=public&description=${encodeURIComponent(
   '로보틱스 공부 기록: 퀴즈 결과와 노트 (Robotics Roadmap)',
 )}`
+// GitHub fills in the name, a year's expiry and Contents: Read and write from these; only the repository is left to pick
 const NEW_TOKEN = `https://github.com/settings/personal-access-tokens/new?name=robotics-roadmap&description=${encodeURIComponent(
   'Robotics Roadmap 사이트에서 공부 기록 커밋',
-)}`
+)}&expires_in=366&contents=write`
 
 /** #/connect: keep this browser's GitHub token and the repository the learner's record goes to. */
 export function Connect({ onClose, onPortfolio }: { onClose(): void; onPortfolio(): void }) {
@@ -117,8 +118,9 @@ export function Connect({ onClose, onPortfolio }: { onClose(): void; onPortfolio
                 <a href={NEW_TOKEN} target="_blank" rel="noreferrer">
                   Fine-grained token 만들기 <ExternalLink size={12} aria-hidden="true" />
                 </a>{' '}
-                에서 Repository access 는 <b>Only select repositories</b> 로 1 의 리포 하나만 고르고, Permissions 의 <b>Contents</b> 를{' '}
-                <b>Read and write</b> 로 바꾼 뒤 만들어 복사합니다.
+를 누르면 이름과 권한(<b>Contents: Read and write</b>)이 채워진 화면이 열립니다. <b>Repository access</b> 에서{' '}
+                <b>Only select repositories</b> 를 고르고 1 의 리포 하나를 선택한 뒤, 맨 아래 <b>Generate token</b> 을 눌러 나온{' '}
+                <code>github_pat_…</code> 를 복사합니다. 이 값은 한 번만 보입니다.
               </span>
             </li>
             <li>
