@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>single rigid body 모델의 힘 배분. 예로 9 kg 인 로봇의 무게중심이 엉덩이 사이 가운데보다 2 cm 앞에 있으면, 무게중심에서 0.17 m 앞의 앞발 둘이 48.8 N, 0.21 m 뒤의 뒷발 둘이 39.5 N 을 받아야 앞뒤로 돌리는 moment 가 8.3 N·m 씩 같아진다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="348" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">옆에서 본 Mini Cheetah: 로봇 전체를 상자 하나로 본다 (엉덩이 ±0.19 m 는 Cheetah-Software 값, 무게중심 2 cm 는 예)</text>
+  <rect x="20.0" y="44.0" width="680.0" height="290.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <rect x="162.0" y="94.0" width="336.0" height="52.0" rx="10" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="365.0" y="116.0" fill="#7cb4d8" font-size="12" text-anchor="start">몸통 9 kg</text>
+  <circle cx="197.0" cy="134.0" r="5" fill="#334155" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="197.0" y1="134.0" x2="225.0" y2="200.0" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="225.0" y1="200.0" x2="197.0" y2="262.0" stroke="#94a3b8" stroke-width="3"/>
+  <circle cx="197.0" cy="263.0" r="5" fill="#334155" stroke="#94a3b8" stroke-width="1.4"/>
+  <circle cx="463.0" cy="134.0" r="5" fill="#334155" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="463.0" y1="134.0" x2="491.0" y2="200.0" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="491.0" y1="200.0" x2="463.0" y2="262.0" stroke="#94a3b8" stroke-width="3"/>
+  <circle cx="463.0" cy="263.0" r="5" fill="#334155" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="60.0" y1="268.0" x2="660.0" y2="268.0" stroke="#475569" stroke-width="2"/>
+  <line x1="330.0" y1="100.0" x2="330.0" y2="268.0" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="330.0" y="286.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">가운데</text>
+  <circle cx="344.0" cy="120.0" r="6" fill="#e2e8f0" stroke="none" stroke-width="1.5"/>
+  <line x1="344.0" y1="128.0" x2="344.0" y2="190.0" stroke="#d88b8b" stroke-width="2.2" marker-end="url(#ar-red)"/>
+  <text x="352.0" y="184.0" fill="#d88b8b" font-size="12" text-anchor="start">무게 88.3 N</text>
+  <line x1="463.0" y1="308.0" x2="463.0" y2="272.0" stroke="#7fc4a2" stroke-width="2.6" marker-end="url(#ar-green)"/>
+  <text x="473.0" y="302.0" fill="#7fc4a2" font-size="12.5" text-anchor="start">앞발 둘 48.8 N</text>
+  <line x1="197.0" y1="308.0" x2="197.0" y2="272.0" stroke="#d6aa62" stroke-width="2.6" marker-end="url(#ar-amber)"/>
+  <text x="187.0" y="302.0" fill="#d6aa62" font-size="12.5" text-anchor="end">뒷발 둘 39.5 N</text>
+  <line x1="344.0" y1="70.0" x2="463.0" y2="70.0" stroke="#7fc4a2" stroke-width="1" marker-end="url(#ar-green)" marker-start="url(#ar-green)"/>
+  <text x="403.5" y="64.0" fill="#7fc4a2" font-size="12" text-anchor="middle">0.17 m</text>
+  <line x1="197.0" y1="70.0" x2="344.0" y2="70.0" stroke="#d6aa62" stroke-width="1" marker-end="url(#ar-amber)" marker-start="url(#ar-amber)"/>
+  <text x="270.5" y="64.0" fill="#d6aa62" font-size="12" text-anchor="middle">0.21 m</text>
+  <line x1="344.0" y1="66.0" x2="344.0" y2="112.0" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="463.0" y1="74.0" x2="463.0" y2="128.0" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="197.0" y1="74.0" x2="197.0" y2="128.0" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="520.0" y="150.0" fill="#7fc4a2" font-size="12.5" text-anchor="start">앞발: 48.8 × 0.17 = 8.3 N·m</text>
+  <text x="520.0" y="170.0" fill="#94a3b8" font-size="11.5" text-anchor="start">(머리를 드는 쪽)</text>
+  <text x="520.0" y="196.0" fill="#d6aa62" font-size="12.5" text-anchor="start">뒷발: 39.5 × 0.21 = 8.3 N·m</text>
+  <text x="520.0" y="216.0" fill="#94a3b8" font-size="11.5" text-anchor="start">(머리를 숙이는 쪽)</text>
+  <text x="520.0" y="242.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">48.8 + 39.5 = 88.3 N</text>
+  <line x1="640.0" y1="70.0" x2="690.0" y2="70.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
+  <text x="636.0" y="74.0" fill="#94a3b8" font-size="12" text-anchor="end">앞</text>
+</svg>

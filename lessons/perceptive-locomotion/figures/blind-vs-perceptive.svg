@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>예로 든 값으로 비교한 blind policy 와 perceptive policy. 0.5 m/s 로 걷는 로봇 앞 1.0 m 에 높이 0.2 m 계단이 있다. blind policy 는 앞발이 계단 앞면에 부딪힌 순간 계단을 알아 남은 시간 0 초, action 0 번이고, perceptive policy 는 센서가 1.0 m 앞의 계단을 볼 때 알아 남은 시간 1.0 ÷ 0.5 = 2.0 초, action 2.0 ÷ 0.02 = 100 번이다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="368" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="30" y="32" fill="#d88b8b" font-size="14" text-anchor="start">blind policy (proprioception 만)</text>
+  <line x1="25" y1="230" x2="310" y2="230" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M310,230 L310,190 L360,190" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="310" y="190" width="50" height="40" fill="#1e293b" opacity="0.6"/>
+  <text x="335" y="215" fill="#e2e8f0" font-size="12" text-anchor="middle">0.2 m</text>
+  <rect x="32" y="132" width="88" height="22" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <rect x="118" y="126" width="22" height="18" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="44" y1="154" x2="40" y2="230" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="110" y1="154" x2="110" y2="230" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="50" y1="112" x2="110" y2="112" stroke="#e2e8f0" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="50" y="104" fill="#e2e8f0" font-size="12" text-anchor="start">0.5 m/s</text>
+  <line x1="110" y1="244" x2="310" y2="244" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="110" y1="238" x2="110" y2="250" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="310" y1="238" x2="310" y2="250" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210" y="260" fill="#94a3b8" font-size="12" text-anchor="middle">1.0 m</text>
+  <path d="M255,230 Q282,200 308,216" fill="none" stroke="#d88b8b" stroke-width="2"/>
+  <path d="M302,210 l12,12 M314,210 l-12,12" fill="none" stroke="#d88b8b" stroke-width="2.2"/>
+  <text x="296" y="176" fill="#d88b8b" font-size="12" text-anchor="end">앞면에 부딪힌다</text>
+  <text x="390" y="32" fill="#7fc4a2" font-size="14" text-anchor="start">perceptive policy (지형을 본다)</text>
+  <line x1="385" y1="230" x2="670" y2="230" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M670,230 L670,190 L720,190" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="670" y="190" width="50" height="40" fill="#1e293b" opacity="0.6"/>
+  <text x="695" y="215" fill="#e2e8f0" font-size="12" text-anchor="middle">0.2 m</text>
+  <rect x="392" y="132" width="88" height="22" rx="5" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <rect x="478" y="126" width="22" height="18" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <line x1="404" y1="154" x2="400" y2="230" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="470" y1="154" x2="470" y2="230" stroke="#7cb4d8" stroke-width="2"/>
+  <line x1="410" y1="112" x2="470" y2="112" stroke="#e2e8f0" stroke-width="1.6" marker-end="url(#arrow-muted)"/>
+  <text x="410" y="104" fill="#e2e8f0" font-size="12" text-anchor="start">0.5 m/s</text>
+  <line x1="470" y1="244" x2="670" y2="244" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="470" y1="238" x2="470" y2="250" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="670" y1="238" x2="670" y2="250" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="570" y="260" fill="#94a3b8" font-size="12" text-anchor="middle">1.0 m</text>
+  <path d="M500,133 L670,186" fill="none" stroke="#d6aa62" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <path d="M500,137 L670,228" fill="none" stroke="#d6aa62" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="555" y="128" fill="#d6aa62" font-size="12" text-anchor="start">센서가 계단을 본다</text>
+  <path d="M615,230 Q650,135 692,188" fill="none" stroke="#7fc4a2" stroke-width="2" marker-end="url(#arrow-green)" stroke-dasharray="6 4"/>
+  <text x="608" y="222" fill="#7fc4a2" font-size="12" text-anchor="end">높이 든 발</text>
+  <line x1="360" y1="20" x2="360" y2="350" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="30" y="278" width="320" height="78" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.8"/>
+  <text x="44" y="302" fill="#e2e8f0" font-size="13" text-anchor="start">계단을 아는 때: 앞발이 부딪힌 순간</text>
+  <text x="44" y="324" fill="#94a3b8" font-size="12" text-anchor="start">남은 시간 0 초</text>
+  <text x="44" y="346" fill="#94a3b8" font-size="12" text-anchor="start">그동안 낼 수 있는 action 0 번</text>
+  <rect x="390" y="278" width="320" height="78" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="404" y="302" fill="#e2e8f0" font-size="13" text-anchor="start">계단을 아는 때: 1.0 m 앞에서 볼 때</text>
+  <text x="404" y="324" fill="#94a3b8" font-size="12" text-anchor="start">남은 시간 1.0 ÷ 0.5 = 2.0 초</text>
+  <text x="404" y="346" fill="#94a3b8" font-size="12" text-anchor="start">action 2.0 ÷ 0.02 = 100 번</text>
+</svg>

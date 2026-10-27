@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>perceptive locomotion stack. depth camera 와 LiDAR 의 점을 pose 추정과 GPU elevation map(0.04 m 칸, 한 변 8 m)으로 모아 발 둘레 height sample 208 개를 읽는 길과, depth image 를 전처리해 CNN feature 로 줄이는 길 가운데 하나로 지형을 받은 recurrent policy 가 1초에 50 번 관절 목표를 내고, PD controller 가 torque 로 바꾼다. 학습은 정확한 지형을 받는 teacher 를 PPO 로, noise 를 넣은 입력의 student 를 DAgger 로 하고, 최근에는 RL fine-tuning 을 더한다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="32" fill="#7cb4d8" font-size="14" text-anchor="start">로봇 위에서</text>
+  <rect x="20" y="52" width="130" height="50" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="85" y="74" fill="#e2e8f0" font-size="13" text-anchor="middle">depth camera</text>
+  <text x="85" y="92" fill="#94a3b8" font-size="11" text-anchor="middle">LiDAR</text>
+  <rect x="186" y="46" width="150" height="40" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="261" y="71" fill="#e2e8f0" font-size="13" text-anchor="middle">pose 추정</text>
+  <rect x="186" y="96" width="150" height="46" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="261" y="116" fill="#e2e8f0" font-size="13" text-anchor="middle">GPU elevation map</text>
+  <text x="261" y="134" fill="#94a3b8" font-size="11" text-anchor="middle">0.04 m 칸, 한 변 8 m</text>
+  <rect x="372" y="96" width="120" height="46" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="432" y="116" fill="#e2e8f0" font-size="13" text-anchor="middle">height sample</text>
+  <text x="432" y="134" fill="#94a3b8" font-size="11" text-anchor="middle">발 둘레 208 개</text>
+  <line x1="150" y1="70" x2="182" y2="66" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="150" y1="84" x2="182" y2="112" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="261" y1="86" x2="261" y2="92" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <line x1="336" y1="119" x2="368" y2="119" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="186" y="164" width="150" height="46" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="261" y="184" fill="#e2e8f0" font-size="13" text-anchor="middle">depth 전처리</text>
+  <text x="261" y="202" fill="#94a3b8" font-size="11" text-anchor="middle">구멍 채우기, 줄이기</text>
+  <rect x="372" y="164" width="120" height="46" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="432" y="192" fill="#e2e8f0" font-size="13" text-anchor="middle">CNN feature</text>
+  <path d="M85,102 L85,187 L182,187" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="336" y1="187" x2="368" y2="187" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="528" y="116" width="172" height="60" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="614" y="143" fill="#e2e8f0" font-size="13" text-anchor="middle">recurrent policy</text>
+  <text x="614" y="161" fill="#94a3b8" font-size="11" text-anchor="middle">1초에 50 번 관절 목표</text>
+  <line x1="492" y1="119" x2="524" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="492" y1="187" x2="524" y2="158" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="528" y="196" width="172" height="38" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="614" y="220" fill="#e2e8f0" font-size="13" text-anchor="middle">PD controller → torque</text>
+  <line x1="614" y1="176" x2="614" y2="192" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <text x="372" y="230" fill="#94a3b8" font-size="11" text-anchor="start">두 길 가운데 하나를 쓴다</text>
+  <line x1="20" y1="252" x2="700" y2="252" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="20" y="280" fill="#7fc4a2" font-size="14" text-anchor="start">simulation 에서 학습</text>
+  <rect x="20" y="296" width="200" height="58" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="120" y="322" fill="#e2e8f0" font-size="13" text-anchor="middle">teacher, PPO</text>
+  <text x="120" y="340" fill="#94a3b8" font-size="11" text-anchor="middle">정확한 지형 높이</text>
+  <rect x="260" y="296" width="200" height="58" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="360" y="322" fill="#e2e8f0" font-size="13" text-anchor="middle">student, DAgger</text>
+  <text x="360" y="340" fill="#94a3b8" font-size="11" text-anchor="middle">센서 noise 를 흉내 낸 입력</text>
+  <rect x="500" y="296" width="200" height="58" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="600" y="322" fill="#e2e8f0" font-size="13" text-anchor="middle">RL fine-tuning</text>
+  <text x="600" y="340" fill="#94a3b8" font-size="11" text-anchor="middle">최근 연구 (Rudin 등 2025)</text>
+  <line x1="220" y1="325" x2="256" y2="325" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <line x1="460" y1="325" x2="496" y2="325" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <text x="20" y="380" fill="#94a3b8" font-size="12" text-anchor="start">로봇에는 student 나 fine-tuning 한 student 가 올라간다</text>
+</svg>

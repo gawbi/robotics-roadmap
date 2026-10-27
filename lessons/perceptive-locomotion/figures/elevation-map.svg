@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 394" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>elevation map 의 칸 갱신. 잰 높이는 예로 든 값이다. 지도는 한 변 8 m 를 0.04 m 칸 200 개로 나눠 칸 40,000 개를 둔다. 계단 윗면의 한 칸은 처음에 높이를 모르고 분산이 1000 이다. 2 m 앞에서 잰 0.25 m(분산 0.05 × 2² = 0.2)가 들어오면 gain 이 약 1 이라 0.25 m, 분산 약 0.2 가 되고, 1 m 앞에서 잰 0.20 m(분산 0.05)가 들어오면 gain 0.2 ÷ 0.25 = 0.8 로 높이가 0.25 m 에서 0.21 m 로 0.04 m 줄고 분산이 0.2 에서 0.04 로 0.16 줄어든다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="392" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="32" fill="#7cb4d8" font-size="14" text-anchor="start">robot-centric elevation map</text>
+  <line x1="30" y1="52" x2="30" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="52" x2="260" y2="52" stroke="#1e293b" stroke-width="1"/>
+  <line x1="53" y1="52" x2="53" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="75" x2="260" y2="75" stroke="#1e293b" stroke-width="1"/>
+  <line x1="76" y1="52" x2="76" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="98" x2="260" y2="98" stroke="#1e293b" stroke-width="1"/>
+  <line x1="99" y1="52" x2="99" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="121" x2="260" y2="121" stroke="#1e293b" stroke-width="1"/>
+  <line x1="122" y1="52" x2="122" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="144" x2="260" y2="144" stroke="#1e293b" stroke-width="1"/>
+  <line x1="145" y1="52" x2="145" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="167" x2="260" y2="167" stroke="#1e293b" stroke-width="1"/>
+  <line x1="168" y1="52" x2="168" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="190" x2="260" y2="190" stroke="#1e293b" stroke-width="1"/>
+  <line x1="191" y1="52" x2="191" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="213" x2="260" y2="213" stroke="#1e293b" stroke-width="1"/>
+  <line x1="214" y1="52" x2="214" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="236" x2="260" y2="236" stroke="#1e293b" stroke-width="1"/>
+  <line x1="237" y1="52" x2="237" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="259" x2="260" y2="259" stroke="#1e293b" stroke-width="1"/>
+  <line x1="260" y1="52" x2="260" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <line x1="30" y1="282" x2="260" y2="282" stroke="#1e293b" stroke-width="1"/>
+  <rect x="30" y="52" width="230" height="230" rx="2" fill="none" stroke="#7cb4d8" stroke-width="1.5"/>
+  <rect x="191" y="52" width="69" height="230" fill="#d6aa62" opacity="0.18"/>
+  <text x="225.5" y="68" fill="#d6aa62" font-size="12" text-anchor="middle">계단</text>
+  <path d="M159.0,167.0 L135.0,157.0 L135.0,177.0 Z" fill="#7cb4d8" stroke="#7cb4d8" stroke-width="1"/>
+  <text x="145" y="195" fill="#e2e8f0" font-size="12" text-anchor="middle">로봇</text>
+  <rect x="191" y="144" width="23" height="23" fill="none" stroke="#d6aa62" stroke-width="2.4"/>
+  <text x="20" y="308" fill="#e2e8f0" font-size="13" text-anchor="start">한 변 8 m ÷ 칸 0.04 m = 200 칸</text>
+  <text x="20" y="330" fill="#94a3b8" font-size="12" text-anchor="start">200 × 200 = 40,000 칸, 칸마다 높이와 분산</text>
+  <text x="20" y="352" fill="#94a3b8" font-size="12" text-anchor="start">(그림의 칸은 실제보다 크게 그렸다)</text>
+  <text x="20" y="374" fill="#94a3b8" font-size="12" text-anchor="start">잰 높이 0.25 m, 0.20 m 는 예로 든 값</text>
+  <text x="300" y="32" fill="#d6aa62" font-size="14" text-anchor="start">노란 칸 하나의 갱신 (점의 분산 = 0.05 × 거리²)</text>
+  <rect x="300" y="50" width="400" height="52" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="314" y="74" fill="#e2e8f0" font-size="13" text-anchor="start">① 처음: 높이 모름, 분산 1000</text>
+  <text x="314" y="95" fill="#94a3b8" font-size="12" text-anchor="start">코드의 기본값이라 첫 점을 거의 그대로 믿는다</text>
+  <line x1="500" y1="102" x2="500" y2="116" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="300" y="118" width="400" height="82" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="314" y="142" fill="#e2e8f0" font-size="13" text-anchor="start">② 2 m 앞에서 잰 점: 0.25 m, 분산 0.05 × 2² = 0.2</text>
+  <text x="314" y="163" fill="#94a3b8" font-size="12" text-anchor="start">k = 1000 ÷ (1000 + 0.2) ≈ 1</text>
+  <text x="314" y="184" fill="#7cb4d8" font-size="13" text-anchor="start">→ 높이 0.25 m, 분산 약 0.2</text>
+  <line x1="500" y1="200" x2="500" y2="214" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow-muted)"/>
+  <rect x="300" y="216" width="400" height="126" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="314" y="240" fill="#e2e8f0" font-size="13" text-anchor="start">③ 1 m 앞에서 잰 점: 0.20 m, 분산 0.05 × 1² = 0.05</text>
+  <text x="314" y="261" fill="#94a3b8" font-size="12" text-anchor="start">k = 0.2 ÷ (0.2 + 0.05) = 0.8</text>
+  <text x="314" y="282" fill="#7fc4a2" font-size="13" text-anchor="start">높이 0.25 + 0.8 × (0.20 − 0.25) = 0.21 m</text>
+  <text x="314" y="303" fill="#7fc4a2" font-size="13" text-anchor="start">분산 0.2 × 0.05 ÷ 0.25 = 0.04</text>
+  <text x="314" y="324" fill="#94a3b8" font-size="12" text-anchor="start">변화: 높이 0.25 → 0.21 m (−0.04 m), 분산 0.2 → 0.04 (−0.16)</text>
+</svg>

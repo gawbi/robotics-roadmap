@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 366" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>예로 든 높이 0.2 m 계단 앞면이 depth image 에 찍히는 줄 수. 카메라가 수평으로 앞면을 마주 본다고 두고 f = 424 로 계산하면, 앞면은 424 × 0.2 ÷ Z 줄에 찍힌다. 1 m 앞에서는 세로 480 줄 사진의 약 85 줄이고 58 줄로 줄인 사진의 약 10 줄이며, 2 m 앞에서는 약 42 줄과 약 5 줄이다. height sample 은 같은 계단을 숫자 0.2 하나로 준다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="364" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="32" fill="#7cb4d8" font-size="14" text-anchor="start">옆에서 본 카메라와 계단 앞면 (예: 높이 0.2 m)</text>
+  <rect x="32" y="158" width="22" height="24" rx="4" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="43" y="202" fill="#7cb4d8" font-size="12" text-anchor="middle">카메라</text>
+  <line x1="200" y1="155" x2="200" y2="185" stroke="#d6aa62" stroke-width="4"/>
+  <line x1="54" y1="170" x2="200" y2="155" stroke="#d6aa62" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="54" y1="170" x2="200" y2="185" stroke="#d6aa62" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="200" y="205" fill="#d6aa62" font-size="12" text-anchor="middle">1 m</text>
+  <line x1="350" y1="155" x2="350" y2="185" stroke="#7fc4a2" stroke-width="4"/>
+  <line x1="54" y1="170" x2="350" y2="155" stroke="#7fc4a2" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="54" y1="170" x2="350" y2="185" stroke="#7fc4a2" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="350" y="205" fill="#7fc4a2" font-size="12" text-anchor="middle">2 m</text>
+  <line x1="54" y1="170" x2="365" y2="170" stroke="#334155" stroke-width="1"/>
+  <text x="20" y="250" fill="#e2e8f0" font-size="13" text-anchor="start">찍히는 줄 수 = f × 0.2 ÷ Z  (f = 424)</text>
+  <text x="20" y="274" fill="#d6aa62" font-size="12" text-anchor="start">1 m: 424 × 0.2 ÷ 1 ≈ 85 줄 (480 줄 중)</text>
+  <text x="20" y="296" fill="#7fc4a2" font-size="12" text-anchor="start">2 m: 424 × 0.2 ÷ 2 ≈ 42 줄 (480 줄 중)</text>
+  <text x="20" y="326" fill="#94a3b8" font-size="12" text-anchor="start">멀수록 같은 계단이 적은 줄에 찍힌다</text>
+  <rect x="380" y="92" width="130.5" height="174" rx="3" fill="#0e1628" stroke="#94a3b8" stroke-width="1.8"/>
+  <rect x="380" y="164" width="130.5" height="30" fill="#d6aa62" opacity="0.75"/>
+  <text x="445.25" y="82" fill="#d6aa62" font-size="13" text-anchor="middle">1 m 앞</text>
+  <text x="445.25" y="286" fill="#94a3b8" font-size="12" text-anchor="middle">58 줄 중 약 10 줄</text>
+  <rect x="540" y="92" width="130.5" height="174" rx="3" fill="#0e1628" stroke="#94a3b8" stroke-width="1.8"/>
+  <rect x="540" y="171.5" width="130.5" height="15" fill="#7fc4a2" opacity="0.75"/>
+  <text x="605.25" y="82" fill="#7fc4a2" font-size="13" text-anchor="middle">2 m 앞</text>
+  <text x="605.25" y="286" fill="#94a3b8" font-size="12" text-anchor="middle">58 줄 중 약 5 줄</text>
+  <text x="380" y="44" fill="#e2e8f0" font-size="13" text-anchor="start">58 × 87 로 줄인 depth image</text>
+  <text x="380" y="312" fill="#94a3b8" font-size="12" text-anchor="start">85 × 58 ÷ 480 ≈ 10, 42 × 58 ÷ 480 ≈ 5</text>
+  <rect x="380" y="322" width="320" height="30" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.8"/>
+  <text x="394" y="342" fill="#a99ad6" font-size="12" text-anchor="start">height sample 은 같은 계단을 0.2 하나로 준다</text>
+</svg>

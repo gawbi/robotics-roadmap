@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>teacher 와 RL 을 섞는 HT 의 학습. 상태 전체를 받는 MLP teacher 를 먼저 RL 로 학습하고, Transformer student 는 RL loss 에 λ × KL 을 더해 학습한다. 예로 든 λ 는 1 에서 학습 절반에 0 까지 줄어, 따라 하기 항이 0.4, 0.2, 0 으로 준다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="428" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="24.0" y="32.0" fill="#d6aa62" font-size="13.5" text-anchor="start" font-weight="600">1 단계: teacher</text>
+  <rect x="24.0" y="44.0" width="300.0" height="104.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="174.0" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">MLP teacher (simulation 의 상태 전체)</text>
+  <text x="174.0" y="92.0" fill="#94a3b8" font-size="12" text-anchor="middle">로봇·환경 parameter 까지 받는다</text>
+  <text x="174.0" y="112.0" fill="#94a3b8" font-size="12" text-anchor="middle">RL(PPO)로 빠르게 학습, reward 를 여기서 맞춘다</text>
+  <text x="174.0" y="134.0" fill="#d88b8b" font-size="12" text-anchor="middle">실물에는 올라가지 않는다</text>
+  <text x="396.0" y="32.0" fill="#7fc4a2" font-size="13.5" text-anchor="start" font-weight="600">2 단계: student</text>
+  <rect x="396.0" y="44.0" width="300.0" height="104.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.8"/>
+  <text x="546.0" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">Transformer student (관측 이력 16 step)</text>
+  <text x="546.0" y="94.0" fill="#7fc4a2" font-size="12.5" text-anchor="middle">loss = RL loss + λ × KL(student ‖ teacher)</text>
+  <text x="546.0" y="116.0" fill="#94a3b8" font-size="12" text-anchor="middle">student 가 움직인 상태에서 둘 다 계산</text>
+  <text x="546.0" y="136.0" fill="#7fc4a2" font-size="12" text-anchor="middle">실제 Digit 에 올라간다</text>
+  <line x1="326.0" y1="96.0" x2="392.0" y2="96.0" stroke="#d6aa62" stroke-width="1.8" marker-end="url(#ar-amber)" stroke-dasharray="6 4"/>
+  <text x="360.0" y="88.0" fill="#d6aa62" font-size="12" text-anchor="middle">KL</text>
+  <text x="24.0" y="186.0" fill="#94a3b8" font-size="12.5" text-anchor="start">예로 든 λ: 시작값 1, 학습 절반에서 0 (KL 은 늘 0.4 로 둔다)</text>
+  <line x1="90.0" y1="360.0" x2="640.0" y2="360.0" stroke="#334155" stroke-width="1"/>
+  <text x="80.0" y="364.0" fill="#94a3b8" font-size="12" text-anchor="end">0</text>
+  <line x1="90.0" y1="287.0" x2="640.0" y2="287.0" stroke="#334155" stroke-width="1"/>
+  <text x="80.0" y="291.0" fill="#94a3b8" font-size="12" text-anchor="end">0.5</text>
+  <line x1="90.0" y1="214.0" x2="640.0" y2="214.0" stroke="#334155" stroke-width="1"/>
+  <text x="80.0" y="218.0" fill="#94a3b8" font-size="12" text-anchor="end">1</text>
+  <text x="90.0" y="380.0" fill="#94a3b8" font-size="12" text-anchor="middle">0%</text>
+  <text x="227.5" y="380.0" fill="#94a3b8" font-size="12" text-anchor="middle">25%</text>
+  <text x="365.0" y="380.0" fill="#94a3b8" font-size="12" text-anchor="middle">50%</text>
+  <text x="502.5" y="380.0" fill="#94a3b8" font-size="12" text-anchor="middle">75%</text>
+  <text x="640.0" y="380.0" fill="#94a3b8" font-size="12" text-anchor="middle">100%</text>
+  <text x="365.0" y="400.0" fill="#94a3b8" font-size="12" text-anchor="middle">학습 진행</text>
+  <text x="50.0" y="291.0" fill="#e2e8f0" font-size="14" text-anchor="middle">λ</text>
+  <path d="M90.0,214.0 L365.0,360.0 L640.0,360.0" fill="none" stroke="#7fc4a2" stroke-width="2.4"/>
+  <circle cx="90.0" cy="214.0" r="4.5" fill="#d6aa62"/>
+  <circle cx="227.5" cy="287.0" r="4.5" fill="#d6aa62"/>
+  <circle cx="365.0" cy="360.0" r="4.5" fill="#d6aa62"/>
+  <text x="102.0" y="204.0" fill="#d6aa62" font-size="12" text-anchor="start">λ = 1, λ × 0.4 = 0.4</text>
+  <text x="239.5" y="277.0" fill="#d6aa62" font-size="12" text-anchor="start">λ = 0.5, λ × 0.4 = 0.2</text>
+  <text x="375.0" y="348.0" fill="#d6aa62" font-size="12" text-anchor="start">λ = 0, 따라 하기 항 0</text>
+  <rect x="90.0" y="210.0" width="275.0" height="154.0" rx="0" fill="#d6aa62" fill-opacity="0.06"/>
+  <text x="227.5" y="226.0" fill="#d6aa62" font-size="12" text-anchor="middle">teacher 와 RL</text>
+  <text x="502.5" y="226.0" fill="#7fc4a2" font-size="12" text-anchor="middle">RL 만</text>
+</svg>

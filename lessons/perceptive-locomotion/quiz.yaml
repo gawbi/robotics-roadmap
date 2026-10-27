@@ -1,0 +1,336 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: blind-limit
+  title: blind policy 가 계단에서 막히는 이유
+  section: blind-policy-와-계단
+  variants:
+    - question: |
+        관절 각도와 IMU 값의 이력만 받는 blind 보행 policy 가 높은 계단이나 틈에서 자주 실패하는 근본 이유는 무엇인가?
+      choices:
+        - 'proprioception 값은 noise 가 커서, 평지에서도 몸통 자세를 추정하지 못하고 계단에서는 그 오차가 더 커지기 때문이다'
+        - '지형을 미리 보지 못해서 발이 부딪히거나 빠진 뒤에야 지형을 짐작하므로, 그 전에 보폭과 발 높이를 준비할 수 없기 때문이다'
+        - 'blind policy 는 reinforcement learning 으로 학습할 수 없어서, 계단 지형을 넣은 curriculum 을 쓸 수 없기 때문이다'
+        - '계단에서는 관절 torque 가 늘 한계를 넘어서, 지형 정보가 있어도 같은 높이의 계단은 오를 수 없기 때문이다'
+      answer: 1
+      explanation: |
+        blind policy 는 발이 무언가에 닿아 관절 값이 달라진 뒤에야 지형을 짐작한다. 계단을 보는 policy 는 닿기 전 남은 시간 동안 보폭과 발 높이를
+        맞추지만 blind policy 에게는 그 시간이 0 이라서, 높은 계단에서는 앞발이 걸리고 틈에서는 발이 빠진 뒤에야 안다. proprioception 의 noise 는
+        평지 보행을 막을 만큼 크지 않고, blind policy 도 reinforcement learning 과 지형 curriculum 으로 학습한다. 같은 로봇이 지형을 보면 더 높은 단을
+        오르므로 torque 한계가 근본 이유도 아니다.
+    - question: |
+        로봇이 1 m/s 로 걷고 0.5 m 앞의 계단을 센서가 처음 보았다. policy 가 1초에 50 번 action 을 낸다면, 계단을 보는 policy 와 blind policy 가
+        발이 닿기 전에 낼 수 있는 action 수는 각각 몇인가?
+      choices:
+        - '둘 다 25 번이다. 남은 action 수는 걷는 속도와 계산 주기로만 정해지기 때문이다'
+        - '50 번과 25 번이다. blind policy 도 몸이 기우는 것으로 계단을 절반쯤 미리 알기 때문이다'
+        - '0.5 번과 0 번이다. 0.5 m 를 1 m/s 로 나눈 값이 그대로 남은 action 수이기 때문이다'
+        - '25 번과 0 번이다. blind policy 는 앞발이 계단에 부딪힌 순간에야 계단을 알기 때문이다'
+      answer: 3
+      explanation: |
+        계단을 보는 policy 는 $0.5 \div 1 = 0.5$ 초가 남고, 0.02 초마다 action 을 내므로 $0.5 \div 0.02 = 25$ 번을 준비에 쓴다. blind policy 는 부딪힌
+        순간 계단을 알므로 0 번이다. 남은 action 수는 계단을 언제 아느냐에 달려 있어서 둘이 같지 않다. 계단 앞에서 몸이 미리 기울지는 않으므로 blind
+        policy 가 절반쯤 안다는 것도 틀렸다. 0.5 는 초 단위의 시간이라서 action 수를 얻으려면 한 번의 간격 0.02 초로 나눠야 한다.
+    - question: |
+        blind 보행 policy 와 계단에 대한 설명으로 옳은 것은?
+      choices:
+        - '계단 지형으로 학습하면 blind policy 도 지형을 보는 policy 와 같은 높이의 계단을 같은 속도로 오른다'
+        - '발이 닿은 뒤에도 지형을 짐작하지 못해서, blind policy 는 낮은 턱 하나도 넘지 못한다'
+        - '계단을 내려가는 데 성공할 수는 있지만, 칸마다 떨어지듯 디뎌 충격이 크고 오를 때는 쉽게 막힌다'
+        - '앞면에 부딪히지 않도록 늘 발을 최대 높이로 들기 때문에, 평지에서만 느려지고 계단에서는 문제가 없다'
+      answer: 2
+      explanation: |
+        Agarwal 등의 blind A1 은 계단 내려가기에 성공했지만 칸마다 떨어지듯 내려가 큰 충격을 받았고, 같은 계단 오르기에서는 몇 칸에서 멈췄다. 지형을
+        보는 policy 와 같은 높이·속도를 내지는 못한다. blind policy 도 부딪힌 뒤 관절 값으로 지형을 짐작해 낮은 턱은 넘는다. 발을 늘 높이 들어도
+        계단이 어디서 시작하는지는 미리 알 수 없다.
+
+- topic: elevation-map
+  title: robot-centric elevation map 의 갱신과 한계
+  section: robot-centric-elevation-map
+  variants:
+    - question: |
+        robot-centric elevation map 의 한 칸을 새 점으로 고칠 때, 멀리서 잰 점보다 가까이서 잰 점이 칸의 높이를 더 크게 바꾸는 이유는 무엇인가?
+      choices:
+        - '가까운 점은 지도 가운데에 있어 칸이 더 작게 나뉘고, 작은 칸은 점 하나만으로 높이가 정해지기 때문이다'
+        - '멀리서 잰 점은 시간이 지나면 지워지므로, 마지막에 들어온 가까운 점의 높이로 칸을 덮어쓰기 때문이다'
+        - '점의 분산을 거리의 제곱에 비례하게 두어, 가까운 점일수록 분산이 작고 Kalman gain 이 커지기 때문이다'
+        - '가까운 점은 로봇 pose 추정의 오차를 받지 않으므로, 분산을 계산하지 않고 그 높이를 그대로 지도에 넣기 때문이다'
+      answer: 2
+      explanation: |
+        칸의 높이는 Kalman filter 의 보정처럼 칸의 분산 ÷ (칸의 분산 + 점의 분산)인 gain 만큼 새 점 쪽으로 옮긴다. 점의 분산을 거리의 제곱에
+        비례하게 두므로 가까운 점은 분산이 작고 gain 이 커진다. 칸 크기는 지도 전체에서 같고, 옛 점을 지워 덮어쓰는 방식도 아니다. 가까운 점도
+        추정한 pose 로 지도에 옮기므로 pose 오차를 함께 받는다.
+    - question: |
+        2.5D elevation map 에서 낮게 드리운 나뭇가지나 낮은 천장이 문제를 일으키는 이유는 무엇인가?
+      choices:
+        - '칸마다 높이 하나만 적어서, 머리 위의 물체가 바닥에서 솟은 벽처럼 지도에 들어가기 때문이다'
+        - '나뭇가지는 빛을 반사해서 depth 가 모두 0 이 되고, 그 칸이 무작위 값으로 채워지기 때문이다'
+        - '머리 위 물체가 로봇의 pose 추정을 흔들어서, 지도 전체가 위아래로 drift 하기 때문이다'
+        - '그 칸의 분산이 커져 Kalman gain 이 0 이 되므로, 그 칸이 더는 갱신되지 않기 때문이다'
+      answer: 0
+      explanation: |
+        2.5D 지도는 칸마다 높이 하나만 적으므로 지나갈 수 있는 머리 위의 공간과 막힌 벽을 구분하지 못하고, 나뭇가지가 바닥에서 솟은 장애물로
+        들어간다. 반사로 생기는 오류는 금속 바닥 같은 다른 경우의 문제다. pose drift 는 발이 미끄러질 때 생기고, 머리 위 물체 때문에 생기지 않는다.
+        gain 이 0 이 되는 것은 점의 분산이 칸보다 훨씬 클 때인데, 그래도 칸에 들어간 높이는 벽으로 남는다.
+    - question: |
+        다리 kinematics 로 추정한 pose 로 elevation map 을 쌓는 로봇이 미끄러운 바닥에서 크게 미끄러졌다. 지도에 생길 수 있는 오류는?
+      choices:
+        - '미끄러지는 동안 sensor 가 점을 내지 않아서, 그 구간의 칸이 모두 비고 다시 채워지지 않는다'
+        - '발이 미끄러지면 칸 크기가 바뀌어서, 같은 지형이 더 촘촘한 칸으로 다시 계산된다'
+        - '마찰 계수가 지도 칸에 함께 적혀서, 미끄러운 칸이 policy 에게 구멍처럼 보인다'
+        - 'pose 가 위아래로 drift 해서 새 점과 옛 지도가 어긋나, 평평한 바닥에 턱이 생긴다'
+      answer: 3
+      explanation: |
+        지도는 추정한 pose 로 점을 쌓으므로, 미끄러짐으로 다리 kinematics 의 pose 가 위아래로 drift 하면 새 점과 옛 지도가 다른 높이에 놓여 턱처럼
+        보인다. 그래서 새 점과 지도의 높이 차이만큼 지도를 옮기는 drift compensation 을 둔다. sensor 는 미끄러지는 동안에도 점을 내고, 칸 크기는
+        설정으로 정해져 바뀌지 않는다. elevation map 에는 높이와 분산만 적고 마찰 계수는 적지 않는다.
+
+- topic: height-samples
+  title: 발 주변 height sample
+  section: 발-주변-height-sample
+  variants:
+    - question: |
+        ANYmal 의 perceptive policy 가 elevation map 전체 대신 발마다 그 둘레 원 위의 점 높이를 읽는 이유로 가장 알맞은 것은?
+      choices:
+        - '발 둘레의 높이는 sensor 가 직접 재므로, pose 추정 없이 지도와 상관없이 정확하게 얻을 수 있기 때문이다'
+        - '디딜 자리를 정하는 데 필요한 발 둘레를 가까이는 촘촘하게, 멀리는 성기게 읽어 입력을 줄이기 위해서다'
+        - '원 위의 점은 로봇이 돌아도 같은 값을 내서, policy 가 진행 방향을 알 필요가 없어지기 때문이다'
+        - '지도 전체를 넣으면 reward 가 커져 PPO 학습이 불안정해지므로, 입력을 일부러 줄여 reward 를 낮추기 위해서다'
+      answer: 1
+      explanation: |
+        policy 가 정할 것은 각 발을 어디에 디딜지라서, 발 둘레를 가까이는 촘촘하게 멀리는 성기게 읽으면 지도 수만 칸 대신 수백 개 숫자로 충분하다.
+        height sample 은 elevation map 에서 읽으므로 pose 추정과 지도가 필요하다. 원 위의 점도 로봇이 돌면 다른 지형을 읽어서 방향 정보가 사라지지
+        않는다. reward 는 입력의 크기와 상관없이 정해진다.
+    - question: |
+        발을 따라 움직이는 height sample 이 몸통에 고정한 높이 격자보다 나은 점으로 맞는 것은?
+      choices:
+        - '발을 따라 움직이는 점은 지도를 거치지 않고 발바닥 센서로 재므로, 지도 오류의 영향을 받지 않는다'
+        - '발 둘레만 읽으면 점 개수가 몸통 격자보다 늘 많아져서, 계단 모서리를 더 정확하게 찾는다'
+        - '카메라가 지금 보지 못하는 뒷발 둘레라도 지도에 남아 있으면, 발마다 디딜 자리의 높이를 늘 받는다'
+        - '발 기준의 점은 policy 의 action 이 바뀌어도 값이 변하지 않아서, 학습 중 observation 이 고정된다'
+      answer: 2
+      explanation: |
+        점이 발을 따라 움직이므로 각 발이 디딜 자리 둘레의 높이가 늘 입력에 들어오고, 뒷발 둘레처럼 지금 카메라가 보지 못하는 곳도 지도에 남아 있으면
+        읽을 수 있다. height sample 도 지도에서 읽으므로 지도 오류를 그대로 받는다. 점 개수는 설계로 정하는 값이라 발 둘레 방식이 늘 많은 것은
+        아니다. 발이 움직이면 읽는 자리도 바뀌므로 값은 action 에 따라 달라진다.
+    - question: |
+        발 둘레 원 위에 height sample 을 두었고, 발 바로 앞 0.3 m 부터 높이 0.2 m 계단이 시작된다. 반지름 0.26 m 원 위의 점들이 읽는 값으로 옳은 것은?
+      choices:
+        - '모두 0 이다. 원 위의 어느 점도 발에서 앞쪽으로 0.3 m 를 넘지 못한다'
+        - '앞쪽 절반이 0.2 다. 원의 앞쪽 반은 모두 계단 쪽을 향하고 있다'
+        - '모두 0.2 다. 계단 앞면에 가장 가까운 원이라 원 전체가 계단을 본다'
+        - '맨 앞의 점 하나만 0.2 다. 0° 에 놓인 점이 원에서 가장 앞쪽에 있기 때문이다'
+      answer: 0
+      explanation: |
+        점이 계단 위에 떨어지려면 발에서 앞쪽으로 0.3 m 를 넘어야 하는데, 반지름 0.26 m 원의 점은 가장 앞인 0° 에서도 0.26 m 라서 모두 바닥 높이
+        0 을 읽는다. 앞쪽 절반의 점도 0.3 m 에 못 미친다. 가까운 원이라고 계단을 보는 것이 아니라 계단 위에 떨어지는 점만 0.2 를 읽는다. 맨 앞의 점도
+        0.26 m 라서 0.3 m 안쪽이다.
+
+- topic: noise-student
+  title: 지도 noise 를 넣은 student 학습
+  section: 지도-noise-와-student-학습
+  variants:
+    - question: |
+        elevation map 의 height sample 을 받는 student 를 학습할 때 sample 에 일부러 noise 와 offset 을 섞는 이유는 무엇인가?
+      choices:
+        - '실제 지도는 drift·가려짐·반사로 자주 틀리므로, 틀린 지도를 겪어 보아야 지도를 무조건 믿지 않는 policy 가 되기 때문이다'
+        - 'noise 를 섞으면 observation 이 커져서 student 의 gradient 가 커지고, 그만큼 학습이 빨리 수렴하기 때문이다'
+        - 'teacher 의 action 이 너무 정확해 student 가 따라 하기 어려우므로, 입력을 흐려 teacher 와의 차이를 줄이기 위해서다'
+        - 'simulation 의 지형이 실제보다 거칠어서, noise 로 지형을 평평하게 보이게 해야 실제 로봇의 지도와 맞기 때문이다'
+      answer: 0
+      explanation: |
+        실제 elevation map 은 pose drift, 가려짐, 반사하는 표면, 꺼지는 바닥 때문에 자주 틀린다. 학습 중에 이런 지도를 겪지 않은 policy 는 실제의 틀린
+        지도를 그대로 믿고 디디므로, noise 를 넣어 지도를 믿을 정도를 배우게 한다. noise 는 gradient 를 키워 수렴을 빠르게 하려는 장치가 아니다.
+        teacher 의 정확한 action 은 student 가 따라 할 목표이고, noise 가 그 차이를 줄이지는 않는다. noise 는 지형을 평평하게 만들지 않고 실제 지도의
+        오류를 흉내 낸다.
+    - question: |
+        episode 동안 발마다 고정된 높이 offset(예를 들어 모든 sample 에 +0.1 m)이 붙은 height sample 에서도 그대로 남는 정보는 무엇인가?
+      choices:
+        - '바닥의 절대 높이다. offset 은 계단 윗면의 sample 에만 붙으므로 발 아래 바닥의 높이는 그대로 남는다'
+        - '높이의 차이다. 계단의 모양은 그대로라서, 발이 디딘 순간의 실제 높이로 offset 을 알면 나머지도 바로잡는다'
+        - '아무것도 남지 않는다. offset 이 붙으면 모든 sample 이 무작위 값이 되어 지형을 전혀 알 수 없다'
+        - '계단까지의 거리만 남는다. offset 은 높이 대신 점의 앞뒤 자리를 0.1 m 씩 옮기는 noise 이기 때문이다'
+      answer: 1
+      explanation: |
+        같은 offset 이 모든 sample 에 더해지면 바닥이 0.1 m, 계단 윗면이 0.3 m 로 보여 차이 0.2 m 는 그대로다. 발이 바닥을 디딘 순간 관절로 잰 발 높이와
+        sample 의 차이로 offset 을 알아내면 나머지 sample 도 바로잡을 수 있다. offset 은 계단 윗면만이 아니라 발의 모든 sample 에 붙는다. 같은 값을
+        더하는 것이라 무작위 값이 되지는 않는다. 점의 자리를 옮기는 noise 는 따로 있고, 이 offset 은 높이를 바꾼다.
+    - question: |
+        ANYmal 의 perceptive student 를 학습할 때 behavior cloning loss 외에 reconstruction loss 를 더한 목적은 무엇인가?
+      choices:
+        - 'reward 를 다시 계산해 PPO 로 student 를 fine-tuning 하려는 것으로, teacher 없이도 학습을 이어 가게 한다'
+        - 'student 의 action 이 teacher 와 똑같아지는 것을 막아서, teacher 보다 다양한 걸음을 시도하게 하려는 것이다'
+        - 'depth image 를 다시 그려 simulation 과 실제 카메라의 차이를 줄이려는 것으로, 실제 사진을 흉내 내게 한다'
+        - 'belief 가 noise 없는 지형과 privileged information 을 담도록 해서, 쓸모 있는 짐작을 만들게 한다'
+      answer: 3
+      explanation: |
+        reconstruction loss 는 student 의 belief 에서 noise 없는 height sample 과 privileged information 을 되살린 값과 정답의 차이 제곱이라서, belief 가
+        실제 지형과 숨은 상태에 대한 짐작을 담게 한다. reward 를 쓰는 loss 가 아니라 supervised learning 의 loss 다. teacher 와 달라지게 하는 항도
+        아니고, behavior cloning loss 와 함께 teacher 를 따라 하게 돕는다. 이 student 는 depth image 가 아니라 height sample 을 받는다.
+
+- topic: belief-gate
+  title: belief encoder 의 gate
+  section: belief-encoder-의-gate
+  variants:
+    - question: |
+        지도 feature 에 0 과 1 사이의 gate α 를 곱해 belief 에 더하는 belief encoder 에서, α 가 0 에 가까워지면 어떻게 되는가?
+      choices:
+        - 'GRU 의 내부 상태가 지워져서, policy 가 그 step 의 지도 feature 만 보고 action 을 정한다'
+        - '지도 feature 가 거의 지나가지 못해서, belief 가 GRU 가 proprioception 이력으로 만든 짐작에 기댄다'
+        - 'action 이 0 이 되어 로봇이 그 자리에 멈추고, 지도가 다시 믿을 만해질 때까지 기다린다'
+        - '지도 feature 가 두 배로 커져서, 틀린 지도라도 그 정보를 더 강하게 따르게 된다'
+      answer: 1
+      explanation: |
+        최종 belief 는 중간 belief 에서 온 값에 지도 feature 의 α 배를 더한 값이라서, α 가 0 에 가까우면 지도 정보가 거의 들어가지 않고 GRU 가
+        proprioception 이력으로 만든 짐작이 남는다. gate 는 GRU 의 내부 상태를 지우지 않고, 오히려 그 기억에 기대게 한다. α 는 belief 에 들어갈 지도
+        정보의 양만 정하고 action 을 0 으로 만들지 않는다. α 는 0 과 1 사이라서 feature 를 키우지 못한다.
+    - question: |
+        belief encoder 의 gate α 는 어떻게 정해지는가?
+      choices:
+        - '지도 칸의 분산이 기준보다 크면 0, 작으면 1 로 두는 규칙을 사람이 정해 넣는다'
+        - 'teacher 가 privileged information 을 보고 매 step 정답 α 를 계산해 student 에게 넘겨 준다'
+        - '로봇의 속도에 비례하는 상수로 두어, 빨리 걸을수록 지도를 더 믿도록 미리 정해 둔다'
+        - 'GRU 의 중간 belief 에서 작은 MLP 와 sigmoid 로 계산하고, 다른 weight 와 함께 loss 로 학습한다'
+      answer: 3
+      explanation: |
+        α 는 GRU 가 낸 중간 belief 를 작은 MLP 에 넣고 sigmoid 로 0 과 1 사이로 바꾼 값이고, behavior cloning loss 와 reconstruction loss 로 network
+        전체와 함께 학습한다. 사람이 정한 규칙이 없다는 것이 이 구조의 핵심이다. teacher 는 action 과 정답 지형을 줄 뿐 α 의 정답을 주지 않는다.
+        α 는 매 step 상황에 따라 달라지는 값이라 속도에 묶인 상수가 아니다.
+    - question: |
+        지도와 proprioception 을 gate 로 합치는 보행 policy 가 센서에 잡히지 않는 투명한 블록 앞에서 보일 행동으로 알맞은 것은?
+      choices:
+        - '지도에 블록이 없어 평지처럼 걷다가, 발이 닿은 뒤 짐작한 지형을 위로 고치고 걸음을 바꾼다'
+        - '지도에 블록이 없으므로 끝까지 평지라고 믿고 걸어서, 블록에 걸려 넘어진다'
+        - '지도가 비어 있다는 것을 알아채고 멈춰 서서, 사람이 다른 경로를 줄 때까지 기다린다'
+        - '투명한 표면은 도랑처럼 보이므로, 블록 앞에서 미리 뛰어넘는 걸음을 고른다'
+      answer: 0
+      explanation: |
+        지도에는 블록이 없으니 처음에는 평지처럼 걷지만, 발이 블록에 닿으면 proprioception 이 지도와 어긋나고 GRU 가 짐작을 위로 고쳐 걸음을 바꾼다.
+        Miki 등의 실험에서 policy 가 이렇게 행동했다. 이 policy 는 발이 닿은 뒤의 proprioception 으로 짐작을 고치므로 끝까지 지도만 믿지 않는다.
+        멈춰서 경로를 기다리는 동작도 없다. 투명한 블록은 지도에 없는 것으로 나오지 도랑으로 나오지 않는다.
+
+- topic: depth-distillation
+  title: depth policy 의 2 단계 학습
+  section: scandots-와-2-단계-학습
+  variants:
+    - question: |
+        depth image 를 받는 보행 policy 를 처음부터 reinforcement learning 으로 학습하지 않고, 지형 높이 몇 개(scandots)를 받는 policy 를 먼저 학습한 뒤
+        distillation 하는 주된 이유는 무엇인가?
+      choices:
+        - 'depth image 는 실제 로봇에서만 얻을 수 있어서, simulation 에서는 scandots 만 입력으로 쓸 수 있기 때문이다'
+        - 'PPO 는 숫자 수백 개보다 큰 입력을 받을 수 없어서, depth image 를 넣으면 학습이 시작되지 않기 때문이다'
+        - 'depth rendering 이 simulation 을 크게 느리게 해서, RL 에 필요한 수십억 sample 을 모으기 어렵기 때문이다'
+        - 'scandots policy 가 실제 로봇에서 늘 더 잘 걸어서, depth policy 는 결과를 확인하는 용도로만 만들기 때문이다'
+      answer: 2
+      explanation: |
+        높이를 읽는 것은 싸지만 depth 를 그리면 simulation 이 크게 느려진다. Agarwal 등의 측정으로 처리량이 400 배 차이 났고, RL 에 쓴 150억 sample 을
+        depth 로 모으면 1 년 가까이 걸린다. simulation 에서도 depth 는 그릴 수 있고, phase 2 가 바로 그 depth 로 학습한다. PPO 는 CNN 을 붙이면 큰
+        입력도 받는다. 실제 로봇에는 scandots 가 없어서 depth policy 가 올라간다.
+    - question: |
+        scandots 로 학습한 phase 1 policy 를 depth 를 받는 phase 2 student 로 옮기는 방법으로 맞는 것은?
+      choices:
+        - 'student 가 실제 로봇에서 걸으며 얻은 reward 로 PPO 를 다시 돌려, phase 1 policy 를 처음부터 대신한다'
+        - 'phase 1 policy 가 미리 걸어 둔 시연만 모아 student 를 한 번 학습하고, student 가 들어간 상태는 쓰지 않는다'
+        - 'student 의 depth image 에서 사람이 정한 규칙으로 scandots 를 뽑아, phase 1 policy 에 그대로 넣는다'
+        - 'student 가 simulation 에서 움직이고, 지나간 상태마다 phase 1 policy 의 action 을 정답 삼아 차이 제곱을 줄인다'
+      answer: 3
+      explanation: |
+        phase 2 는 DAgger 방식의 supervised learning 이다. student 가 simulation 에서 직접 움직이고, 지나간 상태마다 phase 1 policy 가 낸 action 과의
+        차이 제곱을 줄이므로 student 가 실수로 들어간 상태도 배운다. reward 와 실제 로봇은 쓰지 않는다. phase 1 의 시연만 쓰면 student 가 벗어난 상태를
+        배우지 못한다. scandots 를 뽑는 규칙을 사람이 짜는 대신 CNN 과 GRU 가 depth 에서 필요한 정보를 학습한다.
+    - question: |
+        머리의 depth camera 한 대로 걷는 4족 로봇의 policy 에 GRU 같은 recurrent network 가 필요한 이유는 무엇인가?
+      choices:
+        - '카메라가 앞만 보므로, 뒷발이 디딜 때는 이미 시야를 지난 지형을 앞서 본 장면과 자기 움직임으로 기억해야 하기 때문이다'
+        - 'depth image 는 한 장의 숫자가 너무 많아서, GRU 로 여러 장을 평균해야 CNN 에 넣을 수 있는 크기가 되기 때문이다'
+        - 'GRU 가 없으면 policy 가 1초에 50 번 action 을 낼 수 없어서, PD controller 의 주기를 맞추지 못하기 때문이다'
+        - 'depth 의 거리 값을 높이로 바꾸려면 앞뒤 사진의 차이가 필요해서, 이전 사진을 그대로 저장해 두기 때문이다'
+      answer: 0
+      section: egocentric-depth-image
+      explanation: |
+        앞을 보는 카메라 한 대로는 몸 아래와 뒷발 둘레를 볼 수 없다. 뒷발이 앞발이 디딘 자리에 닿을 때쯤 그 지형은 시야 밖이라, recurrent network 가
+        앞서 본 장면과 자기 움직임으로 기억해 두어야 한다. CNN 이 사진 한 장을 직접 줄이므로 평균이 필요 없다. action 주기는 network 종류가 아니라
+        계산 시간으로 정해진다. GRU 는 사진을 저장하지 않고 요약한 내부 상태를 이어 간다.
+
+- topic: latency-tradeoff
+  title: 지연과 두 방법의 비용
+  section: 지연과-센서-실패
+  variants:
+    - question: |
+        1 m/s 로 달리는 로봇에서 depth 사진이 찍힌 뒤 0.1 초 늦게 policy 에 닿는다. 그 사진 속 지형은 지금 로봇이 있는 자리와 비교해 어떻게 되는가?
+      choices:
+        - '지연은 사진이 늦게 도착할 뿐이라서, 지형의 위치는 어긋나지 않고 사진의 밝기만 조금 달라진다'
+        - '로봇이 그사이 0.1 m 를 갔으므로, 사진 속 지형은 지금 로봇 기준으로 약 0.1 m 어긋나 있다'
+        - '지연만큼 사진이 흐려져 계단 높이가 0.1 m 낮게 보이지만, 계단까지의 앞뒤 거리는 정확하다'
+        - '지연이 action 간격 0.02 초보다 길면 사진을 버리므로, policy 는 지형 정보를 아예 받지 못한다'
+      answer: 1
+      explanation: |
+        사진은 찍힌 순간의 지형을 담고 있는데 그사이 로봇은 $1 \times 0.1 = 0.1$ m 를 갔으므로, 지금 로봇 기준으로 지형이 약 0.1 m 어긋나 보인다. 그래서
+        지연을 simulation 에 넣거나 일정하게 맞춘다. 지연은 위치를 어긋나게 하지 밝기를 바꾸지 않는다. 흐림이 높이를 일정하게 낮추지도 않는다. 사진이
+        늦어도 policy 는 가장 최근 사진을 여러 action 에 걸쳐 쓴다.
+    - question: |
+        depth 처리가 일찍 끝나도 일부러 기다려 depth 지연을 늘 같은 값(예를 들어 0.08 초)으로 맞추는 이유로 알맞은 것은?
+      choices:
+        - '처리를 빨리 끝내 보내면 policy 의 계산이 끝나지 않아, action 이 두 번 겹쳐 motor 로 나가기 때문이다'
+        - '지연을 키우면 로봇이 더 먼 앞을 보게 되어, 계단을 더 일찍 알아채는 효과가 생기기 때문이다'
+        - '지연이 매번 흔들리면(jitter) policy 가 보는 과거가 들쭉날쭉해지므로, 지연을 한 값으로 고정해 흔들림을 없앤다'
+        - '0.08 초는 depth camera 의 노출 시간이라서, 그보다 일찍 보내면 덜 찍힌 사진이 가기 때문이다'
+      answer: 2
+      explanation: |
+        Cheng 등은 사진 처리가 0.08 초 안에 끝나면 남은 시간만큼 기다려 지연을 고정했고, 그 목적을 지연의 흔들림(jitter)을 막는 것이라고 밝혔다.
+        지연이 일정하면 policy 가 매번 같은 만큼 지난 지형을 본다. 사진을 일찍 보낸다고 action 이 겹쳐 나가지는 않는다. 지연을 키우면 더 오래된 지형을
+        보게 될 뿐 더 먼 앞을 보지 않는다. 노출 시간은 촬영 단계의 값이고 처리 뒤 기다리는 시간과 관계없다.
+    - question: |
+        elevation map 과 height sample 을 쓰는 방식과 egocentric depth image 를 바로 쓰는 방식을 비교한 설명으로 옳은 것은?
+      choices:
+        - '지도 방식은 pose 추정이 필요 없고, depth 방식은 카메라 위치를 알아야 해서 pose 추정이 꼭 필요하다'
+        - '두 방식은 simulation 에서 같은 비용으로 학습되고, 차이는 실제 로봇에 싣는 계산 장치에만 있다'
+        - 'depth 방식은 반사·투명 표면의 오류가 없고, 지도 방식만 빛으로 거리를 재는 센서의 한계를 겪는다'
+        - '지도 방식은 몸 아래 지형이 남지만 pose drift 에 약하고, depth 방식은 시야 밖 지형을 기억에 맡긴다'
+      answer: 3
+      explanation: |
+        지도 방식은 점을 pose 로 쌓아 몸 아래와 뒤의 지형도 지도에 남지만 pose 가 drift 하면 지도가 밀린다. depth 방식은 지도를 만들지 않아 drift 는
+        없지만, 시야 밖 지형을 recurrent network 의 기억으로 짐작해야 한다. pose 추정이 필요한 쪽은 지도 방식이다. depth 를 그리는 simulation 이 높이를
+        읽는 simulation 보다 훨씬 비싸다. 두 방식 모두 빛으로 거리를 재는 센서를 쓰므로 반사·투명 표면의 오류를 함께 겪는다.
+
+- topic: parkour
+  title: parkour 학습의 장치
+  section: parkour
+  variants:
+    - question: |
+        Robot Parkour Learning 이 학습 초반에 장애물을 뚫고 지나갈 수 있게 한 soft dynamics constraint 는 어떤 문제를 푸는가?
+      choices:
+        - '실제 물리로만 학습하면 높은 장애물 앞에서 막혀 탐색이 진전되지 않으므로, 먼저 뚫고 가게 한 뒤 penalty 로 줄여 간다'
+        - 'simulation 의 장애물이 실제보다 단단해 로봇이 부서지므로, 장애물을 부드럽게 만든 채로 실제 로봇에서도 쓴다'
+        - 'depth 를 그리는 비용이 크므로, 장애물을 투명하게 만들어 rendering 할 물체의 수를 줄여 학습을 빠르게 한다'
+        - 'teacher 와 student 의 입력이 다르므로, 장애물 정보를 student 에게도 privileged information 으로 주어 맞춘다'
+      answer: 0
+      explanation: |
+        높은 상자 앞에서 처음부터 실제 물리로 학습하면 policy 가 장애물 앞에서 막히는 local minimum 에 빠진다. 그래서 처음에는 장애물을 뚫고 지나가게
+        하고 뚫고 들어간 부피와 깊이에 penalty 를 주어 점점 줄인 뒤, 실제 물리로 다시 학습한다. 실제 로봇에서 장애물이 부드러워지지는 않는다.
+        장애물을 뚫게 하는 것은 rendering 비용과 관계없다. student 에게는 privileged information 을 주지 않고 depth 로 학습한다.
+    - question: |
+        경유점 방향 단위 vector $\hat d$ 와 world 좌표계의 속도 $v$ 로 reward 를 $\min(v \cdot \hat d,\ v_{\text{cmd}})$ 로 주면 어떤 걸음을 유도하는가?
+      choices:
+        - '속도가 명령보다 느리면 점수가 0 이 되고, 방향과 상관없이 속도의 크기만으로 점수를 받는 걸음'
+        - '경유점 방향과 수직으로 움직일 때 점수가 가장 커서, 장애물을 옆으로 돌아가는 걸음'
+        - '명령보다 빨리 달려도 점수가 늘지 않고, 경유점 방향에서 어긋난 만큼 점수를 덜 받는 걸음'
+        - '뒤로 가는 속도도 크기만 보면 양수라서, 어느 방향이든 빨리 움직이기만 하면 점수를 받는 걸음'
+      answer: 2
+      explanation: |
+        inner product $v \cdot \hat d$ 는 속도 가운데 경유점 방향의 성분이라서 방향이 어긋난 만큼 작아지고, 명령 속도에서 자르므로 명령보다 빨라도 더
+        받지 않는다. 느리면 0 이 되는 것이 아니라 그 방향 성분만큼 받는다. 수직으로 움직이면 inner product 가 0 이라 가장 작다. 뒤로 가면 inner product
+        가 음수라서 오히려 깎인다.
+    - question: |
+        지형별 expert 여러 개를 DAgger 로 하나의 student 에 모은 뒤, 그 student 를 reinforcement learning 으로 다시 fine-tuning 하는 이유는 무엇인가?
+      choices:
+        - 'DAgger 는 student 가 들어간 상태를 쓰지 않아 낯선 상태에 약하므로, RL 로 그 상태들을 처음 보게 하려는 것이다'
+        - 'student 는 과제를 풀도록이 아니라 어느 expert 를 흉내 낼지 짐작하도록 배워 expert 보다 낮으므로, reward 로 끌어올린다'
+        - 'expert 가 depth 를 받고 student 는 elevation map 을 받아 입력이 다르므로, RL 로 두 입력을 같게 맞추려는 것이다'
+        - 'fine-tuning 은 student 를 더 작은 network 로 줄이는 단계라서, 로봇에 실린 계산 장치에 맞추려는 것이다'
+      answer: 1
+      section: 최근-perceptive-locomotion-stack
+      explanation: |
+        distillation 으로 모은 student 는 과제 자체가 아니라 지금 어느 expert 를 흉내 낼지와 그 expert 의 action 을 맞히도록 학습해서 expert 보다
+        성공률이 낮았다. Rudin 등은 reward 로 다시 학습해 expert 수준으로 끌어올렸다. DAgger 는 오히려 student 가 들어간 상태를 모아 학습하는 방법이다.
+        이 연구의 expert 는 elevation map 을 받고 student 가 depth 를 받는다. fine-tuning 은 network 크기를 줄이는 단계가 아니다.

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>앞발 둘레의 height sample. 반지름 0.08, 0.16, 0.26, 0.36, 0.48 m 원 위에 6, 8, 10, 12, 16 개, 모두 52 개 점이 있다. 예로 든 발 앞 0.3 m 의 높이 0.2 m 계단 위에는 0.36 m 원의 0°, ±30° 3 개와 0.48 m 원의 0°, ±22.5°, ±45° 5 개, 모두 8 개가 떨어져 +0.2 m 를 읽고 나머지 44 개는 0 을 읽는다. 네 발이면 52 × 4 = 208 개다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20" y="32" fill="#7cb4d8" font-size="14" text-anchor="start">앞발 둘레의 height sample (위에서 본 그림)</text>
+  <rect x="319" y="40" width="74" height="335" fill="#d6aa62" opacity="0.16"/>
+  <line x1="319" y1="40" x2="319" y2="375" stroke="#d6aa62" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="325" y="56" fill="#d6aa62" font-size="12" text-anchor="start">계단 0.2 m</text>
+  <text x="325" y="72" fill="#d6aa62" font-size="12" text-anchor="start">(발 앞 0.3 m 부터)</text>
+  <circle cx="220" cy="205" r="26.4" fill="none" stroke="#334155" stroke-width="1"/>
+  <circle cx="246.4" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="233.2" cy="182.137" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="206.8" cy="182.137" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="193.6" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="206.8" cy="227.863" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="233.2" cy="227.863" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="205" r="52.8" fill="none" stroke="#334155" stroke-width="1"/>
+  <circle cx="272.8" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="257.335" cy="167.665" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="152.2" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="182.665" cy="167.665" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="167.2" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="182.665" cy="242.335" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="257.8" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="257.335" cy="242.335" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="205" r="85.8" fill="none" stroke="#334155" stroke-width="1"/>
+  <circle cx="305.8" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="289.414" cy="154.568" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="246.514" cy="123.399" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="193.486" cy="123.399" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="150.586" cy="154.568" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="134.2" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="150.586" cy="255.432" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="193.486" cy="286.601" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="246.514" cy="286.601" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="289.414" cy="255.432" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="205" r="118.8" fill="none" stroke="#334155" stroke-width="1"/>
+  <circle cx="338.8" cy="205" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="322.884" cy="145.6" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="279.4" cy="102.116" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="86.2" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="160.6" cy="102.116" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="117.116" cy="145.6" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="101.2" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="117.116" cy="264.4" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="160.6" cy="307.884" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="323.8" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="279.4" cy="307.884" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="322.884" cy="264.4" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="205" r="158.4" fill="none" stroke="#334155" stroke-width="1"/>
+  <circle cx="378.4" cy="205" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="366.343" cy="144.383" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="332.006" cy="92.9943" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="280.617" cy="58.6575" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="46.6" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="159.383" cy="58.6575" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="107.994" cy="92.9943" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="73.6575" cy="144.383" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="61.6" cy="205" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="73.6575" cy="265.617" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="107.994" cy="317.006" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="159.383" cy="351.343" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="363.4" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="280.617" cy="351.343" r="3.4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="332.006" cy="317.006" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="366.343" cy="265.617" r="4.2" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="220" cy="205" r="8" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="70" y1="370" x2="130" y2="370" stroke="#e2e8f0" stroke-width="1.4" marker-end="url(#arrow-muted)"/>
+  <text x="65" y="374" fill="#e2e8f0" font-size="12" text-anchor="end">앞</text>
+  <text x="155.082" y="279.918" fill="#94a3b8" font-size="11" text-anchor="end">0.26</text>
+  <text x="131.652" y="303.348" fill="#94a3b8" font-size="11" text-anchor="end">0.36</text>
+  <text x="103.536" y="331.464" fill="#94a3b8" font-size="11" text-anchor="end">0.48</text>
+  <rect x="470" y="50" width="230" height="250" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="484" y="76" fill="#e2e8f0" font-size="13" text-anchor="start">반지름 · 점 개수 · 계단 위</text>
+  <text x="484" y="104" fill="#94a3b8" font-size="13" text-anchor="start">0.08 m</text>
+  <text x="580" y="104" fill="#7cb4d8" font-size="13" text-anchor="end">6 개</text>
+  <text x="670" y="104" fill="#94a3b8" font-size="13" text-anchor="end">0 개</text>
+  <text x="484" y="130" fill="#94a3b8" font-size="13" text-anchor="start">0.16 m</text>
+  <text x="580" y="130" fill="#7cb4d8" font-size="13" text-anchor="end">8 개</text>
+  <text x="670" y="130" fill="#94a3b8" font-size="13" text-anchor="end">0 개</text>
+  <text x="484" y="156" fill="#94a3b8" font-size="13" text-anchor="start">0.26 m</text>
+  <text x="580" y="156" fill="#7cb4d8" font-size="13" text-anchor="end">10 개</text>
+  <text x="670" y="156" fill="#94a3b8" font-size="13" text-anchor="end">0 개</text>
+  <text x="484" y="182" fill="#94a3b8" font-size="13" text-anchor="start">0.36 m</text>
+  <text x="580" y="182" fill="#7cb4d8" font-size="13" text-anchor="end">12 개</text>
+  <text x="670" y="182" fill="#d6aa62" font-size="13" text-anchor="end">3 개</text>
+  <text x="484" y="208" fill="#94a3b8" font-size="13" text-anchor="start">0.48 m</text>
+  <text x="580" y="208" fill="#7cb4d8" font-size="13" text-anchor="end">16 개</text>
+  <text x="670" y="208" fill="#d6aa62" font-size="13" text-anchor="end">5 개</text>
+  <line x1="484" y1="238" x2="686" y2="238" stroke="#334155" stroke-width="1"/>
+  <text x="484" y="260" fill="#e2e8f0" font-size="13" text-anchor="start">합</text>
+  <text x="580" y="260" fill="#7cb4d8" font-size="13" text-anchor="end">52 개</text>
+  <text x="670" y="260" fill="#d6aa62" font-size="13" text-anchor="end">8 개</text>
+  <text x="484" y="284" fill="#94a3b8" font-size="12" text-anchor="start">계단 위 8 개는 +0.2 m, 44 개는 0</text>
+  <text x="470" y="330" fill="#e2e8f0" font-size="13" text-anchor="start">네 발: 52 × 4 = 208 개</text>
+  <text x="470" y="352" fill="#94a3b8" font-size="12" text-anchor="start">가운데 흰 원이 발이다</text>
+  <text x="470" y="372" fill="#94a3b8" font-size="12" text-anchor="start">(점이 0° 에서 시작한다고 둔 예)</text>
+</svg>

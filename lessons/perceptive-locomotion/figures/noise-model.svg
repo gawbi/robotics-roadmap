@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>height sample noise 의 세 상태. 실제 지형은 높이 0.2 m 계단(점선)이다. nominal(60%)은 작은 noise 로 점이 조금씩 흔들리고, large offset(30%)은 예로 든 +0.1 m offset 으로 모든 점이 함께 올라가 계단 모양은 남으며, large noise(10%)는 점마다 큰 noise 로 계단을 알아볼 수 없다</title>
+  <defs><marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="arrow-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker></defs>
+  <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <rect x="20" y="20" width="214" height="296" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.8"/>
+  <text x="34" y="46" fill="#7cb4d8" font-size="14" text-anchor="start">nominal</text>
+  <text x="220" y="46" fill="#e2e8f0" font-size="14" text-anchor="end">60%</text>
+  <text x="34" y="68" fill="#94a3b8" font-size="12" text-anchor="start">작은 noise</text>
+  <path d="M36,205 L127,205 L127,145.0 L218,145.0" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="44" cy="204.659" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="58" cy="200.5" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="72" cy="208.353" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="86" cy="201.427" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="100" cy="205.933" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="114" cy="205.941" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="128" cy="138.161" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="142" cy="144.433" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="156" cy="145.155" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="170" cy="142.374" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="184" cy="140.943" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="198" cy="145.111" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <circle cx="212" cy="142.883" r="4" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <text x="34" y="268" fill="#e2e8f0" font-size="12" text-anchor="start">평소의 지도</text>
+  <text x="34" y="290" fill="#94a3b8" font-size="12" text-anchor="start">계단이 뚜렷하다</text>
+  <text x="121" y="141" fill="#94a3b8" font-size="11" text-anchor="end">실제 0.2 m</text>
+  <rect x="253" y="20" width="214" height="296" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.8"/>
+  <text x="267" y="46" fill="#d6aa62" font-size="14" text-anchor="start">large offset</text>
+  <text x="453" y="46" fill="#e2e8f0" font-size="14" text-anchor="end">30%</text>
+  <text x="267" y="68" fill="#94a3b8" font-size="12" text-anchor="start">발마다 큰 offset (예: +0.1 m)</text>
+  <path d="M269,205 L360,205 L360,145.0 L451,145.0" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="277" cy="177.337" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="291" cy="175.88" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="305" cy="176.052" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="319" cy="178.197" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="333" cy="178.62" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="347" cy="178.905" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="361" cy="115.573" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="375" cy="115.414" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="389" cy="115.769" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="403" cy="114.834" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="417" cy="118.205" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="431" cy="115.191" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <circle cx="445" cy="114.429" r="4" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <line x1="293" y1="203" x2="293" y2="181" stroke="#d6aa62" stroke-width="1.6" marker-end="url(#arrow-amber)"/>
+  <text x="301" y="194" fill="#d6aa62" font-size="12" text-anchor="start">+0.1 m</text>
+  <text x="267" y="268" fill="#e2e8f0" font-size="12" text-anchor="start">바닥 0.1 m, 계단 윗면 0.3 m</text>
+  <text x="267" y="290" fill="#94a3b8" font-size="12" text-anchor="start">차이 0.2 m 는 그대로</text>
+  <rect x="486" y="20" width="214" height="296" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.8"/>
+  <text x="500" y="46" fill="#d88b8b" font-size="14" text-anchor="start">large noise</text>
+  <text x="686" y="46" fill="#e2e8f0" font-size="14" text-anchor="end">10%</text>
+  <text x="500" y="68" fill="#94a3b8" font-size="12" text-anchor="start">점마다 큰 noise</text>
+  <path d="M502,205 L593,205 L593,145.0 L684,145.0" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="510" cy="182.469" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="524" cy="230.387" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="538" cy="216.996" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="552" cy="244" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="566" cy="220.109" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="580" cy="244" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="594" cy="184" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="608" cy="111.955" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="622" cy="184" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="636" cy="121.043" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="650" cy="135.163" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="664" cy="154.37" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <circle cx="678" cy="131.22" r="4" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <text x="500" y="268" fill="#e2e8f0" font-size="12" text-anchor="start">가려짐·sensor 고장</text>
+  <text x="500" y="290" fill="#94a3b8" font-size="12" text-anchor="start">지도로는 계단을 알 수 없다</text>
+</svg>

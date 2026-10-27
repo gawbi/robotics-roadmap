@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 466" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>capture point. 예로 무게중심 높이 0.8 m(ω = 3.50 /s)인 로봇이 발목 위에서 밀렸을 때, 속도가 0.35 m/s 면 capture point 는 발끝인 0.10 m 앞이고, 0.7 m/s 면 0.20 m, 1.4 m/s 면 0.40 m 앞이다. 0.7 m/s 에서 ZMP 를 발끝에 두고 버티면 capture point 는 0.2 초 뒤 0.30 m, 0.4 초 뒤 0.51 m 로 멀어진다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="464" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">capture point = 무게중심 위치 + 속도 ÷ ω. 높이 0.8 m 면 ω = √(9.81 ÷ 0.8) = 3.50 /s (높이·발·걸음 길이는 예로 정한 값)</text>
+  <rect x="20.0" y="44.0" width="680.0" height="196.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="36.0" y="68.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">발목 위의 무게중심이 밀린 속도별 capture point (초록 띠: 발, 발목 0 ~ 발끝 0.10 m)</text>
+  <line x1="516.0" y1="88.0" x2="516.0" y2="214.0" stroke="#d88b8b" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <text x="522.0" y="226.0" fill="#d88b8b" font-size="11.5" text-anchor="start">한 걸음 최대 0.35 m</text>
+  <line x1="158.8" y1="112.0" x2="675.6" y2="112.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="106.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="103.0" x2="250.0" y2="121.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="116.0" fill="#7fc4a2" font-size="13" text-anchor="start" font-weight="600">0.35 m/s</text>
+  <text x="36.0" y="132.0" fill="#94a3b8" font-size="11.5" text-anchor="start">발끝: 디디지 않고 선다</text>
+  <circle cx="326.0" cy="112.0" r="6" fill="#7fc4a2" stroke="none" stroke-width="1.5"/>
+  <text x="326.0" y="100.0" fill="#7fc4a2" font-size="12" text-anchor="middle">0.10 m</text>
+  <line x1="158.8" y1="156.0" x2="675.6" y2="156.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="150.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="147.0" x2="250.0" y2="165.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="160.0" fill="#7cb4d8" font-size="13" text-anchor="start" font-weight="600">0.7 m/s</text>
+  <text x="36.0" y="176.0" fill="#94a3b8" font-size="11.5" text-anchor="start">한 걸음 디딘다</text>
+  <circle cx="402.0" cy="156.0" r="6" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <text x="402.0" y="144.0" fill="#7cb4d8" font-size="12" text-anchor="middle">0.20 m</text>
+  <line x1="158.8" y1="200.0" x2="675.6" y2="200.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="194.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="191.0" x2="250.0" y2="209.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="204.0" fill="#a99ad6" font-size="13" text-anchor="start" font-weight="600">1.4 m/s</text>
+  <text x="36.0" y="220.0" fill="#94a3b8" font-size="11.5" text-anchor="start">한 걸음 밖: 못 선다</text>
+  <circle cx="554.0" cy="200.0" r="6" fill="#a99ad6" stroke="none" stroke-width="1.5"/>
+  <text x="554.0" y="188.0" fill="#a99ad6" font-size="12" text-anchor="middle">0.40 m</text>
+  <rect x="20.0" y="252.0" width="680.0" height="200.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="36.0" y="276.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">0.7 m/s 로 밀린 뒤 ZMP 를 발끝(0.10 m)에 두고 버틸 때 capture point</text>
+  <line x1="516.0" y1="296.0" x2="516.0" y2="410.0" stroke="#d88b8b" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="158.8" y1="318.0" x2="675.6" y2="318.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="312.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="309.0" x2="250.0" y2="327.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="322.0" fill="#7cb4d8" font-size="13" text-anchor="start" font-weight="600">0 초 뒤</text>
+  <circle cx="402.0" cy="318.0" r="6" fill="#7cb4d8" stroke="none" stroke-width="1.5"/>
+  <text x="402.0" y="306.0" fill="#7cb4d8" font-size="12" text-anchor="middle">0.20 m</text>
+  <line x1="158.8" y1="358.0" x2="675.6" y2="358.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="352.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="349.0" x2="250.0" y2="367.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="362.0" fill="#d6aa62" font-size="13" text-anchor="start" font-weight="600">0.2 초 뒤</text>
+  <circle cx="479.1" cy="358.0" r="6" fill="#d6aa62" stroke="none" stroke-width="1.5"/>
+  <text x="479.1" y="346.0" fill="#d6aa62" font-size="12" text-anchor="middle">0.30 m</text>
+  <line x1="158.8" y1="398.0" x2="675.6" y2="398.0" stroke="#475569" stroke-width="1.5"/>
+  <rect x="174.0" y="392.0" width="152.0" height="12.0" rx="3" fill="#7fc4a2" fill-opacity="0.22" stroke="#7fc4a2" stroke-width="1.2"/>
+  <line x1="250.0" y1="389.0" x2="250.0" y2="407.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="36.0" y="402.0" fill="#d88b8b" font-size="13" text-anchor="start" font-weight="600">0.4 초 뒤</text>
+  <circle cx="634.4" cy="398.0" r="6" fill="#d88b8b" stroke="none" stroke-width="1.5"/>
+  <text x="634.4" y="386.0" fill="#d88b8b" font-size="12" text-anchor="middle">0.51 m</text>
+  <text x="36.0" y="436.0" fill="#94a3b8" font-size="11.5" text-anchor="start">발끝과의 거리 0.10 m 가 0.2 초마다 약 2.01 배: 0.10 + 0.10 × 2.01 = 0.30,  0.10 + 0.10 × 4.06 = 0.51</text>
+</svg>
