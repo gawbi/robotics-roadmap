@@ -4,8 +4,8 @@
 
 **Robot Learning · Manipulation 직무를 준비하며 공부한 기록**
 
-[![Lessons](https://img.shields.io/badge/lessons-62-2dd4bf)](#커리큘럼)
-[![Hours](https://img.shields.io/badge/hours-132-818cf8)](#커리큘럼)
+[![Lessons](https://img.shields.io/badge/lessons-65-2dd4bf)](#커리큘럼)
+[![Hours](https://img.shields.io/badge/hours-141-818cf8)](#커리큘럼)
 [![Lessons license](https://img.shields.io/badge/lessons-CC%20BY--NC--SA%204.0-lightgrey)](lessons/LICENSE.md)
 [![Site license](https://img.shields.io/badge/site-MIT-blue)](LICENSE)
 
@@ -49,10 +49,13 @@
 
 ## 원본에 더한 것
 
-**강의 6개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
+**강의 9개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
 
 | 강의 | 영역 | 다루는 것 |
 | --- | --- | --- |
+| [ZMP → Convex MPC](lessons/legged-balance/README.md) | Kinematics & Control · 3h | ground reaction force 와 마찰, ZMP 와 support polygon, preview control 보행 패턴, linear inverted pendulum 과 capture point, Mini Cheetah 의 convex MPC·WBIC, 학습한 policy 와의 결합 |
+| [Perceptive Locomotion](lessons/perceptive-locomotion/README.md) | Reinforcement Learning · 3h | blind policy 가 계단에서 막히는 이유, elevation map 과 height sample, belief encoder 의 gate, depth image 와 scandots 2 단계 학습, 지연과 센서 실패, 4족 parkour |
+| [Humanoid Locomotion](lessons/humanoid-locomotion/README.md) | Reinforcement Learning · 3h | clock 기반 periodic reward, fractal 지형, 이력을 읽는 causal Transformer 와 in-context adaptation, 사전 학습 뒤 RL fine-tuning, sim-to-sim 검증, Humanoid Parkour |
 | [Humanoid Whole-Body Control](lessons/humanoid-wbc/README.md) | Reinforcement Learning · 3h | motion capture retargeting, tracking reward, privileged teacher → student, H2O·OmniH2O·ExBody2·GMT·SONIC, ASAP 의 delta action, VLA 아래의 whole-body controller |
 | [Robot Data Scaling](lessons/data-scaling/README.md) | Imitation Learning · 2h | Open X-Embodiment·DROID, 로봇 없이 모으는 UMI, 환경·물체 다양성의 data scaling law, MimicGen·DemoGen 합성 시연, CUPID curation, π0.5 의 data mixture |
 | [Reasoning VLA](lessons/vla-reasoning/README.md) | Frontier · 2h | π0.5 의 high-level 추론, Hi Robot, embodied chain-of-thought, 추론 token 의 비용과 제어 주기, knowledge insulation, Gemini Robotics-ER·1.5 |
