@@ -27,6 +27,27 @@ import { script as vlaTokens } from './lessons/vla-tokens.script'
 import { TactileSensing } from './lessons/TactileSensing'
 import tactileSensingNarration from './lessons/tactile-sensing.narration.json'
 import { script as tactileSensing } from './lessons/tactile-sensing.script'
+import { DataScaling } from './lessons/DataScaling'
+import dataScalingNarration from './lessons/data-scaling.narration.json'
+import { script as dataScaling } from './lessons/data-scaling.script'
+import { GpuMotionGeneration } from './lessons/GpuMotionGeneration'
+import gpuMotionGenerationNarration from './lessons/gpu-motion-generation.narration.json'
+import { script as gpuMotionGeneration } from './lessons/gpu-motion-generation.script'
+import { HumanoidLocomotion } from './lessons/HumanoidLocomotion'
+import humanoidLocomotionNarration from './lessons/humanoid-locomotion.narration.json'
+import { script as humanoidLocomotion } from './lessons/humanoid-locomotion.script'
+import { HumanoidWbc } from './lessons/HumanoidWbc'
+import humanoidWbcNarration from './lessons/humanoid-wbc.narration.json'
+import { script as humanoidWbc } from './lessons/humanoid-wbc.script'
+import { LeggedBalance } from './lessons/LeggedBalance'
+import leggedBalanceNarration from './lessons/legged-balance.narration.json'
+import { script as leggedBalance } from './lessons/legged-balance.script'
+import { ObjectPose } from './lessons/ObjectPose'
+import objectPoseNarration from './lessons/object-pose.narration.json'
+import { script as objectPose } from './lessons/object-pose.script'
+import { VlaReasoning } from './lessons/VlaReasoning'
+import vlaReasoningNarration from './lessons/vla-reasoning.narration.json'
+import { script as vlaReasoning } from './lessons/vla-reasoning.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -41,6 +62,13 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [robotCodingAgent, RobotCodingAgent, robotCodingAgentNarration],
   [perceptiveLocomotion, PerceptiveLocomotion, perceptiveLocomotionNarration],
   [tactileSensing, TactileSensing, tactileSensingNarration],
+  [dataScaling, DataScaling, dataScalingNarration],
+  [gpuMotionGeneration, GpuMotionGeneration, gpuMotionGenerationNarration],
+  [humanoidLocomotion, HumanoidLocomotion, humanoidLocomotionNarration],
+  [humanoidWbc, HumanoidWbc, humanoidWbcNarration],
+  [leggedBalance, LeggedBalance, leggedBalanceNarration],
+  [objectPose, ObjectPose, objectPoseNarration],
+  [vlaReasoning, VlaReasoning, vlaReasoningNarration],
 ]
 
 export function RemotionRoot() {
