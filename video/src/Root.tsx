@@ -24,6 +24,9 @@ import { script as realRobot } from './lessons/real-robot.script'
 import { VlaTokens } from './lessons/VlaTokens'
 import vlaTokensNarration from './lessons/vla-tokens.narration.json'
 import { script as vlaTokens } from './lessons/vla-tokens.script'
+import { TactileSensing } from './lessons/TactileSensing'
+import tactileSensingNarration from './lessons/tactile-sensing.narration.json'
+import { script as tactileSensing } from './lessons/tactile-sensing.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -37,6 +40,7 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [drivingStack, DrivingStack, drivingStackNarration],
   [robotCodingAgent, RobotCodingAgent, robotCodingAgentNarration],
   [perceptiveLocomotion, PerceptiveLocomotion, perceptiveLocomotionNarration],
+  [tactileSensing, TactileSensing, tactileSensingNarration],
 ]
 
 export function RemotionRoot() {
