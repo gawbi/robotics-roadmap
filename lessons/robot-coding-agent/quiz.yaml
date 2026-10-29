@@ -1,0 +1,291 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: tools-persist
+  title: 기본 함수를 쓰는 쪽과 남는 것
+  section: vla-와-coding-agent
+  variants:
+    - question: |
+        Code as Policies 처럼 언어 모델이 로봇 코드를 쓰는 기존 방식과 비교할 때, HexaShell 이 agent 와 사람의 일을 나누는 방식은 무엇이 다른가?
+      choices:
+        - 'agent 가 기본 함수인 tool 을 직접 쓰고 고치며, tool 은 episode 가 끝나도 남아 다음 시도에 쓰인다'
+        - '사람이 기본 함수를 미리 모두 쓰고, agent 는 지시마다 그 함수를 부르는 프로그램만 새로 쓴다'
+        - 'agent 가 시연 dataset 으로 network 를 학습해, 함수 대신 학습한 weight 를 다음 episode 로 넘긴다'
+        - 'agent 가 episode 마다 프로그램 전체를 새로 쓰고 끝나면 버려서, 앞선 실패의 코드에 묶이지 않는다'
+      answer: 0
+      explanation: |
+        HexaShell 에서는 기본 함수(tool)를 agent 가 쓰고, 그 tool 을 episode 사이에 남겨 실패할 때마다 고친다. episode 마다 쓰는 명령은
+        짧다. 사람이 기본 함수를 쓰고 agent 가 지시마다 프로그램을 쓰는 것은 HexaShell 저자들이 정리한 기존 방식이다. 시연으로 network 를
+        학습해 weight 를 남기는 것은 학습한 policy 의 방식이다. 프로그램을 매번 새로 쓰고 버리면 고친 내용이 남지 않는다.
+    - question: |
+        HexaShell 에서 VLM 이 목표 물체의 세상 좌표를 직접 숫자로 말하지 않고 물체 위의 pixel 만 고르게 한 이유는 무엇인가?
+      choices:
+        - 'VLM 은 숫자를 출력할 수 없어서, 좌표 대신 pixel 번호를 글로 바꿔 내게 할 수밖에 없었다'
+        - 'pixel 은 카메라마다 같은 값이라서, 한 카메라에서 고른 pixel 을 다른 카메라에도 그대로 쓴다'
+        - 'VLM 은 사진 속 거리를 잘 재지 못해서, 위치는 코드가 calibration 으로 pixel 에서 계산한다'
+        - '세상 좌표를 말하게 하면 token 이 많아져 step 한도를 넘기므로, 짧은 pixel 번호로 줄였다'
+      answer: 2
+      explanation: |
+        저자들은 VLM 이 사진 속 거리를 잘 재지 못한다는 연구를 근거로, 모델은 pixel 을 고르고 tool 이 calibration 과 geometry 로 세상 위치를
+        계산하게 했다. VLM 도 숫자를 글로 낼 수 있다. 같은 점이라도 카메라마다 pixel 이 다르다. 모델이 생각하는 동안에는 step 이 들지 않으므로
+        token 이 많아도 step 한도를 쓰지 않는다.
+    - question: |
+        학습한 VLA 와 비교할 때, HexaShell 이 새 작업을 잘하게 되는 데 필요로 하지 않는 것은 무엇인가?
+      choices:
+        - '카메라의 intrinsics 와 세상 좌표의 pose 가 붙은 RGB 사진'
+        - '실패한 episode 의 명령 기록과 tool 이 낸 메시지'
+        - '팔의 관절 각도와 TCP pose 같은 로봇의 상태'
+        - '많은 시연을 모은 dataset 과 그것으로 하는 network 학습'
+      answer: 3
+      explanation: |
+        HexaShell 은 시연도 network 학습도 쓰지 않고, 같은 모델이 실패한 episode 의 기록을 읽어 tool 을 고친다. calibration 이 붙은 RGB 사진은
+        tool 이 위치를 재는 데 쓰는 입력이다. 팔의 관절 각도와 TCP pose 도 EpisodeAPI 가 tool 에 주는 입력이다. 실패한 episode 의 명령 기록과
+        tool 메시지는 optimizer agent 가 원인을 찾는 데 쓴다.
+
+- topic: thin-harness
+  title: 결정하지 않는 harness
+  section: thin-harness
+  variants:
+    - question: |
+        HexaShell 의 harness 가 맡는 일로 옳은 것은?
+      choices:
+        - '탁자 위 물체를 찾아 피하는 경로를 계획하고, agent 가 고른 목표가 틀리면 고쳐서 실행한다'
+        - '명령을 검사해 직선 경로, IK, 시간 배정을 거쳐 관절 움직임으로 옮기고, 무엇을 할지는 정하지 않는다'
+        - '작업 이름을 보고 미리 준비한 전략을 고른 뒤, agent 에게는 성공했는지만 알려 준다'
+        - 'simulator 의 물체 pose 를 agent 에게 넘겨 주어, 사진을 보지 않고도 위치를 알게 한다'
+      answer: 1
+      explanation: |
+        thin harness 는 명령을 검사하고 2 cm 간격의 직선 경로, waypoint 마다 푸는 IK, 사다리꼴 속도의 시간 배정을 거쳐 action 으로 보낼 뿐
+        결정은 하지 않는다. 충돌 검사는 로봇과 탁자만 대상으로 하므로 물체를 피하는 일은 agent 와 tool 이 맡는다. 작업별 전략은 harness 가
+        아니라 tool 에 둔다. simulator 의 물체 pose 는 container 로 보내지 않는다.
+    - question: |
+        HexaShell 에서 작업의 step 한도(action step 수)를 쓰는 것은 무엇인가?
+      choices:
+        - '모델이 생각하는 시간으로, 1 초를 action 25 step 으로 바꿔 한도에서 뺀다'
+        - '사진을 새로 받는 obs 명령으로, 사진 한 장마다 정해진 step 을 쓴다'
+        - '측정만 하는 tool 명령으로, 계산에 걸린 시간만큼 step 을 쓴다'
+        - '팔을 움직이거나 기다리는 명령으로, 실제로 실행한 action 만 센다'
+      answer: 3
+      explanation: |
+        simulation 은 명령이 실행되는 동안에만 흐르므로 실행한 action 만 step 을 쓴다. 모델이 생각하는 동안에는 simulation 이 멈춰 있어서
+        step 이 들지 않는다. 사진을 새로 받는 obs 명령도 step 을 쓰지 않는다. 아무것도 움직이지 않는 측정 명령은 계산에 걸린 시간과
+        상관없이 step 이 들지 않는다. 그 대신 실제 시간은 길어서, 다시 잰 episode 는 로봇 시간 26 초에 실제 시간 739 초가 걸렸다.
+    - question: |
+        acting agent 가 정답(물체의 실제 위치나 채점 기준)을 읽을 수 없게 HexaShell 이 택한 방법은 무엇인가?
+      choices:
+        - 'agent 가 실행되는 container 에 simulator, 작업 정의, 채점 코드를 두지 않고 성공은 checker 만 판정한다'
+        - '설명서에 정답을 읽지 말라는 규칙을 적고, 어기면 그 episode 를 실패로 처리해 점수에서 뺀다'
+        - 'simulator 의 물체 pose 에 noise 를 섞어 보내서, agent 가 정확한 정답은 알 수 없게 한다'
+        - 'agent 가 쓴 코드를 사람이 episode 마다 검토해서, 정답을 읽는 줄이 있으면 지우고 다시 실행한다'
+      answer: 0
+      explanation: |
+        저자들은 정답을 읽을 길을 구조로 막았다. acting agent 의 container 에는 simulator, 작업 정의, 채점 코드가 없고, 밖으로 나가는 통신은
+        모델 API 와 harness 의 길만 지나며, 성공은 benchmark 의 checker 만 판정한다. 설명서에 규칙만 적으면 정답을 읽을 길 자체는 남는다.
+        noise 를 섞어도 pose 를 보내면 정답에 가까운 값이 container 로 들어간다. 사람이 episode 마다 코드를 검토하는 방식은 HexaShell 이
+        쓰지 않았다.
+
+- topic: ray-plane
+  title: ray 와 평면으로 재는 위치
+  section: ray-와-평면
+  variants:
+    - question: |
+        calibration 된 카메라 한 대의 pixel 하나로 물체의 3D 위치를 구하려면 무엇이 더 필요한가?
+      choices:
+        - 'intrinsics 만 정확하면 pixel 하나로 3D 위치가 정해지므로, 더 필요한 것은 없다'
+        - 'pixel 의 밝기가 거리를 담고 있어서, 밝기를 거리로 바꾸는 표 하나만 있으면 된다'
+        - 'pixel 이 정하는 ray 위의 어디인지 정할 조건, 예를 들어 높이를 아는 평면이 필요하다'
+        - '같은 자리에서 같은 카메라로 사진을 한 장 더 찍어 평균하면 거리가 정해진다'
+      answer: 2
+      explanation: |
+        intrinsics 가 정확해도 pixel 하나와 calibration 은 카메라에서 뻗는 ray 하나를 정할 뿐 그 ray 위의 거리는 정하지 못한다. 높이를 아는
+        평면이나 두 번째 view 같은 조건을 더해야 점이 정해진다. pixel 의 밝기는 거리를 담지 않는다. 같은 자리에서 같은 카메라로 찍은 사진은
+        같은 ray 를 줄 뿐이다.
+    - question: |
+        탁자보다 높은 블록 윗면의 점에 블록 윗면의 높이 대신 탁자 높이를 넣어 ray 와 평면이 만나는 점을 구하면 어떻게 되는가?
+      choices:
+        - '수평 위치는 pixel 이 정하므로 그대로이고, 점의 높이만 블록 높이만큼 낮게 나온다'
+        - 'ray 가 수직에 가까울수록 위치가 더 밀려서, 바로 위에서 내려다본 카메라가 가장 약하다'
+        - '높이 오차는 calibration 오차와 서로 지워지므로, 몇 cm 안쪽이면 위치에 영향이 없다'
+        - 'ray 가 더 내려가 만나서 위치가 밀리고, ray 가 비스듬할수록 같은 오차가 더 크게 밀린다'
+      answer: 3
+      explanation: |
+        평면을 실제보다 낮게 잡으면 ray 가 더 내려간 곳에서 평면과 만나므로, 점의 높이뿐 아니라 수평 위치도 밀린다. 밀리는 양은 높이 오차에
+        ray 의 (수평 ÷ 수직) 기울기를 곱한 값이라 ray 가 누울수록 커지고, 바로 위에서 내려다보는 수직 ray 에서는 0 에 가깝다. 높이 오차는
+        calibration 오차와 서로 지워지지 않는다.
+    - question: |
+        공용 tool table_plane 이 plane sweep 으로 탁자 높이를 재는 원리는?
+      choices:
+        - '후보 높이마다 한 카메라 사진을 그 평면을 거쳐 다른 카메라 시점으로 옮겨, 가장 잘 겹치는 높이를 고른다'
+        - '설명서에 적힌 높이를 그대로 쓰고, 사진에 탁자 가장자리가 보이면 그 pixel 로 조금씩 보정한다'
+        - 'gripper 를 내려 탁자에 닿을 때까지 움직인 뒤, 멈춘 순간의 TCP 높이를 탁자 높이로 읽는다'
+        - 'depth network 로 탁자 pixel 마다 depth 를 추정해 평균하고, 그 평균에서 카메라 높이를 뺀다'
+      answer: 0
+      explanation: |
+        plane sweep 은 후보 높이마다 그 높이의 평면을 거쳐 한 카메라 사진을 다른 카메라 시점으로 옮기고(warp), 실제 사진과 가장 잘 겹치는 높이를
+        고른다. 사진만 쓰므로 step 이 들지 않는다. 설명서의 0.74 m 는 실제와 약 25 mm 달라 그대로 쓰지 않는다. gripper 를 탁자까지 내리는
+        방법은 팔을 움직이므로 step 을 쓴다. depth network 는 HexaShell 의 RGB tool 이 쓰지 않는다.
+
+- topic: second-view
+  title: 두 번째 view 와 그 비용
+  section: 두-번째-view-와-active-perception
+  variants:
+    - question: |
+        gripper 가 들고 있는 공 모양 물체의 중심을 calibration 된 RGB 카메라로 잴 때 알맞은 방법은?
+      choices:
+        - '탁자 높이의 평면과 ray 가 만나는 점을 구하고, 그 점을 공의 중심으로 쓴다'
+        - '두 카메라에서 공의 ray 를 구하고, 두 ray 가 가장 가까워지는 곳을 중심으로 쓴다'
+        - '머리 카메라 한 장에서 공의 겉보기 크기로 거리를 어림하고, 그 값을 그대로 쓴다'
+        - 'gripper 의 TCP 위치를 공의 중심으로 보고, 카메라 사진은 쓰지 않는다'
+      answer: 1
+      explanation: |
+        손에 든 물체는 어느 수평면 위에도 있지 않아서, 두 카메라의 ray 를 triangulation 해 위치를 구한다. 탁자 평면을 쓰면 공중에 있는 점이
+        탁자 면 위의 점으로 잘못 계산된다. 겉보기 크기로 거리를 어림하면 오차가 커서, play Xylophone 에서는 이렇게 잰 중심이 2 cm 넘게 어긋났다. TCP 는 손가락
+        사이의 점이라 든 물체의 중심과 다르다.
+    - question: |
+        HexaShell 이 monocular depth network 대신 triangulation 을 쓴 근거는 무엇인가?
+      choices:
+        - 'depth network 는 계산이 느려서 1초에 25 번인 action 주기를 맞출 수 없었다'
+        - 'triangulation 은 camera calibration 없이도 쓸 수 있어서 준비가 더 간단했다'
+        - 'depth network 는 cluttered 장면에서만 틀리고 깨끗한 장면에서는 정확했다'
+        - 'depth network 는 scale 을 맞춘 뒤에도 수 cm 를 틀려서 1 cm 안팎의 grasp 에 부족했다'
+      answer: 3
+      explanation: |
+        RoboDojo 장면에서 depth network 의 오차 중앙값은 탁자로 scale 을 맞춘 뒤에도 머리 카메라에서 41 mm 였고 손목 카메라에서 약 100 mm
+        였다. grasp 와 놓기에는 1 cm 안팎이 필요하다. 저자들이 든 근거는 계산 속도가 아니라 depth 오차의 크기였다. triangulation 은
+        calibration 이 있어야 쓸 수 있다. depth network 가 cluttered 장면에서만 틀렸다는 결과도 없다.
+    - question: |
+        step 한도가 있는 benchmark 에서 active perception(측정하려고 센서를 옮기는 일)이 비용이 되는 이유는?
+      choices:
+        - '사진을 더 받을수록 모델이 읽는 token 이 늘어나서, 그만큼 step 이 자동으로 줄어든다'
+        - '카메라를 옮기면 calibration 이 깨져서, 다시 맞추는 동안 episode 가 멈춰 기다린다'
+        - '손목 카메라로 두 번째 view 를 얻으려면 팔을 움직여야 하고, 그 움직임이 step 을 쓴다'
+        - '머리 카메라를 돌려서 두 번째 view 를 얻는데, 머리를 돌리는 데 step 이 든다'
+      answer: 2
+      explanation: |
+        손목 카메라는 팔에 붙어 있어서, 원하는 자리에서 보려면 팔을 움직이는 action 을 실행해야 하고 그 action 이 step 을 쓴다. 사진을 읽는
+        token 은 step 을 쓰지 않는다. 손목 카메라의 pose 는 TCP pose 에서 바로 나와서 다시 calibration 할 필요가 없다. 머리 카메라는 고정돼
+        있어서 두 번째 view 를 얻으려고 돌리지 않는다.
+
+- topic: repair-loop
+  title: 실패를 tool 로 바꾸는 loop
+  section: acting-agent-와-optimizer-agent
+  variants:
+    - question: |
+        HexaShell 의 optimizer agent 가 실패한 episode 뒤에 하는 일은?
+      choices:
+        - '실패한 장면은 건너뛰고, 성공한 장면의 기록만 모아 다음 시도의 학습 data 로 쓴다'
+        - '명령 기록, 사진, tool 코드를 읽고 tool 과 unit test 를 고친 뒤 같은 장면을 다시 시도하게 한다'
+        - 'acting agent 의 prompt 와 harness 의 코드를 고쳐서, 다음 시도부터 다른 방식으로 실행되게 한다'
+        - '실패한 episode 를 사람에게 보내 원인을 적게 하고, 사람이 쓴 설명을 그대로 tool 로 옮긴다'
+      answer: 1
+      explanation: |
+        optimizer 는 명령 기록, 명령마다 찍은 사진, tool 코드를 읽어 원인을 찾고, tool 과 unit test 를 쓰거나 고친다. 배달 검사를 통과하면
+        같은 장면을 다시 시도한다. 실패한 장면을 건너뛰고 성공한 기록으로 network 를 학습하는 단계는 loop 에 없다. optimizer 는 harness,
+        설명서, 공용 tool 을 건드릴 수 없다. 사람이 원인을 적는 단계도 loop 에 없다.
+    - question: |
+        HexaShell 의 tool 이 지켜야 하는 규칙으로 옳은 것은?
+      choices:
+        - 'simulator 의 물체 pose 는 읽어도 되지만, 사람이 정한 상수는 코드에 넣지 않는다'
+        - 'benchmark 의 asset 파일에서 물체 크기를 읽어, 사진으로 재는 오차를 줄인다'
+        - 'harness 의 server 코드와 공용 tool 도 함께 고쳐서, tool 의 동작과 맞춘다'
+        - '사진, calibration, 팔 상태만 쓰고 simulator 나 물체 pose 에는 접근하지 않는다'
+      answer: 3
+      explanation: |
+        tool 은 EpisodeAPI 가 주는 사진, calibration, 관절 각도와 TCP pose, 움직임 함수만 쓰고, simulator 를 import 하거나 물체 pose 를 읽을 수
+        없다. 물체의 크기·위치·높이는 그 episode 안에서 재야 하고 benchmark 의 asset·layout·설정에서 가져오면 안 된다. optimizer 는 그 작업의
+        폴더에만 쓸 수 있어서 harness 와 공용 tool 은 고치지 못한다.
+    - question: |
+        가까운 카메라와 먼 카메라가 같은 평면 위의 면을 볼 때, 평면 위 1 mm 격자에서 pixel 이 떨어진 칸의 수로 넓이를 재면 어떤 문제가 생기는가?
+      choices:
+        - '먼 카메라의 pixel 하나는 여러 칸을 덮는데 한 칸만 세어져서, 같은 면이 더 작게 나온다'
+        - '가까운 카메라의 pixel 이 칸보다 작아 한 칸이 여러 번 세어져서, 같은 면이 더 크게 나온다'
+        - '두 카메라 모두 같은 수의 칸을 채우므로 넓이는 같고, 생기는 차이는 높이뿐이다'
+        - '먼 카메라는 면의 가장자리만 보므로, 면 안쪽의 칸이 세어지지 않아 넓이가 0 이 된다'
+      answer: 0
+      explanation: |
+        먼 카메라의 pixel 은 평면에서 더 넓은 자리를 덮지만, 칸을 세는 방식은 pixel 마다 한 칸만 채운다. 그래서 같은 면이 작게 나오고 두
+        카메라의 넓이 비가 하한 아래로 떨어진다. 칸은 한 번만 세므로 가까운 카메라에서 겹쳐 세어지지 않는다. 두 카메라가 채우는 칸의 수는
+        pixel 하나가 덮는 넓이에 따라 달라서 같지 않다. 먼 카메라도 면 안쪽에 pixel 을 떨어뜨리므로 넓이가 0 이 되지 않고 작게 나올 뿐이다.
+        HexaShell 의 optimizer 는 이 세기를 pixel 마다 덮는 넓이의 합으로 바꿨다.
+
+- topic: frozen-evaluation
+  title: 고정한 tool 의 평가와 누설
+  section: frozen-tool-의-평가
+  variants:
+    - question: |
+        tool 을 만든 장면이 아니라 공개하지 않은 seed(hidden seed)의 장면으로 평가하는 이유는?
+      choices:
+        - 'hidden seed 의 장면이 더 쉬워서 점수가 높게 나오므로, leaderboard 에 올리기 유리하다'
+        - 'tool 이 개발용 장면에 맞춰졌을 수 있어서, 처음 보는 장면에서 고정한 tool 을 재야 한다'
+        - 'hidden seed 에서는 optimizer 가 계속 tool 을 고칠 수 있어서 더 많은 실패를 배운다'
+        - '개발용 장면은 simulator 가 달라서, 같은 장면을 다시 재도 결과가 재현되지 않는다'
+      answer: 1
+      explanation: |
+        tool 은 seed 0 의 장면 10 개에서 만들었으므로, 같은 장면의 점수로는 그 장면들에 맞춘 결과인지 알 수 없다. 그래서 tool 을 고정한 뒤
+        benchmark 팀이 tool 이 본 적 없는 seed 로 평가했다. 평가 중에는 optimizer 가 tool 을 고치지 않는다. hidden seed 의 장면이 더 쉽다는
+        근거는 없다. 개발용 장면에서 simulator 가 다르다는 근거도 없다.
+    - question: |
+        상관없는 물체를 더 놓은 cluttered 장면에서 HexaShell 이 학습한 policy 보다 성공을 더 많이 지킨 이유는?
+      choices:
+        - '주변 물체를 먼저 모두 치우는 tool 이 있어서, 장면을 깨끗한 판으로 바꾼 뒤 작업한다'
+        - 'cluttered 장면 사진으로 network 를 다시 학습해서, 주변 물체를 무시하게 만들었다'
+        - 'agent 가 목표 물체의 pixel 을 고르면 tool 은 그 물체만 재므로 주변 물체에 덜 흔들린다'
+        - 'harness 가 사진에서 주변 물체를 지운 뒤 보내서, agent 는 깨끗한 장면만 본다'
+      answer: 2
+      explanation: |
+        tool 은 agent 가 고른 pixel 의 물체만 재기 때문에 주변 물체가 늘어도 측정이 흔들리지 않는다. 그래서 HexaShell 은 성공의 약 82% 를
+        지켰지만, 학습한 policy 31 개가 지킨 비율의 중앙값은 20% 였다. 주변 물체를 치우는 tool 은 없다. HexaShell 은 network 를 학습하지
+        않는다. 사진에서 주변 물체를 지우는 harness 도 없다. 다만 색으로 옷을 찾는 옷 개기 tool 은 cluttered 판에서 크게 떨어졌다.
+    - question: |
+        tool 이 simulator 의 물체 pose 를 읽지 못하게 막은 뒤에도 tool 코드를 감사해야 하는 이유는?
+      choices:
+        - 'tool 에 benchmark 정의에서 온 부품 크기 같은 상수가 들어가면 pose 를 읽지 않아도 정보가 샌다'
+        - 'tool 이 실행 중에 simulator 를 몰래 import 할 수 있어서, import 기록을 매번 확인해야 한다'
+        - 'checker 가 성공을 잘못 판정할 수 있어서, 성공한 episode 를 사람이 다시 판정해야 한다'
+        - 'optimizer 가 harness 의 server 코드를 고칠 수 있어서, server 의 변경을 검사해야 한다'
+      answer: 0
+      explanation: |
+        pose 를 읽지 않아도 benchmark 의 작업 정의에 있는 크기나 위치를 숫자 상수로 넣으면 정답 정보가 tool 에 들어간다. 저자들의 감사에서
+        작업 7 개의 tool 에 이런 고정 geometry 가 있었고, 측정으로 바꾸자 그 작업들은 모두 0/10 이 됐다. tool 은 simulator 를 import 할 수
+        없다. 성공은 benchmark 의 checker 만 판정한다. optimizer 는 harness 의 server 코드를 고칠 수 없다.
+
+- topic: contact-boundary
+  title: 성공을 가르는 접촉
+  section: 접촉이라는-경계
+  variants:
+    - question: |
+        HexaShell 의 성공률이 작업에 따라 크게 갈린 기준은 무엇인가?
+      choices:
+        - '지시문의 길이로, 지시가 길수록 낮았다'
+        - '필요한 접촉의 정밀도로, 끼우기가 낮았다'
+        - '기억해야 하는 양으로, 기억 작업이 낮았다'
+        - '탁자 위 물체의 수로, 많을수록 낮았다'
+      answer: 1
+      explanation: |
+        저자들이 작업을 접촉의 종류와 결정의 종류로 나눠 보니, 성공률은 접촉을 따라 갈렸다. 밀기·누르기는 92.5% 였고 mm 오차의 끼우기는
+        8.3% 였다. 기억 작업은 65.0% 로 오히려 높은 편이었다. 탁자 위 물체가 늘어도 성공의 대부분을 지켰다. 지시문의 길이로 성공률이
+        갈린다는 결과는 없다.
+    - question: |
+        실패한 episode 가 "agent 는 끝났다고 했지만 checker 는 실패로 판정" 으로 끝났다면, 무엇이 모자랐다고 보는 것이 알맞은가?
+      choices:
+        - '동작을 실행하는 능력으로, 실패를 알면서도 동작을 해내지 못한 것이다'
+        - 'step 의 여유로, 한도를 조금만 늘렸으면 성공했을 것이다'
+        - '결과를 보는 인식이나 작업 조건의 이해로, 실패를 성공으로 믿은 것이다'
+        - 'tool 코드의 정확성으로, bug 때문에 episode 가 일찍 끝난 것이다'
+      answer: 2
+      explanation: |
+        agent 가 끝났다고 선언했는데 checker 가 실패로 판정했다면, agent 는 결과를 잘못 보았거나 성공 조건을 잘못 이해한 것이다. 실패를 알고
+        다시 시도하다 step 을 다 쓴 경우가 실행의 모자람이다. agent 가 이미 끝났다고 믿었으므로 step 을 늘려도 고쳐지지 않는다. tool 에러로
+        일찍 끝난 episode 는 이 분류에서 따로 뺐다.
+    - question: |
+        동작을 미리 계획해 한 번에 실행하는 tool 이 옷 개기 같은 작업에서 한 step 씩 움직이는 agent 보다 못할 수 있는 이유는?
+      choices:
+        - '천은 색이 하나뿐이라 사진에 보이지 않고, tool 은 보이지 않는 물체를 잴 수 없다'
+        - '옷 개기의 step 한도가 너무 짧아서, 어떤 방식으로도 끝까지 갈 수 없다'
+        - 'tool 은 단단한 물체의 넓이만 셀 수 있어서, 천 위에서 잡을 점을 고르지 못한다'
+        - 'tool 은 해석과 동작을 미리 정해 끝까지 가지만, agent 는 도중에 보고 고칠 수 있다'
+      answer: 3
+      explanation: |
+        tool 은 장면을 한 가지로 해석하고 동작을 미리 정해 실행하므로, 실행 도중에 생긴 차이를 알아채고 고치지 못한다. 한 step 씩 움직이는
+        agent 는 매번 보고 고칠 수 있어서, 옷 개기에서 tool 없는 agent 는 72% 를 받았고 tool 을 쓴 쪽은 50% 를 받았다. 천은 사진에 보인다.
+        tool 은 천 위에서 잡을 점도 고른다. 옷 개기는 같은 step 한도 안에서 성공한 episode 가 있다.

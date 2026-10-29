@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 372" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>HexaShell 의 한 episode. container 안의 acting agent 가 robo move left --dy 0.10 을 보내면 server 가 명령을 검사하고, 0.10 m 직선 경로를 2 cm 간격의 다섯 구간으로 나눠 waypoint 마다 IK 를 풀고, 사다리꼴 속도로 시간을 배정해 1초에 25 번 action 으로 simulator 에 보낸다. 돌아오는 것은 JSON 결과와 640×480 RGB 사진 세 장이다. 생각과 사진 보기는 step 을 쓰지 않는다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="370" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">HexaShell 의 한 episode: harness 는 명령을 움직임으로 옮기기만 한다</text>
+  <rect x="20.0" y="46.0" width="200.0" height="230.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="32.0" y="66.0" fill="#94a3b8" font-size="11.5" text-anchor="start">container</text>
+  <text x="32.0" y="82.0" fill="#94a3b8" font-size="11" text-anchor="start">simulator·API key·채점 코드 없음</text>
+  <rect x="34.0" y="96.0" width="172.0" height="52.0" rx="6" fill="#0b1220" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="120.0" y="117.0" fill="#e2e8f0" font-size="12" text-anchor="middle">acting agent</text>
+  <text x="120.0" y="135.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Codex + GPT-6-Astra</text>
+  <rect x="34.0" y="166.0" width="172.0" height="34.0" rx="6" fill="#0b1220" stroke="#d6aa62" stroke-width="1.4"/>
+  <text x="120.0" y="188.0" fill="#d6aa62" font-size="11.5" text-anchor="middle">robo move left --dy 0.10</text>
+  <text x="34.0" y="222.0" fill="#7fc4a2" font-size="11.5" text-anchor="start">생각·사진 보기·측정: 0 step</text>
+  <text x="34.0" y="240.0" fill="#7fc4a2" font-size="11.5" text-anchor="start">실행한 action 만 step 을 쓴다</text>
+  <line x1="220.0" y1="183.0" x2="252.0" y2="183.0" stroke="#d6aa62" stroke-width="1.6" marker-end="url(#ar-amber)"/>
+  <rect x="254.0" y="46.0" width="230.0" height="230.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="369.0" y="68.0" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">harness server</text>
+  <text x="268.0" y="96.0" fill="#e2e8f0" font-size="12" text-anchor="start">① 명령 검사 (축마다 최대 0.20 m)</text>
+  <text x="268.0" y="122.0" fill="#e2e8f0" font-size="12" text-anchor="start">② 직선 경로를 2 cm 간격으로</text>
+  <text x="282.4" y="148.0" fill="#94a3b8" font-size="12" text-anchor="start">0.10 m ÷ 0.02 m = 5 구간</text>
+  <text x="268.0" y="174.0" fill="#e2e8f0" font-size="12" text-anchor="start">③ waypoint 마다 IK (cuRobo)</text>
+  <text x="268.0" y="200.0" fill="#e2e8f0" font-size="12" text-anchor="start">④ 사다리꼴 속도로 시간 배정</text>
+  <text x="268.0" y="226.0" fill="#e2e8f0" font-size="12" text-anchor="start">⑤ 1초에 25 번 action 으로 보냄</text>
+  <text x="268.0" y="262.0" fill="#94a3b8" font-size="11" text-anchor="start">충돌 검사는 로봇과 탁자만 안다</text>
+  <line x1="484.0" y1="183.0" x2="516.0" y2="183.0" stroke="#e2e8f0" stroke-width="1.6" marker-end="url(#ar-text)"/>
+  <rect x="518.0" y="46.0" width="182.0" height="230.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="609.0" y="70.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">RoboDojo simulator</text>
+  <text x="609.0" y="89.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">팔 둘인 ARX X5</text>
+  <text x="609.0" y="108.0" fill="#e2e8f0" font-size="12.5" text-anchor="middle">Isaac Sim</text>
+  <rect x="532.0" y="140.0" width="154.0" height="58.0" rx="6" fill="#0b1220" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="609.0" y="162.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">checker 가 step 마다</text>
+  <text x="609.0" y="180.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">성공을 판정</text>
+  <text x="609.0" y="226.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">push T 한도 600 step</text>
+  <text x="609.0" y="244.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">600 ÷ 25 = 24 초</text>
+  <path d="M 609 276 L 609 306 L 120 306 L 120 278" fill="none" stroke="#7fc4a2" stroke-width="1.6" marker-end="url(#ar-green)"/>
+  <text x="364.0" y="300.0" fill="#7fc4a2" font-size="11.5" text-anchor="middle">돌려받는 것</text>
+  <text x="30.0" y="330.0" fill="#e2e8f0" font-size="11.5" text-anchor="start">JSON: plan_ok, 실패 이유, 도달한 pose 와 오차, 남은 시간·명령 수</text>
+  <text x="30.0" y="348.0" fill="#e2e8f0" font-size="11.5" text-anchor="start">RGB 640×480 사진 세 장(머리, 왼손목, 오른손목), intrinsics, 카메라 pose, TCP pose. depth 사진은 없다</text>
+</svg>

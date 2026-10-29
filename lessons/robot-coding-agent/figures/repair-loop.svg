@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>HexaShell 의 수리 loop. 개발용 장면 10 개를 차례로 쓴다. acting agent 가 지금의 tool 로 장면을 시도하고, 성공하면 optimizer 가 playbook.md 에 무엇이 통했는지 적는다. 실패하면 optimizer 가 명령 기록, 명령마다의 카메라 사진, tool 코드를 읽고 skill.md 에 진단을 쓴 뒤 tool 과 unit test 를 쓰거나 고친다. 배달 검사를 통과하지 못한 수정은 되돌리고, 통과하면 같은 장면을 다시 시도한다. 장면 하나에 수정은 다섯 번까지다. 열 번째 장면 뒤에는 tool 을 고정해 다시 잰다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="418" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">수리 loop: 실패한 episode 를 tool 과 unit test 로 바꾼다 (두 agent 모두 Codex + GPT-6-Astra)</text>
+  <g transform="translate(0 26)">
+  <rect x="20.0" y="50.0" width="190.0" height="54.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="115.0" y="72.0" fill="#e2e8f0" font-size="12" text-anchor="middle">개발용 장면 k</text>
+  <text x="115.0" y="90.0" fill="#e2e8f0" font-size="12" text-anchor="middle">seed 0 의 앞 10 개</text>
+  <line x1="210.0" y1="77.0" x2="250.0" y2="77.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar-muted)"/>
+  <rect x="252.0" y="50.0" width="200.0" height="54.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="352.0" y="72.0" fill="#e2e8f0" font-size="12" text-anchor="middle">acting agent 가 시도</text>
+  <text x="352.0" y="90.0" fill="#e2e8f0" font-size="12" text-anchor="middle">지금의 tool 로 episode 하나</text>
+  <line x1="452.0" y1="77.0" x2="492.0" y2="77.0" stroke="#7fc4a2" stroke-width="1.6" marker-end="url(#ar-green)"/>
+  <text x="472.0" y="68.0" fill="#7fc4a2" font-size="11" text-anchor="middle">성공</text>
+  <rect x="494.0" y="50.0" width="206.0" height="54.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.2"/>
+  <text x="597.0" y="72.0" fill="#e2e8f0" font-size="12" text-anchor="middle">playbook.md 에 기록</text>
+  <text x="597.0" y="90.0" fill="#e2e8f0" font-size="12" text-anchor="middle">무엇이 왜 통했는지</text>
+  <path d="M 597 50 L 597 36 L 115 36 L 115 48" fill="none" stroke="#7fc4a2" stroke-width="1.2" marker-end="url(#ar-green)" stroke-dasharray="4 3"/>
+  <text x="356.0" y="31.0" fill="#7fc4a2" font-size="11" text-anchor="middle">다음 장면 k + 1</text>
+  <line x1="352.0" y1="104.0" x2="352.0" y2="136.0" stroke="#d88b8b" stroke-width="1.6" marker-end="url(#ar-red)"/>
+  <text x="360.0" y="124.0" fill="#d88b8b" font-size="11" text-anchor="start">실패</text>
+  <rect x="206.0" y="138.0" width="292.0" height="60.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="352.0" y="160.0" fill="#e2e8f0" font-size="12" text-anchor="middle">optimizer 가 명령 기록·명령마다의 사진·</text>
+  <text x="352.0" y="178.0" fill="#e2e8f0" font-size="12" text-anchor="middle">tool 코드를 읽고 skill.md 에 진단</text>
+  <line x1="352.0" y1="198.0" x2="352.0" y2="222.0" stroke="#a99ad6" stroke-width="1.6" marker-end="url(#ar-violet)"/>
+  <rect x="206.0" y="224.0" width="292.0" height="40.0" rx="8" fill="#111a2e" stroke="#a99ad6" stroke-width="1.6"/>
+  <text x="352.0" y="249.0" fill="#e2e8f0" font-size="12" text-anchor="middle">tool 과 unit test 를 쓰거나 고침</text>
+  <line x1="352.0" y1="264.0" x2="352.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar-muted)"/>
+  <rect x="206.0" y="290.0" width="292.0" height="54.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.4"/>
+  <text x="352.0" y="312.0" fill="#e2e8f0" font-size="12" text-anchor="middle">배달 검사: 파일이 다 있나, 불러와지나,</text>
+  <text x="352.0" y="330.0" fill="#e2e8f0" font-size="12" text-anchor="middle">설명 글에 작업·물체 이름이 없나</text>
+  <path d="M 206 317 L 150 317 L 150 104" fill="none" stroke="#7fc4a2" stroke-width="1.6" marker-end="url(#ar-green)"/>
+  <text x="30.0" y="200.0" fill="#7fc4a2" font-size="11.5" text-anchor="start">통과하면</text>
+  <text x="30.0" y="218.0" fill="#e2e8f0" font-size="11.5" text-anchor="start">simulator 를 다시 켜고</text>
+  <text x="30.0" y="236.0" fill="#e2e8f0" font-size="11.5" text-anchor="start">같은 장면을 다시 시도</text>
+  <text x="30.0" y="254.0" fill="#94a3b8" font-size="11.5" text-anchor="start">(장면마다 수정 5 번까지)</text>
+  <line x1="498.0" y1="317.0" x2="530.0" y2="317.0" stroke="#d88b8b" stroke-width="1.6" marker-end="url(#ar-red)"/>
+  <rect x="532.0" y="296.0" width="168.0" height="42.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.2"/>
+  <text x="616.0" y="322.0" fill="#e2e8f0" font-size="12" text-anchor="middle">통과 못 하면 되돌림</text>
+  <rect x="532.0" y="140.0" width="168.0" height="124.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="546.0" y="162.0" fill="#e2e8f0" font-size="11.5" text-anchor="start">열 번째 장면 뒤</text>
+  <text x="546.0" y="180.0" fill="#94a3b8" font-size="11.5" text-anchor="start">기록을 정리하고</text>
+  <text x="546.0" y="198.0" fill="#94a3b8" font-size="11.5" text-anchor="start">tool 을 고정(freeze)</text>
+  <text x="546.0" y="216.0" fill="#94a3b8" font-size="11.5" text-anchor="start">optimizer 없이 개발용</text>
+  <text x="546.0" y="234.0" fill="#94a3b8" font-size="11.5" text-anchor="start">10 개 + 새 장면 10 개</text>
+  <text x="546.0" y="252.0" fill="#94a3b8" font-size="11.5" text-anchor="start">에서 다시 잰다</text>
+  <text x="20.0" y="372.0" fill="#94a3b8" font-size="11.5" text-anchor="start">수리 round 중앙값 6.3 분 (90% 가 11 분 안) · 전체 769 round · 남은 것: task 명령 327 개, Python 약 78,000 줄</text>
+  </g>
+</svg>

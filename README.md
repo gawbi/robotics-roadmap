@@ -4,8 +4,8 @@
 
 **Robot Learning · Manipulation 직무를 준비하며 공부한 기록**
 
-[![Lessons](https://img.shields.io/badge/lessons-65-2dd4bf)](#커리큘럼)
-[![Hours](https://img.shields.io/badge/hours-141-818cf8)](#커리큘럼)
+[![Lessons](https://img.shields.io/badge/lessons-66-2dd4bf)](#커리큘럼)
+[![Hours](https://img.shields.io/badge/hours-143-818cf8)](#커리큘럼)
 [![Lessons license](https://img.shields.io/badge/lessons-CC%20BY--NC--SA%204.0-lightgrey)](lessons/LICENSE.md)
 [![Site license](https://img.shields.io/badge/site-MIT-blue)](LICENSE)
 
@@ -49,7 +49,7 @@
 
 ## 원본에 더한 것
 
-**강의 9개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
+**강의 10개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
 
 | 강의 | 영역 | 다루는 것 |
 | --- | --- | --- |
@@ -59,6 +59,7 @@
 | [Humanoid Whole-Body Control](lessons/humanoid-wbc/README.md) | Reinforcement Learning · 3h | motion capture retargeting, tracking reward, privileged teacher → student, H2O·OmniH2O·ExBody2·GMT·SONIC, ASAP 의 delta action, VLA 아래의 whole-body controller |
 | [Robot Data Scaling](lessons/data-scaling/README.md) | Imitation Learning · 2h | Open X-Embodiment·DROID, 로봇 없이 모으는 UMI, 환경·물체 다양성의 data scaling law, MimicGen·DemoGen 합성 시연, CUPID curation, π0.5 의 data mixture |
 | [Reasoning VLA](lessons/vla-reasoning/README.md) | Frontier · 2h | π0.5 의 high-level 추론, Hi Robot, embodied chain-of-thought, 추론 token 의 비용과 제어 주기, knowledge insulation, Gemini Robotics-ER·1.5 |
+| [Robot Coding Agent](lessons/robot-coding-agent/README.md) | Frontier · 2h | 시연·학습 없이 명령줄 하나로 로봇을 다루는 HexaShell, 결정하지 않는 thin harness, 평면과 두 번째 view 로 재는 3D 위치와 active perception 의 비용, 실패를 tool 로 바꾸는 optimizer loop, hidden seed 평가와 누설 감사, 접촉의 경계 |
 | [GPU Motion Generation](lessons/gpu-motion-generation/README.md) | Motion Planning · 3h | CHOMP·TrajOpt, 구 근사와 ESDF(nvblox), GPU 에서 seed 여러 개를 함께 푸는 cuRobo, 벤치마크 숫자 읽기, MPC, Isaac ROS cuMotion |
 | [6D Object Pose](lessons/object-pose/README.md) | Perception & Grasping · 2h | PnP·RANSAC·ICP, 대칭 물체와 ADD·BOP 지표, PoseCNN·DOPE, render-and-compare(MegaPose), FoundationPose, pose 에서 grasp 까지 |
 | [Tactile Sensing](lessons/tactile-sensing/README.md) | Perception & Grasping · 2h | GelSight 의 photometric stereo 와 marker, 미끄러짐 감지, TACTO·Taxim simulation, visuo-tactile policy·Sparsh, gel 마모와 센서마다 다른 신호 |

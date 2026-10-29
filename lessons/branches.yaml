@@ -111,5 +111,5 @@ branches:
 
   - id: frontier
     title: Frontier
-    summary: 정답이 아직 굳지 않은 최전선 연구. 세상을 예측하는 world model 과 VLA 의 RL fine-tuning
+    summary: 정답이 아직 굳지 않은 최전선 연구. 세상을 예측하는 world model, VLA 의 RL fine-tuning, 실패를 코드로 고쳐 가는 robot coding agent
     color: "#f87171"

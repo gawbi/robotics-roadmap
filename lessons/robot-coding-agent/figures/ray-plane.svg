@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ray 와 평면. 예로 카메라가 탁자 면보다 0.60 m 위에 있고 ray 가 0.60 m 내려가는 동안 앞으로 0.40 m 나아간다. 탁자 면과는 앞으로 0.400 m 에서 만나고, 탁자보다 15 mm 높은 블록 윗면과는 0.585 m 내려간 0.390 m 에서 만난다. 블록 윗면의 점에 탁자 높이를 쓰면 위치가 10 mm 밀린다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="358" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">옆에서 본 ray 와 평면 (카메라 높이와 ray 기울기는 예, 높이 차와 위치 차는 크게 그림)</text>
+  <rect x="20.0" y="44.0" width="360.0" height="300.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <path d="M 56 72 L 80 72 L 80 90 L 56 90 z" fill="#0b1220" stroke="#e2e8f0" stroke-width="1.4"/>
+  <text x="68.0" y="64.0" fill="#e2e8f0" font-size="11.5" text-anchor="middle">카메라</text>
+  <line x1="36.0" y1="300.0" x2="364.0" y2="300.0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="362.0" y="318.0" fill="#94a3b8" font-size="11.5" text-anchor="end">탁자 면</text>
+  <rect x="114.0" y="270.0" width="110.0" height="30.0" rx="2" fill="#0b1220" stroke="#d6aa62" stroke-width="1.4"/>
+  <text x="120.0" y="289.0" fill="#d6aa62" font-size="11" text-anchor="start">블록</text>
+  <text x="58.0" y="264.0" fill="#d6aa62" font-size="11" text-anchor="start">윗면은 탁자 + 15 mm</text>
+  <line x1="70.0" y1="84.0" x2="222.0" y2="312.0" stroke="#7cb4d8" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <line x1="70.0" y1="84.0" x2="194.0" y2="270.0" stroke="#7cb4d8" stroke-width="2"/>
+  <circle cx="194.0" cy="270.0" r="4.5" fill="#d6aa62" stroke="#d6aa62" stroke-width="1.4"/>
+  <circle cx="214.0" cy="300.0" r="4.5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.4"/>
+  <line x1="36.0" y1="84.0" x2="36.0" y2="300.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#ar-muted)"/>
+  <text x="44.0" y="200.0" fill="#94a3b8" font-size="11" text-anchor="start">0.60 m</text>
+  <line x1="70.0" y1="326.0" x2="214.0" y2="326.0" stroke="#94a3b8" stroke-width="1" marker-end="url(#ar-muted)"/>
+  <text x="142.0" y="340.0" fill="#94a3b8" font-size="11" text-anchor="middle">앞으로 0.40 m</text>
+  <line x1="194.0" y1="256.0" x2="214.0" y2="256.0" stroke="#d88b8b" stroke-width="1.4"/>
+  <line x1="194.0" y1="252.0" x2="194.0" y2="260.0" stroke="#d88b8b" stroke-width="1.4"/>
+  <line x1="214.0" y1="252.0" x2="214.0" y2="260.0" stroke="#d88b8b" stroke-width="1.4"/>
+  <text x="220.0" y="248.0" fill="#d88b8b" font-size="12" text-anchor="start" font-weight="600">10 mm</text>
+  <text x="178.0" y="236.0" fill="#d6aa62" font-size="11" text-anchor="end">실제 점</text>
+  <text x="226.0" y="294.0" fill="#d88b8b" font-size="11" text-anchor="start">탁자 높이로 잰 점</text>
+  <rect x="392.0" y="44.0" width="308.0" height="300.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="408.0" y="70.0" fill="#7cb4d8" font-size="12.5" text-anchor="start">ray: 0.60 m 내려갈 때 0.40 m 나아감</text>
+  <text x="408.0" y="100.0" fill="#d6aa62" font-size="12" text-anchor="start">블록 윗면과 만남</text>
+  <text x="415.2" y="124.0" fill="#e2e8f0" font-size="12" text-anchor="start">내려가는 거리 0.600 − 0.015 = 0.585 m</text>
+  <text x="415.2" y="148.0" fill="#e2e8f0" font-size="12" text-anchor="start">앞으로 0.585 × 0.40 ÷ 0.60 = 0.390 m</text>
+  <text x="408.0" y="172.0" fill="#d88b8b" font-size="12" text-anchor="start">탁자 면과 만남</text>
+  <text x="415.2" y="196.0" fill="#e2e8f0" font-size="12" text-anchor="start">내려가는 거리 0.600 m</text>
+  <text x="415.2" y="220.0" fill="#e2e8f0" font-size="12" text-anchor="start">앞으로 0.600 × 0.40 ÷ 0.60 = 0.400 m</text>
+  <line x1="408.0" y1="252.0" x2="684.0" y2="252.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="408.0" y="276.0" fill="#e2e8f0" font-size="12" text-anchor="start">위치 오차 0.400 − 0.390 = 0.010 m</text>
+  <text x="408.0" y="298.0" fill="#94a3b8" font-size="12" text-anchor="start">= 높이 오차 15 mm × 0.40 ÷ 0.60</text>
+  <text x="408.0" y="320.0" fill="#d6aa62" font-size="12" text-anchor="start">push T: 0.765 m 대신 0.780 m 여야 했다</text>
+</svg>
