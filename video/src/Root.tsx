@@ -13,6 +13,9 @@ import { DrivingStack } from './lessons/DrivingStack'
 import drivingStackNarration from './lessons/driving-stack.narration.json'
 import { script as drivingStack } from './lessons/driving-stack.script'
 import { RealRobot } from './lessons/RealRobot'
+import { RobotCodingAgent } from './lessons/RobotCodingAgent'
+import robotCodingAgentNarration from './lessons/robot-coding-agent.narration.json'
+import { script as robotCodingAgent } from './lessons/robot-coding-agent.script'
 import realRobotNarration from './lessons/real-robot.narration.json'
 import { script as realRobot } from './lessons/real-robot.script'
 import { VlaTokens } from './lessons/VlaTokens'
@@ -29,6 +32,7 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [realRobot, RealRobot, realRobotNarration],
   [vlaTokens, VlaTokens, vlaTokensNarration],
   [drivingStack, DrivingStack, drivingStackNarration],
+  [robotCodingAgent, RobotCodingAgent, robotCodingAgentNarration],
 ]
 
 export function RemotionRoot() {
