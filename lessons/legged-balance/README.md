@@ -18,6 +18,10 @@ papers:
     authors: Jerry Pratt, John Carff, Sergey Drakunov, Ambarish Goswami
     year: 2006
     url: https://doi.org/10.1109/ICHR.2006.321385
+  - title: "Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control"
+    authors: Jared Di Carlo, Patrick M. Wensing, Benjamin Katz, Gerardo Bledt, Sangbae Kim
+    year: 2018
+    url: https://doi.org/10.1109/IROS.2018.8594448
   - title: "Highly Dynamic Quadruped Locomotion via Whole-Body Impulse Control and Model Predictive Control"
     authors: Donghyun Kim, Jared Di Carlo, Benjamin Katz, Gerardo Bledt, Sangbae Kim
     year: 2019
@@ -378,7 +382,8 @@ trot 에서는 대각선의 두 발만 바닥에 닿아 support polygon 이 두 
 연구에서 나왔고, Kim 등(2019)은 이 생각을 이어받았다.
 
 발마다 힘을 직접 정하려면 그 힘이 몸통을 어떻게 움직이는지 알아야 한다. MIT 의 Cheetah 연구에서는 다리가 몸통에 주는 영향을 무시하고 로봇
-전체를 질량 $m$ 과 회전 관성 $I$ 를 가진 상자 하나로 보는 **single rigid body 모델**을 쓴다. single rigid body 모델에서는 발 힘의 합에서
+전체를 질량 $m$ 과 회전 관성 $I$ 를 가진 상자 하나로 보는 **single rigid body 모델**을 쓴다. Cheetah 3 에서 이 모델을 쓴 Di Carlo
+등(2018)은 다리 질량이 로봇 전체의 약 10% 라서 이 단순화가 받아들일 만하다고 적었다. single rigid body 모델에서는 발 힘의 합에서
 무게를 뺀 만큼 몸통이 가속하고, 발 힘이 무게중심을 축으로 돌리는 moment 의 합만큼 몸통의 회전이 빨라진다.
 
 ![single rigid body 모델의 힘 배분. 예로 9 kg 인 로봇의 무게중심이 엉덩이 사이 가운데보다 2 cm 앞에 있으면, 무게중심에서 0.17 m 앞의 앞발 둘이 48.8 N, 0.21 m 뒤의 뒷발 둘이 39.5 N 을 받아야 앞뒤로 돌리는 moment 가 8.3 N·m 씩 같아진다](figures/srb-forces.svg)
@@ -434,7 +439,8 @@ Mini Cheetah 에서 MPC 가 매 주기 푸는 문제는 아래와 같다.
 
 ![convex MPC 의 구조. gait scheduler 가 어느 발이 언제 땅에 닿을지와 착지점을 정하고, convex MPC 가 0.026 초 간격 10 step 동안의 바닥 반력을 QP 로 풀어 1초에 30 ~ 40 번 낸다. WBIC 가 1초에 500 번 joint torque 와 목표 각도를 내고, joint PD 는 1초에 40,000 번 계산한다](figures/mpc-loop.svg)
 
-앞 절에서 본 대로 몸통의 회전에는 힘에 대해 직선이 아닌 부분이 있다. Kim 등은 Cheetah 3 에서 먼저 쓴 정식화를 따라 세 가지를 단순하게 했다.
+앞 절에서 본 대로 몸통의 회전에는 힘에 대해 직선이 아닌 부분이 있다. Kim 등은 Di Carlo 등(2018)이 Cheetah 3 에서 먼저 쓴 정식화를 따라 세
+가지를 단순하게 했다.
 roll 과 pitch 는 작다고 보고, yaw 와 발 위치 $\mathbf{r}_i$ 에는 몸통이 명령한 경로 근처에 있다고 보아 명령한 경로와 계획한 착지점의 값을 미리
 넣는다. 그리고 회전이 느리다고 보아 회전 관성 안의 작은 항을 지운다. 어느 발이 언제 땅에 닿을지는 gait scheduler 가 미리 정한다. Kim 등은 이
 순서만 바꾸면 걸음새를 바꿀 수 있다는 것을 MPC 의 장점으로 꼽았다. 이렇게 단순하게 하면 상태는 바닥 반력에 대해 직선 관계가 되고, 비용은 그릇
@@ -459,6 +465,12 @@ weight 를 10 으로 두어, 몸통 높이와 방향을 가장 중요하게 맞�
 5 m/s² 를 그대로 내면 발이 미끄러지고, 계산을 마친 힘을 발마다 17.7 N 으로 자르면 땅에 닿은 발들의 moment 균형이 깨질 수 있다. QP 는 처음부터 제약을
 지키는 힘들 가운데에서 몸통의 회전까지 맞추는 조합을 고르고, 다 내지 못한 가속은 뒤의 step 에서 이어 간다. Kim 등에 따르면 Mini Cheetah 의
 MPC 는 1초에 30 ~ 40 번 계산했고, 한 발이 땅에 닿아 있는 동안에는 힘을 4 번만 새로 계산했다.
+
+이 정식화를 처음 쓴 Cheetah 3 에서 Di Carlo 등(2018)은 걸음 한 주기(0.33 ~ 0.5 초)를 horizon 으로 삼아 10 ~ 16 step 으로 나누고, 그 QP 를
+1 ms 안에 풀었다. 같은 gain 과 weight 로 서기와 trot 부터 gallop(네 발을 한 발씩 차례로 딛는 빠른 걸음새)까지 여덟 가지 걸음새를 해냈고,
+gallop 으로는 3 m/s 까지 달렸다. 모델을 크게 단순화했는데도 잘 걷는 이유로, 저자들은 horizon 전체의 모델보다 지금 순간의 모델이 정확한 것이 더
+중요하다고 보았다. 첫 step 의 행렬은 늘 지금 상태로 계산해서 정확하다. 로봇이 밀려 계획에서 벗어나면 40 ms 안에 다음 MPC 계산이 밀린 상태에서
+계획을 다시 세운다.
 
 <details><summary><b>심화: convex MPC 의 QP</b></summary>
 
@@ -486,7 +498,9 @@ $$
 
 Cheetah-Software 는 모든 step 의 상태를 첫 상태와 힘으로 풀어 써서 변수로 힘만 남긴다. 모든 힘을 쌓은 vector 를 $U$ 라고 하면 상태를 쌓은
 vector 는 $A_{qp}\mathbf{x}_0 + B_{qp} U$ 다. 비용은 $U^\top H U + 2\mathbf{q}^\top U$ 꼴이고, 여기서 $H = 2(B_{qp}^\top S B_{qp} + \alpha I)$ 다($S$ 는
-$Q$ 를 step 수만큼 늘어놓은 대각 행렬이고 $\alpha$ 는 힘의 weight 다). 발마다 붙는 제약은 $\pm f_x/\mu + f_z \ge 0$, $\pm f_y/\mu + f_z \ge 0$,
+$Q$ 를 step 수만큼 늘어놓은 대각 행렬이고 $\alpha$ 는 힘의 weight 다). 이 condensed 정식화는 Di Carlo 등(2018)의 4 절 D 에서 왔다. dynamics
+제약과 상태를 변수에서 빼고 비용 안에 넣어서, 변수의 개수가 상태의 개수와 상관없이 발 수 × 3 × step 수로 정해진다. Cheetah 3 는
+$\mu = 0.6$ 과 $10 \le f_z \le 666$ N 의 제약을 쓰고, 높이 weight 50 과 힘의 weight $10^{-6}$ 을 썼다(같은 논문의 Table I). 발마다 붙는 제약은 $\pm f_x/\mu + f_z \ge 0$, $\pm f_y/\mu + f_z \ge 0$,
 $0 \le f_z \le 120$ 의 다섯 줄이고, 공중에 있는 발은 상한을 0 으로 둔다.
 
 사각뿔 근사에서 $|f_x| \le 0.4 f_z$ 와 $|f_y| \le 0.4 f_z$ 를 함께 꽉 채우면 수평 힘의 크기가 $\sqrt{0.4^2 + 0.4^2} f_z = 0.57 f_z$ 가
@@ -598,6 +612,8 @@ reinforcement learning 으로 simulation 에서 학습한 뒤, 모델과 실제�
   capture point 의 정의, 언제 어디에 디딜지 정하는 규칙, flywheel 모델
 - J. Pratt, T. Koolen et al., [Capturability-based Analysis and Control of Dynamic Scrambling](https://www.cmu.edu/dynamic-walking/files/abstracts/Pratt_2013_DW.pdf)
   (Dynamic Walking 2013 초록) — n 걸음 capturability 를 요약한 글
+- J. Di Carlo et al., [Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control](https://hdl.handle.net/1721.1/138000)
+  (2018, MIT 공개 원고) — 3 절의 단순화한 몸통 모델, 4 절의 MPC 와 condensed QP, Table I 의 Cheetah 3 설정값, 5 절의 걸음새 실험
 - D. Kim et al., [Highly Dynamic Quadruped Locomotion via Whole-Body Impulse Control and Model Predictive Control](https://arxiv.org/abs/1909.06586)
   (2019) — 3 절의 convex MPC 정식화, 4 절의 WBIC, Mini Cheetah 실험
 - MIT Biomimetic Robotics Lab, [Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software) — `ConvexMPCLocomotion.cpp` 와 `SolverMPC.cpp`
