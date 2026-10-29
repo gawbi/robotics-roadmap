@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>실물 배포의 상태 순서. 매단 채 zero torque 에서 start 로 2 초 동안 기본 자세로 옮기고, 줄을 내린 뒤 A 로 policy 를 실행하며, select 로 damping 에 넣어 끝낸다. 아래는 무릎 0.7 rad 를 한 번에 옮기면 105 N·m, 100 step 에 나누면 1 N·m 남짓으로 시작한다는 비교</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="398" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">deploy_real.py 의 상태 순서</text>
+  <rect x="20.0" y="70.0" width="112.0" height="58.0" rx="8" fill="#111a2e" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="76.0" y="94.0" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="600">zero torque</text>
+  <text x="76.0" y="114.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">관절이 손으로 움직임</text>
+  <line x1="133.0" y1="99.0" x2="161.0" y2="99.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
+  <text x="147.0" y="146.0" fill="#d6aa62" font-size="11" text-anchor="middle" font-weight="600">start</text>
+  <rect x="162.0" y="70.0" width="112.0" height="58.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="218.0" y="94.0" fill="#7cb4d8" font-size="13" text-anchor="middle" font-weight="600">기본 자세로</text>
+  <text x="218.0" y="114.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">2 초, 100 step 보간</text>
+  <line x1="275.0" y1="99.0" x2="303.0" y2="99.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
+  <text x="289.0" y="146.0" fill="#d6aa62" font-size="11" text-anchor="middle" font-weight="600">자동</text>
+  <rect x="304.0" y="70.0" width="112.0" height="58.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="360.0" y="94.0" fill="#7cb4d8" font-size="13" text-anchor="middle" font-weight="600">기본 자세 유지</text>
+  <text x="360.0" y="114.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">줄을 내려 발을 땅에</text>
+  <line x1="417.0" y1="99.0" x2="445.0" y2="99.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
+  <text x="431.0" y="146.0" fill="#d6aa62" font-size="11" text-anchor="middle" font-weight="600">A</text>
+  <rect x="446.0" y="70.0" width="112.0" height="58.0" rx="8" fill="#111a2e" stroke="#7fc4a2" stroke-width="1.6"/>
+  <text x="502.0" y="94.0" fill="#7fc4a2" font-size="13" text-anchor="middle" font-weight="600">실행</text>
+  <text x="502.0" y="114.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">0.02 초마다 policy</text>
+  <line x1="559.0" y1="99.0" x2="587.0" y2="99.0" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar-muted)"/>
+  <text x="573.0" y="146.0" fill="#d6aa62" font-size="11" text-anchor="middle" font-weight="600">select</text>
+  <rect x="588.0" y="70.0" width="112.0" height="58.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.6"/>
+  <text x="644.0" y="94.0" fill="#d88b8b" font-size="13" text-anchor="middle" font-weight="600">damping</text>
+  <text x="644.0" y="114.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">kp 0, kd 8 → 주저앉음</text>
+  <path d="M20 60 v-6 h396 v6" fill="none" stroke="#d6aa62" stroke-width="1.3"/>
+  <text x="218.0" y="48.0" fill="#d6aa62" font-size="11.5" text-anchor="middle">로봇을 줄에 매단 채</text>
+  <line x1="70.0" y1="350.0" x2="450.0" y2="350.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="70.0" y1="180.0" x2="70.0" y2="350.0" stroke="#1e293b" stroke-width="1"/>
+  <text x="62.0" y="190.0" fill="#94a3b8" font-size="10.5" text-anchor="end">1.0</text>
+  <text x="62.0" y="346.0" fill="#94a3b8" font-size="10.5" text-anchor="end">0.3</text>
+  <text x="450.0" y="368.0" fill="#94a3b8" font-size="10.5" text-anchor="end">2 초 (100 step)</text>
+  <text x="70.0" y="368.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">0</text>
+  <text x="62.0" y="168.0" fill="#94a3b8" font-size="10.5" text-anchor="start">무릎 목표 (rad)</text>
+  <path d="M70 186 L450 344" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <path d="M70 186 V344 H450" fill="none" stroke="#d88b8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="480.0" y="180.0" width="220.0" height="76.0" rx="8" fill="#111a2e" stroke="#d88b8b" stroke-width="1.2"/>
+  <text x="494.0" y="202.0" fill="#d88b8b" font-size="12.5" text-anchor="start" font-weight="600">한 번에 0.3 으로</text>
+  <text x="494.0" y="224.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">150 × 0.7 = 105 N·m</text>
+  <rect x="480.0" y="268.0" width="220.0" height="76.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.2"/>
+  <text x="494.0" y="290.0" fill="#7cb4d8" font-size="12.5" text-anchor="start" font-weight="600">100 step 에 나눠서</text>
+  <text x="494.0" y="312.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">step 마다 0.007 rad</text>
+  <text x="494.0" y="332.0" fill="#e2e8f0" font-size="12" text-anchor="start">150 × 0.007 ≈ 1 N·m 에서 시작</text>
+</svg>

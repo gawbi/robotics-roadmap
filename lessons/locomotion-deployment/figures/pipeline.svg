@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>학습에서 실물까지 네 단계. Train 과 Play 는 학습 환경이 observation 을 만들고, Sim2Sim 에서 따로 쓴 배포 script 가 처음 실행되며 같은 조립 방식이 Sim2Real 로 이어진다. policy 주기는 Isaac Gym 0.005 초 × 4, MuJoCo 0.002 초 × 10, 실물 모두 0.02 초다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">unitree_rl_gym 의 네 단계</text>
+  <rect x="20.0" y="50.0" width="157.0" height="78.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="98.5" y="74.0" fill="#7cb4d8" font-size="14" text-anchor="middle" font-weight="600">Train</text>
+  <text x="98.5" y="95.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Isaac Gym</text>
+  <text x="98.5" y="115.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">PPO 학습</text>
+  <line x1="179.0" y1="89.0" x2="199.0" y2="89.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar-muted)"/>
+  <rect x="201.0" y="50.0" width="157.0" height="78.0" rx="8" fill="#111a2e" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="279.5" y="74.0" fill="#7cb4d8" font-size="14" text-anchor="middle" font-weight="600">Play</text>
+  <text x="279.5" y="95.0" fill="#e2e8f0" font-size="12" text-anchor="middle">Isaac Gym</text>
+  <text x="279.5" y="115.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">재생, 파일로 내보내기</text>
+  <line x1="360.0" y1="89.0" x2="380.0" y2="89.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar-muted)"/>
+  <rect x="382.0" y="50.0" width="157.0" height="78.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.6"/>
+  <text x="460.5" y="74.0" fill="#d6aa62" font-size="14" text-anchor="middle" font-weight="600">Sim2Sim</text>
+  <text x="460.5" y="95.0" fill="#e2e8f0" font-size="12" text-anchor="middle">MuJoCo</text>
+  <text x="460.5" y="115.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">다른 simulator 에서 걷기</text>
+  <line x1="541.0" y1="89.0" x2="561.0" y2="89.0" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar-muted)"/>
+  <rect x="563.0" y="50.0" width="157.0" height="78.0" rx="8" fill="#111a2e" stroke="#d6aa62" stroke-width="1.6"/>
+  <text x="641.5" y="74.0" fill="#d6aa62" font-size="14" text-anchor="middle" font-weight="600">Sim2Real</text>
+  <text x="641.5" y="95.0" fill="#e2e8f0" font-size="12" text-anchor="middle">실물 로봇</text>
+  <text x="641.5" y="115.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Ethernet 으로 motor 명령</text>
+  <text x="20.0" y="158.0" fill="#94a3b8" font-size="11.5" text-anchor="start">observation 을 만드는 코드</text>
+  <path d="M20 168 v8 h338 v-8" fill="none" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="189.0" y="194.0" fill="#7cb4d8" font-size="12.5" text-anchor="middle" font-weight="600">학습 환경 코드</text>
+  <path d="M382 168 v8 h338 v-8" fill="none" stroke="#d6aa62" stroke-width="1.6"/>
+  <text x="551.0" y="194.0" fill="#d6aa62" font-size="12.5" text-anchor="middle" font-weight="600">배포 script (같은 조립 방식)</text>
+  <text x="20.0" y="228.0" fill="#94a3b8" font-size="11.5" text-anchor="start">policy 주기</text>
+  <rect x="20.0" y="238.0" width="157.0" height="30.0" rx="6" fill="#0b1220" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="98.5" y="258.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.005 s × 4 = 0.02 s</text>
+  <rect x="201.0" y="238.0" width="157.0" height="30.0" rx="6" fill="#0b1220" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="279.5" y="258.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.005 s × 4 = 0.02 s</text>
+  <rect x="382.0" y="238.0" width="157.0" height="30.0" rx="6" fill="#0b1220" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="460.5" y="258.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.002 s × 10 = 0.02 s</text>
+  <rect x="563.0" y="238.0" width="157.0" height="30.0" rx="6" fill="#0b1220" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="641.5" y="258.0" fill="#e2e8f0" font-size="12" text-anchor="middle">motor 제어기 · 0.02 s</text>
+  <text x="460.5" y="296.0" fill="#d6aa62" font-size="11.5" text-anchor="middle">배포 코드를 실물 없이 처음 시험하는 자리</text>
+  <text x="20.0" y="318.0" fill="#94a3b8" font-size="11.5" text-anchor="start">physics 간격은 달라도 policy 를 부르는 간격 0.02 초(1초에 50 번)는 그대로 둔다</text>
+</svg>

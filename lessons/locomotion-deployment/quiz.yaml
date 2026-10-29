@@ -1,0 +1,304 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: four-stages
+  title: Sim2Sim 이 걸러 내는 것
+  section: 학습에서-실물까지-네-단계
+  variants:
+    - question: |
+        unitree_rl_gym 의 네 단계에서 Play 로는 알 수 없고 Sim2Sim 에서 처음 확인되는 것은 무엇인가?
+      choices:
+        - '따로 쓴 배포 코드가 observation 을 맞게 만드는지'
+        - 'reward 가 원하는 모양의 걸음을 학습 중에 만드는지'
+        - 'PPO 학습이 충분히 수렴했는지와 학습 곡선의 모양'
+        - '실물 motor 의 지연이 학습 때 넣은 지연과 같은지'
+      answer: 0
+      explanation: |
+        Train 과 Play 에서는 학습 환경의 코드가 observation 을 만든다. Sim2Sim 의 MuJoCo script 는 observation 을 처음부터 다시 조립하므로,
+        배포 코드는 여기서 처음 실행된다. reward 와 학습 곡선은 Train·Play 에서 확인하고, 실물 motor 의 지연은 Sim2Real 에서만 드러난다.
+    - question: |
+        학습은 physics 0.005 초 × decimation 4, MuJoCo Sim2Sim 은 physics 0.002 초 × decimation 10 이다. 이 설정에서 지킨 것은 무엇인가?
+      choices:
+        - 'physics 를 계산하는 간격을 두 simulator 에서 모두 똑같이 맞췄다'
+        - 'decimation 을 두 simulator 에서 같은 값으로 맞췄다'
+        - 'policy 를 부르는 간격을 두 simulator 모두 0.02 초로 맞췄다'
+        - '1초에 계산하는 physics step 의 수를 똑같이 맞췄다'
+      answer: 2
+      explanation: |
+        $0.005 \times 4$ 와 $0.002 \times 10$ 은 모두 0.02 초다. physics 간격과 decimation, 1초의 physics step 수(200 과 500)는 다르지만
+        policy 가 학습한 리듬인 0.02 초 주기는 같다.
+    - question: |
+        Play 에서는 잘 걷던 policy 가 Sim2Sim 에서 바로 쓰러졌다. 이 결과로 좁힐 수 있는 원인은 무엇인가?
+      choices:
+        - 'PPO 학습 횟수가 모자라 policy 가 아직 걷는 법을 못 배웠다'
+        - '실물 IMU 가 상체에 붙어 있어 몸통의 자세가 다르게 읽혔다'
+        - '리모컨 스틱의 부호가 뒤집혀 policy 가 반대 명령을 받았다'
+        - 'Isaac Gym 에만 맞춘 걸음이거나 배포 코드의 조립이 틀렸다'
+      answer: 3
+      explanation: |
+        Play 에서 걸었으니 학습 자체는 됐다. Sim2Sim 에서 달라진 것은 simulator 의 계산 방식과 observation 을 만드는 코드다. IMU 위치와
+        리모컨은 실물에만 있는 요소라 Sim2Sim 의 원인이 아니다.
+
+- topic: config-numbers
+  title: policy 파일 밖의 숫자
+  section: policy-와-함께-옮기는-숫자
+  variants:
+    - question: |
+        G1 policy 의 관절 속도 칸 배율은 0.05 다. 무릎이 4 rad/s 로 도는데 배포 코드가 배율을 빠뜨리면 policy 는 무엇을 받는가?
+      choices:
+        - '0.2 를 받아 학습 때와 같은 크기의 숫자로 본다'
+        - '4 를 받아 학습 때 보던 크기의 20 배를 본다'
+        - '0.05 를 받아 학습 때보다 네 배 작은 숫자를 본다'
+        - '80 을 받아 학습 때 보던 크기의 400 배를 본다'
+      answer: 1
+      explanation: |
+        맞게 만들면 $4 \times 0.05 = 0.2$ 가 들어간다. 배율을 빠뜨리면 4 가 그대로 들어가고 이는 0.2 의 20 배다. 학습 때 이 칸의 noise 는
+        ±0.075 였으니 policy 는 본 적 없는 크기의 입력을 받는다.
+    - question: |
+        G1 무릎의 기본 각도는 0.3 rad, 학습 때 action 배율은 0.25 다. policy 가 0.4 를 냈는데 배포 yaml 에 배율을 0.5 로 잘못 적었다면 목표 각도는?
+      choices:
+        - '0.4 rad 로 학습 때와 같다'
+        - '0.7 rad 로 기본 자세에서 네 배 벗어난다'
+        - '0.5 rad 로 기본 자세에서 두 배 벗어난다'
+        - '0.2 rad 로 기본 자세의 반대쪽으로 간다'
+      answer: 2
+      explanation: |
+        목표는 기본 각도 + 배율 × action 이다. 맞으면 $0.3 + 0.25 \times 0.4 = 0.4$, 잘못 적으면 $0.3 + 0.5 \times 0.4 = 0.5$ rad 다. 기본
+        자세에서 벗어나는 양이 0.1 에서 0.2 로 두 배가 된다.
+    - question: |
+        Play 단계가 내보내는 TorchScript policy 파일에 들어 있는 것은 무엇인가?
+      choices:
+        - 'weight, 그리고 LSTM 이면 hidden state 와 그 초기화 함수'
+        - 'weight 와 observation 칸마다 곱할 배율의 목록 전체'
+        - 'weight 와 관절마다의 기본 자세, 그리고 kp·kd 값'
+        - 'weight 와 policy 를 불러야 하는 주기 0.02 초 설정'
+      answer: 0
+      explanation: |
+        내보낸 파일은 숫자를 받아 숫자를 내는 함수다. LSTM 파일은 hidden state 를 buffer 로 들고 `reset_memory` 를 함께 내보낸다. observation
+        배율, 기본 자세, gain, 주기는 학습 설정과 배포 yaml 에 따로 적혀 있다.
+
+- topic: joint-mapping
+  title: 관절 순서와 motor 번호
+  section: 관절-순서
+  variants:
+    - question: |
+        H1 의 대응표는 $[7, 3, 4, 5, 10, 8, 0, 1, 2, 11]$ 이고 policy 칸 3 은 왼쪽 무릎, motor 3 은 왼쪽 hip roll 이다. 대응표를 빠뜨리면 어떻게 되는가?
+      choices:
+        - '왼쪽 무릎의 목표가 motor 5 로 가서 학습 때와 똑같이 잘 움직인다'
+        - '칸 번호와 motor 번호가 다르면 SDK 가 메시지를 거부해 멈춘다'
+        - '왼쪽 무릎의 목표가 오른쪽 무릎으로 가서 좌우가 바뀐 채 걷는다'
+        - '왼쪽 무릎의 목표가 hip roll 로 가서 다리를 옆으로 돌리려 한다'
+      answer: 3
+      explanation: |
+        대응표 없이 칸 3 을 motor 3 으로 보내면 왼쪽 hip roll 이 무릎의 목표(기본 0.3 rad)를 받는다. 0.3 rad 는 약 17° 이고, kp 200 이면
+        60 N·m 로 다리를 옆으로 돌린다. SDK 는 번호가 맞는지 알지 못한다.
+    - question: |
+        같은 2족 로봇을 Isaac Gym 대신 Isaac Lab 으로 다시 학습했다. 배포 코드에서 먼저 확인해야 할 것은 무엇인가?
+      choices:
+        - '관절 이름이 같으니 대응표와 quaternion 처리를 그대로 둔다'
+        - '관절을 너비 우선으로 세므로 칸 순서와 quaternion 칸 순서를 다시 본다'
+        - 'physics 간격이 바뀌었으니 policy 를 부르는 주기를 0.01 초로 줄인다'
+        - 'Isaac Lab 은 motor 번호를 직접 쓰므로 대응표를 지운다'
+      answer: 1
+      explanation: |
+        Isaac Lab 문서에 따르면 Isaac Lab 은 관절을 너비 우선으로, Isaac Gym 은 깊이 우선으로 세고, quaternion 칸 순서도 wxyz 와 xyzw 로
+        다르다. 칸 순서가 바뀌면 대응표를 다시 만든다. policy 주기는 학습 설정을 따르고, motor 번호는 제조사가 정한다.
+    - question: |
+        배포 script 가 리모컨 왼쪽 스틱의 좌우 값 `lx` 에 −1 을 곱해 옆 속도 명령으로 쓰는 이유는 무엇인가?
+      choices:
+        - '스틱을 오른쪽으로 밀면 + 인데, 로봇 좌표의 +y 는 왼쪽이라서'
+        - '리모컨 값이 0 에서 1 사이라서 −1 을 곱해 범위를 넓히려고'
+        - '옆으로 걷는 속도를 줄여 넘어지지 않게 하려고'
+        - 'policy 가 옆 속도 명령을 음수로만 학습했기 때문에'
+      answer: 0
+      explanation: |
+        몸통 좌표는 $x$ 앞, $y$ 왼쪽, $z$ 위다. 스틱을 오른쪽으로 밀면 `lx` 는 + 이므로 부호를 뒤집어야 오른쪽($-y$)으로 걷는 명령이 된다.
+        같은 이름의 축이라도 + 방향은 장치마다 다를 수 있다.
+
+- topic: gravity-vector
+  title: 중력 방향과 quaternion 칸 순서
+  section: imu-에서-중력-방향까지
+  variants:
+    - question: |
+        몸통 좌표는 $x$ 앞, $y$ 왼쪽, $z$ 위다. 로봇이 앞으로 10° 숙였을 때 몸통에서 본 중력 방향은 무엇인가?
+      choices:
+        - '(0, 0, −1) 로, 기울기와 상관없이 늘 같다'
+        - '(−0.174, 0, −0.985) 로, 중력이 뒤쪽으로 기운다'
+        - '(0.174, 0, −0.985) 로, 중력이 앞쪽으로 기운다'
+        - '(0, −0.174, −0.985) 로, 중력이 오른쪽으로 기운다'
+      answer: 2
+      explanation: |
+        quaternion 이 $(0.996, 0, 0.087, 0)$ 이라 $g_x = 2 \times 0.996 \times 0.087 = 0.174$, $g_z = -0.985$ 다. 앞으로 숙이면 몸통에서 본
+        중력은 앞쪽 성분을 갖는다. 오른쪽 성분은 옆으로 기울 때 생긴다.
+    - question: |
+        IMU 의 quaternion 칸 순서를 잘못 읽는 bug 가 있다. 이 bug 가 똑바로 서 있는 동안 드러나지 않는 이유는 무엇인가?
+      choices:
+        - '서 있는 동안에는 IMU 가 quaternion 을 보내지 않아서'
+        - '똑바로 선 자세는 잘못 읽어도 중력 방향이 (0, 0, −1) 로 같게 나와서'
+        - '서 있을 때는 policy 가 중력 방향 칸을 쓰지 않도록 학습돼서'
+        - '잘못 읽은 quaternion 을 배포 script 가 자동으로 고쳐 주어서'
+      answer: 1
+      explanation: |
+        $(x, y, z, w)$ 의 $(0, 0, 0, 1)$ 을 $(w, x, y, z)$ 로 읽으면 $w = 0$, $z = 1$ 이 되고 식은 $(0, 0, -1)$ 을 낸다. 몸이 기울어야 $g_x$ 의
+        부호가 바뀌어, 앞으로 숙였는데 뒤로 젖혔다고 읽는다.
+    - question: |
+        H1 의 IMU 는 허리 yaw 관절 위 상체에 붙어 있다. 배포 script 가 IMU 값을 그대로 쓰지 않고 바꾸는 이유는 무엇인가?
+      choices:
+        - '상체 IMU 는 noise 가 커서 값을 0.25 배로 줄여야 하므로'
+        - '상체 IMU 는 quaternion 대신 roll-pitch-yaw 각도를 그대로 보내므로'
+        - '허리 motor 의 번호가 대응표에 없어 IMU 로 대신 읽어야 하므로'
+        - 'policy 는 골반 기준으로 학습해서 허리가 돈 만큼 되돌려야 하므로'
+      answer: 3
+      explanation: |
+        `transform_imu_data` 는 허리 각도만큼 IMU 자세를 되돌리고 허리가 도는 속도를 회전 속도에서 빼서 골반의 값으로 바꾼다. G1 은 IMU 가
+        골반에 있어 이 변환이 필요 없다. 0.25 배는 모든 로봇의 회전 속도 칸에 곱하는 배율이다.
+
+- topic: base-velocity
+  title: 직접 잴 수 없는 몸통 속도
+  section: 몸통-속도라는-빈칸
+  variants:
+    - question: |
+        IMU 가속도에 0.05 m/s² 의 오차가 계속 남아 있다. 가속도를 적분해 몸통 속도를 구하면 10 초 뒤 속도 오차는 얼마인가?
+      choices:
+        - '0.005 m/s 로, 걷는 속도에 비해 무시할 만하다'
+        - '0.05 m/s 로, 오차는 쌓이지 않고 그대로 머문다'
+        - '0.5 m/s 로, 걸으라는 명령 0.5 m/s 와 같은 크기다'
+        - '5 m/s 로, 로봇이 낼 수 있는 속도보다 크다'
+      answer: 2
+      explanation: |
+        속도 오차는 가속도 오차 × 시간으로 쌓인다: $0.05 \times 10 = 0.5$ m/s. 그래서 다리 kinematics 처럼 속도를 바로잡는 관측을 섞거나,
+        속도를 쓰지 않는 policy 를 학습한다.
+    - question: |
+        Bloesch 등(2012)의 EKF 가 다리 kinematics 로 몸통 속도를 바로잡을 수 있는 근거는 무엇인가?
+      choices:
+        - '닿은 발은 고정이라고 보고 발 위치를 state 에 넣어서'
+        - '발에 단 힘 센서가 몸통의 속도를 직접 재기 때문에'
+        - '로봇이 늘 정해진 걸음 주기를 따른다고 미리 가정해서'
+        - '카메라로 땅의 무늬를 따라가며 움직인 거리를 재서'
+      answer: 0
+      explanation: |
+        닿은 발이 움직이지 않는다면, 관절 각도로 계산한 몸통-발 vector 의 변화가 곧 몸통의 움직임이다. 저자들은 발 위치를 state 에 넣고,
+        발이 떨어지면 그 위치의 noise 를 크게 잡아 놓아 준다. 힘 센서나 카메라는 쓰지 않았다.
+    - question: |
+        G1 policy 의 actor 는 47 칸, critic 은 50 칸을 받는다. 이 구성이 배포에 주는 이점은 무엇인가?
+      choices:
+        - 'critic 도 실물에 올라가 actor 의 출력을 실시간으로 고쳐 준다'
+        - 'actor 가 작아져 policy 를 부르는 주기를 0.01 초로 줄일 수 있다'
+        - 'critic 의 3 칸이 실물의 IMU 오차를 학습 중에 지워 준다'
+        - '몸통 선속도는 critic 에만 있어, 실물에서 속도를 추정할 필요가 없다'
+      answer: 3
+      explanation: |
+        critic 은 학습 중에만 쓰이고 실물에 올라가지 않는다. simulator 만 아는 몸통 선속도를 critic 에만 주면 배포 때 추정기가 필요 없고, 대신
+        actor 의 LSTM 이 이력에서 필요한 만큼 짐작해야 한다.
+
+- topic: motor-command
+  title: motor 명령의 다섯 숫자
+  section: motor-명령-한-줄
+  variants:
+    - question: |
+        G1 왼쪽 무릎이 kp 150, kd 4, 목표 0.4 rad, 목표 각속도 0 을 받았다. 지금 각도가 0.35 rad, 각속도가 1 rad/s 이면 torque 는 얼마인가?
+      choices:
+        - '7.5 N·m 로, 각도 차이 항만 계산한다'
+        - '3.5 N·m 로, 각도 항에서 각속도 항을 뺀다'
+        - '11.5 N·m 로, 두 항을 더한다'
+        - '−4 N·m 로, 각속도 항만 남는다'
+      answer: 1
+      explanation: |
+        $150 \times (0.4 - 0.35) + 4 \times (0 - 1) = 7.5 - 4 = 3.5$ N·m 다. 목표 각속도가 0 이라 움직이는 관절에는 kd 항이 반대로 작용한다.
+    - question: |
+        배포 script 가 끝날 때 보내는 damping 명령($k_p = 0$, $k_d = 8$)을 받은 로봇은 어떻게 되는가?
+      choices:
+        - '마지막 자세를 그대로 굳게 지킨다'
+        - '기본 자세로 2 초 동안 천천히 돌아간다'
+        - 'torque 가 완전히 꺼져 그 자리에서 바로 쓰러진다'
+        - '관절이 움직이는 만큼만 반대로 버티며 천천히 주저앉는다'
+      answer: 3
+      explanation: |
+        $k_p = 0$ 이라 자세를 지키는 항이 없고 $\tau = -8 \times$ 각속도만 남는다. 2 rad/s 로 접히면 16 N·m 로 버티고, 멈춰 있으면 0 이다.
+        그래서 빠르게 쓰러지지는 않고 천천히 주저앉는다. 완전히 꺼지는 것은 zero 명령이다.
+    - question: |
+        실물에서 policy 의 목표를 더 정확히 따라가게 하려고 kp 를 학습 때보다 두 배로 올렸다. 이 판단의 문제는 무엇인가?
+      choices:
+        - 'SDK 가 학습 때와 다른 kp 를 받으면 그 메시지를 통째로 버린다'
+        - 'kp 를 올리면 motor 가 목표 각속도를 무시하고 각도만 따라간다'
+        - '배운 관절과 달라져 같은 action 이 다른 torque 를 낸다'
+        - 'kp 는 각속도에 곱하는 값이라 올리면 관절이 오히려 더 느려진다'
+      answer: 2
+      explanation: |
+        policy 는 학습 때의 kp·kd 로 움직이는 관절을 상대로 action 을 배웠다. gain 을 바꾸면 같은 action 이 다른 torque 를 내서 학습하지
+        않은 몸을 움직이는 셈이 된다. kp 는 각도 차이에, kd 는 각속도 차이에 곱한다.
+
+- topic: startup-sequence
+  title: 시작과 정지의 순서
+  section: 시작과-정지의-순서
+  variants:
+    - question: |
+        매단 채 무릎이 1.0 rad, 기본 각도가 0.3 rad, kp 가 150 이다. 기본 자세 목표를 한 번에 줄 때와 2 초(100 step)에 나눌 때 첫 step 의 torque 는?
+      choices:
+        - '한 번에는 105 N·m, 나누면 1 N·m 남짓이다'
+        - '둘 다 105 N·m 로 같다'
+        - '한 번에는 45 N·m, 나누면 0.45 N·m 다'
+        - '한 번에는 1 N·m, 나누면 105 N·m 다'
+      answer: 0
+      explanation: |
+        한 번에 주면 $150 \times 0.7 = 105$ N·m 다. 100 step 에 나누면 첫 목표는 0.007 rad 만 움직여 $150 \times 0.007 \approx 1$ N·m 에서
+        시작한다.
+    - question: |
+        unitree_rl_gym 배포 안내서가 로봇을 줄에 매단 채 시작하라고 하는 이유로 가장 알맞은 것은 무엇인가?
+      choices:
+        - '줄에 매달면 IMU 가 중력 방향을 더 정확하게 읽어서'
+        - '설정이 하나만 틀려도 쓰러지니 발을 대기 전에 확인하려고'
+        - '매단 상태에서만 리모컨의 start 버튼이 작동하므로'
+        - 'policy 가 공중에서 다리를 흔드는 동작부터 학습해서'
+      answer: 1
+      explanation: |
+        안내서의 순서는 매단 채 기본 자세를 확인하고, 줄을 조금씩 내려 제자리걸음부터 보는 것이다. 첫 실행에서는 작은 설정 실수도 바로 쓰러짐
+        으로 이어지므로, 땅에 닿기 전에 움직임을 확인한다.
+    - question: |
+        중력 방향의 $g_z$ 를 넘어짐 판정에 쓰려고 한다. 60° 이상 기울면 damping 으로 넘어가게 하려면 기준값은 얼마인가?
+      choices:
+        - '$g_z$ 가 −1 보다 커질 때'
+        - '$g_z$ 가 0.5 보다 커질 때'
+        - '$g_z$ 가 −0.5 보다 커질 때'
+        - '$g_z$ 가 −0.866 보다 작아질 때'
+      answer: 2
+      explanation: |
+        똑바로 서면 $g_z = -1$ 이고 $\theta$ 만큼 기울면 $-\cos\theta$ 다. 60° 에서 $-\cos 60° = -0.5$ 이므로, 이보다 커지면(덜 음수가 되면)
+        60° 넘게 기운 것이다. −1 보다 크다는 조건은 조금만 기울어도 참이 된다.
+
+- topic: loop-period
+  title: 배포 loop 의 실제 주기
+  section: 제어-주기
+  variants:
+    - question: |
+        계산과 통신에 3 ms 가 걸리고 loop 끝에서 20 ms 를 쉰다. 0.8 초(40 step) 주기로 학습한 걸음 clock 은 실제로 몇 초마다 한 바퀴 도는가?
+      choices:
+        - '0.8 초로 학습 때와 같다'
+        - '0.68 초로 학습 때보다 빠르다'
+        - '0.83 초로 3 ms 만 늦어진다'
+        - '0.92 초로 학습 때보다 느리다'
+      answer: 3
+      explanation: |
+        한 바퀴가 $3 + 20 = 23$ ms 이고 clock 은 step 수로 계산하므로 $40 \times 0.023 = 0.92$ 초가 걸린다. step 마다 3 ms 씩 40 번 늦어진다.
+    - question: |
+        C++ 배포 예제가 Python 예제와 달리 `sleep_until` 로 다음 시작 시각까지 기다리는 이유는 무엇인가?
+      choices:
+        - '계산 시간이 기다리는 시간에서 빠져 주기가 0.02 초로 유지되어서'
+        - 'Python 보다 C++ 의 policy 계산이 0.02 초보다 길어서'
+        - '기다리는 동안 policy 를 한 번 더 계산할 수 있어서'
+        - 'motor 명령을 보내는 횟수를 1초에 50 번으로 줄이려고'
+      answer: 0
+      explanation: |
+        끝에서 정해진 시간만 쉬면 계산 시간이 더해져 주기가 늘어난다. 다음 시작 시각까지만 기다리면 계산이 0.02 초보다 짧은 한 주기는 그대로
+        0.02 초다. 이 예제는 motor 명령을 2 ms 마다 보내는 thread 를 따로 둔다.
+    - question: |
+        배포 loop 의 한 바퀴가 25 ms 로 늘었다. policy 가 겪는 차이로 옳은 것은 무엇인가?
+      choices:
+        - '1초에 50 번 불리고, action 은 학습 때처럼 20 ms 씩 머문다'
+        - '1초에 40 번 불리고, action 하나가 motor 에 25 ms 씩 머문다'
+        - '1초에 40 번 불리지만, motor 가 20 ms 마다 action 을 바꿔 차이가 없다'
+        - '1초에 25 번 불리고, action 하나가 motor 에 40 ms 씩 머문다'
+      answer: 1
+      explanation: |
+        $1 \div 0.025 = 40$ 번이고, 다음 명령이 올 때까지 action 이 25 ms 동안 그대로 쓰인다. 학습 때의 20 ms 보다 25% 길어서 같은 action
+        이 관절을 더 멀리 움직인다.
