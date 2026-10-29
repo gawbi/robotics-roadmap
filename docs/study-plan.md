@@ -8,8 +8,8 @@
 - **구현이 먼저 정해지고, 강의는 그 구현에 필요한 만큼 읽습니다.** 단계마다 "남길 결과"가 `labs/` 의 구현 하나가 됩니다
 - **아는 기초는 퀴즈로 확인하고 넘어갑니다.** 아래 표의 "퀴즈만" 칸은 퀴즈를 먼저 풀어 통과하면 짧은 노트만 쓰고 넘어가는 강의입니다.
   막히면 그때 읽습니다
-- **앞 단계의 결과 위에 다음 단계를 쌓습니다.** 매니퓰레이터 트랙은 MuJoCo 팔 하나, 다리 로봇 트랙은 학습한 보행 policy 하나를 끝까지 키웁니다
-- 평일에는 강의 하나(읽기 · 퀴즈 · 짧은 노트), 주말에는 구현
+- **앞 단계의 결과 위에 다음 단계를 쌓습니다.** 매니퓰레이터 트랙에서는 MuJoCo 팔 하나를 끝까지 키우고, 다리 로봇 트랙에서는 학습한 보행 policy 하나를 끝까지 키웁니다
+- 평일에는 강의 하나를 공부하고(읽기 · 퀴즈 · 짧은 노트), 주말에는 구현합니다
 
 ## 0. 최소 기초 (1–2주, 22h)
 
@@ -17,7 +17,7 @@
 | --- | --- |
 | [Rigid Transforms](../lessons/transforms/README.md), [PID Control](../lessons/pid-control/README.md), [ROS 2 Basics](../lessons/ros2-basics/README.md), [Camera Geometry](../lessons/camera-geometry/README.md), [PyTorch Training Loop](../lessons/pytorch-mlp/README.md) | [Vectors & Matrices](../lessons/vectors-matrices/README.md), [Derivatives & Gradients](../lessons/derivatives/README.md), [Probability & Gaussians](../lessons/probability/README.md), [Linear Regression](../lessons/linear-regression/README.md), [Perceptron](../lessons/perceptron/README.md), [Backpropagation](../lessons/autograd/README.md) |
 
-좌표 변환, PD 제어, ROS 2, 카메라 좌표는 세 로봇 모두에서 첫날부터 씁니다. 신경망 쪽은 학습 loop 를 직접 돌릴 수 있을 만큼만 채웁니다.
+좌표 변환, PD 제어, ROS 2, 카메라 좌표는 세 로봇 모두에서 첫날부터 씁니다. 신경망 쪽은 학습 loop 를 직접 짜서 실행할 수 있을 만큼만 채웁니다.
 
 남길 결과: 1 관절 PD 의 gain 별 step response, 또는 작은 MLP 를 직접 학습한 곡선.
 
@@ -43,7 +43,7 @@ PushT·ALOHA simulation 으로 학습을 한 번 재현하고 내 장면으로 �
 | Q2 | [unitree_rl_gym](https://github.com/unitreerobotics/unitree_rl_gym) 이나 [MuJoCo Playground](https://playground.mujoco.org/) 로 4족 평지 보행 학습 → 다른 simulator 에서 다시 걷게 하기 | [Sim-to-Real Locomotion](../lessons/sim2real-locomotion/README.md), [Locomotion Deployment](../lessons/locomotion-deployment/README.md) | | reward 항을 바꾼 비교, sim-to-sim 에서 무너지는 조건, 배포 점검표를 채운 기록 |
 | Q3 | 지형과 상태 추정 넣기 | [Perceptive Locomotion](../lessons/perceptive-locomotion/README.md), [ZMP → Convex MPC](../lessons/legged-balance/README.md) | [Kalman Filter](../lessons/kalman-filter/README.md) | 계단·경사 성공률, 몸통 속도 추정 오차 |
 
-Q2 의 배포 강의는 학습이 끝난 policy 를 실물에 올릴 때 필요한 일(관절 번호, IMU, 몸통 속도, 모터 명령, 시작 순서, 제어 주기)을 다룹니다. 실물이
+Q2 의 배포 강의는 학습이 끝난 policy 를 실물에 올릴 때 필요한 일(관절 번호, IMU, 몸통 속도, motor 명령, 시작 순서, 제어 주기)을 다룹니다. 실물이
 없어도 sim-to-sim 단계에서 같은 배포 코드를 시험할 수 있습니다.
 
 ## 3. 휴머노이드 (2주, 로봇개 트랙 다음)
