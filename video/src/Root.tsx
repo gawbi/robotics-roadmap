@@ -12,6 +12,9 @@ import { script as dagger } from './lessons/dagger.script'
 import { DrivingStack } from './lessons/DrivingStack'
 import drivingStackNarration from './lessons/driving-stack.narration.json'
 import { script as drivingStack } from './lessons/driving-stack.script'
+import { PerceptiveLocomotion } from './lessons/PerceptiveLocomotion'
+import perceptiveLocomotionNarration from './lessons/perceptive-locomotion.narration.json'
+import { script as perceptiveLocomotion } from './lessons/perceptive-locomotion.script'
 import { RealRobot } from './lessons/RealRobot'
 import { RobotCodingAgent } from './lessons/RobotCodingAgent'
 import robotCodingAgentNarration from './lessons/robot-coding-agent.narration.json'
@@ -33,6 +36,7 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [vlaTokens, VlaTokens, vlaTokensNarration],
   [drivingStack, DrivingStack, drivingStackNarration],
   [robotCodingAgent, RobotCodingAgent, robotCodingAgentNarration],
+  [perceptiveLocomotion, PerceptiveLocomotion, perceptiveLocomotionNarration],
 ]
 
 export function RemotionRoot() {
