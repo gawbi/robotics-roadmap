@@ -153,6 +153,21 @@ import { script as trajectoryGeneration } from './lessons/trajectory-generation.
 import { Cnn } from './lessons/Cnn'
 import cnnNarration from './lessons/cnn.narration.json'
 import { script as cnn } from './lessons/cnn.script'
+import { PolicyGradient } from './lessons/PolicyGradient'
+import policyGradientNarration from './lessons/policy-gradient.narration.json'
+import { script as policyGradient } from './lessons/policy-gradient.script'
+import { ObjectDetection } from './lessons/ObjectDetection'
+import objectDetectionNarration from './lessons/object-detection.narration.json'
+import { script as objectDetection } from './lessons/object-detection.script'
+import { Gpt } from './lessons/Gpt'
+import gptNarration from './lessons/gpt.narration.json'
+import { script as gpt } from './lessons/gpt.script'
+import { Clip } from './lessons/Clip'
+import clipNarration from './lessons/clip.narration.json'
+import { script as clip } from './lessons/clip.script'
+import { Vae } from './lessons/Vae'
+import vaeNarration from './lessons/vae.narration.json'
+import { script as vae } from './lessons/vae.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -209,6 +224,11 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [sim2realLocomotion, Sim2realLocomotion, sim2realLocomotionNarration],
   [trajectoryGeneration, TrajectoryGeneration, trajectoryGenerationNarration],
   [cnn, Cnn, cnnNarration],
+  [policyGradient, PolicyGradient, policyGradientNarration],
+  [objectDetection, ObjectDetection, objectDetectionNarration],
+  [gpt, Gpt, gptNarration],
+  [clip, Clip, clipNarration],
+  [vae, Vae, vaeNarration],
 ]
 
 export function RemotionRoot() {
