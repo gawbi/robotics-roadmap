@@ -147,6 +147,12 @@ import { script as impedanceControl } from './lessons/impedance-control.script'
 import { Sim2realLocomotion } from './lessons/Sim2realLocomotion'
 import sim2realLocomotionNarration from './lessons/sim2real-locomotion.narration.json'
 import { script as sim2realLocomotion } from './lessons/sim2real-locomotion.script'
+import { TrajectoryGeneration } from './lessons/TrajectoryGeneration'
+import trajectoryGenerationNarration from './lessons/trajectory-generation.narration.json'
+import { script as trajectoryGeneration } from './lessons/trajectory-generation.script'
+import { Cnn } from './lessons/Cnn'
+import cnnNarration from './lessons/cnn.narration.json'
+import { script as cnn } from './lessons/cnn.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -201,6 +207,8 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [teleopDataset, TeleopDataset, teleopDatasetNarration],
   [impedanceControl, ImpedanceControl, impedanceControlNarration],
   [sim2realLocomotion, Sim2realLocomotion, sim2realLocomotionNarration],
+  [trajectoryGeneration, TrajectoryGeneration, trajectoryGenerationNarration],
+  [cnn, Cnn, cnnNarration],
 ]
 
 export function RemotionRoot() {
