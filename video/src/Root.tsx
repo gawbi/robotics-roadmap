@@ -105,6 +105,30 @@ import { script as locomotionDeployment } from './lessons/locomotion-deployment.
 import { PathTracking } from './lessons/PathTracking'
 import pathTrackingNarration from './lessons/path-tracking.narration.json'
 import { script as pathTracking } from './lessons/path-tracking.script'
+import { Ros2Control } from './lessons/Ros2Control'
+import ros2ControlNarration from './lessons/ros2-control.narration.json'
+import { script as ros2Control } from './lessons/ros2-control.script'
+import { PathPlanning } from './lessons/PathPlanning'
+import pathPlanningNarration from './lessons/path-planning.narration.json'
+import { script as pathPlanning } from './lessons/path-planning.script'
+import { HandEyeCalibration } from './lessons/HandEyeCalibration'
+import handEyeCalibrationNarration from './lessons/hand-eye-calibration.narration.json'
+import { script as handEyeCalibration } from './lessons/hand-eye-calibration.script'
+import { MotionPlanning } from './lessons/MotionPlanning'
+import motionPlanningNarration from './lessons/motion-planning.narration.json'
+import { script as motionPlanning } from './lessons/motion-planning.script'
+import { Pi0 } from './lessons/Pi0'
+import pi0Narration from './lessons/pi0.narration.json'
+import { script as pi0 } from './lessons/pi0.script'
+import { ClassicalPick } from './lessons/ClassicalPick'
+import classicalPickNarration from './lessons/classical-pick.narration.json'
+import { script as classicalPick } from './lessons/classical-pick.script'
+import { Groot } from './lessons/Groot'
+import grootNarration from './lessons/groot.narration.json'
+import { script as groot } from './lessons/groot.script'
+import { OffPolicy } from './lessons/OffPolicy'
+import offPolicyNarration from './lessons/off-policy.narration.json'
+import { script as offPolicy } from './lessons/off-policy.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -145,6 +169,14 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [rewardScale, RewardScale, rewardScaleNarration],
   [locomotionDeployment, LocomotionDeployment, locomotionDeploymentNarration],
   [pathTracking, PathTracking, pathTrackingNarration],
+  [ros2Control, Ros2Control, ros2ControlNarration],
+  [pathPlanning, PathPlanning, pathPlanningNarration],
+  [handEyeCalibration, HandEyeCalibration, handEyeCalibrationNarration],
+  [motionPlanning, MotionPlanning, motionPlanningNarration],
+  [pi0, Pi0, pi0Narration],
+  [classicalPick, ClassicalPick, classicalPickNarration],
+  [groot, Groot, grootNarration],
+  [offPolicy, OffPolicy, offPolicyNarration],
 ]
 
 export function RemotionRoot() {
