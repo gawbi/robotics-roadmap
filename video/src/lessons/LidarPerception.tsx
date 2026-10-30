@@ -829,7 +829,7 @@ function Cluster() {
 
 const PauseRansac = () => (
   <PauseWrite
-    question="잘라 낸 영역에서 땅 점이 절반 (w = 0.5) 이다. 반복 횟수 k = log(1 − p) ÷ log(1 − w³) 일 때, 땅 점만 뽑는 경우가 99% 확률로 한 번은 나오려면 몇 번 반복해야 하는가?"
+    question="땅 점이 절반 (w = 0.5) 이면 k = log(1 − p) ÷ log(1 − w³) 로 99% 확률에 몇 번 반복할까?"
     answer={
       <>
         3 개가 모두 땅일 확률 0.5³ = 0.125
