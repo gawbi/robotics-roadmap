@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>같은 숫자의 두 비교. 짝짓지 않으면 seed 사이의 분산 때문에 95% 구간이 −12.5 ~ 18.1 로 넓고, seed 를 짝지으면 차이 3, 1, 4, 1, 5 만 남아 0.58 ~ 5.02 로 좁아진다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">A 와 B 의 차이(평균 2.8)에 대한 95% 구간 (예로 든 seed 5 개)</text>
+  <line x1="120.0" y1="230.0" x2="680.0" y2="230.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="120.0" y1="226.0" x2="120.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="120.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">-15</text>
+  <line x1="200.0" y1="226.0" x2="200.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="200.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">-10</text>
+  <line x1="280.0" y1="226.0" x2="280.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">-5</text>
+  <line x1="360.0" y1="226.0" x2="360.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="360.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">0</text>
+  <line x1="440.0" y1="226.0" x2="440.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="440.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">5</text>
+  <line x1="520.0" y1="226.0" x2="520.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">10</text>
+  <line x1="600.0" y1="226.0" x2="600.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="600.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">15</text>
+  <line x1="680.0" y1="226.0" x2="680.0" y2="234.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680.0" y="250.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">20</text>
+  <line x1="360.0" y1="60.0" x2="360.0" y2="230.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="364.0" y="70.0" fill="#94a3b8" font-size="11" text-anchor="start">차이 0</text>
+  <line x1="160.0" y1="110.0" x2="649.6" y2="110.0" stroke="#d88b8b" stroke-width="3"/>
+  <line x1="160.0" y1="102.0" x2="160.0" y2="118.0" stroke="#d88b8b" stroke-width="2"/>
+  <line x1="649.6" y1="102.0" x2="649.6" y2="118.0" stroke="#d88b8b" stroke-width="2"/>
+  <circle cx="404.8" cy="110.0" r="5" fill="#d88b8b" stroke="#d88b8b" stroke-width="1.4"/>
+  <text x="20.0" y="114.0" fill="#d88b8b" font-size="12" text-anchor="start" font-weight="600">짝짓지 않음 (Welch)</text>
+  <text x="657.6" y="114.0" fill="#e2e8f0" font-size="12" text-anchor="start">[-12.5, 18.1]</text>
+  <line x1="369.3" y1="170.0" x2="440.3" y2="170.0" stroke="#7fc4a2" stroke-width="3"/>
+  <line x1="369.3" y1="162.0" x2="369.3" y2="178.0" stroke="#7fc4a2" stroke-width="2"/>
+  <line x1="440.3" y1="162.0" x2="440.3" y2="178.0" stroke="#7fc4a2" stroke-width="2"/>
+  <circle cx="404.8" cy="170.0" r="5" fill="#7fc4a2" stroke="#7fc4a2" stroke-width="1.4"/>
+  <text x="20.0" y="174.0" fill="#7fc4a2" font-size="12" text-anchor="start" font-weight="600">seed 를 짝지음</text>
+  <text x="448.3" y="174.0" fill="#e2e8f0" font-size="12" text-anchor="start">[0.58, 5.02]</text>
+  <text x="20.0" y="286.0" fill="#94a3b8" font-size="11.5" text-anchor="start">A: 50, 62, 45, 70, 58 · B: 47, 61, 41, 69, 53 · 차이: 3, 1, 4, 1, 5</text>
+</svg>

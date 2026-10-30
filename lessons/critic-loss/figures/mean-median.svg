@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>target 0, 0, 0, 10 에 맞춘 값. squared error 는 평균 2.5, 부호만 보는 loss 는 중앙값 0, Huber(δ_H = 1)는 0.33 이다. reward 를 100 배로 키우고 경계를 1 로 두면 Huber 의 답은 평균 250 에 대해 0.33 에 머문다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">같은 (s, a) 의 target 0, 0, 0, 10 에 맞춘 Q 값</text>
+  <line x1="60.0" y1="150.0" x2="660.0" y2="150.0" stroke="#1e293b" stroke-width="1.4"/>
+  <line x1="60.0" y1="146.0" x2="60.0" y2="154.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="60.0" y="170.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">0</text>
+  <line x1="210.0" y1="146.0" x2="210.0" y2="154.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="210.0" y="170.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">2.5</text>
+  <line x1="360.0" y1="146.0" x2="360.0" y2="154.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="360.0" y="170.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">5</text>
+  <line x1="510.0" y1="146.0" x2="510.0" y2="154.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="510.0" y="170.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">7.5</text>
+  <line x1="660.0" y1="146.0" x2="660.0" y2="154.0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="660.0" y="170.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">10</text>
+  <circle cx="60.0" cy="136.0" r="5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1.4"/>
+  <circle cx="60.0" cy="122.0" r="5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1.4"/>
+  <circle cx="60.0" cy="108.0" r="5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1.4"/>
+  <circle cx="660.0" cy="136.0" r="5" fill="#e2e8f0" stroke="#e2e8f0" stroke-width="1.4"/>
+  <text x="660.0" y="122.0" fill="#94a3b8" font-size="10.5" text-anchor="middle">target</text>
+  <line x1="210.0" y1="180.0" x2="210.0" y2="204.0" stroke="#7cb4d8" stroke-width="1.6"/>
+  <text x="216.0" y="214.0" fill="#7cb4d8" font-size="12" text-anchor="start">squared error → 평균 2.5</text>
+  <line x1="60.0" y1="180.0" x2="60.0" y2="240.0" stroke="#d88b8b" stroke-width="1.6"/>
+  <text x="66.0" y="250.0" fill="#d88b8b" font-size="12" text-anchor="start">부호만 → 중앙값 0</text>
+  <line x1="80.0" y1="180.0" x2="80.0" y2="222.0" stroke="#7fc4a2" stroke-width="1.6"/>
+  <text x="86.0" y="232.0" fill="#7fc4a2" font-size="12" text-anchor="start">Huber δ_H = 1 → 0.33</text>
+  <rect x="20.0" y="262.0" width="680.0" height="56.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="36.0" y="284.0" fill="#e2e8f0" font-size="12" text-anchor="start" font-weight="600">reward 를 100 배로 키우면 (target 0, 0, 0, 1000)</text>
+  <text x="36.0" y="304.0" fill="#94a3b8" font-size="12" text-anchor="start">평균 250 · Huber δ_H = 1 의 답 0.33 (평균의 0.13%) · Huber δ_H = 100 의 답 33.3 (평균의 13%)</text>
+</svg>

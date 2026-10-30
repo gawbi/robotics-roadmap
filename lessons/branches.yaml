@@ -71,7 +71,7 @@ branches:
 
   - id: rl
     title: Reinforcement Learning
-    summary: 시연 없이 보상만으로 배우는 길. tabular RL 에서 PPO·SAC, sim-to-real 보행과 실물 배포까지
+    summary: 시연 없이 보상만으로 배우는 길. tabular RL 에서 PPO·SAC, critic loss·reward 설계·실험 비교, sim-to-real 보행과 실물 배포까지
     color: "#a3e635"
 
   - id: kinematics

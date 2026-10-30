@@ -1,7 +1,7 @@
 # 공부 순서: 실무 중심
 
 매니퓰레이터, 4족 로봇(로봇개), 휴머노이드를 바로 다룰 수 있게 되는 것을 목표로 한 순서입니다. 지도의 강의 67개를 모두 읽지 않고, **구현 단계를
-뼈대로 두고 그 단계에 필요한 강의만 앞에 붙였습니다.** 날짜별 일정은 [13주 로드맵](study-roadmap.md)에 있습니다.
+뼈대로 두고 그 단계에 필요한 강의만 앞에 붙였습니다.** 날짜별 일정은 [14주 로드맵](study-roadmap.md)에 있습니다.
 
 ## 원칙
 
@@ -35,15 +35,15 @@
 M4 가 이 트랙의 중심입니다. 직접 모은 데이터, 학습한 policy, 성공률, 실패 이유가 면접에서 가장 오래 이야기할 거리입니다. 처음이면 LeRobot 의
 PushT·ALOHA simulation 으로 학습을 한 번 재현하고 내 장면으로 옮깁니다. 실물 팔이 없으면 M6 은 뒤로 미룹니다.
 
-## 2. 로봇개 (3주)
+## 2. 강화학습 기초와 로봇개 (1주 + 2주)
 
 | 단계 | 구현 | 먼저 읽을 강의 | 퀴즈만 | 남길 결과 |
 | --- | --- | --- | --- | --- |
-| Q1 | CartPole 같은 작은 환경에서 PPO 돌리기 | [PPO](../lessons/ppo/README.md) | [Bandits & MDPs](../lessons/bandit-mdp/README.md), [Policy Gradient](../lessons/policy-gradient/README.md) | 학습 곡선, clip ε 비교 |
+| R | Gymnasium Pendulum 에서 SAC 학습, critic loss 를 MSE 와 Huber 로 바꿔 seed 5 개씩 짝지은 비교 | [PPO](../lessons/ppo/README.md), [DQN → SAC](../lessons/off-policy/README.md), [Critic Loss](../lessons/critic-loss/README.md), [Reward Scale & Shaping](../lessons/reward-scale/README.md), [RL Experiments](../lessons/rl-experiments/README.md) | [Bandits & MDPs](../lessons/bandit-mdp/README.md), [Policy Gradient](../lessons/policy-gradient/README.md) | 학습 곡선, IQM 과 95% 구간, sign-flip 검정의 p 값 |
 | Q2 | [unitree_rl_gym](https://github.com/unitreerobotics/unitree_rl_gym) 이나 [MuJoCo Playground](https://playground.mujoco.org/) 로 4족 평지 보행 학습 → 다른 simulator 에서 다시 걷게 하기 | [Sim-to-Real Locomotion](../lessons/sim2real-locomotion/README.md), [Locomotion Deployment](../lessons/locomotion-deployment/README.md) | | reward 항을 바꾼 비교, sim-to-sim 에서 무너지는 조건, 배포 점검표를 채운 기록 |
 | Q3 | 지형과 상태 추정 넣기 | [Perceptive Locomotion](../lessons/perceptive-locomotion/README.md), [ZMP → Convex MPC](../lessons/legged-balance/README.md) | [Kalman Filter](../lessons/kalman-filter/README.md) | 계단·경사 성공률, 몸통 속도 추정 오차 |
 
-Q2 의 배포 강의는 학습이 끝난 policy 를 실물에 올릴 때 필요한 일(관절 번호, IMU, 몸통 속도, motor 명령, 시작 순서, 제어 주기)을 다룹니다. 실물이
+R 단계는 매니퓰레이터 M3 다음, M4 앞의 한 주에 합니다. 여기서 익힌 실험 비교 방법을 M4 의 ACT·Diffusion Policy 비교에 그대로 쓰기 때문입니다. Q2 의 배포 강의는 학습이 끝난 policy 를 실물에 올릴 때 필요한 일(관절 번호, IMU, 몸통 속도, motor 명령, 시작 순서, 제어 주기)을 다룹니다. 실물이
 없어도 sim-to-sim 단계에서 같은 배포 코드를 시험할 수 있습니다.
 
 ## 3. 휴머노이드 (2주, 로봇개 트랙 다음)
@@ -74,7 +74,7 @@ Mobile Autonomy 트리(SLAM, navigation, 자율주행)는 이 목표에서는 �
 | --- | --- | --- |
 | 최소 기초 | 11 | 22h |
 | 매니퓰레이터 | 27 | 57h |
-| 로봇개 | 8 | 20h |
+| 강화학습 기초와 로봇개 | 12 | 28h |
 | 휴머노이드 | 4 | 10h |
 
 강의 시간은 읽는 시간입니다. 구현은 단계마다 주말 하루에서 이틀을 따로 잡습니다.

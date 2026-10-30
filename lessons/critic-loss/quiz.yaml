@@ -1,0 +1,293 @@
+# 강의 퀴즈. topic 하나가 한 문항이고, 다시 풀면 지난 회차의 다음 variant 를 낸다.
+# answer 는 choices 의 0부터 센 번호다.
+
+- topic: squared-error-share
+  title: squared error 에서 큰 오차의 몫
+  section: td-오차와-squared-error
+  variants:
+    - question: |
+        critic 을 squared error 로 학습할 때, TD 오차가 다른 sample 보다 10 배 큰 sample 하나는 gradient 에 어떻게 기여하는가?
+      choices:
+        - '오차와 상관없이 다른 sample 과 같은 크기로 기여한다'
+        - '오차의 제곱인 100 배 크기로 기여해 update 를 거의 정한다'
+        - '오차에 비례해 10 배 크게 기여하고, 방향은 target 쪽이다'
+        - '오차가 너무 커서 gradient 계산에서 자동으로 빠진다'
+      answer: 2
+      explanation: |
+        squared error $\tfrac12\delta^2$ 을 Q 로 미분하면 $-\delta$ 라서($\delta$ 는 TD 오차) gradient 크기는 오차에 비례한다. 오차가 10 배면
+        10 배 세게 끌고, 부호는 Q 를 target 쪽으로 고치는 방향이다. 오차와 상관없이 같은 크기로 기여하는 것은 Huber loss 의 직선 구간이다.
+        loss 값은 오차의 제곱이지만 gradient 는 오차에 비례하므로 100 배가 아니다. squared error 는 오차가 큰 sample 을 계산에서 빼지 않는다.
+    - question: |
+        TD 오차가 1, 1, 1, 17 인 batch 를 squared error 로 학습한다. 오차 17 인 sample 이 gradient 크기의 합에서 차지하는 몫은 얼마인가?
+      choices:
+        - '25% 로, sample 넷이 몫을 똑같이 나눈다'
+        - '85% 로, 큰 오차 하나가 update 를 거의 정한다'
+        - '99% 로, 오차를 제곱한 값에 비례해 몫을 나누어 갖는다'
+        - '50% 로, 큰 오차는 절반까지만 반영되어 묶인다'
+      answer: 1
+      explanation: |
+        squared error 의 gradient 크기는 오차의 절댓값이라 1, 1, 1, 17 이고, 합은 20 이므로 몫은 $17 \div 20 = 85\%$ 다. 넷이 똑같이 나누는
+        것은 모든 sample 이 경계를 넘은 Huber loss 의 경우다. 오차의 제곱에 비례하는 것은 loss 값이지 gradient 가 아니다. squared error 에는
+        큰 오차를 절반까지만 반영하는 규칙이 없다.
+    - question: |
+        critic 의 TD target 은 아직 학습 중인 network 로 계산한다. 이때 critic 을 squared error 로 학습하면 생기는 위험은 무엇인가?
+      choices:
+        - 'target 이 틀린 sample 의 오차가 크면 그 잘못이 update 를 크게 끈다'
+        - 'target 이 틀리면 gradient 가 0 이 되어 그 sample 은 학습되지 않는다'
+        - 'target 을 network 로 계산하면 squared error 를 미분할 수 없다'
+        - 'target 이 틀려도 평균을 내면 늘 정확히 상쇄되어 위험이 없다'
+      answer: 0
+      explanation: |
+        squared error 에서는 오차가 클수록 세게 끌어서, target 자체가 잘못 계산돼 오차가 커진 sample 이 update 를 정할 수 있다. 틀린 target 도
+        오차가 0 이 아니면 gradient 를 만들므로 그 sample 은 학습에서 빠지지 않는다. target 은 상수로 두고 Q 만 미분하므로 미분에는 문제가
+        없다. 틀린 target 의 오차가 batch 평균에서 서로 상쇄된다는 보장은 없다.
+
+- topic: huber-gradient
+  title: Huber loss 의 gradient
+  section: huber-loss
+  variants:
+    - question: |
+        경계 $\delta_H = 1$ 인 Huber loss 로 critic 을 학습할 때, TD 오차가 20 인 sample 의 gradient 는 어떻게 되는가?
+      choices:
+        - '0 이 되어 그 sample 은 update 에서 빠진다'
+        - '20 그대로라서 squared error 와 같다'
+        - '크기 1 로 묶이고 Q 를 target 쪽으로 고치는 방향은 그대로다'
+        - '크기 1 로 묶이지만, 방향은 target 의 반대쪽으로 뒤집혀 Q 를 밀어낸다'
+      answer: 2
+      explanation: |
+        Huber loss 는 경계를 넘은 오차의 gradient 크기를 $\delta_H$ 로 묶고 부호는 그대로 둔다. 그래서 오차 20 인 sample 도 1 만큼 Q 를
+        target 쪽으로 끈다. 경계를 넘은 sample 의 gradient 는 0 이 아니라 $\delta_H$ 라서 update 에서 빠지지 않는다. 크기 20 이 그대로 남는 것은
+        squared error 의 경우다. Huber loss 는 gradient 의 크기만 묶고 부호는 바꾸지 않으므로 Q 를 target 반대쪽으로 밀지 않는다.
+    - question: |
+        PyTorch 의 `SmoothL1Loss(beta)` 와 `HuberLoss(delta)` 의 관계로 옳은 것은 무엇인가?
+      choices:
+        - '둘은 이름만 다르고, 어떤 경계값에서나 loss 가 똑같다'
+        - '경계가 1 이면 같고, SmoothL1 은 Huber 를 경계로 나눈 것이다'
+        - 'SmoothL1 은 squared error 이고 Huber 는 절댓값 loss 다'
+        - '경계가 1 이면 SmoothL1 이 Huber 의 두 배가 된다'
+      answer: 1
+      explanation: |
+        PyTorch 문서에 따르면 `SmoothL1Loss` 는 Huber loss 를 `beta` 로 나눈 것과 같아서, 경계가 1 이면 둘이 같다. 경계가 1 이 아니면 직선
+        구간의 기울기가 SmoothL1 에서는 1 이고 Huber 에서는 경계값이라 두 loss 가 다르다. 둘 다 안쪽은 제곱이고 바깥은 직선인 loss 라서, 한쪽만
+        squared error 이거나 절댓값 loss 인 것이 아니다. 경계가 1 이면 둘이 같으므로 두 배 차이는 나지 않는다.
+    - question: |
+        TD 오차가 0.5, −1, 2, 20 인 batch 에 경계 1 인 Huber loss 를 쓰면, 오차 20 인 sample 의 gradient 몫은 squared error 일 때와 비교해 어떻게 되는가?
+      choices:
+        - '85% 에서 29% 로 줄어든다'
+        - '85% 그대로 유지된다'
+        - '85% 에서 0% 로 사라진다'
+        - '29% 에서 85% 로 늘어난다'
+      answer: 0
+      explanation: |
+        squared error 의 gradient 크기는 0.5, 1, 2, 20 이라 오차 20 의 몫은 $20 \div 23.5 = 85\%$ 다. Huber 에서는 0.5, 1, 1, 1 이 되어
+        $1 \div 3.5 = 29\%$ 로 줄어든다. 85% 가 그대로인 것은 batch 합 전체에 같은 배율을 곱하는 norm clipping 의 경우다. 경계를 넘어도 gradient
+        는 1 이라 몫이 0% 가 되지 않는다. Huber 는 큰 오차의 몫을 줄이므로 29% 에서 85% 로 늘어나는 방향이 아니다.
+
+- topic: dqn-error-clipping
+  title: DQN 의 error clipping
+  section: dqn-의-error-clipping
+  variants:
+    - question: |
+        DQN 논문의 저자들이 update 의 오차 항을 −1 과 1 사이로 자른 것은 gradient 로 보면 무엇과 같은가?
+      choices:
+        - 'loss 를 절댓값으로만 쓴 것과 같아, 오차가 작아도 기울기가 ±1 이다'
+        - '경계 1 인 Huber loss 와 같아, (−1, 1) 밖에서만 기울기가 ±1 이다'
+        - 'reward 를 ±1 로 자른 것과 같아, 학습 목표가 함께 바뀐다'
+        - 'gradient norm clipping 과 같아, batch 합 전체를 같은 배율로 줄인다'
+      answer: 1
+      explanation: |
+        저자들은 이 자르기가 (−1, 1) 밖의 오차에 절댓값 loss 를 쓰는 것과 같다고 설명했다. 안쪽은 squared error 그대로라 경계 1 인 Huber 와
+        같다. 오차가 작을 때도 기울기가 ±1 인 것은 순수한 절댓값 loss 다. reward 자르기는 오차가 아니라 reward 를 바꾸는 별도의 장치라서
+        학습 목표를 바꾼다. 오차 자르기는 sample 마다 자르므로 batch 합 전체를 같은 배율로 줄이는 norm clipping 과 다르다.
+    - question: |
+        DQN 논문에서 reward 를 ±1 로 자른 것과 오차 항을 ±1 로 자른 것의 차이로 옳은 것은 무엇인가?
+      choices:
+        - '둘 다 학습 목표는 그대로 두고 gradient 의 세기만 줄인다'
+        - 'reward 자르기는 무엇을 잘한 것으로 칠지 바꾸고, 오차 자르기는 세기만 줄인다'
+        - '오차 자르기는 학습 목표를 바꾸고, reward 자르기는 세기만 줄인다'
+        - '둘 다 크기가 다른 reward 를 구별하지 못하게 만든다'
+      answer: 1
+      explanation: |
+        reward 를 ±1 로 자르면 큰 reward 와 작은 reward 가 같아져서 최적의 행동이 바뀔 수 있고, 저자들도 이 영향을 적었다. 오차 항 자르기는
+        gradient 의 세기를 묶을 뿐 target 이 가리키는 값은 그대로다. reward 자르기는 학습 목표를 바꾸므로 둘 다 세기만 줄인다는 말은 틀렸다.
+        오차 자르기가 목표를 바꾸고 reward 자르기가 세기만 줄인다는 말은 두 장치의 역할을 뒤바꾼 것이다. 크기가 다른 reward 를 구별하지 못하게
+        하는 것은 reward 자르기뿐이다.
+    - question: |
+        같은 이름의 DQN 구현 둘을 비교한 결과가 크게 다를 때 먼저 확인할 것은 무엇인가?
+      choices:
+        - '두 구현이 같은 critic loss 와 optimizer 를 쓰는지'
+        - '두 구현의 network 이름이 같은 DQN 인지'
+        - '두 구현이 같은 programming language 로 쓰였는지'
+        - '두 구현이 같은 해에 발표된 논문을 따랐는지'
+      answer: 0
+      explanation: |
+        같은 DQN 이라도 Stable-Baselines3 는 Huber loss 를 쓰고 CleanRL 은 squared error 를 쓰며, Dopamine 의 TensorFlow 판과 JAX 판은 loss 와
+        optimizer 의 기본값이 다르다. network 이름이 같아도 loss 와 optimizer 가 다르면 학습 방식이 다르다. programming language 는 loss 와
+        optimizer 를 정하지 않으므로 먼저 확인할 것이 아니다. 따른 논문의 발표 연도로는 구현이 쓰는 loss 와 optimizer 를 알 수 없다.
+
+- topic: norm-clipping
+  title: gradient norm clipping
+  section: gradient-norm-clipping
+  variants:
+    - question: |
+        gradient 가 $(6, 8)$ 이고 norm clipping 의 문턱이 5 다. 자른 뒤의 gradient 와 그 성질로 옳은 것은 무엇인가?
+      choices:
+        - '$(5, 5)$ 로, 성분마다 5 를 넘지 않게 잘렸다'
+        - '$(3, 4)$ 로, 방향은 그대로이고 길이만 5 가 됐다'
+        - '$(6, 8)$ 그대로다. 성분이 모두 10 보다 작기 때문이다'
+        - '$(0.6, 0.8)$ 로, 길이 1 인 방향 vector 가 됐다'
+      answer: 1
+      explanation: |
+        길이는 $\sqrt{36 + 64} = 10$ 이고 문턱 5 를 넘으므로 모든 성분에 $5 \div 10 = 0.5$ 를 곱해 $(3, 4)$ 가 되고, 방향은 그대로다. $(5, 5)$ 는
+        성분마다 자른 결과라 방향이 바뀐다. 문턱은 성분이 아니라 길이 10 과 비교하므로 성분이 10 보다 작아도 자른다. norm clipping 은 길이를
+        1 이 아니라 문턱 5 로 맞춘다.
+    - question: |
+        TD 오차가 0.5, −1, 2, 20 인 batch 를 squared error 로 학습하면서 gradient norm clipping 을 켰다. 오차 20 인 sample 의 몫은 어떻게 되는가?
+      choices:
+        - '29% 로 줄어 Huber loss 를 쓴 것과 같아진다'
+        - '0% 가 되어 그 sample 은 잘려 나간다'
+        - '85% 그대로이고, 전체 크기만 줄어든다'
+        - '100% 가 되어 다른 sample 은 무시된다'
+      answer: 2
+      explanation: |
+        norm clipping 은 batch 의 gradient 를 다 더한 뒤 전체에 같은 배율을 곱하므로, sample 사이의 몫인 $20 \div 23.5 = 85\%$ 는 그대로다.
+        29% 는 sample 마다 자르는 Huber loss 의 결과다. norm clipping 은 어떤 sample 도 빼지 않으므로 몫이 0% 가 되지 않는다. 다른 sample 의
+        gradient 도 같은 배율로 남으므로 몫이 100% 가 되지 않는다.
+    - question: |
+        Pascanu 등이 제안한 gradient norm clipping 이 성분마다 자르는 방식과 다른 점으로 옳은 것은 무엇인가?
+      choices:
+        - 'gradient 를 키울 때도 쓰여, 작은 gradient 를 문턱까지 늘린다'
+        - '전체 길이를 줄일 뿐 방향은 유지해, 내려가는 방향이 그대로다'
+        - '성분 가운데 가장 큰 하나만 0 으로 만들고 나머지는 둔다'
+        - 'loss 의 꼴을 Huber 로 바꿔 sample 마다 gradient 를 묶는다'
+      answer: 1
+      explanation: |
+        norm clipping 은 gradient vector 전체에 같은 배율을 곱해 길이만 줄이므로 방향이 그대로이고, 저자들은 이 점을 성분마다 자르는 방식과
+        다른 점으로 들었다. 배율은 1 을 넘지 않으므로 작은 gradient 를 키우지 않는다. 모든 성분에 같은 배율을 곱할 뿐 성분 하나만 0 으로 만들지
+        않는다. loss 를 그대로 두고 gradient 만 자르므로 loss 의 꼴을 Huber 로 바꾸지 않는다.
+
+- topic: huber-scale
+  title: reward 크기와 Huber 의 경계
+  section: reward-크기와-huber-의-직선-구간
+  variants:
+    - question: |
+        같은 $(s, a)$ 의 target 이 0, 0, 0, 10 으로 나온다. squared error, 부호만 보는 절댓값 loss, 경계 1 인 Huber loss 로 각각 맞춘 Q 값으로 옳은 것은 무엇인가?
+      choices:
+        - '세 loss 모두 평균인 2.5 를 맞춘다'
+        - 'squared error 2.5, 절댓값 0, Huber 는 그 사이인 0.33'
+        - 'squared error 0, 절댓값 2.5, Huber 는 그 사이인 1'
+        - 'squared error 10, 절댓값 0, Huber 는 그 사이인 5'
+      answer: 1
+      explanation: |
+        squared error 는 평균 $10 \div 4 = 2.5$ 를 맞추고, 절댓값 loss 는 중앙값 0 을 맞춘다. Huber 는 세 개의 0 이 경계 안에 있고 10 이 경계
+        밖에 있어서 $3Q - 1 = 0$ 에서 $Q = 1/3 \approx 0.33$ 이다. 절댓값 loss 와 Huber 는 평균을 맞추지 않으므로 세 loss 의 답은 같지 않다.
+        squared error 가 맞추는 값은 중앙값 0 이 아니라 평균 2.5 다. squared error 는 최댓값 10 이 아니라 평균을 맞춘다.
+    - question: |
+        reward 를 자르지 않는 환경에서 reward 를 100 배로 키우고 Huber 의 경계는 기본값 1 로 두었다. critic 에 생길 수 있는 문제는 무엇인가?
+      choices:
+        - '거의 모든 오차가 직선 구간에 들어가 Q 가 평균보다 중앙값 쪽으로 간다'
+        - '오차가 모두 경계 안에 들어가 squared error 와 똑같아진다'
+        - 'reward 가 커지면 Huber 의 gradient 도 100 배로 커진다'
+        - 'reward 의 배율은 Huber loss 의 결과에 아무 영향을 주지 않는다'
+      answer: 0
+      explanation: |
+        TD 오차가 100 배가 되면 대부분이 경계 1 을 넘어 gradient 에 부호만 남고, 부호만 보는 loss 는 중앙값을 맞춘다. 그래서 Q 가 기대 return
+        보다 작게 나올 수 있다. 오차가 커지면 경계 안이 아니라 밖으로 나가므로 squared error 와 같아지지 않는다. 직선 구간의 gradient 는 1 로
+        묶여 100 배로 커지지 않는다. 경계에 비해 오차가 커지면 맞추는 값이 평균에서 중앙값 쪽으로 옮겨 가므로 배율은 결과를 바꾼다.
+    - question: |
+        target 0, 0, 0, 1000 에 경계 1 인 Huber 로 맞춘 Q 가 평균 250 에서 멀어졌다. 원래 비율(평균의 13%)로 되돌리는 방법으로 옳은 것은 무엇인가?
+      choices:
+        - '경계도 reward 와 같은 배율인 100 으로 키운다'
+        - '경계를 0.01 로 줄여 직선 구간을 넓힌다'
+        - 'learning rate 를 100 배로 키운다'
+        - 'gradient norm clipping 의 문턱을 1 로 둔다'
+      answer: 0
+      explanation: |
+        경계를 100 으로 키우면 세 개의 0 은 경계 안에 있고 1000 은 경계 밖에 있어서 $3Q = 100$ 에서 $Q = 33.3$ 이고, 평균 250 의 13% 로
+        돌아온다. 경계를 0.01 로 줄이면 직선 구간이 넓어져 중앙값 쪽으로 더 간다. learning rate 는 움직이는 속도만 바꿀 뿐 맞추는 값의 위치를
+        바꾸지 않는다. norm clipping 은 batch 합 전체를 같은 배율로 줄여 sample 사이의 몫을 바꾸지 않는다.
+
+- topic: adam-scale
+  title: Adam 이 지우는 배율
+  section: adam-이-지우는-배율
+  variants:
+    - question: |
+        SAC 의 critic loss 에 0.5 를 곱하는 구현과 곱하지 않는 구현이 있다. 둘 다 Adam 을 쓸 때 update 크기의 차이로 옳은 것은 무엇인가?
+      choices:
+        - '0.5 를 곱한 쪽이 매 step 정확히 절반만 움직인다'
+        - 'Adam 이 일정한 배율을 지워 update 크기는 거의 같다'
+        - '0.5 를 곱한 쪽이 두 배로 움직인다'
+        - '0.5 를 곱하면 Adam 의 learning rate 가 0.25 배로 바뀐다'
+      answer: 1
+      explanation: |
+        Adam 은 gradient 의 이동 평균 $m$ 을 gradient 제곱의 이동 평균 $v$ 의 제곱근 $\sqrt{v}$ 로 나눈다. 모든 step 에 같은 수를 곱하면 $m$ 도
+        그 배가 되고 $\sqrt{v}$ 도 그 배가 되어 지워진다. 그래서 0.5 를 곱한 쪽이 절반만 움직이지 않는다. 같은 이유로 0.5 를 곱한 쪽이 두 배로
+        움직이지도 않는다. loss 에 곱한 수는 gradient 에 곱해질 뿐 learning rate 자체는 바뀌지 않는다.
+    - question: |
+        Adam 을 쓰더라도 지워지지 않는 gradient 의 영향은 무엇인가?
+      choices:
+        - '모든 step 의 gradient 에 똑같이 곱해진 일정한 배율'
+        - 'loss 에 곱한 상수 0.5 나 2 같은 고정된 계수'
+        - 'batch 안 sample 사이의 몫과 한 step 만 튄 gradient'
+        - 'parameter 마다 gradient 의 단위와 크기가 다른 것'
+      answer: 2
+      explanation: |
+        Adam 은 모든 step 에 같은 배율이 곱해질 때만 지운다. batch 안에서 큰 오차의 몫은 비율이라 그대로이고, 한 step 만 튄 gradient 는 $m$ 이
+        $v$ 보다 빨리 반응해 그 step 을 키운다. 모든 step 에 똑같이 곱해진 일정한 배율은 $m$ 과 $\sqrt{v}$ 가 함께 커져 지워진다. loss 에 곱한
+        0.5 나 2 같은 고정 계수도 모든 step 의 gradient 에 같은 배율로 곱해지므로 지워진다. Adam 은 parameter 마다 따로 나누므로 parameter 사이의
+        단위 차이도 지워진다.
+    - question: |
+        오래 1 이던 gradient 가 한 step 만 100 이 됐다. Adam 의 이동 평균 계수는 기본값 $\beta_1 = 0.9$, $\beta_2 = 0.999$ 다. 그 step 의 Adam update 와 norm clipping 의 효과로 옳은 것은 무엇인가?
+      choices:
+        - '그대로 두면 평소의 약 3.3 배를 움직이고, 10 으로 자르면 약 1.8 배다'
+        - 'Adam 이 배율을 지우므로 그대로 둬도 평소와 똑같이 움직인다'
+        - '그대로 두면 평소의 100 배를 움직이고, 자르면 10 배다'
+        - 'norm clipping 을 하면 그 step 은 전혀 움직이지 않는다'
+      answer: 0
+      explanation: |
+        그대로면 $m = 0.9 + 10 = 10.9$, $v = 0.999 + 10 = 11.0$ 이라 $m / \sqrt{v} \approx 3.29$ 다. 10 으로 자르면 $m = 1.9$, $v = 1.10$ 이라
+        약 1.81 이다. Adam 은 일정한 배율만 지우므로 한 step 만 튄 gradient 는 다 지우지 못한다. $v$ 도 함께 커지므로 100 배까지 움직이지는
+        않는다. 10 으로 자른 gradient 도 0 이 아니므로 그 step 에서도 움직인다.
+
+- topic: reading-loss
+  title: critic loss 값을 읽는 법
+  section: critic-loss-값-읽기
+  variants:
+    - question: |
+        DQN 학습 중 target network 를 덮어쓴 직후 critic loss 가 갑자기 커졌다. 이 현상을 가장 잘 설명하는 것은 무엇인가?
+      choices:
+        - 'critic 의 weight 가 망가져 Q 값이 크게 틀어졌다'
+        - 'target 이 새 network 로 계산되어 따라갈 목표가 움직였다'
+        - 'replay buffer 의 sample 이 모두 지워져 다시 모였다'
+        - 'learning rate 가 자동으로 커져 update 가 커졌다'
+      answer: 1
+      explanation: |
+        덮어쓴 뒤에는 target 의 다음 state 값이 새 network 로 계산되어, Q 가 그대로여도 target 이 바뀌면 오차가 커진다. 예를 들어 target 이
+        10 에서 12 가 되면 squared error 는 $\tfrac12 \times 2^2 = 2$ 로 뛴다. Q 가 그대로여도 loss 가 오르므로 weight 가 망가졌다는 근거가
+        되지 않는다. target network 를 덮어써도 replay buffer 의 sample 은 지워지지 않는다. target network 를 덮어써도 learning rate 는 바뀌지
+        않는다.
+    - question: |
+        reward 배율이 다른 두 SAC 실험의 critic loss 숫자를 직접 비교하면 안 되는 이유는 무엇인가?
+      choices:
+        - 'critic loss 는 실험마다 무작위로 정해지는 값이라서'
+        - 'reward 가 100 배면 squared error 는 약 10,000 배가 되어서'
+        - 'SAC 는 critic loss 를 학습에 쓰지 않아서'
+        - 'reward 배율은 actor 에만 영향을 주고 critic 에는 주지 않아서'
+      answer: 1
+      explanation: |
+        reward 를 100 배로 키우면 TD 오차도 대략 100 배가 되어 squared error 는 $100^2$ 배가 된다. 그래서 loss 숫자의 크기는 reward 배율에
+        따라 달라진다. critic loss 는 Q 와 target 의 차이로 계산하는 값이라 무작위로 정해지지 않는다. SAC 도 critic 을 이 loss 로 학습한다.
+        reward 는 critic 의 target 에 직접 들어가므로 critic 에도 영향을 준다.
+    - question: |
+        DQN 논문의 저자들이 학습이 안정적으로 진행됨을 보이려고 critic loss 대신 쓴 지표로 옳은 것은 무엇인가?
+      choices:
+        - 'replay buffer 에 쌓인 transition 의 수'
+        - '매 update 의 critic loss 를 길게 이동 평균해 매끄럽게 한 값'
+        - 'episode 평균 점수와, 고정한 state 묶음에서 계산한 평균 Q'
+        - 'target network 를 덮어쓴 횟수와 걸린 시간'
+      answer: 2
+      explanation: |
+        저자들은 Fig. 2 에서 episode 한 번에 얻은 점수의 평균과, 학습 전에 모아 둔 state 묶음에서 계산한 Q 의 평균을 그렸다. 같은 state 묶음을
+        쓰므로 critic 이 매기는 가치의 변화를 비교할 수 있다. replay buffer 에 쌓인 transition 의 수는 학습 시간에 따라 늘 뿐 학습 상태를 보여
+        주지 않는다. critic loss 는 이동 평균을 내도 target 이 움직이면 오르므로 이 용도에 맞지 않는다. target network 를 덮어쓴 횟수와 걸린
+        시간은 정해진 주기를 따를 뿐 학습 상태를 보여 주지 않는다.

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>action 두 개의 Q 값이 1 과 2 인 예에서 reward 배율에 따른 SAC policy. 배율 0.1 이면 0.475 와 0.525 로 거의 고르고, 1 이면 0.269 와 0.731, 10 이면 거의 한쪽만 고른다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">확률이 exp(Q / α) 에 비례하는 policy (α = 1), action 두 개의 Q 값 1 과 2 에 reward 배율을 곱할 때</text>
+  <rect x="20.0" y="46.0" width="220.0" height="240.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="130.0" y="72.0" fill="#94a3b8" font-size="13.5" text-anchor="middle" font-weight="600">배율 0.1</text>
+  <text x="130.0" y="92.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Q = 0.1, 0.2</text>
+  <rect x="60.0" y="188.2" width="60.0" height="61.8" rx="3" fill="#94a3b8" fill-opacity="0.85" stroke="#94a3b8" stroke-width="0"/>
+  <text x="90.0" y="180.2" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.475</text>
+  <text x="90.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 1</text>
+  <rect x="140.0" y="181.8" width="60.0" height="68.2" rx="3" fill="#94a3b8" fill-opacity="0.85" stroke="#94a3b8" stroke-width="0"/>
+  <text x="170.0" y="173.8" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.525</text>
+  <text x="170.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 2</text>
+  <line x1="50.0" y1="250.0" x2="210.0" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <rect x="252.0" y="46.0" width="220.0" height="240.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="362.0" y="72.0" fill="#7cb4d8" font-size="13.5" text-anchor="middle" font-weight="600">배율 1</text>
+  <text x="362.0" y="92.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Q = 1, 2</text>
+  <rect x="292.0" y="215.0" width="60.0" height="35.0" rx="3" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="0"/>
+  <text x="322.0" y="207.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.269</text>
+  <text x="322.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 1</text>
+  <rect x="372.0" y="155.0" width="60.0" height="95.0" rx="3" fill="#7cb4d8" fill-opacity="0.85" stroke="#7cb4d8" stroke-width="0"/>
+  <text x="402.0" y="147.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.731</text>
+  <text x="402.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 2</text>
+  <line x1="282.0" y1="250.0" x2="442.0" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+  <rect x="484.0" y="46.0" width="220.0" height="240.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="594.0" y="72.0" fill="#d6aa62" font-size="13.5" text-anchor="middle" font-weight="600">배율 10</text>
+  <text x="594.0" y="92.0" fill="#94a3b8" font-size="11.5" text-anchor="middle">Q = 10, 20</text>
+  <rect x="524.0" y="250.0" width="60.0" height="1.5" rx="3" fill="#d6aa62" fill-opacity="0.85" stroke="#d6aa62" stroke-width="0"/>
+  <text x="554.0" y="242.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.00005</text>
+  <text x="554.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 1</text>
+  <rect x="604.0" y="120.0" width="60.0" height="130.0" rx="3" fill="#d6aa62" fill-opacity="0.85" stroke="#d6aa62" stroke-width="0"/>
+  <text x="634.0" y="112.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">0.99995</text>
+  <text x="634.0" y="268.0" fill="#94a3b8" font-size="11" text-anchor="middle">action 2</text>
+  <line x1="514.0" y1="250.0" x2="674.0" y2="250.0" stroke="#1e293b" stroke-width="1"/>
+</svg>

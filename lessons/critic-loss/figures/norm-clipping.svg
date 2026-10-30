@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>gradient (6, 8) 을 자르는 두 방법. norm clipping 은 길이 10 을 5 로 줄여 (3, 4) 로 방향을 지키고, 성분마다 자르면 (5, 5) 가 되어 방향이 바뀐다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="328" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">gradient (6, 8) 을 자르는 두 방법 (문턱 5)</text>
+  <line x1="80.0" y1="290.0" x2="296.0" y2="290.0" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80.0" y1="290.0" x2="80.0" y2="62.0" stroke="#1e293b" stroke-width="1"/>
+  <rect x="80" y="170" width="120" height="120" fill="none" stroke="#d6aa62" stroke-dasharray="4 4"/>
+  <path d="M200 290 A 120 120 0 0 0 80 170" fill="none" stroke="#7fc4a2" stroke-dasharray="4 4"/>
+  <line x1="80.0" y1="290.0" x2="224.0" y2="98.0" stroke="#7cb4d8" stroke-width="2.2" marker-end="url(#ar-sky)"/>
+  <line x1="80.0" y1="290.0" x2="152.0" y2="194.0" stroke="#7fc4a2" stroke-width="2.2" marker-end="url(#ar-green)"/>
+  <line x1="80.0" y1="290.0" x2="200.0" y2="170.0" stroke="#d88b8b" stroke-width="2.2" marker-end="url(#ar-red)"/>
+  <text x="232.0" y="102.0" fill="#7cb4d8" font-size="12" text-anchor="start">원래 (6, 8) · 길이 10</text>
+  <text x="138.0" y="198.0" fill="#7fc4a2" font-size="12" text-anchor="end">(3, 4)</text>
+  <text x="210.0" y="174.0" fill="#d88b8b" font-size="12" text-anchor="start">(5, 5)</text>
+  <rect x="370.0" y="60.0" width="330.0" height="220.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="386.0" y="86.0" fill="#7fc4a2" font-size="13" text-anchor="start" font-weight="600">norm clipping</text>
+  <text x="386.0" y="108.0" fill="#e2e8f0" font-size="12" text-anchor="start">길이 10 &gt; 문턱 5 → 배율 0.5</text>
+  <text x="386.0" y="128.0" fill="#e2e8f0" font-size="12" text-anchor="start">(6, 8) × 0.5 = (3, 4)</text>
+  <text x="386.0" y="148.0" fill="#94a3b8" font-size="12" text-anchor="start">방향 그대로, 길이 5 (초록 원)</text>
+  <text x="386.0" y="190.0" fill="#d88b8b" font-size="13" text-anchor="start" font-weight="600">성분마다 ±5 로 자름</text>
+  <text x="386.0" y="212.0" fill="#e2e8f0" font-size="12" text-anchor="start">(min(6, 5), min(8, 5)) = (5, 5)</text>
+  <text x="386.0" y="232.0" fill="#94a3b8" font-size="12" text-anchor="start">방향이 45° 로 바뀜 (주황 사각형)</text>
+</svg>

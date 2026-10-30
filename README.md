@@ -4,12 +4,12 @@
 
 **Robot Learning · Manipulation 직무를 준비하며 공부한 기록**
 
-[![Lessons](https://img.shields.io/badge/lessons-67-2dd4bf)](#커리큘럼)
-[![Hours](https://img.shields.io/badge/hours-145-818cf8)](#커리큘럼)
+[![Lessons](https://img.shields.io/badge/lessons-70-2dd4bf)](#커리큘럼)
+[![Hours](https://img.shields.io/badge/hours-151-818cf8)](#커리큘럼)
 [![Lessons license](https://img.shields.io/badge/lessons-CC%20BY--NC--SA%204.0-lightgrey)](lessons/LICENSE.md)
 [![Site license](https://img.shields.io/badge/site-MIT-blue)](LICENSE)
 
-**[공부 기록 보기](https://gawbi.github.io/robotics-roadmap/#/me)** · [커리큘럼 지도](https://gawbi.github.io/robotics-roadmap/) · [공부 순서](docs/study-plan.md) · [13주 로드맵](docs/study-roadmap.md) ·
+**[공부 기록 보기](https://gawbi.github.io/robotics-roadmap/#/me)** · [커리큘럼 지도](https://gawbi.github.io/robotics-roadmap/) · [공부 순서](docs/study-plan.md) · [14주 로드맵](docs/study-roadmap.md) ·
 [기록 방식](#공부한-것을-남기는-방식) · [웹·앱으로 공부하기](#웹앱으로-공부하기) · [원본에 더한 것](#원본에-더한-것) · [라이선스](#라이선스)
 
 <img src="docs/map.png" alt="커리큘럼 지도. 가운데 동심원에 공통 기초가 놓이고, 점선으로 나뉜 세 구역으로 Robot Learning·Manipulation·Mobile Autonomy 트리가 뻗습니다" width="960">
@@ -49,13 +49,16 @@
 
 ## 원본에 더한 것
 
-**강의 11개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
+**강의 14개**: 원본과 같은 형식(논문 원문으로 확인한 숫자, 그림, 접힌 심화 블록, 면접형 퀴즈)으로 Claude Code 와 함께 썼습니다.
 
 | 강의 | 영역 | 다루는 것 |
 | --- | --- | --- |
 | [ZMP → Convex MPC](lessons/legged-balance/README.md) | Kinematics & Control · 3h | ground reaction force 와 마찰, ZMP 와 support polygon, preview control 보행 패턴, linear inverted pendulum 과 capture point, Mini Cheetah 의 convex MPC·WBIC, 학습한 policy 와의 결합 |
 | [Perceptive Locomotion](lessons/perceptive-locomotion/README.md) | Reinforcement Learning · 3h | blind policy 가 계단에서 막히는 이유, elevation map 과 height sample, belief encoder 의 gate, depth image 와 scandots 2 단계 학습, 지연과 센서 실패, 4족 parkour |
 | [Locomotion Deployment](lessons/locomotion-deployment/README.md) | Reinforcement Learning · 2h | 학습한 보행 policy 파일을 Unitree G1·H1 실물에 올리는 과정, Train·Play·Sim2Sim·Sim2Real, observation 배율과 관절 순서·motor 번호, IMU quaternion 에서 중력 방향, 몸통 속도 추정(EKF·학습한 estimator), motor 명령과 시작·정지 순서, 제어 주기 |
+| [Critic Loss](lessons/critic-loss/README.md) | Reinforcement Learning · 2h | squared error 와 Huber loss 의 gradient, DQN 의 error clipping, gradient norm clipping, reward 크기와 Huber 의 직선 구간에서 평균 대신 중앙값 쪽을 배우는 critic, Adam 이 지우는 배율과 지우지 못하는 spike, critic loss 값 읽기 |
+| [Reward Scale & Shaping](lessons/reward-scale/README.md) | Reinforcement Learning · 2h | potential-based shaping 의 합과 Q 초기화의 동등성, 상수를 더할 때 생기는 생존 보너스와 일찍 끝내기, SAC 에서 temperature 가 되는 reward 배율, DQN 의 reward 자르기와 Pop-Art, reward centering |
+| [RL Experiments](lessons/rl-experiments/README.md) | Reinforcement Learning · 2h | seed 가 만드는 분산, 비교 조건 맞추기, seed 를 짝지은 t 구간, 정확 sign-flip 검정과 seed 수의 하한, 검정력, Holm 보정, IQM 과 bootstrap 구간, 사전 등록, 같은 seed 가 GPU 에서 갈리는 이유 |
 | [Humanoid Locomotion](lessons/humanoid-locomotion/README.md) | Reinforcement Learning · 3h | clock 기반 periodic reward, fractal 지형, 이력을 읽는 causal Transformer 와 in-context adaptation, 사전 학습 뒤 RL fine-tuning, sim-to-sim 검증, Humanoid Parkour |
 | [Humanoid Whole-Body Control](lessons/humanoid-wbc/README.md) | Reinforcement Learning · 3h | motion capture retargeting, tracking reward, privileged teacher → student, H2O·OmniH2O·ExBody2·GMT·SONIC, ASAP 의 delta action, VLA 아래의 whole-body controller |
 | [Robot Data Scaling](lessons/data-scaling/README.md) | Imitation Learning · 2h | Open X-Embodiment·DROID, 로봇 없이 모으는 UMI, 환경·물체 다양성의 data scaling law, MimicGen·DemoGen 합성 시연, CUPID curation, π0.5 의 data mixture |

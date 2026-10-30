@@ -1,6 +1,6 @@
-# 공부 로드맵: 13주 일정
+# 공부 로드맵: 14주 일정
 
-[공부 순서](study-plan.md)를 날짜 단위로 펼친 일정입니다. 매니퓰레이터를 주력으로 하고, 로봇개와 휴머노이드를 그 뒤에 둡니다. 평일 하루에
+[공부 순서](study-plan.md)를 날짜 단위로 펼친 일정입니다. 매니퓰레이터를 주력으로 하고, 4주차 뒤에 강화학습 기초 한 주를 두고, 로봇개와 휴머노이드를 그 뒤에 둡니다. 평일 하루에
 강의 하나, 주말에 구현 하나가 기본입니다. 밀리면 "예비" 날로 메웁니다.
 
 ## 처음 한 번만
@@ -109,68 +109,85 @@
 - MuJoCo 장면에 손목 카메라와 상자를 넣고 hand-eye calibration 을 합니다
 - 카메라로 상자 위치를 찾아 집어 옮기는 scripted pick-and-place 를 만듭니다
 - 남길 것: calibration 오차, 상자 위치를 20 번 바꿨을 때 성공률과 실패 원인 분류
-- 이 장면이 5 ~ 9주차의 무대입니다
+- 이 장면이 6 ~ 10주차의 무대입니다
 
-## 5–7주차: 시연으로 학습하기 (M4, 핵심)
+## 5주차: 강화학습 기초
 
-| 날 | 5주차 | 6주차 | 7주차 |
+| 날 | 할 일 |
+| --- | --- |
+| 1 | 퀴즈만: [Bandits & MDPs](../lessons/bandit-mdp/README.md), [Policy Gradient](../lessons/policy-gradient/README.md). 그다음 [PPO](../lessons/ppo/README.md) |
+| 2 | [DQN → SAC](../lessons/off-policy/README.md) |
+| 3 | [Critic Loss](../lessons/critic-loss/README.md) |
+| 4 | [Reward Scale & Shaping](../lessons/reward-scale/README.md) |
+| 5 | [RL Experiments](../lessons/rl-experiments/README.md) |
+| 6–7 | 구현 5 |
+
+**구현 5 `labs/sac-pendulum`** (off-policy, critic-loss, rl-experiments)
+
+- Gymnasium 의 Pendulum 에서 SAC 를 학습합니다
+- critic loss 를 MSE 와 Huber 로 바꿔 seed 5 개씩 학습하고, 같은 seed 끼리 짝지어 비교합니다
+- 남길 것: 두 방법의 학습 곡선, 마지막 return 의 IQM 과 95% 구간, sign-flip 검정의 p 값
+- 여기서 익힌 비교 방법을 6 ~ 8주차의 ACT·Diffusion Policy 비교에 그대로 씁니다
+
+## 6–8주차: 시연으로 학습하기 (M4, 핵심)
+
+| 날 | 6주차 | 7주차 | 8주차 |
 | --- | --- | --- | --- |
 | 1 | 퀴즈만: [CNN](../lessons/cnn/README.md), [ResNet](../lessons/resnet/README.md) | [ACT](../lessons/act/README.md) | 실험: ACT 의 chunk 크기 비교 |
 | 2 | [Behavior Cloning](../lessons/behavior-cloning/README.md) | 퀴즈만: [DDPM](../lessons/ddpm/README.md), [RT-1](../lessons/rt1/README.md) | 실험: Diffusion Policy 의 denoising step 수 비교 |
 | 3 | 퀴즈만: [VAE](../lessons/vae/README.md), [BPE Tokenizer](../lessons/tokenizer/README.md) | [Diffusion Policy](../lessons/diffusion-policy/README.md) | 실험: 시연 수 25·50·100 비교 |
 | 4 | 퀴즈만: [Transformer](../lessons/transformer/README.md) | 복습 | 실패 사례 분류 |
 | 5 | [Teleop Dataset](../lessons/teleop-dataset/README.md) | 예비 | README 정리 |
-| 6–7 | 구현 5-1 | 구현 5-2 | 구현 5 마무리 |
+| 6–7 | 구현 6-1 | 구현 6-2 | 구현 6 마무리 |
 
-**구현 5 `labs/imitation-pick`** (teleop-dataset, behavior-cloning, act, diffusion-policy)
+**구현 6 `labs/imitation-pick`** (teleop-dataset, behavior-cloning, act, diffusion-policy)
 
-- 5-1: LeRobot 의 PushT simulation 으로 Diffusion Policy 학습을 한 번 재현합니다. 그다음 구현 4 의 장면에서 키보드나 마우스로 시연을 50 개 모아 LeRobotDataset 으로 저장합니다
-- 5-2: 같은 dataset 으로 ACT 와 Diffusion Policy 를 학습합니다
-- 7주차: 위 표의 실험을 하고 scripted pick 과 성공률을 비교합니다
-- 남길 것: 방법별 성공률 표(시도 수와 함께), 실험 그래프, 실패 영상 2 ~ 3 개와 원인
+- 6-1: LeRobot 의 PushT simulation 으로 Diffusion Policy 학습을 한 번 재현합니다. 그다음 구현 4 의 장면에서 키보드나 마우스로 시연을 50 개 모아 LeRobotDataset 으로 저장합니다
+- 6-2: 같은 dataset 으로 ACT 와 Diffusion Policy 를 학습합니다
+- 8주차: 위 표의 실험을 하고 scripted pick 과 성공률을 비교합니다. 성공률은 시도 수와 95% 구간을 함께 적습니다
+- 남길 것: 방법별 성공률 표, 실험 그래프, 실패 영상 2 ~ 3 개와 원인
 - 면접에서 가장 오래 이야기할 프로젝트입니다. README 를 가장 공들여 씁니다
 
-## 8–9주차: VLA 와 실물 (M5, M6)
+## 9–10주차: VLA 와 실물 (M5, M6)
 
-| 날 | 8주차 | 9주차 |
+| 날 | 9주차 | 10주차 |
 | --- | --- | --- |
-| 1 | 퀴즈만: [ViT](../lessons/vit/README.md), [GPT-2](../lessons/gpt/README.md) | 구현 6 평가 |
-| 2 | 퀴즈만: [CLIP](../lessons/clip/README.md), [Flow Matching](../lessons/flow-matching/README.md) | 구현 6 평가 |
+| 1 | 퀴즈만: [ViT](../lessons/vit/README.md), [GPT-2](../lessons/gpt/README.md) | 구현 7 평가 |
+| 2 | 퀴즈만: [CLIP](../lessons/clip/README.md), [Flow Matching](../lessons/flow-matching/README.md) | 구현 7 평가 |
 | 3 | [RT-2 → OpenVLA](../lessons/vla-tokens/README.md) | [Real Robot](../lessons/real-robot/README.md) |
 | 4 | [π0](../lessons/pi0/README.md) | [Force & Impedance Control](../lessons/impedance-control/README.md) |
 | 5 | 예비 | 예비 |
-| 6–7 | 구현 6 | 구현 7 또는 정리 |
+| 6–7 | 구현 7 | 구현 8 또는 정리 |
 
-**구현 6 `labs/vla-finetune`** (vla-tokens, pi0)
+**구현 7 `labs/vla-finetune`** (vla-tokens, pi0)
 
-- 구현 5 의 dataset 에 "빨간 상자를 왼쪽 접시에" 같은 언어 지시를 붙이고, LeRobot 의 작은 VLA(SmolVLA 등)를 fine-tune 합니다
+- 구현 6 의 dataset 에 "빨간 상자를 왼쪽 접시에" 같은 언어 지시를 붙이고, LeRobot 의 작은 VLA(SmolVLA 등)를 fine-tune 합니다
 - 남길 것: ACT·Diffusion Policy 와의 성공률과 추론 시간 비교, 처음 보는 지시문에서의 결과
 
-**구현 7 `labs/real-arm`** (real-robot): 실물 팔(SO-101 등)이 있을 때만 합니다
+**구현 8 `labs/real-arm`** (real-robot): 실물 팔(SO-101 등)이 있을 때만 합니다
 
 - 실물에서 시연을 모아 ACT 를 학습하고 성공률을 신뢰 구간과 함께 적습니다
-- 실물이 없으면 이 주말에는 구현 1 ~ 6 의 README 를 다듬습니다
+- 실물이 없으면 이 주말에는 구현 1 ~ 7 의 README 를 다듬습니다
 
-## 10–11주차: 로봇개
+## 11–12주차: 로봇개
 
-| 날 | 10주차 | 11주차 |
+| 날 | 11주차 | 12주차 |
 | --- | --- | --- |
-| 1 | 퀴즈만: [Bandits & MDPs](../lessons/bandit-mdp/README.md), [Policy Gradient](../lessons/policy-gradient/README.md) | 구현 8: sim-to-sim |
-| 2 | [PPO](../lessons/ppo/README.md) | 구현 8: sim-to-sim |
-| 3 | [Sim-to-Real Locomotion](../lessons/sim2real-locomotion/README.md) | [Perceptive Locomotion](../lessons/perceptive-locomotion/README.md) |
-| 4 | [Locomotion Deployment](../lessons/locomotion-deployment/README.md) | [ZMP → Convex MPC](../lessons/legged-balance/README.md) |
-| 5 | 예비 | 퀴즈만: [Kalman Filter](../lessons/kalman-filter/README.md) |
-| 6–7 | 구현 8: 학습 | 구현 8 마무리 |
+| 1 | [Sim-to-Real Locomotion](../lessons/sim2real-locomotion/README.md) | 구현 9: sim-to-sim |
+| 2 | [Locomotion Deployment](../lessons/locomotion-deployment/README.md) | 구현 9: sim-to-sim |
+| 3 | [Perceptive Locomotion](../lessons/perceptive-locomotion/README.md) | 구현 9: 배포 점검표 |
+| 4 | [ZMP → Convex MPC](../lessons/legged-balance/README.md) | 복습 |
+| 5 | 퀴즈만: [Kalman Filter](../lessons/kalman-filter/README.md) | 예비 |
+| 6–7 | 구현 9: 학습 | 구현 9 마무리 |
 
-**구현 8 `labs/quadruped-walk`** (ppo, sim2real-locomotion, locomotion-deployment)
+**구현 9 `labs/quadruped-walk`** (ppo, sim2real-locomotion, locomotion-deployment)
 
-- CartPole 에서 PPO 를 먼저 돌려 학습 곡선을 봅니다
 - [unitree_rl_gym](https://github.com/unitreerobotics/unitree_rl_gym) 으로 Go2 평지 보행을 학습합니다. Isaac Gym 은 NVIDIA GPU 가 필요하므로,
   GPU 가 없으면 [MuJoCo Playground](https://playground.mujoco.org/) 와 GPU 가 있는 원격 환경을 씁니다
 - 학습한 policy 를 MuJoCo 에서 다시 걷게 하는 배포 script 를 직접 쓰고, Locomotion Deployment 의 점검표를 채웁니다
-- 남길 것: reward 항 하나를 바꾼 비교, 속도 명령 추종 오차, sim-to-sim 에서 무너지는 조건
+- 남길 것: reward 항 하나를 바꾼 비교(seed 짝지은 비교로), 속도 명령 추종 오차, sim-to-sim 에서 무너지는 조건
 
-## 12주차: 휴머노이드
+## 13주차: 휴머노이드
 
 | 날 | 할 일 |
 | --- | --- |
@@ -179,20 +196,20 @@
 | 3 | [GR00T N1](../lessons/groot/README.md) |
 | 4 | [Robot Data Scaling](../lessons/data-scaling/README.md) |
 | 5 | 예비 |
-| 6–7 | 구현 9 |
+| 6–7 | 구현 10 |
 
-**구현 9 `labs/humanoid-walk`** (humanoid-locomotion)
+**구현 10 `labs/humanoid-walk`** (humanoid-locomotion)
 
-- 구현 8 의 과정을 G1 으로 반복합니다. unitree_rl_gym 에 G1 설정과 MuJoCo 배포 script 가 있습니다
+- 구현 9 의 과정을 G1 으로 반복합니다. unitree_rl_gym 에 G1 설정과 MuJoCo 배포 script 가 있습니다
 - 남길 것: 걸음 clock 을 뺀 policy 와의 비교, MuJoCo 에서의 속도 추종 오차
 
-## 13주차: 지원 준비
+## 14주차: 지원 준비
 
 | 날 | 할 일 |
 | --- | --- |
 | 1–2 | 지원할 공고의 키워드에 맞는 강의를 [공부 순서의 4 절](study-plan.md#4-그-밖의-강의)에서 골라 공부 |
-| 3 | 구현 README 9 개 다듬기: 결과 숫자, 그래프, 막혔던 점 |
-| 4 | 모의 면접: Claude 에게 "구현 5 로 면접 봐줘" |
+| 3 | 구현 README 10 개 다듬기: 결과 숫자, 그래프, 막혔던 점 |
+| 4 | 모의 면접: Claude 에게 "구현 6 으로 면접 봐줘" |
 | 5 | 이력서에 구현과 공부 기록 링크(`#/me`) 넣기 |
 
 ## Claude 에게 이렇게 말하면 됩니다
