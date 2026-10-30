@@ -784,7 +784,7 @@ function Field() {
 
 const PauseMean = () => (
   <PauseWrite
-    question="particle 셋이 2.0 m, 2.5 m, 3.0 m 에 있고 가중치는 0.2, 0.5, 0.3 이다. 가중 평균 위치는? particle 10 개로 resampling 하면 각각 평균 몇 개씩 복사될까?"
+    question="particle 2.0 · 2.5 · 3.0 m, 가중치 0.2 · 0.5 · 0.3 의 가중 평균은? 10 개로 resampling 하면 몇 개씩?"
     answer={
       <>
         0.2 × 2.0 + 0.5 × 2.5 + 0.3 × 3.0 = 0.4 + 1.25 + 0.9 = 2.55 m
@@ -1183,7 +1183,7 @@ const PauseKidnap = () => (
       <>
         365 &lt; min_particles 500 → 500 개
         <br />
-        새 방 근처에 후보가 없고 resampling 은 있는 particle 만 복사 · recovery_alpha 0.0 이라 복구도 꺼짐 → RViz 로 초기 위치를 다시 준다
+        새 방엔 후보가 없고 recovery_alpha 0.0 → RViz 로 위치를 다시 준다
       </>
     }
   />

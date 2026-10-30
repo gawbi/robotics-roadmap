@@ -598,7 +598,7 @@ function Ba() {
 
 const PauseDisparity = () => (
   <PauseWrite
-    question="f = 500 인 카메라가 옆으로 0.2 m 움직이며 5 m 앞의 점을 봤다. disparity 는 몇 pixel 이고, 1 pixel 틀리면 depth 는 어디부터 어디까지 흔들릴까?"
+    question="f = 500, 옆으로 0.2 m, 5 m 앞의 점이면 disparity 는 몇 pixel? 1 pixel 틀리면 depth 범위는?"
     answer={
       <>
         d = 500 × 0.2 ÷ 5 = 20 pixel · f × b = 100
@@ -737,7 +737,7 @@ function Vio() {
 
 const PauseScale = () => (
   <PauseWrite
-    question="멈춰 있던 카메라가 2 초 동안 0.5 m/s² 로 일정하게 가속했고, 같은 시간 동안 monocular SLAM 이 구한 이동 거리는 4 단위다. 지도의 1 단위는 몇 m 인가?"
+    question="정지에서 2 초 동안 0.5 m/s² 로 가속했고 monocular SLAM 거리는 4 단위다. 1 단위는 몇 m?"
     answer={
       <>
         IMU: ½ × 0.5 × 2² = 1 m
