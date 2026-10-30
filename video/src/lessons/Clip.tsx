@@ -909,7 +909,7 @@ const PauseSig = () => (
 
 const PauseSwap = () => (
   <PauseWrite
-    question='물체 memory 에 CLIP embedding 을 저장해 둔 로봇이 찾을 물체를 "blue mug" 에서 "red screwdriver" 로 바꾸면, 무엇을 다시 계산하고 무엇을 그대로 쓰는가?'
+    question='CLIP embedding memory 의 로봇이 찾을 물체를 "blue mug" 에서 "red screwdriver" 로 바꾸면 무엇을 다시 계산할까?'
     answer={
       <>
         text encoder 로 "red screwdriver" 의 질의 embedding 하나만 새로 계산

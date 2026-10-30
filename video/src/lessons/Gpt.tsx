@@ -613,7 +613,7 @@ function Mask() {
 
 const PauseMask = () => (
   <PauseWrite
-    question="causal mask 를 쓴 모델에 길이 256 인 입력 하나를 넣으면 forward 한 번에 문제를 몇 개 푸는가? 위치 11 의 token 을 바꾸면 위치 10 의 확률표가 달라지는가?"
+    question="causal mask 모델에 길이 256 입력을 넣으면 forward 한 번에 문제 몇 개? 위치 11 을 바꾸면 위치 10 이 달라질까?"
     answer={
       <>
         위치마다 하나씩 256 개를 푼다
