@@ -186,6 +186,24 @@ import { script as banditMdp } from './lessons/bandit-mdp.script'
 import { Rt1 } from './lessons/Rt1'
 import rt1Narration from './lessons/rt1.narration.json'
 import { script as rt1 } from './lessons/rt1.script'
+import { FlowMatching } from './lessons/FlowMatching'
+import flowMatchingNarration from './lessons/flow-matching.narration.json'
+import { script as flowMatching } from './lessons/flow-matching.script'
+import { KalmanFilter } from './lessons/KalmanFilter'
+import kalmanFilterNarration from './lessons/kalman-filter.narration.json'
+import { script as kalmanFilter } from './lessons/kalman-filter.script'
+import { Transformer } from './lessons/Transformer'
+import transformerNarration from './lessons/transformer.narration.json'
+import { script as transformer } from './lessons/transformer.script'
+import { Vit } from './lessons/Vit'
+import vitNarration from './lessons/vit.narration.json'
+import { script as vit } from './lessons/vit.script'
+import { Resnet } from './lessons/Resnet'
+import resnetNarration from './lessons/resnet.narration.json'
+import { script as resnet } from './lessons/resnet.script'
+import { Tokenizer } from './lessons/Tokenizer'
+import tokenizerNarration from './lessons/tokenizer.narration.json'
+import { script as tokenizer } from './lessons/tokenizer.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -253,6 +271,12 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [particleFilter, ParticleFilter, particleFilterNarration],
   [banditMdp, BanditMdp, banditMdpNarration],
   [rt1, Rt1, rt1Narration],
+  [flowMatching, FlowMatching, flowMatchingNarration],
+  [kalmanFilter, KalmanFilter, kalmanFilterNarration],
+  [transformer, Transformer, transformerNarration],
+  [vit, Vit, vitNarration],
+  [resnet, Resnet, resnetNarration],
+  [tokenizer, Tokenizer, tokenizerNarration],
 ]
 
 export function RemotionRoot() {
