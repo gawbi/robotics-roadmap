@@ -168,6 +168,24 @@ import { script as clip } from './lessons/clip.script'
 import { Vae } from './lessons/Vae'
 import vaeNarration from './lessons/vae.narration.json'
 import { script as vae } from './lessons/vae.script'
+import { Ddpm } from './lessons/Ddpm'
+import ddpmNarration from './lessons/ddpm.narration.json'
+import { script as ddpm } from './lessons/ddpm.script'
+import { LidarPerception } from './lessons/LidarPerception'
+import lidarPerceptionNarration from './lessons/lidar-perception.narration.json'
+import { script as lidarPerception } from './lessons/lidar-perception.script'
+import { VisualSlam } from './lessons/VisualSlam'
+import visualSlamNarration from './lessons/visual-slam.narration.json'
+import { script as visualSlam } from './lessons/visual-slam.script'
+import { ParticleFilter } from './lessons/ParticleFilter'
+import particleFilterNarration from './lessons/particle-filter.narration.json'
+import { script as particleFilter } from './lessons/particle-filter.script'
+import { BanditMdp } from './lessons/BanditMdp'
+import banditMdpNarration from './lessons/bandit-mdp.narration.json'
+import { script as banditMdp } from './lessons/bandit-mdp.script'
+import { Rt1 } from './lessons/Rt1'
+import rt1Narration from './lessons/rt1.narration.json'
+import { script as rt1 } from './lessons/rt1.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -229,6 +247,12 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [gpt, Gpt, gptNarration],
   [clip, Clip, clipNarration],
   [vae, Vae, vaeNarration],
+  [ddpm, Ddpm, ddpmNarration],
+  [lidarPerception, LidarPerception, lidarPerceptionNarration],
+  [visualSlam, VisualSlam, visualSlamNarration],
+  [particleFilter, ParticleFilter, particleFilterNarration],
+  [banditMdp, BanditMdp, banditMdpNarration],
+  [rt1, Rt1, rt1Narration],
 ]
 
 export function RemotionRoot() {
