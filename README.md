@@ -9,7 +9,7 @@
 [![Lessons license](https://img.shields.io/badge/lessons-CC%20BY--NC--SA%204.0-lightgrey)](lessons/LICENSE.md)
 [![Site license](https://img.shields.io/badge/site-MIT-blue)](LICENSE)
 
-**[공부 기록 보기](https://gawbi.github.io/robotics-roadmap/#/me)** · [커리큘럼 지도](https://gawbi.github.io/robotics-roadmap/) · [공부 순서](docs/study-plan.md) · [14주 로드맵](docs/study-roadmap.md) ·
+**[공부 기록 보기](https://gawbi.github.io/robotics-roadmap/#/me)** · [커리큘럼 지도](https://gawbi.github.io/robotics-roadmap/) · [공부 순서](docs/study-plan.md) · [17주 로드맵](docs/study-roadmap.md) ·
 [기록 방식](#공부한-것을-남기는-방식) · [웹·앱으로 공부하기](#웹앱으로-공부하기) · [원본에 더한 것](#원본에-더한-것) · [라이선스](#라이선스)
 
 <img src="docs/map.png" alt="커리큘럼 지도. 가운데 동심원에 공통 기초가 놓이고, 점선으로 나뉜 세 구역으로 Robot Learning·Manipulation·Mobile Autonomy 트리가 뻗습니다" width="960">

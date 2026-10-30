@@ -1,7 +1,7 @@
 # 공부 순서: 실무 중심
 
-매니퓰레이터, 4족 로봇(로봇개), 휴머노이드를 바로 다룰 수 있게 되는 것을 목표로 한 순서입니다. 지도의 강의 67개를 모두 읽지 않고, **구현 단계를
-뼈대로 두고 그 단계에 필요한 강의만 앞에 붙였습니다.** 날짜별 일정은 [14주 로드맵](study-roadmap.md)에 있습니다.
+매니퓰레이터, 4족 로봇(로봇개), 휴머노이드를 바로 다룰 수 있게 되고, 마지막에 이를 하나의 Physical AI 시스템으로 엮는 것을 목표로 한 순서입니다. 지도의 강의 71개를 모두 읽지 않고, **구현 단계를
+뼈대로 두고 그 단계에 필요한 강의만 앞에 붙였습니다.** 날짜별 일정은 [17주 로드맵](study-roadmap.md)에 있습니다.
 
 ## 원칙
 
@@ -55,7 +55,20 @@ R 단계는 매니퓰레이터 M3 다음, M4 앞의 한 주에 합니다. 여기
 
 휴머노이드 손(dexterous hand)으로 시연을 모으는 방법(사람 손 동작을 로봇 손 관절로 옮기는 retargeting)은 아직 강의가 없습니다. 다음 보강 후보입니다.
 
-## 4. 그 밖의 강의
+## 4. Physical AI 통합 프로젝트 (3주, 마지막)
+
+앞에서 만든 보행 policy, 카메라 좌표, 집기를 한 로봇 위에 모아, 자연어 명령을 받아 지도 위를 이동하고 물체를 찾아 다루는 시스템으로 엮습니다.
+도구는 NVIDIA Isaac Sim·Isaac Lab, ROS 2 의 Nav2, YOLO, LLM 입니다.
+
+| 단계 | 구현 | 먼저 읽을 강의 | 퀴즈만 | 남길 결과 |
+| --- | --- | --- | --- | --- |
+| P1 | LiDAR SLAM 으로 지도를 만들고 Nav2 로 목표점까지 이동 | [LiDAR SLAM](../lessons/lidar-slam/README.md), [Path Planning](../lessons/path-planning/README.md), [Path Tracking](../lessons/path-tracking/README.md) | [Particle Filter](../lessons/particle-filter/README.md), [Visual SLAM & VIO](../lessons/visual-slam/README.md) | 지도, 도달 성공률, parameter 비교 |
+| P2 | 카메라로 물체를 찾아 robot frame 의 3D 좌표 계산 | [Object Detection](../lessons/object-detection/README.md) | [LiDAR Perception](../lessons/lidar-perception/README.md) | 3D 좌표 오차, 실패 분류 |
+| P3 | 자연어 명령 → LLM 계획 → 단위 동작(이동·탐색·집기) 실행 | [Reasoning VLA](../lessons/vla-reasoning/README.md), [Robot Coding Agent](../lessons/robot-coding-agent/README.md) | | 명령 10 개의 성공률과 실패 원인, 시연 영상 |
+
+Isaac Sim 과 Isaac Lab 은 NVIDIA GPU 가 있는 Ubuntu 에서만 돌아서, Mac 만 있으면 학교 실습실이나 GPU 원격 서버가 필요합니다.
+
+## 5. 그 밖의 강의
 
 지원하는 공고에 맞춰 고릅니다.
 
@@ -66,7 +79,7 @@ R 단계는 매니퓰레이터 M3 다음, M4 앞의 한 주에 합니다. 여기
 | VLA, foundation model, RL fine-tuning | [Reasoning VLA](../lessons/vla-reasoning/README.md), [VLA + RL](../lessons/vla-rl/README.md), [World Model](../lessons/world-model/README.md), [DAgger](../lessons/dagger/README.md), [DQN → SAC](../lessons/off-policy/README.md) |
 | LLM agent, code generation | [Robot Coding Agent](../lessons/robot-coding-agent/README.md) |
 
-Mobile Autonomy 트리(SLAM, navigation, 자율주행)는 이 목표에서는 읽지 않습니다.
+Mobile Autonomy 트리 가운데 SLAM 과 navigation 은 4 단계에서 읽고, 자율주행 branch 는 이 목표에서는 읽지 않습니다.
 
 ## 시간
 
@@ -76,5 +89,6 @@ Mobile Autonomy 트리(SLAM, navigation, 자율주행)는 이 목표에서는 �
 | 매니퓰레이터 | 27 | 57h |
 | 강화학습 기초와 로봇개 | 12 | 28h |
 | 휴머노이드 | 4 | 10h |
+| Physical AI 통합 프로젝트 | 9 | 18h |
 
 강의 시간은 읽는 시간입니다. 구현은 단계마다 주말 하루에서 이틀을 따로 잡습니다.

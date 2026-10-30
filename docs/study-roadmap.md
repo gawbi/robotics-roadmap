@@ -1,6 +1,6 @@
-# 공부 로드맵: 14주 일정
+# 공부 로드맵: 17주 일정
 
-[공부 순서](study-plan.md)를 날짜 단위로 펼친 일정입니다. 매니퓰레이터를 주력으로 하고, 4주차 뒤에 강화학습 기초 한 주를 두고, 로봇개와 휴머노이드를 그 뒤에 둡니다. 평일 하루에
+[공부 순서](study-plan.md)를 날짜 단위로 펼친 일정입니다. 매니퓰레이터를 주력으로 하고, 4주차 뒤에 강화학습 기초 한 주를 두고, 로봇개와 휴머노이드를 그 뒤에 둡니다. 마지막 3 주에는 앞에서 만든 것을 하나의 Physical AI 시스템으로 엮습니다. 평일 하루에
 강의 하나, 주말에 구현 하나가 기본입니다. 밀리면 "예비" 날로 메웁니다.
 
 ## 처음 한 번만
@@ -203,13 +203,48 @@
 - 구현 9 의 과정을 G1 으로 반복합니다. unitree_rl_gym 에 G1 설정과 MuJoCo 배포 script 가 있습니다
 - 남길 것: 걸음 clock 을 뺀 policy 와의 비교, MuJoCo 에서의 속도 추종 오차
 
-## 14주차: 지원 준비
+## 14–16주차: Physical AI 통합 프로젝트
+
+앞의 13주에 만든 것(보행 policy, 카메라 좌표, 집기)을 한 로봇 위에 모아, 자연어 명령을 받아 지도 위를 이동하고 물체를 찾아 다루는 시스템으로
+엮는다. 이 단계의 simulation(Isaac Sim·Isaac Lab, Gazebo + Nav2)은 NVIDIA GPU 가 있는 Ubuntu 에서 돈다. Mac 만 있으면 학교 실습실이나 GPU 가
+있는 원격 서버를 쓰고, 그것도 어려우면 MuJoCo 와 2D 지도로 범위를 줄인다.
+
+| 날 | 14주차 | 15주차 | 16주차 |
+| --- | --- | --- | --- |
+| 1 | 퀴즈만: [Particle Filter](../lessons/particle-filter/README.md) | [Object Detection](../lessons/object-detection/README.md) | 복습: [Reasoning VLA](../lessons/vla-reasoning/README.md) |
+| 2 | [LiDAR SLAM](../lessons/lidar-slam/README.md) | 퀴즈만: [LiDAR Perception](../lessons/lidar-perception/README.md) | [Robot Coding Agent](../lessons/robot-coding-agent/README.md) |
+| 3 | [Path Planning](../lessons/path-planning/README.md) | 구현 12 | 구현 13 |
+| 4 | [Path Tracking](../lessons/path-tracking/README.md) | 구현 12 | 구현 13 |
+| 5 | 퀴즈만: [Visual SLAM & VIO](../lessons/visual-slam/README.md) | 예비 | 구현 13 |
+| 6–7 | 구현 11 | 구현 12 마무리 | 구현 13 마무리 |
+
+**구현 11 `labs/slam-nav`** (lidar-slam, path-planning, path-tracking)
+
+- 바퀴 로봇이나 4족 로봇에 LiDAR 를 달고 `slam_toolbox` 로 지도를 만든 뒤, 저장한 지도에서 Nav2 로 목표점 10 개에 보낸다
+- Nav2 의 parameter 하나(예: 장애물 여유 거리)를 바꿔 두 설정을 비교한다
+- 남길 것: 지도 그림, 목표점 도달 성공률과 걸린 시간, parameter 를 바꾼 비교
+
+**구현 12 `labs/detect-3d`** (object-detection, camera-geometry)
+
+- simulation 카메라 영상에서 YOLO 로 물체를 찾고, box 가운데와 depth 로 물체의 3D 좌표를 robot frame 에서 계산한다
+- 정답 좌표를 아는 장면 20 개에서 오차를 잰다. 필요하면 내 장면의 사진으로 detector 를 fine-tune 한다
+- 남길 것: 탐지 결과 영상, 3D 좌표 오차 표, 놓치거나 잘못 찾은 경우의 분류
+
+**구현 13 `labs/language-robot`** (vla-reasoning, robot-coding-agent)
+
+- 단위 동작 `move_to`(Nav2), `scan`(카메라로 둘러보기), `pick` 또는 `track`(구현 6·12) 을 만들고, 동작마다 성공과 실패 조건을 정한다
+- LLM 이 "창가에 있는 빨간 상자를 찾아서 가져와" 같은 명령을 단위 동작의 순서로 바꾸고, 실행 결과를 보고 다시 계획하게 한다
+- 동작이 실패하거나 시간을 넘기면 멈추는 fail-safe 를 넣는다
+- 남길 것: 명령 10 개의 성공률, 실패한 명령의 원인(계획·탐지·이동·집기 중 어디서), 시연 영상
+- 이 구현이 포트폴리오의 마지막 대표작이다. 앞의 구현 1 ~ 12 가 어디에 쓰였는지 README 에 그림으로 그린다
+
+## 17주차: 지원 준비
 
 | 날 | 할 일 |
 | --- | --- |
-| 1–2 | 지원할 공고의 키워드에 맞는 강의를 [공부 순서의 4 절](study-plan.md#4-그-밖의-강의)에서 골라 공부 |
-| 3 | 구현 README 10 개 다듬기: 결과 숫자, 그래프, 막혔던 점 |
-| 4 | 모의 면접: Claude 에게 "구현 6 으로 면접 봐줘" |
+| 1–2 | 지원할 공고의 키워드에 맞는 강의를 [공부 순서의 5 절](study-plan.md#5-그-밖의-강의)에서 골라 공부 |
+| 3 | 구현 README 13 개 다듬기: 결과 숫자, 그래프, 막혔던 점 |
+| 4 | 모의 면접: Claude 에게 "구현 6 으로 면접 봐줘", "구현 13 으로 면접 봐줘" |
 | 5 | 이력서에 구현과 공부 기록 링크(`#/me`) 넣기 |
 
 ## Claude 에게 이렇게 말하면 됩니다
