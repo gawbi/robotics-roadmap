@@ -842,7 +842,7 @@ function Node({ x, y, w, h = 64, color, at, size = 23, children }: { x: number; 
   const t = useSec()
   return (
     <div style={{ position: 'absolute', left: x, top: y, width: w, height: h, display: 'grid', placeItems: 'center', borderRadius: 14, border: `1.5px solid ${color}aa`, background: `${color}18`, fontSize: size, fontWeight: 600, whiteSpace: 'nowrap', opacity: prog(t, at) }}>
-      {children}
+      <span>{children}</span>
     </div>
   )
 }
