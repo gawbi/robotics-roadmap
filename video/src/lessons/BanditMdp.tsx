@@ -600,7 +600,7 @@ function Horizon() {
 
 const PauseHz = () => (
   <PauseWrite
-    question="로봇이 25 Hz 로 action 을 내고 γ = 0.96 으로 학습한다. 0.96¹⁷ ≈ 0.50 일 때 몇 초 뒤의 reward 가 절반이 될까? 100 Hz 로 바꾸며 같은 시간을 지키려면 γ 는?"
+    question="25 Hz, γ = 0.96 이고 0.96¹⁷ ≈ 0.50 이다. 몇 초 뒤 reward 가 절반이 될까? 100 Hz 에서 같은 시간을 지키는 γ 는?"
     answer={
       <>
         한 step 은 1 ÷ 25 = 0.04 초 → 17 × 0.04 = 0.68 초
@@ -803,7 +803,7 @@ function Sweeps() {
 
 const PauseSweep = () => (
   <PauseWrite
-    question="미끄럽지 않은 바닥, γ = 0.9 에서 value iteration 을 할 때 sweep 3 이 끝난 뒤에도 칸 7 의 값이 0 인 이유는? 칸 7 은 몇 번째 sweep 에서 값을 얻을까?"
+    question="γ = 0.9 value iteration 에서 sweep 3 뒤에도 칸 7 이 0 인 이유는? 칸 7 은 몇 번째 sweep 에서 값을 얻을까?"
     answer={
       <>
         sweep 3 은 직전 값 V<sub>2</sub> 만 본다 · V<sub>2</sub>(4) = V<sub>2</sub>(8) = 0 → 위 · 오른쪽 모두 0 + 0.9 × 0 = 0
@@ -953,10 +953,10 @@ function OffPolicy() {
 
 const PauseQ = () => (
   <PauseWrite
-    question="칸 1 에서 실수로 아래를 골라 칸 4 로 갔다. 칸 4 의 Q 는 위 0.81 · 아래 0.6 · 왼쪽 0.7 · 오른쪽 −1, Q(1, 아래) = 0.5, γ = 0.9, α = 0.5. 다음에 왼쪽을 고를 예정이면 target 과 새 Q(1, 아래) 는?"
+    question="칸 4 의 Q 가 위 0.81 · 아래 0.6 · 왼쪽 0.7 · 오른쪽 −1, Q(1, 아래) = 0.5, γ 0.9, α 0.5. 다음에 왼쪽을 고를 예정이면 새 Q(1, 아래) 는?"
     answer={
       <>
-        target = 0 + 0.9 × 0.81 = 0.729 (다음에 고를 왼쪽 0.7 이 아니라 가장 큰 값)
+        target = 0 + 0.9 × 0.81 = 0.729 (왼쪽 0.7 이 아니라 최댓값)
         <br />
         TD error 0.729 − 0.5 = 0.229 → 새 Q = 0.5 + 0.5 × 0.229 ≈ 0.6145
       </>
