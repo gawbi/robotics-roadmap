@@ -93,6 +93,12 @@ import { script as cameraGeometry } from './lessons/camera-geometry.script'
 import { RlExperiments } from './lessons/RlExperiments'
 import rlExperimentsNarration from './lessons/rl-experiments.narration.json'
 import { script as rlExperiments } from './lessons/rl-experiments.script'
+import { LidarSlam } from './lessons/LidarSlam'
+import lidarSlamNarration from './lessons/lidar-slam.narration.json'
+import { script as lidarSlam } from './lessons/lidar-slam.script'
+import { RewardScale } from './lessons/RewardScale'
+import rewardScaleNarration from './lessons/reward-scale.narration.json'
+import { script as rewardScale } from './lessons/reward-scale.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -129,6 +135,8 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [vectorsMatrices, VectorsMatrices, vectorsMatricesNarration],
   [cameraGeometry, CameraGeometry, cameraGeometryNarration],
   [rlExperiments, RlExperiments, rlExperimentsNarration],
+  [lidarSlam, LidarSlam, lidarSlamNarration],
+  [rewardScale, RewardScale, rewardScaleNarration],
 ]
 
 export function RemotionRoot() {
