@@ -99,6 +99,12 @@ import { script as lidarSlam } from './lessons/lidar-slam.script'
 import { RewardScale } from './lessons/RewardScale'
 import rewardScaleNarration from './lessons/reward-scale.narration.json'
 import { script as rewardScale } from './lessons/reward-scale.script'
+import { LocomotionDeployment } from './lessons/LocomotionDeployment'
+import locomotionDeploymentNarration from './lessons/locomotion-deployment.narration.json'
+import { script as locomotionDeployment } from './lessons/locomotion-deployment.script'
+import { PathTracking } from './lessons/PathTracking'
+import pathTrackingNarration from './lessons/path-tracking.narration.json'
+import { script as pathTracking } from './lessons/path-tracking.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -137,6 +143,8 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [rlExperiments, RlExperiments, rlExperimentsNarration],
   [lidarSlam, LidarSlam, lidarSlamNarration],
   [rewardScale, RewardScale, rewardScaleNarration],
+  [locomotionDeployment, LocomotionDeployment, locomotionDeploymentNarration],
+  [pathTracking, PathTracking, pathTrackingNarration],
 ]
 
 export function RemotionRoot() {
