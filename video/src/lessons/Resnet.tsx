@@ -538,7 +538,7 @@ function BnSmall() {
 
 const PauseRunning = () => (
   <PauseWrite
-    question="running mean 이 2 이고 이번 batch 평균이 12 면, running mean ← 0.9 × running mean + 0.1 × batch 평균 으로 고친 새 running mean 은?"
+    question="running mean 2, 이번 batch 평균 12 일 때 0.9 × running mean + 0.1 × batch 평균 으로 고친 새 값은?"
     answer="0.9 × 2 + 0.1 × 12 = 1.8 + 1.2 = 3"
   />
 )
@@ -720,7 +720,7 @@ function ResNet18() {
 
 const PauseBottleneck = () => (
   <PauseWrite
-    question="layer4 의 bottleneck 은 2048 channel 을 1×1 conv 로 512 로 줄이고, 3×3 conv (512 → 512) 뒤 1×1 conv 로 2048 로 되돌린다. weight 는 모두 몇 개?"
+    question="bottleneck 이 2048 → 512 (1×1), 512 → 512 (3×3), 512 → 2048 (1×1) 이면 weight 는 모두 몇 개?"
     answer={
       <>
         512 × 2048 = 1,048,576 · 512 × 512 × 9 = 2,359,296 · 2048 × 512 = 1,048,576
@@ -899,7 +899,7 @@ function RobotEncoder() {
 
 const PauseHead = () => (
   <PauseWrite
-    question="ResNet-18 backbone 위에 관절 각도 7 개를 내는 head (Linear 512 → 7) 를 붙이면 head 의 parameter 는 몇 개이고, freeze 로 학습하면 학습하는 parameter 는 모두 몇 개?"
+    question="ResNet-18 위에 head (Linear 512 → 7) 를 붙이면 head 의 parameter 는 몇 개이고, freeze 로 학습하면 몇 개를 학습할까?"
     answer={
       <>
         weight 512 × 7 = 3,584 · bias 7 → head 3,584 + 7 = 3,591 개
