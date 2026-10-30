@@ -1069,14 +1069,12 @@ const PauseCost = () => (
 
 const PausePeriod = () => (
   <PauseWrite
-    question="Nav2 기본 설정 (20 Hz) 으로 1.0 m/s 로 달리는 로봇은 한 주기에 몇 cm 를 가는가? MPPI horizon (56 step × 0.05 초) 동안에는 몇 m 를 내다보는가?"
+    question="20 Hz 로 1.0 m/s 로 달리면 한 주기에 몇 cm 를 가고, MPPI horizon 56 step × 0.05 초 동안에는 몇 m 를 내다보는가?"
     answer={
       <>
         1 ÷ 20 = 0.05 초 → 1.0 × 0.05 = 0.05 m = 5 cm
         <br />
-        56 × 0.05 = 2.8 초 → 1.0 × 2.8 = 2.8 m
-        <br />
-        local costmap 은 반지름 2.8 m, 폭 5.6 m 이상
+        56 × 0.05 = 2.8 초 → 2.8 m · local costmap 은 폭 5.6 m 이상
       </>
     }
   />
