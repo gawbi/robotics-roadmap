@@ -458,7 +458,7 @@ function WeightedSum() {
         <span style={line(C.text, 22)}>Rosenblatt (1958): 합이 문턱 θ 를 넘으면 1</span>
         <span style={{ ...mono(C.text, 22), opacity: prog(t, 25.4) }}>합 {'>'} 1.5 ⇔ 합 − 1.5 {'>'} 0</span>
         <span style={{ ...line(C.purple, 22), opacity: prog(t, 26.2) }}>
-          그래서 b = −θ · 문턱 1.5 → b = −1.5
+          그래서 b = −(문턱) · 문턱 1.5 → b = −1.5
         </span>
         <span style={{ ...line(C.muted, 22), opacity: prog(t, 27) }}>문턱 0.5 → OR · 1.5 → AND · 2.5 → 늘 0</span>
       </Box>
@@ -682,10 +682,10 @@ function Epochs() {
           <text x={256} y={100} fill={C.blue} fontSize={22} fontFamily={MONO} fontWeight={600} opacity={prog(t, 15.4)}>
             2x₁ + x₂ = 2
           </text>
-          <text x={ox + 26} y={oy - 8} fill={C.accent} fontSize={20} fontFamily={MONO} opacity={prog(t, 17)}>
+          <text x={ox + 26} y={oy - 40} fill={C.accent} fontSize={20} fontFamily={MONO} opacity={prog(t, 17)}>
             z = 0.2 − 0.2 = 0
           </text>
-          <text x={ox + 26} y={oy + 22} fill={C.accent} fontSize={20} opacity={prog(t, 17.4)}>
+          <text x={ox + 26} y={oy - 14} fill={C.accent} fontSize={20} opacity={prog(t, 17.4)}>
             → 0 으로 예측
           </text>
         </svg>
@@ -1119,7 +1119,7 @@ function Params() {
 
 function Answer() {
   const items = [
-    { tag: 'weighted sum 과 직선', color: C.accent, text: 'z = w₁x₁ + w₂x₂ + b 가 0 보다 크면 1 → 직선 하나로 가른다 · b = −θ', at: 1 },
+    { tag: 'weighted sum 과 직선', color: C.accent, text: 'z = w₁x₁ + w₂x₂ + b 가 0 보다 크면 1 → 직선 하나로 가른다 · b = −문턱', at: 1 },
     { tag: '학습 규칙과 epoch', color: C.orange, text: '틀린 sample 에서만 η × 오차 × 입력 · AND 는 6 epoch 에 2x₁ + x₂ = 2', at: 4.4 },
     { tag: 'XOR 와 두 층', color: C.red, text: 'XOR 를 가르는 직선은 없다 → 1,000 epoch 에 3997 번 틀림 · OR 와 NAND 를 AND 로', at: 8.4 },
     { tag: '로봇 policy 의 MLP', color: C.green, text: '48 → 128 → 64 → 32 → 12 · ELU · 숫자 17,004 개 · 1초에 50 번', at: 12.4 },

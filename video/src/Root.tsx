@@ -90,6 +90,9 @@ import { script as vectorsMatrices } from './lessons/vectors-matrices.script'
 import { CameraGeometry } from './lessons/CameraGeometry'
 import cameraGeometryNarration from './lessons/camera-geometry.narration.json'
 import { script as cameraGeometry } from './lessons/camera-geometry.script'
+import { RlExperiments } from './lessons/RlExperiments'
+import rlExperimentsNarration from './lessons/rl-experiments.narration.json'
+import { script as rlExperiments } from './lessons/rl-experiments.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -125,6 +128,7 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [pidControl, PidControl, pidControlNarration],
   [vectorsMatrices, VectorsMatrices, vectorsMatricesNarration],
   [cameraGeometry, CameraGeometry, cameraGeometryNarration],
+  [rlExperiments, RlExperiments, rlExperimentsNarration],
 ]
 
 export function RemotionRoot() {
