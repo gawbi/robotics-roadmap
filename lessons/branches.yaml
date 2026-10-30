@@ -56,7 +56,7 @@ branches:
 
   - id: vision
     title: Vision
-    summary: CNN 에서 ViT·CLIP 까지, 로봇 policy 가 카메라 영상을 읽는 image encoder
+    summary: CNN 에서 ViT·CLIP 까지, 로봇 policy 가 카메라 영상을 읽는 image encoder 와 물체를 찾는 detector
     color: "#60a5fa"
 
   - id: imitation

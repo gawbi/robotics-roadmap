@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>ByteTrack 의 두 번 짝짓기. 사람이 지나가 컵의 점수가 0.9 에서 0.2 로 떨어져도, 첫 짝짓기에서 짝을 못 찾은 컵 #1 을 낮은 점수의 box 와 다시 짝지어 번호를 지킨다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="298" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">가려진 물체와 ByteTrack (점수 기준 0.25, 예로 든 값)</text>
+  <rect x="20.0" y="46.0" width="220.0" height="170.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="130.0" y="68.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">프레임 t</text>
+  <rect x="100.0" y="100.0" width="60.0" height="80.0" rx="8" fill="#0b1220" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="94.0" y="94.0" width="72.0" height="92.0" rx="2" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="170.0" y="110.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-weight="600">0.9</text>
+  <text x="170.0" y="128.0" fill="#7cb4d8" font-size="11.5" text-anchor="start">컵 #1</text>
+  <rect x="252.0" y="46.0" width="220.0" height="170.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="362.0" y="68.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">프레임 t+1 (사람이 가림)</text>
+  <rect x="332.0" y="100.0" width="60.0" height="80.0" rx="8" fill="#0b1220" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="312.0" y="90.0" width="50.0" height="110.0" rx="8" fill="#cf96b8" fill-opacity="0.35" stroke="#cf96b8" stroke-width="0"/>
+  <text x="337.0" y="210.0" fill="#cf96b8" font-size="10.5" text-anchor="middle">사람</text>
+  <rect x="326.0" y="94.0" width="72.0" height="92.0" rx="2" fill="none" stroke="#d6aa62" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="402.0" y="110.0" fill="#d6aa62" font-size="12" text-anchor="start" font-weight="600">0.2</text>
+  <text x="402.0" y="128.0" fill="#d6aa62" font-size="11.5" text-anchor="start">컵 #1</text>
+  <rect x="484.0" y="46.0" width="220.0" height="170.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="594.0" y="68.0" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">프레임 t+2</text>
+  <rect x="564.0" y="100.0" width="60.0" height="80.0" rx="8" fill="#0b1220" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="558.0" y="94.0" width="72.0" height="92.0" rx="2" fill="none" stroke="#7cb4d8" stroke-width="2"/>
+  <text x="634.0" y="110.0" fill="#7cb4d8" font-size="12" text-anchor="start" font-weight="600">0.85</text>
+  <text x="634.0" y="128.0" fill="#7cb4d8" font-size="11.5" text-anchor="start">컵 #1</text>
+  <rect x="20.0" y="228.0" width="680.0" height="62.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="36.0" y="252.0" fill="#d88b8b" font-size="12" text-anchor="start">점수 기준만 쓰면: t+1 에서 0.2 box 를 버려 추적이 끊기고, t+2 에서 새 번호 #2 를 받는다</text>
+  <text x="36.0" y="276.0" fill="#7fc4a2" font-size="12" text-anchor="start">ByteTrack: 높은 점수로 먼저 짝짓고, 남은 컵 #1 을 낮은 점수 box(0.2)와 다시 짝지어 #1 을 지킨다</text>
+</svg>

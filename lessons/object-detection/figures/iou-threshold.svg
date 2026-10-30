@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif">
+  <title>같은 40 × 40 pixel 컵 box 가 8 pixel 어긋났을 때 IoU 0.67. VOC 기준 0.5 로는 맞고 AP75 의 기준 0.75 로는 틀린다</title>
+  <defs><marker id="ar-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="ar-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cb4d8"/></marker><marker id="ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fc4a2"/></marker><marker id="ar-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d6aa62"/></marker><marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d88b8b"/></marker><marker id="ar-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a99ad6"/></marker><marker id="ar-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cf96b8"/></marker><marker id="ar-text" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker></defs>
+  <rect x="1" y="1" width="718" height="278" rx="12" fill="#0b1220" stroke="#1e293b"/>
+  <text x="20.0" y="30.0" fill="#94a3b8" font-size="12.5" text-anchor="start">40 × 40 pixel box 가 가로로 8 pixel 어긋난 경우</text>
+  <rect x="60.0" y="60.0" width="160.0" height="160.0" rx="2" fill="none" stroke="#7fc4a2" stroke-width="2"/>
+  <rect x="92.0" y="60.0" width="160.0" height="160.0" rx="2" fill="none" stroke="#d6aa62" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="92.0" y="60.0" width="128.0" height="160.0" rx="0" fill="#d6aa62" fill-opacity="0.18" stroke="#d6aa62" stroke-width="0"/>
+  <text x="60.0" y="52.0" fill="#7fc4a2" font-size="11.5" text-anchor="start">정답</text>
+  <text x="252.0" y="52.0" fill="#d6aa62" font-size="11.5" text-anchor="end">예측</text>
+  <text x="156.0" y="140.0" fill="#e2e8f0" font-size="12" text-anchor="middle">32 × 40</text>
+  <rect x="330.0" y="60.0" width="370.0" height="170.0" rx="8" fill="#111a2e" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="346.0" y="90.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">겹친 넓이 32 × 40 = 1,280</text>
+  <text x="346.0" y="114.0" fill="#e2e8f0" font-size="12.5" text-anchor="start">합친 넓이 1,600 + 1,600 − 1,280 = 1,920</text>
+  <text x="346.0" y="138.0" fill="#d6aa62" font-size="12.5" text-anchor="start">IoU = 1,280 ÷ 1,920 ≈ 0.67</text>
+  <text x="346.0" y="180.0" fill="#7fc4a2" font-size="12.5" text-anchor="start" font-weight="600">VOC (IoU &gt; 0.5): 맞음</text>
+  <text x="346.0" y="206.0" fill="#d88b8b" font-size="12.5" text-anchor="start" font-weight="600">AP75 (IoU ≥ 0.75): 틀림</text>
+  <text x="20.0" y="268.0" fill="#94a3b8" font-size="11.5" text-anchor="start">COCO mAP 는 IoU 0.50 ~ 0.95 의 10 단계를 평균하므로, 이 box 는 앞의 4 단계에서만 맞은 것으로 센다</text>
+</svg>
