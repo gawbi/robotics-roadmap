@@ -914,7 +914,7 @@ const PauseSwap = () => (
       <>
         text encoder 로 "red screwdriver" 의 질의 embedding 하나만 새로 계산
         <br />
-        memory 의 물체별 위치 · embedding 은 그대로 → cosine 만 다시 계산 · 다시 학습할 필요 없음
+        memory 의 위치 · embedding 은 그대로 → cosine 만 다시 · 학습 없음
       </>
     }
   />
