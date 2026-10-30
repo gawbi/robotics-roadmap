@@ -48,6 +48,36 @@ import { script as objectPose } from './lessons/object-pose.script'
 import { VlaReasoning } from './lessons/VlaReasoning'
 import vlaReasoningNarration from './lessons/vla-reasoning.narration.json'
 import { script as vlaReasoning } from './lessons/vla-reasoning.script'
+import { LinearRegression } from './lessons/LinearRegression'
+import linearRegressionNarration from './lessons/linear-regression.narration.json'
+import { script as linearRegression } from './lessons/linear-regression.script'
+import { Autograd } from './lessons/Autograd'
+import autogradNarration from './lessons/autograd.narration.json'
+import { script as autograd } from './lessons/autograd.script'
+import { PytorchMlp } from './lessons/PytorchMlp'
+import pytorchMlpNarration from './lessons/pytorch-mlp.narration.json'
+import { script as pytorchMlp } from './lessons/pytorch-mlp.script'
+import { Ros2Basics } from './lessons/Ros2Basics'
+import ros2BasicsNarration from './lessons/ros2-basics.narration.json'
+import { script as ros2Basics } from './lessons/ros2-basics.script'
+import { ForwardKinematics } from './lessons/ForwardKinematics'
+import forwardKinematicsNarration from './lessons/forward-kinematics.narration.json'
+import { script as forwardKinematics } from './lessons/forward-kinematics.script'
+import { Probability } from './lessons/Probability'
+import probabilityNarration from './lessons/probability.narration.json'
+import { script as probability } from './lessons/probability.script'
+import { Transforms } from './lessons/Transforms'
+import transformsNarration from './lessons/transforms.narration.json'
+import { script as transforms } from './lessons/transforms.script'
+import { Perceptron } from './lessons/Perceptron'
+import perceptronNarration from './lessons/perceptron.narration.json'
+import { script as perceptron } from './lessons/perceptron.script'
+import { InverseKinematics } from './lessons/InverseKinematics'
+import inverseKinematicsNarration from './lessons/inverse-kinematics.narration.json'
+import { script as inverseKinematics } from './lessons/inverse-kinematics.script'
+import { Derivatives } from './lessons/Derivatives'
+import derivativesNarration from './lessons/derivatives.narration.json'
+import { script as derivatives } from './lessons/derivatives.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -69,6 +99,16 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [leggedBalance, LeggedBalance, leggedBalanceNarration],
   [objectPose, ObjectPose, objectPoseNarration],
   [vlaReasoning, VlaReasoning, vlaReasoningNarration],
+  [linearRegression, LinearRegression, linearRegressionNarration],
+  [autograd, Autograd, autogradNarration],
+  [pytorchMlp, PytorchMlp, pytorchMlpNarration],
+  [ros2Basics, Ros2Basics, ros2BasicsNarration],
+  [forwardKinematics, ForwardKinematics, forwardKinematicsNarration],
+  [probability, Probability, probabilityNarration],
+  [transforms, Transforms, transformsNarration],
+  [perceptron, Perceptron, perceptronNarration],
+  [inverseKinematics, InverseKinematics, inverseKinematicsNarration],
+  [derivatives, Derivatives, derivativesNarration],
 ]
 
 export function RemotionRoot() {

@@ -1,0 +1,332 @@
+import type { VideoScript } from '../script.ts'
+
+// Numbers follow lessons/pytorch-mlp/README.md: the driving question (200 step 마다 loss, 20,000 step 마다 checkpoint,
+// 100,000 step; ACT 약 8,000 만 parameter, RTX 2080 Ti 한 장, 5 시간쯤; frame 8 개); one step (mini-batch 사진 100 장과
+// label 100 개, six stages; MLP 28 × 28 = 784, Linear 784 → 256, ReLU, Linear 256 → 10, class 10 개, 0 ~ 1 밝기,
+// 256 × (784 + 1) = 200,960, 10 × (256 + 1) = 2,570, 200,960 + 2,570 = 203,530); step and epoch (60,000 ÷ 100 = 600;
+// aloha_sim_transfer_cube_human 50 Hz, 시연 50 개, frame 20,000 개, batch 8, 20,000 ÷ 8 = 2,500, 100,000 ÷ 2,500 = 40;
+// sample gradient −4, −2, 1, 1, 평균 −1, mini-batch 평균 −1.5 / −0.5 and −3 / 1; check 12,000 ÷ 8 = 1,500,
+// 30,000 ÷ 1,500 = 20); softmax (z 2.0 / 1.0 / 0.1, e^z 7.389 / 2.718 / 1.105, 합 11.213, p 0.659 / 0.242 / 0.099;
+// −log 0.659 = 0.417, 41.7%; curve 0.844 / 0.659 / 0.333 / 0.107 → 0.170 / 0.417 / 1.099 / 2.240; gradient −0.341 / 0.242 /
+// 0.099); optimizers (SGD θ ← θ − ηg; momentum μ = 0.9, η = 0.1, b 1 / 1.9 / 2.71 / 3.439, 거리 0.1 / 0.19 / 0.271 / 0.3439,
+// 1 ÷ (1 − 0.9) = 10, 10 배; Adam 0.02 / 2 / 200 → η; defaults η 0.001, β₁ 0.9, β₂ 0.999, ε 10⁻⁸; ACT AdamW 10⁻⁵ = 100 분의 1,
+// weight decay 10⁻⁴; Diffusion Policy Adam 10⁻⁴; check g = −4, η = 0.01, m̂ = −4, √v̂ = 4 → θ + 0.01); normalization
+// (radian −3 ~ 3, 집게 0 ~ 80 mm; z 의 gradient 0.1, 40 mm → 0.1 × 40 = 4, 0.5 rad → 0.05, 4 ÷ 0.05 = 80 배; 평균 20 mm,
+// 표준편차 25 mm, (40 − 20) ÷ 25 = 0.8 → 0.08; 평균 0.2 rad, 표준편차 0.5 rad, (0.5 − 0.2) ÷ 0.5 = 0.6 → 0.06; min-max −1 ~ 1;
+// check (−0.3 − 0.2) ÷ 0.5 = −0.5 ÷ 0.5 = −1); loss curve (MNIST 50,000 / 10,000 / 10,000; sin 3x, 12 점, 표준편차 0.4,
+// 1 → 32 → 32 → 1, Adam η = 0.005; epoch 0 20 50 111 200 500 1000, train 1.512 0.685 0.574 0.313 0.101 0.022 0.010,
+// validation 1.213 0.401 0.306 0.208 0.306 0.321 0.353; robomimic Square 30%, 50 번, 80.7% vs 2.7%); GPU memory (4 byte,
+// 4 × 4 = 16 byte; 203,530 × 16 ≈ 3.3 MB; 8 × 10⁷ × 16 = 1.28 GB; π0 약 33 억, 3.3 × 10⁹ × 16 = 52.8 GB; RTX 2080 Ti 11 GB,
+// RTX 4090 24 GB, A100 80 GB; full fine-tuning 70 GB 넘게, LoRA 22.5 GB 남짓; check 10 억 × 16 = 16 GB); accumulation
+// (w = 1, η = 0.1, gradient 0.5 / 0.3, 0.95, 0.92 vs 0.5 + 0.3 = 0.8, 0.87; batch 4, (−4 − 2 + 1 + 1) ÷ 4 = −1,
+// {−4, −2} 평균 −3, {1, 1} 평균 1, −3 ÷ 2 + 1 ÷ 2 = −1).
+
+const S1 = 'step 과 epoch'
+const S2 = 'loss 와 optimizer'
+const S3 = 'normalization 과 검증'
+const S4 = 'GPU memory'
+
+export const script: VideoScript = {
+  id: 'pytorch-mlp',
+  title: 'PyTorch Training Loop',
+  lessonUrl: 'https://gawbi.github.io/robotics-roadmap/#/p/pytorch-mlp',
+  sections: [S1, S2, S3, S4],
+  terms: [
+    ['gradient accumulation', '그래디언트 어큐뮬레이션'],
+    ['PyTorch', '파이토치'],
+    ['training loop', '트레이닝 루프'],
+    ['standardization', '스탠더다이제이션'],
+    ['Diffusion Policy', '디퓨전 폴리시'],
+    ['bias correction', '바이어스 코렉션'],
+    ['early stopping', '얼리 스타핑'],
+    ['normalization', '노멀라이제이션'],
+    ['learning rate', '러닝 레이트'],
+    ['cross-entropy', '크로스 엔트로피'],
+    ['overfitting', '오버피팅'],
+    ['checkpoint', '체크포인트'],
+    ['activation', '액티베이션'],
+    ['mini-batch', '미니배치'],
+    ['parameter', '파라미터'],
+    ['optimizer', '옵티마이저'],
+    ['robomimic', '로보미믹'],
+    ['gradient', '그래디언트'],
+    ['backward', '백워드'],
+    ['autograd', '오토그래드'],
+    ['momentum', '모멘텀'],
+    ['accuracy', '어큐러시'],
+    ['softmax', '소프트맥스'],
+    ['forward', '포워드'],
+    ['float32', '플로트 삼십이'],
+    ['LeRobot', '르로봇'],
+    ['one-hot', '원핫'],
+    ['update', '업데이트'],
+    ['logits', '로짓츠'],
+    ['z', '제트'],
+    ['Square', '스퀘어'],
+    ['buffer', '버퍼'],
+    ['memory', '메모리'],
+    ['sample', '샘플'],
+    ['radian', '라디안'],
+    ['Linear', '리니어'],
+    ['AdamW', '아담 더블유'],
+    ['MNIST', '엠니스트'],
+    ['ALOHA', '알로하'],
+    ['epoch', '에포크'],
+    ['batch', '배치'],
+    ['frame', '프레임'],
+    ['label', '레이블'],
+    ['class', '클래스'],
+    ['train', '트레인'],
+    ['Adam', '아담'],
+    ['ReLU', '렐루'],
+    ['LoRA', '로라'],
+    ['test', '테스트'],
+    ['byte', '바이트'],
+    ['set', '셋'],
+    ['log', '로그'],
+    ['MLP', '엠엘피'],
+    ['SGD', '에스지디'],
+    ['GPU', '지피유'],
+    ['RTX', '알티엑스'],
+    ['CNN', '씨엔엔'],
+    ['VAE', '브이에이이'],
+    ['Transformer', '트랜스포머'],
+    ['Behavior Cloning', '비헤이비어 클로닝'],
+    ['Policy Gradient', '폴리시 그래디언트'],
+    ['pixel', '픽셀'],
+    ['layer', '레이어'],
+    ['weight', '웨이트'],
+    ['Ti', '티아이'],
+    ['GB', '기가바이트'],
+    ['MB', '메가바이트'],
+    ['mm', '밀리미터'],
+    ['rad', '라디안'],
+    ['π0', '파이 제로'],
+    ['η', '에타'],
+    ['θ', '세타'],
+  ],
+  scenes: [
+    {
+      id: 'intro',
+      seconds: 8,
+      cues: [
+        [0.4, 4.2, 'training loop 는 mini-batch 마다 forward · loss · backward · update 를 되풀이합니다.'],
+        [4.2, 7.8, 'step 과 epoch, loss 와 optimizer, normalization 과 검증, GPU memory 를 차례로 봅니다.'],
+      ],
+    },
+    {
+      id: 'question',
+      seconds: 8,
+      cues: [
+        [0.4, 4.4, 'LeRobot 으로 ACT policy 를 학습시키면 기본 설정에서 같은 계산을 100,000 번 되풀이합니다.'],
+        [4.4, 7.8, '그 한 번의 계산에서 GPU 는 무엇을 계산하고, optimizer 는 parameter 를 어떻게 고칠까요?'],
+      ],
+    },
+    {
+      id: 'loop',
+      seconds: 26,
+      section: S1,
+      cues: [
+        [0.3, 6.3, '한 step 은 mini-batch 를 forward 해 logits 를 내고, label 과 비교해 loss 숫자 하나를 만듭니다.'],
+        [6.3, 12.5, '지난 gradient 를 0 으로 지우고 backward 로 새로 채우면, optimizer 가 parameter 를 고칩니다.'],
+        [
+          12.5,
+          19,
+          '예제 MLP 는 784 개로 편 사진을 Linear 784 → 256, ReLU, Linear 256 → 10 순서로 계산합니다.',
+          '예제 MLP 는 784 개로 편 사진을 Linear 784 에서 256, ReLU, Linear 256 에서 10 순서로 계산합니다.',
+        ],
+        [
+          19,
+          25.7,
+          '첫 layer 는 256 × (784 + 1) 로 200,960 개라서, parameter 는 모두 203,530 개입니다.',
+          '첫 layer 는 256 × 785 로 200,960 개라서, parameter 는 모두 203,530 개입니다.',
+        ],
+      ],
+    },
+    {
+      id: 'epoch',
+      seconds: 30,
+      section: S1,
+      cues: [
+        [0.3, 6.3, 'parameter 를 한 번 고치는 단위가 step 이고, 데이터 전체를 한 번씩 다 쓰는 단위가 epoch 입니다.'],
+        [6.3, 12.5, 'MNIST 학습용 60,000 장을 100 장씩 나누면 epoch 하나가 600 step 이고, epoch 마다 순서를 섞습니다.'],
+        [12.5, 18.5, 'ALOHA 시뮬레이션 데이터는 frame 20,000 개라서, 기본 batch 8 로는 epoch 하나가 2,500 step 입니다.'],
+        [18.5, 23.5, 'LeRobot 의 기본 학습 길이 100,000 step 은 100,000 ÷ 2,500 으로 40 epoch 입니다.'],
+        [23.5, 29.7, 'sample gradient −4, −2, 1, 1 을 두 장씩 묶으면 평균이 −3 과 1 로 흔들리지만, epoch 평균은 −1 입니다.'],
+      ],
+    },
+    {
+      id: 'pause-epoch',
+      seconds: 24,
+      section: S1,
+      cues: [
+        [0.3, 4.5, 'frame 12,000 개를 batch 8 로 학습하면 epoch 하나는 몇 step 이고, 30,000 step 은 몇 epoch 일까요?'],
+        [16.5, 23.5, 'epoch 하나는 12,000 ÷ 8 로 1,500 step 이고, 30,000 ÷ 1,500 으로 20 epoch 입니다.'],
+      ],
+    },
+    {
+      id: 'softmax',
+      seconds: 30,
+      section: S2,
+      cues: [
+        [
+          0.3,
+          6.5,
+          'softmax 는 점수 z 마다 e^z 를 구해 그 합으로 나눠, 모두 양수이고 더하면 1 인 확률로 바꿉니다.',
+          'softmax 는 점수 z 마다 이의 z 제곱을 구해 그 합으로 나눠, 모두 양수이고 더하면 1 인 확률로 바꿉니다.',
+        ],
+        [
+          6.5,
+          12.5,
+          '점수 2.0, 1.0, 0.1 은 e^z 의 합 11.213 으로 나뉘어 확률 0.659, 0.242, 0.099 가 됩니다.',
+          '점수 2.0, 1.0, 0.1 은 이의 z 제곱의 합 11.213 으로 나뉘어 확률 0.659, 0.242, 0.099 가 됩니다.',
+        ],
+        [12.5, 18.5, 'loss 는 정답 확률의 log 에 부호를 바꾼 cross-entropy 로, 정답이 class 0 이면 0.417 입니다.'],
+        [18.5, 24, 'loss 0.417 은 41.7% 틀렸다는 뜻이 아닙니다. 맞힌 비율은 accuracy 로 따로 잽니다.'],
+        [24, 29.7, 'gradient 는 확률에서 one-hot 정답을 뺀 −0.341, 0.242, 0.099 라서, 반대로 고치면 정답 점수가 오릅니다.'],
+      ],
+    },
+    {
+      id: 'optimizer',
+      seconds: 30,
+      section: S2,
+      cues: [
+        [0.3, 6.3, 'SGD 는 parameter 에서 η × gradient 를 빼서, 같은 방향이 이어져도 한 step 의 거리가 늘지 않습니다.'],
+        [6.3, 12.3, 'momentum 은 gradient 를 buffer 에 모아서, 매번 1 이 오면 buffer 가 1, 1.9, 2.71 로 커집니다.'],
+        [
+          12.3,
+          18.3,
+          '같은 방향이 이어지면 buffer 는 1 ÷ (1 − 0.9) 인 10 에 다가가, SGD 의 10 배 거리를 움직입니다.',
+          '같은 방향이 이어지면 buffer 는 1 나누기, 1 빼기 0.9 인 10 에 다가가, SGD 의 10 배 거리를 움직입니다.',
+        ],
+        [18.3, 24.3, 'Adam 은 gradient 를 자기 크기로 나눠, 첫 step 에는 gradient 가 0.02 든 200 이든 η 만큼 움직입니다.'],
+        [
+          24.3,
+          29.7,
+          'Adam 기본 learning rate 는 0.001 이고, ACT 는 AdamW 에 그 100 분의 1 인 10⁻⁵ 를 씁니다.',
+          'Adam 기본 learning rate 는 0.001 이고, ACT 는 AdamW 에 그 백 분의 일인 0.00001 을 씁니다.',
+        ],
+      ],
+    },
+    {
+      id: 'pause-adam',
+      seconds: 24,
+      section: S2,
+      cues: [
+        [0.3, 4.5, 'Adam 의 첫 step 에서 gradient 는 −4 이고 η 는 0.01 이면, parameter 는 어떻게 움직일까요?'],
+        [
+          16.5,
+          23.5,
+          'bias correction 뒤 평균은 −4, 제곱 평균의 제곱근은 4 라서, θ − 0.01 × (−4) ÷ 4 로 0.01 커집니다.',
+          'bias correction 뒤 평균은 −4, 제곱 평균의 제곱근은 4 라서, 세타 빼기 0.01 곱하기 마이너스 4 나누기 4 로 0.01 커집니다.',
+        ],
+      ],
+    },
+    {
+      id: 'normalize',
+      seconds: 28,
+      section: S3,
+      cues: [
+        [
+          0.3,
+          6.3,
+          '로봇 입력은 단위가 섞여서, 관절 각도는 radian 으로 −3 ~ 3 이지만 집게 벌림은 mm 로 0 ~ 80 입니다.',
+          '로봇 입력은 단위가 섞여서, 관절 각도는 radian 으로 마이너스 3 에서 3 이지만 집게 벌림은 mm 로 0 에서 80 입니다.',
+        ],
+        [6.3, 13, 'weight 의 gradient 는 입력 × 0.1 이라서, 집게 40 mm 의 4 가 관절 0.5 rad 의 0.05 보다 80 배 큽니다.'],
+        [
+          13,
+          20.5,
+          'standardization 으로 평균을 빼고 표준편차로 나누면, 집게는 (40 − 20) ÷ 25 로 0.8 이 됩니다.',
+          'standardization 으로 평균을 빼고 표준편차로 나누면, 집게는 40 빼기 20 을 25 로 나눈 0.8 이 됩니다.',
+        ],
+        [20.5, 27.7, 'LeRobot 은 이 통계를 checkpoint 와 함께 저장해서, policy 가 낸 action 을 같은 통계로 되돌립니다.'],
+      ],
+    },
+    {
+      id: 'early-stop',
+      seconds: 31,
+      section: S3,
+      cues: [
+        [0.3, 6.5, 'parameter 는 train set 으로 고치고, 중간 성능은 validation set 으로 재고, test set 은 끝에 잽니다.'],
+        [6.5, 12.5, '직접 해 본 실험에서 train loss 는 epoch 1000 에 0.010 까지 줄었지만, validation loss 는 다시 올랐습니다.'],
+        [12.5, 18.5, 'validation loss 는 epoch 111 의 0.208 이 최저이고, 그 뒤 overfitting 으로 0.353 까지 오릅니다.'],
+        [18.5, 24.5, 'early stopping 은 validation loss 가 가장 낮은 parameter 를 저장해 두고, 한동안 안 내려가면 멈춥니다.'],
+        [24.5, 30.7, 'Square 작업에서 최고 checkpoint 는 성공률 80.7% 였지만, validation loss 최저는 2.7% 에 그쳤습니다.'],
+      ],
+    },
+    {
+      id: 'pause-std',
+      seconds: 24,
+      section: S3,
+      cues: [
+        [0.3, 4.5, '평균 0.2 rad, 표준편차 0.5 rad 인 관절이 −0.3 rad 이면 standardization 한 값은 얼마일까요?'],
+        [
+          16.5,
+          23.5,
+          '(−0.3 − 0.2) ÷ 0.5 는 −0.5 ÷ 0.5 로 −1 이고, 평균보다 표준편차 하나만큼 작다는 뜻입니다.',
+          '마이너스 0.3 빼기 0.2 를 0.5 로 나누면 −0.5 ÷ 0.5 로 −1 이고, 평균보다 표준편차 하나만큼 작다는 뜻입니다.',
+        ],
+      ],
+    },
+    {
+      id: 'memory',
+      seconds: 28,
+      section: S4,
+      cues: [
+        [0.3, 6.3, 'GPU 에는 parameter 와 gradient, optimizer 의 값, backward 에 다시 쓸 activation 이 올라갑니다.'],
+        [6.3, 12.5, 'float32 숫자는 4 byte 이고 Adam 은 parameter 마다 숫자 네 개를 두므로, 하나에 16 byte 가 듭니다.'],
+        [
+          12.5,
+          20.5,
+          'ACT 는 8 × 10⁷ × 16 으로 1.28 GB 라서, 11 GB GPU 의 나머지는 입력과 activation 이 차지합니다.',
+          'ACT 는 8천만 × 16 으로 1.28 GB 라서, 11 GB GPU 의 나머지는 입력과 activation 이 차지합니다.',
+        ],
+        [20.5, 27.7, 'π0 는 52.8 GB 로 24 GB 인 RTX 4090 을 넘고, 작은 행렬만 학습하는 LoRA 로도 22.5 GB 남짓이 필요합니다.'],
+      ],
+    },
+    {
+      id: 'accumulate',
+      seconds: 28,
+      section: S4,
+      cues: [
+        [0.3, 6.3, 'autograd 는 새 gradient 를 저장된 값에 더하므로, step 마다 지난 gradient 를 0 으로 지워야 합니다.'],
+        [6.3, 13.3, 'w 1, η 0.1 에 gradient 0.5, 0.3 이 오면, 지울 때 w 는 0.92 이고 안 지우면 0.8 이 쌓여 0.87 입니다.'],
+        [13.3, 20.3, 'gradient accumulation 은 batch 4 를 두 장씩 두 번 backward 한 뒤 parameter 를 한 번만 고칩니다.'],
+        [
+          20.3,
+          27.7,
+          'loss 를 2 로 나누면 −3 ÷ 2 + 1 ÷ 2 로 똑같이 −1 이고, memory 는 두 장 몫만 들지만 시간이 더 듭니다.',
+          'loss 를 2 로 나누면 −3 ÷ 2 더하기 1 ÷ 2 로 똑같이 −1 이고, memory 는 두 장 몫만 들지만 시간이 더 듭니다.',
+        ],
+      ],
+    },
+    {
+      id: 'pause-memory',
+      seconds: 24,
+      section: S4,
+      cues: [
+        [0.3, 4.5, 'parameter 10 억 개를 float32 Adam 으로 학습하면 이 네 숫자에 memory 가 얼마나 들까요?'],
+        [16.5, 23.5, '4 byte 숫자 네 개라서 parameter 하나에 16 byte 이고, 10 억 × 16 byte 로 16 GB 가 듭니다.'],
+      ],
+    },
+    {
+      id: 'answer',
+      seconds: 16,
+      cues: [
+        [0.3, 4.2, '한 step 은 forward · loss · backward · update 이고, 100,000 step 은 40 epoch 입니다.'],
+        [4.2, 8.2, 'gradient 는 확률에서 one-hot 정답을 뺀 값이고, Adam 은 한 step 에 대략 learning rate 만큼 움직입니다.'],
+        [8.2, 12.2, '입력은 통계로 크기를 맞춰 checkpoint 와 함께 두고, 로봇 policy 는 성공률로도 확인합니다.'],
+        [12.2, 15.7, 'Adam 은 parameter 하나에 16 byte 가 들고, 모자라면 gradient accumulation 으로 나눠 계산합니다.'],
+      ],
+    },
+    {
+      id: 'outro',
+      seconds: 7,
+      cues: [
+        [0.4, 3.6, '다음은 이웃 pixel 을 묶는 CNN, 입력 조각끼리 참고하는 Transformer, 압축했다 되살리는 VAE 입니다.'],
+        [3.6, 6.7, '시연을 따라 하는 Behavior Cloning 과 Policy Gradient 도 이 training loop 를 그대로 씁니다.'],
+      ],
+    },
+  ],
+}
