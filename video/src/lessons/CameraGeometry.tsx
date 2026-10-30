@@ -1071,7 +1071,7 @@ function MarkerError() {
           <Bar label="거리" value={10} max={10} color={C.red} at={16} width={420} labelW={80} fmt="약 1 cm" />
         </div>
         <Line at={17.2} style={line(C.muted, 22)}>
-          한 변 50 pixel 의 1 pixel 은 2% 라서 거리도 2% 틀린다. 좌우 오차 0.5 ÷ 500 = 0.001 m 의 10 배다
+          한 변 50 pixel 의 1 pixel 은 2% 라서 거리도 2% 틀린다. 좌우 오차 <span style={{ whiteSpace: 'nowrap' }}>0.5 ÷ 500 = 0.001 m</span> 의 10 배다
         </Line>
       </Box>
       <Box x={996} y={580} w={860} h={300} at={21.2} title={<Head color={C.green}>정밀하게 집으려면</Head>}>

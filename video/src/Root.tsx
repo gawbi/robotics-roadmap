@@ -78,6 +78,18 @@ import { script as inverseKinematics } from './lessons/inverse-kinematics.script
 import { Derivatives } from './lessons/Derivatives'
 import derivativesNarration from './lessons/derivatives.narration.json'
 import { script as derivatives } from './lessons/derivatives.script'
+import { MujocoSim } from './lessons/MujocoSim'
+import mujocoSimNarration from './lessons/mujoco-sim.narration.json'
+import { script as mujocoSim } from './lessons/mujoco-sim.script'
+import { PidControl } from './lessons/PidControl'
+import pidControlNarration from './lessons/pid-control.narration.json'
+import { script as pidControl } from './lessons/pid-control.script'
+import { VectorsMatrices } from './lessons/VectorsMatrices'
+import vectorsMatricesNarration from './lessons/vectors-matrices.narration.json'
+import { script as vectorsMatrices } from './lessons/vectors-matrices.script'
+import { CameraGeometry } from './lessons/CameraGeometry'
+import cameraGeometryNarration from './lessons/camera-geometry.narration.json'
+import { script as cameraGeometry } from './lessons/camera-geometry.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -109,6 +121,10 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [perceptron, Perceptron, perceptronNarration],
   [inverseKinematics, InverseKinematics, inverseKinematicsNarration],
   [derivatives, Derivatives, derivativesNarration],
+  [mujocoSim, MujocoSim, mujocoSimNarration],
+  [pidControl, PidControl, pidControlNarration],
+  [vectorsMatrices, VectorsMatrices, vectorsMatricesNarration],
+  [cameraGeometry, CameraGeometry, cameraGeometryNarration],
 ]
 
 export function RemotionRoot() {
