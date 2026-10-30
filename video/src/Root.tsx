@@ -129,6 +129,24 @@ import { script as groot } from './lessons/groot.script'
 import { OffPolicy } from './lessons/OffPolicy'
 import offPolicyNarration from './lessons/off-policy.narration.json'
 import { script as offPolicy } from './lessons/off-policy.script'
+import { DiffusionPolicy } from './lessons/DiffusionPolicy'
+import diffusionPolicyNarration from './lessons/diffusion-policy.narration.json'
+import { script as diffusionPolicy } from './lessons/diffusion-policy.script'
+import { Ppo } from './lessons/Ppo'
+import ppoNarration from './lessons/ppo.narration.json'
+import { script as ppo } from './lessons/ppo.script'
+import { CriticLoss } from './lessons/CriticLoss'
+import criticLossNarration from './lessons/critic-loss.narration.json'
+import { script as criticLoss } from './lessons/critic-loss.script'
+import { TeleopDataset } from './lessons/TeleopDataset'
+import teleopDatasetNarration from './lessons/teleop-dataset.narration.json'
+import { script as teleopDataset } from './lessons/teleop-dataset.script'
+import { ImpedanceControl } from './lessons/ImpedanceControl'
+import impedanceControlNarration from './lessons/impedance-control.narration.json'
+import { script as impedanceControl } from './lessons/impedance-control.script'
+import { Sim2realLocomotion } from './lessons/Sim2realLocomotion'
+import sim2realLocomotionNarration from './lessons/sim2real-locomotion.narration.json'
+import { script as sim2realLocomotion } from './lessons/sim2real-locomotion.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -177,6 +195,12 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [classicalPick, ClassicalPick, classicalPickNarration],
   [groot, Groot, grootNarration],
   [offPolicy, OffPolicy, offPolicyNarration],
+  [diffusionPolicy, DiffusionPolicy, diffusionPolicyNarration],
+  [ppo, Ppo, ppoNarration],
+  [criticLoss, CriticLoss, criticLossNarration],
+  [teleopDataset, TeleopDataset, teleopDatasetNarration],
+  [impedanceControl, ImpedanceControl, impedanceControlNarration],
+  [sim2realLocomotion, Sim2realLocomotion, sim2realLocomotionNarration],
 ]
 
 export function RemotionRoot() {
