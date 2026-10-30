@@ -788,7 +788,7 @@ function Mask() {
 
 const PauseReverse = () => (
   <PauseWrite
-    question='입력 "3 1 4 1" 을 뒤집을 때 decoder 는 몇 단계 만에 멈추고, 첫째 출력 token 을 고를 때 cross-attention 은 입력의 몇 번째 token 을 가장 많이 봐야 할까?'
+    question='"3 1 4 1" 을 뒤집으면 decoder 는 몇 단계 만에 멈추고, 첫 출력에서 cross-attention 은 입력의 몇 번째를 가장 많이 볼까?'
     answer={
       <>
         1, 4, 1, 3 다음 &lt;eos&gt; → 모두 5 단계
@@ -1038,7 +1038,7 @@ function ActCost() {
 
 const PauseAct = () => (
   <PauseWrite
-    question="카메라 2 대에서 480 × 640 사진을 쓰는 ACT 의 encoder token 은 몇 개이고 점수 표는 몇 칸일까? action chunk 를 50 step 으로 줄이면 query 는?"
+    question="카메라 2 대 480 × 640 이면 ACT 의 encoder token 과 점수 표 칸은? chunk 가 50 step 이면 query 는?"
     answer={
       <>
         2 × 300 + 관절 1 + z 1 = 602 개
