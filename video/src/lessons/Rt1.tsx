@@ -430,7 +430,7 @@ function CrossEntropy() {
 
 const PauseCe = () => (
   <PauseWrite
-    question="같은 장면의 시연 10 개 가운데 −20° 가 2 개, +20° 가 8 개다. 평균 cross-entropy 를 가장 작게 만드는 확률은 −20° 칸과 +20° 칸에 각각 얼마인가?"
+    question="시연 10 개 중 −20° 가 2 개, +20° 가 8 개다. 평균 cross-entropy 를 가장 작게 하는 두 칸의 확률은?"
     answer={
       <>
         loss 를 가장 작게 만드는 확률은 칸마다 정답이 나온 비율

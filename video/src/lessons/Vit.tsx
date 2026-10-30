@@ -1060,7 +1060,7 @@ const PausePos = () => (
 
 const PauseData = () => (
   <PauseWrite
-    question="미리 학습한 데이터를 ImageNet (130만 장) 에서 JFT-300M (3억 300만 장) 으로 바꾸면 ViT-B/16 과 ViT-L/16 의 정확도는 각각 몇 %p 오르는가?"
+    question="미리 학습한 데이터를 ImageNet 에서 JFT-300M 으로 바꾸면 ViT-B/16 과 ViT-L/16 은 각각 몇 %p 오를까?"
     answer={
       <>
         ViT-B/16: 84.15 − 77.91 = 6.24%p
