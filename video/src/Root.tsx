@@ -204,6 +204,15 @@ import { script as resnet } from './lessons/resnet.script'
 import { Tokenizer } from './lessons/Tokenizer'
 import tokenizerNarration from './lessons/tokenizer.narration.json'
 import { script as tokenizer } from './lessons/tokenizer.script'
+import { VlaRl } from './lessons/VlaRl'
+import vlaRlNarration from './lessons/vla-rl.narration.json'
+import { script as vlaRl } from './lessons/vla-rl.script'
+import { Grasping } from './lessons/Grasping'
+import graspingNarration from './lessons/grasping.narration.json'
+import { script as grasping } from './lessons/grasping.script'
+import { WorldModel } from './lessons/WorldModel'
+import worldModelNarration from './lessons/world-model.narration.json'
+import { script as worldModel } from './lessons/world-model.script'
 import { fitNarration, totalSeconds, type Narration, type VideoScript } from './script'
 import { FPS, H, W } from './theme'
 
@@ -277,6 +286,9 @@ const VIDEOS: [VideoScript, ComponentType, Narration][] = [
   [vit, Vit, vitNarration],
   [resnet, Resnet, resnetNarration],
   [tokenizer, Tokenizer, tokenizerNarration],
+  [vlaRl, VlaRl, vlaRlNarration],
+  [grasping, Grasping, graspingNarration],
+  [worldModel, WorldModel, worldModelNarration],
 ]
 
 export function RemotionRoot() {
