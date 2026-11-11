@@ -5,7 +5,7 @@ import { memo, useEffect, useRef, useState } from 'react'
 import { CONFIG } from '../config'
 import noteTemplateSource from '../../../docs/templates/note.md?raw'
 import { blobUrl, hasNoteIn, historyUrl, labsIn, learner, SITE_REPO, treeUrl, useLearner, type LearnerState } from '../curriculum/learner'
-import { loadBody, videoUrl } from '../curriculum/load'
+import { loadBody, paperVideos, videoUrl } from '../curriculum/load'
 import { noteTemplate } from '../curriculum/record'
 import { hasQuiz } from '../curriculum/load'
 import { attemptsOf, nodeState, passedOn, statusOf, type ProgressFile } from '../curriculum/progress'
@@ -530,6 +530,21 @@ export const LessonPanel = memo(function LessonPanel({ curriculum: c, progressFi
               </p>
             </section>
           )}
+          {paperVideos(lessonId).map(([arxiv, url]) => {
+            const paper = lesson.papers.find((p) => p.url?.includes(arxiv))
+            return (
+              <section key={arxiv} className="lesson-video" aria-labelledby={`paper-video-${arxiv}`}>
+                <h3 id={`paper-video-${arxiv}`}>
+                  <Video size={15} aria-hidden="true" /> 논문 영상 · {paper ? paper.title : `arXiv ${arxiv}`}
+                </h3>
+                <video src={url} controls preload="metadata" playsInline />
+                <p>
+                  이 강의가 다루는 원 논문을 한국어로 풀어 설명한 영상입니다. 화면의 숫자는 모두 논문에서 확인했고, 논문 그림 대신 직접 그린 그림을
+                  씁니다.
+                </p>
+              </section>
+            )
+          })}
           {body !== null ? (
             <Markdown lessonId={lessonId} source={body} />
           ) : failed ? (

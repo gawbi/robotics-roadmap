@@ -117,3 +117,15 @@ const videos = import.meta.glob('../../../video/published/*.mp4', { query: '?url
 
 /** the lesson's summary video, if one has been published */
 export const videoUrl = (lessonId: string): string | undefined => videos[`../../../video/published/${lessonId}.mp4`]
+
+// Paper explainer videos (paper2video), published to video/papers/<lesson id>/<arXiv id>.mp4
+const paperVideoFiles = import.meta.glob('../../../video/papers/*/*.mp4', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+
+/** the lesson's paper explainer videos, as [arXiv id, url] in arXiv id order */
+export function paperVideos(lessonId: string): [string, string][] {
+  const prefix = `../../../video/papers/${lessonId}/`
+  return Object.entries(paperVideoFiles)
+    .filter(([path]) => path.startsWith(prefix))
+    .map(([path, url]): [string, string] => [path.slice(prefix.length, -'.mp4'.length), url])
+    .sort((a, b) => a[0].localeCompare(b[0]))
+}
